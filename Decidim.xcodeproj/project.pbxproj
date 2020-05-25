@@ -1,0 +1,614 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26C8247B6A4A001804D6 /* AppDelegate.swift */; };
+		270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26CA247B6A4A001804D6 /* SceneDelegate.swift */; };
+		270B26CD247B6A4A001804D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26CC247B6A4A001804D6 /* ViewController.swift */; };
+		270B26D0247B6A4A001804D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270B26CE247B6A4A001804D6 /* Main.storyboard */; };
+		270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D1247B6A4B001804D6 /* Assets.xcassets */; };
+		270B26D5247B6A4B001804D6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D3247B6A4B001804D6 /* LaunchScreen.storyboard */; };
+		270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26DD247B9F9E001804D6 /* GraphRequest.swift */; };
+		270B26E6247BA178001804D6 /* DecidimTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26E5247BA178001804D6 /* DecidimTests.swift */; };
+		270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26F7247BC893001804D6 /* AssemblyTypes.graphql.swift */; };
+		270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26F8247BC893001804D6 /* Types.graphql.swift */; };
+		270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26F9247BC893001804D6 /* Version.graphql.swift */; };
+		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
+		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		270B26E8247BA178001804D6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 270B26BD247B6A4A001804D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 270B26C4247B6A4A001804D6;
+			remoteInfo = Decidim;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
+		270B26C5247B6A4A001804D6 /* Decidim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decidim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		270B26CA247B6A4A001804D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		270B26CC247B6A4A001804D6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		270B26CF247B6A4A001804D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		270B26D4247B6A4B001804D6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		270B26D6247B6A4B001804D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270B26DD247B9F9E001804D6 /* GraphRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphRequest.swift; sourceTree = "<group>"; };
+		270B26E3247BA178001804D6 /* DecidimTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DecidimTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		270B26E5247BA178001804D6 /* DecidimTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecidimTests.swift; sourceTree = "<group>"; };
+		270B26E7247BA178001804D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		270B26F7247BC893001804D6 /* AssemblyTypes.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyTypes.graphql.swift; sourceTree = "<group>"; };
+		270B26F8247BC893001804D6 /* Types.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.graphql.swift; sourceTree = "<group>"; };
+		270B26F9247BC893001804D6 /* Version.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.graphql.swift; sourceTree = "<group>"; };
+		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
+		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
+		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.debug.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Decidim.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		270B26C2247B6A4A001804D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270B26E0247BA178001804D6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		270B26BC247B6A4A001804D6 = {
+			isa = PBXGroup;
+			children = (
+				270B26C7247B6A4A001804D6 /* Decidim */,
+				270B26E4247BA178001804D6 /* DecidimTests */,
+				270B26C6247B6A4A001804D6 /* Products */,
+				A87A557AE0ED32245DD0D56A /* Pods */,
+				B6018C5B8691F4AC559F9E56 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		270B26C6247B6A4A001804D6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				270B26C5247B6A4A001804D6 /* Decidim.app */,
+				270B26E3247BA178001804D6 /* DecidimTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		270B26C7247B6A4A001804D6 /* Decidim */ = {
+			isa = PBXGroup;
+			children = (
+				270B26C8247B6A4A001804D6 /* AppDelegate.swift */,
+				270B26CA247B6A4A001804D6 /* SceneDelegate.swift */,
+				270B26CC247B6A4A001804D6 /* ViewController.swift */,
+				270B26CE247B6A4A001804D6 /* Main.storyboard */,
+				270B26D1247B6A4B001804D6 /* Assets.xcassets */,
+				270B26D3247B6A4B001804D6 /* LaunchScreen.storyboard */,
+				270B26D6247B6A4B001804D6 /* Info.plist */,
+				270B26EF247BC1D5001804D6 /* GraphAPI */,
+				270B26DC247B9F86001804D6 /* Network */,
+			);
+			path = Decidim;
+			sourceTree = "<group>";
+		};
+		270B26DC247B9F86001804D6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				270B26DD247B9F9E001804D6 /* GraphRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		270B26E4247BA178001804D6 /* DecidimTests */ = {
+			isa = PBXGroup;
+			children = (
+				270B26E5247BA178001804D6 /* DecidimTests.swift */,
+				270B26E7247BA178001804D6 /* Info.plist */,
+			);
+			path = DecidimTests;
+			sourceTree = "<group>";
+		};
+		270B26EF247BC1D5001804D6 /* GraphAPI */ = {
+			isa = PBXGroup;
+			children = (
+				270B26F6247BC893001804D6 /* GeneratedSource */,
+			);
+			path = GraphAPI;
+			sourceTree = "<group>";
+		};
+		270B26F6247BC893001804D6 /* GeneratedSource */ = {
+			isa = PBXGroup;
+			children = (
+				270B26F7247BC893001804D6 /* AssemblyTypes.graphql.swift */,
+				270B26F8247BC893001804D6 /* Types.graphql.swift */,
+				270B26F9247BC893001804D6 /* Version.graphql.swift */,
+			);
+			path = GeneratedSource;
+			sourceTree = "<group>";
+		};
+		A87A557AE0ED32245DD0D56A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */,
+				602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */,
+				7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */,
+				130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		B6018C5B8691F4AC559F9E56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */,
+				78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		270B26C4247B6A4A001804D6 /* Decidim */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270B26D9247B6A4B001804D6 /* Build configuration list for PBXNativeTarget "Decidim" */;
+			buildPhases = (
+				BB105314F9C7B917EBA90131 /* [CP] Check Pods Manifest.lock */,
+				270B26F5247BC869001804D6 /* Generate Apollo GraphQL API */,
+				270B26C1247B6A4A001804D6 /* Sources */,
+				270B26C2247B6A4A001804D6 /* Frameworks */,
+				270B26C3247B6A4A001804D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Decidim;
+			productName = Decidim;
+			productReference = 270B26C5247B6A4A001804D6 /* Decidim.app */;
+			productType = "com.apple.product-type.application";
+		};
+		270B26E2247BA178001804D6 /* DecidimTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 270B26EA247BA178001804D6 /* Build configuration list for PBXNativeTarget "DecidimTests" */;
+			buildPhases = (
+				3EFDFFDC648831F34CB3941E /* [CP] Check Pods Manifest.lock */,
+				270B26DF247BA178001804D6 /* Sources */,
+				270B26E0247BA178001804D6 /* Frameworks */,
+				270B26E1247BA178001804D6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				270B26E9247BA178001804D6 /* PBXTargetDependency */,
+			);
+			name = DecidimTests;
+			productName = DecidimTests;
+			productReference = 270B26E3247BA178001804D6 /* DecidimTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		270B26BD247B6A4A001804D6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Kyle Donnelly";
+				TargetAttributes = {
+					270B26C4247B6A4A001804D6 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+					270B26E2247BA178001804D6 = {
+						CreatedOnToolsVersion = 11.3.1;
+						TestTargetID = 270B26C4247B6A4A001804D6;
+					};
+				};
+			};
+			buildConfigurationList = 270B26C0247B6A4A001804D6 /* Build configuration list for PBXProject "Decidim" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 270B26BC247B6A4A001804D6;
+			productRefGroup = 270B26C6247B6A4A001804D6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				270B26C4247B6A4A001804D6 /* Decidim */,
+				270B26E2247BA178001804D6 /* DecidimTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		270B26C3247B6A4A001804D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270B26D5247B6A4B001804D6 /* LaunchScreen.storyboard in Resources */,
+				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
+				270B26D0247B6A4A001804D6 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270B26E1247BA178001804D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		270B26F5247BC869001804D6 /* Generate Apollo GraphQL API */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate Apollo GraphQL API";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=GraphAPI/**/*.graphql --localSchemaFile=schema.json GraphAPI/GeneratedSource/\n";
+		};
+		3EFDFFDC648831F34CB3941E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DecidimTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB105314F9C7B917EBA90131 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Decidim-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		270B26C1247B6A4A001804D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270B26CD247B6A4A001804D6 /* ViewController.swift in Sources */,
+				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
+				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
+				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
+				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
+				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
+				270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		270B26DF247BA178001804D6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				270B26E6247BA178001804D6 /* DecidimTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		270B26E9247BA178001804D6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 270B26C4247B6A4A001804D6 /* Decidim */;
+			targetProxy = 270B26E8247BA178001804D6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		270B26CE247B6A4A001804D6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				270B26CF247B6A4A001804D6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		270B26D3247B6A4B001804D6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				270B26D4247B6A4B001804D6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		270B26D7247B6A4B001804D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		270B26D8247B6A4B001804D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		270B26DA247B6A4B001804D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Decidim/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		270B26DB247B6A4B001804D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Decidim/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		270B26EB247BA178001804D6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DecidimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.DecidimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Decidim.app/Decidim";
+			};
+			name = Debug;
+		};
+		270B26EC247BA178001804D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = DecidimTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.DecidimTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Decidim.app/Decidim";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		270B26C0247B6A4A001804D6 /* Build configuration list for PBXProject "Decidim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270B26D7247B6A4B001804D6 /* Debug */,
+				270B26D8247B6A4B001804D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270B26D9247B6A4B001804D6 /* Build configuration list for PBXNativeTarget "Decidim" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270B26DA247B6A4B001804D6 /* Debug */,
+				270B26DB247B6A4B001804D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		270B26EA247BA178001804D6 /* Build configuration list for PBXNativeTarget "DecidimTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				270B26EB247BA178001804D6 /* Debug */,
+				270B26EC247BA178001804D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 270B26BD247B6A4A001804D6 /* Project object */;
+}

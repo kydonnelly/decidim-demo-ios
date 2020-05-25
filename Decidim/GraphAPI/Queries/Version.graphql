@@ -1,0 +1,6 @@
+query Version {
+  decidim {
+    version
+  }
+}
+

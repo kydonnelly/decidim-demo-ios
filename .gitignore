@@ -1,0 +1,8 @@
+.DS_Store
+build/*
+Pods
+Decidim.xcworkspace
+Podfile.lock
+**/xcuserdata/**
+**/xcshareddata/**
+*.swp
