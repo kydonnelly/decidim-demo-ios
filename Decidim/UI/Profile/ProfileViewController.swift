@@ -42,11 +42,15 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath)
+            let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! ProfileNameCell
+            nameCell.setup(profile: ProfileInfo(handle: "Test", thumbnailUrl: "https://kraken-api.herokuapp.com"))
+            return nameCell
         } else if indexPath.row == 1 {
-            return tableView.dequeueReusableCell(withIdentifier: Self.passwordCellId, for: indexPath)
+            let passwordCell = tableView.dequeueReusableCell(withIdentifier: Self.passwordCellId, for: indexPath) as! ProfilePasswordCell
+            return passwordCell
         } else if indexPath.row == 2 {
-            return tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath)
+            let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! ProfilePreferencesCell
+            return votingCell
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
         }

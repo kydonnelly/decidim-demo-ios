@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" rowHeight="76" id="RGq-jH-zgp">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" rowHeight="76" id="RGq-jH-zgp" customClass="ProfileNameCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGq-jH-zgp" id="gmR-QY-x8W">
@@ -27,7 +27,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O">
-                                                    <rect key="frame" x="24" y="13" width="52" height="49.5"/>
+                                                    <rect key="frame" x="24" y="12.5" width="52" height="51"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u1V-hu-o4O" secondAttribute="height" multiplier="1:1" id="VxC-m5-T62"/>
                                                     </constraints>
@@ -58,8 +58,12 @@
                                                 <constraint firstItem="Adc-DS-lyU" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="uUN-Uo-M5t"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="handleLabel" destination="aeL-yt-rgw" id="GZ3-Xv-LfR"/>
+                                            <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PasswordCell" id="wWP-UQ-wZX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PasswordCell" id="wWP-UQ-wZX" customClass="ProfilePasswordCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="104" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wWP-UQ-wZX" id="yKI-bn-5dD">
@@ -99,7 +103,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="p1z-4b-2BJ">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="p1z-4b-2BJ" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p1z-4b-2BJ" id="AGG-VJ-l7Y">
