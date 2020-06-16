@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9U-vt-1oD">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Proposals-->
+        <scene sceneID="LDd-Nr-BBQ">
+            <objects>
+                <viewController id="z4v-CE-0J7" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bI1-hz-kra">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S1F-2c-YeC">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="oBO-tP-8tf" kind="embed" id="SVO-mA-vCy"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="S1F-2c-YeC" secondAttribute="trailing" id="5r5-fw-h2b"/>
+                            <constraint firstAttribute="bottom" secondItem="S1F-2c-YeC" secondAttribute="bottom" id="P8o-va-0qQ"/>
+                            <constraint firstItem="S1F-2c-YeC" firstAttribute="top" secondItem="bI1-hz-kra" secondAttribute="top" id="n0V-Da-jic"/>
+                            <constraint firstItem="S1F-2c-YeC" firstAttribute="leading" secondItem="bI1-hz-kra" secondAttribute="leading" id="nID-gg-2Bo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Proposals" id="zTl-4Y-KwV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IO8-p0-mCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="1034"/>
+        </scene>
+        <!--ProposalList-->
+        <scene sceneID="7PH-uS-cB1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProposalList" id="oBO-tP-8tf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="26r-cx-wUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="1034"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="b9Y-cY-2Cd">
+            <objects>
+                <viewController id="Ibt-Tg-Z2c" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HJm-yo-SJo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Het-KG-aej">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="FSk-Bh-D5i" kind="embed" id="HXk-IF-a28"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Het-KG-aej" secondAttribute="trailing" id="DuJ-5P-nJJ"/>
+                            <constraint firstItem="Het-KG-aej" firstAttribute="leading" secondItem="HJm-yo-SJo" secondAttribute="leading" id="bUJ-ht-JvA"/>
+                            <constraint firstItem="Het-KG-aej" firstAttribute="top" secondItem="HJm-yo-SJo" secondAttribute="top" id="mbQ-Rq-Kkb"/>
+                            <constraint firstAttribute="bottom" secondItem="Het-KG-aej" secondAttribute="bottom" id="sCD-M8-Z3R"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vyx-Pm-nx1"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Profile" id="dG5-B4-OIf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPX-YL-zl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="354"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="u2y-9T-I7Y">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="FSk-Bh-D5i" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOz-dz-94q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="354"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="YXI-X5-FKH">
+            <objects>
+                <tabBarController id="E9U-vt-1oD" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tef-ld-y2y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Ibt-Tg-Z2c" kind="relationship" relationship="viewControllers" id="ssw-yy-cvI"/>
+                        <segue destination="z4v-CE-0J7" kind="relationship" relationship="viewControllers" id="aXM-Sg-G8V"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r0A-p4-saI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="674"/>
+        </scene>
+    </scenes>
+</document>

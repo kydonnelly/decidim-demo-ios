@@ -1,5 +1,5 @@
 //
-//  DecidimTests.swift
+//  GraphRequestTests.swift
 //  DecidimTests
 //
 //  Created by Kyle Donnelly on 5/24/20.
@@ -9,7 +9,7 @@
 import XCTest
 @testable import Decidim
 
-class DecidimTests: XCTestCase {
+class GraphRequestTests: XCTestCase {
 
     func testGraphRequest_DecidimVersion() {
         // setup
