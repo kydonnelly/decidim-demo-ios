@@ -12,11 +12,11 @@ class ProposalListViewController: UIViewController {
     
     static let ProposalDetailCellID = "ProposalDetailCell"
     
-    private var proposals: [Any]!
+    private var proposals: [Proposal]!
     
     @IBOutlet var tableView: UITableView!
     
-    public func setup(proposals: [Any]) {
+    public func setup(proposals: [Proposal]) {
         self.proposals = proposals
         self.tableView.reloadData()
     }
