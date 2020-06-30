@@ -58,7 +58,9 @@ class HTTPRequest {
         }
         
         let session = URLSession(configuration: config)
-        let endpointUrl = url.appendingPathComponent(endpoint)
+        var endpointUrl = url.appendingPathComponent(endpoint)
+        args?.forEach { endpointUrl.appendPathComponent($0) }
+        
         var request = URLRequest(url: endpointUrl)
         request.httpMethod = "GET"
 
