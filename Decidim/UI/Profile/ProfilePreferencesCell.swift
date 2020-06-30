@@ -10,4 +10,12 @@ import UIKit
 
 class ProfilePreferencesCell: UITableViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
+    
+    public func setup(title: String, detail: String) {
+        self.titleLabel.text = title
+        self.detailLabel.text = detail
+    }
+    
 }

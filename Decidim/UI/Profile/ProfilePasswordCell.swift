@@ -14,4 +14,12 @@ class ProfilePasswordCell: UITableViewCell {
     @IBOutlet var passwordConfirmField: UITextField!
     @IBOutlet var submitButton: UIButton!
     
+    @IBAction func tappedSubmitButton(sender: UIButton) {
+        
+    }
+    
+}
+
+extension ProfilePasswordCell: UITextFieldDelegate {
+    
 }

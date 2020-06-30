@@ -12,6 +12,8 @@ struct Proposal {
     let id: Int
     let title: String
     let body: String
-    let comments: [ProposalComment]
-    let votes: [ProposalVote]
+    let thumbnail: String
+    let createdAt: Date
+    let commentCount: Int
+    let voteCount: Int
 }

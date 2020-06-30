@@ -16,6 +16,11 @@
 		270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26F8247BC893001804D6 /* Types.graphql.swift */; };
 		270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26F9247BC893001804D6 /* Version.graphql.swift */; };
 		270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B271B2495FAC6001804D6 /* HTTPRequest.swift */; };
+		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
+		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
+		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
+		2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747524AB267B00CA16A3 /* ProposalListCell.swift */; };
+		2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747824AB287000CA16A3 /* Date+Helpers.swift */; };
 		2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */; };
 		2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AF249708DE0023DC91 /* Main.storyboard */; };
 		2756A6BD2498588C0023DC91 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */; };
@@ -31,6 +36,7 @@
 		2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6DE2498615D0023DC91 /* ProfileInfo.swift */; };
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
+		2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -60,6 +66,11 @@
 		270B26F8247BC893001804D6 /* Types.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Types.graphql.swift; sourceTree = "<group>"; };
 		270B26F9247BC893001804D6 /* Version.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Version.graphql.swift; sourceTree = "<group>"; };
 		270B271B2495FAC6001804D6 /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
+		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
+		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
+		2739747524AB267B00CA16A3 /* ProposalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalListCell.swift; sourceTree = "<group>"; };
+		2739747824AB287000CA16A3 /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2756A6AF249708DE0023DC91 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
@@ -75,6 +86,7 @@
 		2756A6DE2498615D0023DC91 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
+		2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePasswordViewController.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +142,7 @@
 				270B26D1247B6A4B001804D6 /* Assets.xcassets */,
 				270B26D6247B6A4B001804D6 /* Info.plist */,
 				270B26EF247BC1D5001804D6 /* GraphAPI */,
+				2739747724AB285D00CA16A3 /* Helpers */,
 				2756A6BE24985A530023DC91 /* Model */,
 				270B26DC247B9F86001804D6 /* Network */,
 				2756A6AC249708DE0023DC91 /* Storyboards */,
@@ -175,6 +188,14 @@
 			path = GeneratedSource;
 			sourceTree = "<group>";
 		};
+		2739747724AB285D00CA16A3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2739747824AB287000CA16A3 /* Date+Helpers.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2756A6AC249708DE0023DC91 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +208,7 @@
 		2756A6BE24985A530023DC91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */,
 				2756A6DA249861560023DC91 /* Profile */,
 				2756A6D6249861560023DC91 /* Proposal */,
 			);
@@ -207,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				2756A6E2249861E30023DC91 /* ProposalList.storyboard */,
+				2739747524AB267B00CA16A3 /* ProposalListCell.swift */,
 				2756A6CA24985D280023DC91 /* ProposalListViewController.swift */,
 			);
 			path = "Proposal List";
@@ -220,6 +243,7 @@
 				2756A6D22498609D0023DC91 /* ProfilePasswordCell.swift */,
 				2756A6D4249860AC0023DC91 /* ProfilePreferencesCell.swift */,
 				2756A6CC24985D280023DC91 /* ProfileViewController.swift */,
+				2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -230,6 +254,7 @@
 				2756A6D7249861560023DC91 /* ProposalVote.swift */,
 				2756A6D8249861560023DC91 /* Proposal.swift */,
 				2756A6D9249861560023DC91 /* ProposalComment.swift */,
+				2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */,
 			);
 			path = Proposal;
 			sourceTree = "<group>";
@@ -238,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				2756A6DE2498615D0023DC91 /* ProfileInfo.swift */,
+				2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -434,18 +460,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				2756A6D32498609D0023DC91 /* ProfilePasswordCell.swift in Sources */,
+				2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */,
 				2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */,
 				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
 				2756A6DD249861560023DC91 /* ProposalComment.swift in Sources */,
+				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
+				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
+				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
+				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				2756A6D5249860AC0023DC91 /* ProfilePreferencesCell.swift in Sources */,
+				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,

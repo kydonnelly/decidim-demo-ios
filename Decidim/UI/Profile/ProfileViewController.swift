@@ -16,6 +16,12 @@ class ProfileViewController: UIViewController {
     static let passwordCellId = "PasswordCell"
     static let votingCellId = "VotingCell"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "My Profile"
+    }
+    
 }
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
@@ -32,7 +38,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             return 76
         } else if indexPath.row == 1 {
-            return 44
+            return 138
         } else if indexPath.row == 2 {
             return 44
         } else {
@@ -50,6 +56,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             return passwordCell
         } else if indexPath.row == 2 {
             let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! ProfilePreferencesCell
+            votingCell.setup(title: "Voting Preferences", detail: "None")
             return votingCell
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
