@@ -24,6 +24,7 @@ class HTTPRequest {
     enum RequestError: Error {
         case noSession
         case encodingError
+        case missingKeyError
         case failedRefresh(underlying: Error)
         case failedRegistration(underlying: Error)
     }
@@ -177,9 +178,13 @@ extension HTTPRequest {
                 return
             }
             
-            let apiKey = resultsDict["api-key"]!
+            guard let apiKey = resultsDict["auth_token"] else {
+                self.clearPendingBlocks(error: RequestError.missingKeyError)
+                return
+            }
+            
             let config = URLSessionConfiguration.default
-            config.httpAdditionalHeaders = ["api-key": apiKey]
+            config.httpAdditionalHeaders = ["Authorization": apiKey]
             self.sessionConfig = config
             
             self.clearPendingBlocks(error: nil)
