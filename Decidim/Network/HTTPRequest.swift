@@ -157,7 +157,7 @@ extension HTTPRequest {
         self.sessionRefreshBlocks.append(completion)
         
         let session = URLSession(configuration: .default)
-        let authArgs = ["user": ["name": username, "password": password]]
+        let authArgs = ["name": username, "password": password]
         post(session: session, endpoint: "authenticate", payload: authArgs) { results, error in
             objc_sync_enter(self)
             defer { objc_sync_exit(self) }
