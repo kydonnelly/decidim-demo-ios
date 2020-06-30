@@ -31,11 +31,11 @@ class HTTPRequestTests: XCTestCase {
                 receivedError = error
                 return
             }
-            guard let dict = results as? [String: Any], let userInfo = dict["user"] as? [String: Any] else {
+            guard let userInfo = results?["user"] as? [String: Any] else {
                 return
             }
             
-            receivedStatus = dict["status"] as? String
+            receivedStatus = results?["status"] as? String
             receivedName = userInfo["name"] as? String
             receivedDigest = userInfo["password_digest"] as? String
         }

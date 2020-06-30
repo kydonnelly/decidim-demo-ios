@@ -28,9 +28,9 @@ class HTTPRequest {
         case failedRegistration(underlying: Error)
     }
     
-    public func createSession(username: String, password: String, completion: @escaping (Any?, Error?) -> Void) {
+    public func createSession(username: String, password: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let session = URLSession(configuration: .default)
-        let authPayload = ["user": ["name": username, "password": password]]
+        let authPayload = ["name": username, "password": password]
         post(session: session, endpoint: "registration", payload: authPayload) { results, error in
             guard error == nil else {
                 completion(nil, RequestError.failedRegistration(underlying: error!))
@@ -44,7 +44,7 @@ class HTTPRequest {
         }
     }
     
-    public func get(endpoint: String, args: [String], completion: @escaping (Any?, Error?) -> Void) {
+    public func get(endpoint: String, args: [String]? = nil, completion: @escaping ([String: Any]?, Error?) -> Void) {
         guard let config = self.sessionConfig else {
             self.refreshSession { error in
                 if let error = error {
@@ -66,7 +66,7 @@ class HTTPRequest {
                 completion(nil, error)
             } else if let data = data {
                 do {
-                    let contents = try JSONSerialization.jsonObject(with: data, options: [])
+                    let contents = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     completion(contents, nil)
                 } catch {
                     completion(nil, error)
@@ -77,7 +77,7 @@ class HTTPRequest {
         task.resume()
     }
     
-    public func post(endpoint: String, payload: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
+    public func post(endpoint: String, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
         guard let config = self.sessionConfig else {
             self.refreshSession { error in
                 if let error = error {
@@ -93,7 +93,7 @@ class HTTPRequest {
         self.post(session: session, endpoint: endpoint, payload: payload, completion: completion)
     }
     
-    fileprivate func post(session: URLSession, endpoint: String, payload: [String: Any], completion: @escaping (Any?, Error?) -> Void) {
+    fileprivate func post(session: URLSession, endpoint: String, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
         let endpointUrl = url.appendingPathComponent(endpoint)
         
         var request = URLRequest(url: endpointUrl)
@@ -111,7 +111,7 @@ class HTTPRequest {
                 completion(nil, error)
             } else if let data = data {
                 do {
-                    let contents = try JSONSerialization.jsonObject(with: data, options: [])
+                    let contents = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     completion(contents, nil)
                 } catch {
                     completion(nil, error)
@@ -166,7 +166,7 @@ extension HTTPRequest {
                 return
             }
             
-            guard let resultsDict = results as? [String: Any] else {
+            guard let resultsDict = results else {
                 self.clearPendingBlocks(error: RequestError.failedRefresh(underlying: RequestError.encodingError))
                 return
             }
