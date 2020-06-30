@@ -70,4 +70,53 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_ProposalList() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [Proposal]? = nil
+        
+        // test
+        request.get(endpoint: "proposals") { response, error in
+            defer { expectation.fulfill() }
+            
+            responseStatus = response?["status"] as? String
+            responseList = response?["proposals"] as? [Proposal]
+            receivedError = error
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_ProposalItem() {
+        // setup
+        let proposalId = "1"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: Proposal? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: [proposalId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            responseStatus = response?["status"] as? String
+            responseList = response?["proposal"] as? Proposal
+            receivedError = error
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+    }
+
 }
