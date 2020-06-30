@@ -31,7 +31,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Proposals" id="zTl-4Y-KwV"/>
+                    <tabBarItem key="tabBarItem" title="Proposals" image="bubble.middle.bottom" catalog="system" id="zTl-4Y-KwV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IO8-p0-mCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +69,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vyx-Pm-nx1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="dG5-B4-OIf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="dG5-B4-OIf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPX-YL-zl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,4 +102,8 @@
             <point key="canvasLocation" x="30" y="674"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bubble.middle.bottom" catalog="system" width="64" height="54"/>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
