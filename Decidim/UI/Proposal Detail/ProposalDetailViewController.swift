@@ -79,8 +79,10 @@ class ProposalDetailViewController: UIViewController {
         super.viewDidAppear(animated)
 
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
-            self?.refreshVoteUI(myVote: self?.proposalDetail?.myVote)
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+            self.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: self.proposal.id))
         }
     }
     
@@ -213,15 +215,24 @@ extension ProposalDetailViewController {
     }
     
     @IBAction func voteYes(sender: UIButton) {
-        self.refreshVoteUI(myVote: .yes)
+        let proposalId = self.proposal.id
+        VoteManager.shared.addVote(proposalId: proposalId, type: .yes) { [weak self] success in
+            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        }
     }
     
     @IBAction func voteNo(sender: UIButton) {
-        self.refreshVoteUI(myVote: .no)
+        let proposalId = self.proposal.id
+        VoteManager.shared.addVote(proposalId: proposalId, type: .no) { [weak self] success in
+            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        }
     }
     
     @IBAction func voteAbstain(sender: UIButton) {
-        self.refreshVoteUI(myVote: .abstain)
+        let proposalId = self.proposal.id
+        VoteManager.shared.addVote(proposalId: proposalId, type: .abstain) { [weak self] success in
+            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        }
     }
     
     @IBAction func toggleVoteVisibility(sender: UIButton) {

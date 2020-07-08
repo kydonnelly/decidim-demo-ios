@@ -11,7 +11,6 @@ import UIKit
 struct ProposalDetail {
     let proposal: Proposal
     
-    let myVote: VoteType?
     let author: String
     let likeCount: Int
     let deadline: Date
