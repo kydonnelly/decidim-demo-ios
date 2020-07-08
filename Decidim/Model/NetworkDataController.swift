@@ -30,7 +30,7 @@ class NetworkDataController {
     typealias RefreshSuccessBlock = (NetworkDataController) -> Void
     typealias RefreshFailBlock = (Error) -> Void
     
-    init(cacheDuration: TimeInterval) {
+    init(cacheDuration: TimeInterval = 300) {
         self.cacheDuration = cacheDuration
     }
     

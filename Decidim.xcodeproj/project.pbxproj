@@ -21,6 +21,17 @@
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
 		2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747524AB267B00CA16A3 /* ProposalListCell.swift */; };
 		2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747824AB287000CA16A3 /* Date+Helpers.swift */; };
+		2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */; };
+		2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739747D24B5691B00CA16A3 /* ProposalDetail.storyboard */; };
+		2739748024B58EE900CA16A3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747F24B58EE900CA16A3 /* GradientView.swift */; };
+		2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */; };
+		2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */; };
+		2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */; };
+		2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */; };
+		2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */; };
+		2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */; };
+		2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */; };
+		2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */; };
 		2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */; };
 		2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AF249708DE0023DC91 /* Main.storyboard */; };
 		2756A6BD2498588C0023DC91 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */; };
@@ -37,6 +48,7 @@
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */; };
+		2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -71,6 +83,17 @@
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
 		2739747524AB267B00CA16A3 /* ProposalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalListCell.swift; sourceTree = "<group>"; };
 		2739747824AB287000CA16A3 /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
+		2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailViewController.swift; sourceTree = "<group>"; };
+		2739747D24B5691B00CA16A3 /* ProposalDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProposalDetail.storyboard; sourceTree = "<group>"; };
+		2739747F24B58EE900CA16A3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailTitleCell.swift; sourceTree = "<group>"; };
+		2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailEngagementCell.swift; sourceTree = "<group>"; };
+		2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailBodyCell.swift; sourceTree = "<group>"; };
+		2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAuthorCell.swift; sourceTree = "<group>"; };
+		2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAmendmentsCell.swift; sourceTree = "<group>"; };
+		2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailCommentCell.swift; sourceTree = "<group>"; };
+		2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetail.swift; sourceTree = "<group>"; };
+		2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailDataController.swift; sourceTree = "<group>"; };
 		2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2756A6AF249708DE0023DC91 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
@@ -87,6 +110,7 @@
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePasswordViewController.swift; sourceTree = "<group>"; };
+		2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,8 +216,24 @@
 			isa = PBXGroup;
 			children = (
 				2739747824AB287000CA16A3 /* Date+Helpers.swift */,
+				2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		2739747A24B568D300CA16A3 /* Proposal Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2739747D24B5691B00CA16A3 /* ProposalDetail.storyboard */,
+				2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */,
+				2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */,
+				2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */,
+				2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */,
+				2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */,
+				2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */,
+				2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */,
+			);
+			path = "Proposal Detail";
 			sourceTree = "<group>";
 		};
 		2756A6AC249708DE0023DC91 /* Storyboards */ = {
@@ -218,8 +258,10 @@
 		2756A6C724985D280023DC91 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				2739747F24B58EE900CA16A3 /* GradientView.swift */,
 				2756A6C824985D280023DC91 /* ViewController.swift */,
 				2756A6CB24985D280023DC91 /* Profile */,
+				2739747A24B568D300CA16A3 /* Proposal Detail */,
 				2756A6C924985D280023DC91 /* Proposal List */,
 			);
 			path = UI;
@@ -254,7 +296,9 @@
 				2756A6D7249861560023DC91 /* ProposalVote.swift */,
 				2756A6D8249861560023DC91 /* Proposal.swift */,
 				2756A6D9249861560023DC91 /* ProposalComment.swift */,
+				2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */,
 				2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */,
+				2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */,
 			);
 			path = Proposal;
 			sourceTree = "<group>";
@@ -377,6 +421,7 @@
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
+				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,21 +512,32 @@
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
+				2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */,
+				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
+				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
+				2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */,
+				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				2756A6D5249860AC0023DC91 /* ProfilePreferencesCell.swift in Sources */,
+				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
+				2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */,
+				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
+				2739748024B58EE900CA16A3 /* GradientView.swift in Sources */,
+				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */,
+				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
