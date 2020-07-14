@@ -54,6 +54,10 @@
 		2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98324B67FDE0061C3E9 /* VoteList.storyboard */; };
 		2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98524B67FF50061C3E9 /* VoteListViewController.swift */; };
 		2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98724B680BA0061C3E9 /* ProposalVoteCell.swift */; };
+		2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98B24B689A60061C3E9 /* VotePreferencesViewController.swift */; };
+		2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98D24B689CF0061C3E9 /* VotePreferences.storyboard */; };
+		2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98F24B68A990061C3E9 /* VotePreferencesToggleCell.swift */; };
+		2789E99224B68B310061C3E9 /* VotePreferencesDelegateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E99124B68B310061C3E9 /* VotePreferencesDelegateCell.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -121,6 +125,10 @@
 		2789E98324B67FDE0061C3E9 /* VoteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoteList.storyboard; sourceTree = "<group>"; };
 		2789E98524B67FF50061C3E9 /* VoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteListViewController.swift; sourceTree = "<group>"; };
 		2789E98724B680BA0061C3E9 /* ProposalVoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalVoteCell.swift; sourceTree = "<group>"; };
+		2789E98B24B689A60061C3E9 /* VotePreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotePreferencesViewController.swift; sourceTree = "<group>"; };
+		2789E98D24B689CF0061C3E9 /* VotePreferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VotePreferences.storyboard; sourceTree = "<group>"; };
+		2789E98F24B68A990061C3E9 /* VotePreferencesToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotePreferencesToggleCell.swift; sourceTree = "<group>"; };
+		2789E99124B68B310061C3E9 /* VotePreferencesDelegateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotePreferencesDelegateCell.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -328,9 +336,13 @@
 		2789E98224B67FD00061C3E9 /* Voting */ = {
 			isa = PBXGroup;
 			children = (
+				2789E98724B680BA0061C3E9 /* ProposalVoteCell.swift */,
 				2789E98324B67FDE0061C3E9 /* VoteList.storyboard */,
 				2789E98524B67FF50061C3E9 /* VoteListViewController.swift */,
-				2789E98724B680BA0061C3E9 /* ProposalVoteCell.swift */,
+				2789E98D24B689CF0061C3E9 /* VotePreferences.storyboard */,
+				2789E98B24B689A60061C3E9 /* VotePreferencesViewController.swift */,
+				2789E98F24B68A990061C3E9 /* VotePreferencesToggleCell.swift */,
+				2789E99124B68B310061C3E9 /* VotePreferencesDelegateCell.swift */,
 			);
 			path = Voting;
 			sourceTree = "<group>";
@@ -440,6 +452,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
+				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
@@ -534,6 +547,7 @@
 				2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */,
 				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
 				2756A6DD249861560023DC91 /* ProposalComment.swift in Sources */,
+				2789E99224B68B310061C3E9 /* VotePreferencesDelegateCell.swift in Sources */,
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
@@ -549,6 +563,7 @@
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
+				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				2789E97F24B67BEE0061C3E9 /* VoteManager.swift in Sources */,
@@ -558,6 +573,7 @@
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
 				2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */,
+				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,

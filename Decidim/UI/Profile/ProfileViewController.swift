@@ -74,7 +74,8 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let passwordVC = ProfilePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
         } else if indexPath.row == 2 {
-            // todo: show voting preferences
+            let preferencesVC = VotePreferencesViewController.create()
+            self.navigationController?.pushViewController(preferencesVC, animated: true)
         } else if indexPath.row == 3 {
             let voteHistoryVC = VoteListViewController.create()
             self.navigationController?.pushViewController(voteHistoryVC, animated: true)
