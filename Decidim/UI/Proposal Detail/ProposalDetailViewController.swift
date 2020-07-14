@@ -123,7 +123,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             switch cellId {
             case .amendments: return 76
             case .author: return 72
-            case .body: return 56
+            case .body: return self.expandBody ? 112 : 56
             case .engagement: return 48
             case .title: return 96
             }
