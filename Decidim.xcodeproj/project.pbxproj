@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270A479324BD790200115F95 /* CreateProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270A479224BD790200115F95 /* CreateProposalViewController.swift */; };
+		270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 270A479424BD792100115F95 /* CreateProposal.storyboard */; };
+		270A479724BD7BB400115F95 /* ProposalInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270A479624BD7BB400115F95 /* ProposalInputCell.swift */; };
+		270A479924BD880500115F95 /* ProposalImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270A479824BD880500115F95 /* ProposalImageCell.swift */; };
+		270A479B24BD881800115F95 /* ProposalDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270A479A24BD881800115F95 /* ProposalDatePickerCell.swift */; };
 		270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26C8247B6A4A001804D6 /* AppDelegate.swift */; };
 		270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26CA247B6A4A001804D6 /* SceneDelegate.swift */; };
 		270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D1247B6A4B001804D6 /* Assets.xcassets */; };
@@ -74,6 +79,11 @@
 
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
+		270A479224BD790200115F95 /* CreateProposalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProposalViewController.swift; sourceTree = "<group>"; };
+		270A479424BD792100115F95 /* CreateProposal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateProposal.storyboard; sourceTree = "<group>"; };
+		270A479624BD7BB400115F95 /* ProposalInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalInputCell.swift; sourceTree = "<group>"; };
+		270A479824BD880500115F95 /* ProposalImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalImageCell.swift; sourceTree = "<group>"; };
+		270A479A24BD881800115F95 /* ProposalDatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDatePickerCell.swift; sourceTree = "<group>"; };
 		270B26C5247B6A4A001804D6 /* Decidim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decidim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270B26CA247B6A4A001804D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +166,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		270A479124BD78F500115F95 /* Proposal Creation */ = {
+			isa = PBXGroup;
+			children = (
+				270A479424BD792100115F95 /* CreateProposal.storyboard */,
+				270A479224BD790200115F95 /* CreateProposalViewController.swift */,
+				270A479A24BD881800115F95 /* ProposalDatePickerCell.swift */,
+				270A479824BD880500115F95 /* ProposalImageCell.swift */,
+				270A479624BD7BB400115F95 /* ProposalInputCell.swift */,
+			);
+			path = "Proposal Creation";
+			sourceTree = "<group>";
+		};
 		270B26BC247B6A4A001804D6 = {
 			isa = PBXGroup;
 			children = (
@@ -280,6 +302,7 @@
 				2739747F24B58EE900CA16A3 /* GradientView.swift */,
 				2756A6C824985D280023DC91 /* ViewController.swift */,
 				2756A6CB24985D280023DC91 /* Profile */,
+				270A479124BD78F500115F95 /* Proposal Creation */,
 				2739747A24B568D300CA16A3 /* Proposal Detail */,
 				2756A6C924985D280023DC91 /* Proposal List */,
 				2789E98224B67FD00061C3E9 /* Voting */,
@@ -459,6 +482,7 @@
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
 				2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */,
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
+				270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */,
 				2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,10 +576,12 @@
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
 				2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */,
+				270A479924BD880500115F95 /* ProposalImageCell.swift in Sources */,
 				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
+				270A479724BD7BB400115F95 /* ProposalInputCell.swift in Sources */,
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
@@ -569,6 +595,7 @@
 				2789E97F24B67BEE0061C3E9 /* VoteManager.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
+				270A479324BD790200115F95 /* CreateProposalViewController.swift in Sources */,
 				2756A6D5249860AC0023DC91 /* ProfilePreferencesCell.swift in Sources */,
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
@@ -578,6 +605,7 @@
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
 				2739748024B58EE900CA16A3 /* GradientView.swift in Sources */,
+				270A479B24BD881800115F95 /* ProposalDatePickerCell.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */,

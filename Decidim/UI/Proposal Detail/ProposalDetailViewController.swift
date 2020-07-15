@@ -49,7 +49,7 @@ class ProposalDetailViewController: UIViewController {
     
     private func setup(proposal: Proposal) {
         self.proposal = proposal
-        self.dataController = ProposalDetailDataController(proposal: proposal)
+        self.dataController = ProposalDetailDataController.shared(proposal: proposal)
     }
     
     fileprivate var proposalDetail: ProposalDetail? {

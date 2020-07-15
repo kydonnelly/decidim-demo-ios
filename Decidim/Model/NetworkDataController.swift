@@ -19,18 +19,35 @@ class NetworkDataController {
         }
     }
     
-    var data: [Any]?
-    var pagingCursor: Cursor?
-    
-    var isFetching: Bool = false
-    var lastFetchTime: Date?
-    var cacheDuration: TimeInterval
-    
     typealias FetchBlock = ([Any]?, Cursor?, Error?) -> Void
     typealias RefreshSuccessBlock = (NetworkDataController) -> Void
     typealias RefreshFailBlock = (Error) -> Void
     
-    init(cacheDuration: TimeInterval = 300) {
+    private static var sharedControllers: [String: NetworkDataController] = [:]
+    
+    public var data: [Any]?
+    private var pagingCursor: Cursor?
+    
+    private var isFetching: Bool = false
+    private var lastFetchTime: Date?
+    private var cacheDuration: TimeInterval
+    
+    static func shared(keyInfo: String? = nil) -> Self {
+        var key = String(describing: type(of: self))
+        if let info = keyInfo {
+            key.append("_\(info)")
+        }
+        
+        if let controller = self.sharedControllers[key] as? Self {
+            return controller
+        } else {
+            let controller = Self.init()
+            self.sharedControllers[key] = controller
+            return controller
+        }
+    }
+    
+    internal required init(cacheDuration: TimeInterval = 300) {
         self.cacheDuration = cacheDuration
     }
     

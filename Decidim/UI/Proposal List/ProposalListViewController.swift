@@ -26,7 +26,7 @@ class ProposalListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
         
-        self.dataController = PublicProposalDataController()
+        self.dataController = PublicProposalDataController.shared()
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -60,7 +60,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.dataController.data?.count ?? 0
+            return self.dataController.allProposals.count
         } else {
             return 1
         }
@@ -78,8 +78,8 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ProposalDetailCellID, for: indexPath)
             
-            if let proposalCell = cell as? ProposalListCell,
-               let proposal = self.dataController.data?[indexPath.row] as? Proposal {
+            if let proposalCell = cell as? ProposalListCell {
+                let proposal = self.dataController.allProposals[indexPath.row]
                 proposalCell.setup(proposal: proposal)
             }
             
@@ -92,10 +92,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard let proposal = self.dataController.data?[indexPath.row] as? Proposal else {
-            return
-        }
-        
+        let proposal = self.dataController.allProposals[indexPath.row]
         let vc = ProposalDetailViewController.create(proposal: proposal)
         self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -108,4 +105,13 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
     
+}
+
+extension ProposalListViewController {
+    
+    @IBAction func tappedCreateButton(_ sender: UIButton) {
+        let createVC = CreateProposalViewController.create()
+        createVC.modalPresentationStyle = .overFullScreen
+        self.navigationController?.present(createVC, animated: true, completion: nil)
+    }
 }

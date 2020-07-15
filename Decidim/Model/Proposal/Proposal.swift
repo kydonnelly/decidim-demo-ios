@@ -6,13 +6,13 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct Proposal {
     let id: Int
     let title: String
     let body: String
-    let thumbnail: String
+    let thumbnail: UIImage?
     let createdAt: Date
     let commentCount: Int
     let voteCount: Int

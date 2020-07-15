@@ -10,11 +10,12 @@ import Foundation
 
 class ProposalDetailDataController: NetworkDataController {
     
-    private let backingProposal: Proposal
+    private var backingProposal: Proposal!
     
-    required init(proposal: Proposal, cacheDuration: TimeInterval = 300) {
-        self.backingProposal = proposal
-        super.init(cacheDuration: cacheDuration)
+    static func shared(proposal: Proposal) -> Self {
+        let controller = self.shared(keyInfo: "\(proposal.id)")
+        controller.backingProposal = proposal
+        return controller
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {

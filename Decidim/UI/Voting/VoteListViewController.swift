@@ -29,7 +29,7 @@ class VoteListViewController: UIViewController {
         
         self.title = "Vote History"
         
-        self.dataController = PublicProposalDataController()
+        self.dataController = PublicProposalDataController.shared()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,10 +41,7 @@ class VoteListViewController: UIViewController {
     }
     
     private func refresh() {
-        guard let allProposals = self.dataController.data as? [Proposal] else {
-            return
-        }
-        
+        let allProposals = self.dataController.allProposals
         self.proposals = allProposals.filter { VoteManager.shared.getVote(proposalId: $0.id) != nil }
         self.tableView.reloadData()
     }
