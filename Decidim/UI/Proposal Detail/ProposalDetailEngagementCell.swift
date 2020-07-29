@@ -16,12 +16,21 @@ class ProposalDetailEngagementCell: UITableViewCell {
     @IBOutlet var numVotesLabel: UILabel!
     @IBOutlet var numCommentsLabel: UILabel!
     
+    @IBOutlet var likeImageView: UIImageView!
+    
     private var likeBlock: ActionBlock!
     private var voteBlock: ActionBlock!
     private var commentBlock: ActionBlock!
     
     func setup(detail: ProposalDetail, likeBlock: ActionBlock?, voteBlock: ActionBlock?, commentBlock: ActionBlock?) {
-        self.numLikesLabel.text = "\(detail.likeCount)"
+        var likeCount = detail.likeCount
+        if detail.hasLocalLike {
+            likeCount += 1
+        }
+        
+        self.likeImageView.isHighlighted = detail.hasLocalLike
+        
+        self.numLikesLabel.text = "\(likeCount)"
         self.numVotesLabel.text = "\(detail.proposal.voteCount)"
         self.numCommentsLabel.text = "\(detail.proposal.commentCount)"
         

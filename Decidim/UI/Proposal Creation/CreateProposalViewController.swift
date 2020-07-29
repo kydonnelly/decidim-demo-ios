@@ -66,7 +66,7 @@ extension CreateProposalViewController {
         let proposal = PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline)
         
         ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-            dc.data = [ProposalDetail(proposal: proposal, author: "Test Username", likeCount: 0, deadline: deadline, amendmentCount: 0, comments: [])]
+            dc.data = [ProposalDetail(proposal: proposal, authorId: 1, likeCount: 0, deadline: deadline, amendmentCount: 0)]
         }
         
         self.navigationController?.dismiss(animated: true, completion: nil)

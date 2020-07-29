@@ -62,4 +62,24 @@ extension Date {
         return "\(string) ago"
     }
     
+    public func asShortStringLeft(until futureDate: Date = Date()) -> String {
+        let dateFormatter = DateComponentsFormatter()
+        dateFormatter.unitsStyle = .full
+        let calendar = NSCalendar.current
+        let calendarComponents: [Calendar.Component] = [.year, .month, .weekOfMonth, .day, .hour, .minute, .second]
+        let components = calendar.dateComponents(Set(calendarComponents), from: futureDate, to: self)
+        
+        guard let matchingIndex = calendarComponents.firstIndex(where: { components.value(component: $0) != nil }),
+              let matchingUnit = calendarComponents[matchingIndex].asUnit else {
+            return "No time left"
+        }
+        
+        dateFormatter.allowedUnits = matchingUnit
+        guard let string = dateFormatter.string(from: components) else {
+            return "No time left"
+        }
+        
+        return "\(string) left"
+    }
+    
 }

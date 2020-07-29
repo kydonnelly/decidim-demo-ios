@@ -11,11 +11,12 @@ import UIKit
 struct ProposalDetail {
     let proposal: Proposal
     
-    let author: String
+    let authorId: Int
     let likeCount: Int
     let deadline: Date
     let amendmentCount: Int
-    let comments: [ProposalComment]
+    
+    var hasLocalLike: Bool = false
     
     func gradientColors() -> [UIColor] {
         let randomSeed = self.proposal.id + 1

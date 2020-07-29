@@ -63,7 +63,7 @@ class NetworkDataController {
             return
         }
         
-        guard lastTime + self.cacheDuration < now else {
+        guard lastTime + self.cacheDuration > now else {
             self.fetch(time: now, failBlock: failBlock, successBlock: successBlock)
             return
         }

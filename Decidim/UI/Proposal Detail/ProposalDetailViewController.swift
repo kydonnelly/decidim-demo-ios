@@ -33,10 +33,13 @@ class ProposalDetailViewController: UIViewController {
     @IBOutlet var voteAbstainButton: UIButton!
     
     @IBOutlet var voteContainerView: UIView!
+    @IBOutlet var voteDeadlineLabel: UILabel!
+    @IBOutlet var voteVisibilityButton: UIButton!
     @IBOutlet var voteVisibilityConstraint: NSLayoutConstraint!
     
     private var proposal: Proposal!
-    private var dataController: ProposalDetailDataController!
+    private var detailDataController: ProposalDetailDataController!
+    private var commentDataController: ProposalCommentsDataController!
     
     fileprivate var expandBody = false
     
@@ -49,11 +52,12 @@ class ProposalDetailViewController: UIViewController {
     
     private func setup(proposal: Proposal) {
         self.proposal = proposal
-        self.dataController = ProposalDetailDataController.shared(proposal: proposal)
+        self.detailDataController = ProposalDetailDataController.shared(proposal: proposal)
+        self.commentDataController = ProposalCommentsDataController.shared(proposalId: proposal.id)
     }
     
     fileprivate var proposalDetail: ProposalDetail? {
-        return self.dataController.data?.first as? ProposalDetail
+        return self.detailDataController.data?.first as? ProposalDetail
     }
     
     override func viewDidLoad() {
@@ -75,22 +79,42 @@ class ProposalDetailViewController: UIViewController {
         self.tableView.addSubview(refreshControl)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.voteDeadlineLabel.text = nil
+    }
+    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        self.dataController.refresh { [weak self] dc in
+        
+        self.detailDataController.refresh { [weak self] dc in
             guard let self = self else { return }
             
             self.tableView.reloadData()
             self.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: self.proposal.id))
+            if let detail = self.proposalDetail {
+                self.voteDeadlineLabel.text = detail.deadline.asShortStringLeft()
+            }
+        }
+        
+        self.commentDataController.refresh { [weak self] dc in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
         }
     }
     
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         
-        self.dataController.invalidate()
-        self.dataController.refresh { [weak self] dc in
+        self.detailDataController.invalidate()
+        self.detailDataController.refresh { [weak self] dc in
+            self?.tableView.reloadData()
+        }
+        
+        self.commentDataController.invalidate()
+        self.commentDataController.refresh { [weak self] dc in
             self?.tableView.reloadData()
         }
     }
@@ -100,7 +124,7 @@ class ProposalDetailViewController: UIViewController {
 extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dataController.donePaging {
+        if self.detailDataController.donePaging {
             return 2
         } else {
             return 3
@@ -111,7 +135,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         if section == 0 {
             return self.proposalDetail != nil ? StaticCell.ordered().count : 0
         } else if section == 1 {
-            return self.proposalDetail?.comments.count ?? 0
+            return self.commentDataController?.allComments.count ?? 0
         } else {
             return 1
         }
@@ -148,14 +172,37 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             case .body:
                 (cell as! ProposalDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .engagement:
-                let actionBlock: ProposalDetailEngagementCell.ActionBlock = {
-                    let controller = UIAlertController(title: "You tapped something!", message: "TODO", preferredStyle: .alert)
-                    controller.addAction(UIAlertAction(title: "done", style: .cancel) { [weak wc = controller] action in
-                        wc?.dismiss(animated: true, completion: nil)
-                    })
-                    self.present(controller, animated: true, completion: nil)
+                let likeBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    self.detailDataController.refresh { [weak self] dc in
+                        guard var detail = dc.data?.first as? ProposalDetail else {
+                            return
+                        }
+                        detail.hasLocalLike = true
+                        dc.data = [detail]
+                        self?.tableView.reloadData()
+                    }
                 }
-                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: actionBlock, voteBlock: actionBlock, commentBlock: actionBlock)
+                let voteBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    self.toggleVoteVisibility(sender: self.voteVisibilityButton)
+                }
+                let commentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
+                    commentVC.modalPresentationStyle = .overFullScreen
+                    self.navigationController?.present(commentVC, animated: true, completion: nil)
+                }
+                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock)
             case .title:
                 (cell as! ProposalDetailTitleCell).setup(detail: detail)
             }
@@ -164,7 +211,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         } else if indexPath.section == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! ProposalDetailCommentCell
             
-            let comment = self.proposalDetail!.comments[indexPath.row]
+            let comment = self.commentDataController.allComments[indexPath.row]
             cell.setup(comment: comment)
             
             return cell
@@ -188,7 +235,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 2 {
-            self.dataController.page { [weak self] dc in
+            self.detailDataController.page { [weak self] dc in
                 self?.tableView.reloadData()
             }
         }

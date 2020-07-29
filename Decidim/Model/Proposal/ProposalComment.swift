@@ -12,4 +12,5 @@ struct ProposalComment {
     let commentId: Int
     let authorId: Int
     let text: String
+    let timestamp: Date
 }

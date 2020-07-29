@@ -14,7 +14,18 @@ class ProposalDetailAuthorCell: UITableViewCell {
     @IBOutlet var iconImageView: UIImageView!
     
     func setup(detail: ProposalDetail) {
-        self.handleLabel.text = detail.author
+        self.handleLabel.text = "Unknown Proposer"
+        
+        ProfileInfoDataController.shared().refresh { dc in
+            guard let infos = dc.data as? [ProfileInfo] else {
+                return
+            }
+            guard let info = infos.first(where: { $0.profileId == detail.authorId }) else {
+                return
+            }
+            
+            self.handleLabel.text = info.handle
+        }
     }
     
 }

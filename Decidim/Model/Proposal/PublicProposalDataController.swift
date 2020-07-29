@@ -50,7 +50,7 @@ class PublicProposalDataController: NetworkDataController {
     
     @discardableResult
     public func addProposal(title: String, description: String, thumbnail: UIImage?, deadline: Date) -> Proposal {
-        let proposalId = max(20, self.data?.compactMap { ($0 as! Proposal).id }.max() ?? 0)
+        let proposalId = max(20, self.data?.compactMap { ($0 as! Proposal).id }.max() ?? 0 + 1)
         let proposal = Proposal(id: proposalId, title: title, body: description, thumbnail: thumbnail, createdAt: Date(), commentCount: 0, voteCount: 0)
         
         self.localProposals.append(proposal)

@@ -9,6 +9,7 @@
 import Foundation
 
 struct ProfileInfo {
+    let profileId: Int
     let handle: String
     let thumbnailUrl: String
 }
