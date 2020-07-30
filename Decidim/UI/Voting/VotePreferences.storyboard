@@ -90,8 +90,24 @@
                                                         <constraint firstAttribute="height" constant="36" id="cLi-T1-QAf"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-5r-Gs5">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-tN-Aab">
                                                     <rect key="frame" x="68" y="32" width="36" height="35"/>
+                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="GhH-kB-T87"/>
+                                                        <constraint firstAttribute="height" constant="36" id="jRl-88-XM4"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eQd-zv-YGk">
+                                                    <rect key="frame" x="112" y="32" width="36" height="35"/>
+                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="36" id="DQ1-Pw-KEh"/>
+                                                        <constraint firstAttribute="height" constant="36" id="pcL-i2-P12"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-5r-Gs5">
+                                                    <rect key="frame" x="156" y="32" width="36" height="35"/>
                                                     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="ER9-cp-jJM"/>
@@ -109,22 +125,30 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="4Ne-ME-6Iq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BUS-5r-Gs5" secondAttribute="trailing" constant="8" id="Ey2-Gw-nhZ"/>
+                                                <constraint firstItem="BUS-5r-Gs5" firstAttribute="leading" secondItem="eQd-zv-YGk" secondAttribute="trailing" constant="8" id="HJx-QD-2Ch"/>
                                                 <constraint firstItem="2J0-Sc-cjE" firstAttribute="leading" secondItem="832-he-y9a" secondAttribute="leading" id="HMB-ft-uzG"/>
+                                                <constraint firstItem="eQd-zv-YGk" firstAttribute="centerY" secondItem="9ol-tN-Aab" secondAttribute="centerY" id="Nxz-Jl-Wc0"/>
+                                                <constraint firstItem="eQd-zv-YGk" firstAttribute="leading" secondItem="9ol-tN-Aab" secondAttribute="trailing" constant="8" id="OTl-S3-xTz"/>
                                                 <constraint firstItem="BUS-5r-Gs5" firstAttribute="centerY" secondItem="E30-18-YAz" secondAttribute="centerY" id="QsE-UV-2wg"/>
                                                 <constraint firstItem="4A5-Z1-ZfM" firstAttribute="leading" secondItem="832-he-y9a" secondAttribute="leading" constant="24" id="R2n-59-9zZ"/>
                                                 <constraint firstItem="E30-18-YAz" firstAttribute="leading" secondItem="4A5-Z1-ZfM" secondAttribute="leading" id="V4p-xZ-9z8"/>
                                                 <constraint firstAttribute="trailing" secondItem="2J0-Sc-cjE" secondAttribute="trailing" id="Vuv-ii-6MS"/>
                                                 <constraint firstItem="4Ne-ME-6Iq" firstAttribute="leading" secondItem="4A5-Z1-ZfM" secondAttribute="trailing" constant="8" id="abf-LE-dJm"/>
+                                                <constraint firstItem="9ol-tN-Aab" firstAttribute="centerY" secondItem="E30-18-YAz" secondAttribute="centerY" id="gfu-AL-0NL"/>
+                                                <constraint firstItem="9ol-tN-Aab" firstAttribute="leading" secondItem="E30-18-YAz" secondAttribute="trailing" constant="8" id="ivi-Dx-gH3"/>
                                                 <constraint firstItem="4Ne-ME-6Iq" firstAttribute="centerY" secondItem="832-he-y9a" secondAttribute="centerY" id="nES-tl-3SZ"/>
                                                 <constraint firstItem="E30-18-YAz" firstAttribute="top" secondItem="4A5-Z1-ZfM" secondAttribute="bottom" constant="4" id="nNM-t0-cTf"/>
                                                 <constraint firstAttribute="bottom" secondItem="2J0-Sc-cjE" secondAttribute="bottom" id="oaW-IK-6Uz"/>
-                                                <constraint firstItem="BUS-5r-Gs5" firstAttribute="leading" secondItem="E30-18-YAz" secondAttribute="trailing" constant="8" id="pwi-j3-DGv"/>
                                                 <constraint firstItem="4A5-Z1-ZfM" firstAttribute="top" secondItem="832-he-y9a" secondAttribute="top" constant="8" id="viD-PT-xug"/>
                                                 <constraint firstAttribute="trailing" secondItem="4Ne-ME-6Iq" secondAttribute="trailing" constant="24" id="zmD-g4-ecq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="categoryLabel" destination="4A5-Z1-ZfM" id="dqI-lF-ue2"/>
+                                            <outletCollection property="iconImageViews" destination="E30-18-YAz" collectionClass="NSMutableArray" id="naZ-gS-p0n"/>
+                                            <outletCollection property="iconImageViews" destination="9ol-tN-Aab" collectionClass="NSMutableArray" id="uPo-nQ-65h"/>
+                                            <outletCollection property="iconImageViews" destination="eQd-zv-YGk" collectionClass="NSMutableArray" id="7KM-yG-Z0T"/>
+                                            <outletCollection property="iconImageViews" destination="BUS-5r-Gs5" collectionClass="NSMutableArray" id="Gzd-Kf-XAL"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

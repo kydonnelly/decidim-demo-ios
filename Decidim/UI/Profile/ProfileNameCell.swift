@@ -15,7 +15,7 @@ class ProfileNameCell: UITableViewCell {
     
     public func setup(profile: ProfileInfo) {
         self.handleLabel.text = profile.handle
-//        self.pictureImageView.image = 
+        self.pictureImageView.image = profile.thumbnail
     }
     
 }

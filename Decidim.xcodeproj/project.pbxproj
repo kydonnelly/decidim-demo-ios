@@ -54,7 +54,6 @@
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */; };
 		2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */; };
-		2789E97F24B67BEE0061C3E9 /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97E24B67BEE0061C3E9 /* VoteManager.swift */; };
 		2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98024B67D610061C3E9 /* ProfilePassword.storyboard */; };
 		2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98324B67FDE0061C3E9 /* VoteList.storyboard */; };
 		2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98524B67FF50061C3E9 /* VoteListViewController.swift */; };
@@ -67,6 +66,11 @@
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
 		27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2C24BF0CC3005DF376 /* CommentCell.swift */; };
 		27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3124BFC692005DF376 /* ProposalCommentsDataController.swift */; };
+		27B22B3824D23823005DF376 /* VoteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3724D23823005DF376 /* VoteManager.swift */; };
+		27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3924D2382C005DF376 /* VoteDelegationManager.swift */; };
+		27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B3B24D23CD2005DF376 /* ProfileSearch.storyboard */; };
+		27B22B3E24D23CE8005DF376 /* ProfileSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */; };
+		27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -134,7 +138,6 @@
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePasswordViewController.swift; sourceTree = "<group>"; };
 		2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
-		2789E97E24B67BEE0061C3E9 /* VoteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteManager.swift; sourceTree = "<group>"; };
 		2789E98024B67D610061C3E9 /* ProfilePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilePassword.storyboard; sourceTree = "<group>"; };
 		2789E98324B67FDE0061C3E9 /* VoteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoteList.storyboard; sourceTree = "<group>"; };
 		2789E98524B67FF50061C3E9 /* VoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteListViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +150,11 @@
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
 		27B22B2C24BF0CC3005DF376 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		27B22B3124BFC692005DF376 /* ProposalCommentsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalCommentsDataController.swift; sourceTree = "<group>"; };
+		27B22B3724D23823005DF376 /* VoteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VoteManager.swift; sourceTree = "<group>"; };
+		27B22B3924D2382C005DF376 /* VoteDelegationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteDelegationManager.swift; sourceTree = "<group>"; };
+		27B22B3B24D23CD2005DF376 /* ProfileSearch.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileSearch.storyboard; sourceTree = "<group>"; };
+		27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSearchViewController.swift; sourceTree = "<group>"; };
+		27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSearchResultCell.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,9 +306,9 @@
 			children = (
 				27B22B2E24BFC676005DF376 /* Comments */,
 				2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */,
-				2789E97E24B67BEE0061C3E9 /* VoteManager.swift */,
 				2756A6DA249861560023DC91 /* Profile */,
 				2756A6D6249861560023DC91 /* Proposal */,
+				27B22B3624D23823005DF376 /* Voting */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -340,6 +348,9 @@
 				2756A6CC24985D280023DC91 /* ProfileViewController.swift */,
 				2789E98024B67D610061C3E9 /* ProfilePassword.storyboard */,
 				2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */,
+				27B22B3B24D23CD2005DF376 /* ProfileSearch.storyboard */,
+				27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */,
+				27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -396,6 +407,15 @@
 				27B22B3124BFC692005DF376 /* ProposalCommentsDataController.swift */,
 			);
 			path = Comments;
+			sourceTree = "<group>";
+		};
+		27B22B3624D23823005DF376 /* Voting */ = {
+			isa = PBXGroup;
+			children = (
+				27B22B3924D2382C005DF376 /* VoteDelegationManager.swift */,
+				27B22B3724D23823005DF376 /* VoteManager.swift */,
+			);
+			path = Voting;
 			sourceTree = "<group>";
 		};
 		A87A557AE0ED32245DD0D56A /* Pods */ = {
@@ -512,6 +532,7 @@
 				2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */,
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 				270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */,
+				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -600,6 +621,7 @@
 				2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */,
 				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
 				2756A6DD249861560023DC91 /* ProposalComment.swift in Sources */,
+				27B22B3E24D23CE8005DF376 /* ProfileSearchViewController.swift in Sources */,
 				2789E99224B68B310061C3E9 /* VotePreferencesDelegateCell.swift in Sources */,
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
@@ -608,6 +630,7 @@
 				270A479924BD880500115F95 /* ProposalImageCell.swift in Sources */,
 				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
+				27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
@@ -622,8 +645,9 @@
 				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
-				2789E97F24B67BEE0061C3E9 /* VoteManager.swift in Sources */,
+				27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
+				27B22B3824D23823005DF376 /* VoteManager.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
 				270A479324BD790200115F95 /* CreateProposalViewController.swift in Sources */,

@@ -16,7 +16,7 @@ class VotePreferencesViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     private var togglePreferences: [String: Bool] = ["Public Votes": false, "Receive Notifications": true]
-    private var delegationPreferences: [String] = ["Transportation", "Housing", "Environmental", "Public Safety"]
+    private var delegationManager = VoteDelegationManager()
     
     public static func create() -> VotePreferencesViewController {
         let sb = UIStoryboard(name: "VotePreferences", bundle: .main)
@@ -36,7 +36,7 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
         if section == 0 {
             return self.togglePreferences.count
         } else {
-            return self.delegationPreferences.count
+            return self.delegationManager.allCategories.count
         }
     }
     
@@ -57,10 +57,29 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
             }
             return cell
         } else {
-            let category = self.delegationPreferences[indexPath.row]
+            let category = self.delegationManager.allCategories[indexPath.row]
+            let delegates = self.delegationManager.getDelegates(category: category)
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.delegationCellId, for: indexPath) as! VotePreferencesDelegateCell
-            cell.setup(category: category, profiles: [])
+            cell.setup(category: category, delegates: delegates)
             return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 0 {
+            return
+        } else {
+            let category = self.delegationManager.allCategories[indexPath.row]
+            let delegates = self.delegationManager.getDelegates(category: category)
+            let vc = ProfileSearchViewController.create(category: category, selectedProfileIds: delegates) { [weak self] toggledId, remainingIds in
+                self?.delegationManager.updateDelegates(category: category, profileIds: remainingIds) { [weak self] _ in
+                    self?.tableView.reloadData()
+                }
+            }
+            
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

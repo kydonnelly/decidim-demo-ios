@@ -28,6 +28,7 @@ class ProposalDetailCommentCell: UITableViewCell {
             }
             
             self.handleLabel.text = info.handle
+            self.iconImageView.image = info.thumbnail
         }
     }
     

@@ -20,7 +20,10 @@ class CommentCell: UITableViewCell {
         self.handleLabel.text = "Unknown Commenter"
         self.timeLabel.text = comment.timestamp.asShortStringAgo()
         
-        ProfileInfoDataController.shared().refresh { dc in
+        ProfileInfoDataController.shared().refresh { [weak self] dc in
+            guard let self = self else {
+                return
+            }
             guard let infos = dc.data as? [ProfileInfo] else {
                 return
             }
@@ -29,6 +32,7 @@ class CommentCell: UITableViewCell {
             }
             
             self.handleLabel.text = info.handle
+            self.iconImageView.image = info.thumbnail
         }
     }
     
