@@ -74,6 +74,7 @@
 		27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B4324D7DC24005DF376 /* VoterList.storyboard */; };
 		27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4524D7DC2E005DF376 /* VoterListViewController.swift */; };
 		27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */; };
+		27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4924D7EEC0005DF376 /* MyProfileController.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -161,6 +162,7 @@
 		27B22B4324D7DC24005DF376 /* VoterList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoterList.storyboard; sourceTree = "<group>"; };
 		27B22B4524D7DC2E005DF376 /* VoterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterListViewController.swift; sourceTree = "<group>"; };
 		27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalVoterCell.swift; sourceTree = "<group>"; };
+		27B22B4924D7EEC0005DF376 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +379,7 @@
 		2756A6DA249861560023DC91 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				27B22B4924D7EEC0005DF376 /* MyProfileController.swift */,
 				2756A6DE2498615D0023DC91 /* ProfileInfo.swift */,
 				2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */,
 			);
@@ -659,6 +662,7 @@
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
+				27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
 				270A479324BD790200115F95 /* CreateProposalViewController.swift in Sources */,

@@ -56,14 +56,6 @@ class NetworkDataController {
             return
         }
         
-        let request = HTTPRequest.shared
-        guard request.hasAuthenticated else {
-            request.refreshSession(username: "test", password: "password") { [weak self] error in
-                self?.refresh(failBlock: failBlock, successBlock: successBlock)
-            }
-            return
-        }
-        
         let now = Date()
         
         guard let lastTime = self.lastFetchTime else {

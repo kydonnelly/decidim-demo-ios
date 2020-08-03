@@ -15,9 +15,6 @@ class HTTPRequest {
     private var sessionConfig: URLSessionConfiguration? = nil
     private let url = URL(string: "https://kraken-api.herokuapp.com")!
     
-    private var username: String?
-    private var password: String?
-    
     typealias SessionBlock = (Error?) -> Void
     private var sessionRefreshBlocks: [SessionBlock] = []
     
@@ -38,9 +35,6 @@ class HTTPRequest {
                 completion(nil, RequestError.failedRegistration(underlying: error!))
                 return
             }
-            
-            self.username = username
-            self.password = password
             
             completion(results, nil)
         }
@@ -215,12 +209,20 @@ extension HTTPRequest {
     }
     
     fileprivate func refreshSession(completion: @escaping SessionBlock) {
-        guard let username = self.username, let password = self.password else {
+        guard !HTTPRequest.shared.hasAuthenticated else {
+            completion(nil)
+            return
+        }
+        
+        guard let username: String = MyProfileController.load(key: .username),
+              let password: String = MyProfileController.load(key: .password) else {
             completion(RequestError.noSession)
             return
         }
         
-        self.refreshSession(username: username, password: password, completion: completion)
+        self.refreshSession(username: username, password: password) { error in
+            completion(error)
+        }
     }
     
     internal func refreshSession(username: String, password: String, completion: @escaping SessionBlock) {
