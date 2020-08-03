@@ -38,6 +38,7 @@ class ProposalDetailViewController: UIViewController {
     @IBOutlet var voteVisibilityConstraint: NSLayoutConstraint!
     
     private var proposal: Proposal!
+    private var voteDataController: ProposalVotesDataController!
     private var detailDataController: ProposalDetailDataController!
     private var commentDataController: ProposalCommentsDataController!
     
@@ -53,6 +54,7 @@ class ProposalDetailViewController: UIViewController {
     private func setup(proposal: Proposal) {
         self.proposal = proposal
         self.detailDataController = ProposalDetailDataController.shared(proposal: proposal)
+        self.voteDataController = ProposalVotesDataController.shared(proposalId: proposal.id)
         self.commentDataController = ProposalCommentsDataController.shared(proposalId: proposal.id)
     }
     
@@ -92,10 +94,16 @@ class ProposalDetailViewController: UIViewController {
             guard let self = self else { return }
             
             self.tableView.reloadData()
-            self.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: self.proposal.id))
             if let detail = self.proposalDetail {
                 self.voteDeadlineLabel.text = detail.deadline.asShortStringLeft()
             }
+        }
+        
+        self.voteDataController.refresh { [weak self] dc in
+            guard let self = self else { return }
+            
+            let myVote = self.voteDataController.allVotes.first { $0.proposalId == self.proposal.id }
+            self.refreshVoteUI(myVote: myVote?.voteType)
         }
         
         self.commentDataController.refresh { [weak self] dc in
@@ -262,23 +270,20 @@ extension ProposalDetailViewController {
     }
     
     @IBAction func voteYes(sender: UIButton) {
-        let proposalId = self.proposal.id
-        VoteManager.shared.addVote(proposalId: proposalId, type: .yes) { [weak self] success in
-            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        self.voteDataController.addVote(.yes) { [weak self] error in
+            self?.refreshVoteUI(myVote: .yes)
         }
     }
     
     @IBAction func voteNo(sender: UIButton) {
-        let proposalId = self.proposal.id
-        VoteManager.shared.addVote(proposalId: proposalId, type: .no) { [weak self] success in
-            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        self.voteDataController.addVote(.no) { [weak self] error in
+            self?.refreshVoteUI(myVote: .no)
         }
     }
     
     @IBAction func voteAbstain(sender: UIButton) {
-        let proposalId = self.proposal.id
-        VoteManager.shared.addVote(proposalId: proposalId, type: .abstain) { [weak self] success in
-            self?.refreshVoteUI(myVote: VoteManager.shared.getVote(proposalId: proposalId))
+        self.voteDataController.addVote(.abstain) { [weak self] error in
+            self?.refreshVoteUI(myVote: .abstain)
         }
     }
     

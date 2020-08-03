@@ -29,7 +29,12 @@ class ProposalVoteCell: UITableViewCell {
         self.commentsLabel.text = "\(proposal.commentCount) comments"
         self.votesLabel.text = "\(proposal.voteCount) votes"
         
-        self.configure(voteType: VoteManager.shared.getVote(proposalId: proposal.id))
+        ProposalVotesDataController.shared(proposalId: proposal.id).refresh(successBlock: { [weak self] dc in
+            guard let dc = dc as? ProposalVotesDataController else { return }
+            
+            let myVote = dc.allVotes.first { $0.authorId == 1 }
+            self?.configure(voteType: myVote?.voteType)
+        })
     }
     
     private func configure(voteType: VoteType?) {

@@ -35,15 +35,32 @@ class VoteListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.dataController.refresh { [weak self] dc in
+        self.dataController.refresh { [weak self] _ in
             self?.refresh()
         }
     }
     
     private func refresh() {
+        self.proposals.removeAll()
         let allProposals = self.dataController.allProposals
-        self.proposals = allProposals.filter { VoteManager.shared.getVote(proposalId: $0.id) != nil }
-        self.tableView.reloadData()
+        var count = allProposals.count
+        
+        for proposal in allProposals {
+            ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
+                count -= 1
+                
+                guard let dc = dc as? ProposalVotesDataController else {
+                    return
+                }
+                if (dc.allVotes.map { $0.authorId }.contains(6)) {
+                    self?.proposals.append(proposal)
+                }
+                
+                if count == 0 {
+                    self?.tableView?.reloadData()
+                }
+            }
+        }
     }
     
 }

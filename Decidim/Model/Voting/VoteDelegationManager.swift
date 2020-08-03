@@ -12,8 +12,6 @@ class VoteDelegationManager {
     
     public typealias UpdateCompletion = (Bool) -> Void
     
-    static let shared = VoteManager()
-    
     private var byCategory: [String: [Int]] = [:]
     
     public func updateDelegates(category: String, profileIds: [Int], completion: UpdateCompletion) {
