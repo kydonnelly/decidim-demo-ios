@@ -125,6 +125,48 @@ class HTTPRequest {
         task.resume()
     }
     
+    public func put(endpoint: String, args: [String]? = nil, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
+        guard let config = self.sessionConfig else {
+            self.refreshSession { error in
+                if let error = error {
+                    completion(nil, error)
+                } else {
+                    self.put(endpoint: endpoint, args: args, payload: payload, completion: completion)
+                }
+            }
+            return
+        }
+        
+        let session = URLSession(configuration: config)
+        var endpointUrl = url.appendingPathComponent(endpoint)
+        args?.forEach { endpointUrl.appendPathComponent($0) }
+        
+        var request = URLRequest(url: endpointUrl)
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: payload, options: [])
+        } catch {
+            completion(nil, RequestError.encodingError)
+        }
+
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(nil, error)
+            } else if let data = data {
+                do {
+                    let contents = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                    completion(contents, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
 }
 
 extension HTTPRequest {
