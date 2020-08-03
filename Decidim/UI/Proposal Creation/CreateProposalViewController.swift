@@ -61,15 +61,25 @@ extension CreateProposalViewController {
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
+
+        self.navigationController?.dismiss(animated: true, completion: nil)
         
         let deadline: Date = self.deadline
-        let proposal = PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline)
-        
-        ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-            dc.data = [ProposalDetail(proposal: proposal, authorId: 1, likeCount: 0, deadline: deadline, amendmentCount: 0)]
+        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { error in
+            guard error == nil else {
+                return
+            }
+            
+            guard let proposal = PublicProposalDataController.shared().allProposals.first else {
+                return
+            }
+            
+            ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
+                dc.data = [ProposalDetail(proposal: proposal, authorId: 1, likeCount: 0, deadline: deadline, amendmentCount: 0)]
+            }
         }
         
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        
     }
     
 }

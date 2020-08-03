@@ -38,14 +38,24 @@ class PublicProposalDataController: NetworkDataController {
         return proposals
     }
     
-    @discardableResult
-    public func addProposal(title: String, description: String, thumbnail: UIImage?, deadline: Date) -> Proposal {
-        let proposalId = max(20, self.data?.compactMap { ($0 as! Proposal).id }.max() ?? 0 + 1)
-        let proposal = Proposal(id: proposalId, authorId: 1, title: title, body: description, thumbnail: thumbnail, createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0)
+    public func addProposal(title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
+        let payload: [String: Any] = ["proposal": ["title": title,
+                                                   "body": description]]
         
-        self.localProposals.append(proposal)
-        
-        return proposal
+        HTTPRequest.shared.post(endpoint: "proposals", payload: payload) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let proposalInfo = response?["proposal"] as? [String: Any],
+                  let proposal = Proposal.from(dict: proposalInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            self?.localProposals.append(proposal)
+            completion(nil)
+        }
     }
     
 }
