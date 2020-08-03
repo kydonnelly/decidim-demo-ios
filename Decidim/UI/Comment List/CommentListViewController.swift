@@ -37,6 +37,10 @@ class CommentListViewController: UIViewController {
         
         self.textContainer.roundTopCorners(radius: 4, addShadow: true)
         
+        let refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardFrameChange(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -48,6 +52,21 @@ class CommentListViewController: UIViewController {
         })
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.textField.becomeFirstResponder()
+    }
+    
+    @objc public func pullToRefresh(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        
+        self.dataController.invalidate()
+        self.dataController.refresh { [weak self] dc in
+            self?.tableView.reloadData()
+        }
+    }
+    
 }
 
 extension CommentListViewController {
@@ -55,9 +74,12 @@ extension CommentListViewController {
     @IBAction func sendButtonTapped(_ sender: Any) {
         if let comment = self.textField.text, comment.count > 0 {
             self.textField.text = nil
-            
-            self.dataController.refresh { [weak self] dc in
-                self?.dataController.addComment(comment, authorId: 1)
+
+            self.dataController.addComment(comment, authorId: 1) { [weak self] error in
+                guard error == nil else {
+                    return
+                }
+                
                 self?.tableView.reloadData()
             }
         }
