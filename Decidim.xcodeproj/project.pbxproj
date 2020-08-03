@@ -71,6 +71,9 @@
 		27B22B3E24D23CE8005DF376 /* ProfileSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */; };
 		27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */; };
 		27B22B4224D7B399005DF376 /* ProposalVotesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4124D7B398005DF376 /* ProposalVotesDataController.swift */; };
+		27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B4324D7DC24005DF376 /* VoterList.storyboard */; };
+		27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4524D7DC2E005DF376 /* VoterListViewController.swift */; };
+		27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -155,6 +158,9 @@
 		27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSearchViewController.swift; sourceTree = "<group>"; };
 		27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSearchResultCell.swift; sourceTree = "<group>"; };
 		27B22B4124D7B398005DF376 /* ProposalVotesDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalVotesDataController.swift; sourceTree = "<group>"; };
+		27B22B4324D7DC24005DF376 /* VoterList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoterList.storyboard; sourceTree = "<group>"; };
+		27B22B4524D7DC2E005DF376 /* VoterListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterListViewController.swift; sourceTree = "<group>"; };
+		27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalVoterCell.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -381,12 +387,15 @@
 			isa = PBXGroup;
 			children = (
 				2789E98724B680BA0061C3E9 /* ProposalVoteCell.swift */,
+				27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */,
 				2789E98324B67FDE0061C3E9 /* VoteList.storyboard */,
 				2789E98524B67FF50061C3E9 /* VoteListViewController.swift */,
 				2789E98D24B689CF0061C3E9 /* VotePreferences.storyboard */,
 				2789E98B24B689A60061C3E9 /* VotePreferencesViewController.swift */,
 				2789E98F24B68A990061C3E9 /* VotePreferencesToggleCell.swift */,
 				2789E99124B68B310061C3E9 /* VotePreferencesDelegateCell.swift */,
+				27B22B4324D7DC24005DF376 /* VoterList.storyboard */,
+				27B22B4524D7DC2E005DF376 /* VoterListViewController.swift */,
 			);
 			path = Voting;
 			sourceTree = "<group>";
@@ -532,6 +541,7 @@
 				2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */,
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 				270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */,
+				27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */,
 				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */,
 			);
@@ -640,6 +650,7 @@
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
+				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
@@ -661,6 +672,7 @@
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
 				2739748024B58EE900CA16A3 /* GradientView.swift in Sources */,
+				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				270A479B24BD881800115F95 /* ProposalDatePickerCell.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,

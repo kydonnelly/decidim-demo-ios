@@ -32,26 +32,14 @@ class ProposalVoteCell: UITableViewCell {
         ProposalVotesDataController.shared(proposalId: proposal.id).refresh(successBlock: { [weak self] dc in
             guard let dc = dc as? ProposalVotesDataController else { return }
             
-            let myVote = dc.allVotes.first { $0.authorId == 1 }
+            let myVote = dc.allVotes.first { $0.authorId == 6 }
             self?.configure(voteType: myVote?.voteType)
         })
     }
     
     private func configure(voteType: VoteType?) {
-        switch voteType {
-        case .yes:
-            self.myVoteImage.image = UIImage(systemName: "checkmark.circle.fill")
-            self.myVoteImage.tintColor = .systemGreen
-        case .no:
-            self.myVoteImage.image = UIImage(systemName: "xmark.circle.fill")
-            self.myVoteImage.tintColor = .systemRed
-        case .abstain:
-            self.myVoteImage.image = UIImage(systemName: "minus.circle.fill")
-            self.myVoteImage.tintColor = .systemPurple
-        default:
-            self.myVoteImage.image = UIImage(systemName: "chevron.right")
-            self.myVoteImage.tintColor = .darkGray
-        }
+        self.myVoteImage.image = voteType?.image ?? UIImage(systemName: "chevron.right")
+        self.myVoteImage.tintColor = voteType?.tintColor ?? .darkGray
     }
     
 }

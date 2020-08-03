@@ -6,7 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum VoteType: String {
     case yes
@@ -47,4 +47,30 @@ struct ProposalVote {
                             createdAt: createdDate,
                             updatedAt: updatedDate)
     }
+}
+
+extension VoteType {
+    
+    var image: UIImage? {
+        switch self {
+        case .yes:
+            return UIImage(systemName: "checkmark.circle.fill")
+        case .no:
+            return UIImage(systemName: "xmark.circle.fill")
+        case .abstain:
+            return UIImage(systemName: "minus.circle.fill")
+        }
+    }
+    
+    var tintColor: UIColor {
+        switch self {
+        case .yes:
+            return .systemGreen
+        case .no:
+            return .systemRed
+        case .abstain:
+            return .systemPurple
+        }
+    }
+    
 }

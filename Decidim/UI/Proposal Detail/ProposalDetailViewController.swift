@@ -199,7 +199,9 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                         return
                     }
                     
-                    self.toggleVoteVisibility(sender: self.voteVisibilityButton)
+                    let votersVC = VoterListViewController.create(proposal: self.proposal)
+                    votersVC.modalPresentationStyle = .overFullScreen
+                    self.navigationController?.present(votersVC, animated: true, completion: nil)
                 }
                 let commentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
                     guard let self = self else {
