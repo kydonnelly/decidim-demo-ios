@@ -20,7 +20,7 @@ class ProposalCommentsDataController: NetworkDataController {
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let id = String(describing: self.proposalId)
+        let id = String(describing: self.proposalId!)
         
         // test
         HTTPRequest.shared.get(endpoint: "proposals", args: [id, "comments"]) { response, error in
@@ -33,7 +33,7 @@ class ProposalCommentsDataController: NetworkDataController {
                 return
             }
             
-            let comments = commentInfos.compactMap { Proposal.from(dict: $0) }
+            let comments = commentInfos.compactMap { ProposalComment.from(dict: $0) }
             completion(comments, Cursor(next: "", done: true), nil)
         }
     }
@@ -47,14 +47,24 @@ class ProposalCommentsDataController: NetworkDataController {
         return comments
     }
     
-    @discardableResult
-    public func addComment(_ comment: String, authorId: Int) -> ProposalComment {
-        let commentId = max(4, self.data?.compactMap { ($0 as! ProposalComment).commentId }.max() ?? 0 + 1)
-        let comment = ProposalComment(commentId: commentId, authorId: authorId, proposalId: self.proposalId, text: comment, createdAt: Date(), updatedAt: Date())
+    public func addComment(_ comment: String, authorId: Int, completion: @escaping (Error?) -> Void) {
+        let id = String(describing: self.proposalId!)
+        let payload: [String: Any] = ["comment": ["body": comment]]
         
-        self.localComments.append(comment)
-        
-        return comment
+        HTTPRequest.shared.post(endpoint: "proposals", args: [id, "comments"], payload: payload) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let commentInfo = response?["comment"] as? [String: Any],
+                  let comment = ProposalComment.from(dict: commentInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            self?.localComments.append(comment)
+            completion(nil)
+        }
     }
     
 }
