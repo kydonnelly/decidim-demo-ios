@@ -25,6 +25,7 @@ class HTTPRequest {
         case noSession
         case encodingError
         case missingKeyError
+        case parseError(response: [String: Any]?)
         case failedRefresh(underlying: Error)
         case failedRegistration(underlying: Error)
     }
@@ -64,7 +65,7 @@ class HTTPRequest {
         var request = URLRequest(url: endpointUrl)
         request.httpMethod = "GET"
 
-        let task = session.dataTask(with: request) { data, response, error in
+        session.startTask(with: request) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
@@ -76,8 +77,6 @@ class HTTPRequest {
                 }
             }
         }
-        
-        task.resume()
     }
     
     public func post(endpoint: String, args: [String]? = nil, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
@@ -110,7 +109,7 @@ class HTTPRequest {
             completion(nil, RequestError.encodingError)
         }
 
-        let task = session.dataTask(with: request) { data, response, error in
+        session.startTask(with: request) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
@@ -122,8 +121,6 @@ class HTTPRequest {
                 }
             }
         }
-        
-        task.resume()
     }
     
     public func put(endpoint: String, args: [String]? = nil, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
@@ -152,7 +149,7 @@ class HTTPRequest {
             completion(nil, RequestError.encodingError)
         }
 
-        let task = session.dataTask(with: request) { data, response, error in
+        session.startTask(with: request) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
@@ -164,8 +161,6 @@ class HTTPRequest {
                 }
             }
         }
-        
-        task.resume()
     }
     
     public func delete(endpoint: String, args: [String]? = nil, completion: @escaping ([String: Any]?, Error?) -> Void) {
@@ -187,7 +182,7 @@ class HTTPRequest {
         var request = URLRequest(url: endpointUrl)
         request.httpMethod = "DELETE"
 
-        let task = session.dataTask(with: request) { data, response, error in
+        session.startTask(with: request) { data, response, error in
             if let error = error {
                 completion(nil, error)
             } else if let data = data {
@@ -199,8 +194,6 @@ class HTTPRequest {
                 }
             }
         }
-        
-        task.resume()
     }
     
 }
@@ -269,6 +262,20 @@ extension HTTPRequest {
             
             self.clearPendingBlocks(error: nil)
         }
+    }
+    
+}
+
+extension URLSession {
+    
+    fileprivate func startTask(with request: URLRequest, queue: DispatchQueue = .main, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let task = self.dataTask(with: request) { data, response, error in
+            queue.async {
+                completionHandler(data, response, error)
+            }
+        }
+        
+        task.resume()
     }
     
 }
