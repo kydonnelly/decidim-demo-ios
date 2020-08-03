@@ -167,6 +167,41 @@ class HTTPRequest {
         task.resume()
     }
     
+    public func delete(endpoint: String, args: [String]? = nil, completion: @escaping ([String: Any]?, Error?) -> Void) {
+        guard let config = self.sessionConfig else {
+            self.refreshSession { error in
+                if let error = error {
+                    completion(nil, error)
+                } else {
+                    self.delete(endpoint: endpoint, args: args, completion: completion)
+                }
+            }
+            return
+        }
+        
+        let session = URLSession(configuration: config)
+        var endpointUrl = url.appendingPathComponent(endpoint)
+        args?.forEach { endpointUrl.appendPathComponent($0) }
+        
+        var request = URLRequest(url: endpointUrl)
+        request.httpMethod = "DELETE"
+
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                completion(nil, error)
+            } else if let data = data {
+                do {
+                    let contents = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+                    completion(contents, nil)
+                } catch {
+                    completion(nil, error)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
 }
 
 extension HTTPRequest {

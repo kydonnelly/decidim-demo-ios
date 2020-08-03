@@ -101,7 +101,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_ProposalItem() {
         // setup
-        let proposalId = "1"
+        let proposalId = "2"
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "list response")
@@ -123,40 +123,19 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "found")
         XCTAssertNotNil(responseItem)
-        XCTAssertEqual(responseItem?.id, 1)
+        XCTAssertEqual(responseItem?.id, 2)
         XCTAssertNil(receivedError)
     }
 
     func testHTTPRequest_CreateProposal() {
         // setup
-        let request = HTTPRequest.shared
-        
-        let expectation = XCTestExpectation(description: "proposal response")
-        var receivedError: Error? = nil
-        var responseStatus: String? = nil
-        var responseItem: Proposal? = nil
-        
         let title = "Proposal Title"
         let body = "Proposal description"
-        let payload: [String: Any] = ["proposal": ["title": title,
-                                                   "body": body]]
         
         // test
-        request.post(endpoint: "proposals", payload: payload) { response, error in
-            defer { expectation.fulfill() }
-            
-            receivedError = error
-            responseStatus = response?["status"] as? String
-            if let proposalInfo = response?["proposal"] as? [String: Any] {
-                responseItem = Proposal.from(dict: proposalInfo)
-            }
-        }
-        
-        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
-        XCTAssertEqual(responseStatus, "created")
+        let responseItem = self.createAndVerifyProposal(title: title, body: body)
         XCTAssertEqual(responseItem?.title, title)
         XCTAssertEqual(responseItem?.body, body)
-        XCTAssertNil(receivedError)
     }
 
     func testHTTPRequest_EditProposal() {
@@ -168,7 +147,12 @@ class HTTPRequestTests: XCTestCase {
         var responseStatus: String? = nil
         var responseItem: Proposal? = nil
         
-        let proposalId = "1"
+        guard let proposal = self.createAndVerifyProposal() else {
+            XCTFail("Could not create proposal to edit")
+            return
+        }
+        
+        let proposalId = "\(proposal.id)"
         let title = "Proposal Title (Edited)"
         let body = "Proposal description (edited)"
         let payload: [String: Any] = ["proposal": ["title": title,
@@ -192,4 +176,66 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_DeleteProposal() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "delete proposal response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let proposal = self.createAndVerifyProposal() else {
+            XCTFail("Could not create proposal to edit")
+            return
+        }
+        
+        let proposalId = "\(proposal.id)"
+        
+        // test
+        request.delete(endpoint: "proposals", args: [proposalId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
+}
+
+extension HTTPRequestTests {
+    
+    fileprivate func createAndVerifyProposal(title: String = "test", body: String = "description") -> Proposal? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "proposal response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Proposal? = nil
+        
+        let payload: [String: Any] = ["proposal": ["title": title,
+                                                   "body": body]]
+        
+        // test
+        request.post(endpoint: "proposals", payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let proposalInfo = response?["proposal"] as? [String: Any] {
+                responseItem = Proposal.from(dict: proposalInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
 }
