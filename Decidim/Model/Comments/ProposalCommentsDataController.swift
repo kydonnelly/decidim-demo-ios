@@ -20,13 +20,22 @@ class ProposalCommentsDataController: NetworkDataController {
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let randomInt = Int(arc4random())
+        let id = String(describing: self.proposalId)
         
-        let testComments = [ProposalComment(commentId: 0, authorId: randomInt * 7 % 6 + 1, proposalId: self.proposalId, text: "This is a comment in support of the proposal because it's a good idea", createdAt: Date(timeIntervalSinceNow: -3600), updatedAt: Date()),
-                            ProposalComment(commentId: 1, authorId: randomInt * 3 % 6 + 1, proposalId: self.proposalId, text: "This is a comment opposing the proposal because it's a bad idea", createdAt: Date(timeIntervalSinceNow: -3600 * 2), updatedAt: Date()),
-                            ProposalComment(commentId: 2, authorId: randomInt * 11 % 6 + 1, proposalId: self.proposalId, text: "I have an opinion that is unrelated to the proposal but feel the need to share anyway. Have you ever noticed that breakfast tastes better when eaten for dinner? Anyone who isn't on the breakfast-for-dinner bandwagon should try it out. Like if you agree #OmelettesAfterDark", createdAt: Date(timeIntervalSinceNow: -3600 * 25), updatedAt: Date())]
-        
-        completion(testComments, Cursor(next: "", done: true), nil)
+        // test
+        HTTPRequest.shared.get(endpoint: "proposals", args: [id, "comments"]) { response, error in
+            guard error == nil else {
+                completion(nil, Cursor(next: "error", done: true), error)
+                return
+            }
+            guard let commentInfos = response?["comments"] as? [[String: Any]] else {
+                completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            let comments = commentInfos.compactMap { Proposal.from(dict: $0) }
+            completion(comments, Cursor(next: "", done: true), nil)
+        }
     }
     
     public var allComments: [ProposalComment] {
