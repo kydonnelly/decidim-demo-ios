@@ -335,6 +335,167 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_ProposalVotes() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "vote list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [ProposalVote]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: ["2", "votes"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let votes = response?["votes"] as? [[String: Any]] {
+                responseLength = votes.count
+                responseList = votes.compactMap { ProposalVote.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_ProposalVote() {
+        // setup
+        let voteId = "2"
+        let proposalId = "2"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "vote response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalVote? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: [proposalId, "votes", voteId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let voteInfo = response?["vote"] as? [String: Any] {
+                responseItem = ProposalVote.from(dict: voteInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(responseItem?.voteId, 2)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_AddProposalVoteYes() {
+        // setup
+        let proposalId = 2
+        let vote = VoteType.yes
+        
+        // test
+        let responseItem = self.createAndVerifyProposalVote(proposalId: proposalId, voteType: vote)
+        
+        // verify
+        XCTAssertEqual(responseItem?.voteType, vote)
+    }
+
+    func testHTTPRequest_AddProposalVoteNo() {
+        // setup
+        let proposalId = 2
+        let vote = VoteType.no
+        
+        // test
+        let responseItem = self.createAndVerifyProposalVote(proposalId: proposalId, voteType: vote)
+        
+        // verify
+        XCTAssertEqual(responseItem?.voteType, vote)
+    }
+
+    func testHTTPRequest_AddProposalVoteAbstain() {
+        // setup
+        let proposalId = 2
+        let vote = VoteType.abstain
+        
+        // test
+        let responseItem = self.createAndVerifyProposalVote(proposalId: proposalId, voteType: vote)
+        
+        // verify
+        XCTAssertEqual(responseItem?.voteType, vote)
+    }
+
+    func testHTTPRequest_EditProposalVote() {
+        // setup
+        let request = HTTPRequest.shared
+        let proposalId = 2
+        
+        let expectation = XCTestExpectation(description: "edit vote response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalVote? = nil
+        
+        guard let vote = self.createAndVerifyProposalVote(proposalId: proposalId) else {
+            XCTFail("Could not cast vote to edit")
+            return
+        }
+        
+        let voteId = "\(vote.voteId)"
+        let updatedVote = VoteType.abstain
+        let payload: [String: Any] = ["vote": ["value": updatedVote.rawValue]]
+        
+        // test
+        request.put(endpoint: "proposals", args: ["\(proposalId)", "votes", voteId], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let voteInfo = response?["vote"] as? [String: Any] {
+                responseItem = ProposalVote.from(dict: voteInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem?.voteType, updatedVote)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_DeleteProposalVote() {
+        // setup
+        let request = HTTPRequest.shared
+        let proposalId = 2
+        
+        let expectation = XCTestExpectation(description: "delete vote response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let vote = self.createAndVerifyProposalVote(proposalId: proposalId) else {
+            XCTFail("Could not cast vote to edit")
+            return
+        }
+        
+        let voteId = "\(vote.voteId)"
+        
+        // test
+        request.delete(endpoint: "proposals", args: ["\(proposalId)", "votes", voteId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
 }
 
 extension HTTPRequestTests {
@@ -410,8 +571,38 @@ extension HTTPRequestTests {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let proposalInfo = response?["comment"] as? [String: Any] {
-                responseItem = ProposalComment.from(dict: proposalInfo)
+            if let commentInfo = response?["comment"] as? [String: Any] {
+                responseItem = ProposalComment.from(dict: commentInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
+    fileprivate func createAndVerifyProposalVote(proposalId: Int, voteType: VoteType = .yes) -> ProposalVote? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "vote response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalVote? = nil
+        
+        let id = "\(proposalId)"
+        let payload: [String: Any] = ["vote": ["value": voteType.rawValue]]
+        
+        // test
+        request.post(endpoint: "proposals", args: [id, "votes"], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let voteInfo = response?["vote"] as? [String: Any] {
+                responseItem = ProposalVote.from(dict: voteInfo)
             }
         }
         

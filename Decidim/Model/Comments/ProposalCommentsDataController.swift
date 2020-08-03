@@ -22,9 +22,9 @@ class ProposalCommentsDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let randomInt = Int(arc4random())
         
-        let testComments = [ProposalComment(commentId: 0, authorId: randomInt * 7 % 6 + 1, text: "This is a comment in support of the proposal because it's a good idea", createdAt: Date(timeIntervalSinceNow: -3600), updatedAt: Date()),
-                            ProposalComment(commentId: 1, authorId: randomInt * 3 % 6 + 1, text: "This is a comment opposing the proposal because it's a bad idea", createdAt: Date(timeIntervalSinceNow: -3600 * 2), updatedAt: Date()),
-                            ProposalComment(commentId: 2, authorId: randomInt * 11 % 6 + 1, text: "I have an opinion that is unrelated to the proposal but feel the need to share anyway. Have you ever noticed that breakfast tastes better when eaten for dinner? Anyone who isn't on the breakfast-for-dinner bandwagon should try it out. Like if you agree #OmelettesAfterDark", createdAt: Date(timeIntervalSinceNow: -3600 * 25), updatedAt: Date())]
+        let testComments = [ProposalComment(commentId: 0, authorId: randomInt * 7 % 6 + 1, proposalId: self.proposalId, text: "This is a comment in support of the proposal because it's a good idea", createdAt: Date(timeIntervalSinceNow: -3600), updatedAt: Date()),
+                            ProposalComment(commentId: 1, authorId: randomInt * 3 % 6 + 1, proposalId: self.proposalId, text: "This is a comment opposing the proposal because it's a bad idea", createdAt: Date(timeIntervalSinceNow: -3600 * 2), updatedAt: Date()),
+                            ProposalComment(commentId: 2, authorId: randomInt * 11 % 6 + 1, proposalId: self.proposalId, text: "I have an opinion that is unrelated to the proposal but feel the need to share anyway. Have you ever noticed that breakfast tastes better when eaten for dinner? Anyone who isn't on the breakfast-for-dinner bandwagon should try it out. Like if you agree #OmelettesAfterDark", createdAt: Date(timeIntervalSinceNow: -3600 * 25), updatedAt: Date())]
         
         completion(testComments, Cursor(next: "", done: true), nil)
     }
@@ -41,7 +41,7 @@ class ProposalCommentsDataController: NetworkDataController {
     @discardableResult
     public func addComment(_ comment: String, authorId: Int) -> ProposalComment {
         let commentId = max(4, self.data?.compactMap { ($0 as! ProposalComment).commentId }.max() ?? 0 + 1)
-        let comment = ProposalComment(commentId: commentId, authorId: authorId, text: comment, createdAt: Date(), updatedAt: Date())
+        let comment = ProposalComment(commentId: commentId, authorId: authorId, proposalId: self.proposalId, text: comment, createdAt: Date(), updatedAt: Date())
         
         self.localComments.append(comment)
         
