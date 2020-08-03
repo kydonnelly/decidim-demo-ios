@@ -80,24 +80,25 @@ class HTTPRequest {
         task.resume()
     }
     
-    public func post(endpoint: String, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
+    public func post(endpoint: String, args: [String]? = nil, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
         guard let config = self.sessionConfig else {
             self.refreshSession { error in
                 if let error = error {
                     completion(nil, error)
                 } else {
-                    self.post(endpoint: endpoint, payload: payload, completion: completion)
+                    self.post(endpoint: endpoint, args: args, payload: payload, completion: completion)
                 }
             }
             return
         }
         
         let session = URLSession(configuration: config)
-        self.post(session: session, endpoint: endpoint, payload: payload, completion: completion)
+        self.post(session: session, endpoint: endpoint, args: args, payload: payload, completion: completion)
     }
     
-    fileprivate func post(session: URLSession, endpoint: String, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
-        let endpointUrl = url.appendingPathComponent(endpoint)
+    fileprivate func post(session: URLSession, endpoint: String, args: [String]? = nil, payload: [String: Any], completion: @escaping ([String: Any]?, Error?) -> Void) {
+        var endpointUrl = url.appendingPathComponent(endpoint)
+        args?.forEach { endpointUrl.appendPathComponent($0) }
         
         var request = URLRequest(url: endpointUrl)
         request.httpMethod = "POST"

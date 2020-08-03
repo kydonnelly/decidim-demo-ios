@@ -18,7 +18,7 @@ class CommentCell: UITableViewCell {
     func setup(comment: ProposalComment) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
-        self.timeLabel.text = comment.timestamp.asShortStringAgo()
+        self.timeLabel.text = comment.createdAt.asShortStringAgo()
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
