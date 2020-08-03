@@ -19,13 +19,13 @@ class PublicProposalDataController: NetworkDataController {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
-            guard let proposals = response?["proposals"] as? [[String: Any]] else {
+            guard let proposalInfos = response?["proposals"] as? [[String: Any]] else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
             }
             
-            let allProposals = proposals.compactMap { Proposal.from(dict: $0) }
-            completion(allProposals, Cursor(next: "", done: true), nil)
+            let proposals = proposalInfos.compactMap { Proposal.from(dict: $0) }
+            completion(proposals, Cursor(next: "", done: true), nil)
         }
     }
     
