@@ -358,23 +358,11 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="kh1-qW-CuN">
-                                                    <rect key="frame" x="24" y="32.5" width="36" height="33.5"/>
-                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="J9y-Zj-gX0"/>
-                                                        <constraint firstAttribute="width" constant="36" id="ZHw-zz-obM"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Uup-zt-9wv">
-                                                    <rect key="frame" x="68" y="32" width="36" height="35"/>
-                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="36" id="BxL-ZP-m6G"/>
-                                                        <constraint firstAttribute="height" constant="36" id="JNg-lX-vHG"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ipr-2D-zPy">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Decidim" customModuleProvider="target">
+                                                    <rect key="frame" x="24" y="31.5" width="338" height="36.5"/>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ipr-2D-zPy">
                                                     <rect key="frame" x="374" y="32" width="16" height="12.5"/>
                                                     <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -385,22 +373,22 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="ipr-2D-zPy" firstAttribute="centerY" secondItem="Psb-AX-yGB" secondAttribute="centerY" id="0bW-Jh-ipG"/>
-                                                <constraint firstItem="kh1-qW-CuN" firstAttribute="top" secondItem="mUn-03-fW8" secondAttribute="bottom" constant="4" id="3f1-Fz-qHl"/>
-                                                <constraint firstItem="Uup-zt-9wv" firstAttribute="leading" secondItem="kh1-qW-CuN" secondAttribute="trailing" constant="8" id="5BT-Jh-3UG"/>
-                                                <constraint firstItem="kh1-qW-CuN" firstAttribute="leading" secondItem="mUn-03-fW8" secondAttribute="leading" id="5Fa-BG-KPt"/>
                                                 <constraint firstItem="ipr-2D-zPy" firstAttribute="leading" secondItem="mUn-03-fW8" secondAttribute="trailing" constant="8" id="5d6-ea-Nv6"/>
-                                                <constraint firstItem="Uup-zt-9wv" firstAttribute="centerY" secondItem="kh1-qW-CuN" secondAttribute="centerY" id="6CL-E7-Lmj"/>
                                                 <constraint firstAttribute="trailing" secondItem="upc-2q-LjS" secondAttribute="trailing" id="BI7-Wf-3Fi"/>
+                                                <constraint firstItem="Odx-xD-y2d" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" constant="24" id="FQa-2o-Xeg"/>
                                                 <constraint firstItem="mUn-03-fW8" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" constant="24" id="OLj-XZ-zci"/>
                                                 <constraint firstAttribute="bottom" secondItem="upc-2q-LjS" secondAttribute="bottom" id="Pcj-V0-fCb"/>
-                                                <constraint firstItem="ipr-2D-zPy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uup-zt-9wv" secondAttribute="trailing" constant="8" id="d6A-2D-zEc"/>
+                                                <constraint firstItem="Odx-xD-y2d" firstAttribute="top" secondItem="mUn-03-fW8" secondAttribute="bottom" constant="4" id="dkt-60-cQ9"/>
                                                 <constraint firstAttribute="trailing" secondItem="ipr-2D-zPy" secondAttribute="trailing" constant="24" id="gDf-AD-FYM"/>
                                                 <constraint firstItem="upc-2q-LjS" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" id="jX8-U3-ucA"/>
                                                 <constraint firstItem="mUn-03-fW8" firstAttribute="top" secondItem="Psb-AX-yGB" secondAttribute="top" constant="8" id="kv8-n4-sZQ"/>
+                                                <constraint firstItem="ipr-2D-zPy" firstAttribute="leading" secondItem="Odx-xD-y2d" secondAttribute="trailing" constant="12" id="nOF-iA-Sta"/>
+                                                <constraint firstAttribute="bottom" secondItem="Odx-xD-y2d" secondAttribute="bottom" constant="8" id="s5y-zh-jQ5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="numAmendmentsLabel" destination="mUn-03-fW8" id="ruq-4e-eYl"/>
+                                            <outlet property="profileListView" destination="Odx-xD-y2d" id="8Km-pS-HV1"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="96" id="13a-e1-hOu" customClass="ProposalDetailCommentCell" customModule="Decidim" customModuleProvider="target">
@@ -659,8 +647,6 @@
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
-        <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="person.crop.square" catalog="system" width="64" height="56"/>
         <image name="xmark.rectangle.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>

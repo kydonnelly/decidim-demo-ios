@@ -28,7 +28,6 @@
 		2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747824AB287000CA16A3 /* Date+Helpers.swift */; };
 		2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */; };
 		2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739747D24B5691B00CA16A3 /* ProposalDetail.storyboard */; };
-		2739748024B58EE900CA16A3 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747F24B58EE900CA16A3 /* GradientView.swift */; };
 		2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */; };
 		2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */; };
 		2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */; };
@@ -76,6 +75,12 @@
 		27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */; };
 		27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4924D7EEC0005DF376 /* MyProfileController.swift */; };
 		27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */; };
+		27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5024D93505005DF376 /* ProposalAmendment.swift */; };
+		27B22B5324D9356C005DF376 /* ProposalAmendementDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */; };
+		27B22B5624D93760005DF376 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5524D93760005DF376 /* GradientView.swift */; };
+		27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5A24D93978005DF376 /* ProfileIconListView.swift */; };
+		27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */; };
+		27B22B5F24D9399C005DF376 /* ProfileIconCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -117,7 +122,6 @@
 		2739747824AB287000CA16A3 /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailViewController.swift; sourceTree = "<group>"; };
 		2739747D24B5691B00CA16A3 /* ProposalDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProposalDetail.storyboard; sourceTree = "<group>"; };
-		2739747F24B58EE900CA16A3 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailTitleCell.swift; sourceTree = "<group>"; };
 		2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailEngagementCell.swift; sourceTree = "<group>"; };
 		2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailBodyCell.swift; sourceTree = "<group>"; };
@@ -165,6 +169,12 @@
 		27B22B4724D7DDD2005DF376 /* ProposalVoterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalVoterCell.swift; sourceTree = "<group>"; };
 		27B22B4924D7EEC0005DF376 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		27B22B5024D93505005DF376 /* ProposalAmendment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalAmendment.swift; sourceTree = "<group>"; };
+		27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalAmendementDataController.swift; sourceTree = "<group>"; };
+		27B22B5524D93760005DF376 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		27B22B5A24D93978005DF376 /* ProfileIconListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileIconListView.swift; sourceTree = "<group>"; };
+		27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCell.swift; sourceTree = "<group>"; };
+		27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileIconCollectionCell.xib; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -315,6 +325,7 @@
 		2756A6BE24985A530023DC91 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				27B22B4F24D934F6005DF376 /* Amendments */,
 				27B22B2E24BFC676005DF376 /* Comments */,
 				2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */,
 				2756A6DA249861560023DC91 /* Profile */,
@@ -328,7 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				27B22B2724BF0C13005DF376 /* Comment List */,
-				2739747F24B58EE900CA16A3 /* GradientView.swift */,
+				27B22B5424D93751005DF376 /* Generic */,
 				2756A6C824985D280023DC91 /* ViewController.swift */,
 				2756A6CB24985D280023DC91 /* Profile */,
 				270A479124BD78F500115F95 /* Proposal Creation */,
@@ -431,6 +442,34 @@
 				27B22B3924D2382C005DF376 /* VoteDelegationManager.swift */,
 			);
 			path = Voting;
+			sourceTree = "<group>";
+		};
+		27B22B4F24D934F6005DF376 /* Amendments */ = {
+			isa = PBXGroup;
+			children = (
+				27B22B5024D93505005DF376 /* ProposalAmendment.swift */,
+				27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */,
+			);
+			path = Amendments;
+			sourceTree = "<group>";
+		};
+		27B22B5424D93751005DF376 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				27B22B5524D93760005DF376 /* GradientView.swift */,
+				27B22B5924D93978005DF376 /* Profile Info */,
+			);
+			path = Generic;
+			sourceTree = "<group>";
+		};
+		27B22B5924D93978005DF376 /* Profile Info */ = {
+			isa = PBXGroup;
+			children = (
+				27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */,
+				27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */,
+				27B22B5A24D93978005DF376 /* ProfileIconListView.swift */,
+			);
+			path = "Profile Info";
 			sourceTree = "<group>";
 		};
 		A87A557AE0ED32245DD0D56A /* Pods */ = {
@@ -545,6 +584,7 @@
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
 				2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */,
+				27B22B5F24D9399C005DF376 /* ProfileIconCollectionCell.xib in Resources */,
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 				270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */,
 				27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */,
@@ -648,6 +688,7 @@
 				27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */,
 				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
+				27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */,
 				27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
@@ -660,7 +701,9 @@
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */,
+				27B22B5324D9356C005DF376 /* ProposalAmendementDataController.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
+				27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */,
 				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
@@ -676,10 +719,11 @@
 				2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
+				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
+				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
-				2739748024B58EE900CA16A3 /* GradientView.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				270A479B24BD881800115F95 /* ProposalDatePickerCell.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
