@@ -22,7 +22,6 @@ class ProposalVotesDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let id = String(describing: self.proposalId!)
         
-        // test
         HTTPRequest.shared.get(endpoint: "proposals", args: [id, "votes"]) { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)

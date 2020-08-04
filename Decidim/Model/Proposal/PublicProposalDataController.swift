@@ -13,7 +13,6 @@ class PublicProposalDataController: NetworkDataController {
     private var localProposals: [Proposal] = []
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        // test
         HTTPRequest.shared.get(endpoint: "proposals") { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
