@@ -236,9 +236,15 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         if indexPath.section == 0 {
             let cellId = StaticCell.ordered()[indexPath.row]
             
-            if case .body = cellId {
+            switch cellId {
+            case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
+            case .amendments:
+                let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            default:
+                break
             }
         }
     }

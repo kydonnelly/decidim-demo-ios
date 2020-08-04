@@ -6,7 +6,15 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum ProposalStatus: String, CaseIterable {
+    case submitted
+    case invalid
+    case open
+    case accepted
+    case rejected
+}
 
 struct ProposalAmendment {
     
@@ -16,6 +24,7 @@ struct ProposalAmendment {
     let text: String
     let createdAt: Date
     let updatedAt: Date
+    let status: ProposalStatus
     
     public static func from(dict: [String: Any]) -> ProposalAmendment? {
         guard let amendmentId = dict["id"] as? Int,
@@ -34,12 +43,50 @@ struct ProposalAmendment {
             return nil
         }
         
+        let possibleStatuses = ProposalStatus.allCases
+        let status = possibleStatuses[Int(arc4random()) % possibleStatuses.count]
+        
         return ProposalAmendment(amendmentId: amendmentId,
                                  proposalId: proposalId,
                                  authorId: authorId,
                                  text: body,
                                  createdAt: createdDate,
-                                 updatedAt: updatedDate)
+                                 updatedAt: updatedDate,
+                                 status: status)
+    }
+    
+}
+
+extension ProposalStatus {
+    
+    var image: UIImage? {
+        switch self {
+        case .submitted:
+            return UIImage(systemName: "dot.square.fill")
+        case .invalid:
+            return UIImage(systemName: "nosign")
+        case .open:
+            return UIImage(systemName: "circle")
+        case .accepted:
+            return UIImage(systemName: "checkmark.circle.fill")
+        case .rejected:
+            return UIImage(systemName: "xmark.circle.fill")
+        }
+    }
+    
+    var tintColor: UIColor {
+        switch self {
+        case .submitted:
+            return .systemYellow
+        case .invalid:
+            return .systemRed
+        case .open:
+            return .systemPurple
+        case .accepted:
+            return .systemGreen
+        case .rejected:
+            return .systemRed
+        }
     }
     
 }

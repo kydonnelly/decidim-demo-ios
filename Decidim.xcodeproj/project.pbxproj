@@ -81,6 +81,9 @@
 		27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5A24D93978005DF376 /* ProfileIconListView.swift */; };
 		27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */; };
 		27B22B5F24D9399C005DF376 /* ProfileIconCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */; };
+		27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */; };
+		27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6324D94025005DF376 /* AmendmentCell.swift */; };
+		27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B6524D94077005DF376 /* AmendmentList.storyboard */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -175,6 +178,9 @@
 		27B22B5A24D93978005DF376 /* ProfileIconListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileIconListView.swift; sourceTree = "<group>"; };
 		27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCell.swift; sourceTree = "<group>"; };
 		27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileIconCollectionCell.xib; sourceTree = "<group>"; };
+		27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentListViewController.swift; sourceTree = "<group>"; };
+		27B22B6324D94025005DF376 /* AmendmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentCell.swift; sourceTree = "<group>"; };
+		27B22B6524D94077005DF376 /* AmendmentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AmendmentList.storyboard; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +348,7 @@
 				27B22B5424D93751005DF376 /* Generic */,
 				2756A6C824985D280023DC91 /* ViewController.swift */,
 				2756A6CB24985D280023DC91 /* Profile */,
+				27B22B6024D93FCE005DF376 /* Proposal Amendments */,
 				270A479124BD78F500115F95 /* Proposal Creation */,
 				2739747A24B568D300CA16A3 /* Proposal Detail */,
 				2756A6C924985D280023DC91 /* Proposal List */,
@@ -472,6 +479,16 @@
 			path = "Profile Info";
 			sourceTree = "<group>";
 		};
+		27B22B6024D93FCE005DF376 /* Proposal Amendments */ = {
+			isa = PBXGroup;
+			children = (
+				27B22B6324D94025005DF376 /* AmendmentCell.swift */,
+				27B22B6524D94077005DF376 /* AmendmentList.storyboard */,
+				27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */,
+			);
+			path = "Proposal Amendments";
+			sourceTree = "<group>";
+		};
 		A87A557AE0ED32245DD0D56A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +597,7 @@
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
 				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
+				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
@@ -687,6 +705,7 @@
 				270A479924BD880500115F95 /* ProposalImageCell.swift in Sources */,
 				27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */,
 				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
+				27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */,
 				27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */,
@@ -696,6 +715,7 @@
 				270A479724BD7BB400115F95 /* ProposalInputCell.swift in Sources */,
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
+				27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
