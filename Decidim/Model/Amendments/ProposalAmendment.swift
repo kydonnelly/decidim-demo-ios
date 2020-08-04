@@ -36,10 +36,8 @@ struct ProposalAmendment {
             return nil
         }
         
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        guard let createdDate = formatter.date(from: createdAt),
-              let updatedDate = formatter.date(from: updatedAt) else {
+        guard let createdDate = Date(timestamp: createdAt),
+              let updatedDate = Date(timestamp: updatedAt) else {
             return nil
         }
         
