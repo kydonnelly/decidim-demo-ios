@@ -46,7 +46,7 @@ class ProposalCommentsDataController: NetworkDataController {
         return comments
     }
     
-    public func addComment(_ comment: String, authorId: Int, completion: @escaping (Error?) -> Void) {
+    public func addComment(_ comment: String, completion: @escaping (Error?) -> Void) {
         let id = String(describing: self.proposalId!)
         let payload: [String: Any] = ["comment": ["body": comment]]
         

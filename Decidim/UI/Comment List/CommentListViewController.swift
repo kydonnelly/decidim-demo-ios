@@ -75,7 +75,7 @@ extension CommentListViewController {
         if let comment = self.textField.text, comment.count > 0 {
             self.textField.text = nil
 
-            self.dataController.addComment(comment, authorId: 1) { [weak self] error in
+            self.dataController.addComment(comment) { [weak self] error in
                 guard error == nil else {
                     return
                 }

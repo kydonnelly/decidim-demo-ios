@@ -75,7 +75,7 @@ extension CreateProposalViewController {
             }
             
             ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                dc.data = [ProposalDetail(proposal: proposal, authorId: 1, likeCount: 0, deadline: deadline, amendmentCount: 0)]
+                dc.data = [ProposalDetail(proposal: proposal, authorId: proposal.authorId, likeCount: 0, deadline: deadline, amendmentCount: 0)]
             }
         }
         
