@@ -79,6 +79,8 @@ class ProposalDetailViewController: UIViewController {
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -146,23 +148,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             return self.commentDataController?.allComments.count ?? 0
         } else {
             return 1
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            let cellId = StaticCell.ordered()[indexPath.row]
-            switch cellId {
-            case .amendments: return 76
-            case .author: return 72
-            case .body: return self.expandBody ? 112 : 56
-            case .engagement: return 48
-            case .title: return 96
-            }
-        } else if indexPath.section == 1 {
-            return 104
-        } else {
-            return 44
         }
     }
     
