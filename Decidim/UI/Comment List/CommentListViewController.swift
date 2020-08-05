@@ -41,6 +41,8 @@ class CommentListViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
         
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardFrameChange(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -121,10 +123,6 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dataController?.allComments.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
