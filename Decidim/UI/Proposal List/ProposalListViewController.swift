@@ -92,9 +92,11 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let proposal = self.dataController.allProposals[indexPath.row]
-        let vc = ProposalDetailViewController.create(proposal: proposal)
-        self.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.section == 0 {
+            let proposal = self.dataController.allProposals[indexPath.row]
+            let vc = ProposalDetailViewController.create(proposal: proposal)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
