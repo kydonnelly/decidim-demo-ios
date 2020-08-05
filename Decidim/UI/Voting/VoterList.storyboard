@@ -142,7 +142,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JW7-MH-bZb"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Voters" id="zjj-5q-ajt">
+                    <navigationItem key="navigationItem" title="Vote History" id="zjj-5q-ajt">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="8px-4W-bRC">
                             <connections>
                                 <action selector="closeButtonTapped:" destination="3GJ-nn-acj" id="WsA-t9-Ybq"/>
