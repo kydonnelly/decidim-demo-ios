@@ -222,7 +222,29 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! ProposalDetailCommentCell
             
             let comment = self.commentDataController.allComments[indexPath.row]
-            cell.setup(comment: comment)
+            cell.setup(comment: comment) { [weak self] button in
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
+                    guard let self = self else { return }
+                    let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
+                    commentVC.modalPresentationStyle = .overFullScreen
+                    self.navigationController?.present(commentVC, animated: true, completion: nil)
+                }))
+                alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
+                    
+                }))
+                
+                if let presenter = alert.popoverPresentationController {
+                    presenter.sourceView = button
+                    presenter.sourceRect = button.bounds
+                } else {
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _ in
+                        weakAlert?.dismiss(animated: true, completion: nil)
+                    }))
+                }
+                
+                self?.present(alert, animated: true, completion: nil)
+            }
             
             return cell
         } else {

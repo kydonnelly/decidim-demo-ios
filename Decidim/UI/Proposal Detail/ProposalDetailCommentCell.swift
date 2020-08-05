@@ -15,9 +15,15 @@ class ProposalDetailCommentCell: UITableViewCell {
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!
     
-    func setup(comment: ProposalComment) {
+    typealias OptionsBlock = (UIButton) -> Void
+    
+    fileprivate var optionsBlock: OptionsBlock?
+    
+    func setup(comment: ProposalComment, optionsBlock: OptionsBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
+        
+        self.optionsBlock = optionsBlock
         
         ProfileInfoDataController.shared().refresh { dc in
             guard let infos = dc.data as? [ProfileInfo] else {
@@ -30,6 +36,10 @@ class ProposalDetailCommentCell: UITableViewCell {
             self.handleLabel.text = info.handle
             self.iconImageView.image = info.thumbnail
         }
+    }
+    
+    @IBAction func optionsButtonPressed(_ sender: UIButton) {
+        self.optionsBlock?(sender)
     }
     
 }
