@@ -32,16 +32,22 @@ class ProfileViewController: UIViewController {
         
         self.title = "My Profile"
         
-        self.profileDataController = ProfileInfoDataController.shared()
-        self.profileDataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
-        }
+        let refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.tableView.reloadData()
+        self.refresh()
+    }
+    
+    fileprivate func refresh() {
+        self.profileDataController = ProfileInfoDataController.shared()
+        self.profileDataController.refresh { [weak self] dc in
+            self?.tableView.reloadData()
+        }
     }
     
     fileprivate var state: State {
@@ -162,6 +168,17 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let voteHistoryVC = VoteListViewController.create()
             self.navigationController?.pushViewController(voteHistoryVC, animated: true)
         }
+    }
+    
+}
+
+extension ProfileViewController {
+    
+    @objc public func pullToRefresh(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        
+        self.profileDataController.invalidate()
+        self.refresh()
     }
     
 }
