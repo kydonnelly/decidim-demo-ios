@@ -14,7 +14,14 @@ class ProfileViewController: UIViewController {
     
     private var profileDataController: ProfileInfoDataController!
     
+    fileprivate enum State {
+        case loading
+        case noProfile
+        case profile(ProfileInfo)
+    }
+    
     static let loadingCellId = "LoadingCell"
+    static let registerCellId = "RegisterCell"
     static let usernameCellId = "UsernameCell"
     static let passwordCellId = "PasswordCell"
     static let votingCellId = "VotingCell"
@@ -31,8 +38,28 @@ class ProfileViewController: UIViewController {
         }
     }
     
-    fileprivate var profileInfo: ProfileInfo? {
-        return self.profileDataController?.data?.first as? ProfileInfo
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
+    fileprivate var state: State {
+        guard let myId = MyProfileController.shared.myProfileId else {
+            return .noProfile
+        }
+        guard let profiles = self.profileDataController?.data as? [ProfileInfo] else {
+            return .loading
+        }
+        guard let myInfo = profiles.first(where: { $0.profileId == myId }) else {
+            guard let localHandle: String = MyProfileController.load(key: .username) else {
+                return .noProfile
+            }
+            
+            return .profile(ProfileInfo(profileId: myId, handle: localHandle, thumbnailUrl: nil))
+        }
+        
+        return .profile(myInfo)
     }
     
 }
@@ -44,16 +71,24 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard self.profileInfo != nil else {
+        switch self.state {
+        case .loading:
             return 1
+        case .noProfile:
+            return 1
+        case .profile:
+            return 4
         }
-        
-        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard self.profileInfo != nil else {
+        switch self.state {
+        case .loading:
             return 44
+        case .noProfile:
+            return 72
+        case .profile:
+            break
         }
         
         if indexPath.row == 0 {
@@ -66,8 +101,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let profileInfo = self.profileInfo else {
+        var profileInfo: ProfileInfo!
+        
+        switch self.state {
+        case .loading:
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
+        case .noProfile:
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! ProfileRegisterCell
+            cell.setup { [weak self] in
+                let registerVC = RegistrationViewController.create()
+                registerVC.modalPresentationStyle = .fullScreen
+                self?.navigationController?.present(registerVC, animated: true, completion: nil)
+            }
+            return cell
+        case let .profile(info):
+            profileInfo = info
+            break
         }
         
         if indexPath.row == 0 {
@@ -94,8 +143,13 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        guard self.profileInfo != nil else {
+        switch self.state {
+        case .loading:
             return
+        case .noProfile:
+            return
+        case .profile:
+            break
         }
         
         if indexPath.row == 1 {

@@ -42,8 +42,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:u1V-hu-o4O:image" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O">
-                                                    <rect key="frame" x="24" y="12.5" width="52" height="51"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:u1V-hu-o4O:image" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O">
+                                                    <rect key="frame" x="24" y="12" width="52" height="52"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u1V-hu-o4O" secondAttribute="height" multiplier="1:1" id="VxC-m5-T62"/>
                                                     </constraints>
@@ -247,14 +247,49 @@
                                             <outlet property="titleLabel" destination="tCU-a7-myD" id="b3V-zn-h3x"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="nea-tD-Szt">
-                                        <rect key="frame" x="0.0" y="236" width="414" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="ProfileRegisterCell" customModule="Decidim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="236" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nea-tD-Szt" id="3Ph-VU-Bzs">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-SR-kVR">
+                                                    <rect key="frame" x="24" y="12" width="366" height="48"/>
+                                                    <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="47l-5F-ChQ"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Register Account">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="registerButtonTapped:" destination="nea-tD-Szt" eventType="touchUpInside" id="eOB-5g-dGU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2E7-SR-kVR" firstAttribute="leading" secondItem="3Ph-VU-Bzs" secondAttribute="leading" constant="24" id="BO5-YE-eUF"/>
+                                                <constraint firstItem="2E7-SR-kVR" firstAttribute="centerY" secondItem="3Ph-VU-Bzs" secondAttribute="centerY" id="epO-wZ-zCa"/>
+                                                <constraint firstAttribute="trailing" secondItem="2E7-SR-kVR" secondAttribute="trailing" constant="24" id="lwq-1W-0Yt"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
+                                        <rect key="frame" x="0.0" y="308" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="itv-Zn-Crr" id="e5t-N5-a7b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="8ez-sH-pQ7">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="uTi-Cr-Jtc">
                                                     <rect key="frame" x="197" y="12" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -290,7 +325,7 @@
     </scenes>
     <resources>
         <image name="chevron.right" catalog="system" width="48" height="64"/>
-        <image name="imageView:u1V-hu-o4O:image" catalog="system" width="64" height="60">
+        <image name="imageView:u1V-hu-o4O:image" width="64" height="60">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGV1hYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
 FRYbICElJi0wMz1FSU1RVFUkbnVsbNYJCgsMDQ4PEBESExRWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxh
