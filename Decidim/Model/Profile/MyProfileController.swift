@@ -52,20 +52,35 @@ extension MyProfileController {
     
 }
 
+extension MyProfileController {
+    
+    enum UnsecureKey: String {
+        case profile_id
+        case username
+        case password
+    }
+    
+    @discardableResult
+    class func save<T>(key: UnsecureKey, value: T) -> Bool {
+        UserDefaults.standard.set(value, forKey: key.rawValue)
+        return true
+    }
+    
+    class func load<T>(key: UnsecureKey) -> T? {
+        return UserDefaults.standard.value(forKey: key.rawValue) as? T
+    }
+    
+}
 
 // https://stackoverflow.com/a/37539998
 extension MyProfileController {
     
     enum SecureKey: String {
-        case profile_id
-        case username
-        case password
+        case dummy
         
         var securityAttribute: String {
             switch self {
-            case .profile_id: return kSecAttrCreator as String
-            case .username: return kSecAttrLabel as String
-            case .password: return kSecAttrAccount as String
+            case .dummy: return kSecAttrAccount as String
             }
         }
     }
