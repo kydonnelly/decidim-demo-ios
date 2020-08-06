@@ -22,6 +22,8 @@ class ProposalListViewController: UIViewController {
         
         self.title = "Browse Proposals"
         
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
@@ -63,14 +65,6 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
             return self.dataController.allProposals.count
         } else {
             return 1
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 96
-        } else {
-            return 44
         }
     }
     
