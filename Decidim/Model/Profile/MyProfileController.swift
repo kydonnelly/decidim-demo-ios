@@ -39,11 +39,13 @@ extension MyProfileController {
     }
     
     public func register(username: String, password: String, completion: UpdateBlock?) {
-        HTTPRequest.shared.createSession(username: username, password: password) { response, error in
+        HTTPRequest.shared.createSession(username: username, password: password) { userId, response, error in
             if error == nil {
                 MyProfileController.save(key: .username, value: username)
                 MyProfileController.save(key: .password, value: password)
-                MyProfileController.save(key: .profile_id, value: response?["user_id"])
+                MyProfileController.save(key: .profile_id, value: userId)
+                
+                self.myProfileId = userId
             }
             
             completion?(error)

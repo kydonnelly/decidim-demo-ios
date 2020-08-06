@@ -27,16 +27,26 @@ class HTTPRequest {
         case failedRegistration(underlying: Error)
     }
     
-    public func createSession(username: String, password: String, completion: @escaping ([String: Any]?, Error?) -> Void) {
+    public func createSession(username: String, password: String, completion: @escaping (Int?, [String: Any]?, Error?) -> Void) {
         let session = URLSession(configuration: .default)
-        let authPayload = ["name": username, "password": password]
+        let authPayload = ["user": ["name": username, "password": password]]
         post(session: session, endpoint: "registration", payload: authPayload) { results, error in
             guard error == nil else {
-                completion(nil, RequestError.failedRegistration(underlying: error!))
+                completion(nil, nil, RequestError.failedRegistration(underlying: error!))
                 return
             }
             
-            completion(results, nil)
+            guard let status = results?["status"] as? String, status == "created" else {
+                completion(nil, nil, RequestError.parseError(response: results))
+                return
+            }
+            
+            guard let userInfo = results?["user"] as? [String: Any], let userId = userInfo["id"] as? Int else {
+                completion(nil, nil, RequestError.parseError(response: results))
+                return
+            }
+            
+            completion(userId, results, nil)
         }
     }
     

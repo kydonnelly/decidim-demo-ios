@@ -24,13 +24,14 @@ class HTTPRequestTests: XCTestCase {
         let password = "password"
         
         let expectation = XCTestExpectation(description: "registration response")
-        var receivedError: Error? = nil
+        var receivedId: Int? = nil
         var receivedName: String? = nil
         var receivedStatus: String? = nil
         var receivedDigest: String? = nil
+        var receivedError: Error? = nil
         
         // test
-        request.createSession(username: username, password: password) { results, error in
+        request.createSession(username: username, password: password) { userId, results, error in
             defer { expectation.fulfill() }
             
             guard error == nil else {
@@ -41,8 +42,9 @@ class HTTPRequestTests: XCTestCase {
                 return
             }
             
-            receivedStatus = results?["status"] as? String
+            receivedId = userId
             receivedName = userInfo["name"] as? String
+            receivedStatus = results?["status"] as? String
             receivedDigest = userInfo["password_digest"] as? String
         }
         
@@ -51,6 +53,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(receivedStatus, "created")
         XCTAssertEqual(receivedName, username)
         XCTAssertNotNil(receivedDigest)
+        XCTAssertNotNil(receivedId)
         XCTAssertNil(receivedError)
     }
 
