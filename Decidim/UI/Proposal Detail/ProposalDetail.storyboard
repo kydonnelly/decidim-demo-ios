@@ -511,19 +511,7 @@
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2q-gq-fSE" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="192"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 days left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvq-qH-M7V">
-                                                        <rect key="frame" x="322.5" y="159" width="67.5" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="lvq-qH-M7V" secondAttribute="bottom" constant="16" id="4ep-5P-jKO"/>
-                                                    <constraint firstAttribute="trailing" secondItem="lvq-qH-M7V" secondAttribute="trailing" constant="24" id="s82-GF-jSn"/>
-                                                </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
                                                         <color key="value" red="0.98431372549999996" green="0.98431372549999996" blue="0.98431372549999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,7 +524,17 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote Now!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-nA-bWX">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Decidim" customModuleProvider="target">
+                                                <rect key="frame" x="24" y="54.5" width="366" height="101.5"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="3 days left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvq-qH-M7V">
+                                                <rect key="frame" x="24" y="163" width="67.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Vote Now!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3e-nA-bWX">
                                                 <rect key="frame" x="158" y="16" width="98" height="26.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                 <nil key="textColor"/>
@@ -555,58 +553,21 @@
                                                     <action selector="toggleVoteVisibilityWithSender:" destination="Thi-t9-BhW" eventType="touchUpInside" id="eYB-ts-RlZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKf-rH-6Ww">
-                                                <rect key="frame" x="100.5" y="60" width="72" height="72"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="72" id="Abl-89-3b5"/>
-                                                    <constraint firstAttribute="width" constant="72" id="pLD-nx-eoi"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="xmark.rectangle.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="voteNoWithSender:" destination="Thi-t9-BhW" eventType="touchUpInside" id="LuA-M6-MTr"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcj-QD-0cM">
-                                                <rect key="frame" x="241.5" y="60" width="72" height="72"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="72" id="2Qs-hy-Xt9"/>
-                                                    <constraint firstAttribute="width" constant="72" id="IUU-wb-qFe"/>
-                                                </constraints>
-                                                <color key="tintColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="checkmark.rectangle.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="voteYesWithSender:" destination="Thi-t9-BhW" eventType="touchUpInside" id="9ug-os-e0E"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03F-vu-RZL">
-                                                <rect key="frame" x="174.5" y="151" width="65" height="25"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
-                                                <state key="normal" title="Abstain">
-                                                    <color key="titleColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="voteAbstainWithSender:" destination="Thi-t9-BhW" eventType="touchUpInside" id="Lnt-pV-ooh"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
+                                            <constraint firstItem="0XQ-kT-dpp" firstAttribute="top" secondItem="D3e-nA-bWX" secondAttribute="bottom" constant="12" id="5bl-OW-aH8"/>
                                             <constraint firstItem="vHJ-K9-pEa" firstAttribute="centerY" secondItem="D3e-nA-bWX" secondAttribute="centerY" id="Gge-XI-wfM"/>
                                             <constraint firstAttribute="trailing" secondItem="S2q-gq-fSE" secondAttribute="trailing" id="HIC-1n-ctN"/>
-                                            <constraint firstItem="vcj-QD-0cM" firstAttribute="centerX" secondItem="MYv-1z-N56" secondAttribute="trailing" multiplier="0.67" id="JJG-vE-q2j"/>
                                             <constraint firstItem="D3e-nA-bWX" firstAttribute="top" secondItem="MYv-1z-N56" secondAttribute="top" constant="16" id="KW1-hS-SPj"/>
-                                            <constraint firstItem="tKf-rH-6Ww" firstAttribute="centerX" secondItem="MYv-1z-N56" secondAttribute="trailing" multiplier="0.33" id="MFx-03-8iy"/>
                                             <constraint firstItem="D3e-nA-bWX" firstAttribute="centerX" secondItem="MYv-1z-N56" secondAttribute="centerX" id="R9b-h9-TuE"/>
-                                            <constraint firstItem="tKf-rH-6Ww" firstAttribute="centerY" secondItem="MYv-1z-N56" secondAttribute="centerY" id="SbB-iT-twa"/>
                                             <constraint firstAttribute="bottom" secondItem="S2q-gq-fSE" secondAttribute="bottom" id="bao-Km-NEO"/>
                                             <constraint firstAttribute="height" constant="192" id="dVG-2C-zka"/>
-                                            <constraint firstItem="03F-vu-RZL" firstAttribute="centerX" secondItem="MYv-1z-N56" secondAttribute="centerX" id="kXP-LG-qf9"/>
-                                            <constraint firstItem="vcj-QD-0cM" firstAttribute="centerY" secondItem="MYv-1z-N56" secondAttribute="centerY" id="kwG-wR-6Vp"/>
+                                            <constraint firstItem="0XQ-kT-dpp" firstAttribute="leading" secondItem="MYv-1z-N56" secondAttribute="leading" constant="24" id="kXd-75-EII"/>
                                             <constraint firstAttribute="trailing" secondItem="vHJ-K9-pEa" secondAttribute="trailing" constant="24" id="mG3-Ja-Yuz"/>
-                                            <constraint firstAttribute="bottom" secondItem="03F-vu-RZL" secondAttribute="bottom" constant="16" id="qV9-aj-bug"/>
+                                            <constraint firstItem="0XQ-kT-dpp" firstAttribute="centerX" secondItem="MYv-1z-N56" secondAttribute="centerX" id="qMT-rV-k7W"/>
                                             <constraint firstItem="S2q-gq-fSE" firstAttribute="top" secondItem="MYv-1z-N56" secondAttribute="top" id="rfW-Bu-h0S"/>
+                                            <constraint firstItem="lvq-qH-M7V" firstAttribute="leading" secondItem="MYv-1z-N56" secondAttribute="leading" constant="24" id="teP-2Y-UyJ"/>
                                             <constraint firstItem="S2q-gq-fSE" firstAttribute="leading" secondItem="MYv-1z-N56" secondAttribute="leading" id="xdt-DD-rQe"/>
                                         </constraints>
                                     </view>
@@ -625,8 +586,10 @@
                             <constraint firstItem="e4K-Fd-uxI" firstAttribute="top" secondItem="oIl-ot-lT9" secondAttribute="top" id="4IY-YR-4XJ"/>
                             <constraint firstAttribute="trailing" secondItem="faM-YE-avr" secondAttribute="trailing" id="BxU-Bm-1iS"/>
                             <constraint firstItem="92D-GS-MvV" firstAttribute="bottom" secondItem="MYv-1z-N56" secondAttribute="bottom" id="Oow-Lt-taw"/>
-                            <constraint firstItem="92D-GS-MvV" firstAttribute="bottom" secondItem="MYv-1z-N56" secondAttribute="top" priority="999" constant="58" id="XgH-eR-w6S"/>
+                            <constraint firstItem="92D-GS-MvV" firstAttribute="bottom" secondItem="MYv-1z-N56" secondAttribute="top" priority="999" constant="54" id="XgH-eR-w6S"/>
                             <constraint firstItem="faM-YE-avr" firstAttribute="leading" secondItem="oIl-ot-lT9" secondAttribute="leading" id="Z7B-sZ-H1g"/>
+                            <constraint firstItem="92D-GS-MvV" firstAttribute="bottom" secondItem="0XQ-kT-dpp" secondAttribute="bottom" priority="500" constant="36" id="a5J-pP-J7U"/>
+                            <constraint firstItem="92D-GS-MvV" firstAttribute="bottom" secondItem="lvq-qH-M7V" secondAttribute="bottom" constant="12" id="c9d-fL-fsV"/>
                             <constraint firstAttribute="trailing" secondItem="e4K-Fd-uxI" secondAttribute="trailing" id="fVO-h0-xMU"/>
                             <constraint firstItem="faM-YE-avr" firstAttribute="top" secondItem="e4K-Fd-uxI" secondAttribute="bottom" id="qke-eh-oe7"/>
                             <constraint firstItem="e4K-Fd-uxI" firstAttribute="leading" secondItem="oIl-ot-lT9" secondAttribute="leading" id="tyv-JS-ZNh"/>
@@ -635,14 +598,12 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="e4K-Fd-uxI" id="Xch-F7-VoU"/>
-                        <outlet property="voteAbstainButton" destination="03F-vu-RZL" id="va0-fP-f10"/>
                         <outlet property="voteContainerView" destination="faM-YE-avr" id="nlq-mJ-maO"/>
                         <outlet property="voteDeadlineLabel" destination="lvq-qH-M7V" id="dE5-TR-jiC"/>
-                        <outlet property="voteNoButton" destination="tKf-rH-6Ww" id="3Jm-8y-IHn"/>
                         <outlet property="voteStatusLabel" destination="D3e-nA-bWX" id="Bgo-1P-bFe"/>
+                        <outlet property="voteView" destination="0XQ-kT-dpp" id="C7O-D7-881"/>
                         <outlet property="voteVisibilityButton" destination="vHJ-K9-pEa" id="a2E-uH-IwF"/>
                         <outlet property="voteVisibilityConstraint" destination="Oow-Lt-taw" id="aKU-vx-2T1"/>
-                        <outlet property="voteYesButton" destination="vcj-QD-0cM" id="gpS-CO-uAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpa-Xf-7j7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -652,7 +613,6 @@
     </scenes>
     <resources>
         <image name="bubble.right" catalog="system" width="64" height="54"/>
-        <image name="checkmark.rectangle.fill" catalog="system" width="64" height="46"/>
         <image name="checkmark.square" catalog="system" width="64" height="56"/>
         <image name="chevron.down" catalog="system" width="64" height="36"/>
         <image name="chevron.right" catalog="system" width="48" height="64"/>
@@ -663,6 +623,5 @@
         <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
         <image name="person.circle" catalog="system" width="64" height="60"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
-        <image name="xmark.rectangle.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>

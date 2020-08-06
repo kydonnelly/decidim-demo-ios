@@ -28,9 +28,7 @@ class ProposalDetailViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     @IBOutlet var voteStatusLabel: UILabel!
-    @IBOutlet var voteNoButton: UIButton!
-    @IBOutlet var voteYesButton: UIButton!
-    @IBOutlet var voteAbstainButton: UIButton!
+    @IBOutlet var voteView: VotingOptionsView!
     
     @IBOutlet var voteContainerView: UIView!
     @IBOutlet var voteDeadlineLabel: UILabel!
@@ -43,6 +41,7 @@ class ProposalDetailViewController: UIViewController {
     private var commentDataController: ProposalCommentsDataController!
     
     fileprivate var expandBody = false
+    fileprivate var previousContentOffset: CGPoint = .zero
     
     public static func create(proposal: Proposal) -> ProposalDetailViewController {
         let sb = UIStoryboard(name: "ProposalDetail", bundle: .main)
@@ -68,13 +67,6 @@ class ProposalDetailViewController: UIViewController {
         self.title = "Proposal"
         
         self.voteContainerView.roundTopCorners(radius: 16.0, addShadow: true)
-        
-        self.voteNoButton.layer.cornerRadius = 36
-        self.voteNoButton.layer.borderColor = UIColor.red.cgColor
-        self.voteYesButton.layer.cornerRadius = 36
-        self.voteYesButton.layer.borderColor = UIColor.green.cgColor
-        self.voteAbstainButton.layer.cornerRadius = 8
-        self.voteAbstainButton.layer.borderColor = UIColor.purple.cgColor
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -127,6 +119,20 @@ class ProposalDetailViewController: UIViewController {
         self.commentDataController.refresh { [weak self] dc in
             self?.tableView.reloadData()
         }
+    }
+    
+}
+
+extension ProposalDetailViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y > 0,
+           scrollView.contentOffset.y > self.previousContentOffset.y,
+           !self.voteVisibilityButton.isSelected {
+            self.toggleVoteVisibility(sender: self.voteVisibilityButton)
+        }
+        
+        self.previousContentOffset = scrollView.contentOffset
     }
     
 }
@@ -279,32 +285,20 @@ extension ProposalDetailViewController {
     }
     
     private func refreshVoteButtons(myVote: VoteType?) {
-        self.voteNoButton.layer.borderWidth = (myVote == .no) ? 2 : 0
-        self.voteYesButton.layer.borderWidth = (myVote == .yes) ? 2 : 0
-        self.voteAbstainButton.layer.borderWidth = (myVote == .abstain) ? 2 : 0
-    }
-    
-    @IBAction func voteYes(sender: UIButton) {
-        self.voteDataController.addVote(.yes) { [weak self] error in
-            self?.refreshVoteUI(myVote: .yes)
-        }
-    }
-    
-    @IBAction func voteNo(sender: UIButton) {
-        self.voteDataController.addVote(.no) { [weak self] error in
-            self?.refreshVoteUI(myVote: .no)
-        }
-    }
-    
-    @IBAction func voteAbstain(sender: UIButton) {
-        self.voteDataController.addVote(.abstain) { [weak self] error in
-            self?.refreshVoteUI(myVote: .abstain)
+        self.voteView.setup(currentVote: myVote) { [weak self] type in
+            self?.voteDataController.addVote(type) { [weak self] error in
+                self?.refreshVoteUI(myVote: type)
+            }
         }
     }
     
     @IBAction func toggleVoteVisibility(sender: UIButton) {
         sender.isSelected = !sender.isSelected
         self.voteVisibilityConstraint.isActive = !self.voteVisibilityConstraint.isActive
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
 }
