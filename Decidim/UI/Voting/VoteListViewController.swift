@@ -17,6 +17,7 @@ class VoteListViewController: UIViewController {
     
     private var dataController: PublicProposalDataController!
     private var proposals: [Proposal] = []
+    private var isRefreshing: Bool = false
     
     public static func create() -> VoteListViewController {
         let sb = UIStoryboard(name: "VoteList", bundle: .main)
@@ -30,18 +31,31 @@ class VoteListViewController: UIViewController {
         self.title = "Vote History"
         
         self.dataController = PublicProposalDataController.shared()
+        
+        let refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.dataController.refresh { [weak self] _ in
-            self?.refresh()
-        }
+        self.refresh()
+        
     }
     
     private func refresh() {
+        self.dataController.refresh { [weak self] _ in
+            self?.refreshVotes()
+        }
+    }
+    
+    private func refreshVotes() {
+        guard !self.isRefreshing else { return }
+        
+        self.isRefreshing = true
         self.proposals.removeAll()
+        
         let allProposals = self.dataController.allProposals
         var count = allProposals.count
         
@@ -57,6 +71,7 @@ class VoteListViewController: UIViewController {
                 }
                 
                 if count == 0 {
+                    self?.isRefreshing = false
                     self?.tableView?.reloadData()
                 }
             }
@@ -68,10 +83,10 @@ class VoteListViewController: UIViewController {
 extension VoteListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dataController.donePaging {
-            return 1
-        } else {
+        if !self.dataController.donePaging || self.isRefreshing {
             return 2
+        } else {
+            return 1
         }
     }
     
@@ -116,9 +131,20 @@ extension VoteListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             self.dataController.page { [weak self] dc in
-                self?.refresh()
+                self?.refreshVotes()
             }
         }
+    }
+    
+}
+
+extension VoteListViewController {
+    
+    @objc public func pullToRefresh(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        
+        self.dataController.invalidate()
+        self.refresh()
     }
     
 }
