@@ -118,12 +118,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gZS-r5-1lj">
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="gZS-r5-1lj">
                                                     <rect key="frame" x="197" y="12" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </activityIndicatorView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="gZS-r5-1lj" firstAttribute="centerY" secondItem="xij-iG-sJv" secondAttribute="centerY" id="IcW-5R-9eH"/>
+                                                <constraint firstItem="gZS-r5-1lj" firstAttribute="centerX" secondItem="xij-iG-sJv" secondAttribute="centerX" id="OzN-XX-aQ7"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
