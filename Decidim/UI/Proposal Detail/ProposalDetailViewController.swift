@@ -64,8 +64,6 @@ class ProposalDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Proposal"
-        
         self.voteContainerView.roundTopCorners(radius: 16.0, addShadow: true)
         
         let refreshControl = UIRefreshControl(frame: .zero)
@@ -300,6 +298,16 @@ extension ProposalDetailViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+}
+
+extension ProposalDetailViewController {
+    
+    @IBAction func tappedEditButton(_ sender: UIBarButtonItem) {
+        let editVC = EditProposalViewController.create(proposal: self.proposalDetail)
+        editVC.modalPresentationStyle = .overFullScreen
+        self.navigationController?.present(editVC, animated: true, completion: nil)
     }
     
 }

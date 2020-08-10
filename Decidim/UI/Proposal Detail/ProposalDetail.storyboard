@@ -517,6 +517,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="92D-GS-MvV"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Proposal" id="1iA-zQ-m34">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="W3h-91-F6T">
+                            <connections>
+                                <action selector="tappedEditButton:" destination="Thi-t9-BhW" id="yk2-SU-JT8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="e4K-Fd-uxI" id="Xch-F7-VoU"/>
                         <outlet property="voteContainerView" destination="faM-YE-avr" id="nlq-mJ-maO"/>

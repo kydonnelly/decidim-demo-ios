@@ -57,4 +57,34 @@ class PublicProposalDataController: NetworkDataController {
         }
     }
     
+    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
+        let payload: [String: Any] = ["proposal": ["title": title,
+                                                   "body": description]]
+        
+        HTTPRequest.shared.put(endpoint: "proposals", args: ["\(proposalId)"], payload: payload) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let proposalInfo = response?["proposal"] as? [String: Any],
+                  let proposal = Proposal.from(dict: proposalInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            if let localIndex = self?.localProposals.firstIndex(where: { $0.id == proposalId }) {
+                self?.localProposals.remove(at: localIndex)
+                self?.localProposals.insert(proposal, at: localIndex)
+            }
+            
+            
+            if let localIndex = self?.data?.firstIndex(where: { ($0 as? Proposal)?.id == proposalId }) {
+                self?.data?.remove(at: localIndex)
+                self?.data?.insert(proposal, at: localIndex)
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }

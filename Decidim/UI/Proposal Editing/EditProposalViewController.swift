@@ -1,5 +1,5 @@
 //
-//  CreateProposalViewController.swift
+//  EditProposalViewController.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 7/13/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreateProposalViewController: UIViewController {
+class EditProposalViewController: UIViewController {
     
     fileprivate static let InputCellId = "InputCell"
     fileprivate static let ImageCellId = "ImageCell"
@@ -16,6 +16,8 @@ class CreateProposalViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
+    
+    fileprivate var originalProposal: ProposalDetail?
     
     fileprivate var proposalTitle: String? {
         didSet { refreshDoneButton() }
@@ -27,18 +29,36 @@ class CreateProposalViewController: UIViewController {
     fileprivate var thumbnail: UIImage?
     fileprivate var deadline: Date!
     
-    public static func create() -> UIViewController {
-        let sb = UIStoryboard(name: "CreateProposal", bundle: .main)
+    public static func create(proposal: ProposalDetail? = nil) -> UIViewController {
+        let sb = UIStoryboard(name: "EditProposal", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! UINavigationController
+        let epvc = vc.viewControllers.first! as! EditProposalViewController
+        epvc.setup(proposal: proposal)
         return vc
+    }
+    
+    private func setup(proposal: ProposalDetail?) {
+        self.originalProposal = proposal
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.refreshDoneButton()
-        self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+        if let editingProposal = self.originalProposal {
+            self.title = "Edit Proposal"
+            self.deadline = editingProposal.deadline
+            self.thumbnail = editingProposal.proposal.thumbnail
+            self.proposalTitle = editingProposal.proposal.title
+            self.proposalDescription = editingProposal.proposal.body
+        } else {
+            self.refreshDoneButton()
+            self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+        }
     }
+    
+}
+
+extension EditProposalViewController {
     
     fileprivate func refreshDoneButton() {
         if let title = self.proposalTitle, title.count > 0,
@@ -51,20 +71,28 @@ class CreateProposalViewController: UIViewController {
     
 }
 
-extension CreateProposalViewController {
+extension EditProposalViewController {
     
     @IBAction func didTapCancelButton(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func didTapDoneButton(_ sender: Any) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+        
+        if let editingProposalId = self.originalProposal?.proposal.id {
+            self.submitEditedProposal(id: editingProposalId)
+        } else {
+            self.submitNewProposal()
+        }
+    }
+    
+    private func submitNewProposal() {
+        let deadline: Date = self.deadline
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
-
-        self.navigationController?.dismiss(animated: true, completion: nil)
         
-        let deadline: Date = self.deadline
         PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { error in
             guard error == nil else {
                 return
@@ -78,13 +106,32 @@ extension CreateProposalViewController {
                 dc.data = [ProposalDetail(proposal: proposal, authorId: proposal.authorId, likeCount: 0, deadline: deadline, amendmentCount: 0)]
             }
         }
+    }
+    
+    private func submitEditedProposal(id: Int) {
+        let deadline: Date = self.deadline
+        guard let title = self.proposalTitle, let description = self.proposalDescription else {
+            return
+        }
         
-        
+        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { error in
+            guard error == nil else {
+                return
+            }
+            
+            guard let proposal = PublicProposalDataController.shared().allProposals.first(where: { $0.id == id }) else {
+                return
+            }
+            
+            ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
+                dc.data = [ProposalDetail(proposal: proposal, authorId: proposal.authorId, likeCount: 0, deadline: deadline, amendmentCount: 0)]
+            }
+        }
     }
     
 }
 
-extension CreateProposalViewController: UITableViewDataSource, UITableViewDelegate {
+extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -144,7 +191,7 @@ extension CreateProposalViewController: UITableViewDataSource, UITableViewDelega
     
 }
 
-extension CreateProposalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProposalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     fileprivate func showImagePicker(indexPath: IndexPath) {
         let imagePicker = UIImagePickerController()

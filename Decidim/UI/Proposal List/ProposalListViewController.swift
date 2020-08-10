@@ -106,7 +106,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
 extension ProposalListViewController {
     
     @IBAction func tappedCreateButton(_ sender: UIButton) {
-        let createVC = CreateProposalViewController.create()
+        let createVC = EditProposalViewController.create()
         createVC.modalPresentationStyle = .overFullScreen
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }
