@@ -15,15 +15,19 @@ class ProfileInfoDataController: NetworkDataController {
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let testProfiles = [ProfileInfo(profileId: 1, handle: "Kyle", thumbnailUrl: nil),
-                            ProfileInfo(profileId: 2, handle: "Tri", thumbnailUrl: nil),
-                            ProfileInfo(profileId: 3, handle: "Shawn", thumbnailUrl: nil),
-                            ProfileInfo(profileId: 4, handle: "Jay", thumbnailUrl: nil),
-                            ProfileInfo(profileId: 5, handle: "Colin", thumbnailUrl: nil),
-                            ProfileInfo(profileId: 6, handle: "Hyon", thumbnailUrl: nil),]
-        let nextCursor = Cursor(next: "", done: true)
-        
-        completion(testProfiles, nextCursor, nil)
+        HTTPRequest.shared.get(endpoint: "users") { response, error in
+            guard error == nil else {
+                completion(nil, Cursor(next: "error", done: true), error)
+                return
+            }
+            guard let profileInfos = response?["users"] as? [[String: Any]] else {
+                completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            let profiles = profileInfos.compactMap { ProfileInfo.from(dict: $0) }
+            completion(profiles, Cursor(next: "", done: true), nil)
+        }
     }
     
 }

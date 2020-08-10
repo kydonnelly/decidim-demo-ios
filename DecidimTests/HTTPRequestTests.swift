@@ -61,6 +61,36 @@ class HTTPRequestTests: XCTestCase {
         Self.authenticateTestUser()
     }
 
+    func testHTTPRequest_UserList() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [ProfileInfo]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "users") { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let profiles = response?["users"] as? [[String: Any]] {
+                responseLength = profiles.count
+                responseList = profiles.compactMap { ProfileInfo.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
     func testHTTPRequest_ProposalList() {
         // setup
         let request = HTTPRequest.shared

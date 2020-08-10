@@ -13,6 +13,17 @@ struct ProfileInfo {
     let profileId: Int
     let handle: String
     let thumbnailUrl: String?
+    
+    public static func from(dict: [String: Any]) -> ProfileInfo? {
+        guard let profileId = dict["id"] as? Int,
+              let handle = dict["name"] as? String else {
+            return nil
+        }
+        
+        return ProfileInfo(profileId: profileId,
+                           handle: handle,
+                           thumbnailUrl: nil)
+    }
 }
 
 extension ProfileInfo {
