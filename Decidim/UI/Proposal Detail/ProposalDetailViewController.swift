@@ -73,6 +73,7 @@ class ProposalDetailViewController: UIViewController {
         self.tableView.addSubview(refreshControl)
         
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellID)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -210,7 +211,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             
             return cell
         } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! ProposalDetailCommentCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! CommentCell
             
             let comment = self.commentDataController.allComments[indexPath.row]
             cell.setup(comment: comment) { [weak self] button in

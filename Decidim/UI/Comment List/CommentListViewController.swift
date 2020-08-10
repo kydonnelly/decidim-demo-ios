@@ -42,6 +42,7 @@ class CommentListViewController: UIViewController {
         self.tableView.addSubview(refreshControl)
         
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellId)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardFrameChange(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
     }
@@ -60,6 +61,10 @@ class CommentListViewController: UIViewController {
         self.textField.becomeFirstResponder()
     }
     
+    fileprivate var comments: [ProposalComment] {
+        return self.dataController.allComments
+    }
+    
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         
@@ -74,16 +79,18 @@ class CommentListViewController: UIViewController {
 extension CommentListViewController {
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        if let comment = self.textField.text, comment.count > 0 {
-            self.textField.text = nil
+        guard let commentText = self.textField.text, commentText.count > 0 else {
+            return
+        }
+        
+        self.textField.text = nil
 
-            self.dataController.addComment(comment) { [weak self] error in
-                guard error == nil else {
-                    return
-                }
-                
-                self?.tableView.reloadData()
+        self.dataController.addComment(commentText) { [weak self] error in
+            guard error == nil else {
+                return
             }
+            
+            self?.tableView.reloadData()
         }
     }
     
@@ -122,14 +129,34 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataController?.allComments.count ?? 0
+        return self.comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellId, for: indexPath) as! CommentCell
         
-        let comment = self.dataController.allComments[indexPath.row]
-        cell.setup(comment: comment)
+        let comment = self.comments[indexPath.row]
+        cell.setup(comment: comment) { [weak self] button in
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
+                guard let self = self else { return }
+                self.textField.becomeFirstResponder()
+            }))
+            alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
+     
+            }))
+     
+            if let presenter = alert.popoverPresentationController {
+                presenter.sourceView = button
+                presenter.sourceRect = button.bounds
+            } else {
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _  in
+                    weakAlert?.dismiss(animated: true, completion: nil)
+                }))
+            }
+     
+            self?.present(alert, animated: true, completion: nil)
+        }
         
         return cell
     }

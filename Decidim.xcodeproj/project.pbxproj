@@ -28,6 +28,7 @@
 		2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */; };
 		2717F47124DBDE6800189F7C /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2717F47024DBDE6800189F7C /* Registration.storyboard */; };
 		2717F47324DBE41100189F7C /* ProfileRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47224DBE41100189F7C /* ProfileRegisterCell.swift */; };
+		2717F47524E0BC4600189F7C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2717F47424E0BC4600189F7C /* CommentCell.xib */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -40,7 +41,6 @@
 		2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */; };
 		2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */; };
 		2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */; };
-		2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */; };
 		2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */; };
 		2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */; };
 		2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */; };
@@ -132,6 +132,7 @@
 		2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2717F47024DBDE6800189F7C /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		2717F47224DBE41100189F7C /* ProfileRegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterCell.swift; sourceTree = "<group>"; };
+		2717F47424E0BC4600189F7C /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -144,7 +145,6 @@
 		2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailBodyCell.swift; sourceTree = "<group>"; };
 		2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAuthorCell.swift; sourceTree = "<group>"; };
 		2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAmendmentsCell.swift; sourceTree = "<group>"; };
-		2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailCommentCell.swift; sourceTree = "<group>"; };
 		2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetail.swift; sourceTree = "<group>"; };
 		2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailDataController.swift; sourceTree = "<group>"; };
 		2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -345,7 +345,6 @@
 				2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */,
 				2739748724B5A07600CA16A3 /* ProposalDetailAuthorCell.swift */,
 				2739748524B5A05E00CA16A3 /* ProposalDetailBodyCell.swift */,
-				2739748B24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift */,
 				2739748324B5A03200CA16A3 /* ProposalDetailEngagementCell.swift */,
 				2739748124B5A01400CA16A3 /* ProposalDetailTitleCell.swift */,
 				2739747B24B568EF00CA16A3 /* ProposalDetailViewController.swift */,
@@ -463,6 +462,7 @@
 		27B22B2724BF0C13005DF376 /* Comment List */ = {
 			isa = PBXGroup;
 			children = (
+				2717F47424E0BC4600189F7C /* CommentCell.xib */,
 				27B22B2C24BF0CC3005DF376 /* CommentCell.swift */,
 				27B22B2A24BF0C26005DF376 /* CommentList.storyboard */,
 				27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */,
@@ -645,6 +645,7 @@
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 				270A479524BD792100115F95 /* CreateProposal.storyboard in Resources */,
 				27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */,
+				2717F47524E0BC4600189F7C /* CommentCell.xib in Resources */,
 				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */,
 			);
@@ -744,7 +745,6 @@
 				2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */,
 				270A479924BD880500115F95 /* ProposalImageCell.swift in Sources */,
 				27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */,
-				2739748C24B5A0A000CA16A3 /* ProposalDetailCommentCell.swift in Sources */,
 				27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */,
