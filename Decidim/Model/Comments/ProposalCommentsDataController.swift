@@ -86,7 +86,6 @@ class ProposalCommentsDataController: NetworkDataController {
                 self?.localComments.insert(comment, at: localIndex)
             }
             
-            
             if let localIndex = self?.data?.firstIndex(where: { ($0 as? ProposalComment)?.commentId == commentId }) {
                 self?.data?.remove(at: localIndex)
                 self?.data?.insert(comment, at: localIndex)

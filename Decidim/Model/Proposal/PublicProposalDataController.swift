@@ -77,7 +77,6 @@ class PublicProposalDataController: NetworkDataController {
                 self?.localProposals.insert(proposal, at: localIndex)
             }
             
-            
             if let localIndex = self?.data?.firstIndex(where: { ($0 as? Proposal)?.id == proposalId }) {
                 self?.data?.remove(at: localIndex)
                 self?.data?.insert(proposal, at: localIndex)
