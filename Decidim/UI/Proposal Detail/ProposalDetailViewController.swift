@@ -212,17 +212,31 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! CommentCell
             
             let comment = self.commentDataController.allComments[indexPath.row]
-            cell.setup(comment: comment) { [weak self] button in
+            let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
+            
+            cell.setup(comment: comment, isOwn: isMyComment, isEditing: false) { [weak self] button in
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-                alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
-                    guard let self = self else { return }
-                    let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
-                    commentVC.modalPresentationStyle = .overFullScreen
-                    self.navigationController?.present(commentVC, animated: true, completion: nil)
-                }))
-                alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
-                    
-                }))
+                if isMyComment {
+                    alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+                        guard let self = self else { return }
+                        let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!, editComment: comment)
+                        commentVC.modalPresentationStyle = .overFullScreen
+                        self.navigationController?.present(commentVC, animated: true, completion: nil)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { _ in
+                        
+                    }))
+                } else {
+                    alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
+                        guard let self = self else { return }
+                        let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
+                        commentVC.modalPresentationStyle = .overFullScreen
+                        self.navigationController?.present(commentVC, animated: true, completion: nil)
+                    }))
+                    alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
+                        
+                    }))
+                }
                 
                 if let presenter = alert.popoverPresentationController {
                     presenter.sourceView = button

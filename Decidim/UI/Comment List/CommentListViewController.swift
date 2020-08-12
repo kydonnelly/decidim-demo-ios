@@ -20,15 +20,18 @@ class CommentListViewController: UIViewController {
     
     private var dataController: ProposalCommentsDataController!
     
-    static func create(proposalDetail: ProposalDetail) -> UIViewController {
+    fileprivate var editingComment: ProposalComment?
+    
+    static func create(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "CommentList", bundle: .main)
         let nvc = sb.instantiateInitialViewController() as! UINavigationController
         let clvc = nvc.viewControllers.first! as! CommentListViewController
-        clvc.setup(proposalDetail: proposalDetail)
+        clvc.setup(proposalDetail: proposalDetail, editComment: editComment)
         return nvc
     }
     
-    func setup(proposalDetail: ProposalDetail) {
+    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil) {
+        self.editingComment = editComment
         self.dataController = ProposalCommentsDataController.shared(proposalId: proposalDetail.proposal.id)
     }
     
@@ -51,7 +54,13 @@ class CommentListViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.dataController?.refresh(successBlock: { [weak self] dc in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+            
+            if let comment = self.editingComment {
+                self.textField.text = comment.text
+            }
         })
     }
     
@@ -84,13 +93,24 @@ extension CommentListViewController {
         }
         
         self.textField.text = nil
+        self.editingComment = nil
 
-        self.dataController.addComment(commentText) { [weak self] error in
-            guard error == nil else {
-                return
+        if let editingId = self.editingComment?.commentId {
+            self.dataController.editComment(editingId, comment: commentText) { [weak self] error in
+                guard error == nil else {
+                    return
+                }
+                
+                self?.tableView.reloadData()
             }
-            
-            self?.tableView.reloadData()
+        } else {
+            self.dataController.addComment(commentText) { [weak self] error in
+                guard error == nil else {
+                    return
+                }
+                
+                self?.tableView.reloadData()
+            }
         }
     }
     
@@ -136,15 +156,32 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellId, for: indexPath) as! CommentCell
         
         let comment = self.comments[indexPath.row]
-        cell.setup(comment: comment) { [weak self] button in
+        let isEditing = comment.commentId == self.editingComment?.commentId
+        let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
+        
+        cell.setup(comment: comment, isOwn: isMyComment, isEditing: isEditing) { [weak self] button in
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-            alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
-                guard let self = self else { return }
-                self.textField.becomeFirstResponder()
-            }))
-            alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
-     
-            }))
+            
+            if isMyComment {
+                alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+                    guard let self = self else { return }
+                    self.editingComment = comment
+                    self.textField.text = comment.text
+                    self.textField.becomeFirstResponder()
+                    self.tableView.reloadData()
+                }))
+                alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { _ in
+                    
+                }))
+            } else {
+                alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
+                    guard let self = self else { return }
+                    self.textField.becomeFirstResponder()
+                }))
+                alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
+                    
+                }))
+            }
      
             if let presenter = alert.popoverPresentationController {
                 presenter.sourceView = button

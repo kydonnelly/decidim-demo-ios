@@ -66,4 +66,34 @@ class ProposalCommentsDataController: NetworkDataController {
         }
     }
     
+    public func editComment(_ commentId: Int, comment: String, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.proposalId!), "comments", "\(commentId)"]
+        let payload: [String: Any] = ["comment": ["body": comment]]
+        
+        HTTPRequest.shared.put(endpoint: "proposals", args: args, payload: payload) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let commentInfo = response?["comment"] as? [String: Any],
+                  let comment = ProposalComment.from(dict: commentInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            if let localIndex = self?.localComments.firstIndex(where: { $0.commentId == commentId }) {
+                self?.localComments.remove(at: localIndex)
+                self?.localComments.insert(comment, at: localIndex)
+            }
+            
+            
+            if let localIndex = self?.data?.firstIndex(where: { ($0 as? ProposalComment)?.commentId == commentId }) {
+                self?.data?.remove(at: localIndex)
+                self?.data?.insert(comment, at: localIndex)
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }

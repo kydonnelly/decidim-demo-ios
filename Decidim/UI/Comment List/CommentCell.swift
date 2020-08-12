@@ -22,16 +22,17 @@ class CommentCell: UITableViewCell {
     
     fileprivate var onOptionsTapped: OptionsBlock?
     
-    func setup(comment: ProposalComment, optionsBlock: OptionsBlock?) {
+    func setup(comment: ProposalComment, isOwn: Bool, isEditing: Bool, optionsBlock: OptionsBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
         self.timeLabel.text = comment.createdAt.asShortStringAgo()
         
-        let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
-        self.reactButton.isHidden = isMyComment
-        self.optionsButton.isHidden = !isMyComment
+        self.reactButton.isHidden = isOwn
+        self.optionsButton.isHidden = !isOwn
         
         self.onOptionsTapped = optionsBlock
+        
+        self.contentView.backgroundColor = isEditing ? UIColor.purple.withAlphaComponent(0.1) : .clear
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
