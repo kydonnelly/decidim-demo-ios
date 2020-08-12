@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kej-1R-Zr5">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CreateAmendmentViewController-->
+        <scene sceneID="WDz-Fr-ZqO">
+            <objects>
+                <viewController id="kej-1R-Zr5" userLabel="CreateAmendmentViewController" customClass="CreateAmendmentViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xAE-7Z-Oy0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKg-9U-Q3O" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pencil.and.ellipsis.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="TIO-JP-gMo">
+                                <rect key="frame" x="24" y="68" width="48" height="46.5"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="8c1-F6-5DT"/>
+                                    <constraint firstAttribute="width" constant="48" id="CZA-VY-Jc3"/>
+                                </constraints>
+                            </imageView>
+                            <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mvz-Mu-MzV" userLabel="Centering Reference View">
+                                <rect key="frame" x="88" y="70.5" width="0.0" height="43"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="74k-kv-388"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the proposal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJ8-7T-U1V">
+                                <rect key="frame" x="88" y="70.5" width="302" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Proposer Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFO-rn-m4m">
+                                <rect key="frame" x="88" y="94" width="302" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kwx-Ix-RVO">
+                                <rect key="frame" x="24" y="164" width="366" height="656"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="TIO-JP-gMo" firstAttribute="top" secondItem="p6A-7W-Xnc" secondAttribute="top" constant="24" id="DJb-OU-Poc"/>
+                            <constraint firstItem="Mvz-Mu-MzV" firstAttribute="top" secondItem="gJ8-7T-U1V" secondAttribute="top" id="JQ2-zb-1nP"/>
+                            <constraint firstItem="p6A-7W-Xnc" firstAttribute="trailing" secondItem="kwx-Ix-RVO" secondAttribute="trailing" constant="24" id="JxY-sb-Gs0"/>
+                            <constraint firstItem="Mvz-Mu-MzV" firstAttribute="bottom" secondItem="jFO-rn-m4m" secondAttribute="bottom" id="O9X-OS-BC6"/>
+                            <constraint firstItem="Mvz-Mu-MzV" firstAttribute="leading" secondItem="gJ8-7T-U1V" secondAttribute="leading" id="Rig-2r-S4l"/>
+                            <constraint firstItem="gJ8-7T-U1V" firstAttribute="leading" secondItem="TIO-JP-gMo" secondAttribute="trailing" constant="16" id="Sgd-w4-Pga"/>
+                            <constraint firstItem="p6A-7W-Xnc" firstAttribute="trailing" secondItem="gJ8-7T-U1V" secondAttribute="trailing" constant="24" id="Tiw-AH-L31"/>
+                            <constraint firstItem="Mvz-Mu-MzV" firstAttribute="centerY" secondItem="TIO-JP-gMo" secondAttribute="centerY" id="aTJ-R6-gyY"/>
+                            <constraint firstItem="jFO-rn-m4m" firstAttribute="top" secondItem="gJ8-7T-U1V" secondAttribute="bottom" constant="2" id="b0W-y6-f69"/>
+                            <constraint firstItem="jFO-rn-m4m" firstAttribute="trailing" secondItem="gJ8-7T-U1V" secondAttribute="trailing" id="cFj-zR-e2K"/>
+                            <constraint firstItem="kwx-Ix-RVO" firstAttribute="leading" secondItem="p6A-7W-Xnc" secondAttribute="leading" constant="24" id="cp6-EC-nyc"/>
+                            <constraint firstItem="yKg-9U-Q3O" firstAttribute="trailing" secondItem="p6A-7W-Xnc" secondAttribute="trailing" id="e9U-x0-liX"/>
+                            <constraint firstItem="yKg-9U-Q3O" firstAttribute="top" secondItem="xAE-7Z-Oy0" secondAttribute="top" id="geU-j9-JSQ"/>
+                            <constraint firstItem="jFO-rn-m4m" firstAttribute="leading" secondItem="gJ8-7T-U1V" secondAttribute="leading" id="hBt-4S-jpQ"/>
+                            <constraint firstItem="p6A-7W-Xnc" firstAttribute="bottom" secondItem="kwx-Ix-RVO" secondAttribute="bottom" constant="42" id="rBP-Cq-GPj"/>
+                            <constraint firstItem="yKg-9U-Q3O" firstAttribute="bottom" secondItem="p6A-7W-Xnc" secondAttribute="top" constant="96" id="sLi-DC-xLh"/>
+                            <constraint firstItem="TIO-JP-gMo" firstAttribute="leading" secondItem="p6A-7W-Xnc" secondAttribute="leading" constant="24" id="sWc-VF-xlh"/>
+                            <constraint firstItem="yKg-9U-Q3O" firstAttribute="leading" secondItem="p6A-7W-Xnc" secondAttribute="leading" id="yCQ-VK-TBa"/>
+                            <constraint firstItem="kwx-Ix-RVO" firstAttribute="top" secondItem="yKg-9U-Q3O" secondAttribute="bottom" constant="24" id="zog-KL-qHr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p6A-7W-Xnc"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Amendment" id="CL3-om-S5n">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="FxQ-Ns-PFo">
+                            <connections>
+                                <action selector="submitButtonTapped:" destination="kej-1R-Zr5" id="PGJ-eI-Unr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="kwx-Ix-RVO" id="uuZ-fL-lBe"/>
+                        <outlet property="submitButtonItem" destination="FxQ-Ns-PFo" id="wjx-3h-1IN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wlX-hA-lKJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="71"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="pencil.and.ellipsis.rectangle" catalog="system" width="64" height="40"/>
+    </resources>
+</document>

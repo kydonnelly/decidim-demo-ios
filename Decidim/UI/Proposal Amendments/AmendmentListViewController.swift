@@ -14,6 +14,7 @@ class AmendmentListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
+    private var proposalDetail: ProposalDetail!
     private var dataController: ProposalAmendmentDataController!
     
     static func create(proposalDetail: ProposalDetail) -> UIViewController {
@@ -25,6 +26,7 @@ class AmendmentListViewController: UIViewController {
     }
     
     func setup(proposalDetail: ProposalDetail) {
+        self.proposalDetail = proposalDetail
         self.dataController = ProposalAmendmentDataController.shared(proposalId: proposalDetail.proposal.id)
     }
     
@@ -59,6 +61,11 @@ extension AmendmentListViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func createButtonTapped(_ sender: Any) {
+        let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

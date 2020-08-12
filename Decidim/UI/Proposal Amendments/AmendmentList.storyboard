@@ -142,6 +142,11 @@
                                 <action selector="closeButtonTapped:" destination="Rp6-St-QLN" id="fXZ-ze-y0Z"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="VnM-Q6-bLT">
+                            <connections>
+                                <action selector="createButtonTapped:" destination="Rp6-St-QLN" id="w1I-S9-amq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="XEv-bx-Saa" id="caD-c4-Ga6"/>
@@ -155,5 +160,6 @@
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

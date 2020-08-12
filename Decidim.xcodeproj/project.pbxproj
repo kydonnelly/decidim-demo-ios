@@ -91,6 +91,8 @@
 		27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */; };
 		27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6324D94025005DF376 /* AmendmentCell.swift */; };
 		27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B6524D94077005DF376 /* AmendmentList.storyboard */; };
+		27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */; };
+		27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -195,6 +197,8 @@
 		27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentListViewController.swift; sourceTree = "<group>"; };
 		27B22B6324D94025005DF376 /* AmendmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentCell.swift; sourceTree = "<group>"; };
 		27B22B6524D94077005DF376 /* AmendmentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AmendmentList.storyboard; sourceTree = "<group>"; };
+		27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAmendment.storyboard; sourceTree = "<group>"; };
+		27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAmendmentViewController.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -490,6 +494,8 @@
 		27B22B4F24D934F6005DF376 /* Amendments */ = {
 			isa = PBXGroup;
 			children = (
+				27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */,
+				27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */,
 				27B22B5024D93505005DF376 /* ProposalAmendment.swift */,
 				27B22B5224D9356C005DF376 /* ProposalAmendmentDataController.swift */,
 			);
@@ -635,6 +641,7 @@
 				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
+				27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */,
 				2717F46A24DAA9DB00189F7C /* VotingOptionCell.xib in Resources */,
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
@@ -756,6 +763,7 @@
 				27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				2717F47324DBE41100189F7C /* ProfileRegisterCell.swift in Sources */,
+				27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */,
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
