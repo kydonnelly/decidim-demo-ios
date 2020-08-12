@@ -83,7 +83,7 @@
 		27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4924D7EEC0005DF376 /* MyProfileController.swift */; };
 		27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */; };
 		27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5024D93505005DF376 /* ProposalAmendment.swift */; };
-		27B22B5324D9356C005DF376 /* ProposalAmendementDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */; };
+		27B22B5324D9356C005DF376 /* ProposalAmendmentDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5224D9356C005DF376 /* ProposalAmendmentDataController.swift */; };
 		27B22B5624D93760005DF376 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5524D93760005DF376 /* GradientView.swift */; };
 		27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5A24D93978005DF376 /* ProfileIconListView.swift */; };
 		27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */; };
@@ -187,7 +187,7 @@
 		27B22B4924D7EEC0005DF376 /* MyProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileController.swift; sourceTree = "<group>"; };
 		27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
 		27B22B5024D93505005DF376 /* ProposalAmendment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalAmendment.swift; sourceTree = "<group>"; };
-		27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalAmendementDataController.swift; sourceTree = "<group>"; };
+		27B22B5224D9356C005DF376 /* ProposalAmendmentDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalAmendmentDataController.swift; sourceTree = "<group>"; };
 		27B22B5524D93760005DF376 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		27B22B5A24D93978005DF376 /* ProfileIconListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileIconListView.swift; sourceTree = "<group>"; };
 		27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCell.swift; sourceTree = "<group>"; };
@@ -491,7 +491,7 @@
 			isa = PBXGroup;
 			children = (
 				27B22B5024D93505005DF376 /* ProposalAmendment.swift */,
-				27B22B5224D9356C005DF376 /* ProposalAmendementDataController.swift */,
+				27B22B5224D9356C005DF376 /* ProposalAmendmentDataController.swift */,
 			);
 			path = Amendments;
 			sourceTree = "<group>";
@@ -760,7 +760,7 @@
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
 				2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */,
-				27B22B5324D9356C005DF376 /* ProposalAmendementDataController.swift in Sources */,
+				27B22B5324D9356C005DF376 /* ProposalAmendmentDataController.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
 				27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */,
