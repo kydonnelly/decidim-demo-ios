@@ -153,6 +153,7 @@
                                             <constraints>
                                                 <constraint firstItem="e79-LP-sVo" firstAttribute="centerY" secondItem="ZX4-Fs-A79" secondAttribute="centerY" id="1Ql-Zd-1TH"/>
                                                 <constraint firstItem="e79-LP-sVo" firstAttribute="centerX" secondItem="ZX4-Fs-A79" secondAttribute="centerX" id="7ba-4T-lEJ"/>
+                                                <constraint firstItem="e79-LP-sVo" firstAttribute="top" secondItem="ZX4-Fs-A79" secondAttribute="top" priority="51" constant="12" id="Zya-Lw-hdZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
