@@ -95,4 +95,28 @@ class ProposalCommentsDataController: NetworkDataController {
         }
     }
     
+    public func deleteComment(_ commentId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.proposalId!), "comments", "\(commentId)"]
+        
+        HTTPRequest.shared.delete(endpoint: "proposals", args: args) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard response?["status"] as? String == "deleted" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
+            
+            if let localIndex = self?.localComments.firstIndex(where: { $0.commentId == commentId }) {
+                self?.localComments.remove(at: localIndex)
+            }
+            if let localIndex = self?.data?.firstIndex(where: { ($0 as? ProposalComment)?.commentId == commentId }) {
+                self?.data?.remove(at: localIndex)
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }

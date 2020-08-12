@@ -170,8 +170,10 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
                     self.textField.becomeFirstResponder()
                     self.tableView.reloadData()
                 }))
-                alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { _ in
-                    
+                alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
+                    self?.dataController.deleteComment(comment.commentId) { [weak self] _ in
+                        self?.tableView.reloadData()
+                    }
                 }))
             } else {
                 alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in

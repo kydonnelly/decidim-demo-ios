@@ -23,6 +23,7 @@ class HTTPRequest {
         case encodingError
         case missingKeyError
         case parseError(response: [String: Any]?)
+        case statusError(response: [String: Any]?)
         case failedRefresh(underlying: Error)
         case failedRegistration(underlying: Error)
     }
