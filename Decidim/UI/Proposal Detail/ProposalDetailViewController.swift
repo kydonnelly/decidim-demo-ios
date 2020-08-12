@@ -222,8 +222,10 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                         commentVC.modalPresentationStyle = .overFullScreen
                         self.navigationController?.present(commentVC, animated: true, completion: nil)
                     }))
-                    alert.addAction(UIAlertAction(title: "Delete", style: .default, handler: { _ in
-                        
+                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+                        self?.commentDataController.deleteComment(comment.commentId, completion: { [weak self] _ in
+                            self?.tableView.reloadData()
+                        })
                     }))
                 } else {
                     alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
@@ -325,10 +327,38 @@ extension ProposalDetailViewController {
 
 extension ProposalDetailViewController {
     
-    @IBAction func tappedEditButton(_ sender: UIBarButtonItem) {
-        let editVC = EditProposalViewController.create(proposal: self.proposalDetail)
-        editVC.modalPresentationStyle = .overFullScreen
-        self.navigationController?.present(editVC, animated: true, completion: nil)
+    @IBAction func tappedOptionsButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+       
+        alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            let editVC = EditProposalViewController.create(proposal: self.proposalDetail)
+            editVC.modalPresentationStyle = .overFullScreen
+            self.navigationController?.present(editVC, animated: true, completion: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+            guard let self = self, let proposalId = self.proposalDetail?.proposal.id else {
+                return
+            }
+            
+            PublicProposalDataController.shared().deleteProposal(proposalId) { [weak self] error in
+                guard error == nil else {
+                    return
+                }
+                
+                self?.navigationController?.popViewController(animated: true)
+            }
+        }))
+         
+        if let presenter = alert.popoverPresentationController {
+            presenter.barButtonItem = sender
+        } else {
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _  in
+                weakAlert?.dismiss(animated: true, completion: nil)
+            }))
+        }
+
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

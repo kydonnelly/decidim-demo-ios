@@ -86,4 +86,26 @@ class PublicProposalDataController: NetworkDataController {
         }
     }
     
+    public func deleteProposal(_ proposalId: Int, completion: @escaping (Error?) -> Void) {
+        HTTPRequest.shared.delete(endpoint: "proposals", args: ["\(proposalId)"]) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard response?["status"] as? String == "deleted" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
+            
+            if let localIndex = self?.localProposals.firstIndex(where: { $0.id == proposalId }) {
+                self?.localProposals.remove(at: localIndex)
+            }
+            if let localIndex = self?.data?.firstIndex(where: { ($0 as? Proposal)?.id == proposalId }) {
+                self?.data?.remove(at: localIndex)
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }
