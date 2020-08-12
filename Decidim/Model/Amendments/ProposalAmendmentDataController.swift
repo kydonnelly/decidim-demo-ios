@@ -45,8 +45,7 @@ class ProposalAmendmentDataController: NetworkDataController {
                 return
             }
             
-            let filteredInfos = commentInfos.filter { ($0["body"] as? String)?.hasPrefix("AMENDMENT: ") == true }
-            let proposals = filteredInfos.compactMap { ProposalAmendment.from(dict: $0) }
+            let proposals = commentInfos.compactMap { ProposalAmendment.from(commentInfo: $0) }
             completion(proposals, Cursor(next: "", done: true), nil)
         }
     }
@@ -88,7 +87,7 @@ class ProposalAmendmentDataController: NetworkDataController {
                 return
             }
             guard let commentInfo = response?["comment"] as? [String: Any],
-                  let amendment = ProposalAmendment.from(dict: commentInfo) else {
+                  let amendment = ProposalAmendment.from(commentInfo: commentInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
@@ -110,7 +109,7 @@ class ProposalAmendmentDataController: NetworkDataController {
                 return
             }
             guard let commentInfo = response?["comment"] as? [String: Any],
-                  let amendment = ProposalAmendment.from(dict: commentInfo) else {
+                  let amendment = ProposalAmendment.from(commentInfo: commentInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
