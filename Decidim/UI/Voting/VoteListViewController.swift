@@ -16,7 +16,7 @@ class VoteListViewController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     private var dataController: PublicProposalDataController!
-    private var proposals: [Proposal] = []
+    private var proposalVotes: [(Proposal, ProposalVote)] = []
     private var isRefreshing: Bool = false
     
     public static func create() -> VoteListViewController {
@@ -54,10 +54,12 @@ class VoteListViewController: UIViewController {
         guard !self.isRefreshing else { return }
         
         self.isRefreshing = true
-        self.proposals.removeAll()
+        self.proposalVotes.removeAll()
         
         let allProposals = self.dataController.allProposals
         var count = allProposals.count
+        
+        let profileId = MyProfileController.shared.myProfileId
         
         for proposal in allProposals {
             ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
@@ -66,8 +68,8 @@ class VoteListViewController: UIViewController {
                 guard let dc = dc as? ProposalVotesDataController else {
                     return
                 }
-                if (dc.allVotes.map { $0.authorId }.contains(6)) {
-                    self?.proposals.append(proposal)
+                if let vote = dc.allVotes.first(where: { $0.authorId == profileId }) {
+                    self?.proposalVotes.append((proposal, vote))
                 }
                 
                 if count == 0 {
@@ -92,7 +94,7 @@ extension VoteListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.proposals.count
+            return self.proposalVotes.count
         } else {
             return 1
         }
@@ -108,9 +110,9 @@ extension VoteListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let proposal = self.proposals[indexPath.row]
+            let (proposal, vote) = self.proposalVotes[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.proposalVoteCellId, for: indexPath) as! ProposalVoteCell
-            cell.setup(proposal: proposal)
+            cell.setup(proposal: proposal, myVote: vote.voteType)
             
             return cell
         } else {
@@ -122,7 +124,7 @@ extension VoteListViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section == 0 {
             tableView.deselectRow(at: indexPath, animated: true)
             
-            let proposal = self.proposals[indexPath.row]
+            let (proposal, _) = self.proposalVotes[indexPath.row]
             let vc = ProposalDetailViewController.create(proposal: proposal)
             self.navigationController?.pushViewController(vc, animated: true)
         }

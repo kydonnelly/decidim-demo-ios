@@ -20,7 +20,7 @@ class ProposalVoteCell: UITableViewCell {
     
     @IBOutlet var myVoteImage: UIImageView!
     
-    public func setup(proposal: Proposal) {
+    public func setup(proposal: Proposal, myVote: VoteType?) {
         self.titleLabel.text = proposal.title
         self.subtitleLabel.text = proposal.body
         self.iconImageView.image = proposal.thumbnail
@@ -29,17 +29,8 @@ class ProposalVoteCell: UITableViewCell {
         self.commentsLabel.text = "\(proposal.commentCount) comments"
         self.votesLabel.text = "\(proposal.voteCount) votes"
         
-        ProposalVotesDataController.shared(proposalId: proposal.id).refresh(successBlock: { [weak self] dc in
-            guard let dc = dc as? ProposalVotesDataController else { return }
-            
-            let myVote = dc.allVotes.first { $0.authorId == 6 }
-            self?.configure(voteType: myVote?.voteType)
-        })
-    }
-    
-    private func configure(voteType: VoteType?) {
-        self.myVoteImage.image = voteType?.image ?? UIImage(systemName: "chevron.right")
-        self.myVoteImage.tintColor = voteType?.tintColor ?? .darkGray
+        self.myVoteImage.image = myVote?.image ?? UIImage(systemName: "chevron.right")
+        self.myVoteImage.tintColor = myVote?.tintColor ?? .darkGray
     }
     
 }
