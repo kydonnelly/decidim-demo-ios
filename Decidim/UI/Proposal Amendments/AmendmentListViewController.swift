@@ -114,11 +114,51 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
         if amendment.authorId == MyProfileController.shared.myProfileId {
             let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail, amendment: amendment)
             self.navigationController?.pushViewController(vc, animated: true)
+        } else if self.proposalDetail.authorId == MyProfileController.shared.myProfileId {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            
+            if amendment.status == .submitted {
+                alert.addAction(UIAlertAction(title: "Open", style: .default, handler: { [weak self] _  in
+                    self?.selectStatus(.open, amendment: amendment)
+                }))
+                alert.addAction(UIAlertAction(title: "Invalidate", style: .default, handler: { [weak self] _  in
+                    self?.selectStatus(.invalid, amendment: amendment)
+                }))
+            } else {
+                alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { [weak self] _  in
+                    self?.selectStatus(.accepted, amendment: amendment)
+                }))
+                alert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { [weak self] _  in
+                    self?.selectStatus(.rejected, amendment: amendment)
+                }))
+            }
+            
+            if let presenter = alert.popoverPresentationController {
+                presenter.sourceView = tableView
+                presenter.sourceRect = tableView.rectForRow(at: indexPath)
+            } else {
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _  in
+                    weakAlert?.dismiss(animated: true, completion: nil)
+                }))
+            }
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = .white
+    }
+    
+}
+
+extension AmendmentListViewController {
+    
+    fileprivate func selectStatus(_ status: AmendmentStatus, amendment: ProposalAmendment) {
+        self.dataController.editAmendment(amendment.amendmentId, status: status, text: amendment.text) { [weak self] error in
+            guard error == nil else { return }
+            
+            self?.tableView.reloadData()
+        }
     }
     
 }

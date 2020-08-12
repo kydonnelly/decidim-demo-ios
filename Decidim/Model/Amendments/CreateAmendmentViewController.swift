@@ -61,7 +61,7 @@ extension CreateAmendmentViewController {
         }
         
         if let amendment = self.originalAmendment {
-            self.dataController.editAmendment(amendment.amendmentId, text: text) { [weak self] error in
+            self.dataController.editAmendment(amendment.amendmentId, status: amendment.status, text: text) { [weak self] error in
                 guard error == nil else {
                     return
                 }

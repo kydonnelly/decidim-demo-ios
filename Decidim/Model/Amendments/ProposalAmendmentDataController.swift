@@ -78,7 +78,7 @@ class ProposalAmendmentDataController: NetworkDataController {
 //            completion(nil)
 //        }
         
-        let commentText = "AMENDMENT: \(amendment)"
+        let commentText = "\(amendment):\(String(describing: AmendmentStatus.submitted)):AMENDMENT"
         let payload: [String: Any] = ["comment": ["body": commentText]]
         
         HTTPRequest.shared.post(endpoint: "proposals", args: [id, "comments"], payload: payload) { [weak self] response, error in
@@ -96,9 +96,9 @@ class ProposalAmendmentDataController: NetworkDataController {
             completion(nil)
         }
     }
-        
-    public func editAmendment(_ amendmentId: Int, text: String, completion: @escaping (Error?) -> Void) {
-        let commentText = "AMENDMENT: \(text)"
+    
+    public func editAmendment(_ amendmentId: Int, status: AmendmentStatus, text: String, completion: @escaping (Error?) -> Void) {
+        let commentText = "\(text):\(String(describing: status)):AMENDMENT"
         
         let args: [String] = [String(describing: self.proposalId!), "comments", "\(amendmentId)"]
         let payload: [String: Any] = ["comment": ["body": commentText]]

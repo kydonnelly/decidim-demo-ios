@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ProposalStatus: String, CaseIterable {
+enum AmendmentStatus: String, CaseIterable {
     case submitted
     case invalid
     case open
@@ -24,16 +24,23 @@ struct ProposalAmendment {
     let text: String
     let createdAt: Date
     let updatedAt: Date
-    let status: ProposalStatus
+    let status: AmendmentStatus
     
     // temp helper
     internal static func from(commentInfo: [String: Any]) -> ProposalAmendment? {
         var proposalInfo = commentInfo
-        guard let text = proposalInfo["body"] as? String, text.hasPrefix("AMENDMENT: ") else {
+        guard let text = proposalInfo["body"] as? String, text.hasSuffix(":AMENDMENT") else {
             return nil
         }
         
-        proposalInfo["body"] = text.components(separatedBy: "AMENDMENT: ").last
+        var components = text.components(separatedBy: ":")
+        guard components.count > 2 else {
+            return nil
+        }
+        
+        _ = components.popLast()
+        proposalInfo["status"] = components.popLast()
+        proposalInfo["body"] = components.joined(separator: ":")
         
         return ProposalAmendment.from(dict: proposalInfo)
     }
@@ -53,8 +60,14 @@ struct ProposalAmendment {
             return nil
         }
         
-        let possibleStatuses = ProposalStatus.allCases
-        let status = possibleStatuses[Int(arc4random()) % possibleStatuses.count]
+        var status: AmendmentStatus! = nil
+        if let rawStatus = dict["status"] as? String {
+            status = AmendmentStatus(rawValue: rawStatus)
+        }
+        if status == nil {
+            let possibleStatuses = AmendmentStatus.allCases
+            status = possibleStatuses[Int(arc4random()) % possibleStatuses.count]
+        }
         
         return ProposalAmendment(amendmentId: amendmentId,
                                  proposalId: proposalId,
@@ -67,7 +80,7 @@ struct ProposalAmendment {
     
 }
 
-extension ProposalStatus {
+extension AmendmentStatus {
     
     var image: UIImage? {
         switch self {
