@@ -95,8 +95,7 @@ class ProposalDetailViewController: UIViewController {
         self.voteDataController.refresh { [weak self] dc in
             guard let self = self else { return }
             
-            let myVote = self.voteDataController.allVotes.first { $0.proposalId == self.proposal.id }
-            self.refreshVoteUI(myVote: myVote?.voteType)
+            self.refreshVoteUI()
         }
         
         self.commentDataController.refresh { [weak self] dc in
@@ -287,9 +286,11 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
 
 extension ProposalDetailViewController {
     
-    fileprivate func refreshVoteUI(myVote: VoteType?) {
+    fileprivate func refreshVoteUI() {
+        let myVote = self.voteDataController.allVotes.first { $0.proposalId == self.proposal.id }
+        
         if let voteType = myVote {
-            self.voteStatusLabel.text = "You voted \(String(describing: voteType))"
+            self.voteStatusLabel.text = "You voted \(String(describing: voteType.voteType))"
         } else {
             self.voteStatusLabel.text = "Vote now!"
         }
@@ -297,10 +298,16 @@ extension ProposalDetailViewController {
         self.refreshVoteButtons(myVote: myVote)
     }
     
-    private func refreshVoteButtons(myVote: VoteType?) {
-        self.voteView.setup(currentVote: myVote) { [weak self] type in
-            self?.voteDataController.addVote(type) { [weak self] error in
-                self?.refreshVoteUI(myVote: type)
+    private func refreshVoteButtons(myVote: ProposalVote?) {
+        self.voteView.setup(currentVote: myVote?.voteType) { [weak self] type in
+            if let existingVote = myVote {
+                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
+                    self?.refreshVoteUI()
+                })
+            } else {
+                self?.voteDataController.addVote(type) { [weak self] error in
+                    self?.refreshVoteUI()
+                }
             }
         }
     }

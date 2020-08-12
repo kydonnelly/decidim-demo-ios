@@ -66,4 +66,33 @@ class ProposalVotesDataController: NetworkDataController {
         }
     }
     
+    public func editVote(_ voteId: Int, voteType: VoteType, completion: @escaping (Error?) -> Void) {
+        let args = [String(describing: self.proposalId!), "votes", "\(voteId)"]
+        let payload: [String: Any] = ["vote": ["body": voteType.rawValue]]
+        
+        HTTPRequest.shared.put(endpoint: "proposals", args: args, payload: payload) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let voteInfo = response?["vote"] as? [String: Any],
+                  let vote = ProposalVote.from(dict: voteInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            if let localIndex = self?.localVotes.firstIndex(where: { $0.voteId == voteId }) {
+                self?.localVotes.remove(at: localIndex)
+                self?.localVotes.insert(vote, at: localIndex)
+            }
+            
+            if let localIndex = self?.data?.firstIndex(where: { ($0 as? ProposalVote)?.voteId == voteId }) {
+                self?.data?.remove(at: localIndex)
+                self?.data?.insert(vote, at: localIndex)
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }
