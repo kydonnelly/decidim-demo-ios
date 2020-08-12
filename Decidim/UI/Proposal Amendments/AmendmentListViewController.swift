@@ -11,6 +11,7 @@ import UIKit
 class AmendmentListViewController: UIViewController {
     
     fileprivate static let AmendmentCellId = "AmendmentCell"
+    fileprivate static let LoadingCellId = "LoadingCell"
     
     @IBOutlet var tableView: UITableView!
     
@@ -32,6 +33,8 @@ class AmendmentListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -73,24 +76,45 @@ extension AmendmentListViewController {
 extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        if self.dataController.donePaging {
+            return 1
+        } else {
+            return 2
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataController?.allAmendments.count ?? 0
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 104
+        if section == 0 {
+            return self.dataController?.allAmendments.count ?? 0
+        } else {
+            return 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Self.AmendmentCellId, for: indexPath) as! AmendmentCell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.AmendmentCellId, for: indexPath) as! AmendmentCell
+            
+            let amendment = self.dataController.allAmendments[indexPath.row]
+            cell.setup(amendment: amendment)
+            
+            return cell
+        } else {
+            return tableView.dequeueReusableCell(withIdentifier: Self.LoadingCellId, for: indexPath)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard indexPath.section == 0 else { return }
         
         let amendment = self.dataController.allAmendments[indexPath.row]
-        cell.setup(amendment: amendment)
         
-        return cell
+        if amendment.authorId == MyProfileController.shared.myProfileId {
+            let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail, amendment: amendment)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
