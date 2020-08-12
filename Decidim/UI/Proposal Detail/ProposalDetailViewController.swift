@@ -289,7 +289,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
 extension ProposalDetailViewController {
     
     fileprivate func refreshVoteUI() {
-        let myVote = self.voteDataController.allVotes.first { $0.proposalId == self.proposal.id }
+        let myVote = self.voteDataController.allVotes.last { $0.proposalId == self.proposal.id }
         
         if let voteType = myVote {
             self.voteStatusLabel.text = "You voted \(String(describing: voteType.voteType))"
@@ -302,15 +302,15 @@ extension ProposalDetailViewController {
     
     private func refreshVoteButtons(myVote: ProposalVote?) {
         self.voteView.setup(currentVote: myVote?.voteType) { [weak self] type in
-            if let existingVote = myVote {
-                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
-                    self?.refreshVoteUI()
-                })
-            } else {
+//            if let existingVote = myVote {
+//                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
+//                    self?.refreshVoteUI()
+//                })
+//            } else {
                 self?.voteDataController.addVote(type) { [weak self] error in
                     self?.refreshVoteUI()
                 }
-            }
+//            }
         }
     }
     

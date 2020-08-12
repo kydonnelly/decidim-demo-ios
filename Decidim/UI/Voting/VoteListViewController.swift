@@ -68,7 +68,7 @@ class VoteListViewController: UIViewController {
                 guard let dc = dc as? ProposalVotesDataController else {
                     return
                 }
-                if let vote = dc.allVotes.first(where: { $0.authorId == profileId }) {
+                if let vote = dc.allVotes.last(where: { $0.authorId == profileId }) {
                     self?.proposalVotes.append((proposal, vote))
                 }
                 
