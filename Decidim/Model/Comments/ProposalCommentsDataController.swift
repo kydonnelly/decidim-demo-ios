@@ -32,7 +32,7 @@ class ProposalCommentsDataController: NetworkDataController {
                 return
             }
             
-            let comments = commentInfos.compactMap { ProposalComment.from(dict: $0) }
+            let comments = commentInfos.filter { ProposalAmendment.from(commentInfo: $0) == nil }.compactMap { ProposalComment.from(dict: $0) }
             completion(comments, Cursor(next: "", done: true), nil)
         }
     }
