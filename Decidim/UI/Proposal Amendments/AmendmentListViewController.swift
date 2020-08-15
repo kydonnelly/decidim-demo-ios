@@ -126,7 +126,11 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
                 }))
             } else {
                 alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { [weak self] _  in
-                    self?.selectStatus(.accepted, amendment: amendment)
+                    guard let self = self else { return }
+                    self.selectStatus(.accepted, amendment: amendment)
+                    PublicProposalDataController.shared().editProposal(self.proposalDetail.proposal.id, title: self.proposalDetail.proposal.title, description: amendment.text, thumbnail: nil, deadline: self.proposalDetail.deadline) { [weak self] _ in
+                        self?.navigationController?.dismiss(animated: true, completion: nil)
+                    }
                 }))
                 alert.addAction(UIAlertAction(title: "Reject", style: .default, handler: { [weak self] _  in
                     self?.selectStatus(.rejected, amendment: amendment)
