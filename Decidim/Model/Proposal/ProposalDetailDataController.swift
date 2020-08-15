@@ -21,7 +21,7 @@ class ProposalDetailDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let randomInt = Int(arc4random())
         
-        let testDetail = ProposalDetail(proposal: self.backingProposal, authorId: (backingProposal.id % 6 + 1), likeCount: randomInt % 200, deadline: Date(timeIntervalSinceNow: TimeInterval(randomInt % 50000)), amendmentCount: randomInt % 24)
+        let testDetail = ProposalDetail(proposal: self.backingProposal, authorId: self.backingProposal.authorId, likeCount: randomInt % 200, deadline: Date(timeIntervalSinceNow: TimeInterval(randomInt % 50000)), amendmentCount: randomInt % 24)
         
         completion([testDetail], Cursor(next: "", done: true), nil)
     }
