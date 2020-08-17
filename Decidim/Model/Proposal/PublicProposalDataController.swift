@@ -23,7 +23,7 @@ class PublicProposalDataController: NetworkDataController {
                 return
             }
             
-            let proposals = proposalInfos.compactMap { Proposal.from(dict: $0) }
+            let proposals = proposalInfos.filter {TeamDetail.from(dict: $0) == nil}.compactMap { Proposal.from(dict: $0) }
             completion(proposals, Cursor(next: "", done: true), nil)
         }
     }
@@ -36,6 +36,10 @@ class PublicProposalDataController: NetworkDataController {
         
         return proposals
     }
+    
+}
+
+extension PublicProposalDataController {
     
     public func addProposal(title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,

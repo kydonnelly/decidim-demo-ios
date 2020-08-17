@@ -24,6 +24,7 @@ class ProfileViewController: UIViewController {
     static let registerCellId = "RegisterCell"
     static let usernameCellId = "UsernameCell"
     static let passwordCellId = "PasswordCell"
+    static let teamsCellId = "TeamListCell"
     static let votingCellId = "VotingCell"
     static let voteHistoryCellId = "VoteHistoryCell"
     
@@ -83,7 +84,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case .noProfile:
             return 1
         case .profile:
-            return 4
+            return 5
         }
     }
     
@@ -99,7 +100,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             return 76
-        } else if indexPath.row >= 1 || indexPath.row <= 3 {
+        } else if indexPath.row >= 1 || indexPath.row <= 4 {
             return 44
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
@@ -134,10 +135,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             passwordCell.setup(title: "Password", detail: "Change")
             return passwordCell
         } else if indexPath.row == 2 {
+            let teamsCell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! ProfilePreferencesCell
+            teamsCell.setup(title: "My Teams", detail: "See All")
+            return teamsCell
+        } else if indexPath.row == 3 {
             let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! ProfilePreferencesCell
             votingCell.setup(title: "Voting Preferences", detail: "None")
             return votingCell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             let voteHistoryCell = tableView.dequeueReusableCell(withIdentifier: Self.voteHistoryCellId, for: indexPath) as! ProfilePreferencesCell
             voteHistoryCell.setup(title: "Voting History", detail: "See All")
             return voteHistoryCell
@@ -162,9 +167,12 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let passwordVC = ProfilePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
         } else if indexPath.row == 2 {
+            let teamListVC = TeamListViewController.create()
+            self.navigationController?.pushViewController(teamListVC, animated: true)
+        } else if indexPath.row == 3 {
             let preferencesVC = VotePreferencesViewController.create()
             self.navigationController?.pushViewController(preferencesVC, animated: true)
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             let voteHistoryVC = VoteListViewController.create()
             self.navigationController?.pushViewController(voteHistoryVC, animated: true)
         }

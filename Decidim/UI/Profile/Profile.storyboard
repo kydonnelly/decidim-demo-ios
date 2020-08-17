@@ -135,8 +135,64 @@
                                             <outlet property="titleLabel" destination="xAL-kf-9S8" id="epm-Nc-5Vs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="dMj-2k-Cjb" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="0sp-ib-GMb" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0sp-ib-GMb" id="MRT-JT-JVj">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="My Teams" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="spx-3e-Iet">
+                                                    <rect key="frame" x="24" y="11.5" width="283" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="View All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Te9-FC-m8S">
+                                                    <rect key="frame" x="315" y="13.5" width="51" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" relation="lessThanOrEqual" constant="108" id="uRr-ct-Sks"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zys-pk-P8X">
+                                                    <rect key="frame" x="374" y="16" width="16" height="12.5"/>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="irk-4z-Duh"/>
+                                                        <constraint firstAttribute="height" constant="16" id="kse-Sb-SlN"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oME-eP-Llc">
+                                                    <rect key="frame" x="0.0" y="43" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="vfo-NE-yiE"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Zys-pk-P8X" firstAttribute="centerY" secondItem="MRT-JT-JVj" secondAttribute="centerY" id="0xO-mD-yti"/>
+                                                <constraint firstItem="oME-eP-Llc" firstAttribute="leading" secondItem="MRT-JT-JVj" secondAttribute="leading" id="2By-7a-Yd1"/>
+                                                <constraint firstItem="spx-3e-Iet" firstAttribute="leading" secondItem="MRT-JT-JVj" secondAttribute="leading" constant="24" id="6MH-iV-69x"/>
+                                                <constraint firstItem="Zys-pk-P8X" firstAttribute="leading" secondItem="Te9-FC-m8S" secondAttribute="trailing" constant="8" id="DgO-Me-9nz"/>
+                                                <constraint firstAttribute="trailing" secondItem="oME-eP-Llc" secondAttribute="trailing" id="Ei1-R0-lfo"/>
+                                                <constraint firstItem="spx-3e-Iet" firstAttribute="centerY" secondItem="MRT-JT-JVj" secondAttribute="centerY" id="NXo-Qm-bEa"/>
+                                                <constraint firstItem="Te9-FC-m8S" firstAttribute="leading" secondItem="spx-3e-Iet" secondAttribute="trailing" constant="8" id="dLR-C8-621"/>
+                                                <constraint firstAttribute="trailing" secondItem="Zys-pk-P8X" secondAttribute="trailing" constant="24" id="iKE-Mu-2H2"/>
+                                                <constraint firstItem="Te9-FC-m8S" firstAttribute="centerY" secondItem="MRT-JT-JVj" secondAttribute="centerY" id="nrK-ft-RhN"/>
+                                                <constraint firstAttribute="bottom" secondItem="oME-eP-Llc" secondAttribute="bottom" id="qRI-yS-ei0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="detailLabel" destination="Te9-FC-m8S" id="Kov-4B-LTm"/>
+                                            <outlet property="titleLabel" destination="spx-3e-Iet" id="15V-1s-5Y6"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="dMj-2k-Cjb" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="192" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dMj-2k-Cjb" id="cTB-KO-50x">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -192,7 +248,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" id="qyC-QK-GSj" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="192" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="236" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qyC-QK-GSj" id="jTL-eb-veV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -248,7 +304,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="ProfileRegisterCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="236" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="280" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nea-tD-Szt" id="3Ph-VU-Bzs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -283,7 +339,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
-                                        <rect key="frame" x="0.0" y="308" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="352" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="itv-Zn-Crr" id="e5t-N5-a7b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
