@@ -481,7 +481,7 @@ class HTTPRequestTests: XCTestCase {
         
         let voteId = "\(vote.voteId)"
         let updatedVote = VoteType.abstain
-        let payload: [String: Any] = ["vote": ["body": updatedVote.rawValue]]
+        let payload: [String: Any] = ["vote": ["value": updatedVote.rawValue]]
         
         // test
         request.put(endpoint: "proposals", args: ["\(proposalId)", "votes", voteId], payload: payload) { response, error in

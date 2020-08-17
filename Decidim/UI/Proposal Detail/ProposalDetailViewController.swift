@@ -302,15 +302,15 @@ extension ProposalDetailViewController {
     
     private func refreshVoteButtons(myVote: ProposalVote?) {
         self.voteView.setup(currentVote: myVote?.voteType) { [weak self] type in
-//            if let existingVote = myVote {
-//                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
-//                    self?.refreshVoteUI()
-//                })
-//            } else {
+            if let existingVote = myVote {
+                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
+                    self?.refreshVoteUI()
+                })
+            } else {
                 self?.voteDataController.addVote(type) { [weak self] error in
                     self?.refreshVoteUI()
                 }
-//            }
+            }
         }
     }
     

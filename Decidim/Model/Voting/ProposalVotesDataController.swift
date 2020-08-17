@@ -68,7 +68,7 @@ class ProposalVotesDataController: NetworkDataController {
     
     public func editVote(_ voteId: Int, voteType: VoteType, completion: @escaping (Error?) -> Void) {
         let args = [String(describing: self.proposalId!), "votes", "\(voteId)"]
-        let payload: [String: Any] = ["vote": ["body": voteType.rawValue]]
+        let payload: [String: Any] = ["vote": ["value": voteType.rawValue]]
         
         HTTPRequest.shared.put(endpoint: "proposals", args: args, payload: payload) { [weak self] response, error in
             guard error == nil else {
