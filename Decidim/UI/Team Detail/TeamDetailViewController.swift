@@ -16,9 +16,10 @@ class TeamDetailViewController: UIViewController {
         case body = "BodyCell"
         case title = "TitleCell"
         case members = "MembersCell"
+        case actions = "ActionsCell"
         
         static func ordered() -> [StaticCell] {
-            return [.title, .body, .members]
+            return [.title, .body, .members, .actions]
         }
     }
     
@@ -101,6 +102,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 (cell as! TeamDetailTitleCell).setup(detail: detail)
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail)
+            case .actions:
+                (cell as! TeamActionListCell).setup(detail: detail)
             }
             
             return cell
@@ -120,6 +123,9 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .members:
+//                self.navigationController?.present(vc, animated: true, completion: nil)
+                fallthrough
+            case .actions:
 //                self.navigationController?.present(vc, animated: true, completion: nil)
                 fallthrough
             default:
