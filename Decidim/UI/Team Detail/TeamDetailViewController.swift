@@ -145,8 +145,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 let vc = TeamMembersViewController.create(detail: self.teamDetail)
                 self.navigationController?.pushViewController(vc, animated: true)
             case .actions:
-//                self.navigationController?.present(vc, animated: true, completion: nil)
-                fallthrough
+                let vc = TeamActionsViewController.create(detail: self.teamDetail)
+                self.navigationController?.pushViewController(vc, animated: true)
             default:
                 break
             }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TeamActionStatus: Int {
+enum TeamActionStatus: Int, CaseIterable {
     case proposed
     case pending
     case inProgress
