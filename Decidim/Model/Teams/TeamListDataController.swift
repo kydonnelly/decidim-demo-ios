@@ -63,9 +63,11 @@ extension TeamListDataController {
         }
     }
     
-    public func editTeam(_ teamId: Int, title: String, description: String, thumbnail: UIImage?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
+    public func editTeam(_ teamId: Int, title: String, description: String, thumbnail: UIImage?, members: [Int: TeamMemberStatus], actions: [String: TeamActionStatus], completion: @escaping (Error?) -> Void) {
         let membersString = members.map { [String($0), String($1.rawValue)].joined(separator: ":") }.joined(separator: "|")
-        let dataString = ["", membersString, "", description, ""].joined(separator: "###")
+        let actionsString = actions.map { [$0, String($1.rawValue)].joined(separator: ":") }.joined(separator: "|")
+        
+        let dataString = ["", membersString, actionsString, description, ""].joined(separator: "###")
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": dataString]]
         

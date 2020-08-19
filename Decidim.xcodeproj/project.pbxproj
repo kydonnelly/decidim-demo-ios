@@ -110,6 +110,7 @@
 		27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */; };
 		27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883BF24ECF5CA00B216D2 /* TeamListHeaderView.swift */; };
 		27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27F883C124ECF60E00B216D2 /* TeamListHeaderView.xib */; };
+		27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883C324ECFA3100B216D2 /* TeamActionStatus.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -233,6 +234,7 @@
 		27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberStatus.swift; sourceTree = "<group>"; };
 		27F883BF24ECF5CA00B216D2 /* TeamListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListHeaderView.swift; sourceTree = "<group>"; };
 		27F883C124ECF60E00B216D2 /* TeamListHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamListHeaderView.xib; sourceTree = "<group>"; };
+		27F883C324ECFA3100B216D2 /* TeamActionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionStatus.swift; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -608,6 +610,7 @@
 			children = (
 				27F883B124E79D7100B216D2 /* TeamImageCell.swift */,
 				27F883B224E79D7100B216D2 /* TeamInputCell.swift */,
+				27F883C324ECFA3100B216D2 /* TeamActionStatus.swift */,
 				27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */,
 				27F883B324E79D7100B216D2 /* EditTeamViewController.swift */,
 				27F883B424E79D7100B216D2 /* EditTeam.storyboard */,
@@ -824,6 +827,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */,
 				2756A6D32498609D0023DC91 /* ProfilePasswordCell.swift in Sources */,
 				2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */,
 				27F883B524E79D7100B216D2 /* TeamImageCell.swift in Sources */,

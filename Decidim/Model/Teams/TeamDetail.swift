@@ -11,7 +11,7 @@ import UIKit
 struct TeamDetail {
     let team: Team
     let memberList: [Int: TeamMemberStatus]
-    let actions: [String]
+    let actionList: [String: TeamActionStatus]
     
     public static func from(dict: [String: Any]) -> TeamDetail? {
         guard let body = dict["body"] as? String else {
@@ -25,6 +25,10 @@ struct TeamDetail {
         
         let memberStatuses = components[1].components(separatedBy: "|")
         let members = memberStatuses.reduce(into: [Int: TeamMemberStatus]()) { accumulator, statusString in
+            guard statusString.count > 0 else {
+                return
+            }
+            
             let statusComponents = statusString.components(separatedBy: ":")
             guard let profileId = Int(statusComponents[0]) else {
                 return
@@ -36,7 +40,22 @@ struct TeamDetail {
             accumulator[profileId] = status
         }
         
-        let actions = components[2].components(separatedBy: "|")
+        let actionStatuses = components[2].components(separatedBy: "|")
+        let actions = actionStatuses.reduce(into: [String: TeamActionStatus]()) { accumulator, statusString in
+            guard statusString.count > 0 else {
+                return
+            }
+            
+            let statusComponents = statusString.components(separatedBy: ":")
+            let description = statusComponents[0]
+            
+            guard let rawStatus = Int(statusComponents[1]), let status = TeamActionStatus(rawValue: rawStatus) else {
+                return
+            }
+            
+            accumulator[description] = status
+        }
+        
         let description = components[3]
         
         guard let team = Team.from(dict: dict, memberCount: members.count, description: description) else {
@@ -45,7 +64,7 @@ struct TeamDetail {
         
         return TeamDetail(team: team,
                           memberList: members,
-                          actions: actions)
+                          actionList: actions)
     }
 }
 
