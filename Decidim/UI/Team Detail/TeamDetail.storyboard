@@ -101,8 +101,66 @@
                                             <outlet property="bodyLabel" destination="Z2c-8u-hr7" id="kBz-DP-rWU"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="84" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Decidim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188" width="414" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4yK-Yy-eCZ" id="1Uv-go-wMT">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="84"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-6h-Roh">
+                                                    <rect key="frame" x="0.0" y="83" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="V0O-gV-197"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members: 420" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Jo-qK7">
+                                                    <rect key="frame" x="24" y="8" width="342" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-6V-ayB" customClass="ProfileIconListView" customModule="Decidim" customModuleProvider="target">
+                                                    <rect key="frame" x="24" y="31.5" width="338" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="iWI-hL-t2F"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x1F-Sj-oc0">
+                                                    <rect key="frame" x="374" y="36" width="16" height="12.5"/>
+                                                    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="16" id="ZjU-bf-Dks"/>
+                                                        <constraint firstAttribute="height" constant="16" id="xQ7-c0-lKg"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="bLd-6h-Roh" secondAttribute="trailing" id="8Oy-6Q-iLj"/>
+                                                <constraint firstAttribute="bottom" secondItem="oTC-Jo-qK7" secondAttribute="bottom" priority="51" constant="8" id="D07-N0-764"/>
+                                                <constraint firstItem="x1F-Sj-oc0" firstAttribute="centerY" secondItem="1Uv-go-wMT" secondAttribute="centerY" id="EtE-nn-UtZ"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yEL-6V-ayB" secondAttribute="bottom" constant="8" id="Fa0-ZZ-18S"/>
+                                                <constraint firstItem="oTC-Jo-qK7" firstAttribute="top" secondItem="1Uv-go-wMT" secondAttribute="top" constant="8" id="Pwd-G2-qT7"/>
+                                                <constraint firstAttribute="bottom" secondItem="bLd-6h-Roh" secondAttribute="bottom" id="R8v-bT-VT4"/>
+                                                <constraint firstItem="bLd-6h-Roh" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" id="Wb6-tL-bD9"/>
+                                                <constraint firstItem="x1F-Sj-oc0" firstAttribute="leading" secondItem="oTC-Jo-qK7" secondAttribute="trailing" constant="8" id="g7e-9b-z96"/>
+                                                <constraint firstItem="yEL-6V-ayB" firstAttribute="top" secondItem="oTC-Jo-qK7" secondAttribute="bottom" constant="4" id="i9v-Nh-XLF"/>
+                                                <constraint firstItem="x1F-Sj-oc0" firstAttribute="leading" secondItem="yEL-6V-ayB" secondAttribute="trailing" constant="12" id="idM-wu-loW"/>
+                                                <constraint firstItem="oTC-Jo-qK7" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" constant="24" id="ofr-km-cDE"/>
+                                                <constraint firstItem="yEL-6V-ayB" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" constant="24" id="y90-LK-JZO"/>
+                                                <constraint firstAttribute="trailing" secondItem="x1F-Sj-oc0" secondAttribute="trailing" constant="24" id="zYt-FU-NLq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="numMembersLabel" destination="oTC-Jo-qK7" id="Fkw-8l-uHH"/>
+                                            <outlet property="profileListView" destination="yEL-6V-ayB" id="pDL-sY-GsG"/>
+                                            <outletCollection property="listViewConstraints" destination="iWI-hL-t2F" collectionClass="NSMutableArray" id="4L3-OS-Tym"/>
+                                            <outletCollection property="listViewConstraints" destination="Fa0-ZZ-18S" collectionClass="NSMutableArray" id="KnF-8z-QO2"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="188" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="272" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -153,6 +211,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chevron.right" catalog="system" width="48" height="64"/>
         <image name="ellipsis" catalog="system" width="64" height="18"/>
         <image name="person.3" catalog="system" width="72" height="35"/>
     </resources>

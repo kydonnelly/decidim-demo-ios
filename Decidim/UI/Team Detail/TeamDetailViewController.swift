@@ -15,9 +15,10 @@ class TeamDetailViewController: UIViewController {
     fileprivate enum StaticCell: String, CaseIterable {
         case body = "BodyCell"
         case title = "TitleCell"
+        case members = "MembersCell"
         
         static func ordered() -> [StaticCell] {
-            return [.title, .body]
+            return [.title, .body, .members]
         }
     }
     
@@ -98,6 +99,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 (cell as! TeamDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .title:
                 (cell as! TeamDetailTitleCell).setup(detail: detail)
+            case .members:
+                (cell as! TeamMemberListCell).setup(detail: detail)
             }
             
             return cell
@@ -116,6 +119,9 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
+            case .members:
+//                self.navigationController?.present(vc, animated: true, completion: nil)
+                fallthrough
             default:
                 break
             }
