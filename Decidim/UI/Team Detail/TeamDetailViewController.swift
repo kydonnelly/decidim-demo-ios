@@ -99,7 +99,26 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             case .body:
                 (cell as! TeamDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .title:
-                (cell as! TeamDetailTitleCell).setup(detail: detail)
+                (cell as! TeamDetailTitleCell).setup(detail: detail) { [weak self] status in
+                    guard let self = self else { return }
+                    guard let profileId = MyProfileController.shared.myProfileId else { return }
+                    
+                    var memberList = detail.memberList
+                    switch status {
+                    case .none:
+                        memberList[profileId] = .requested
+                    case .invited:
+                        memberList[profileId] = .joined
+                    case .joined:
+                        memberList.removeValue(forKey: profileId)
+                    case .requested:
+                        return
+                    }
+                    
+                    self.detailDataController.editTeam(detail.team.id, title: detail.team.name, description: detail.team.description, thumbnail: detail.team.thumbnail, members: memberList, actions: detail.actionList) { [weak self] _ in
+                        self?.tableView.reloadData()
+                    }
+                }
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail)
             case .actions:

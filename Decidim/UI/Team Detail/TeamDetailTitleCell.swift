@@ -10,14 +10,59 @@ import UIKit
 
 class TeamDetailTitleCell: UITableViewCell {
     
+    typealias UpdateStatusBlock = (TeamMemberStatus?) -> Void
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var memberStatusButton: UIButton!
     @IBOutlet var gradientBackground: LinearGradientView!
     
-    func setup(detail: TeamDetail) {
+    private var teamDetail: TeamDetail!
+    private var updateStatusBlock: UpdateStatusBlock?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.memberStatusButton.backgroundColor = UIColor.white.withAlphaComponent(0.8)
+    }
+    
+    func setup(detail: TeamDetail, onUpdateStatus: UpdateStatusBlock?) {
         self.titleLabel.text = detail.team.name
         self.iconImageView.image = detail.team.thumbnail
+        self.memberStatusButton.setTitle(self.statusText(detail: detail), for: .normal)
         self.gradientBackground.update(colors: detail.gradientColors(), direction: .horizontal)
+        
+        self.teamDetail = detail
+        self.updateStatusBlock = onUpdateStatus
+    }
+    
+}
+
+extension TeamDetailTitleCell {
+    
+    fileprivate func statusText(detail: TeamDetail) -> String {
+        guard let profileId = MyProfileController.shared.myProfileId,
+              let memberStatus = detail.memberList[profileId] else {
+            return "Join"
+        }
+        
+        switch memberStatus {
+        case .invited:
+            return "Accept Invite"
+        case .requested:
+            return "Pending"
+        case .joined:
+            return "Leave"
+        }
+    }
+    
+    @IBAction func tappedMemberStatusButton(_ sender: UIButton) {
+        guard let profileId = MyProfileController.shared.myProfileId else {
+            return
+        }
+        
+        let memberStatus = self.teamDetail.memberList[profileId]
+        self.updateStatusBlock?(memberStatus)
     }
     
 }

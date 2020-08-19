@@ -39,21 +39,38 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team's name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU4-Gj-hbI">
-                                                    <rect key="frame" x="88" y="37.5" width="302" height="21.5"/>
+                                                    <rect key="frame" x="88" y="37.5" width="256" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grS-fn-c72">
+                                                    <rect key="frame" x="352" y="36" width="38" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="4" minY="2" maxX="4" maxY="2"/>
+                                                    <state key="normal" title="Join"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedMemberStatusButton:" destination="aue-cF-8hv" eventType="touchUpInside" id="JMv-Id-d3M"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="vU4-Gj-hbI" secondAttribute="bottom" priority="51" constant="16" id="1GZ-fv-ch6"/>
                                                 <constraint firstItem="XYE-l8-lci" firstAttribute="top" secondItem="xfl-a7-6rR" secondAttribute="top" id="1Q8-mp-nJX"/>
+                                                <constraint firstAttribute="bottom" secondItem="vU4-Gj-hbI" secondAttribute="bottom" priority="51" constant="16" id="6XB-7A-r2Z"/>
+                                                <constraint firstItem="grS-fn-c72" firstAttribute="leading" secondItem="vU4-Gj-hbI" secondAttribute="trailing" constant="8" id="8A7-wh-Rcg"/>
                                                 <constraint firstAttribute="trailing" secondItem="XYE-l8-lci" secondAttribute="trailing" id="AJU-fb-5hK"/>
-                                                <constraint firstAttribute="trailing" secondItem="vU4-Gj-hbI" secondAttribute="trailing" constant="24" id="HTc-QL-qsg"/>
                                                 <constraint firstItem="RAD-aZ-450" firstAttribute="centerY" secondItem="xfl-a7-6rR" secondAttribute="centerY" id="JWO-h1-V8m"/>
                                                 <constraint firstItem="RAD-aZ-450" firstAttribute="top" secondItem="xfl-a7-6rR" secondAttribute="top" constant="24" id="JcA-SS-dcg"/>
                                                 <constraint firstItem="vU4-Gj-hbI" firstAttribute="centerY" secondItem="xfl-a7-6rR" secondAttribute="centerY" id="Oq7-Kr-RSD"/>
                                                 <constraint firstItem="XYE-l8-lci" firstAttribute="leading" secondItem="xfl-a7-6rR" secondAttribute="leading" id="RJp-kF-gAb"/>
+                                                <constraint firstItem="grS-fn-c72" firstAttribute="centerY" secondItem="vU4-Gj-hbI" secondAttribute="centerY" id="VW7-71-6vk"/>
+                                                <constraint firstAttribute="trailing" secondItem="grS-fn-c72" secondAttribute="trailing" constant="24" id="Vhg-4Q-oEK"/>
                                                 <constraint firstItem="RAD-aZ-450" firstAttribute="leading" secondItem="xfl-a7-6rR" secondAttribute="leading" constant="24" id="bkS-PU-wP2"/>
                                                 <constraint firstItem="vU4-Gj-hbI" firstAttribute="top" relation="greaterThanOrEqual" secondItem="RAD-aZ-450" secondAttribute="top" id="jeD-nS-m3t"/>
                                                 <constraint firstItem="vU4-Gj-hbI" firstAttribute="leading" secondItem="RAD-aZ-450" secondAttribute="trailing" constant="16" id="nK2-Qn-Qye"/>
@@ -63,6 +80,7 @@
                                         <connections>
                                             <outlet property="gradientBackground" destination="XYE-l8-lci" id="880-Xf-5uK"/>
                                             <outlet property="iconImageView" destination="RAD-aZ-450" id="XZO-jy-2RH"/>
+                                            <outlet property="memberStatusButton" destination="grS-fn-c72" id="A1U-6C-H0H"/>
                                             <outlet property="titleLabel" destination="vU4-Gj-hbI" id="xWc-Aa-B6J"/>
                                         </connections>
                                     </tableViewCell>
