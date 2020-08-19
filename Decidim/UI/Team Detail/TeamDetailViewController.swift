@@ -142,8 +142,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .members:
-//                self.navigationController?.present(vc, animated: true, completion: nil)
-                fallthrough
+                let vc = TeamMembersViewController.create(detail: self.teamDetail)
+                self.navigationController?.pushViewController(vc, animated: true)
             case .actions:
 //                self.navigationController?.present(vc, animated: true, completion: nil)
                 fallthrough
