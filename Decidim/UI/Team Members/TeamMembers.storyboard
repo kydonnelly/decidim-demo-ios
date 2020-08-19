@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Team Members View Controller-->
+        <!--TeamMembersViewController-->
         <scene sceneID="4aL-0j-Eob">
             <objects>
-                <viewController id="Ieg-4D-Dd6" customClass="TeamMembersViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ieg-4D-Dd6" userLabel="TeamMembersViewController" customClass="TeamMembersViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2t-cX-MSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,12 +110,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wwu-Zn-2pv"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Members" id="dYM-Hq-THi"/>
                     <connections>
                         <outlet property="tableView" destination="x6X-z6-aau" id="xau-oE-moZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fc9-64-O4F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <navigationItem title="Members" id="dYM-Hq-THi"/>
             </objects>
             <point key="canvasLocation" x="52" y="123"/>
         </scene>
