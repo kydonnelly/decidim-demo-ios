@@ -124,6 +124,22 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section < TeamActionStatus.allCases.count {
+            var canUpdate = false
+            if let myProfileId = MyProfileController.shared.myProfileId {
+                canUpdate = teamDetail.memberList[myProfileId] == .joined
+            }
+            
+            if canUpdate {
+                let status = TeamActionStatus.allCases[indexPath.section]
+                let description = self.actions(status: status)[indexPath.row]
+                
+                let createVC = EditActionViewController.create(detail: self.teamDetail, action: description)
+                createVC.modalPresentationStyle = .overFullScreen
+                self.navigationController?.present(createVC, animated: true, completion: nil)
+            }
+        }
     }
     
 }
