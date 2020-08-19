@@ -42,7 +42,7 @@ class TeamMembersViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.refreshData()
         }
     }
     
@@ -51,8 +51,16 @@ class TeamMembersViewController: UIViewController {
         
         self.dataController.invalidate()
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.refreshData()
         }
+    }
+    
+    fileprivate func refreshData() {
+        if let fresh = self.dataController.allTeams.last(where: { $0.team.id == self.teamDetail.team.id }) {
+            self.teamDetail = fresh
+        }
+        
+        self.tableView.reloadData()
     }
     
 }
@@ -117,7 +125,7 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
                 }
                 
                 self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: teamMembers, actions: self.teamDetail.actionList) { [weak self] _ in
-                    self?.tableView.reloadData()
+                    self?.refreshData()
                 }
             }
 

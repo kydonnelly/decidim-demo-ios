@@ -74,8 +74,6 @@ extension EditActionViewController {
     }
     
     @IBAction func didTapDoneButton(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
-        
         if let editingAction = self.originalAction {
             self.submitEditedAction(editingAction)
         } else {
@@ -92,7 +90,13 @@ extension EditActionViewController {
         var teamActions = self.teamDetail.actionList
         teamActions[description] = newStatus
         
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { _ in }
+        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { [weak self] error in
+            guard error == nil else {
+                return
+            }
+            
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
     private func submitEditedAction(_ originalDescription: String) {
@@ -105,7 +109,13 @@ extension EditActionViewController {
         teamActions.removeValue(forKey: originalDescription)
         teamActions[description] = status
         
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { _ in }
+        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { [weak self] error in
+            guard error == nil else {
+                return
+            }
+            
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        }
     }
     
 }
