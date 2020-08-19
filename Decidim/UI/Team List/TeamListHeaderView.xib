@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EnQ-mQ-cY1" customClass="TeamListHeaderView" customModule="Decidim" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMp-MZ-QLq">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xYs-ev-Bmm">
+                            <rect key="frame" x="24" y="25" width="366" height="22"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgO-x4-afG">
+                            <rect key="frame" x="0.0" y="71" width="414" height="1"/>
+                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="HAd-31-9AF"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="dgO-x4-afG" secondAttribute="trailing" id="4az-wd-3zx"/>
+                        <constraint firstItem="dgO-x4-afG" firstAttribute="leading" secondItem="sMp-MZ-QLq" secondAttribute="leading" id="9qX-Z1-ZSG"/>
+                        <constraint firstItem="xYs-ev-Bmm" firstAttribute="centerY" secondItem="sMp-MZ-QLq" secondAttribute="centerY" id="MOm-Mx-8cK"/>
+                        <constraint firstAttribute="bottom" secondItem="dgO-x4-afG" secondAttribute="bottom" id="bLb-cp-2kX"/>
+                        <constraint firstAttribute="trailing" secondItem="xYs-ev-Bmm" secondAttribute="trailing" constant="24" id="gP0-3B-L6e"/>
+                        <constraint firstItem="xYs-ev-Bmm" firstAttribute="leading" secondItem="sMp-MZ-QLq" secondAttribute="leading" constant="24" id="z8R-G7-e9t"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="sMp-MZ-QLq" secondAttribute="bottom" id="69X-Gm-9V5"/>
+                <constraint firstItem="sMp-MZ-QLq" firstAttribute="leading" secondItem="EnQ-mQ-cY1" secondAttribute="leading" id="fRw-yF-sBK"/>
+                <constraint firstItem="sMp-MZ-QLq" firstAttribute="top" secondItem="EnQ-mQ-cY1" secondAttribute="top" id="jx6-Rv-SSt"/>
+                <constraint firstAttribute="trailing" secondItem="sMp-MZ-QLq" secondAttribute="trailing" id="vXQ-HM-bdn"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="titleLabel" destination="xYs-ev-Bmm" id="isG-kQ-DWh"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="90"/>
+        </view>
+    </objects>
+</document>

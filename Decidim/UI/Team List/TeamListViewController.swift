@@ -10,8 +10,16 @@ import UIKit
 
 class TeamListViewController: UIViewController {
     
+    static let SectionHeaderID = "SectionHeader"
     static let LoadingCellID = "LoadingCell"
     static let TeamDetailCellID = "TeamDetailCell"
+    
+    fileprivate enum Sections: CaseIterable {
+        case joined
+        case invited
+        case requested
+        case recommended
+    }
     
     private var dataController: TeamListDataController!
     
@@ -29,6 +37,9 @@ class TeamListViewController: UIViewController {
         self.title = "Browse Teams"
         
         self.tableView.rowHeight = UITableView.automaticDimension
+        
+        self.tableView.register(UINib(nibName: "TeamListHeaderView", bundle: .main),
+                                forHeaderFooterViewReuseIdentifier: Self.SectionHeaderID)
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -54,35 +65,77 @@ class TeamListViewController: UIViewController {
         }
     }
     
+    fileprivate func teams(section: Sections) -> [TeamDetail] {
+        guard let profileId = MyProfileController.shared.myProfileId else {
+            return []
+        }
+        
+        let memberStatus: TeamMemberStatus? = {
+            switch section {
+            case .invited: return .invited
+            case .joined: return .joined
+            case .requested: return .requested
+            case .recommended: return nil
+            }
+        }()
+        return self.dataController.allTeams.filter { $0.memberList[profileId] == memberStatus }
+    }
+    
 }
 
 extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dataController.donePaging {
-            return 1
-        } else {
-            return 2
+        var numSections = Sections.allCases.count
+        if !self.dataController.donePaging {
+            numSections += 1
         }
+        return numSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return self.dataController.allTeams.count
-        } else {
+        guard section < Sections.allCases.count else {
             return 1
         }
+        return self.teams(section: Sections.allCases[section]).count
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard section < Sections.allCases.count else {
+            return 0
+        }
+        
+        let section = Sections.allCases[section]
+        guard self.teams(section: section).count > 0 else {
+            return 0
+        }
+        
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section < Sections.allCases.count else {
+            return nil
+        }
+        
+        let section = Sections.allCases[section]
+        guard self.teams(section: section).count > 0 else {
+            return nil
+        }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.SectionHeaderID) as! TeamListHeaderView
+        header.setup(title: String(describing: section))
+        return header
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TeamDetailCellID, for: indexPath)
+        if indexPath.section < Sections.allCases.count {
+            let section = Sections.allCases[indexPath.section]
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TeamDetailCellID, for: indexPath) as! TeamListCell
             
-            if let teamCell = cell as? TeamListCell {
-                let team = self.dataController.allTeams[indexPath.row]
-                teamCell.setup(team: team.team)
-            }
-            
+            let team = self.teams(section: section)[indexPath.row]
+            cell.setup(team: team.team)
+
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: Self.LoadingCellID, for: indexPath)
@@ -92,15 +145,16 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            let team = self.dataController.allTeams[indexPath.row]
+        if indexPath.section < Sections.allCases.count {
+            let section = Sections.allCases[indexPath.section]
+            let team = self.teams(section: section)[indexPath.row]
             let vc = TeamDetailViewController.create(team: team)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == Sections.allCases.count {
             self.dataController.page { [weak self] dc in
                 self?.tableView.reloadData()
             }
