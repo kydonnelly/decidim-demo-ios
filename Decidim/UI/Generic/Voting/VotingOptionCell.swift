@@ -26,8 +26,9 @@ class VotingOptionCell: UICollectionViewCell {
     }
     
     public func setup(voteType: VoteType, isSelected: Bool, onVote: VoteBlock?) {
-        self.voteButton.setImage(voteType.image, for: .normal)
-        self.voteButton.setBackgroundColor(voteType.tintColor)
+        self.voteButton.icon = voteType.icon
+        self.voteButton.iconColor = .white
+        self.voteButton.iconBackgroundColor = voteType.tintColor
         
         self.voteButton.layer.borderWidth = isSelected ? 2.0 : 0.0
         

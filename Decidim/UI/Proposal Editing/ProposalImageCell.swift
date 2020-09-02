@@ -20,7 +20,8 @@ class ProposalImageCell: UITableViewCell {
         if let image = thumbnail {
             self.iconImageView.image = image
         } else {
-            self.iconImageView.image = UIImage(systemName: "photo")
+            self.iconImageView.icon = .image
+            self.iconImageView.iconColor = .gray
         }
         
         self.onChangeImage = changeImageBlock

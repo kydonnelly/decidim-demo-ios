@@ -28,21 +28,9 @@ struct ProfileInfo {
 
 extension ProfileInfo {
     
-    private static var thumbnails = ["person.crop.circle.fill",
-                                     "person.crop.square",
-                                     "person.icloud",
-                                     "person.icloud.fill",
-                                     "person.crop.circle",
-                                     "person.crop.square.fill"]
-    
     var thumbnail: UIImage? {
         if let url = self.thumbnailUrl {
             // todo: load and return image
-            return nil
-        }
-        
-        let systemThumbnails = ProfileInfo.thumbnails
-        guard let systemIcon = UIImage(systemName: systemThumbnails[self.profileId % systemThumbnails.count]) else {
             return nil
         }
         
@@ -57,8 +45,6 @@ extension ProfileInfo {
         
         context.saveGState()
         defer { context.restoreGState() }
-        
-        systemIcon.draw(in: CGRect(x: 0, y: 0, width: dimension, height: dimension))
         
         let locations: [CGFloat] = [0.0, 1.0]
         let cgColors = [UIColor.generateColor(seed: UInt(abs(self.profileId))).cgColor,

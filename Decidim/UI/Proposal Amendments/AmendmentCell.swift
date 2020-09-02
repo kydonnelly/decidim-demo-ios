@@ -21,7 +21,7 @@ class AmendmentCell: UITableViewCell {
         self.amendmentLabel.text = amendment.text
         self.timeLabel.text = amendment.createdAt.asShortStringAgo()
         
-        self.statusImageView.image = amendment.status.image
+        self.statusImageView.icon = amendment.status.icon
         self.statusImageView.tintColor = amendment.status.tintColor
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in

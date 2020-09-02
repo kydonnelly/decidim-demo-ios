@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,6 @@
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-Wa-7fB">
                         <rect key="frame" x="8" y="8" width="112" height="112"/>
-                        <state key="normal" image="checkmark.circle" catalog="system"/>
                         <connections>
                             <action selector="didTapVoteButton:" destination="ad2-Ok-1nm" eventType="touchUpInside" id="AXi-uu-q0E"/>
                         </connections>
@@ -37,7 +37,4 @@
             <point key="canvasLocation" x="52" y="-27"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="checkmark.circle" catalog="system" width="64" height="60"/>
-    </resources>
 </document>

@@ -29,8 +29,13 @@ class ProposalVoteCell: UITableViewCell {
         self.commentsLabel.text = "\(proposal.commentCount) comments"
         self.votesLabel.text = "\(proposal.voteCount) votes"
         
-        self.myVoteImage.image = myVote?.image ?? UIImage(systemName: "chevron.right")
-        self.myVoteImage.tintColor = myVote?.tintColor ?? .darkGray
+        if let vote = myVote {
+            self.myVoteImage.isHidden = false
+            self.myVoteImage.icon = vote.icon
+            self.myVoteImage.tintColor = vote.tintColor
+        } else {
+            self.myVoteImage.isHidden = true
+        }
     }
     
 }

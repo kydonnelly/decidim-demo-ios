@@ -19,9 +19,9 @@ class ProfileSearchResultCell: UITableViewCell {
         self.pictureImageView.image = profile.thumbnail
         
         if isSelected {
-            self.selectedView.image = UIImage(systemName: "circle.fill")
+            self.selectedView.icon = .checkbox_checked
         } else {
-            self.selectedView.image = UIImage(systemName: "circle")
+            self.selectedView.icon = .checkbox_unchecked
         }
     }
     

@@ -49,14 +49,14 @@ struct ProposalVote {
 
 extension VoteType {
     
-    var image: UIImage? {
+    var icon: KrakenIcon {
         switch self {
         case .yes:
-            return UIImage(systemName: "checkmark.circle.fill")
+            return .checkmark
         case .no:
-            return UIImage(systemName: "xmark.circle.fill")
+            return .cross
         case .abstain:
-            return UIImage(systemName: "minus.circle.fill")
+            return .minus
         }
     }
     

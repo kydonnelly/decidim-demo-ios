@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9U-vt-1oD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Proposals" image="bubble.middle.bottom" catalog="system" id="zTl-4Y-KwV"/>
+                    <tabBarItem key="tabBarItem" title="Proposals" id="zTl-4Y-KwV">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                <color key="value" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IO8-p0-mCs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -69,7 +77,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vyx-Pm-nx1"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="dG5-B4-OIf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" id="dG5-B4-OIf">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                <color key="value" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PPX-YL-zl2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -102,8 +117,4 @@
             <point key="canvasLocation" x="30" y="674"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="bubble.middle.bottom" catalog="system" width="64" height="54"/>
-        <image name="person.circle" catalog="system" width="64" height="60"/>
-    </resources>
 </document>

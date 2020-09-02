@@ -33,24 +33,24 @@ class TeamActionCell: UITableViewCell {
         switch status {
         case .done:
             self.updateButton.setTitle("Archive", for: .normal)
-            self.statusImageView.image = UIImage(systemName: "checkmark.circle.fill")
-            self.statusImageView.tintColor = .green
+            self.statusImageView.icon = .clipboard
+            self.statusImageView.iconColor = .green
         case .inProgress:
             self.updateButton.setTitle("Done", for: .normal)
-            self.statusImageView.image = UIImage(systemName: "circle.fill")
-            self.statusImageView.tintColor = .purple
+            self.statusImageView.icon = .circle_up
+            self.statusImageView.iconColor = .purple
         case .ongoing:
             self.updateButton.setTitle("Archive", for: .normal)
-            self.statusImageView.image = UIImage(systemName: "circle")
-            self.statusImageView.tintColor = .blue
+            self.statusImageView.icon = .infinite
+            self.statusImageView.iconColor = .blue
         case .pending:
             self.updateButton.setTitle("Start", for: .normal)
-            self.statusImageView.image = UIImage(systemName: "dot.square")
-            self.statusImageView.tintColor = .yellow
+            self.statusImageView.icon = .circle
+            self.statusImageView.iconColor = .yellow
         case .proposed:
             self.updateButton.setTitle("Approve", for: .normal)
-            self.statusImageView.image = UIImage(systemName: "dot.square.fill")
-            self.statusImageView.tintColor = .lightGray
+            self.statusImageView.icon = .hourglass
+            self.statusImageView.iconColor = .lightGray
         }
     }
     

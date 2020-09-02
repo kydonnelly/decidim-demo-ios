@@ -18,7 +18,7 @@ class ProposalVoterCell: UITableViewCell {
     public func setup(vote: ProposalVote) {
         self.timeLabel.text = vote.createdAt.asShortStringAgo()
         
-        self.voteImage.image = vote.voteType.image
+        self.voteImage.icon = vote.voteType.icon
         self.voteImage.tintColor = vote.voteType.tintColor
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in

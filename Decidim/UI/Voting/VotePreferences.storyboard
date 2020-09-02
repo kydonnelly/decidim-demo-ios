@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="mRm-Sp-OZo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -78,69 +79,83 @@
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4A5-Z1-ZfM">
-                                                    <rect key="frame" x="24" y="8" width="342" height="19.5"/>
+                                                    <rect key="frame" x="24" y="8" width="366" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="E30-18-YAz">
-                                                    <rect key="frame" x="24" y="32.5" width="36" height="33.5"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E30-18-YAz">
+                                                    <rect key="frame" x="24" y="31.5" width="36" height="36"/>
                                                     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="2Gy-oO-gZi"/>
                                                         <constraint firstAttribute="height" constant="36" id="cLi-T1-QAf"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-tN-Aab">
-                                                    <rect key="frame" x="68" y="32" width="36" height="35"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ol-tN-Aab">
+                                                    <rect key="frame" x="68" y="31.5" width="36" height="36"/>
                                                     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="GhH-kB-T87"/>
                                                         <constraint firstAttribute="height" constant="36" id="jRl-88-XM4"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eQd-zv-YGk">
-                                                    <rect key="frame" x="112" y="32" width="36" height="35"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eQd-zv-YGk">
+                                                    <rect key="frame" x="112" y="31.5" width="36" height="36"/>
                                                     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="DQ1-Pw-KEh"/>
                                                         <constraint firstAttribute="height" constant="36" id="pcL-i2-P12"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-5r-Gs5">
-                                                    <rect key="frame" x="156" y="32" width="36" height="35"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BUS-5r-Gs5">
+                                                    <rect key="frame" x="156" y="31.5" width="36" height="36"/>
                                                     <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="36" id="ER9-cp-jJM"/>
                                                         <constraint firstAttribute="height" constant="36" id="cfB-oK-1se"/>
                                                     </constraints>
-                                                </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4Ne-ME-6Iq">
-                                                    <rect key="frame" x="374" y="32" width="16" height="12.5"/>
-                                                    <color key="tintColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="16" id="7ii-Mg-wrW"/>
-                                                        <constraint firstAttribute="width" constant="16" id="hty-qh-ISV"/>
-                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="4Ne-ME-6Iq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="BUS-5r-Gs5" secondAttribute="trailing" constant="8" id="Ey2-Gw-nhZ"/>
                                                 <constraint firstItem="BUS-5r-Gs5" firstAttribute="leading" secondItem="eQd-zv-YGk" secondAttribute="trailing" constant="8" id="HJx-QD-2Ch"/>
                                                 <constraint firstItem="2J0-Sc-cjE" firstAttribute="leading" secondItem="832-he-y9a" secondAttribute="leading" id="HMB-ft-uzG"/>
+                                                <constraint firstAttribute="trailing" secondItem="4A5-Z1-ZfM" secondAttribute="trailing" constant="24" id="JDK-EX-SHr"/>
                                                 <constraint firstItem="eQd-zv-YGk" firstAttribute="centerY" secondItem="9ol-tN-Aab" secondAttribute="centerY" id="Nxz-Jl-Wc0"/>
                                                 <constraint firstItem="eQd-zv-YGk" firstAttribute="leading" secondItem="9ol-tN-Aab" secondAttribute="trailing" constant="8" id="OTl-S3-xTz"/>
                                                 <constraint firstItem="BUS-5r-Gs5" firstAttribute="centerY" secondItem="E30-18-YAz" secondAttribute="centerY" id="QsE-UV-2wg"/>
                                                 <constraint firstItem="4A5-Z1-ZfM" firstAttribute="leading" secondItem="832-he-y9a" secondAttribute="leading" constant="24" id="R2n-59-9zZ"/>
                                                 <constraint firstItem="E30-18-YAz" firstAttribute="leading" secondItem="4A5-Z1-ZfM" secondAttribute="leading" id="V4p-xZ-9z8"/>
                                                 <constraint firstAttribute="trailing" secondItem="2J0-Sc-cjE" secondAttribute="trailing" id="Vuv-ii-6MS"/>
-                                                <constraint firstItem="4Ne-ME-6Iq" firstAttribute="leading" secondItem="4A5-Z1-ZfM" secondAttribute="trailing" constant="8" id="abf-LE-dJm"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="BUS-5r-Gs5" secondAttribute="trailing" constant="24" id="fGY-zF-Wfz"/>
                                                 <constraint firstItem="9ol-tN-Aab" firstAttribute="centerY" secondItem="E30-18-YAz" secondAttribute="centerY" id="gfu-AL-0NL"/>
                                                 <constraint firstItem="9ol-tN-Aab" firstAttribute="leading" secondItem="E30-18-YAz" secondAttribute="trailing" constant="8" id="ivi-Dx-gH3"/>
-                                                <constraint firstItem="4Ne-ME-6Iq" firstAttribute="centerY" secondItem="832-he-y9a" secondAttribute="centerY" id="nES-tl-3SZ"/>
                                                 <constraint firstItem="E30-18-YAz" firstAttribute="top" secondItem="4A5-Z1-ZfM" secondAttribute="bottom" constant="4" id="nNM-t0-cTf"/>
                                                 <constraint firstAttribute="bottom" secondItem="2J0-Sc-cjE" secondAttribute="bottom" id="oaW-IK-6Uz"/>
                                                 <constraint firstItem="4A5-Z1-ZfM" firstAttribute="top" secondItem="832-he-y9a" secondAttribute="top" constant="8" id="viD-PT-xug"/>
-                                                <constraint firstAttribute="trailing" secondItem="4Ne-ME-6Iq" secondAttribute="trailing" constant="24" id="zmD-g4-ecq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -176,9 +191,4 @@
             <point key="canvasLocation" x="72" y="51"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="chevron.right" catalog="system" width="48" height="64"/>
-        <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="person.crop.square" catalog="system" width="64" height="56"/>
-    </resources>
 </document>

@@ -82,18 +82,18 @@ struct ProposalAmendment {
 
 extension AmendmentStatus {
     
-    var image: UIImage? {
+    var icon: KrakenIcon {
         switch self {
         case .submitted:
-            return UIImage(systemName: "dot.square.fill")
+            return .hourglass
         case .invalid:
-            return UIImage(systemName: "nosign")
+            return .cancel_circle
         case .open:
-            return UIImage(systemName: "circle")
+            return .circle
         case .accepted:
-            return UIImage(systemName: "checkmark.circle.fill")
+            return .checkmark
         case .rejected:
-            return UIImage(systemName: "xmark.circle.fill")
+            return .cross
         }
     }
     

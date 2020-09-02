@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lgD-1X-ZnW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -43,7 +44,7 @@
                                 <rect key="frame" x="0.0" y="770" width="414" height="126"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Add a comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pPf-ef-Ava">
-                                        <rect key="frame" x="24" y="16" width="337.5" height="60"/>
+                                        <rect key="frame" x="24" y="16" width="328" height="60"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                         <connections>
@@ -51,8 +52,13 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-vP-ZwX">
-                                        <rect key="frame" x="369.5" y="35" width="20.5" height="22"/>
-                                        <state key="normal" image="paperplane.fill" catalog="system"/>
+                                        <rect key="frame" x="360" y="29" width="30" height="34"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="circle_up"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="sendButtonTapped:" destination="cgL-cf-YgS" eventType="touchUpInside" id="KzP-wa-F2K"/>
                                         </connections>
@@ -103,7 +109,4 @@
             <point key="canvasLocation" x="139" y="71"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="paperplane.fill" catalog="system" width="64" height="60"/>
-    </resources>
 </document>
