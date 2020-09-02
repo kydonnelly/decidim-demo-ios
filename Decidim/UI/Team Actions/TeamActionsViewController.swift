@@ -119,7 +119,7 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
                     teamActions[description] = .pending
                 }
                 
-                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { [weak self] _ in
+                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] _ in
                     self?.refreshData()
                 }
             }

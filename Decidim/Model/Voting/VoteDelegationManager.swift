@@ -12,20 +12,10 @@ class VoteDelegationManager {
     
     public typealias UpdateCompletion = (Bool) -> Void
     
-    private var byCategory: [String: [Int]] = [:]
     private var backingDataController: TeamListDataController
     
     init() {
         self.backingDataController = TeamListDataController.shared()
-    }
-    
-    public func updateDelegates(category: String, profileIds: [Int], completion: UpdateCompletion) {
-        self.byCategory[category] = profileIds
-        completion(true)
-    }
-    
-    public func getDelegates(category: String) -> [Int] {
-        return self.byCategory[category] ?? []
     }
     
     public var allCategories: [String] {
@@ -50,6 +40,41 @@ extension VoteDelegationManager {
     
     var doneLoading: Bool {
         return self.backingDataController.donePaging
+    }
+    
+}
+
+extension VoteDelegationManager {
+    
+    public func getDelegates(category: String) -> [Int] {
+        guard let profileId = MyProfileController.shared.myProfileId else {
+            return []
+        }
+        guard let team = TeamListDataController.shared().allTeams.first(where: { $0.team.name == category }) else {
+            return []
+        }
+        guard let delegates = team.delegationList[profileId] else {
+            return []
+        }
+        return delegates
+    }
+    
+    public func updateDelegates(category: String, profileIds: [Int], completion: @escaping UpdateCompletion) {
+        guard let profileId = MyProfileController.shared.myProfileId else {
+            completion(false)
+            return
+        }
+        guard let team = TeamListDataController.shared().allTeams.first(where: { $0.team.name == category }) else {
+            completion(false)
+            return
+        }
+        
+        var delegationList = team.delegationList
+        delegationList[profileId] = profileIds
+        
+        TeamListDataController.shared().editTeam(team.team.id, title: team.team.name, description: team.team.description, thumbnail: team.team.thumbnail, members: team.memberList, actions: team.actionList, delegates: delegationList) { error in
+            completion(error == nil)
+        }
     }
     
 }

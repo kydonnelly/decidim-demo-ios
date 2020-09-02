@@ -12,6 +12,7 @@ struct TeamDetail {
     let team: Team
     let memberList: [Int: TeamMemberStatus]
     let actionList: [String: TeamActionStatus]
+    let delegationList: [Int: [Int]]
     
     public static func from(dict: [String: Any]) -> TeamDetail? {
         guard let body = dict["body"] as? String else {
@@ -19,7 +20,7 @@ struct TeamDetail {
         }
         
         let components = body.components(separatedBy: "###")
-        guard components.count == 5 else {
+        guard components.count >= 5 else {
             return nil
         }
         
@@ -58,13 +59,32 @@ struct TeamDetail {
         
         let description = components[3]
         
+        var delegationList: [Int: [Int]] = [:]
+        if components.count >= 6 {
+            let delegationChains = components[4].components(separatedBy: "|")
+            delegationList = delegationChains.reduce(into: [Int: [Int]]()) { accumulator, delegateString in
+                guard delegateString.count > 0 else {
+                    return
+                }
+                
+                let delegateComponents = delegateString.components(separatedBy: ":")
+                guard let profileId = Int(delegateComponents[0]) else {
+                    return
+                }
+                
+                let delegates = delegateComponents[1].components(separatedBy: ",").compactMap({ Int($0) })
+                accumulator[profileId] = delegates
+            }
+        }
+        
         guard let team = Team.from(dict: dict, memberCount: members.count, description: description) else {
             return nil
         }
         
         return TeamDetail(team: team,
                           memberList: members,
-                          actionList: actions)
+                          actionList: actions,
+                          delegationList: delegationList)
     }
 }
 

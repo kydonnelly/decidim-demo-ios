@@ -90,7 +90,7 @@ extension EditActionViewController {
         var teamActions = self.teamDetail.actionList
         teamActions[description] = newStatus
         
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { [weak self] error in
+        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] error in
             guard error == nil else {
                 return
             }
@@ -109,7 +109,7 @@ extension EditActionViewController {
         teamActions.removeValue(forKey: originalDescription)
         teamActions[description] = status
         
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions) { [weak self] error in
+        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] error in
             guard error == nil else {
                 return
             }
