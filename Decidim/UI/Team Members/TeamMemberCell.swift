@@ -18,12 +18,6 @@ class TeamMemberCell: UITableViewCell {
     
     private var onManage: ManageBlock?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.manageButton.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-    }
-    
     public func setup(profile: ProfileInfo?, status: TeamMemberStatus, canManage: Bool, manageBlock: ManageBlock?) {
         self.handleLabel.text = profile?.handle
         self.profileImageView.image = profile?.thumbnail

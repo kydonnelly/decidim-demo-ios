@@ -18,12 +18,6 @@ class TeamActionCell: UITableViewCell {
     
     private var onUpdate: UpdateBlock?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.updateButton.backgroundColor = UIColor.blue
-    }
-    
     public func setup(description: String, status: TeamActionStatus, canUpdate: Bool, onUpdate: UpdateBlock?) {
         self.descriptionLabel.text = description
         

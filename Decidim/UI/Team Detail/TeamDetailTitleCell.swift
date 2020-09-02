@@ -20,12 +20,6 @@ class TeamDetailTitleCell: UITableViewCell {
     private var teamDetail: TeamDetail!
     private var updateStatusBlock: UpdateStatusBlock?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        self.memberStatusButton.backgroundColor = UIColor.white.withAlphaComponent(0.8)
-    }
-    
     func setup(detail: TeamDetail, onUpdateStatus: UpdateStatusBlock?) {
         self.titleLabel.text = detail.team.name
         self.iconImageView.image = detail.team.thumbnail

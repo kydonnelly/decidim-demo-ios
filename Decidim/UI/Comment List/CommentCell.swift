@@ -32,7 +32,7 @@ class CommentCell: UITableViewCell {
         
         self.onOptionsTapped = optionsBlock
         
-        self.contentView.backgroundColor = isEditing ? UIColor.purple.withAlphaComponent(0.1) : .clear
+        self.contentView.backgroundColor = isEditing ? UIColor.action.withAlphaComponent(0.1) : .clear
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
