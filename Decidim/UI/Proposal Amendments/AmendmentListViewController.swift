@@ -96,7 +96,17 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.AmendmentCellId, for: indexPath) as! AmendmentCell
             
             let amendment = self.dataController.allAmendments[indexPath.row]
-            cell.setup(amendment: amendment)
+            cell.setup(amendment: amendment, tappedProfileBlock: { [weak self] in
+                guard let self = self, let presentingVC = self.presentingViewController as? UINavigationController else {
+                    return
+                }
+                
+                let authorId = self.proposalDetail.authorId
+                self.dismiss(animated: true) {
+                    let vc = ProfileViewController.create(profileId: authorId)
+                    presentingVC.pushViewController(vc, animated: true)
+                }
+            })
             
             return cell
         } else {

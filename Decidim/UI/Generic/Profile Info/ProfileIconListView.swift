@@ -10,10 +10,14 @@ import UIKit
 
 class ProfileIconListView: UIView {
     
+    typealias ProfileBlock = (Int) -> Void
+    
     private static let ProfileIconCellId = "ProfileIconCell"
     
     private var profiles: [ProfileInfo]!
     private var collectionView: UICollectionView!
+    
+    private var onProfileTapped: ProfileBlock?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -35,8 +39,10 @@ class ProfileIconListView: UIView {
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: Self.ProfileIconCellId)
     }
     
-    public func setup(profiles: [ProfileInfo]) {
+    public func setup(profiles: [ProfileInfo], tappedProfileBlock: ProfileBlock?) {
         self.profiles = profiles
+        self.onProfileTapped = tappedProfileBlock
+        
         self.collectionView.reloadData()
     }
     
@@ -57,7 +63,9 @@ extension ProfileIconListView: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.ProfileIconCellId, for: indexPath) as! ProfileIconCollectionCell
         
         let profileInfo = self.profiles[indexPath.row]
-        cell.setup(profile: profileInfo)
+        cell.setup(profile: profileInfo) { [weak self] in
+            self?.onProfileTapped?(profileInfo.profileId)
+        }
         
         return cell
     }

@@ -10,11 +10,13 @@ import UIKit
 
 class ProposalDetailAmendmentsCell: UITableViewCell {
     
+    typealias ProfileBlock = (Int) -> Void
+    
     @IBOutlet var numAmendmentsLabel: UILabel!
     @IBOutlet var profileListView: ProfileIconListView!
     @IBOutlet var listViewConstraints: [NSLayoutConstraint]!
     
-    func setup(detail: ProposalDetail) {
+    func setup(detail: ProposalDetail, tappedProfileBlock: ProfileBlock?) {
         self.numAmendmentsLabel.text = "Amendments"
         ProposalAmendmentDataController.shared(proposalId: detail.proposal.id).refresh { [weak self] dc in
             let amendments = dc.data as? [ProposalAmendment] ?? []
@@ -26,7 +28,9 @@ class ProposalDetailAmendmentsCell: UITableViewCell {
                 let allProfiles = dc.data as? [ProfileInfo] ?? []
                 let allAmenders = Set<Int>(amendments.map { $0.authorId })
                 let profiles = allProfiles.filter { allAmenders.contains($0.profileId) }
-                self.profileListView.setup(profiles: profiles)
+                self.profileListView.setup(profiles: profiles) { profileId in
+                    tappedProfileBlock?(profileId)
+                }
                 
                 self.listViewConstraints.forEach { $0.isActive = profiles.count > 0 }
             }

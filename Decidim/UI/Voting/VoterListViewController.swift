@@ -82,6 +82,12 @@ extension VoterListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section == 0 {
+            let vote = self.allVotes[indexPath.row]
+            let profileVC = ProfileViewController.create(profileId: vote.authorId)
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }
     }
     
 }

@@ -21,14 +21,20 @@ class TeamListViewController: UIViewController, CustomTableController {
         case recommended
     }
     
+    private var profileId: Int?
     private var dataController: TeamListDataController!
     
     @IBOutlet var tableView: UITableView!
     
-    public static func create() -> TeamListViewController {
+    public static func create(profileId: Int?) -> TeamListViewController {
         let sb = UIStoryboard(name: "TeamList", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! TeamListViewController
+        vc.setup(profileId: profileId)
         return vc
+    }
+    
+    private func setup(profileId: Int?) {
+        self.profileId = profileId
     }
     
     override func viewDidLoad() {
@@ -66,7 +72,10 @@ class TeamListViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func teams(section: Sections) -> [TeamDetail] {
-        guard let profileId = MyProfileController.shared.myProfileId else {
+        guard let profileId = self.profileId else {
+            return []
+        }
+        if profileId != MyProfileController.shared.myProfileId && section != .joined {
             return []
         }
         

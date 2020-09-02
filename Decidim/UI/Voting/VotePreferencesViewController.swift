@@ -69,7 +69,11 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
             let category = self.delegationManager.allCategories[indexPath.row]
             let delegates = self.delegationManager.getDelegates(category: category)
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.delegationCellId, for: indexPath) as! VotePreferencesDelegateCell
-            cell.setup(category: category, delegates: delegates)
+            cell.setup(category: category, delegates: delegates) { [weak self] profileId in
+                guard let navController = self?.navigationController else { return }
+                let profileVC = ProfileViewController.create(profileId: profileId)
+                navController.pushViewController(profileVC, animated: true)
+            }
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)

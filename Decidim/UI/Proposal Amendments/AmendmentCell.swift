@@ -10,6 +10,8 @@ import UIKit
 
 class AmendmentCell: UITableViewCell {
     
+    typealias ActionBlock = () -> Void
+    
     @IBOutlet var amendmentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
@@ -17,12 +19,19 @@ class AmendmentCell: UITableViewCell {
     
     @IBOutlet var statusImageView: UIImageView!
     
-    func setup(amendment: ProposalAmendment) {
+    private var onProfileTapped: ActionBlock?
+    
+    func setup(amendment: ProposalAmendment, tappedProfileBlock: ActionBlock?) {
         self.amendmentLabel.text = amendment.text
         self.timeLabel.text = amendment.createdAt.asShortStringAgo()
         
         self.statusImageView.icon = amendment.status.icon
         self.statusImageView.tintColor = amendment.status.tintColor
+        
+        self.onProfileTapped = tappedProfileBlock
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
+        self.iconImageView.addGestureRecognizer(tapGesture)
+        self.iconImageView.isUserInteractionEnabled = true
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
@@ -38,6 +47,14 @@ class AmendmentCell: UITableViewCell {
             self.handleLabel.text = info.handle
             self.iconImageView.image = info.thumbnail
         }
+    }
+    
+}
+
+extension AmendmentCell {
+    
+    @IBAction func tappedProfileImageView(_ sender: UIGestureRecognizer) {
+        self.onProfileTapped?()
     }
     
 }

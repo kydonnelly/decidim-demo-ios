@@ -10,11 +10,13 @@ import UIKit
 
 class VotePreferencesDelegateCell: UITableViewCell {
     
+    typealias ProfileBlock = (Int) -> Void
+    
     @IBOutlet var categoryLabel: UILabel!
     @IBOutlet var profileListView: ProfileIconListView!
     @IBOutlet var listViewConstraints: [NSLayoutConstraint]!
     
-    public func setup(category: String, delegates: [Int]) {
+    public func setup(category: String, delegates: [Int], tappedProfileBlock: ProfileBlock?) {
         self.categoryLabel.text = category
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
@@ -24,7 +26,9 @@ class VotePreferencesDelegateCell: UITableViewCell {
             
             let profiles = dc.data as? [ProfileInfo] ?? []
             let filtered = profiles.filter { delegates.contains($0.profileId) }
-            self.profileListView.setup(profiles: filtered)
+            self.profileListView.setup(profiles: filtered) { profileId in
+                tappedProfileBlock?(profileId)
+            }
             
             self.listViewConstraints.forEach { $0.isActive = filtered.count > 0 }
         }

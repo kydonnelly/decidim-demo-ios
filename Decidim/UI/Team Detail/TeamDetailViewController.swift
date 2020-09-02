@@ -128,7 +128,11 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             case .members:
-                (cell as! TeamMemberListCell).setup(detail: detail)
+                (cell as! TeamMemberListCell).setup(detail: detail) { [weak self] profileId in
+                    guard let navController = self?.navigationController else { return }
+                    let profileVC = ProfileViewController.create(profileId: profileId)
+                    navController.pushViewController(profileVC, animated: true)
+                }
             case .actions:
                 (cell as! TeamActionListCell).setup(detail: detail)
             }

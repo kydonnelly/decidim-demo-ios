@@ -152,7 +152,7 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
         let isEditing = comment.commentId == self.editingComment?.commentId
         let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
         
-        cell.setup(comment: comment, isOwn: isMyComment, isEditing: isEditing) { [weak self] button in
+        cell.setup(comment: comment, isOwn: isMyComment, isEditing: isEditing, optionsBlock: { [weak self] button in
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if isMyComment {
@@ -188,7 +188,16 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
             }
      
             self?.present(alert, animated: true, completion: nil)
-        }
+        }, tappedProfileBlock: { [weak self] in
+            guard let self = self, let presentingVC = self.presentingViewController as? UINavigationController else {
+                return
+            }
+            
+            self.dismiss(animated: true) {
+                let vc = ProfileViewController.create(profileId: comment.authorId)
+                presentingVC.pushViewController(vc, animated: true)
+            }
+        })
         
         return cell
     }

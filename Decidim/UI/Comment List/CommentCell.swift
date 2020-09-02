@@ -18,11 +18,13 @@ class CommentCell: UITableViewCell {
     @IBOutlet var reactButton: UIButton!
     @IBOutlet var optionsButton: UIButton!
     
+    typealias ProfileBlock = () -> Void
     typealias OptionsBlock = (UIButton) -> Void
     
     fileprivate var onOptionsTapped: OptionsBlock?
+    fileprivate var onProfileTapped: ProfileBlock?
     
-    func setup(comment: ProposalComment, isOwn: Bool, isEditing: Bool, optionsBlock: OptionsBlock?) {
+    func setup(comment: ProposalComment, isOwn: Bool, isEditing: Bool, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
         self.timeLabel.text = comment.createdAt.asShortStringAgo()
@@ -31,6 +33,11 @@ class CommentCell: UITableViewCell {
         self.optionsButton.isHidden = !isOwn
         
         self.onOptionsTapped = optionsBlock
+        self.onProfileTapped = tappedProfileBlock
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
+        self.iconImageView.addGestureRecognizer(tapGesture)
+        self.iconImageView.isUserInteractionEnabled = true
         
         self.contentView.backgroundColor = isEditing ? UIColor.action.withAlphaComponent(0.1) : .clear
         
@@ -56,6 +63,10 @@ extension CommentCell {
     
     @IBAction func optionsButtonTapped(_ sender: UIButton) {
         self.onOptionsTapped?(sender)
+    }
+    
+    @IBAction func tappedProfileImageView(_ sender: UIGestureRecognizer) {
+        self.onProfileTapped?()
     }
     
 }

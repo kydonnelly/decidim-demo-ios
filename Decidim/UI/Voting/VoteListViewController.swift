@@ -15,14 +15,20 @@ class VoteListViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
+    private var profileId: Int?
     private var dataController: PublicProposalDataController!
     private var proposalVotes: [(Proposal, ProposalVote)] = []
     private var isRefreshing: Bool = false
     
-    public static func create() -> VoteListViewController {
+    public static func create(profileId: Int?) -> VoteListViewController {
         let sb = UIStoryboard(name: "VoteList", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! VoteListViewController
+        vc.profileId = profileId
         return vc
+    }
+    
+    private func setup(profileId: Int?) {
+        self.profileId = profileId
     }
     
     override func viewDidLoad() {
@@ -59,22 +65,20 @@ class VoteListViewController: UIViewController, CustomTableController {
         let allProposals = self.dataController.allProposals
         var count = allProposals.count
         
-        let profileId = MyProfileController.shared.myProfileId
-        
         for proposal in allProposals {
             ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
                 count -= 1
                 
-                guard let dc = dc as? ProposalVotesDataController else {
+                guard let self = self, let dc = dc as? ProposalVotesDataController else {
                     return
                 }
-                if let vote = dc.allVotes.last(where: { $0.authorId == profileId }) {
-                    self?.proposalVotes.append((proposal, vote))
+                if let vote = dc.allVotes.last(where: { $0.authorId == self.profileId }) {
+                    self.proposalVotes.append((proposal, vote))
                 }
                 
                 if count == 0 {
-                    self?.isRefreshing = false
-                    self?.tableView?.reloadData()
+                    self.isRefreshing = false
+                    self.tableView?.reloadData()
                 }
             }
         }

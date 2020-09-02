@@ -201,7 +201,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     }
                     
                     let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
-                    commentVC.modalPresentationStyle = .overFullScreen
+                    commentVC.modalPresentationStyle = .overCurrentContext
                     self.navigationController?.present(commentVC, animated: true, completion: nil)
                 }
                 let amendmentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
@@ -226,7 +226,11 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let detail = self.proposalDetail!
             switch cellId {
             case .amendments:
-                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail)
+                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail) { [weak self] profileId in
+                    guard let navController = self?.navigationController else { return }
+                    let profileVC = ProfileViewController.create(profileId: profileId)
+                    navController.pushViewController(profileVC, animated: true)
+                }
             case .author:
                 (cell as! ProposalDetailAuthorCell).setup(detail: detail)
             case .body:
@@ -240,13 +244,13 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let comment = self.commentDataController.allComments[indexPath.row]
             let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
             
-            cell.setup(comment: comment, isOwn: isMyComment, isEditing: false) { [weak self] button in
+            cell.setup(comment: comment, isOwn: isMyComment, isEditing: false, optionsBlock: { [weak self] button in
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 if isMyComment {
                     alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
                         guard let self = self else { return }
                         let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!, editComment: comment)
-                        commentVC.modalPresentationStyle = .overFullScreen
+                        commentVC.modalPresentationStyle = .overCurrentContext
                         self.navigationController?.present(commentVC, animated: true, completion: nil)
                     }))
                     alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
@@ -258,7 +262,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
                         guard let self = self else { return }
                         let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
-                        commentVC.modalPresentationStyle = .overFullScreen
+                        commentVC.modalPresentationStyle = .overCurrentContext
                         self.navigationController?.present(commentVC, animated: true, completion: nil)
                     }))
                     alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
@@ -276,7 +280,11 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 }
                 
                 self?.present(alert, animated: true, completion: nil)
-            }
+            }, tappedProfileBlock: { [weak self] in
+                guard let navController = self?.navigationController else { return }
+                let profileVC = ProfileViewController.create(profileId: comment.authorId)
+                navController.pushViewController(profileVC, animated: true)
+            })
             
             return cell
         } else {
@@ -291,14 +299,15 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let cellId = MidSectionCell.ordered()[indexPath.row]
             
             switch cellId {
+            case .author:
+                let vc = ProfileViewController.create(profileId: self.proposal.authorId)
+                self.navigationController?.pushViewController(vc, animated: true)
             case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .amendments:
                 let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
                 self.navigationController?.present(vc, animated: true, completion: nil)
-            default:
-                break
             }
         }
     }

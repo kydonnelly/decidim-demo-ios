@@ -137,6 +137,14 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        if indexPath.section < TeamMemberStatus.allCases.count {
+            let status = TeamMemberStatus.allCases[indexPath.section]
+            let memberId = self.members(status: status)[indexPath.row]
+            
+            let vc = ProfileViewController.create(profileId: memberId)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
