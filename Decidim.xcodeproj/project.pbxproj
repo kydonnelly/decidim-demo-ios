@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26C8247B6A4A001804D6 /* AppDelegate.swift */; };
-		270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26CA247B6A4A001804D6 /* SceneDelegate.swift */; };
 		270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D1247B6A4B001804D6 /* Assets.xcassets */; };
 		270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26DD247B9F9E001804D6 /* GraphRequest.swift */; };
 		270B26E6247BA178001804D6 /* GraphRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26E5247BA178001804D6 /* GraphRequestTests.swift */; };
@@ -143,7 +142,6 @@
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
 		270B26C5247B6A4A001804D6 /* Decidim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decidim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		270B26CA247B6A4A001804D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		270B26D6247B6A4B001804D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		270B26DD247B9F9E001804D6 /* GraphRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphRequest.swift; sourceTree = "<group>"; };
@@ -314,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				270B26C8247B6A4A001804D6 /* AppDelegate.swift */,
-				270B26CA247B6A4A001804D6 /* SceneDelegate.swift */,
 				270B26D1247B6A4B001804D6 /* Assets.xcassets */,
 				270B26D6247B6A4B001804D6 /* Info.plist */,
 				270B26EF247BC1D5001804D6 /* GraphAPI */,
@@ -1027,7 +1024,6 @@
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
-				270B26CB247B6A4A001804D6 /* SceneDelegate.swift in Sources */,
 				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,
 				2717F47E24E0C79100189F7C /* ProposalDatePickerCell.swift in Sources */,
 			);
@@ -1103,7 +1099,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1157,7 +1153,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
