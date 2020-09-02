@@ -485,8 +485,11 @@
                                                 <color key="tintColor" name="Action"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="shrink2"/>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedImageName" value="circle_up"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="circle_up"/>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                        <color key="value" name="Action"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
                                                         <color key="value" name="Action"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
