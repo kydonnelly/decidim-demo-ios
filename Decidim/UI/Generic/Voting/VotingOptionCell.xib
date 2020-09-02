@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,6 +18,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-He-VwJ">
+                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                        <color key="backgroundColor" name="PrimaryLight"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="64"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="Action"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-Wa-7fB">
                         <rect key="frame" x="8" y="8" width="112" height="112"/>
                         <connections>
@@ -25,16 +41,29 @@
                     </button>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="leading" secondItem="F8z-KU-4D0" secondAttribute="leading" id="CAs-cq-2Ah"/>
+                    <constraint firstAttribute="trailing" secondItem="rBg-He-VwJ" secondAttribute="trailing" id="FRm-ES-nJB"/>
                     <constraint firstItem="YjY-Wa-7fB" firstAttribute="centerY" secondItem="F8z-KU-4D0" secondAttribute="centerY" id="N1v-BF-PBF"/>
                     <constraint firstItem="YjY-Wa-7fB" firstAttribute="centerX" secondItem="F8z-KU-4D0" secondAttribute="centerX" id="NJK-UJ-wHJ"/>
                     <constraint firstItem="YjY-Wa-7fB" firstAttribute="leading" secondItem="F8z-KU-4D0" secondAttribute="leading" constant="8" id="Qib-no-cQX"/>
+                    <constraint firstAttribute="bottom" secondItem="rBg-He-VwJ" secondAttribute="bottom" id="T6A-JQ-1t7"/>
                     <constraint firstItem="YjY-Wa-7fB" firstAttribute="top" secondItem="F8z-KU-4D0" secondAttribute="top" constant="8" id="ash-uk-zKs"/>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="top" secondItem="F8z-KU-4D0" secondAttribute="top" id="d6Q-oy-Wh6"/>
                 </constraints>
             </collectionViewCellContentView>
             <connections>
+                <outlet property="selectedView" destination="rBg-He-VwJ" id="GbA-MH-OzT"/>
                 <outlet property="voteButton" destination="YjY-Wa-7fB" id="PFg-CK-zxk"/>
             </connections>
             <point key="canvasLocation" x="52" y="-27"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="Action">
+            <color red="0.11400000005960464" green="0.47099998593330383" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
 </document>

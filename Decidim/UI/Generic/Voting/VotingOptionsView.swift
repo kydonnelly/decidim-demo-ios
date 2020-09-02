@@ -45,17 +45,12 @@ class VotingOptionsView: UIView {
     }
     
     fileprivate var orderedVoteTypes: [VoteType] {
-        return [.abstain, .no, .yes]
+        return [.no, .abstain, .yes]
     }
     
 }
 
-extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = self.bounds.size.height
-        return CGSize(width: height, height: height)
-    }
+extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.orderedVoteTypes.count
@@ -70,6 +65,39 @@ extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegat
         }
         
         return cell
+    }
+    
+}
+
+extension VotingOptionsView: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let numItems = CGFloat(self.orderedVoteTypes.count)
+        let maxWidth = min(self.bounds.size.height, self.bounds.size.width / numItems)
+        let maxHeight = min(self.bounds.size.width, self.bounds.size.height / numItems)
+        let dimension = max(maxWidth, maxHeight)
+        
+        return CGSize(width: dimension, height: dimension)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let minDimension = min(self.bounds.size.width, self.bounds.size.height)
+        let maxDimension = max(self.bounds.size.width, self.bounds.size.height)
+        
+        let numItems = self.orderedVoteTypes.count
+        let totalPadding = max(0, maxDimension - minDimension * CGFloat(numItems))
+        let inset = totalPadding / CGFloat(numItems) * 0.5
+        
+        return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        let minDimension = min(self.bounds.size.width, self.bounds.size.height)
+        let maxDimension = max(self.bounds.size.width, self.bounds.size.height)
+        
+        let numItems = self.orderedVoteTypes.count
+        let totalPadding = max(0, maxDimension - minDimension * CGFloat(numItems))
+        return totalPadding / CGFloat(numItems)
     }
     
 }

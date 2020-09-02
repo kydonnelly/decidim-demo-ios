@@ -13,15 +13,22 @@ class ProposalDetailViewController: UIViewController {
     static let LoadingCellID = "LoadingCell"
     static let CommentCellID = "CommentCell"
     
-    fileprivate enum StaticCell: String, CaseIterable {
-        case amendments = "AmendmentsCell"
-        case author = "AuthorCell"
-        case body = "BodyCell"
+    fileprivate enum TopSectionCell: String, CaseIterable {
         case engagement = "EngagementCell"
         case title = "TitleCell"
         
-        static func ordered() -> [StaticCell] {
-            return [.title, .engagement, .body, .author, .amendments]
+        static func ordered() -> [TopSectionCell] {
+            return [.title, .engagement]
+        }
+    }
+    
+    fileprivate enum MidSectionCell: String, CaseIterable {
+        case amendments = "AmendmentsCell"
+        case author = "AuthorCell"
+        case body = "BodyCell"
+        
+        static func ordered() -> [MidSectionCell] {
+            return [.body, .author, .amendments]
         }
     }
     
@@ -32,8 +39,6 @@ class ProposalDetailViewController: UIViewController {
     
     @IBOutlet var voteContainerView: UIView!
     @IBOutlet var voteDeadlineLabel: UILabel!
-    @IBOutlet var voteVisibilityButton: UIButton!
-    @IBOutlet var voteVisibilityConstraint: NSLayoutConstraint!
     
     private var proposal: Proposal!
     private var voteDataController: ProposalVotesDataController!
@@ -121,53 +126,51 @@ class ProposalDetailViewController: UIViewController {
     
 }
 
-extension ProposalDetailViewController: UIScrollViewDelegate {
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        if scrollView.contentOffset.y > 0,
-           scrollView.contentOffset.y > self.previousContentOffset.y,
-           !self.voteVisibilityButton.isSelected {
-            self.toggleVoteVisibility(sender: self.voteVisibilityButton)
-        }
-        
-        self.previousContentOffset = scrollView.contentOffset
-    }
-    
-}
-
 extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.detailDataController.donePaging {
-            return 2
-        } else {
             return 3
+        } else {
+            return 4
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.proposalDetail != nil ? StaticCell.ordered().count : 0
+            return self.proposalDetail != nil ? TopSectionCell.ordered().count : 0
         } else if section == 1 {
-            return self.commentDataController?.allComments.count ?? 0
+            return self.proposalDetail != nil ? MidSectionCell.ordered().count : 0
+        } else if section == 2 {
+            return self.proposalDetail != nil ? (self.commentDataController?.allComments.count ?? 0) : 0
         } else {
             return 1
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return self.proposalDetail != nil ? 162 : 0
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            return self.proposalDetail != nil ? self.voteContainerView : nil
+        } else {
+            return nil
+        }
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cellId = StaticCell.ordered()[indexPath.row]
+            let cellId = TopSectionCell.ordered()[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId.rawValue, for: indexPath)
             
             let detail = self.proposalDetail!
             switch cellId {
-            case .amendments:
-                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail)
-            case .author:
-                (cell as! ProposalDetailAuthorCell).setup(detail: detail)
-            case .body:
-                (cell as! ProposalDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .engagement:
                 let likeBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
                     guard let self = self else {
@@ -217,6 +220,21 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             
             return cell
         } else if indexPath.section == 1 {
+            let cellId = MidSectionCell.ordered()[indexPath.row]
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId.rawValue, for: indexPath)
+            
+            let detail = self.proposalDetail!
+            switch cellId {
+            case .amendments:
+                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail)
+            case .author:
+                (cell as! ProposalDetailAuthorCell).setup(detail: detail)
+            case .body:
+                (cell as! ProposalDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
+            }
+            
+            return cell
+        } else if indexPath.section == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.CommentCellID, for: indexPath) as! CommentCell
             
             let comment = self.commentDataController.allComments[indexPath.row]
@@ -269,8 +287,8 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section == 0 {
-            let cellId = StaticCell.ordered()[indexPath.row]
+        if indexPath.section == 1 {
+            let cellId = MidSectionCell.ordered()[indexPath.row]
             
             switch cellId {
             case .body:
@@ -286,7 +304,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             self.detailDataController.page { [weak self] dc in
                 self?.tableView.reloadData()
             }
@@ -320,15 +338,6 @@ extension ProposalDetailViewController {
                     self?.refreshVoteUI()
                 }
             }
-        }
-    }
-    
-    @IBAction func toggleVoteVisibility(sender: UIButton) {
-        sender.isSelected = !sender.isSelected
-        self.voteVisibilityConstraint.isActive = !self.voteVisibilityConstraint.isActive
-
-        UIView.animate(withDuration: 0.3) {
-            self.view.layoutIfNeeded()
         }
     }
     

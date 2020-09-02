@@ -11,6 +11,7 @@ import UIKit
 class VotingOptionCell: UICollectionViewCell {
     
     @IBOutlet var voteButton: UIButton!
+    @IBOutlet var selectedView: UIView!
     
     typealias VoteBlock = () -> Void
     
@@ -19,18 +20,23 @@ class VotingOptionCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.voteButton.tintColor = .white
-        self.voteButton.layer.cornerRadius = 36
-        self.voteButton.layer.masksToBounds = true
-        self.voteButton.layer.borderColor = UIColor.red.cgColor
+        self.voteButton.iconInset = 12
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.layoutIfNeeded()
+        
+        self.voteButton.cornerRadius = self.voteButton.bounds.size.height * 0.5
+        self.selectedView.cornerRadius = self.selectedView.bounds.size.height * 0.5
     }
     
     public func setup(voteType: VoteType, isSelected: Bool, onVote: VoteBlock?) {
         self.voteButton.icon = voteType.icon
-        self.voteButton.iconColor = .white
+        self.voteButton.iconColor = .primaryLight
         self.voteButton.iconBackgroundColor = voteType.tintColor
         
-        self.voteButton.layer.borderWidth = isSelected ? 2.0 : 0.0
+        self.selectedView.borderWidth = isSelected ? 4 : 0
         
         self.onVote = onVote
     }
