@@ -13,7 +13,7 @@ class CommentListViewController: UIViewController {
     fileprivate static let CommentCellId = "CommentCell"
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var textField: UITextField!
+    @IBOutlet var textView: UITextView!
     @IBOutlet var textContainer: UIView!
     
     @IBOutlet var keyboardOffsetConstraint: NSLayoutConstraint!
@@ -59,7 +59,9 @@ class CommentListViewController: UIViewController {
             self.tableView.reloadData()
             
             if let comment = self.editingComment {
-                self.textField.text = comment.text
+                self.textView.text = comment.text
+            } else {
+                self.textView.text = nil
             }
         })
     }
@@ -67,7 +69,7 @@ class CommentListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.textField.becomeFirstResponder()
+        self.textView.becomeFirstResponder()
     }
     
     fileprivate var comments: [ProposalComment] {
@@ -88,11 +90,11 @@ class CommentListViewController: UIViewController {
 extension CommentListViewController {
     
     @IBAction func sendButtonTapped(_ sender: Any) {
-        guard let commentText = self.textField.text, commentText.count > 0 else {
+        guard let commentText = self.textView.text, commentText.count > 0 else {
             return
         }
         
-        self.textField.text = nil
+        self.textView.text = nil
         self.editingComment = nil
 
         if let editingId = self.editingComment?.commentId {
@@ -133,15 +135,6 @@ extension CommentListViewController {
     
 }
 
-extension CommentListViewController: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.sendButtonTapped(textField)
-        return true
-    }
-    
-}
-
 extension CommentListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -166,8 +159,8 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
                 alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
                     guard let self = self else { return }
                     self.editingComment = comment
-                    self.textField.text = comment.text
-                    self.textField.becomeFirstResponder()
+                    self.textView.text = comment.text
+                    self.textView.becomeFirstResponder()
                     self.tableView.reloadData()
                 }))
                 alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
@@ -178,7 +171,7 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
             } else {
                 alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
                     guard let self = self else { return }
-                    self.textField.becomeFirstResponder()
+                    self.textView.becomeFirstResponder()
                 }))
                 alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
                     
