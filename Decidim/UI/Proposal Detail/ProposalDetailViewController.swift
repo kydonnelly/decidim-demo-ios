@@ -201,7 +201,16 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     commentVC.modalPresentationStyle = .overFullScreen
                     self.navigationController?.present(commentVC, animated: true, completion: nil)
                 }
-                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock)
+                let amendmentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
+                    guard let self = self else {
+                        return
+                    }
+                    
+                    let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
+                    self.navigationController?.present(vc, animated: true, completion: nil)
+                }
+                
+                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
             case .title:
                 (cell as! ProposalDetailTitleCell).setup(detail: detail)
             }

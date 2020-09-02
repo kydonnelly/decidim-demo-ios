@@ -24,8 +24,8 @@ class ProposalListCell: UITableViewCell {
         self.subtitleLabel.text = proposal.body
         self.iconImageView.image = proposal.thumbnail
         
-        self.createdAtLabel.text = proposal.createdAt.asShortStringAgo()
-        self.commentsLabel.text = "\(proposal.commentCount) comments"
+        self.createdAtLabel.text = "\(proposal.createdAt.asShortStringAgo()) •"
+        self.commentsLabel.text = "\(proposal.commentCount) comments •"
         self.votesLabel.text = "\(proposal.voteCount) votes"
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
@@ -40,6 +40,18 @@ class ProposalListCell: UITableViewCell {
             }
             
             self.authorLabel.text = info.handle
+        }
+        
+        ProposalCommentsDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
+            guard let self = self, let dataController = dc as? ProposalCommentsDataController else { return }
+            let commentCount = dataController.allComments.filter { $0.proposalId == proposal.id }.count
+            self.commentsLabel.text = "\(commentCount) comments •"
+        }
+        
+        ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
+            guard let self = self, let dataController = dc as? ProposalVotesDataController else { return }
+            let voteCount = dataController.allVotes.filter { $0.proposalId == proposal.id }.count
+            self.votesLabel.text = "\(voteCount) votes"
         }
     }
     
