@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditTeamViewController: UIViewController {
+class EditTeamViewController: UIViewController, CustomTableController {
     
     fileprivate static let InputCellId = "InputCell"
     fileprivate static let ImageCellId = "ImageCell"

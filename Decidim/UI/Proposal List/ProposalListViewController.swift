@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalListViewController: UIViewController {
+class ProposalListViewController: UIViewController, CustomTableController {
     
     static let LoadingCellID = "LoadingCell"
     static let ProposalDetailCellID = "ProposalDetailCell"

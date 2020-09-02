@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditActionViewController: UIViewController {
+class EditActionViewController: UIViewController, CustomTableController {
     
     fileprivate static let InputCellId = "InputCell"
     fileprivate static let ToggleCellId = "ToggleCell"

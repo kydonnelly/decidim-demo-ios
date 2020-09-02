@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamDetailViewController: UIViewController {
+class TeamDetailViewController: UIViewController, CustomTableController {
     
     static let LoadingCellID = "LoadingCell"
     

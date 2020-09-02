@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VoterListViewController: UIViewController {
+class VoterListViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     

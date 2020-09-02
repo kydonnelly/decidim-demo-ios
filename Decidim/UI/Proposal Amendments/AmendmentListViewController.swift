@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmendmentListViewController: UIViewController {
+class AmendmentListViewController: UIViewController, CustomTableController {
     
     fileprivate static let AmendmentCellId = "AmendmentCell"
     fileprivate static let LoadingCellId = "LoadingCell"

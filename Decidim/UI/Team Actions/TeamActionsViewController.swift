@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamActionsViewController: UIViewController {
+class TeamActionsViewController: UIViewController, CustomTableController {
     
     private static let ActionCellId = "ActionCell"
     private static let LoadingCellId = "LoadingCell"

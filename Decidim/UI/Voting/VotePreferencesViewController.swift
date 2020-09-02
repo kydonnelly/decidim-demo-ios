@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VotePreferencesViewController: UIViewController {
+class VotePreferencesViewController: UIViewController, CustomTableController {
     
     static let toggleCellId = "ToggleCell"
     static let delegationCellId = "DelegationCell"

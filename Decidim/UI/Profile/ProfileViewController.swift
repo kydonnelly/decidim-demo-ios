@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     

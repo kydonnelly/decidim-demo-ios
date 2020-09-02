@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentListViewController: UIViewController {
+class CommentListViewController: UIViewController, CustomTableController {
     
     fileprivate static let CommentCellId = "CommentCell"
     

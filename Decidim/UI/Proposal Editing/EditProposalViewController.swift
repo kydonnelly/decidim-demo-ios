@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProposalViewController: UIViewController {
+class EditProposalViewController: UIViewController, CustomTableController {
     
     fileprivate static let InputCellId = "InputCell"
     fileprivate static let ImageCellId = "ImageCell"

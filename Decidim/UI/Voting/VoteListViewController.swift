@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VoteListViewController: UIViewController {
+class VoteListViewController: UIViewController, CustomTableController {
     
     static let proposalVoteCellId = "ProposalVoteCell"
     static let loadingCellId = "LoadingCell"

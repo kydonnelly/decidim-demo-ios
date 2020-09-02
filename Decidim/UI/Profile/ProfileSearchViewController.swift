@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileSearchViewController: UIViewController {
+class ProfileSearchViewController: UIViewController, CustomTableController {
     
     public typealias ToggleBlock = (Int, [Int]) -> Void
     

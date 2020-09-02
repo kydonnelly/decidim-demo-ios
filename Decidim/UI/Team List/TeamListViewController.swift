@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListViewController: UIViewController {
+class TeamListViewController: UIViewController, CustomTableController {
     
     static let SectionHeaderID = "SectionHeader"
     static let LoadingCellID = "LoadingCell"
