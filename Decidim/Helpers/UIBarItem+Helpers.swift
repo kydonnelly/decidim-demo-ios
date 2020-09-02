@@ -9,7 +9,23 @@
 import KTDIconFont
 import UIKit
 
-extension UIBarItem {
+extension UIBarButtonItem {
+    
+    @IBInspectable
+    public var iconName: String? {
+        get { nil }
+        set { self.setIcon(name: newValue!) }
+    }
+
+    @IBInspectable
+    public var _iconColor: UIColor? {
+        get { nil }
+        set { self.iconColor = newValue }
+    }
+    
+}
+
+extension UITabBarItem {
     
     @IBInspectable
     public var iconName: String? {

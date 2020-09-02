@@ -48,6 +48,10 @@ extension UIButton: IconAppearance {
     public typealias AssociatedIcon = KrakenIcon
 }
 
-extension UIBarItem: IconAppearance {
+extension UIBarButtonItem: IconAppearance {
+    public typealias AssociatedIcon = KrakenIcon
+}
+
+extension UITabBarItem: IconAppearance {
     public typealias AssociatedIcon = KrakenIcon
 }
