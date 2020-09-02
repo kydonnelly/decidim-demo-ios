@@ -62,6 +62,7 @@ extension AppDelegate {
                                                    for: .highlighted)
         
         let fieldAppearance = PaddedTextField.appearance()
+        fieldAppearance.tintColor = .userInput
         fieldAppearance.textColor = .userInput
         fieldAppearance.font = UIFont.preferredFont(forTextStyle: .userInput)
         fieldAppearance.backgroundColor = .primaryBackground
