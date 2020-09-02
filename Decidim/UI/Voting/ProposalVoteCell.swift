@@ -20,6 +20,12 @@ class ProposalVoteCell: UITableViewCell {
     
     @IBOutlet var myVoteImage: UIImageView!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.myVoteImage.iconInset = 8
+    }
+    
     public func setup(proposal: Proposal, myVote: VoteType?) {
         self.titleLabel.text = proposal.title
         self.subtitleLabel.text = proposal.body
@@ -32,7 +38,8 @@ class ProposalVoteCell: UITableViewCell {
         if let vote = myVote {
             self.myVoteImage.isHidden = false
             self.myVoteImage.icon = vote.icon
-            self.myVoteImage.tintColor = vote.tintColor
+            self.myVoteImage.iconColor = .primaryLight
+            self.myVoteImage.iconBackgroundColor = vote.tintColor
         } else {
             self.myVoteImage.isHidden = true
         }

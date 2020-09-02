@@ -15,11 +15,18 @@ class ProposalVoterCell: UITableViewCell {
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.voteImage.iconInset = 8
+    }
+    
     public func setup(vote: ProposalVote) {
         self.timeLabel.text = vote.createdAt.asShortStringAgo()
         
         self.voteImage.icon = vote.voteType.icon
-        self.voteImage.tintColor = vote.voteType.tintColor
+        self.voteImage.iconColor = .primaryLight
+        self.voteImage.iconBackgroundColor = vote.voteType.tintColor
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
