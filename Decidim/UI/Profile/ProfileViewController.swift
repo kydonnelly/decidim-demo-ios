@@ -52,6 +52,7 @@ class ProfileViewController: UIViewController {
     }
     
     fileprivate var state: State {
+        return .noProfile
         guard let myId = MyProfileController.shared.myProfileId else {
             return .noProfile
         }

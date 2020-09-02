@@ -137,7 +137,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="p4x-Rv-ZcZ" firstAttribute="top" secondItem="OE9-AP-LPc" secondAttribute="top" id="3W5-cE-QbM"/>
                             <constraint firstItem="p4x-Rv-ZcZ" firstAttribute="leading" secondItem="OE9-AP-LPc" secondAttribute="leading" id="3zN-mJ-lWR"/>

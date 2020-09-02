@@ -149,10 +149,6 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .white
-    }
-    
 }
 
 extension AmendmentListViewController {

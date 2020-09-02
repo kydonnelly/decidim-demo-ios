@@ -185,10 +185,6 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = .clear
-    }
-    
 }
 
 extension EditProposalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {

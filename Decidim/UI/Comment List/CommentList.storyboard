@@ -85,7 +85,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="GSn-Oy-fcO" secondAttribute="trailing" id="3Gn-Zy-v0N"/>
                             <constraint firstAttribute="trailing" secondItem="I0V-Es-o7T" secondAttribute="trailing" id="6Ev-uj-c6p"/>
@@ -127,6 +127,9 @@
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.90588235294117647" green="0.93333333333333335" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
