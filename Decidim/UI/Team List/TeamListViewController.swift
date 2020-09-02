@@ -176,7 +176,7 @@ extension TeamListViewController {
     
     @IBAction func tappedCreateButton(_ sender: UIButton) {
         let createVC = EditTeamViewController.create()
-        createVC.modalPresentationStyle = .overFullScreen
+        createVC.modalPresentationStyle = .overCurrentContext
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }
     

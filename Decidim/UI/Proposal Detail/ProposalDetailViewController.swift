@@ -192,7 +192,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     }
                     
                     let votersVC = VoterListViewController.create(proposal: self.proposal)
-                    votersVC.modalPresentationStyle = .overFullScreen
+                    votersVC.modalPresentationStyle = .overCurrentContext
                     self.navigationController?.present(votersVC, animated: true, completion: nil)
                 }
                 let commentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
@@ -210,6 +210,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     }
                     
                     let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
+                    vc.modalPresentationStyle = .overCurrentContext
                     self.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
@@ -307,6 +308,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .amendments:
                 let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
+                vc.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(vc, animated: true, completion: nil)
             }
         }
@@ -360,7 +362,7 @@ extension ProposalDetailViewController {
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             let editVC = EditProposalViewController.create(proposal: self.proposalDetail)
-            editVC.modalPresentationStyle = .overFullScreen
+            editVC.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in

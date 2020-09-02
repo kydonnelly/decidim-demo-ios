@@ -144,7 +144,7 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
                 let description = self.actions(status: status)[indexPath.row]
                 
                 let createVC = EditActionViewController.create(detail: self.teamDetail, action: description)
-                createVC.modalPresentationStyle = .overFullScreen
+                createVC.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(createVC, animated: true, completion: nil)
             }
         }
@@ -156,7 +156,7 @@ extension TeamActionsViewController {
     
     @IBAction func tappedCreateButton(_ sender: UIBarButtonItem) {
         let createVC = EditActionViewController.create(detail: self.teamDetail)
-        createVC.modalPresentationStyle = .overFullScreen
+        createVC.modalPresentationStyle = .overCurrentContext
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }
     

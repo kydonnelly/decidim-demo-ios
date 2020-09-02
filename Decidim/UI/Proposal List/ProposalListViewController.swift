@@ -131,7 +131,7 @@ extension ProposalListViewController {
     
     @IBAction func tappedCreateButton(_ sender: UIButton) {
         let createVC = EditProposalViewController.create()
-        createVC.modalPresentationStyle = .overFullScreen
+        createVC.modalPresentationStyle = .overCurrentContext
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }
 }
