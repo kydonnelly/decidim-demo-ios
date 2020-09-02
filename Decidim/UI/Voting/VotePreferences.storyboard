@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Vote Preferences View Controller-->
+        <!--VotePreferencesViewController-->
         <scene sceneID="jQu-SQ-8Rg">
             <objects>
-                <viewController id="mRm-Sp-OZo" customClass="VotePreferencesViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mRm-Sp-OZo" userLabel="VotePreferencesViewController" customClass="VotePreferencesViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mhb-z0-7sW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,6 +184,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hk2-kU-LB9"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Voting Preferences" id="ONG-Uv-sEV"/>
                     <connections>
                         <outlet property="tableView" destination="xgP-bB-L7n" id="rWa-L4-Y4M"/>
                     </connections>
@@ -195,13 +196,13 @@
     </scenes>
     <resources>
         <namedColor name="Action">
-            <color red="0.11372549019607843" green="0.47058823529411764" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.11400000005960464" green="0.47099998593330383" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryDark">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.90588235294117647" green="0.93333333333333335" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.90600001811981201" green="0.93300002813339233" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
