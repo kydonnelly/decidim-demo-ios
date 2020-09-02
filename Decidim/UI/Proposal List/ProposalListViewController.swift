@@ -13,9 +13,23 @@ class ProposalListViewController: UIViewController {
     static let LoadingCellID = "LoadingCell"
     static let ProposalDetailCellID = "ProposalDetailCell"
     
+    @IBOutlet var tableView: UITableView!
+    
     private var dataController: PublicProposalDataController!
     
-    @IBOutlet var tableView: UITableView!
+    private var filterAuthorId: Int?
+    
+    public static func create(authorId: Int? = nil) -> ProposalListViewController {
+        let sb = UIStoryboard(name: "ProposalList", bundle: .main)
+        let nvc = sb.instantiateInitialViewController() as! UINavigationController
+        let vc = nvc.viewControllers.first as! ProposalListViewController
+        vc.setup(authorId: authorId)
+        return vc
+    }
+    
+    private func setup(authorId: Int?) {
+        self.filterAuthorId = authorId
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +62,15 @@ class ProposalListViewController: UIViewController {
         }
     }
     
+    fileprivate var allProposals: [Proposal] {
+        var allProposals = self.dataController.allProposals
+        if let authorFilter = self.filterAuthorId {
+            allProposals = allProposals.filter { $0.authorId == authorFilter }
+        }
+        
+        return allProposals
+    }
+    
 }
 
 extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate {
@@ -62,7 +85,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.dataController.allProposals.count
+            return self.allProposals.count
         } else {
             return 1
         }
@@ -73,7 +96,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ProposalDetailCellID, for: indexPath)
             
             if let proposalCell = cell as? ProposalListCell {
-                let proposal = self.dataController.allProposals[indexPath.row]
+                let proposal = self.allProposals[indexPath.row]
                 proposalCell.setup(proposal: proposal)
             }
             
@@ -87,7 +110,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
-            let proposal = self.dataController.allProposals[indexPath.row]
+            let proposal = self.allProposals[indexPath.row]
             let vc = ProposalDetailViewController.create(proposal: proposal)
             self.navigationController?.pushViewController(vc, animated: true)
         }

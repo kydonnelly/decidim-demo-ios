@@ -25,6 +25,7 @@ class ProfileViewController: UIViewController {
     static let usernameCellId = "UsernameCell"
     static let passwordCellId = "PasswordCell"
     static let teamsCellId = "TeamListCell"
+    static let proposalsCellId = "ProposalListCell"
     static let votingCellId = "VotingCell"
     static let voteHistoryCellId = "VoteHistoryCell"
     
@@ -84,7 +85,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case .noProfile:
             return 1
         case .profile:
-            return 5
+            return 6
         }
     }
     
@@ -135,14 +136,18 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             passwordCell.setup(title: "Password", detail: "Change")
             return passwordCell
         } else if indexPath.row == 2 {
+            let proposalsCell = tableView.dequeueReusableCell(withIdentifier: Self.proposalsCellId, for: indexPath) as! ProfilePreferencesCell
+            proposalsCell.setup(title: "My Proposals", detail: "See All")
+            return proposalsCell
+        } else if indexPath.row == 3 {
             let teamsCell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! ProfilePreferencesCell
             teamsCell.setup(title: "My Teams", detail: "See All")
             return teamsCell
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! ProfilePreferencesCell
             votingCell.setup(title: "Voting Preferences", detail: "None")
             return votingCell
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             let voteHistoryCell = tableView.dequeueReusableCell(withIdentifier: Self.voteHistoryCellId, for: indexPath) as! ProfilePreferencesCell
             voteHistoryCell.setup(title: "Voting History", detail: "See All")
             return voteHistoryCell
@@ -167,12 +172,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             let passwordVC = ProfilePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
         } else if indexPath.row == 2 {
+            let profileId = MyProfileController.shared.myProfileId
+            let proposalListVC = ProposalListViewController.create(authorId: profileId)
+            self.navigationController?.pushViewController(proposalListVC, animated: true)
+        } else if indexPath.row == 3 {
             let teamListVC = TeamListViewController.create()
             self.navigationController?.pushViewController(teamListVC, animated: true)
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             let preferencesVC = VotePreferencesViewController.create()
             self.navigationController?.pushViewController(preferencesVC, animated: true)
-        } else if indexPath.row == 4 {
+        } else if indexPath.row == 5 {
             let voteHistoryVC = VoteListViewController.create()
             self.navigationController?.pushViewController(voteHistoryVC, animated: true)
         }
