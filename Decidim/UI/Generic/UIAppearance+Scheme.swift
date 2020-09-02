@@ -17,6 +17,8 @@ extension UIColor {
     public static var secondaryDark = UIColor(named: "SecondaryDark")!
     public static var secondaryLight = UIColor(named: "SecondaryLight")!
     
+    public static var detailDark = UIColor(named: "DetailDark")!
+    
     public static var action = UIColor(named: "Action")!
     public static var userInput = UIColor(named: "UserInput")!
     
@@ -42,7 +44,7 @@ extension AppDelegate {
         let tabBarAppearance = UITabBar.appearance()
         tabBarAppearance.barTintColor = .primaryBackground
         tabBarAppearance.tintColor = .action
-        tabBarAppearance.unselectedItemTintColor = .primaryDark
+        tabBarAppearance.unselectedItemTintColor = .detailDark
         
         let navBarAppearance = UINavigationBar.appearance()
         navBarAppearance.barTintColor = .primaryBackground

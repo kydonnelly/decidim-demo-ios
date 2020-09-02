@@ -37,7 +37,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                <color key="value" name="PrimaryDark"/>
+                                <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="bubbles3"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
@@ -86,7 +86,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                <color key="value" name="PrimaryDark"/>
+                                <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
                                 <color key="value" name="Action"/>
@@ -130,8 +130,8 @@
         <namedColor name="Action">
             <color red="0.11372549019607843" green="0.47058823529411764" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <namedColor name="PrimaryDark">
-            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="DetailDark">
+            <color red="0.4823529411764706" green="0.4823529411764706" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
