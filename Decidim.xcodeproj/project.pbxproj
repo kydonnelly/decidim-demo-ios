@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		270169EF24FF6B3500CB97BF /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270169EE24FF6B3500CB97BF /* PaddedTextField.swift */; };
 		270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26C8247B6A4A001804D6 /* AppDelegate.swift */; };
 		270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D1247B6A4B001804D6 /* Assets.xcassets */; };
 		270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26DD247B9F9E001804D6 /* GraphRequest.swift */; };
@@ -58,7 +59,9 @@
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */; };
-		2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */; };
+		278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */; };
+		278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */; };
+		2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */; };
 		2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98024B67D610061C3E9 /* ProfilePassword.storyboard */; };
 		2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2789E98324B67FDE0061C3E9 /* VoteList.storyboard */; };
 		2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E98524B67FF50061C3E9 /* VoteListViewController.swift */; };
@@ -140,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
+		270169EE24FF6B3500CB97BF /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 		270B26C5247B6A4A001804D6 /* Decidim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decidim.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -195,7 +199,9 @@
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		2756A6E4249868C60023DC91 /* ProfilePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePasswordViewController.swift; sourceTree = "<group>"; };
-		2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Rounded.swift"; sourceTree = "<group>"; };
+		278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAppearance+Scheme.swift"; sourceTree = "<group>"; };
+		278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorTheme.xcassets; sourceTree = "<group>"; };
+		2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
 		2789E98024B67D610061C3E9 /* ProfilePassword.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfilePassword.storyboard; sourceTree = "<group>"; };
 		2789E98324B67FDE0061C3E9 /* VoteList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VoteList.storyboard; sourceTree = "<group>"; };
 		2789E98524B67FF50061C3E9 /* VoteListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteListViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +319,7 @@
 			children = (
 				270B26C8247B6A4A001804D6 /* AppDelegate.swift */,
 				270B26D1247B6A4B001804D6 /* Assets.xcassets */,
+				278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */,
 				270B26D6247B6A4B001804D6 /* Info.plist */,
 				270B26EF247BC1D5001804D6 /* GraphAPI */,
 				2739747724AB285D00CA16A3 /* Helpers */,
@@ -402,7 +409,7 @@
 				2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */,
 				27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */,
 				27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */,
-				2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */,
+				2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -577,6 +584,8 @@
 			isa = PBXGroup;
 			children = (
 				27B22B5524D93760005DF376 /* GradientView.swift */,
+				270169EE24FF6B3500CB97BF /* PaddedTextField.swift */,
+				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
 				27B22B5924D93978005DF376 /* Profile Info */,
 				2717F46424DAA99200189F7C /* Voting */,
 			);
@@ -804,6 +813,7 @@
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
+				278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */,
 				2717F46A24DAA9DB00189F7C /* VotingOptionCell.xib in Resources */,
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
@@ -938,6 +948,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				270169EF24FF6B3500CB97BF /* PaddedTextField.swift in Sources */,
 				27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */,
 				2756A6D32498609D0023DC91 /* ProfilePasswordCell.swift in Sources */,
 				2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */,
@@ -951,6 +962,7 @@
 				2789E99224B68B310061C3E9 /* VotePreferencesDelegateCell.swift in Sources */,
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */,
+				278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
 				27F883D924EDD94500B216D2 /* TeamMemberCell.swift in Sources */,
@@ -984,7 +996,7 @@
 				27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */,
 				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */,
-				2789E97D24B5BD6A0061C3E9 /* UIView+Rounded.swift in Sources */,
+				2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */,
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,

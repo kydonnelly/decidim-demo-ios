@@ -18,11 +18,7 @@ class ProfileSearchResultCell: UITableViewCell {
         self.handleLabel.text = profile.handle
         self.pictureImageView.image = profile.thumbnail
         
-        if isSelected {
-            self.selectedView.icon = .checkbox_checked
-        } else {
-            self.selectedView.icon = .checkbox_unchecked
-        }
+        self.selectedView.isHighlighted = isSelected
     }
     
 }
