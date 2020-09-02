@@ -12,6 +12,7 @@ class VotePreferencesViewController: UIViewController {
     
     static let toggleCellId = "ToggleCell"
     static let delegationCellId = "DelegationCell"
+    static let loadingCellId = "LoadingCell"
     
     @IBOutlet var tableView: UITableView!
     
@@ -22,6 +23,20 @@ class VotePreferencesViewController: UIViewController {
         let sb = UIStoryboard(name: "VotePreferences", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! VotePreferencesViewController
         return vc
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.delegationManager.refresh { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
 }
@@ -35,16 +50,10 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.togglePreferences.count
-        } else {
+        } else if self.delegationManager.doneLoading {
             return self.delegationManager.allCategories.count
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 48
         } else {
-            return 76
+            return 1
         }
     }
     
@@ -56,12 +65,14 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
                 self?.togglePreferences[title] = isOn
             }
             return cell
-        } else {
+        } else if self.delegationManager.doneLoading {
             let category = self.delegationManager.allCategories[indexPath.row]
             let delegates = self.delegationManager.getDelegates(category: category)
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.delegationCellId, for: indexPath) as! VotePreferencesDelegateCell
             cell.setup(category: category, delegates: delegates)
             return cell
+        } else {
+            return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
         }
     }
     
@@ -70,7 +81,7 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
         
         if indexPath.section == 0 {
             return
-        } else {
+        } else if self.delegationManager.doneLoading {
             let category = self.delegationManager.allCategories[indexPath.row]
             let delegates = self.delegationManager.getDelegates(category: category)
             let vc = ProfileSearchViewController.create(category: category, selectedProfileIds: delegates) { [weak self] toggledId, remainingIds in
