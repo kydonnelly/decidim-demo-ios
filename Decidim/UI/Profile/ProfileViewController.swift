@@ -49,7 +49,6 @@ class ProfileViewController: UIViewController, CustomTableController {
             self.title = "Profile"
         } else {
             self.title = "My Profile"
-            self.profileId = MyProfileController.shared.myProfileId
         }
         
         let refreshControl = UIRefreshControl(frame: .zero)
@@ -64,6 +63,10 @@ class ProfileViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refresh() {
+        if self.profileId == nil {
+            self.profileId = MyProfileController.shared.myProfileId
+        }
+        
         self.profileDataController = ProfileInfoDataController.shared()
         self.profileDataController.refresh { [weak self] dc in
             self?.tableView.reloadData()
