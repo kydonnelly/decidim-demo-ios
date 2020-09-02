@@ -28,7 +28,7 @@ class ProposalDetailAmendmentsCell: UITableViewCell {
                 let profiles = allProfiles.filter { allAmenders.contains($0.profileId) }
                 self.profileListView.setup(profiles: profiles)
                 
-                self.listViewConstraints.forEach { $0.isActive = allAmenders.count > 0 }
+                self.listViewConstraints.forEach { $0.isActive = profiles.count > 0 }
             }
         }
     }
