@@ -37,6 +37,7 @@ class ProposalListViewController: UIViewController {
         self.title = "Browse Proposals"
         
         self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
