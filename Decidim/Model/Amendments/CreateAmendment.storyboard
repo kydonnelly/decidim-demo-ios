@@ -60,6 +60,9 @@
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outlet property="delegate" destination="kej-1R-Zr5" id="3Al-65-uxB"/>
+                                </connections>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" name="SecondaryBackground"/>

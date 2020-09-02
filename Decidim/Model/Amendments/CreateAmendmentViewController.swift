@@ -80,3 +80,11 @@ extension CreateAmendmentViewController {
     }
     
 }
+
+extension CreateAmendmentViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.refreshSubmitButton()
+    }
+    
+}
