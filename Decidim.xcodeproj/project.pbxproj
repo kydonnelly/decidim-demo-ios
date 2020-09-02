@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,7 +19,7 @@
 		2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46524DAA9A600189F7C /* VotingOptionsView.swift */; };
 		2717F46824DAA9C200189F7C /* VotingOptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46724DAA9C200189F7C /* VotingOptionCell.swift */; };
 		2717F46A24DAA9DB00189F7C /* VotingOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2717F46924DAA9DB00189F7C /* VotingOptionCell.xib */; };
-		2717F46C24DAAFBE00189F7C /* UIImageView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46B24DAAFBE00189F7C /* UIImageView+Helpers.swift */; };
+		2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */; };
 		2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */; };
 		2717F47124DBDE6800189F7C /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2717F47024DBDE6800189F7C /* Registration.storyboard */; };
 		2717F47324DBE41100189F7C /* ProfileRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47224DBE41100189F7C /* ProfileRegisterCell.swift */; };
@@ -121,6 +121,10 @@
 		27F883E024EDD9CD00B216D2 /* TeamActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883DF24EDD9CD00B216D2 /* TeamActionCell.swift */; };
 		27F883E224EDDF0700B216D2 /* EditActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883E124EDDF0700B216D2 /* EditActionViewController.swift */; };
 		27F883E424EDDF1D00B216D2 /* EditAction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F883E324EDDF1D00B216D2 /* EditAction.storyboard */; };
+		27F883E724F5241F00B216D2 /* KrakenIconFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883E624F5241F00B216D2 /* KrakenIconFont.swift */; };
+		27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F883E924F5242A00B216D2 /* Kraken.ttf */; };
+		27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */; };
+		27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -153,7 +157,7 @@
 		2717F46524DAA9A600189F7C /* VotingOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingOptionsView.swift; sourceTree = "<group>"; };
 		2717F46724DAA9C200189F7C /* VotingOptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingOptionCell.swift; sourceTree = "<group>"; };
 		2717F46924DAA9DB00189F7C /* VotingOptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingOptionCell.xib; sourceTree = "<group>"; };
-		2717F46B24DAAFBE00189F7C /* UIImageView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helpers.swift"; sourceTree = "<group>"; };
+		2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Helpers.swift"; sourceTree = "<group>"; };
 		2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		2717F47024DBDE6800189F7C /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
 		2717F47224DBE41100189F7C /* ProfileRegisterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRegisterCell.swift; sourceTree = "<group>"; };
@@ -255,6 +259,10 @@
 		27F883DF24EDD9CD00B216D2 /* TeamActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionCell.swift; sourceTree = "<group>"; };
 		27F883E124EDDF0700B216D2 /* EditActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditActionViewController.swift; sourceTree = "<group>"; };
 		27F883E324EDDF1D00B216D2 /* EditAction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditAction.storyboard; sourceTree = "<group>"; };
+		27F883E624F5241F00B216D2 /* KrakenIconFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KrakenIconFont.swift; sourceTree = "<group>"; };
+		27F883E924F5242A00B216D2 /* Kraken.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Kraken.ttf; sourceTree = "<group>"; };
+		27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helpers.swift"; sourceTree = "<group>"; };
+		27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+Helpers.swift"; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,8 +319,10 @@
 				270B26D6247B6A4B001804D6 /* Info.plist */,
 				270B26EF247BC1D5001804D6 /* GraphAPI */,
 				2739747724AB285D00CA16A3 /* Helpers */,
+				27F883E524F5241F00B216D2 /* IconFont */,
 				2756A6BE24985A530023DC91 /* Model */,
 				270B26DC247B9F86001804D6 /* Network */,
+				27F883E824F5242A00B216D2 /* Resources */,
 				2756A6AC249708DE0023DC91 /* Storyboards */,
 				2756A6C724985D280023DC91 /* UI */,
 			);
@@ -391,8 +401,10 @@
 			isa = PBXGroup;
 			children = (
 				2739747824AB287000CA16A3 /* Date+Helpers.swift */,
+				27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */,
+				2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */,
 				27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */,
-				2717F46B24DAAFBE00189F7C /* UIImageView+Helpers.swift */,
+				27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */,
 				2789E97C24B5BD6A0061C3E9 /* UIView+Rounded.swift */,
 			);
 			path = Helpers;
@@ -664,6 +676,22 @@
 			path = "Team Actions";
 			sourceTree = "<group>";
 		};
+		27F883E524F5241F00B216D2 /* IconFont */ = {
+			isa = PBXGroup;
+			children = (
+				27F883E624F5241F00B216D2 /* KrakenIconFont.swift */,
+			);
+			path = IconFont;
+			sourceTree = "<group>";
+		};
+		27F883E824F5242A00B216D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27F883E924F5242A00B216D2 /* Kraken.ttf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A87A557AE0ED32245DD0D56A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +724,7 @@
 				270B26C1247B6A4A001804D6 /* Sources */,
 				270B26C2247B6A4A001804D6 /* Frameworks */,
 				270B26C3247B6A4A001804D6 /* Resources */,
+				5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -714,6 +743,7 @@
 				270B26DF247BA178001804D6 /* Sources */,
 				270B26E0247BA178001804D6 /* Frameworks */,
 				270B26E1247BA178001804D6 /* Resources */,
+				7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -794,6 +824,7 @@
 				2789E98124B67D610061C3E9 /* ProfilePassword.storyboard in Resources */,
 				27F883D724EDD94500B216D2 /* TeamMembers.storyboard in Resources */,
 				27F883DE24EDD99200B216D2 /* TeamActions.storyboard in Resources */,
+				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -845,6 +876,40 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BB105314F9C7B917EBA90131 /* [CP] Check Pods Manifest.lock */ = {
@@ -903,6 +968,7 @@
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2756A6E5249868C60023DC91 /* ProfilePasswordViewController.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
+				27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */,
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
 				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				27F883E024EDD9CD00B216D2 /* TeamActionCell.swift in Sources */,
@@ -925,6 +991,7 @@
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
+				27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */,
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
 				27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */,
 				27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */,
@@ -944,7 +1011,8 @@
 				27F883B624E79D7100B216D2 /* TeamInputCell.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */,
-				2717F46C24DAAFBE00189F7C /* UIImageView+Helpers.swift in Sources */,
+				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,
+				27F883E724F5241F00B216D2 /* KrakenIconFont.swift in Sources */,
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,

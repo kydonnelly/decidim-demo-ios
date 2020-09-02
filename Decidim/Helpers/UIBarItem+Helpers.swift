@@ -1,5 +1,5 @@
 //
-//  UIImageView+Helpers.swift
+//  UIBarItem+Helpers.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 8/26/20.
@@ -9,7 +9,7 @@
 import KTDIconFont
 import UIKit
 
-extension UIImageView {
+extension UIBarItem {
     
     @IBInspectable
     public var iconName: String? {
@@ -24,15 +24,15 @@ extension UIImageView {
     }
 
     @IBInspectable
-    public var highlightedIconName: String? {
+    public var selectedIconName: String? {
         get { nil }
-        set { self.setHighlightedIcon(name: newValue!) }
+        set { self.setSelectedIcon(name: newValue!) }
     }
 
     @IBInspectable
-    public var _highlightedIconColor: UIColor? {
+    public var _selectedIconColor: UIColor? {
         get { nil }
-        set { self.highlightedIconColor = newValue }
+        set { self.selectedIconColor = newValue }
     }
 
 }
