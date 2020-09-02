@@ -46,7 +46,6 @@
 		2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */; };
 		2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6AF249708DE0023DC91 /* Main.storyboard */; };
 		2756A6BD2498588C0023DC91 /* HTTPRequestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */; };
-		2756A6CD24985D280023DC91 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6C824985D280023DC91 /* ViewController.swift */; };
 		2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6CA24985D280023DC91 /* ProposalListViewController.swift */; };
 		2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6CC24985D280023DC91 /* ProfileViewController.swift */; };
 		2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6D0249860920023DC91 /* ProfileNameCell.swift */; };
@@ -186,7 +185,6 @@
 		2756A6AD249708DE0023DC91 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2756A6AF249708DE0023DC91 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2756A6BC2498588C0023DC91 /* HTTPRequestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestTests.swift; sourceTree = "<group>"; };
-		2756A6C824985D280023DC91 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2756A6CA24985D280023DC91 /* ProposalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalListViewController.swift; sourceTree = "<group>"; };
 		2756A6CC24985D280023DC91 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2756A6D0249860920023DC91 /* ProfileNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileNameCell.swift; sourceTree = "<group>"; };
@@ -456,7 +454,6 @@
 			children = (
 				27B22B2724BF0C13005DF376 /* Comment List */,
 				27B22B5424D93751005DF376 /* Generic */,
-				2756A6C824985D280023DC91 /* ViewController.swift */,
 				2756A6CB24985D280023DC91 /* Profile */,
 				27B22B6024D93FCE005DF376 /* Proposal Amendments */,
 				2739747A24B568D300CA16A3 /* Proposal Detail */,
@@ -979,7 +976,6 @@
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
 				27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */,
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
-				2756A6CD24985D280023DC91 /* ViewController.swift in Sources */,
 				27F883E024EDD9CD00B216D2 /* TeamActionCell.swift in Sources */,
 				27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
