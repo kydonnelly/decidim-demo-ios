@@ -54,6 +54,7 @@ extension AppDelegate {
                                                 .foregroundColor: UIColor.primaryDark]
 
         let barButtonAppearance = UIBarButtonItem.appearance()
+        barButtonAppearance.tintColor = .secondaryDark
         barButtonAppearance.setTitleTextAttributes([.font: UIFont.preferredFont(forTextStyle: .cta),
                                                     .foregroundColor: UIColor.secondaryDark],
                                                    for: .normal)
