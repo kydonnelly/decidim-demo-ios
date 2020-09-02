@@ -32,6 +32,9 @@ class NetworkDataController {
     private var lastFetchTime: Date?
     private var cacheDuration: TimeInterval
     
+    private var pendingBlocks: [RefreshSuccessBlock] = []
+    private var pendingFailBlocks: [RefreshFailBlock] = []
+    
     static func shared(keyInfo: String? = nil) -> Self {
         var key = String(describing: type(of: self))
         if let info = keyInfo {
@@ -52,6 +55,8 @@ class NetworkDataController {
     }
     
     func refresh(failBlock: RefreshFailBlock? = nil, successBlock: @escaping RefreshSuccessBlock) {
+        self.queueBlocks(failBlock: failBlock, successBlock: successBlock)
+        
         guard !self.isFetching else {
             return
         }
@@ -59,25 +64,25 @@ class NetworkDataController {
         let now = Date()
         
         guard let lastTime = self.lastFetchTime else {
-            self.fetch(time: now, failBlock: failBlock, successBlock: successBlock)
+            self.fetch(time: now)
             return
         }
         
         guard lastTime + self.cacheDuration > now else {
-            self.fetch(time: now, failBlock: failBlock, successBlock: successBlock)
+            self.fetch(time: now)
             return
         }
         
-        successBlock(self)
+        self.flushBlocks()
     }
     
-    private func fetch(time: Date, failBlock: RefreshFailBlock?, successBlock: @escaping RefreshSuccessBlock) {
+    private func fetch(time: Date) {
         self.isFetching = true
         self.fetchPage(cursor: Cursor.initial) { (data, nextCursor, error) in
             self.isFetching = false
             
             if let error = error {
-                failBlock?(error)
+                self.flushBlocks(error: error)
                 return
             }
             
@@ -86,17 +91,19 @@ class NetworkDataController {
             self.isFetching = false
             self.data = data
             
-            successBlock(self)
+            self.flushBlocks()
         }
     }
     
     public func page(failBlock: RefreshFailBlock? = nil, successBlock: @escaping RefreshSuccessBlock) {
+        self.queueBlocks(failBlock: failBlock, successBlock: successBlock)
+        
         guard !isFetching else {
             return
         }
         
         guard let cursor = self.pagingCursor else {
-            failBlock?(NSError(domain: "test", code: 0, userInfo: nil))
+            self.flushBlocks(error: NSError(domain: "test", code: 0, userInfo: nil))
             return
         }
         
@@ -107,7 +114,7 @@ class NetworkDataController {
             self.isFetching = false
             
             if let error = error {
-                failBlock?(error)
+                self.flushBlocks(error: error)
                 return
             }
             
@@ -123,7 +130,7 @@ class NetworkDataController {
                 self.data = data
             }
             
-            successBlock(self)
+            self.flushBlocks()
         }
     }
     
@@ -138,6 +145,34 @@ class NetworkDataController {
     
     var donePaging: Bool {
         return self.pagingCursor?.done == true
+    }
+    
+    private func queueBlocks(failBlock: RefreshFailBlock?, successBlock: @escaping RefreshSuccessBlock) {
+        objc_sync_enter(self)
+        defer { objc_sync_exit(self) }
+        
+        self.pendingBlocks.append(successBlock)
+        if let block = failBlock {
+            self.pendingFailBlocks.append(block)
+        }
+    }
+    
+    private func flushBlocks(error: Error? = nil) {
+        objc_sync_enter(self)
+        
+        if let e = error {
+            let failBlocks = self.pendingFailBlocks
+            self.pendingFailBlocks.removeAll()
+            
+            objc_sync_exit(self)
+            failBlocks.forEach { $0(e) }
+        } else {
+            let successBlocks = self.pendingBlocks
+            self.pendingBlocks.removeAll()
+            
+            objc_sync_exit(self)
+            successBlocks.forEach { $0(self) }
+        }
     }
     
 }
