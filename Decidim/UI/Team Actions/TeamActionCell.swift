@@ -18,33 +18,40 @@ class TeamActionCell: UITableViewCell {
     
     private var onUpdate: UpdateBlock?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.statusImageView.iconInset = 8
+    }
+    
     public func setup(description: String, status: TeamActionStatus, canUpdate: Bool, onUpdate: UpdateBlock?) {
         self.descriptionLabel.text = description
         
         self.onUpdate = onUpdate
         self.updateButton.isHidden = !canUpdate
+        self.statusImageView.iconColor = .primaryLight
         
         switch status {
         case .done:
             self.updateButton.setTitle("Archive", for: .normal)
             self.statusImageView.icon = .clipboard
-            self.statusImageView.iconColor = .green
+            self.statusImageView.iconBackgroundColor = .green
         case .inProgress:
             self.updateButton.setTitle("Done", for: .normal)
             self.statusImageView.icon = .circle_up
-            self.statusImageView.iconColor = .purple
+            self.statusImageView.iconBackgroundColor = .purple
         case .ongoing:
             self.updateButton.setTitle("Archive", for: .normal)
             self.statusImageView.icon = .infinite
-            self.statusImageView.iconColor = .blue
+            self.statusImageView.iconBackgroundColor = .blue
         case .pending:
             self.updateButton.setTitle("Start", for: .normal)
             self.statusImageView.icon = .circle
-            self.statusImageView.iconColor = .yellow
+            self.statusImageView.iconBackgroundColor = .yellow
         case .proposed:
             self.updateButton.setTitle("Approve", for: .normal)
             self.statusImageView.icon = .hourglass
-            self.statusImageView.iconColor = .lightGray
+            self.statusImageView.iconBackgroundColor = .lightGray
         }
     }
     

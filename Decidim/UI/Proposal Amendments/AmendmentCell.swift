@@ -21,12 +21,19 @@ class AmendmentCell: UITableViewCell {
     
     private var onProfileTapped: ActionBlock?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.statusImageView.iconInset = 8
+    }
+    
     func setup(amendment: ProposalAmendment, tappedProfileBlock: ActionBlock?) {
         self.amendmentLabel.text = amendment.text
         self.timeLabel.text = amendment.createdAt.asShortStringAgo()
         
         self.statusImageView.icon = amendment.status.icon
-        self.statusImageView.tintColor = amendment.status.tintColor
+        self.statusImageView.iconColor = .primaryLight
+        self.statusImageView.iconBackgroundColor = amendment.status.tintColor
         
         self.onProfileTapped = tappedProfileBlock
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
