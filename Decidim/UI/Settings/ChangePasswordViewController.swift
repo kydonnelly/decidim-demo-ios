@@ -1,5 +1,5 @@
 //
-//  ProfilePasswordViewController.swift
+//  ChangePasswordViewController.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 6/15/20.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-class ProfilePasswordViewController: UIViewController {
+class ChangePasswordViewController: UIViewController {
     
     static let passwordCellId = "PasswordCell"
     
-    public static func create() -> ProfilePasswordViewController {
-        let sb = UIStoryboard(name: "ProfilePassword", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! ProfilePasswordViewController
+    public static func create() -> ChangePasswordViewController {
+        let sb = UIStoryboard(name: "ChangePassword", bundle: .main)
+        let vc = sb.instantiateInitialViewController() as! ChangePasswordViewController
         return vc
     }
     
@@ -26,7 +26,7 @@ class ProfilePasswordViewController: UIViewController {
     
 }
 
-extension ProfilePasswordViewController: UITableViewDataSource, UITableViewDelegate {
+extension ChangePasswordViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

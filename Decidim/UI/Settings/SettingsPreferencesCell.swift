@@ -1,5 +1,5 @@
 //
-//  ProfilePreferencesCell.swift
+//  SettingsPreferencesCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 6/15/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfilePreferencesCell: UITableViewCell {
+class SettingsPreferencesCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!

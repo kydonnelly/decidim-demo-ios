@@ -1,5 +1,5 @@
 //
-//  ProfileRegisterCell.swift
+//  SettingsRegisterCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 8/6/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileRegisterCell: UITableViewCell {
+class SettingsRegisterCell: UITableViewCell {
     
     typealias RegisterBlock = () -> Void
     

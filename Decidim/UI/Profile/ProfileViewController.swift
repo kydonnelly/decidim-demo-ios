@@ -12,8 +12,10 @@ class ProfileViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
-    private var profileId: Int?
+    internal var profileId: Int?
     private var profileDataController: ProfileInfoDataController!
+    
+    private var currentTab: ProfileTabSection!
     
     fileprivate enum State {
         case loading
@@ -22,11 +24,8 @@ class ProfileViewController: UIViewController, CustomTableController {
     }
     
     static let loadingCellId = "LoadingCell"
-    static let registerCellId = "RegisterCell"
     static let usernameCellId = "UsernameCell"
-    static let teamsCellId = "TeamListCell"
-    static let proposalsCellId = "ProposalListCell"
-    static let voteHistoryCellId = "VoteHistoryCell"
+    static let tabHeaderViewId = "ProfileTabHeaderView"
     
     public static func create(profileId: Int) -> ProfileViewController {
         let sb = UIStoryboard(name: "Profile", bundle: .main)
@@ -47,11 +46,20 @@ class ProfileViewController: UIViewController, CustomTableController {
             self.title = "Profile"
         } else {
             self.title = "My Profile"
+            self.profileId = MyProfileController.shared.myProfileId
         }
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        self.tableView.register(UINib(nibName: "ProfileTabHeaderView", bundle: .main),
+                                forHeaderFooterViewReuseIdentifier: Self.tabHeaderViewId)
+        
+        self.currentTab = ProfileTeamsTabSection()
+        self.currentTab.setup(dataSource: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,10 +69,6 @@ class ProfileViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refresh() {
-        if self.profileId == nil {
-            self.profileId = MyProfileController.shared.myProfileId
-        }
-        
         self.profileDataController = ProfileInfoDataController.shared()
         self.profileDataController.refresh { [weak self] dc in
             self?.tableView.reloadData()
@@ -101,108 +105,79 @@ class ProfileViewController: UIViewController, CustomTableController {
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    private var numberOfRows: Int {
         switch self.state {
         case .loading:
             return 1
         case .noProfile:
-            return 1
+            return 0
         case .profile:
-            return 4
+            return 1 + (self.currentTab.numberOfSections?(in: tableView) ?? 0)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            return 0
+        } else if section == 1 {
+            return 44
+        } else {
+            return self.currentTab.tableView?(tableView, heightForHeaderInSection: section) ?? 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            return nil
+        } else if section == 1 {
+            return tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.tabHeaderViewId)
+        } else {
+            return self.currentTab.tableView?(tableView, viewForHeaderInSection: section)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.numberOfRows
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch self.state {
-        case .loading:
-            return 44
-        case .noProfile:
-            return 72
-        case .profile:
-            break
-        }
-        
-        if indexPath.row == 0 {
-            return 76
-        } else if indexPath.row >= 1 && indexPath.row < self.numberOfRows {
-            return 44
+        if section == 0 {
+            return 1
         } else {
-            preconditionFailure("Unexpected indexPath in ProfileViewController")
+            return self.currentTab.tableView(tableView, numberOfRowsInSection: section)
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var profileInfo: ProfileInfo!
-        
-        switch self.state {
-        case .loading:
-            return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
-        case .noProfile:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! ProfileRegisterCell
-            cell.setup { [weak self] in
-                let registerVC = RegistrationViewController.create()
-                registerVC.modalPresentationStyle = .fullScreen
-                self?.navigationController?.present(registerVC, animated: true, completion: nil)
+        if indexPath.section == 0 {
+            switch self.state {
+            case .loading:
+                return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
+            case .noProfile:
+                preconditionFailure("No cell for missing profile")
+            case let .profile(info):
+                let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! ProfileNameCell
+                nameCell.setup(profile: info)
+                return nameCell
             }
-            return cell
-        case let .profile(info):
-            profileInfo = info
-            break
-        }
-        
-        if indexPath.row == 0 {
-            let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! ProfileNameCell
-            nameCell.setup(profile: profileInfo)
-            return nameCell
-        } else if indexPath.row == 1 {
-            let proposalsCell = tableView.dequeueReusableCell(withIdentifier: Self.proposalsCellId, for: indexPath) as! ProfilePreferencesCell
-            proposalsCell.setup(title: "My Proposals", detail: "See All")
-            return proposalsCell
-        } else if indexPath.row == 2 {
-            let teamsCell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! ProfilePreferencesCell
-            teamsCell.setup(title: "My Teams", detail: "See All")
-            return teamsCell
-        } else if indexPath.row == 3 {
-            let voteHistoryCell = tableView.dequeueReusableCell(withIdentifier: Self.voteHistoryCellId, for: indexPath) as! ProfilePreferencesCell
-            voteHistoryCell.setup(title: "Voting History", detail: "See All")
-            return voteHistoryCell
         } else {
-            preconditionFailure("Unexpected indexPath in ProfileViewController")
+            return self.currentTab.tableView(tableView, cellForRowAt: indexPath)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        switch self.state {
-        case .loading:
-            return
-        case .noProfile:
-            return
-        case .profile:
-            break
+        if indexPath.section != 0 {
+            self.currentTab.tableView?(tableView, didSelectRowAt: indexPath)
         }
-        
-        if indexPath.row == 1 {
-            guard let profileId = self.profileId else { return }
-            let proposalListVC = ProposalListViewController.create(authorId: profileId)
-            self.navigationController?.pushViewController(proposalListVC, animated: true)
-        } else if indexPath.row == 2 {
-            guard let profileId = self.profileId else { return }
-            let teamListVC = TeamListViewController.create(profileId: profileId)
-            self.navigationController?.pushViewController(teamListVC, animated: true)
-        } else if indexPath.row == 3 {
-            guard let profileId = self.profileId else { return }
-            let voteHistoryVC = VoteListViewController.create(profileId: profileId)
-            self.navigationController?.pushViewController(voteHistoryVC, animated: true)
-        }
+    }
+    
+}
+
+extension ProfileViewController: ProfileTabDataSource {
+    
+    var sectionOffset: Int {
+        return 1
+    }
+    
+    var loadingCellId: String {
+        return Self.loadingCellId
     }
     
 }

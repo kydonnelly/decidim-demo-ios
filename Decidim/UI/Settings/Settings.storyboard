@@ -87,7 +87,7 @@
                                             <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PasswordCell" id="p1z-4b-2BJ" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PasswordCell" id="p1z-4b-2BJ" customClass="SettingsPreferencesCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="104" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="p1z-4b-2BJ" id="AGG-VJ-l7Y">
@@ -133,7 +133,7 @@
                                             <outlet property="titleLabel" destination="xAL-kf-9S8" id="epm-Nc-5Vs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="dMj-2k-Cjb" customClass="ProfilePreferencesCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingCell" id="dMj-2k-Cjb" customClass="SettingsPreferencesCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dMj-2k-Cjb" id="cTB-KO-50x">
@@ -179,7 +179,7 @@
                                             <outlet property="titleLabel" destination="cmb-pe-Plq" id="hr8-LX-tkZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="ProfileRegisterCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="SettingsRegisterCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="192" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nea-tD-Szt" id="3Ph-VU-Bzs">

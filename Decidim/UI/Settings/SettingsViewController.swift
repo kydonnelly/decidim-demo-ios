@@ -106,7 +106,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .loading:
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
         case .noProfile:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! ProfileRegisterCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! SettingsRegisterCell
             cell.setup { [weak self] in
                 let registerVC = RegistrationViewController.create()
                 registerVC.modalPresentationStyle = .fullScreen
@@ -123,11 +123,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             nameCell.setup(profile: profileInfo)
             return nameCell
         } else if indexPath.row == 1 {
-            let passwordCell = tableView.dequeueReusableCell(withIdentifier: Self.passwordCellId, for: indexPath) as! ProfilePreferencesCell
+            let passwordCell = tableView.dequeueReusableCell(withIdentifier: Self.passwordCellId, for: indexPath) as! SettingsPreferencesCell
             passwordCell.setup(title: "Password", detail: "Change")
             return passwordCell
         } else if indexPath.row == 2 {
-            let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! ProfilePreferencesCell
+            let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! SettingsPreferencesCell
             votingCell.setup(title: "Voting Preferences", detail: "None")
             return votingCell
         } else {
@@ -148,7 +148,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if indexPath.row == 1 {
-            let passwordVC = ProfilePasswordViewController.create()
+            let passwordVC = ChangePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
         } else if indexPath.row == 2 {
             let preferencesVC = VotePreferencesViewController.create()

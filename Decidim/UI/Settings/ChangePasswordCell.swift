@@ -1,5 +1,5 @@
 //
-//  ProfilePasswordCell.swift
+//  ChangePasswordCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 6/15/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfilePasswordCell: UITableViewCell {
+class ChangePasswordCell: UITableViewCell {
     
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var passwordConfirmField: UITextField!
@@ -20,6 +20,6 @@ class ProfilePasswordCell: UITableViewCell {
     
 }
 
-extension ProfilePasswordCell: UITextFieldDelegate {
+extension ChangePasswordCell: UITextFieldDelegate {
     
 }
