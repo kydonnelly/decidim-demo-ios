@@ -55,6 +55,7 @@ extension RegistrationViewController {
             guard let self = self else { return }
             
             if error == nil {
+                ProfileInfoDataController.shared().invalidate()
                 self.navigationController?.dismiss(animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Something went wrong, try another username?", preferredStyle: .alert)
