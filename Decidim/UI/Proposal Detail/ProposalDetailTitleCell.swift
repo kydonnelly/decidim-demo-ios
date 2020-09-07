@@ -17,7 +17,7 @@ class ProposalDetailTitleCell: UITableViewCell {
     func setup(detail: ProposalDetail) {
         self.titleLabel.text = detail.proposal.title
         self.iconImageView.image = detail.proposal.thumbnail
-        self.gradientBackground.update(colors: detail.gradientColors(), direction: .horizontal)
+        self.gradientBackground.setupWithRandomColors(seed: detail.proposal.id + 1, direction: .horizontal)
     }
     
 }

@@ -119,7 +119,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if indexPath.row == 0 {
-            let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! ProfileNameCell
+            let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! SettingsProfileCell
             nameCell.setup(profile: profileInfo)
             return nameCell
         } else if indexPath.row == 1 {

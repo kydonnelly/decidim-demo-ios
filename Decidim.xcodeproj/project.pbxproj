@@ -29,6 +29,7 @@
 		2717F47E24E0C79100189F7C /* ProposalDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47924E0C79000189F7C /* ProposalDatePickerCell.swift */; };
 		2717F47F24E0C79100189F7C /* ProposalInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47A24E0C79000189F7C /* ProposalInputCell.swift */; };
 		2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47B24E0C79000189F7C /* EditProposalViewController.swift */; };
+		27293FA42506B97B000D27D1 /* SettingsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -171,6 +172,7 @@
 		2717F47924E0C79000189F7C /* ProposalDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalDatePickerCell.swift; sourceTree = "<group>"; };
 		2717F47A24E0C79000189F7C /* ProposalInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalInputCell.swift; sourceTree = "<group>"; };
 		2717F47B24E0C79000189F7C /* EditProposalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProposalViewController.swift; sourceTree = "<group>"; };
+		27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCell.swift; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 			isa = PBXGroup;
 			children = (
 				275114EB2506B168006277AA /* Settings.storyboard */,
+				27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */,
 				275114EC2506B168006277AA /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -1001,6 +1004,7 @@
 				27F883E224EDDF0700B216D2 /* EditActionViewController.swift in Sources */,
 				2717F47324DBE41100189F7C /* ProfileRegisterCell.swift in Sources */,
 				27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */,
+				27293FA42506B97B000D27D1 /* SettingsProfileCell.swift in Sources */,
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,

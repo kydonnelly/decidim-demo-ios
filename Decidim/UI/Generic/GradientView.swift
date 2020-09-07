@@ -51,6 +51,16 @@ public class LinearGradientView : UIView {
         self.gradientLayer.setNeedsDisplay()
     }
     
+    public func setupWithRandomColors(seed: Int, direction: Direction) {
+        let randomRed = CGFloat(seed * 117 % 256) / 256.0
+        let randomBlue = CGFloat(seed * 233 % 256) / 256.0
+        let randomGreen = CGFloat(seed * 173 % 256) / 256.0
+        let startColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
+        let endColor = UIColor(red: randomRed * 0.5, green: randomGreen * 0.5, blue: randomBlue * 0.5, alpha: 1.0)
+        
+        self.update(colors: [startColor, endColor], direction: direction)
+    }
+    
 }
 
 fileprivate class LinearGradientLayer : CALayer {

@@ -44,6 +44,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-4e-Wa5" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O">
                                                     <rect key="frame" x="24" y="12" width="52" height="52"/>
                                                     <constraints>
@@ -52,37 +56,32 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="Action"/>
+                                                            <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-yt-rgw">
                                                     <rect key="frame" x="84" y="27.5" width="314" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <color key="textColor" name="PrimaryLight"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Adc-DS-lyU">
-                                                    <rect key="frame" x="0.0" y="75" width="414" height="1"/>
-                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="5rw-UY-YCY"/>
-                                                    </constraints>
-                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="7gC-4e-Wa5" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="0FF-aq-q9S"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="5Rm-EE-gp5"/>
-                                                <constraint firstAttribute="bottom" secondItem="Adc-DS-lyU" secondAttribute="bottom" id="8oQ-LD-rDy"/>
                                                 <constraint firstAttribute="trailing" secondItem="aeL-yt-rgw" secondAttribute="trailing" constant="16" id="BEm-Yd-ueu"/>
-                                                <constraint firstAttribute="trailing" secondItem="Adc-DS-lyU" secondAttribute="trailing" id="Haf-T5-Eo9"/>
                                                 <constraint firstItem="aeL-yt-rgw" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="8" id="Oe5-Fb-qbe"/>
+                                                <constraint firstItem="7gC-4e-Wa5" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" id="TfJ-0d-GMc"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" constant="12" id="ZYo-vM-8nF"/>
                                                 <constraint firstItem="aeL-yt-rgw" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="g1D-HE-W6M"/>
+                                                <constraint firstAttribute="bottom" secondItem="7gC-4e-Wa5" secondAttribute="bottom" id="kSL-sR-LcH"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" constant="24" id="niY-s5-mHQ"/>
-                                                <constraint firstItem="Adc-DS-lyU" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="uUN-Uo-M5t"/>
+                                                <constraint firstAttribute="trailing" secondItem="7gC-4e-Wa5" secondAttribute="trailing" id="rJH-oN-0sK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="gradientBackground" destination="7gC-4e-Wa5" id="tp1-ej-jKT"/>
                                             <outlet property="handleLabel" destination="aeL-yt-rgw" id="GZ3-Xv-LfR"/>
                                             <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
                                         </connections>

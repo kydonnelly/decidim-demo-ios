@@ -24,7 +24,7 @@ class TeamDetailTitleCell: UITableViewCell {
         self.titleLabel.text = detail.team.name
         self.iconImageView.image = detail.team.thumbnail
         self.memberStatusButton.setTitle(self.statusText(detail: detail), for: .normal)
-        self.gradientBackground.update(colors: detail.gradientColors(), direction: .horizontal)
+        self.gradientBackground.setupWithRandomColors(seed: detail.team.id + 1, direction: .horizontal)
         
         self.teamDetail = detail
         self.updateStatusBlock = onUpdateStatus
