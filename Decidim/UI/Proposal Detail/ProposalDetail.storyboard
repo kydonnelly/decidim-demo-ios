@@ -528,14 +528,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpa-Xf-7j7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="faM-YE-avr">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="138"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYv-1z-N56">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="162.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="138.5"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2q-gq-fSE" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="162.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="138.5"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -562,10 +562,10 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Decidim" customModuleProvider="target">
-                                    <rect key="frame" x="24" y="54.5" width="366" height="96"/>
+                                    <rect key="frame" x="24" y="54.5" width="366" height="72"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="96" id="UzC-Jg-N2M"/>
+                                        <constraint firstAttribute="height" constant="72" id="UzC-Jg-N2M"/>
                                     </constraints>
                                 </view>
                             </subviews>

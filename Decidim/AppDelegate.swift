@@ -16,10 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let tabController = self.window?.rootViewController as? UITabBarController {
             tabController.delegate = self
-            
-            if !MyProfileController.shared.isRegistered {
-                tabController.selectedIndex = 1
-            }
+            tabController.selectedIndex = MyProfileController.shared.isRegistered ? 1 : 0
         }
         
         self.setupAppAppearance()
