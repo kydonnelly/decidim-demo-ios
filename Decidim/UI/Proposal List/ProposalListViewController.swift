@@ -21,8 +21,7 @@ class ProposalListViewController: UIViewController, CustomTableController {
     
     public static func create(authorId: Int? = nil) -> ProposalListViewController {
         let sb = UIStoryboard(name: "ProposalList", bundle: .main)
-        let nvc = sb.instantiateInitialViewController() as! UINavigationController
-        let vc = nvc.viewControllers.first as! ProposalListViewController
+        let vc = sb.instantiateInitialViewController() as! ProposalListViewController
         vc.setup(authorId: authorId)
         return vc
     }
@@ -33,8 +32,6 @@ class ProposalListViewController: UIViewController, CustomTableController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.title = "Browse Proposals"
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
@@ -125,13 +122,4 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
         }
     }
     
-}
-
-extension ProposalListViewController {
-    
-    @IBAction func tappedCreateButton(_ sender: UIButton) {
-        let createVC = EditProposalViewController.create()
-        createVC.modalPresentationStyle = .overCurrentContext
-        self.navigationController?.present(createVC, animated: true, completion: nil)
-    }
 }

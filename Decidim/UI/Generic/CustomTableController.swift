@@ -8,12 +8,13 @@
 
 import UIKit
 
-protocol CustomTableController {
+protocol CustomTableController: UIViewController {
     var tableView: UITableView! { get }
 }
 
 extension CustomTableController {
     
+    @discardableResult
     func scrollToTop() -> Bool {
         let top = -1 * self.tableView.adjustedContentInset.top
         if self.tableView.contentOffset.y >= 24 + top {

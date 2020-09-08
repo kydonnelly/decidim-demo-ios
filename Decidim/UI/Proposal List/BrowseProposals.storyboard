@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ckU-V4-qpW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="DHq-L5-qyE">
+            <objects>
+                <navigationController id="ckU-V4-qpW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JwR-ov-dh1">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OeF-nN-LGS" kind="relationship" relationship="rootViewController" id="GB4-D5-3xm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jeh-VI-j1G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-661" y="-289"/>
+        </scene>
+        <!--BrowseProposalsViewController-->
+        <scene sceneID="jHU-rZ-DlK">
+            <objects>
+                <viewController id="OeF-nN-LGS" userLabel="BrowseProposalsViewController" customClass="BrowseProposalsViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zm6-Fz-H5c">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRv-MW-be3">
+                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JA4-EK-itZ">
+                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osc-9X-VAh" customClass="OptionsBar" customModule="Decidim" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                        <subviews>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-W0-GWt">
+                                                <rect key="frame" x="183" y="-183" width="48" height="414"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <outlet property="dataSource" destination="osc-9X-VAh" id="0cQ-Ka-Ror"/>
+                                                    <outlet property="delegate" destination="osc-9X-VAh" id="OSu-aP-EaJ"/>
+                                                </connections>
+                                            </tableView>
+                                        </subviews>
+                                        <color key="backgroundColor" name="PrimaryLight"/>
+                                        <constraints>
+                                            <constraint firstItem="zgp-W0-GWt" firstAttribute="centerY" secondItem="osc-9X-VAh" secondAttribute="centerY" id="1Sz-ix-Uf3"/>
+                                            <constraint firstItem="zgp-W0-GWt" firstAttribute="centerX" secondItem="osc-9X-VAh" secondAttribute="centerX" id="6qM-VS-TLn"/>
+                                            <constraint firstItem="zgp-W0-GWt" firstAttribute="height" secondItem="osc-9X-VAh" secondAttribute="width" id="S1P-KN-Dmu"/>
+                                            <constraint firstItem="zgp-W0-GWt" firstAttribute="width" secondItem="osc-9X-VAh" secondAttribute="height" id="rkd-Dz-Xrk"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="tableView" destination="zgp-W0-GWt" id="6p8-cR-i7L"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <constraints>
+                                    <constraint firstItem="osc-9X-VAh" firstAttribute="leading" secondItem="JA4-EK-itZ" secondAttribute="leading" id="8vP-QK-mm5"/>
+                                    <constraint firstItem="osc-9X-VAh" firstAttribute="top" secondItem="JA4-EK-itZ" secondAttribute="top" id="Jl2-sP-Prh"/>
+                                    <constraint firstAttribute="height" constant="48" id="LaR-wm-hlK"/>
+                                    <constraint firstAttribute="trailing" secondItem="osc-9X-VAh" secondAttribute="trailing" id="ZJc-ai-kTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="osc-9X-VAh" secondAttribute="bottom" id="hgO-jD-mem"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
+                        <constraints>
+                            <constraint firstItem="jAa-Lc-GUY" firstAttribute="trailing" secondItem="JA4-EK-itZ" secondAttribute="trailing" id="1C4-uX-RnC"/>
+                            <constraint firstItem="JA4-EK-itZ" firstAttribute="top" secondItem="jAa-Lc-GUY" secondAttribute="top" id="GQV-H7-SSC"/>
+                            <constraint firstItem="FRv-MW-be3" firstAttribute="leading" secondItem="zm6-Fz-H5c" secondAttribute="leading" id="Ord-eG-0CK"/>
+                            <constraint firstAttribute="bottom" secondItem="FRv-MW-be3" secondAttribute="bottom" id="dFc-TH-tpq"/>
+                            <constraint firstItem="FRv-MW-be3" firstAttribute="top" secondItem="JA4-EK-itZ" secondAttribute="bottom" id="fR8-QR-Bk0"/>
+                            <constraint firstAttribute="trailing" secondItem="FRv-MW-be3" secondAttribute="trailing" id="tR6-G5-rpZ"/>
+                            <constraint firstItem="JA4-EK-itZ" firstAttribute="leading" secondItem="jAa-Lc-GUY" secondAttribute="leading" id="veC-tZ-Vff"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jAa-Lc-GUY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Proposals" id="jMz-bf-GeS">
+                        <barButtonItem key="rightBarButtonItem" title="Create" id="paD-YO-QbP">
+                            <connections>
+                                <action selector="tappedCreateButton:" destination="OeF-nN-LGS" id="go5-1s-Crj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="containerView" destination="FRv-MW-be3" id="tdb-Fc-0X1"/>
+                        <outlet property="optionsBar" destination="osc-9X-VAh" id="eV9-oY-HcG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="krn-5d-mzw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="245" y="-288"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="PrimaryBackground">
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.90600001811981201" green="0.93300002813339233" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -41,6 +41,8 @@
 		27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FC3250707D2000D27D1 /* OptionsBar.swift */; };
 		27293FC7250707D2000D27D1 /* OptionsBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FC4250707D2000D27D1 /* OptionsBarCell.swift */; };
 		27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27293FC5250707D2000D27D1 /* OptionsBarCell.xib */; };
+		27293FCA25071495000D27D1 /* BrowseProposals.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27293FC925071495000D27D1 /* BrowseProposals.storyboard */; };
+		27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FCB2507154B000D27D1 /* BrowseProposalViewController.swift */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -191,6 +193,8 @@
 		27293FC3250707D2000D27D1 /* OptionsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsBar.swift; sourceTree = "<group>"; };
 		27293FC4250707D2000D27D1 /* OptionsBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsBarCell.swift; sourceTree = "<group>"; };
 		27293FC5250707D2000D27D1 /* OptionsBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsBarCell.xib; sourceTree = "<group>"; };
+		27293FC925071495000D27D1 /* BrowseProposals.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BrowseProposals.storyboard; sourceTree = "<group>"; };
+		27293FCB2507154B000D27D1 /* BrowseProposalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowseProposalViewController.swift; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -532,6 +536,8 @@
 		2756A6C924985D280023DC91 /* Proposal List */ = {
 			isa = PBXGroup;
 			children = (
+				27293FC925071495000D27D1 /* BrowseProposals.storyboard */,
+				27293FCB2507154B000D27D1 /* BrowseProposalViewController.swift */,
 				2756A6E2249861E30023DC91 /* ProposalList.storyboard */,
 				2739747524AB267B00CA16A3 /* ProposalListCell.swift */,
 				2756A6CA24985D280023DC91 /* ProposalListViewController.swift */,
@@ -886,6 +892,7 @@
 				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				27F883D724EDD94500B216D2 /* TeamMembers.storyboard in Resources */,
 				27F883DE24EDD99200B216D2 /* TeamActions.storyboard in Resources */,
+				27293FCA25071495000D27D1 /* BrowseProposals.storyboard in Resources */,
 				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
 			);
@@ -1095,6 +1102,7 @@
 				27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */,
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
+				27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				275114E924FFDF66006277AA /* CustomTableController.swift in Sources */,
 				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
