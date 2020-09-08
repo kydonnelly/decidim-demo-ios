@@ -65,6 +65,13 @@ class VoteListViewController: UIViewController, CustomTableController {
         let allProposals = self.dataController.allProposals
         var count = allProposals.count
         
+        guard count > 0 else {
+            self.isRefreshing = false
+            self.tableView?.reloadData()
+            self.tableView?.showNoResults(message: "No votes")
+            return
+        }
+        
         for proposal in allProposals {
             ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
                 count -= 1
@@ -79,6 +86,7 @@ class VoteListViewController: UIViewController, CustomTableController {
                 if count == 0 {
                     self.isRefreshing = false
                     self.tableView?.reloadData()
+                    self.tableView?.hideNoResultsIfNeeded()
                 }
             }
         }

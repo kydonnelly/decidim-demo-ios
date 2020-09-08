@@ -35,7 +35,17 @@ class VoterListViewController: UIViewController, CustomTableController {
         super.viewWillAppear(animated)
         
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    fileprivate func reloadData() {
+        self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.allVotes.count == 0 {
+            self.tableView.showNoResults(message: "No voters")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
         }
     }
     

@@ -61,6 +61,12 @@ class TeamMembersViewController: UIViewController, CustomTableController {
         }
         
         self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.teamDetail.memberList.count == 0 {
+            self.tableView.showNoResults(message: "No team members")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
+        }
     }
     
 }

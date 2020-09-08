@@ -45,8 +45,22 @@ class AmendmentListViewController: UIViewController, CustomTableController {
         super.viewWillAppear(animated)
         
         self.dataController?.refresh(successBlock: { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
         })
+    }
+    
+    fileprivate func reloadData() {
+        self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.allAmendments.count == 0 {
+            self.tableView.showNoResults(message: "No amendments")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
+        }
+    }
+    
+    fileprivate var allAmendments: [ProposalAmendment] {
+        return self.dataController?.allAmendments ?? []
     }
     
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
@@ -54,7 +68,7 @@ class AmendmentListViewController: UIViewController, CustomTableController {
         
         self.dataController.invalidate()
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
         }
     }
     
@@ -85,7 +99,7 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.dataController?.allAmendments.count ?? 0
+            return self.allAmendments.count
         } else {
             return 1
         }
@@ -95,7 +109,7 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.AmendmentCellId, for: indexPath) as! AmendmentCell
             
-            let amendment = self.dataController.allAmendments[indexPath.row]
+            let amendment = self.allAmendments[indexPath.row]
             cell.setup(amendment: amendment, tappedProfileBlock: { [weak self] in
                 guard let self = self, let presentingVC = self.presentingViewController as? UINavigationController else {
                     return
@@ -119,7 +133,7 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
         
         guard indexPath.section == 0 else { return }
         
-        let amendment = self.dataController.allAmendments[indexPath.row]
+        let amendment = self.allAmendments[indexPath.row]
         
         if amendment.authorId == MyProfileController.shared.myProfileId {
             let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail, amendment: amendment)
@@ -167,7 +181,7 @@ extension AmendmentListViewController {
         self.dataController.editAmendment(amendment.amendmentId, status: status, text: amendment.text) { [weak self] error in
             guard error == nil else { return }
             
-            self?.tableView.reloadData()
+            self?.reloadData()
         }
     }
     

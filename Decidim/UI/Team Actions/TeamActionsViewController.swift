@@ -63,6 +63,12 @@ class TeamActionsViewController: UIViewController, CustomTableController {
         }
         
         self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.teamDetail.actionList.count == 0 {
+            self.tableView.showNoResults(message: "No actions")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
+        }
     }
     
 }

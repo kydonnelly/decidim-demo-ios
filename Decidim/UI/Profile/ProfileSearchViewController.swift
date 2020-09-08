@@ -41,7 +41,17 @@ class ProfileSearchViewController: UIViewController, CustomTableController {
         super.viewWillAppear(animated)
         
         self.profileInfoDataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    fileprivate func reloadData() {
+        self.tableView.reloadData()
+        
+        if self.profileInfoDataController.donePaging && self.profileInfos?.count == 0 {
+            self.tableView.showNoResults(message: "No search results")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -119,7 +129,7 @@ extension ProfileSearchViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         self.currentFilter = textField.text
-        self.tableView.reloadData()
+        self.reloadData()
     }
     
 }

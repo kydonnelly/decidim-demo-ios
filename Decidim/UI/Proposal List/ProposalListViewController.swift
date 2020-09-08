@@ -47,7 +47,7 @@ class ProposalListViewController: UIViewController, CustomTableController {
         super.viewDidAppear(animated)
 
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
         }
     }
     
@@ -56,7 +56,17 @@ class ProposalListViewController: UIViewController, CustomTableController {
         
         self.dataController.invalidate()
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    fileprivate func reloadData() {
+        self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.allProposals.count == 0 {
+            self.tableView.showNoResults(message: "No proposals")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -117,7 +127,7 @@ extension ProposalListViewController: UITableViewDataSource, UITableViewDelegate
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == 1 {
             self.dataController.page { [weak self] dc in
-                self?.tableView.reloadData()
+                self?.reloadData()
             }
         }
     }

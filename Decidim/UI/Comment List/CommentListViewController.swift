@@ -56,7 +56,7 @@ class CommentListViewController: UIViewController, CustomTableController {
         self.dataController?.refresh(successBlock: { [weak self] dc in
             guard let self = self else { return }
             
-            self.tableView.reloadData()
+            self.refreshData()
             
             if let comment = self.editingComment {
                 self.textView.text = comment.text
@@ -81,7 +81,17 @@ class CommentListViewController: UIViewController, CustomTableController {
         
         self.dataController.invalidate()
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.refreshData()
+        }
+    }
+    
+    fileprivate func refreshData() {
+        self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.comments.count == 0 {
+            self.tableView.showNoResults(message: "No comments yet")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -103,7 +113,7 @@ extension CommentListViewController {
                     return
                 }
                 
-                self?.tableView.reloadData()
+                self?.refreshData()
             }
         } else {
             self.dataController.addComment(commentText) { [weak self] error in
@@ -111,7 +121,7 @@ extension CommentListViewController {
                     return
                 }
                 
-                self?.tableView.reloadData()
+                self?.refreshData()
             }
         }
     }
@@ -161,11 +171,11 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
                     self.editingComment = comment
                     self.textView.text = comment.text
                     self.textView.becomeFirstResponder()
-                    self.tableView.reloadData()
+                    self.refreshData()
                 }))
                 alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { _ in
                     self?.dataController.deleteComment(comment.commentId) { [weak self] _ in
-                        self?.tableView.reloadData()
+                        self?.refreshData()
                     }
                 }))
             } else {

@@ -61,7 +61,17 @@ class TeamListViewController: UIViewController, CustomTableController {
         super.viewDidAppear(animated)
 
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    fileprivate func reloadData() {
+        self.tableView.reloadData()
+        
+        if self.dataController.donePaging && self.dataController.allTeams.count == 0 {
+            self.tableView.showNoResults(message: "No teams")
+        } else {
+            self.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -70,7 +80,7 @@ class TeamListViewController: UIViewController, CustomTableController {
         
         self.dataController.invalidate()
         self.dataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            self?.reloadData()
         }
     }
     
@@ -168,7 +178,7 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.section == Sections.allCases.count {
             self.dataController.page { [weak self] dc in
-                self?.tableView.reloadData()
+                self?.reloadData()
             }
         }
     }
