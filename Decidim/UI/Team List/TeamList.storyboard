@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OeF-nN-LGS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="O4r-ZR-3R2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,6 +9,22 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="v43-2j-hAp">
+            <objects>
+                <navigationController id="O4r-ZR-3R2" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3QV-i7-c4w">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OeF-nN-LGS" kind="relationship" relationship="rootViewController" id="Rwe-EB-FSD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="99H-q8-ZJj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-580" y="-289"/>
+        </scene>
         <!--TeamListViewController-->
         <scene sceneID="jHU-rZ-DlK">
             <objects>
@@ -145,7 +161,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jAa-Lc-GUY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="jMz-bf-GeS">
+                    <navigationItem key="navigationItem" title="Teams" id="jMz-bf-GeS">
                         <barButtonItem key="rightBarButtonItem" title="Create" id="paD-YO-QbP">
                             <connections>
                                 <action selector="tappedCreateButton:" destination="OeF-nN-LGS" id="go5-1s-Crj"/>

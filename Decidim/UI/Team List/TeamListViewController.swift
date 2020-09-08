@@ -28,7 +28,8 @@ class TeamListViewController: UIViewController, CustomTableController {
     
     public static func create(profileId: Int?) -> TeamListViewController {
         let sb = UIStoryboard(name: "TeamList", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! TeamListViewController
+        let nvc = sb.instantiateInitialViewController() as! UINavigationController
+        let vc = nvc.viewControllers.first as! TeamListViewController
         vc.setup(profileId: profileId)
         return vc
     }
@@ -40,7 +41,9 @@ class TeamListViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = "Browse Teams"
+        if self.profileId == nil {
+            self.profileId = MyProfileController.shared.myProfileId
+        }
         
         self.tableView.rowHeight = UITableView.automaticDimension
         
