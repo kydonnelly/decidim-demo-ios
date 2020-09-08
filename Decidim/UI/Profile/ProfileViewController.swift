@@ -12,6 +12,9 @@ class ProfileViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var tabSectionHeader: UIView!
+    @IBOutlet var tabOptionsBar: OptionsBar!
+    
     internal var profileId: Int?
     private var profileDataController: ProfileInfoDataController!
     
@@ -25,7 +28,6 @@ class ProfileViewController: UIViewController, CustomTableController {
     
     static let loadingCellId = "LoadingCell"
     static let usernameCellId = "UsernameCell"
-    static let tabHeaderViewId = "ProfileTabHeaderView"
     
     public static func create(profileId: Int) -> ProfileViewController {
         let sb = UIStoryboard(name: "Profile", bundle: .main)
@@ -55,15 +57,27 @@ class ProfileViewController: UIViewController, CustomTableController {
         
         self.tableView.rowHeight = UITableView.automaticDimension
         
-        self.tableView.register(UINib(nibName: "ProfileTabHeaderView", bundle: .main),
-                                forHeaderFooterViewReuseIdentifier: Self.tabHeaderViewId)
-        
-        self.currentTab = ProfileTeamsTabSection()
-        self.currentTab.setup(dataSource: self)
+        self.tabOptionsBar.setup(options: ["Teams", "Proposals", "Votes"], selectedIndex: nil) { [weak self] index in
+            guard let self = self else { return }
+            
+            switch index {
+            case 0: self.currentTab = ProfileTeamsTabSection()
+            case 1: self.currentTab = ProfileProposalsTabSection()
+            case 2: self.currentTab = ProfileVotesTabSection()
+            default: preconditionFailure("Mismatch between selection bar and handler")
+            }
+            
+            self.currentTab.setup(dataSource: self)
+            self.tableView.reloadData()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if self.currentTab == nil {
+            self.tabOptionsBar.updateSelectedIndex(0, animated: false)
+        }
         
         self.refresh()
     }
@@ -129,7 +143,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return nil
         } else if section == 1 {
-            return tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.tabHeaderViewId)
+            return self.tabSectionHeader
         } else {
             return self.currentTab.tableView?(tableView, viewForHeaderInSection: section)
         }

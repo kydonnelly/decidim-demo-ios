@@ -486,10 +486,55 @@
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="6n1-G1-izB"/>
                     <connections>
+                        <outlet property="tabOptionsBar" destination="2gb-XR-g5z" id="ssY-Cz-oPM"/>
+                        <outlet property="tabSectionHeader" destination="tgf-fz-P31" id="P5B-YW-ryd"/>
                         <outlet property="tableView" destination="two-Ve-m1e" id="sug-ai-fta"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Z-ZE-q8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="tgf-fz-P31">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-XR-g5z" customClass="OptionsBar" customModule="Decidim" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-AN-D1I">
+                                    <rect key="frame" x="165.5" y="-165.5" width="44" height="375"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <connections>
+                                        <outlet property="dataSource" destination="2gb-XR-g5z" id="Bif-hr-2Jv"/>
+                                        <outlet property="delegate" destination="2gb-XR-g5z" id="mUR-jf-ivg"/>
+                                    </connections>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" name="PrimaryLight"/>
+                            <constraints>
+                                <constraint firstItem="pkq-AN-D1I" firstAttribute="width" secondItem="2gb-XR-g5z" secondAttribute="height" id="4ci-Fx-UrS"/>
+                                <constraint firstItem="pkq-AN-D1I" firstAttribute="centerY" secondItem="2gb-XR-g5z" secondAttribute="centerY" id="AUc-aY-CNm"/>
+                                <constraint firstItem="pkq-AN-D1I" firstAttribute="height" secondItem="2gb-XR-g5z" secondAttribute="width" id="Kci-2Y-7yg"/>
+                                <constraint firstItem="pkq-AN-D1I" firstAttribute="centerX" secondItem="2gb-XR-g5z" secondAttribute="centerX" id="nzb-DA-rNu"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="cellUnderlineView" destination="UBo-cr-vsZ" id="OCZ-YU-NuD"/>
+                                <outlet property="tableView" destination="pkq-AN-D1I" id="mWQ-xo-8i7"/>
+                            </connections>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="2gb-XR-g5z" firstAttribute="leading" secondItem="tgf-fz-P31" secondAttribute="leading" id="AWY-Oo-z1m"/>
+                        <constraint firstAttribute="bottom" secondItem="2gb-XR-g5z" secondAttribute="bottom" id="Csj-wg-fm6"/>
+                        <constraint firstAttribute="trailing" secondItem="2gb-XR-g5z" secondAttribute="trailing" id="Qfa-W8-3EW"/>
+                        <constraint firstItem="2gb-XR-g5z" firstAttribute="top" secondItem="tgf-fz-P31" secondAttribute="top" id="WBH-9d-w7x"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="HQn-Nm-eaG"/>
+                </view>
+                <view contentMode="scaleToFill" id="UBo-cr-vsZ">
+                    <rect key="frame" x="0.0" y="0.0" width="40" height="4"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" name="Action"/>
+                    <viewLayoutGuide key="safeArea" id="lsT-M9-DOC"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="-219" y="-59"/>
         </scene>

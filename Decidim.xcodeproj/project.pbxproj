@@ -34,12 +34,13 @@
 		27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */; };
 		27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */; };
 		27293FAE2506C09A000D27D1 /* SettingsRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FAD2506C09A000D27D1 /* SettingsRegisterCell.swift */; };
-		27293FB02506CC85000D27D1 /* ProfileTabHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27293FAF2506CC85000D27D1 /* ProfileTabHeaderView.xib */; };
-		27293FB22506CC97000D27D1 /* ProfileTabHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB12506CC97000D27D1 /* ProfileTabHeaderView.swift */; };
 		27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB42506CEB0000D27D1 /* ProfileTabSection.swift */; };
 		27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB62506CEF0000D27D1 /* ProfileTeamsTabSection.swift */; };
 		27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB82506CEFE000D27D1 /* ProfileProposalsTabSection.swift */; };
 		27293FBB2506CF0E000D27D1 /* ProfileVotesTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FBA2506CF0E000D27D1 /* ProfileVotesTabSection.swift */; };
+		27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FC3250707D2000D27D1 /* OptionsBar.swift */; };
+		27293FC7250707D2000D27D1 /* OptionsBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FC4250707D2000D27D1 /* OptionsBarCell.swift */; };
+		27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27293FC5250707D2000D27D1 /* OptionsBarCell.xib */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -183,12 +184,13 @@
 		27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
 		27293FAD2506C09A000D27D1 /* SettingsRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRegisterCell.swift; sourceTree = "<group>"; };
-		27293FAF2506CC85000D27D1 /* ProfileTabHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTabHeaderView.xib; sourceTree = "<group>"; };
-		27293FB12506CC97000D27D1 /* ProfileTabHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabHeaderView.swift; sourceTree = "<group>"; };
 		27293FB42506CEB0000D27D1 /* ProfileTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabSection.swift; sourceTree = "<group>"; };
 		27293FB62506CEF0000D27D1 /* ProfileTeamsTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTeamsTabSection.swift; sourceTree = "<group>"; };
 		27293FB82506CEFE000D27D1 /* ProfileProposalsTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProposalsTabSection.swift; sourceTree = "<group>"; };
 		27293FBA2506CF0E000D27D1 /* ProfileVotesTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVotesTabSection.swift; sourceTree = "<group>"; };
+		27293FC3250707D2000D27D1 /* OptionsBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsBar.swift; sourceTree = "<group>"; };
+		27293FC4250707D2000D27D1 /* OptionsBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsBarCell.swift; sourceTree = "<group>"; };
+		27293FC5250707D2000D27D1 /* OptionsBarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OptionsBarCell.xib; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,16 @@
 			path = Tabs;
 			sourceTree = "<group>";
 		};
+		27293FC2250707D2000D27D1 /* Options Bar */ = {
+			isa = PBXGroup;
+			children = (
+				27293FC3250707D2000D27D1 /* OptionsBar.swift */,
+				27293FC4250707D2000D27D1 /* OptionsBarCell.swift */,
+				27293FC5250707D2000D27D1 /* OptionsBarCell.xib */,
+			);
+			path = "Options Bar";
+			sourceTree = "<group>";
+		};
 		2739747724AB285D00CA16A3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -536,8 +548,6 @@
 				27B22B3B24D23CD2005DF376 /* ProfileSearch.storyboard */,
 				27B22B3F24D23D87005DF376 /* ProfileSearchResultCell.swift */,
 				27B22B3D24D23CE7005DF376 /* ProfileSearchViewController.swift */,
-				27293FAF2506CC85000D27D1 /* ProfileTabHeaderView.xib */,
-				27293FB12506CC97000D27D1 /* ProfileTabHeaderView.swift */,
 				27293FB32506CE9D000D27D1 /* Tabs */,
 			);
 			path = Profile;
@@ -627,6 +637,7 @@
 			children = (
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27B22B5524D93760005DF376 /* GradientView.swift */,
+				27293FC2250707D2000D27D1 /* Options Bar */,
 				270169EE24FF6B3500CB97BF /* PaddedTextField.swift */,
 				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
 				27B22B5924D93978005DF376 /* Profile Info */,
@@ -854,7 +865,6 @@
 				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
 				275114ED2506B168006277AA /* Settings.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
-				27293FB02506CC85000D27D1 /* ProfileTabHeaderView.xib in Resources */,
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */,
@@ -876,6 +886,7 @@
 				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				27F883D724EDD94500B216D2 /* TeamMembers.storyboard in Resources */,
 				27F883DE24EDD99200B216D2 /* TeamActions.storyboard in Resources */,
+				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1038,7 @@
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
 				27F883E024EDD9CD00B216D2 /* TeamActionCell.swift in Sources */,
 				27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */,
+				27293FC7250707D2000D27D1 /* OptionsBarCell.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				27F883E224EDDF0700B216D2 /* EditActionViewController.swift in Sources */,
 				27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */,
@@ -1076,7 +1088,6 @@
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
-				27293FB22506CC97000D27D1 /* ProfileTabHeaderView.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
@@ -1086,6 +1097,7 @@
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				275114E924FFDF66006277AA /* CustomTableController.swift in Sources */,
+				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,

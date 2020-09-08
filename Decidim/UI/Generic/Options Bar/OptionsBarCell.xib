@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="YeO-JN-dUM" customClass="OptionsBarCell" customModule="Decidim" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YeO-JN-dUM" id="v33-fI-vdj">
+                <rect key="frame" x="0.0" y="0.0" width="48" height="48"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8T-zt-aZX">
+                        <rect key="frame" x="4" y="15.5" width="40" height="17"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cell Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhA-NO-1fS">
+                                <rect key="frame" x="0.0" y="0.0" width="40" height="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <color key="textColor" name="PrimaryDark"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="KhA-NO-1fS" firstAttribute="top" secondItem="I8T-zt-aZX" secondAttribute="top" id="OCs-Ud-ith"/>
+                            <constraint firstItem="KhA-NO-1fS" firstAttribute="leading" secondItem="I8T-zt-aZX" secondAttribute="leading" id="hdd-uF-N4x"/>
+                            <constraint firstAttribute="bottom" secondItem="KhA-NO-1fS" secondAttribute="bottom" id="o3L-uz-0sM"/>
+                            <constraint firstAttribute="trailing" secondItem="KhA-NO-1fS" secondAttribute="trailing" id="v9g-Nh-aSX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="I8T-zt-aZX" firstAttribute="leading" secondItem="v33-fI-vdj" secondAttribute="leading" priority="51" constant="24" id="AQa-Is-Tox"/>
+                    <constraint firstItem="I8T-zt-aZX" firstAttribute="centerY" secondItem="v33-fI-vdj" secondAttribute="centerY" id="Fk8-nl-ztc"/>
+                    <constraint firstItem="I8T-zt-aZX" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v33-fI-vdj" secondAttribute="leading" constant="4" id="RLE-dy-8qc"/>
+                    <constraint firstItem="I8T-zt-aZX" firstAttribute="centerX" secondItem="v33-fI-vdj" secondAttribute="centerX" id="fVW-HT-AQc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="titleLabel" destination="KhA-NO-1fS" id="o2f-yQ-nXA"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="154"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
