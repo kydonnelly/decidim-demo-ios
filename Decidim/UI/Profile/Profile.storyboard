@@ -516,7 +516,6 @@
                                 <constraint firstItem="pkq-AN-D1I" firstAttribute="centerX" secondItem="2gb-XR-g5z" secondAttribute="centerX" id="nzb-DA-rNu"/>
                             </constraints>
                             <connections>
-                                <outlet property="cellUnderlineView" destination="UBo-cr-vsZ" id="OCZ-YU-NuD"/>
                                 <outlet property="tableView" destination="pkq-AN-D1I" id="mWQ-xo-8i7"/>
                             </connections>
                         </view>
@@ -530,15 +529,9 @@
                     <viewLayoutGuide key="safeArea" id="HQn-Nm-eaG"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
-                            <real key="value" value="1"/>
+                            <real key="value" value="0.0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-                </view>
-                <view contentMode="scaleToFill" id="UBo-cr-vsZ">
-                    <rect key="frame" x="0.0" y="0.0" width="40" height="4"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" name="Action"/>
-                    <viewLayoutGuide key="safeArea" id="lsT-M9-DOC"/>
                 </view>
             </objects>
             <point key="canvasLocation" x="-219" y="-59"/>

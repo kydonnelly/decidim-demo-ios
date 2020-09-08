@@ -15,7 +15,7 @@ class OptionsBar: UIView {
     typealias UpdateBlock = (Int) -> Void
     
     @IBOutlet var tableView: UITableView!
-    @IBOutlet var cellUnderlineView: UIView!
+    private var cellUnderlineView: UIView!
     
     private var options: [String] = []
     private var selectedIndex: Int?
@@ -58,6 +58,8 @@ class OptionsBar: UIView {
 extension OptionsBar {
     
     fileprivate func setupUnderline() {
+        self.cellUnderlineView = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 4))
+        self.cellUnderlineView.backgroundColor = UIColor.action
         self.cellUnderlineView.alpha = 0
         self.cellUnderlineView.autoresizingMask = [.flexibleBottomMargin, .flexibleRightMargin]
         
