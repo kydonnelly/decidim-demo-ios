@@ -60,4 +60,20 @@ extension UIView {
         }
     }
     
+    @IBInspectable var shadowRadius: CGFloat {
+        get {
+            return self.layer.shadowRadius
+        }
+        set {
+            self.layer.shadowColor = UIColor(red: 0.098, green: 0.098, blue: 0.098, alpha: 1).cgColor
+            self.layer.shadowOffset = CGSize(width: 0, height: 2)
+            self.layer.shadowRadius = newValue
+            self.layer.shadowOpacity = 0.167
+            
+            if newValue > 0 {
+                self.layer.masksToBounds = false
+            }
+        }
+    }
+    
 }

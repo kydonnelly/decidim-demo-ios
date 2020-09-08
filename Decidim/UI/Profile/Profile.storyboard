@@ -528,6 +528,11 @@
                         <constraint firstItem="2gb-XR-g5z" firstAttribute="top" secondItem="tgf-fz-P31" secondAttribute="top" id="WBH-9d-w7x"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="HQn-Nm-eaG"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" id="UBo-cr-vsZ">
                     <rect key="frame" x="0.0" y="0.0" width="40" height="4"/>
