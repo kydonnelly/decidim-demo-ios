@@ -20,4 +20,5 @@ protocol ProfileTabDataSource: class {
 
 protocol ProfileTabSection: UITableViewDataSource, UITableViewDelegate {
     func setup(dataSource: ProfileTabDataSource)
+    func reloadData()
 }

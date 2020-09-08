@@ -67,6 +67,7 @@ class ProfileViewController: UIViewController, CustomTableController {
             default: preconditionFailure("Mismatch between selection bar and handler")
             }
             
+            self.tableView.hideNoResultsIfNeeded()
             self.currentTab.setup(dataSource: self)
             self.tableView.reloadData()
         }
@@ -75,17 +76,21 @@ class ProfileViewController: UIViewController, CustomTableController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if self.currentTab == nil {
-            self.tabOptionsBar.updateSelectedIndex(0, animated: false)
-        }
-        
         self.refresh()
     }
     
     fileprivate func refresh() {
+        self.tableView.hideNoResultsIfNeeded()
+        
         self.profileDataController = ProfileInfoDataController.shared()
         self.profileDataController.refresh { [weak self] dc in
-            self?.tableView.reloadData()
+            guard let self = self else { return }
+            
+            if let tab = self.currentTab {
+                tab.reloadData()
+            } else {
+                self.tabOptionsBar.updateSelectedIndex(0, animated: false)
+            }
         }
     }
     

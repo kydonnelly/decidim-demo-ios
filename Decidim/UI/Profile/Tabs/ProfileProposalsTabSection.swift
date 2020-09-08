@@ -20,7 +20,24 @@ class ProfileProposalsTabSection: NSObject, ProfileTabSection {
         
         self.dataController = PublicProposalDataController.shared()
         self.dataController.refresh { [weak self] dc in
-            self?.dataSource?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    func reloadData() {
+        guard let dataSource = self.dataSource else {
+            return
+        }
+        
+        dataSource.tableView.reloadData()
+        
+        dataSource.tableView.setNeedsLayout()
+        dataSource.tableView.layoutIfNeeded()
+        
+        if self.dataController.donePaging && self.allProposals.count == 0 {
+            dataSource.tableView.showNoResults(message: "No proposals", below: dataSource.sectionOffset)
+        } else {
+            dataSource.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -97,7 +114,7 @@ extension ProfileProposalsTabSection: UITableViewDataSource, UITableViewDelegate
         
         if indexPath.section == sectionOffset + 1 {
             self.dataController.page { [weak self] dc in
-                self?.dataSource?.tableView.reloadData()
+                self?.reloadData()
             }
         }
     }

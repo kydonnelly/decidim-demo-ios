@@ -20,7 +20,24 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         
         self.dataController = TeamListDataController.shared()
         self.dataController.refresh { [weak self] dc in
-            self?.dataSource?.tableView.reloadData()
+            self?.reloadData()
+        }
+    }
+    
+    func reloadData() {
+        guard let dataSource = self.dataSource else {
+            return
+        }
+        
+        dataSource.tableView.reloadData()
+        
+        dataSource.tableView.setNeedsLayout()
+        dataSource.tableView.layoutIfNeeded()
+        
+        if self.dataController.donePaging && self.allTeams().count == 0 {
+            dataSource.tableView.showNoResults(message: "No teams", below: dataSource.sectionOffset)
+        } else {
+            dataSource.tableView.hideNoResultsIfNeeded()
         }
     }
     
@@ -98,7 +115,7 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == sectionOffset + 1 {
             self.dataController.page { [weak self] dc in
-                self?.dataSource?.tableView.reloadData()
+                self?.reloadData()
             }
         }
     }

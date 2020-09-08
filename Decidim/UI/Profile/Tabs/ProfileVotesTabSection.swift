@@ -23,11 +23,11 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
         
         self.dataController = PublicProposalDataController.shared()
         self.dataController.refresh { [weak self] dc in
-            self?.refreshVotes()
+            self?.reloadData()
         }
     }
     
-    private func refreshVotes() {
+    func reloadData() {
         guard !self.isRefreshing else { return }
         guard let profileId = self.dataSource?.profileId else { return }
         
@@ -36,6 +36,16 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
         
         let allProposals = self.dataController.allProposals
         var count = allProposals.count
+        
+        guard count > 0 else {
+            self.isRefreshing = false
+            self.dataSource?.tableView?.reloadData()
+            
+            self.dataSource?.tableView.setNeedsLayout()
+            self.dataSource?.tableView.layoutIfNeeded()
+            self.dataSource?.tableView.showNoResults(message: "No votes")
+            return
+        }
         
         for proposal in allProposals {
             ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
@@ -51,6 +61,7 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
                 if count == 0 {
                     self.isRefreshing = false
                     self.dataSource?.tableView.reloadData()
+                    self.dataSource?.tableView.hideNoResultsIfNeeded()
                 }
             }
         }
@@ -121,7 +132,7 @@ extension ProfileVotesTabSection: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == sectionOffset + 1 {
             self.dataController.page { [weak self] dc in
-                self?.refreshVotes()
+                self?.reloadData()
             }
         }
     }
