@@ -19,6 +19,15 @@ class TeamListViewController: UIViewController, CustomTableController {
         case invited
         case requested
         case recommended
+        
+        var title: String {
+            switch self {
+            case .joined: return "Joined"
+            case .invited: return "Invited"
+            case .requested: return "Requested"
+            case .recommended: return "Recommended"
+            }
+        }
     }
     
     private var profileId: Int?
@@ -146,7 +155,7 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.SectionHeaderID) as! TeamListHeaderView
-        header.setup(title: String(describing: section))
+        header.setup(title: section.title)
         return header
     }
     
