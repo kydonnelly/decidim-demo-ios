@@ -66,7 +66,7 @@
                                             <outlet property="toggle" destination="sBP-fY-oAO" id="aUv-om-Q5o"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DelegationCell" rowHeight="92" id="yYa-H9-DVq" customClass="VotePreferencesDelegateCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DelegationCell" rowHeight="92" id="yYa-H9-DVq" customClass="VotePreferencesDelegateCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="76" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yYa-H9-DVq" id="832-he-y9a">

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileIconListView: UIView {
+class ProfileIconListView: TouchThroughView {
     
     typealias ProfileBlock = (Int) -> Void
     
@@ -28,7 +28,7 @@ class ProfileIconListView: UIView {
         layout.sectionInset = .zero
         layout.minimumInteritemSpacing = 0
         
-        self.collectionView = UICollectionView(frame: self.bounds, collectionViewLayout: layout)
+        self.collectionView = TouchThroughCollectionView(frame: self.bounds, collectionViewLayout: layout)
         self.collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         self.collectionView.backgroundColor = .clear
         self.collectionView.dataSource = self
