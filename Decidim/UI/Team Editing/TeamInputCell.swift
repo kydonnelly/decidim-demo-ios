@@ -31,6 +31,10 @@ class TeamInputCell: UITableViewCell {
         self.onSubmit = submitBlock
     }
     
+    public func makeTextFieldFirstResponder() {
+        self.inputField.becomeFirstResponder()
+    }
+    
 }
 
 extension TeamInputCell: UITextFieldDelegate {

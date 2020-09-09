@@ -52,6 +52,14 @@ class EditTeamViewController: UIViewController, CustomTableController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TeamInputCell {
+            cell.makeTextFieldFirstResponder()
+        }
+    }
+    
 }
 
 extension EditTeamViewController {
@@ -123,15 +131,21 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-            cell.setup(field: "Title", content: self.teamName, required: true) { [weak self] text in
+            cell.setup(field: "Title", content: self.teamName, required: true, updateBlock: { [weak self] text in
                 self?.teamName = text
-            }
+                return true
+            }, submitBlock: { [weak self] text in
+                self?.teamName = text
+            })
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-            cell.setup(field: "Description", content: self.teamDescription, required: true) { [weak self] text in
+            cell.setup(field: "Description", content: self.teamDescription, required: true, updateBlock: { [weak self] text in
                 self?.teamDescription = text
-            }
+                return true
+            }, submitBlock: { [weak self] text in
+                self?.teamDescription = text
+            })
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! TeamImageCell

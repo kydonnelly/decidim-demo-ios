@@ -53,6 +53,14 @@ class EditActionViewController: UIViewController, CustomTableController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TeamInputCell {
+            cell.makeTextFieldFirstResponder()
+        }
+    }
+    
 }
 
 extension EditActionViewController {
@@ -143,9 +151,12 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-            cell.setup(field: "Description", content: self.actionDescription, required: true) { [weak self] text in
+            cell.setup(field: "Description", content: self.actionDescription, required: true, updateBlock: { [weak self] text in
                 self?.actionDescription = text
-            }
+                return true
+            }, submitBlock: { [weak self] text in
+                self?.actionDescription = text
+            })
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! VotePreferencesToggleCell
