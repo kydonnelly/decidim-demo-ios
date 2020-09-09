@@ -48,7 +48,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u1V-hu-o4O" secondAttribute="height" multiplier="1:1" id="VxC-m5-T62"/>
@@ -144,7 +144,7 @@
                                                         <constraint firstAttribute="width" id="pXb-W9-LKx"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IOo-cR-smb">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IOo-cR-smb" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="19.5" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="P2g-m8-rob"/>
@@ -233,7 +233,7 @@
                                                         <constraint firstAttribute="width" id="Xjm-VC-EoH"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u76-0K-OtR">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u76-0K-OtR" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="POQ-pk-llq"/>
@@ -361,7 +361,7 @@
                                                         <constraint firstAttribute="width" id="zOp-Vr-3sn"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VVX-qc-V8t">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VVX-qc-V8t" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="VVX-qc-V8t" secondAttribute="height" id="RMV-4G-lZi"/>

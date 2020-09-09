@@ -51,7 +51,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="wrg-MY-Rgj"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uh-Rz-6Sn">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5Uh-Rz-6Sn" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="8" width="36" height="36"/>
                                                     <color key="tintColor" name="PrimaryDark"/>
                                                     <constraints>

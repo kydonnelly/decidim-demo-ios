@@ -17,15 +17,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crd-OG-N2R">
-                        <rect key="frame" x="8" y="8" width="112" height="112"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crd-OG-N2R" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                        <rect key="frame" x="4" y="4" width="120" height="120"/>
                         <gestureRecognizers/>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="crd-OG-N2R" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" constant="8" id="AMb-hu-sn3"/>
+                    <constraint firstItem="crd-OG-N2R" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" constant="4" id="AMb-hu-sn3"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="centerY" secondItem="kRy-9U-EG9" secondAttribute="centerY" id="jC6-LA-zcU"/>
-                    <constraint firstItem="crd-OG-N2R" firstAttribute="top" secondItem="kRy-9U-EG9" secondAttribute="top" constant="8" id="lcN-2B-Shq"/>
+                    <constraint firstItem="crd-OG-N2R" firstAttribute="top" secondItem="kRy-9U-EG9" secondAttribute="top" constant="4" id="lcN-2B-Shq"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="centerX" secondItem="kRy-9U-EG9" secondAttribute="centerX" id="rxC-w6-agj"/>
                 </constraints>
             </collectionViewCellContentView>

@@ -384,7 +384,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="758-2B-Y5L"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydb-qA-94g">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydb-qA-94g" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="36" height="36"/>
                                                     <color key="tintColor" name="PrimaryDark"/>
                                                     <constraints>
