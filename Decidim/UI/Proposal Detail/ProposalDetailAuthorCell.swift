@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDetailAuthorCell: UITableViewCell {
+class ProposalDetailAuthorCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!

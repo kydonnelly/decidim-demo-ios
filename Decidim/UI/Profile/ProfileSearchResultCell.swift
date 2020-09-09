@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileSearchResultCell: UITableViewCell {
+class ProfileSearchResultCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var pictureImageView: UIImageView!

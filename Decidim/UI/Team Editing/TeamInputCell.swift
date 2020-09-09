@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamInputCell: UITableViewCell {
+class TeamInputCell: CustomTableViewCell {
     
     typealias UpdateBlock = (String) -> Bool
     typealias SubmitBlock = (String) -> Void

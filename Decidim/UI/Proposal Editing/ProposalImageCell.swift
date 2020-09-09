@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalImageCell: UITableViewCell {
+class ProposalImageCell: CustomTableViewCell {
     
     typealias ChangeImageBlock = () -> Void
     

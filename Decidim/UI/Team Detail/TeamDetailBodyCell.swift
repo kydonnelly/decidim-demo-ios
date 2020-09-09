@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamDetailBodyCell: UITableViewCell {
+class TeamDetailBodyCell: CustomTableViewCell {
     
     @IBOutlet var bodyLabel: UILabel!
     

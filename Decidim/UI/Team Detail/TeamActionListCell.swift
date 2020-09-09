@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamActionListCell: UITableViewCell {
+class TeamActionListCell: CustomTableViewCell {
     
     @IBOutlet var numActionsLabel: UILabel!
     

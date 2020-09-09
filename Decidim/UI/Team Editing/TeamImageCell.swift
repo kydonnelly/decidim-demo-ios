@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamImageCell: UITableViewCell {
+class TeamImageCell: CustomTableViewCell {
     
     typealias ChangeImageBlock = () -> Void
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsRegisterCell: UITableViewCell {
+class SettingsRegisterCell: CustomTableViewCell {
     
     typealias RegisterBlock = () -> Void
     

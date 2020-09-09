@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalVoteCell: UITableViewCell {
+class ProposalVoteCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!

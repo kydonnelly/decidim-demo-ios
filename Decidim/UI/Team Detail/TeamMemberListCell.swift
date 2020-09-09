@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamMemberListCell: UITableViewCell {
+class TeamMemberListCell: CustomTableViewCell {
     
     typealias ProfileBlock = (Int) -> Void
     

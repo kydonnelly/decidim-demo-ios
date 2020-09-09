@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingsPreferencesCell: UITableViewCell {
+class SettingsPreferencesCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!

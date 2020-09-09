@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalVoterCell: UITableViewCell {
+class ProposalVoterCell: CustomTableViewCell {
     
     @IBOutlet var voteImage: UIImageView!
     @IBOutlet var profileImageView: UIImageView!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDetailAmendmentsCell: UITableViewCell {
+class ProposalDetailAmendmentsCell: CustomTableViewCell {
     
     typealias ProfileBlock = (Int) -> Void
     

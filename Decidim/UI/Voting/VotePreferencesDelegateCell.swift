@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VotePreferencesDelegateCell: UITableViewCell {
+class VotePreferencesDelegateCell: CustomTableViewCell {
     
     typealias ProfileBlock = (Int) -> Void
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDatePickerCell: UITableViewCell {
+class ProposalDatePickerCell: CustomTableViewCell {
     
     typealias DateChangedBlock = (Date) -> Void
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamDetailTitleCell: UITableViewCell {
+class TeamDetailTitleCell: CustomTableViewCell {
     
     typealias UpdateStatusBlock = (TeamMemberStatus?) -> Void
     

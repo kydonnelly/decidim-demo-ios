@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OptionsBarCell: UITableViewCell {
+class OptionsBarCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     

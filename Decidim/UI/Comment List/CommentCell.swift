@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CommentCell: UITableViewCell {
+class CommentCell: CustomTableViewCell {
     
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!

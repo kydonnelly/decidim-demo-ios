@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChangePasswordCell: UITableViewCell {
+class ChangePasswordCell: CustomTableViewCell {
     
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var passwordConfirmField: UITextField!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalInputCell: UITableViewCell {
+class ProposalInputCell: CustomTableViewCell {
     
     typealias ProposalInputUpdateBlock = (String) -> Bool
     typealias ProposalInputSubmitBlock = (String) -> Void

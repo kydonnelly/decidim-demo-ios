@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamMemberCell: UITableViewCell {
+class TeamMemberCell: CustomTableViewCell {
     
     typealias ManageBlock = () -> Void
     

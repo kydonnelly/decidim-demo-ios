@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalListCell: UITableViewCell {
+class ProposalListCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDetailBodyCell: UITableViewCell {
+class ProposalDetailBodyCell: CustomTableViewCell {
     
     @IBOutlet var bodyLabel: UILabel!
     

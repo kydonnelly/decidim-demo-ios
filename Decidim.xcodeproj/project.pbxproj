@@ -48,6 +48,7 @@
 		27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD125072183000D27D1 /* UITableView+Helpers.swift */; };
 		27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD325089CEB000D27D1 /* CircleImageView.swift */; };
 		27293FD62508B3E2000D27D1 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD52508B3E2000D27D1 /* TouchThroughView.swift */; };
+		27293FD82508BE3C000D27D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -205,6 +206,7 @@
 		27293FD125072183000D27D1 /* UITableView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Helpers.swift"; sourceTree = "<group>"; };
 		27293FD325089CEB000D27D1 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		27293FD52508B3E2000D27D1 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
+		27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -654,6 +656,7 @@
 			children = (
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
+				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
 				27B22B5524D93760005DF376 /* GradientView.swift */,
 				27293FCD25071F8F000D27D1 /* NoResultsView.swift */,
 				27293FCF25071F9A000D27D1 /* NoResultsView.xib */,
@@ -1117,6 +1120,7 @@
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
+				27293FD82508BE3C000D27D1 /* CustomTableViewCell.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
 				2717F47F24E0C79100189F7C /* ProposalInputCell.swift in Sources */,
 				27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */,

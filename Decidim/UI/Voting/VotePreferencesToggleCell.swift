@@ -8,7 +8,7 @@
 
 import UIKit
 
-class VotePreferencesToggleCell: UITableViewCell {
+class VotePreferencesToggleCell: CustomTableViewCell {
     
     typealias ToggleBlock = (Bool) -> Void
     

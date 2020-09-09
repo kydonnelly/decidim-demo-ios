@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamListCell: UITableViewCell {
+class TeamListCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!

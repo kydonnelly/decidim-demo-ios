@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TeamActionCell: UITableViewCell {
+class TeamActionCell: CustomTableViewCell {
     
     typealias UpdateBlock = () -> Void
     

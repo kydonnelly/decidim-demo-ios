@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDetailEngagementCell: UITableViewCell {
+class ProposalDetailEngagementCell: CustomTableViewCell {
     
     public typealias ActionBlock = () -> Void
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AmendmentCell: UITableViewCell {
+class AmendmentCell: CustomTableViewCell {
     
     typealias ActionBlock = () -> Void
     

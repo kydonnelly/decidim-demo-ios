@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileNameCell: UITableViewCell {
+class ProfileNameCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var pictureImageView: UIImageView!
