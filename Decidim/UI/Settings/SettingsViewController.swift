@@ -128,7 +128,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             return passwordCell
         } else if indexPath.row == 2 {
             let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! SettingsPreferencesCell
-            votingCell.setup(title: "Voting Preferences", detail: "None")
+            votingCell.setup(title: "Voting Preferences", detail: "Update")
             return votingCell
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
