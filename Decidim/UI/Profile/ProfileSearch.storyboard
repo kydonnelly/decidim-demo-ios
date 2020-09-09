@@ -21,11 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="O8j-jI-rmZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="58"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Filter by name..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XYr-2p-tMj" customClass="PaddedTextField" customModule="Decidim" customModuleProvider="target">
-                                            <rect key="frame" x="24" y="11" width="366" height="34"/>
+                                            <rect key="frame" x="24" y="12" width="366" height="34"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="34" id="g0m-zS-fgE"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
@@ -42,7 +45,7 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProfileResultCell" rowHeight="76" id="A7z-PW-Hab" customClass="ProfileSearchResultCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="84" width="414" height="76"/>
+                                        <rect key="frame" x="0.0" y="86" width="414" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A7z-PW-Hab" id="KBg-iw-O4U">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
@@ -113,7 +116,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="2ab-wQ-4yy">
-                                        <rect key="frame" x="0.0" y="160" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="162" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2ab-wQ-4yy" id="Cpu-nn-sFh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
