@@ -13,21 +13,23 @@ class ProposalListViewController: UIViewController, CustomTableController {
     static let LoadingCellID = "LoadingCell"
     static let ProposalDetailCellID = "ProposalDetailCell"
     
+    typealias ProposalFilter = (Proposal) -> Bool
+    
     @IBOutlet var tableView: UITableView!
     
     private var dataController: PublicProposalDataController!
     
-    private var filterAuthorId: Int?
+    private var filter: ProposalFilter?
     
-    public static func create(authorId: Int? = nil) -> ProposalListViewController {
+    public static func create(filter: ProposalFilter? = nil) -> ProposalListViewController {
         let sb = UIStoryboard(name: "ProposalList", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! ProposalListViewController
-        vc.setup(authorId: authorId)
+        vc.setup(filter: filter)
         return vc
     }
     
-    private func setup(authorId: Int?) {
-        self.filterAuthorId = authorId
+    private func setup(filter: ProposalFilter?) {
+        self.filter = filter
     }
     
     override func viewDidLoad() {
@@ -72,8 +74,8 @@ class ProposalListViewController: UIViewController, CustomTableController {
     
     fileprivate var allProposals: [Proposal] {
         var allProposals = self.dataController.allProposals
-        if let authorFilter = self.filterAuthorId {
-            allProposals = allProposals.filter { $0.authorId == authorFilter }
+        if let filter = self.filter {
+            allProposals = allProposals.filter { filter($0) }
         }
         
         return allProposals
