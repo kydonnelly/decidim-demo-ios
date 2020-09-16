@@ -38,6 +38,9 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     @IBOutlet var voteView: VotingOptionsView!
     
     @IBOutlet var voteContainerView: UIView!
+    @IBOutlet var voteCountViews: [UIView]!
+    @IBOutlet var voteCountNoLabel: UILabel!
+    @IBOutlet var voteCountYesLabel: UILabel!
     @IBOutlet var voteDeadlineLabel: UILabel!
     
     private var proposal: Proposal!
@@ -82,7 +85,9 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.voteDeadlineLabel.text = nil
+        self.voteDeadlineLabel.text = ""
+        self.voteCountNoLabel.text = ""
+        self.voteCountYesLabel.text = ""
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -331,12 +336,23 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
 extension ProposalDetailViewController {
     
     fileprivate func refreshVoteUI() {
-        let myVote = self.voteDataController.allVotes.last { $0.proposalId == self.proposal.id }
+        let allVotes = self.voteDataController.allVotes.filter { $0.proposalId == self.proposal.id }
+        let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
         
         if let voteType = myVote {
             self.voteStatusLabel.text = "You voted \(String(describing: voteType.voteType))"
         } else {
             self.voteStatusLabel.text = "Vote now!"
+        }
+        
+        let hasVotes = allVotes.contains { $0.voteType != .abstain }
+        self.voteCountViews.forEach { $0.isHidden = !hasVotes }
+        
+        if hasVotes {
+            let noCount = allVotes.filter { $0.voteType == .no }.count
+            let yesCount = allVotes.filter { $0.voteType == .yes }.count
+            self.voteCountNoLabel.text = "\(noCount)"
+            self.voteCountYesLabel.text = "\(yesCount)"
         }
         
         self.refreshVoteButtons(myVote: myVote)
