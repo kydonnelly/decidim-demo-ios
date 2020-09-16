@@ -100,6 +100,10 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         self.voteDataController.refresh { [weak self] dc in
             guard let self = self else { return }
             
+            self.tableView.reloadData()
+            self.tableView.setNeedsLayout()
+            self.tableView.layoutIfNeeded()
+            
             self.refreshVoteUI()
         }
         
