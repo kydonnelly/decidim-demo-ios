@@ -78,6 +78,7 @@
 		2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2756A6DE2498615D0023DC91 /* ProfileInfo.swift */; };
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
+		277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C22511D1600063FFE6 /* Delegate.swift */; };
 		278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */; };
 		278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */; };
 		2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */; };
@@ -236,6 +237,7 @@
 		2756A6DE2498615D0023DC91 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
+		277FD2C22511D1600063FFE6 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAppearance+Scheme.swift"; sourceTree = "<group>"; };
 		278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorTheme.xcassets; sourceTree = "<group>"; };
 		2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			children = (
 				27B22B4F24D934F6005DF376 /* Amendments */,
 				27B22B2E24BFC676005DF376 /* Comments */,
+				277FD2C12511D1540063FFE6 /* Delegates */,
 				2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */,
 				2756A6DA249861560023DC91 /* Profile */,
 				2756A6D6249861560023DC91 /* Proposal */,
@@ -593,6 +596,14 @@
 				2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		277FD2C12511D1540063FFE6 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				277FD2C22511D1600063FFE6 /* Delegate.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 		2789E98224B67FD00061C3E9 /* Voting */ = {
@@ -1096,6 +1107,7 @@
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				27293FBB2506CF0E000D27D1 /* ProfileVotesTabSection.swift in Sources */,
 				27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */,
+				277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */,
 				27F883D824EDD94500B216D2 /* TeamMembersViewController.swift in Sources */,

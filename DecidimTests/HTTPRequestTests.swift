@@ -510,7 +510,7 @@ class HTTPRequestTests: XCTestCase {
         var responseStatus: String? = nil
         
         guard let vote = self.createAndVerifyProposalVote(proposalId: proposalId) else {
-            XCTFail("Could not cast vote to edit")
+            XCTFail("Could not cast vote to delete")
             return
         }
         
@@ -518,6 +518,134 @@ class HTTPRequestTests: XCTestCase {
         
         // test
         request.delete(endpoint: "proposals", args: ["\(proposalId)", "votes", voteId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
+//    func testHTTPRequest_Delegates() {
+//        // setup
+//        let request = HTTPRequest.shared
+//        
+//        let expectation = XCTestExpectation(description: "delegate response")
+//        var receivedError: Error? = nil
+//        var responseStatus: String? = nil
+//        var responseList: [Int]? = nil
+//        var responseLength: Int? = nil
+//        
+//        // test
+//        request.get(endpoint: "delegations") { response, error in
+//            defer { expectation.fulfill() }
+//            
+//            receivedError = error
+//            responseStatus = response?["status"] as? String
+//            if let delegates = response?["delegations"] as? [String] {
+//                responseLength = delegates.count
+//                responseList = delegates.compactMap { Int($0) }
+//            }
+//        }
+//        
+//        // verify
+//        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+//        XCTAssertEqual(responseStatus, "found")
+//        XCTAssertNotNil(responseList)
+//        XCTAssertNil(receivedError)
+//        XCTAssertEqual(responseLength, responseList?.count)
+//    }
+
+//    func testHTTPRequest_DelegateGlobal() {
+//        // setup
+//        let category = "Global"
+//        let request = HTTPRequest.shared
+//
+//        let expectation = XCTestExpectation(description: "delegate response")
+//        var receivedError: Error? = nil
+//        var responseStatus: String? = nil
+//        var responseItem: Int? = nil
+//
+//        // test
+//        request.get(endpoint: "delegation", args: [category]) { response, error in
+//            defer { expectation.fulfill() }
+//
+//            receivedError = error
+//            responseStatus = response?["status"] as? String
+//            responseItem = response?["delegations"] as? Int
+//        }
+//
+//        // verify
+//        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+//        XCTAssertEqual(responseStatus, "found")
+//        XCTAssertNotNil(responseItem)
+//        XCTAssertEqual(responseItem, 2)
+//        XCTAssertNil(receivedError)
+//    }
+
+    func testHTTPRequest_AddDelegate() {
+        // setup
+        let delegateId = 2
+        
+        // test
+        let responseItem = self.createAndVerifyDelegate(delegateId: delegateId)
+        
+        // verify
+        XCTAssertEqual(responseItem?.delegateId, delegateId)
+    }
+
+//    func testHTTPRequest_EditDelegate() {
+//        // setup
+//        let request = HTTPRequest.shared
+//        let delegateId = 2
+//        let updatedDelegateId = 3
+//
+//        let expectation = XCTestExpectation(description: "edit delegate response")
+//        var receivedError: Error? = nil
+//        var responseStatus: String? = nil
+//        var responseItem: Int? = nil
+//
+//        guard let comment = self.createAndVerifyDelegate(delegateId: delegateId) else {
+//            XCTFail("Could not create delegate to edit")
+//            return
+//        }
+//
+//        let payload: [String: Any] = ["delegation": ["delegate_id": "\(updatedDelegateId)"]]
+//
+//        // test
+//        request.put(endpoint: "delegations", payload: payload) { response, error in
+//            defer { expectation.fulfill() }
+//
+//            receivedError = error
+//            responseStatus = response?["status"] as? String
+//            responseItem = response?["delegations"] as? Int
+//        }
+//
+//        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+//        XCTAssertEqual(responseStatus, "updated")
+//        XCTAssertEqual(responseItem, updatedDelegateId)
+//        XCTAssertNil(receivedError)
+//    }
+
+    func testHTTPRequest_DeleteDelegate() {
+        // setup
+        let request = HTTPRequest.shared
+        let delegateId = 2
+        
+        let expectation = XCTestExpectation(description: "delete delegate response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let comment = self.createAndVerifyDelegate(delegateId: delegateId) else {
+            XCTFail("Could not create delegate to delete")
+            return
+        }
+        
+        // test
+        request.delete(endpoint: "delegations") { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -636,6 +764,36 @@ extension HTTPRequestTests {
             responseStatus = response?["status"] as? String
             if let voteInfo = response?["vote"] as? [String: Any] {
                 responseItem = ProposalVote.from(dict: voteInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
+    fileprivate func createAndVerifyDelegate(delegateId: Int, category: String = "test category") -> Delegate? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "delegate response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Delegate? = nil
+        
+        let id = "\(delegateId)"
+        let payload: [String: Any] = ["delegation": ["delegate_id": id]]
+        
+        // test
+        request.post(endpoint: "delegations", payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let delegationInfo = response?["delegation"] as? [String: Any] {
+                responseItem = Delegate.from(dict: delegationInfo)
             }
         }
         
