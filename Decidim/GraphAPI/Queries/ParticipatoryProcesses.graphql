@@ -1,0 +1,10 @@
+query RecentParticipatoryProcesses {
+  participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
+    id
+    slug
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+

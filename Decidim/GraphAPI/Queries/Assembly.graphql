@@ -1,0 +1,11 @@
+query Assembly {
+  assembly(id: "2") {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+    }
+  }
+}
+

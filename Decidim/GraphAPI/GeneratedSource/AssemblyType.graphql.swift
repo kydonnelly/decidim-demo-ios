@@ -4,14 +4,18 @@
 import Apollo
 import Foundation
 
-public final class AssemblyTypesQuery: GraphQLQuery {
+public final class AssemblyTypeQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query AssemblyTypes {
-      assembliesTypes {
+    query AssemblyType {
+      assembliesType(id: "2") {
         __typename
         id
+        assemblies {
+          __typename
+          id
+        }
         title {
           __typename
           translation(locale: "en")
@@ -20,7 +24,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "AssemblyTypes"
+  public let operationName: String = "AssemblyType"
 
   public init() {
   }
@@ -29,7 +33,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
     public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("assembliesTypes", type: .nonNull(.list(.object(AssembliesType.selections)))),
+      GraphQLField("assembliesType", arguments: ["id": "2"], type: .object(AssembliesType.selections)),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -38,17 +42,17 @@ public final class AssemblyTypesQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(assembliesTypes: [AssembliesType?]) {
-      self.init(unsafeResultMap: ["__typename": "Query", "assembliesTypes": assembliesTypes.map { (value: AssembliesType?) -> ResultMap? in value.flatMap { (value: AssembliesType) -> ResultMap in value.resultMap } }])
+    public init(assembliesType: AssembliesType? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "assembliesType": assembliesType.flatMap { (value: AssembliesType) -> ResultMap in value.resultMap }])
     }
 
-    /// Lists all assemblies types
-    public var assembliesTypes: [AssembliesType?] {
+    /// Finds an assemblies type group
+    public var assembliesType: AssembliesType? {
       get {
-        return (resultMap["assembliesTypes"] as! [ResultMap?]).map { (value: ResultMap?) -> AssembliesType? in value.flatMap { (value: ResultMap) -> AssembliesType in AssembliesType(unsafeResultMap: value) } }
+        return (resultMap["assembliesType"] as? ResultMap).flatMap { AssembliesType(unsafeResultMap: $0) }
       }
       set {
-        resultMap.updateValue(newValue.map { (value: AssembliesType?) -> ResultMap? in value.flatMap { (value: AssembliesType) -> ResultMap in value.resultMap } }, forKey: "assembliesTypes")
+        resultMap.updateValue(newValue?.resultMap, forKey: "assembliesType")
       }
     }
 
@@ -58,6 +62,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("assemblies", type: .nonNull(.list(.object(Assembly.selections)))),
         GraphQLField("title", type: .nonNull(.object(Title.selections))),
       ]
 
@@ -67,8 +72,8 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, title: Title) {
-        self.init(unsafeResultMap: ["__typename": "AssembliesType", "id": id, "title": title.resultMap])
+      public init(id: GraphQLID, assemblies: [Assembly?], title: Title) {
+        self.init(unsafeResultMap: ["__typename": "AssembliesType", "id": id, "assemblies": assemblies.map { (value: Assembly?) -> ResultMap? in value.flatMap { (value: Assembly) -> ResultMap in value.resultMap } }, "title": title.resultMap])
       }
 
       public var __typename: String {
@@ -90,6 +95,16 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         }
       }
 
+      /// Assemblies with this assemblies type
+      public var assemblies: [Assembly?] {
+        get {
+          return (resultMap["assemblies"] as! [ResultMap?]).map { (value: ResultMap?) -> Assembly? in value.flatMap { (value: ResultMap) -> Assembly in Assembly(unsafeResultMap: value) } }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Assembly?) -> ResultMap? in value.flatMap { (value: Assembly) -> ResultMap in value.resultMap } }, forKey: "assemblies")
+        }
+      }
+
       /// The title of this assemblies type.
       public var title: Title {
         get {
@@ -97,6 +112,44 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue.resultMap, forKey: "title")
+        }
+      }
+
+      public struct Assembly: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Assembly"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID) {
+          self.init(unsafeResultMap: ["__typename": "Assembly", "id": id])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The internal ID for this assembly
+        public var id: GraphQLID {
+          get {
+            return resultMap["id"]! as! GraphQLID
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "id")
+          }
         }
       }
 

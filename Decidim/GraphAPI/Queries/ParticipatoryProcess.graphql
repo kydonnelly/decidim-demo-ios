@@ -1,0 +1,10 @@
+query RecentParticipatoryProcess {
+  participatoryProcess(id: "2") {
+    id
+    slug
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+

@@ -1,6 +1,9 @@
 query AssemblyTypes {
   assembliesTypes {
     id
+    title {
+      translation(locale: "en")
+    }
   }
 }
 

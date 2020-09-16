@@ -4,14 +4,15 @@
 import Apollo
 import Foundation
 
-public final class AssemblyTypesQuery: GraphQLQuery {
+public final class RecentParticipatoryProcessesQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
     """
-    query AssemblyTypes {
-      assembliesTypes {
+    query RecentParticipatoryProcesses {
+      participatoryProcesses(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
         __typename
         id
+        slug
         title {
           __typename
           translation(locale: "en")
@@ -20,7 +21,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
     }
     """
 
-  public let operationName: String = "AssemblyTypes"
+  public let operationName: String = "RecentParticipatoryProcesses"
 
   public init() {
   }
@@ -29,7 +30,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
     public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("assembliesTypes", type: .nonNull(.list(.object(AssembliesType.selections)))),
+      GraphQLField("participatoryProcesses", arguments: ["filter": ["publishedSince": "2018-01-01"], "order": ["publishedAt": "asc"]], type: .list(.object(ParticipatoryProcess.selections))),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -38,26 +39,27 @@ public final class AssemblyTypesQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(assembliesTypes: [AssembliesType?]) {
-      self.init(unsafeResultMap: ["__typename": "Query", "assembliesTypes": assembliesTypes.map { (value: AssembliesType?) -> ResultMap? in value.flatMap { (value: AssembliesType) -> ResultMap in value.resultMap } }])
+    public init(participatoryProcesses: [ParticipatoryProcess?]? = nil) {
+      self.init(unsafeResultMap: ["__typename": "Query", "participatoryProcesses": participatoryProcesses.flatMap { (value: [ParticipatoryProcess?]) -> [ResultMap?] in value.map { (value: ParticipatoryProcess?) -> ResultMap? in value.flatMap { (value: ParticipatoryProcess) -> ResultMap in value.resultMap } } }])
     }
 
-    /// Lists all assemblies types
-    public var assembliesTypes: [AssembliesType?] {
+    /// Lists all participatory_processes
+    public var participatoryProcesses: [ParticipatoryProcess?]? {
       get {
-        return (resultMap["assembliesTypes"] as! [ResultMap?]).map { (value: ResultMap?) -> AssembliesType? in value.flatMap { (value: ResultMap) -> AssembliesType in AssembliesType(unsafeResultMap: value) } }
+        return (resultMap["participatoryProcesses"] as? [ResultMap?]).flatMap { (value: [ResultMap?]) -> [ParticipatoryProcess?] in value.map { (value: ResultMap?) -> ParticipatoryProcess? in value.flatMap { (value: ResultMap) -> ParticipatoryProcess in ParticipatoryProcess(unsafeResultMap: value) } } }
       }
       set {
-        resultMap.updateValue(newValue.map { (value: AssembliesType?) -> ResultMap? in value.flatMap { (value: AssembliesType) -> ResultMap in value.resultMap } }, forKey: "assembliesTypes")
+        resultMap.updateValue(newValue.flatMap { (value: [ParticipatoryProcess?]) -> [ResultMap?] in value.map { (value: ParticipatoryProcess?) -> ResultMap? in value.flatMap { (value: ParticipatoryProcess) -> ResultMap in value.resultMap } } }, forKey: "participatoryProcesses")
       }
     }
 
-    public struct AssembliesType: GraphQLSelectionSet {
-      public static let possibleTypes: [String] = ["AssembliesType"]
+    public struct ParticipatoryProcess: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["ParticipatoryProcess"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+        GraphQLField("slug", type: .nonNull(.scalar(String.self))),
         GraphQLField("title", type: .nonNull(.object(Title.selections))),
       ]
 
@@ -67,8 +69,8 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, title: Title) {
-        self.init(unsafeResultMap: ["__typename": "AssembliesType", "id": id, "title": title.resultMap])
+      public init(id: GraphQLID, slug: String, title: Title) {
+        self.init(unsafeResultMap: ["__typename": "ParticipatoryProcess", "id": id, "slug": slug, "title": title.resultMap])
       }
 
       public var __typename: String {
@@ -80,7 +82,7 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         }
       }
 
-      /// The assemblies type's unique ID
+      /// The internal ID for this participatory process
       public var id: GraphQLID {
         get {
           return resultMap["id"]! as! GraphQLID
@@ -90,7 +92,16 @@ public final class AssemblyTypesQuery: GraphQLQuery {
         }
       }
 
-      /// The title of this assemblies type.
+      public var slug: String {
+        get {
+          return resultMap["slug"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "slug")
+        }
+      }
+
+      /// The name of this participatory space.
       public var title: Title {
         get {
           return Title(unsafeResultMap: resultMap["title"]! as! ResultMap)

@@ -1,0 +1,9 @@
+query Assemblies {
+  assemblies(filter: {publishedSince: "2018-01-01"}, order: {publishedAt: "asc"}) {
+    id
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+

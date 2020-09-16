@@ -1,0 +1,27 @@
+query AssemblyProposals {
+  assembly(id: "2") {
+    components(filter: {type: "Proposals"}) {
+      id
+      name {
+        translation(locale: "en")
+      }
+      ... on Proposals {
+        proposals(first: 2, after: "Mg") {
+          pageInfo {
+            endCursor
+            startCursor
+            hasPreviousPage
+            hasNextPage
+          }
+          edges {
+            node {
+              id
+              title
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

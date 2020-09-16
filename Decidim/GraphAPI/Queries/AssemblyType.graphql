@@ -1,0 +1,12 @@
+query AssemblyType {
+  assembliesType(id: "2") {
+    id
+    assemblies {
+      id
+    }
+    title {
+      translation(locale: "en")
+    }
+  }
+}
+
