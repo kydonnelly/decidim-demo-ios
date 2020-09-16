@@ -544,7 +544,8 @@ class HTTPRequestTests: XCTestCase {
 
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let delegationInfo = response?["delegation"] as? [String: Any] {
+            if var delegationInfo = response?["delegation"] as? [String: Any] {
+                delegationInfo["category"] = "Global"
                 responseItem = Delegate.from(dict: delegationInfo)
             }
         }
@@ -789,7 +790,8 @@ extension HTTPRequestTests {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let delegationInfo = response?["delegation"] as? [String: Any] {
+            if var delegationInfo = response?["delegation"] as? [String: Any] {
+                delegationInfo["category"] = "Global"
                 responseItem = Delegate.from(dict: delegationInfo)
             }
         }
