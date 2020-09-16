@@ -67,8 +67,18 @@ class ProposalVoteCell: CustomTableViewCell {
         
         ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
             guard let self = self, let dataController = dc as? ProposalVotesDataController else { return }
-            let voteCount = dataController.allVotes.filter { $0.proposalId == proposal.id }.count
-            self.votesLabel.text = "\(voteCount) votes"
+            
+            let allVotes = dataController.allVotes.filter { $0.proposalId == proposal.id }
+            let voteCount = allVotes.count
+            
+            let nonAbstainCount = allVotes.filter { $0.voteType != .abstain }.count
+            if nonAbstainCount > 0 {
+                let yesCount = allVotes.filter { $0.voteType == .yes }.count
+                let percentage = Int(100 * Double(yesCount) / Double(nonAbstainCount))
+                self.votesLabel.text = "\(voteCount) votes • \(percentage)%"
+            } else {
+                self.votesLabel.text = "\(voteCount) votes"
+            }
         }
     }
     
