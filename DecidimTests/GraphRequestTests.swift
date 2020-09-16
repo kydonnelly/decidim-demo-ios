@@ -218,4 +218,32 @@ class GraphRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testGraphRequest_Users() {
+        // setup
+        let request = GraphRequest()
+        let query = UsersQuery()
+        let expectedNames = Set<String>(["Leon Runte", "Marlon Kassulke"])
+        let expectedNicknames = Set<String>(["@neal", "@julius"])
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedNames: Set<String>?
+        var receivedNicknames: Set<String>?
+        var receivedError: Error? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            defer { expectation.fulfill()}
+            receivedError = error
+            
+            guard let users = response?.users else { return }
+            receivedNames = Set<String>(users.compactMap { $0?.name })
+            receivedNicknames = Set<String>(users.compactMap { $0?.nickname })
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertTrue(receivedNames?.isSuperset(of: expectedNames) == true)
+        XCTAssertTrue(receivedNicknames?.isSuperset(of: expectedNicknames) == true)
+        XCTAssertNil(receivedError)
+    }
+
 }

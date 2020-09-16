@@ -85,6 +85,7 @@
 		277FD2CD2511E9530063FFE6 /* Assemblies.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2CC2511E9530063FFE6 /* Assemblies.graphql.swift */; };
 		277FD2CF2511F3230063FFE6 /* Assembly.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2CE2511F3230063FFE6 /* Assembly.graphql.swift */; };
 		277FD2D12511F53B0063FFE6 /* AssemblyProposals.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2D02511F53B0063FFE6 /* AssemblyProposals.graphql.swift */; };
+		277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2D32511FD9C0063FFE6 /* Users.graphql.swift */; };
 		278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */; };
 		278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */; };
 		2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */; };
@@ -250,6 +251,7 @@
 		277FD2CC2511E9530063FFE6 /* Assemblies.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assemblies.graphql.swift; sourceTree = "<group>"; };
 		277FD2CE2511F3230063FFE6 /* Assembly.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assembly.graphql.swift; sourceTree = "<group>"; };
 		277FD2D02511F53B0063FFE6 /* AssemblyProposals.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyProposals.graphql.swift; sourceTree = "<group>"; };
+		277FD2D32511FD9C0063FFE6 /* Users.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Users.graphql.swift; sourceTree = "<group>"; };
 		278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAppearance+Scheme.swift"; sourceTree = "<group>"; };
 		278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorTheme.xcassets; sourceTree = "<group>"; };
 		2789E97C24B5BD6A0061C3E9 /* UIView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Helpers.swift"; sourceTree = "<group>"; };
@@ -421,6 +423,7 @@
 				277FD2C82511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift */,
 				277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */,
 				270B26F8247BC893001804D6 /* Types.graphql.swift */,
+				277FD2D32511FD9C0063FFE6 /* Users.graphql.swift */,
 				270B26F9247BC893001804D6 /* Version.graphql.swift */,
 			);
 			path = GeneratedSource;
@@ -1113,6 +1116,7 @@
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
 				27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */,
+				277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */,
 				27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */,
 				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */,
