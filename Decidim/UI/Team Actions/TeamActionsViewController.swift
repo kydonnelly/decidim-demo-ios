@@ -12,6 +12,35 @@ class TeamActionsViewController: UIViewController, CustomTableController {
     
     private static let ActionCellId = "ActionCell"
     private static let LoadingCellId = "LoadingCell"
+    private static let SectionHeaderID = "SectionHeader"
+    
+    fileprivate enum Sections: CaseIterable {
+        case done
+        case inProgress
+        case ongoing
+        case pending
+        case proposed
+        
+        var asActionStatus: TeamActionStatus {
+            switch self {
+            case .done: return .done
+            case .inProgress: return .inProgress
+            case .ongoing: return .ongoing
+            case .pending: return .pending
+            case .proposed: return .proposed
+            }
+        }
+        
+        var title: String {
+            switch self {
+            case .done: return "Done"
+            case .inProgress: return "In Progress"
+            case .ongoing: return "Ongoing"
+            case .pending: return "Pending Approval"
+            case .proposed: return "Proposed"
+            }
+        }
+    }
     
     @IBOutlet var tableView: UITableView!
     
@@ -34,6 +63,9 @@ class TeamActionsViewController: UIViewController, CustomTableController {
         super.viewDidLoad()
         
         self.tableView.rowHeight = UITableView.automaticDimension
+        
+        self.tableView.register(UINib(nibName: "TeamListHeaderView", bundle: .main),
+                                forHeaderFooterViewReuseIdentifier: Self.SectionHeaderID)
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -75,12 +107,13 @@ class TeamActionsViewController: UIViewController, CustomTableController {
 
 extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate {
     
-    fileprivate func actions(status: TeamActionStatus) -> [String] {
-        return self.teamDetail.actionList.compactMap { $1 == status ? $0 : nil }
+    fileprivate func actions(section: Sections) -> [String] {
+        let actionStatus = section.asActionStatus
+        return self.teamDetail.actionList.compactMap { $1 == actionStatus ? $0 : nil }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        var numSections = TeamActionStatus.allCases.count
+        var numSections = Sections.allCases.count
         if !self.dataController.donePaging {
             numSections += 1
         }
@@ -88,31 +121,59 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == TeamActionStatus.allCases.count {
+        if section == Sections.allCases.count {
             return 1
         } else {
-            let status = TeamActionStatus.allCases[section]
-            return self.actions(status: status).count
+            let section = Sections.allCases[section]
+            return self.actions(section: section).count
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard section < Sections.allCases.count else {
+            return 0
+        }
+        
+        let section = Sections.allCases[section]
+        guard self.actions(section: section).count > 0 else {
+            return 0
+        }
+        
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard section < Sections.allCases.count else {
+            return nil
+        }
+        
+        let section = Sections.allCases[section]
+        guard self.actions(section: section).count > 0 else {
+            return nil
+        }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.SectionHeaderID) as! TeamListHeaderView
+        header.setup(title: section.title)
+        return header
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section < TeamActionStatus.allCases.count {
+        if indexPath.section < Sections.allCases.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! TeamActionCell
             
-            let status = TeamActionStatus.allCases[indexPath.section]
-            let description = self.actions(status: status)[indexPath.row]
+            let section = Sections.allCases[indexPath.section]
+            let description = self.actions(section: section)[indexPath.row]
             
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
                 canUpdate = teamDetail.memberList[myProfileId] == .joined
             }
             
-            cell.setup(description: description, status: status, canUpdate: canUpdate) { [weak self] in
+            cell.setup(description: description, status: section.asActionStatus, canUpdate: canUpdate) { [weak self] in
                 guard let self = self else { return }
                 
                 var teamActions = self.teamDetail.actionList
-                switch status {
+                switch section {
                 case .done:
                     teamActions.removeValue(forKey: description)
                 case .inProgress:
@@ -139,15 +200,15 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section < TeamActionStatus.allCases.count {
+        if indexPath.section < Sections.allCases.count {
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
                 canUpdate = teamDetail.memberList[myProfileId] == .joined
             }
             
             if canUpdate {
-                let status = TeamActionStatus.allCases[indexPath.section]
-                let description = self.actions(status: status)[indexPath.row]
+                let section = Sections.allCases[indexPath.section]
+                let description = self.actions(section: section)[indexPath.row]
                 
                 let createVC = EditActionViewController.create(detail: self.teamDetail, action: description)
                 createVC.modalPresentationStyle = .overCurrentContext

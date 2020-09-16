@@ -35,23 +35,23 @@ class TeamActionCell: CustomTableViewCell {
         case .done:
             self.updateButton.setTitle("Archive", for: .normal)
             self.statusImageView.icon = .clipboard
-            self.statusImageView.iconBackgroundColor = .green
+            self.statusImageView.iconBackgroundColor = .systemGray
         case .inProgress:
             self.updateButton.setTitle("Done", for: .normal)
-            self.statusImageView.icon = .circle_up
-            self.statusImageView.iconBackgroundColor = .purple
+            self.statusImageView.icon = .checkmark
+            self.statusImageView.iconBackgroundColor = .systemGreen
         case .ongoing:
             self.updateButton.setTitle("Archive", for: .normal)
             self.statusImageView.icon = .infinite
-            self.statusImageView.iconBackgroundColor = .blue
+            self.statusImageView.iconBackgroundColor = .systemBlue
         case .pending:
             self.updateButton.setTitle("Start", for: .normal)
             self.statusImageView.icon = .circle
-            self.statusImageView.iconBackgroundColor = .yellow
+            self.statusImageView.iconBackgroundColor = .systemOrange
         case .proposed:
             self.updateButton.setTitle("Approve", for: .normal)
             self.statusImageView.icon = .hourglass
-            self.statusImageView.iconBackgroundColor = .lightGray
+            self.statusImageView.iconBackgroundColor = .systemRed
         }
     }
     
