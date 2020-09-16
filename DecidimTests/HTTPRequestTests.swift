@@ -529,35 +529,32 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
-//    func testHTTPRequest_Delegates() {
-//        // setup
-//        let request = HTTPRequest.shared
-//        
-//        let expectation = XCTestExpectation(description: "delegate response")
-//        var receivedError: Error? = nil
-//        var responseStatus: String? = nil
-//        var responseList: [Int]? = nil
-//        var responseLength: Int? = nil
-//        
-//        // test
-//        request.get(endpoint: "delegations") { response, error in
-//            defer { expectation.fulfill() }
-//            
-//            receivedError = error
-//            responseStatus = response?["status"] as? String
-//            if let delegates = response?["delegations"] as? [String] {
-//                responseLength = delegates.count
-//                responseList = delegates.compactMap { Int($0) }
-//            }
-//        }
-//        
-//        // verify
-//        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
-//        XCTAssertEqual(responseStatus, "found")
-//        XCTAssertNotNil(responseList)
-//        XCTAssertNil(receivedError)
-//        XCTAssertEqual(responseLength, responseList?.count)
-//    }
+    func testHTTPRequest_Delegates() {
+        // setup
+        let request = HTTPRequest.shared
+
+        let expectation = XCTestExpectation(description: "delegate response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Delegate? = nil
+
+        // test
+        request.get(endpoint: "delegations") { response, error in
+            defer { expectation.fulfill() }
+
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let delegationInfo = response?["delegation"] as? [String: Any] {
+                responseItem = Delegate.from(dict: delegationInfo)
+            }
+        }
+
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+    }
 
 //    func testHTTPRequest_DelegateGlobal() {
 //        // setup
