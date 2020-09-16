@@ -14,7 +14,7 @@ extension UITableView {
         return self.subviews.first { $0 is NoResultsView } as? NoResultsView
     }
     
-    public func showNoResults(message: String, icon: KrakenIcon = .cancel_circle, below section: Int = 0) {
+    public func showNoResults(message: String, icon: KrakenIcon = .sad, below section: Int = 0) {
         if let existing = self.currentNoResultsView {
             existing.setup(message: message, imageIcon: icon)
             return

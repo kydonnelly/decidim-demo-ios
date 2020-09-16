@@ -255,9 +255,9 @@
                     <navigationItem key="navigationItem" title="Team" id="1iA-zQ-m34">
                         <barButtonItem key="rightBarButtonItem" id="W3h-91-F6T">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="menu"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                    <color key="value" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="value" name="SecondaryDark"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
@@ -289,6 +289,9 @@
         </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.90600001811981201" green="0.93300002813339233" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="UserInput">
             <color red="0.046999998390674591" green="0.19200000166893005" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

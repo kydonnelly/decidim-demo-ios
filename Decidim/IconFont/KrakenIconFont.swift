@@ -19,12 +19,14 @@ public enum KrakenIcon: unichar, IconFont {
     case hourglass = 0xe979
     case spinner8 = 0xe981
     case shrink2 = 0xe98c
+    case cog = 0xe994
     case power_switch = 0xe9b6
     case clipboard = 0xe9b8
     case menu = 0xe9bd
     case star_empty = 0xe9d7
     case star_full = 0xe9d9
     case heart = 0xe9da
+    case sad = 0xe9e5
     case minus = 0xea0b
     case cancel_circle = 0xea0d
     case cross = 0xea0f

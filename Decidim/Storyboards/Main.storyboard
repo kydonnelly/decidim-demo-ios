@@ -84,11 +84,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="3ip-pJ-6TP">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="menu"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="menu"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="cog"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
                                 <color key="value" name="Action"/>
                             </userDefinedRuntimeAttribute>
@@ -230,12 +230,6 @@
     <resources>
         <namedColor name="Action">
             <color red="0.11400000005960464" green="0.47099998593330383" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="Action">
-            <color red="0.1140000001" green="0.47099998589999997" blue="0.45500001309999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="DetailDark">
-            <color red="0.48199999329999998" green="0.48199999329999998" blue="0.48199999329999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="DetailDark">
             <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

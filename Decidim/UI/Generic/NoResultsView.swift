@@ -13,7 +13,7 @@ class NoResultsView: UIView {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var messageLabel: UILabel!
     
-    public func setup(message: String, imageIcon: KrakenIcon = .cancel_circle) {
+    public func setup(message: String, imageIcon: KrakenIcon = .sad) {
         self.imageView.icon = imageIcon
         self.messageLabel.text = message
     }
