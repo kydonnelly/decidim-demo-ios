@@ -13,9 +13,11 @@ class VoteDelegationManager {
     public typealias UpdateCompletion = (Bool) -> Void
     
     private var backingDataController: TeamListDataController
+    private var globalDataController: DelegationDataController
     
     init() {
         self.backingDataController = TeamListDataController.shared()
+        self.globalDataController = DelegationDataController.shared()
     }
     
     public var allCategories: [String] {
@@ -33,13 +35,26 @@ class VoteDelegationManager {
 extension VoteDelegationManager {
     
     public func refresh(completion: (() -> Void)?) {
+        var globalRefreshed = false
+        var othersRefreshed = false
+        
         self.backingDataController.refresh { dc in
-            completion?()
+            othersRefreshed = true
+            if globalRefreshed && othersRefreshed {
+                completion?()
+            }
+        }
+        
+        self.globalDataController.refresh { dc in
+            globalRefreshed = true
+            if globalRefreshed && othersRefreshed {
+                completion?()
+            }
         }
     }
     
     var doneLoading: Bool {
-        return self.backingDataController.donePaging
+        return self.backingDataController.donePaging && self.globalDataController.donePaging
     }
     
 }
@@ -47,10 +62,17 @@ extension VoteDelegationManager {
 extension VoteDelegationManager {
     
     public func getDelegates(category: String) -> [Int] {
+        if category == "Global" {
+            guard let delegate = self.globalDataController.delegates["Global"] else {
+                return []
+            }
+            return [delegate.delegateId]
+        }
+        
         guard let profileId = MyProfileController.shared.myProfileId else {
             return []
         }
-        guard let team = TeamListDataController.shared().allTeams.first(where: { $0.team.name == category }) else {
+        guard let team = self.backingDataController.allTeams.first(where: { $0.team.name == category }) else {
             return []
         }
         guard let delegates = team.delegationList[profileId] else {
@@ -60,6 +82,19 @@ extension VoteDelegationManager {
     }
     
     public func updateDelegates(category: String, profileIds: [Int], completion: @escaping UpdateCompletion) {
+        if category == "Global" {
+            if let profileId = profileIds.first {
+                self.globalDataController.addDelegate(profileId) { error in
+                    completion(error == nil)
+                }
+            } else {
+                self.globalDataController.deleteDelegate { error in
+                    completion(error == nil)
+                }
+            }
+            return
+        }
+        
         guard let profileId = MyProfileController.shared.myProfileId else {
             completion(false)
             return

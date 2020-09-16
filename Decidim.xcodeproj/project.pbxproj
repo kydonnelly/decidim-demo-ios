@@ -79,6 +79,7 @@
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C22511D1600063FFE6 /* Delegate.swift */; };
+		277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */; };
 		277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */; };
 		277FD2C92511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C82511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift */; };
 		277FD2CB2511E7850063FFE6 /* AssemblyType.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2CA2511E7850063FFE6 /* AssemblyType.graphql.swift */; };
@@ -245,6 +246,7 @@
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		277FD2C22511D1600063FFE6 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
+		277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegationDataController.swift; sourceTree = "<group>"; };
 		277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcesses.graphql.swift; sourceTree = "<group>"; };
 		277FD2C82511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcess.graphql.swift; sourceTree = "<group>"; };
 		277FD2CA2511E7850063FFE6 /* AssemblyType.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssemblyType.graphql.swift; sourceTree = "<group>"; };
@@ -623,6 +625,7 @@
 			isa = PBXGroup;
 			children = (
 				277FD2C22511D1600063FFE6 /* Delegate.swift */,
+				277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */,
 			);
 			path = Delegates;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
 				27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
+				277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */,
 				275114E924FFDF66006277AA /* CustomTableController.swift in Sources */,
 				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,

@@ -9,6 +9,7 @@
 import Foundation
 
 struct Delegate {
+    let category: String
     let delegationId: Int
     let delegateId: Int
     let userId: Int
@@ -17,6 +18,7 @@ struct Delegate {
     
     public static func from(dict: [String: Any]) -> Delegate? {
         guard let id = dict["id"] as? Int,
+              let category = dict["category"] as? String,
               let delegate = dict["delegate"] as? Int,
               let user_id = dict["user_id"] as? Int,
               let createdAt = dict["created_at"] as? String,
@@ -29,7 +31,8 @@ struct Delegate {
             return nil
         }
         
-        return Delegate(delegationId: id,
+        return Delegate(category: category,
+                        delegationId: id,
                         delegateId: delegate,
                         userId: user_id,
                         createdAt: createdDate,
