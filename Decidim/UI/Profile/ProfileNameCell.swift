@@ -10,14 +10,33 @@ import UIKit
 
 class ProfileNameCell: CustomTableViewCell {
     
+    typealias DelegateBlock = () -> Void
+    
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var pictureImageView: UIImageView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
-    public func setup(profile: ProfileInfo) {
+    @IBOutlet var makeDelegateButton: UIButton!
+    
+    private var onMakeDelegateTapped: DelegateBlock?
+    
+    public func setup(profile: ProfileInfo, isDelegate: Bool, makeDelegateBlock: DelegateBlock?) {
         self.handleLabel.text = profile.handle
         self.pictureImageView.image = profile.thumbnail
         self.gradientBackground.setupWithRandomColors(seed: profile.profileId + 1, direction: .horizontal)
+        
+        let delegateTitle = isDelegate ? "Voting Delegate" : "Make Delegate"
+        self.makeDelegateButton.setTitle(delegateTitle, for: .normal)
+        self.onMakeDelegateTapped = makeDelegateBlock
+        self.makeDelegateButton.isHidden = profile.profileId == MyProfileController.shared.myProfileId
+    }
+    
+}
+
+extension ProfileNameCell {
+    
+    @IBAction func makeDelegateButtonPressed(_ sender: UIButton) {
+        self.onMakeDelegateTapped?()
     }
     
 }

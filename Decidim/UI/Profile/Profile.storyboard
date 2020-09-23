@@ -62,69 +62,54 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-yt-rgw">
-                                                    <rect key="frame" x="88" y="29.5" width="310" height="21"/>
+                                                    <rect key="frame" x="88" y="29.5" width="78.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryLight"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-jR-0lT">
+                                                    <rect key="frame" x="267" y="26" width="123" height="28"/>
+                                                    <color key="backgroundColor" name="PrimaryLight"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal" title="Make Delegate">
+                                                        <color key="titleColor" name="Action"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="makeDelegateButtonPressed:" destination="RGq-jH-zgp" eventType="touchUpInside" id="Lr2-Ny-T1h"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7gC-4e-Wa5" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="0FF-aq-q9S"/>
+                                                <constraint firstAttribute="trailing" secondItem="YEn-jR-0lT" secondAttribute="trailing" constant="24" id="1AD-Ij-zOe"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="5Rm-EE-gp5"/>
-                                                <constraint firstAttribute="trailing" secondItem="aeL-yt-rgw" secondAttribute="trailing" constant="16" id="BEm-Yd-ueu"/>
+                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="centerY" secondItem="u1V-hu-o4O" secondAttribute="centerY" id="Iuf-Fx-BVh"/>
                                                 <constraint firstItem="aeL-yt-rgw" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="8" id="Oe5-Fb-qbe"/>
                                                 <constraint firstItem="7gC-4e-Wa5" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" id="TfJ-0d-GMc"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" priority="51" constant="12" id="ZYo-vM-8nF"/>
                                                 <constraint firstItem="aeL-yt-rgw" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="g1D-HE-W6M"/>
                                                 <constraint firstAttribute="bottom" secondItem="7gC-4e-Wa5" secondAttribute="bottom" id="kSL-sR-LcH"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" constant="24" id="niY-s5-mHQ"/>
+                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aeL-yt-rgw" secondAttribute="trailing" constant="12" id="pm1-0W-xF4"/>
                                                 <constraint firstAttribute="trailing" secondItem="7gC-4e-Wa5" secondAttribute="trailing" id="rJH-oN-0sK"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="gradientBackground" destination="7gC-4e-Wa5" id="tp1-ej-jKT"/>
                                             <outlet property="handleLabel" destination="aeL-yt-rgw" id="GZ3-Xv-LfR"/>
+                                            <outlet property="makeDelegateButton" destination="YEn-jR-0lT" id="Xtl-ao-lHF"/>
                                             <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="ProfileRegisterCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="72"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nea-tD-Szt" id="3Ph-VU-Bzs">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2E7-SR-kVR">
-                                                    <rect key="frame" x="24" y="12" width="366" height="48"/>
-                                                    <color key="backgroundColor" name="Action"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="48" id="47l-5F-ChQ"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <state key="normal" title="Register Account">
-                                                        <color key="titleColor" name="PrimaryLight"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="4"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="registerButtonTapped:" destination="nea-tD-Szt" eventType="touchUpInside" id="eOB-5g-dGU"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="2E7-SR-kVR" firstAttribute="leading" secondItem="3Ph-VU-Bzs" secondAttribute="leading" constant="24" id="BO5-YE-eUF"/>
-                                                <constraint firstItem="2E7-SR-kVR" firstAttribute="centerY" secondItem="3Ph-VU-Bzs" secondAttribute="centerY" id="epO-wZ-zCa"/>
-                                                <constraint firstAttribute="trailing" secondItem="2E7-SR-kVR" secondAttribute="trailing" constant="24" id="lwq-1W-0Yt"/>
-                                                <constraint firstItem="2E7-SR-kVR" firstAttribute="top" secondItem="3Ph-VU-Bzs" secondAttribute="top" priority="51" constant="12" id="tYv-KW-KVl"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="H9d-z0-Akp" customClass="TeamListCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="180" width="414" height="99"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H9d-z0-Akp" id="IWu-zC-ILy">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
@@ -213,7 +198,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" rowHeight="126" id="KK7-Dr-UgF" customClass="ProposalVoteCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="279" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="207" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KK7-Dr-UgF" id="gNq-kf-2Uk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -341,7 +326,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalListCell" rowHeight="126" id="Yz2-iE-n9X" customClass="ProposalListCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="405" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="333" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yz2-iE-n9X" id="AoG-MF-pvs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -449,7 +434,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
-                                        <rect key="frame" x="0.0" y="531" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="459" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="itv-Zn-Crr" id="e5t-N5-a7b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

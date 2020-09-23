@@ -92,6 +92,10 @@ class ProfileViewController: UIViewController, CustomTableController {
                 self.tabOptionsBar.updateSelectedIndex(0, animated: false)
             }
         }
+        
+        VoteDelegationManager.shared.refresh { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
     fileprivate var isMyProfile: Bool {
@@ -171,7 +175,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 preconditionFailure("No cell for missing profile")
             case let .profile(info):
                 let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! ProfileNameCell
-                nameCell.setup(profile: info)
+                
+                let isDelegate = VoteDelegationManager.shared.getDelegates(category: "Global").contains(info.profileId)
+                
+                nameCell.setup(profile: info, isDelegate: isDelegate) { [weak self] in
+                    if isDelegate {
+                        let preferencesVC = VotePreferencesViewController.create()
+                        self?.navigationController?.pushViewController(preferencesVC, animated: true)
+                    } else {
+                        VoteDelegationManager.shared.updateDelegates(category: "Global", profileIds: [info.profileId]) { [weak self] _ in
+                            self?.refresh()
+                        }
+                    }
+                }
                 return nameCell
             }
         } else {
