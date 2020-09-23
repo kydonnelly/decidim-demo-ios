@@ -12,9 +12,12 @@ class SettingsActionCell: CustomTableViewCell {
     
     typealias ActionBlock = () -> Void
     
+    @IBOutlet var actionButton: UIButton!
+    
     private var onAction: ActionBlock?
     
-    public func setup(actionBlock: ActionBlock?) {
+    public func setup(title: String, actionBlock: ActionBlock?) {
+        self.actionButton.setTitle(title, for: .normal)
         self.onAction = actionBlock
     }
     

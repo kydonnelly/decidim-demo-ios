@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController, CustomTableController {
     }
     
     static let loadingCellId = "LoadingCell"
-    static let registerCellId = "RegisterCell"
+    static let actionCellId = "ActionCell"
     static let usernameCellId = "UsernameCell"
     static let passwordCellId = "PasswordCell"
     static let votingCellId = "VotingCell"
@@ -72,7 +72,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .noProfile:
             return 1
         case .profile:
-            return 3
+            return 4
         }
     }
     
@@ -92,8 +92,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             return 76
-        } else if indexPath.row >= 1 && indexPath.row < self.numberOfRows {
+        } else if indexPath.row >= 1 && indexPath.row < 3 {
             return 44
+        } else if indexPath.row == 3 {
+            return 72
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
         }
@@ -106,8 +108,8 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .loading:
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
         case .noProfile:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! SettingsActionCell
-            cell.setup { [weak self] in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.actionCellId, for: indexPath) as! SettingsActionCell
+            cell.setup(title: "Register Account") { [weak self] in
                 let registerVC = RegistrationViewController.create()
                 registerVC.modalPresentationStyle = .fullScreen
                 self?.navigationController?.present(registerVC, animated: true, completion: nil)
@@ -130,6 +132,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             let votingCell = tableView.dequeueReusableCell(withIdentifier: Self.votingCellId, for: indexPath) as! SettingsPreferencesCell
             votingCell.setup(title: "Voting Preferences", detail: "Update")
             return votingCell
+        } else if indexPath.row == 3 {
+            let actionCell = tableView.dequeueReusableCell(withIdentifier: Self.actionCellId, for: indexPath) as! SettingsActionCell
+            actionCell.setup(title: "Sign Out") { [weak self] in
+                MyProfileController.shared.signOut()
+                let registerVC = RegistrationViewController.create()
+                registerVC.modalPresentationStyle = .fullScreen
+                self?.navigationController?.present(registerVC, animated: true, completion: nil)
+            }
+            return actionCell
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
         }

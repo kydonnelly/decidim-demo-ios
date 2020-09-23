@@ -52,6 +52,14 @@ extension MyProfileController {
         }
     }
     
+    public func signOut() {
+        self.myProfileId = nil
+        
+        MyProfileController.remove(key: .username)
+        MyProfileController.remove(key: .password)
+        MyProfileController.remove(key: .profile_id)
+    }
+    
 }
 
 extension MyProfileController {
@@ -70,6 +78,10 @@ extension MyProfileController {
     
     class func load<T>(key: UnsecureKey) -> T? {
         return UserDefaults.standard.value(forKey: key.rawValue) as? T
+    }
+    
+    class func remove(key: UnsecureKey) {
+        return UserDefaults.standard.removeObject(forKey: key.rawValue)
     }
     
 }
@@ -116,6 +128,13 @@ extension MyProfileController {
         } else {
             return nil
         }
+    }
+    
+    @discardableResult
+    class func remove(key: SecureKey) -> Bool {
+        let query: [String: Any] = [key.securityAttribute: key.rawValue]
+        let status = SecItemDelete(query as CFDictionary)
+        return status == noErr
     }
     
 }

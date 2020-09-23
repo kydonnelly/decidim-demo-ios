@@ -179,7 +179,7 @@
                                             <outlet property="titleLabel" destination="cmb-pe-Plq" id="hr8-LX-tkZ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RegisterCell" rowHeight="72" id="nea-tD-Szt" customClass="SettingsRegisterCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="nea-tD-Szt" customClass="SettingsActionCell" customModule="Decidim" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="192" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nea-tD-Szt" id="3Ph-VU-Bzs">
@@ -203,7 +203,7 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                     <connections>
-                                                        <action selector="registerButtonTapped:" destination="nea-tD-Szt" eventType="touchUpInside" id="eOB-5g-dGU"/>
+                                                        <action selector="registerButtonTapped:" destination="nea-tD-Szt" eventType="touchUpInside" id="esl-12-bna"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -213,6 +213,9 @@
                                                 <constraint firstAttribute="trailing" secondItem="2E7-SR-kVR" secondAttribute="trailing" constant="24" id="lwq-1W-0Yt"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actionButton" destination="2E7-SR-kVR" id="jEm-dX-IKD"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
                                         <rect key="frame" x="0.0" y="264" width="414" height="44"/>
