@@ -12,6 +12,8 @@ class VoteDelegationManager {
     
     public typealias UpdateCompletion = (Bool) -> Void
     
+    public static var shared = VoteDelegationManager()
+    
     private var backingDataController: TeamListDataController
     private var globalDataController: DelegationDataController
     

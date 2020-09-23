@@ -17,7 +17,6 @@ class VotePreferencesViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     
     private var togglePreferences: [String: Bool] = ["Public Votes": false, "Receive Notifications": true]
-    private var delegationManager = VoteDelegationManager()
     
     public static func create() -> VotePreferencesViewController {
         let sb = UIStoryboard(name: "VotePreferences", bundle: .main)
@@ -34,7 +33,7 @@ class VotePreferencesViewController: UIViewController, CustomTableController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.delegationManager.refresh { [weak self] in
+        VoteDelegationManager.shared.refresh { [weak self] in
             self?.tableView.reloadData()
         }
     }
@@ -50,8 +49,8 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.togglePreferences.count
-        } else if self.delegationManager.doneLoading {
-            return self.delegationManager.allCategories.count
+        } else if VoteDelegationManager.shared.doneLoading {
+            return VoteDelegationManager.shared.allCategories.count
         } else {
             return 1
         }
@@ -65,9 +64,9 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
                 self?.togglePreferences[title] = isOn
             }
             return cell
-        } else if self.delegationManager.doneLoading {
-            let category = self.delegationManager.allCategories[indexPath.row]
-            let delegates = self.delegationManager.getDelegates(category: category)
+        } else if VoteDelegationManager.shared.doneLoading {
+            let category = VoteDelegationManager.shared.allCategories[indexPath.row]
+            let delegates = VoteDelegationManager.shared.getDelegates(category: category)
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.delegationCellId, for: indexPath) as! VotePreferencesDelegateCell
             cell.setup(category: category, delegates: delegates) { [weak self] profileId in
                 guard let navController = self?.navigationController else { return }
@@ -85,11 +84,11 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
         
         if indexPath.section == 0 {
             return
-        } else if self.delegationManager.doneLoading {
-            let category = self.delegationManager.allCategories[indexPath.row]
-            let delegates = self.delegationManager.getDelegates(category: category)
+        } else if VoteDelegationManager.shared.doneLoading {
+            let category = VoteDelegationManager.shared.allCategories[indexPath.row]
+            let delegates = VoteDelegationManager.shared.getDelegates(category: category)
             let vc = ProfileSearchViewController.create(category: category, selectedProfileIds: delegates) { [weak self] toggledId, remainingIds in
-                self?.delegationManager.updateDelegates(category: category, profileIds: remainingIds) { [weak self] _ in
+                VoteDelegationManager.shared.updateDelegates(category: category, profileIds: remainingIds) { [weak self] _ in
                     self?.tableView.reloadData()
                 }
             }
