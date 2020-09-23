@@ -63,7 +63,9 @@ class DelegationDataController: NetworkDataController {
                 return
             }
             
+            self?.data = [delegate]
             self?.localDelegates["Global"] = delegate
+            
             completion(nil)
         }
     }
