@@ -45,6 +45,8 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     @IBOutlet var votePercentageLabel: UILabel!
     @IBOutlet var votePercentageIcon: UIImageView!
     
+    @IBOutlet var voteDelegationVisibilityConstraint: NSLayoutConstraint!
+    
     private var proposal: Proposal!
     private var voteDataController: ProposalVotesDataController!
     private var detailDataController: ProposalDetailDataController!
@@ -134,6 +136,10 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         }
     }
     
+    fileprivate var voteWasDelegated: Bool {
+        return false
+    }
+    
 }
 
 extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -160,7 +166,15 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 1 {
-            return self.proposalDetail != nil ? 162 : 0
+            guard self.proposalDetail != nil else {
+                return 0
+            }
+            
+            if self.voteWasDelegated {
+                return 196
+            } else {
+                return 162
+            }
         } else {
             return 0
         }
@@ -168,7 +182,13 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
-            return self.proposalDetail != nil ? self.voteContainerView : nil
+            guard self.proposalDetail != nil else {
+                return nil
+            }
+            
+            self.voteDelegationVisibilityConstraint.isActive = self.voteWasDelegated
+            
+            return self.voteContainerView
         } else {
             return nil
         }
@@ -420,6 +440,11 @@ extension ProposalDetailViewController {
         }
 
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func tappedDelegateOptionsButton(_ sender: UIButton) {
+        let preferencesVC = VotePreferencesViewController.create()
+        self.navigationController?.pushViewController(preferencesVC, animated: true)
     }
     
 }
