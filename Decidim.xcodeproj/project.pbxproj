@@ -33,7 +33,7 @@
 		27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */; };
 		27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */; };
 		27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */; };
-		27293FAE2506C09A000D27D1 /* SettingsRegisterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FAD2506C09A000D27D1 /* SettingsRegisterCell.swift */; };
+		27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */; };
 		27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB42506CEB0000D27D1 /* ProfileTabSection.swift */; };
 		27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB62506CEF0000D27D1 /* ProfileTeamsTabSection.swift */; };
 		27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FB82506CEFE000D27D1 /* ProfileProposalsTabSection.swift */; };
@@ -200,7 +200,7 @@
 		27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordCell.swift; sourceTree = "<group>"; };
 		27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
-		27293FAD2506C09A000D27D1 /* SettingsRegisterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsRegisterCell.swift; sourceTree = "<group>"; };
+		27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionCell.swift; sourceTree = "<group>"; };
 		27293FB42506CEB0000D27D1 /* ProfileTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabSection.swift; sourceTree = "<group>"; };
 		27293FB62506CEF0000D27D1 /* ProfileTeamsTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTeamsTabSection.swift; sourceTree = "<group>"; };
 		27293FB82506CEFE000D27D1 /* ProfileProposalsTabSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileProposalsTabSection.swift; sourceTree = "<group>"; };
@@ -518,9 +518,9 @@
 				27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */,
 				27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */,
 				275114EB2506B168006277AA /* Settings.storyboard */,
+				27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */,
 				27293FA52506BF19000D27D1 /* SettingsPreferencesCell.swift */,
 				27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */,
-				27293FAD2506C09A000D27D1 /* SettingsRegisterCell.swift */,
 				275114EC2506B168006277AA /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -1127,7 +1127,7 @@
 				277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */,
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
-				27293FAE2506C09A000D27D1 /* SettingsRegisterCell.swift in Sources */,
+				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
 				27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */,

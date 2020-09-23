@@ -106,7 +106,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .loading:
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
         case .noProfile:
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! SettingsRegisterCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.registerCellId, for: indexPath) as! SettingsActionCell
             cell.setup { [weak self] in
                 let registerVC = RegistrationViewController.create()
                 registerVC.modalPresentationStyle = .fullScreen
