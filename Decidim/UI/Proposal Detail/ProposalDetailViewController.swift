@@ -38,10 +38,12 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     @IBOutlet var voteView: VotingOptionsView!
     
     @IBOutlet var voteContainerView: UIView!
-    @IBOutlet var voteCountViews: [UIView]!
-    @IBOutlet var voteCountNoLabel: UILabel!
-    @IBOutlet var voteCountYesLabel: UILabel!
     @IBOutlet var voteDeadlineLabel: UILabel!
+    
+    @IBOutlet var votingDetailView: UIView!
+    @IBOutlet var voteResultsLabel: UILabel!
+    @IBOutlet var votePercentageLabel: UILabel!
+    @IBOutlet var votePercentageIcon: UIImageView!
     
     private var proposal: Proposal!
     private var voteDataController: ProposalVotesDataController!
@@ -86,8 +88,7 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         super.viewWillAppear(animated)
         
         self.voteDeadlineLabel.text = ""
-        self.voteCountNoLabel.text = ""
-        self.voteCountYesLabel.text = ""
+        self.votingDetailView.isHidden = true
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -346,13 +347,24 @@ extension ProposalDetailViewController {
         }
         
         let hasVotes = allVotes.contains { $0.voteType != .abstain }
-        self.voteCountViews.forEach { $0.isHidden = !hasVotes }
+        self.votingDetailView.isHidden = !hasVotes
         
         if hasVotes {
             let noCount = allVotes.filter { $0.voteType == .no }.count
             let yesCount = allVotes.filter { $0.voteType == .yes }.count
-            self.voteCountNoLabel.text = "\(noCount)"
-            self.voteCountYesLabel.text = "\(yesCount)"
+            let percentage = Int(100 * Double(yesCount) / Double(yesCount + noCount))
+            
+            let overallVoteType: VoteType = percentage > 50 ? .yes : .no
+            self.votePercentageLabel.text = "\(percentage)%"
+            self.votePercentageLabel.textColor = overallVoteType.tintColor
+            self.votePercentageIcon.icon = overallVoteType.icon
+            self.votePercentageIcon.iconColor = overallVoteType.tintColor
+            
+            if let deadline = self.proposalDetail?.deadline, deadline.compare(Date()) == .orderedDescending {
+                self.voteResultsLabel.text = "Current Vote"
+            } else {
+                self.voteResultsLabel.text = "Final Vote"
+            }
         }
         
         self.refreshVoteButtons(myVote: myVote)
