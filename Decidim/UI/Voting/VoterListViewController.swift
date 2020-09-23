@@ -31,9 +31,21 @@ class VoterListViewController: UIViewController, CustomTableController {
         self.dataController = ProposalVotesDataController.shared(proposalId: proposal.id)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let refreshControl = UIRefreshControl(frame: .zero)
+        refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
+        self.tableView.addSubview(refreshControl)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.refresh()
+    }
+    
+    fileprivate func refresh() {
         self.dataController.refresh { [weak self] dc in
             self?.reloadData()
         }
@@ -110,6 +122,13 @@ extension VoterListViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+
+    @objc public func pullToRefresh(_ sender: UIRefreshControl) {
+        sender.endRefreshing()
+        
+        self.dataController.invalidate()
+        self.refresh()
     }
     
 }
