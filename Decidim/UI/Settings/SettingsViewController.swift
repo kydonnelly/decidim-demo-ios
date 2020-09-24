@@ -33,6 +33,11 @@ class SettingsViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refresh() {
+        guard MyProfileController.shared.isRegistered else {
+            self.tableView.reloadData()
+            return
+        }
+        
         self.profileDataController = ProfileInfoDataController.shared()
         self.profileDataController.refresh { [weak self] dc in
             self?.tableView.reloadData()
@@ -40,11 +45,11 @@ class SettingsViewController: UIViewController, CustomTableController {
     }
     
     fileprivate var state: State {
-        guard let profiles = self.profileDataController?.data as? [ProfileInfo] else {
-            return .loading
-        }
         guard let profileId = MyProfileController.shared.myProfileId else {
             return .noProfile
+        }
+        guard let profiles = self.profileDataController?.data as? [ProfileInfo] else {
+            return .loading
         }
         guard let myInfo = profiles.first(where: { $0.profileId == profileId }) else {
             guard let localHandle: String = MyProfileController.load(key: .username) else {
