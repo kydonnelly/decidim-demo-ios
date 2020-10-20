@@ -819,6 +819,142 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_TeamList() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "team list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [Team]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "teams") { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let teamInfos = response?["teams"] as? [[String: Any]] {
+                responseLength = teamInfos.count
+                responseList = teamInfos.compactMap { Team.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_Team() {
+        // setup
+        let teamId = "2"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "team response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Team? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: [teamId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let teamInfo = response?["team"] as? [String: Any] {
+                responseItem = Team.from(dict: teamInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(responseItem?.id, 2)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_AddTeam() {
+        // setup
+        let name = "new team"
+        let description = "test description"
+        
+        // test
+        let responseItem = self.createAndVerifyTeam(name: name, description: description)
+        
+        // verify
+        XCTAssertEqual(responseItem?.name, name)
+    }
+
+    func testHTTPRequest_EditTeam() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "edit team response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Team? = nil
+        
+        guard let team = self.createAndVerifyTeam() else {
+            XCTFail("Could not create team to edit")
+            return
+        }
+        
+        let teamId = "\(team.id)"
+        let updatedTitle = "test team (edited)"
+        let updatedDescription = "description (edited)"
+        let payload: [String: Any] = ["team": ["title": updatedTitle, "description": updatedDescription]]
+        
+        // test
+        request.put(endpoint: "teams", args: [teamId], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let teamInfo = response?["team"] as? [String: Any] {
+                responseItem = Team.from(dict: teamInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem?.name, updatedTitle)
+        XCTAssertEqual(responseItem?.description, updatedDescription)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_DeleteTeam() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "delete team response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let team = self.createAndVerifyTeam() else {
+            XCTFail("Could not create team to edit")
+            return
+        }
+        
+        let teamId = "\(team.id)"
+        
+        // test
+        request.delete(endpoint: "teams", args: [teamId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
 }
 
 extension HTTPRequestTests {
@@ -987,6 +1123,35 @@ extension HTTPRequestTests {
             if var delegationInfo = response?["delegation"] as? [String: Any] {
                 delegationInfo["category"] = "Global"
                 responseItem = Delegate.from(dict: delegationInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
+    fileprivate func createAndVerifyTeam(name: String = "test team", description: String = "test description") -> Team? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "team response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Team? = nil
+        
+        let payload: [String: Any] = ["team": ["name": name, "description": description]]
+        
+        // test
+        request.post(endpoint: "teams", payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let teamInfo = response?["team"] as? [String: Any] {
+                responseItem = Team.from(dict: teamInfo)
             }
         }
         
