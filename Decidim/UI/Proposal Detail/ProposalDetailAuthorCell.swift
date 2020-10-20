@@ -20,7 +20,7 @@ class ProposalDetailAuthorCell: CustomTableViewCell {
             guard let infos = dc.data as? [ProfileInfo] else {
                 return
             }
-            guard let info = infos.first(where: { $0.profileId == detail.authorId }) else {
+            guard let info = infos.first(where: { $0.profileId == detail.proposal.authorId }) else {
                 return
             }
             

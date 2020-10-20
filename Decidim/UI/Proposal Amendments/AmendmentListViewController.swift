@@ -115,7 +115,7 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
                     return
                 }
                 
-                let authorId = self.proposalDetail.authorId
+                let authorId = self.proposalDetail.proposal.authorId
                 self.dismiss(animated: true) {
                     let vc = ProfileViewController.create(profileId: authorId)
                     presentingVC.pushViewController(vc, animated: true)
@@ -138,7 +138,7 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
         if amendment.authorId == MyProfileController.shared.myProfileId {
             let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail, amendment: amendment)
             self.navigationController?.pushViewController(vc, animated: true)
-        } else if self.proposalDetail.authorId == MyProfileController.shared.myProfileId {
+        } else if self.proposalDetail.proposal.authorId == MyProfileController.shared.myProfileId {
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if amendment.status == .submitted {

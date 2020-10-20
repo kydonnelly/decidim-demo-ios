@@ -231,6 +231,33 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_ProposalDetail() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "proposal detail response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalDetail? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: ["2", "detail"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let detailInfo = response?["detail"] as? [String: Any] {
+                responseItem = ProposalDetail.from(dict: detailInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+    }
+
     func testHTTPRequest_ProposalComments() {
         // setup
         let request = HTTPRequest.shared
