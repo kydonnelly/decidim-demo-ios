@@ -982,6 +982,143 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_TeamActions() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "team actions response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [[String: Any]]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["2", "actions"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let actionInfos = response?["actions"] as? [[String: Any]] {
+                responseLength = actionInfos.count
+                responseList = actionInfos
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_TeamAction() {
+        // setup
+        let teamId = "2"
+        let actionId = "2"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "action response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: [String: Any]? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: [teamId, "actions", actionId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let actionInfo = response?["action"] as? [String: Any] {
+                responseItem = actionInfo
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+//        XCTAssertEqual(responseItem?.id, 2)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_AddTeamAction() {
+        // setup
+        let teamId = 2
+        let action = "new action"
+        
+        // test
+        let responseItem = self.createAndVerifyTeamAction(teamId: teamId, body: action)
+        
+        // verify
+        XCTAssertEqual(responseItem["action"] as? String, action)
+    }
+
+    func testHTTPRequest_EditTeamAction() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 2
+        
+        let expectation = XCTestExpectation(description: "edit action response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: [String: Any]? = nil
+        
+        guard let action = self.createAndVerifyTeamAction(teamId: teamId) else {
+            XCTFail("Could not create action to edit")
+            return
+        }
+        
+        let actionId = "\(action.id)"
+        let updatedAction = "action (edited)"
+        let payload: [String: Any] = ["action": ["body": updatedAction]]
+        
+        // test
+        request.put(endpoint: "teams", args: ["\(teamId)", "actions", actionId], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let actionInfo = response?["action"] as? [String: Any] {
+                responseItem = actionInfo
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem["action"] as? String, updatedAction)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_DeleteTeamAction() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 2
+        
+        let expectation = XCTestExpectation(description: "delete action response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let action = self.createAndVerifyTeamAction(teamId: teamId) else {
+            XCTFail("Could not create action to edit")
+            return
+        }
+        
+        let actionId = "\(action.id)"
+        
+        // test
+        request.delete(endpoint: "teams", args: ["\(teamId)", "actions", actionId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
 }
 
 extension HTTPRequestTests {
@@ -1179,6 +1316,36 @@ extension HTTPRequestTests {
             responseStatus = response?["status"] as? String
             if let teamInfo = response?["team"] as? [String: Any] {
                 responseItem = Team.from(dict: teamInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
+    fileprivate func createAndVerifyTeamAction(teamId: Int, body: String = "test action") -> [String: Any]? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "action response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: [String: Any]? = nil
+        
+        let id = "\(teamId)"
+        let payload: [String: Any] = ["action": ["body": body]]
+        
+        // test
+        request.post(endpoint: "teams", args: [id, "actions"], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let actionInfo = response?["action"] as? [String: Any] {
+                responseItem = actionInfo
             }
         }
         
