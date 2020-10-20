@@ -368,6 +368,143 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
     }
 
+    func testHTTPRequest_ProposalAmendments() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "amendment list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [ProposalAmendment]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: ["2", "amendments"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let amendments = response?["amendments"] as? [[String: Any]] {
+                responseLength = amendments.count
+                responseList = amendments.compactMap { ProposalAmendment.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_ProposalAmendment() {
+        // setup
+        let amendmentId = "2"
+        let proposalId = "2"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "amendment response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalAmendment? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: [proposalId, "amendments", amendmentId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+                responseItem = ProposalAmendment.from(dict: amendmentInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(responseItem?.amendmentId, 2)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_AddProposalAmendment() {
+        // setup
+        let proposalId = 2
+        let amendment = "new amendment"
+        
+        // test
+        let responseItem = self.createAndVerifyProposalAmendment(proposalId: proposalId, body: amendment)
+        
+        // verify
+        XCTAssertEqual(responseItem?.text, amendment)
+    }
+
+    func testHTTPRequest_EditProposalAmendment() {
+        // setup
+        let request = HTTPRequest.shared
+        let proposalId = 2
+        
+        let expectation = XCTestExpectation(description: "edit amendment response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalAmendment? = nil
+        
+        guard let amendment = self.createAndVerifyProposalAmendment(proposalId: proposalId) else {
+            XCTFail("Could not create amendment to edit")
+            return
+        }
+        
+        let amendmentId = "\(amendment.amendmentId)"
+        let updatedAmendment = "amendment (edited)"
+        let payload: [String: Any] = ["amendment": ["body": updatedAmendment]]
+        
+        // test
+        request.put(endpoint: "proposals", args: ["\(proposalId)", "amendments", amendmentId], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+                responseItem = ProposalAmendment.from(dict: amendmentInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem?.text, updatedAmendment)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_DeleteProposalAmendment() {
+        // setup
+        let request = HTTPRequest.shared
+        let proposalId = 2
+        
+        let expectation = XCTestExpectation(description: "delete amendment response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        guard let amendment = self.createAndVerifyProposalAmendment(proposalId: proposalId) else {
+            XCTFail("Could not create amendment to edit")
+            return
+        }
+        
+        let amendmentId = "\(amendment.amendmentId)"
+        
+        // test
+        request.delete(endpoint: "proposals", args: ["\(proposalId)", "amendments", amendmentId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
+
     func testHTTPRequest_ProposalVotes() {
         // setup
         let request = HTTPRequest.shared
@@ -732,6 +869,36 @@ extension HTTPRequestTests {
             responseStatus = response?["status"] as? String
             if let commentInfo = response?["comment"] as? [String: Any] {
                 responseItem = ProposalComment.from(dict: commentInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "created")
+        XCTAssertNotNil(responseItem)
+        XCTAssertNil(receivedError)
+        
+        return responseItem
+    }
+    
+    fileprivate func createAndVerifyProposalAmendment(proposalId: Int, body: String = "test amendment") -> ProposalAmendment? {
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "amendment response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalAmendment? = nil
+        
+        let id = "\(proposalId)"
+        let payload: [String: Any] = ["amendment": ["body": body]]
+        
+        // test
+        request.post(endpoint: "proposals", args: [id, "amendments"], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+                responseItem = ProposalAmendment.from(dict: amendmentInfo)
             }
         }
         
