@@ -28,6 +28,7 @@
 		2717F47E24E0C79100189F7C /* ProposalDatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47924E0C79000189F7C /* ProposalDatePickerCell.swift */; };
 		2717F47F24E0C79100189F7C /* ProposalInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47A24E0C79000189F7C /* ProposalInputCell.swift */; };
 		2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47B24E0C79000189F7C /* EditProposalViewController.swift */; };
+		2725C0D6253FD4010008010A /* TeamAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725C0D5253FD4010008010A /* TeamAction.swift */; };
 		27293FA42506B97B000D27D1 /* SettingsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */; };
 		27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA52506BF19000D27D1 /* SettingsPreferencesCell.swift */; };
 		27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */; };
@@ -195,6 +196,7 @@
 		2717F47924E0C79000189F7C /* ProposalDatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalDatePickerCell.swift; sourceTree = "<group>"; };
 		2717F47A24E0C79000189F7C /* ProposalInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalInputCell.swift; sourceTree = "<group>"; };
 		2717F47B24E0C79000189F7C /* EditProposalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProposalViewController.swift; sourceTree = "<group>"; };
+		2725C0D5253FD4010008010A /* TeamAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAction.swift; sourceTree = "<group>"; };
 		27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCell.swift; sourceTree = "<group>"; };
 		27293FA52506BF19000D27D1 /* SettingsPreferencesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPreferencesCell.swift; sourceTree = "<group>"; };
 		27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordCell.swift; sourceTree = "<group>"; };
@@ -729,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				27F8838624E7917A00B216D2 /* Team.swift */,
+				2725C0D5253FD4010008010A /* TeamAction.swift */,
 				27F8838824E791A100B216D2 /* TeamDetail.swift */,
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
 			);
@@ -1073,6 +1076,7 @@
 				27F883B524E79D7100B216D2 /* TeamImageCell.swift in Sources */,
 				27B22B4224D7B399005DF376 /* ProposalVotesDataController.swift in Sources */,
 				2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */,
+				2725C0D6253FD4010008010A /* TeamAction.swift in Sources */,
 				2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */,
 				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
 				2756A6DD249861560023DC91 /* ProposalComment.swift in Sources */,

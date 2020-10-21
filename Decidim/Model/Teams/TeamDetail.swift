@@ -50,7 +50,7 @@ struct TeamDetail {
             let statusComponents = statusString.components(separatedBy: ":")
             let description = statusComponents[0]
             
-            guard let rawStatus = Int(statusComponents[1]), let status = TeamActionStatus(rawValue: rawStatus) else {
+            guard let status = TeamActionStatus(rawValue: statusComponents[1]) else {
                 return
             }
             
