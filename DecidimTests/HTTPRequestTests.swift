@@ -459,12 +459,14 @@ class HTTPRequestTests: XCTestCase {
         // setup
         let proposalId = 2
         let amendment = "new amendment"
+        let status = AmendmentStatus.submitted
         
         // test
-        let responseItem = self.createAndVerifyProposalAmendment(proposalId: proposalId, body: amendment)
+        let responseItem = self.createAndVerifyProposalAmendment(proposalId: proposalId, body: amendment, status: status)
         
         // verify
         XCTAssertEqual(responseItem?.text, amendment)
+        XCTAssertEqual(responseItem?.status, status)
     }
 
     func testHTTPRequest_EditProposalAmendment() {
@@ -484,7 +486,8 @@ class HTTPRequestTests: XCTestCase {
         
         let amendmentId = "\(amendment.amendmentId)"
         let updatedAmendment = "amendment (edited)"
-        let payload: [String: Any] = ["amendment": ["body": updatedAmendment]]
+        let updatedStatus = AmendmentStatus.accepted
+        let payload: [String: Any] = ["amendment": ["text": updatedAmendment, "status": updatedStatus.rawValue]]
         
         // test
         request.put(endpoint: "proposals", args: ["\(proposalId)", "amendments", amendmentId], payload: payload) { response, error in
@@ -1207,7 +1210,7 @@ extension HTTPRequestTests {
         return responseItem
     }
     
-    fileprivate func createAndVerifyProposalAmendment(proposalId: Int, body: String = "test amendment") -> ProposalAmendment? {
+    fileprivate func createAndVerifyProposalAmendment(proposalId: Int, body: String = "test amendment", status: AmendmentStatus = .submitted) -> ProposalAmendment? {
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "amendment response")
@@ -1216,7 +1219,7 @@ extension HTTPRequestTests {
         var responseItem: ProposalAmendment? = nil
         
         let id = "\(proposalId)"
-        let payload: [String: Any] = ["amendment": ["body": body]]
+        let payload: [String: Any] = ["amendment": ["text": body, "status": status.rawValue]]
         
         // test
         request.post(endpoint: "proposals", args: [id, "amendments"], payload: payload) { response, error in
