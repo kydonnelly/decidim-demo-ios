@@ -172,7 +172,7 @@
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
 		270169EE24FF6B3500CB97BF /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
-		270B26C5247B6A4A001804D6 /* Decidim.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Decidim.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		270B26C5247B6A4A001804D6 /* Agora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agora.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		270B26D6247B6A4B001804D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -364,7 +364,7 @@
 		270B26C6247B6A4A001804D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				270B26C5247B6A4A001804D6 /* Decidim.app */,
+				270B26C5247B6A4A001804D6 /* Agora.app */,
 				270B26E3247BA178001804D6 /* DecidimTests.xctest */,
 			);
 			name = Products;
@@ -854,7 +854,7 @@
 			);
 			name = Decidim;
 			productName = Decidim;
-			productReference = 270B26C5247B6A4A001804D6 /* Decidim.app */;
+			productReference = 270B26C5247B6A4A001804D6 /* Agora.app */;
 			productType = "com.apple.product-type.application";
 		};
 		270B26E2247BA178001804D6 /* DecidimTests */ = {
@@ -1331,7 +1331,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Agora;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1350,7 +1350,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Agora;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
