@@ -1376,7 +1376,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Decidim.app/Decidim";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Agora.app/Agora";
 			};
 			name = Debug;
 		};
@@ -1397,7 +1397,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Decidim.app/Decidim";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Agora.app/Agora";
 			};
 			name = Release;
 		};

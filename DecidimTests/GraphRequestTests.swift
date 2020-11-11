@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Decidim
+@testable import Agora
 
 class GraphRequestTests: XCTestCase {
 
