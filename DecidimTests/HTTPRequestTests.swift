@@ -212,13 +212,14 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: ProposalDetail? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["2", "detail"]) { response, error in
+        request.get(endpoint: "proposals", args: ["2"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let detailInfo = response?["detail"] as? [String: Any] {
-                responseItem = ProposalDetail.from(dict: detailInfo)
+            if let detailInfo = response?["proposal"] as? [String: Any] {
+                responseItem = ProposalDetail.from(dict: detailInfo,
+                                                   proposal: Proposal(id: 2, authorId: 0, title: "", body: "", iconUrl: "", createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
             }
         }
         
@@ -382,7 +383,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let amendments = response?["amendments"] as? [[String: Any]] {
+            if let amendments = response?["proposal_amendments"] as? [[String: Any]] {
                 responseLength = amendments.count
                 responseList = amendments.compactMap { ProposalAmendment.from(dict: $0) }
             }
@@ -413,7 +414,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+            if let amendmentInfo = response?["proposal_amendment"] as? [String: Any] {
                 responseItem = ProposalAmendment.from(dict: amendmentInfo)
             }
         }
@@ -466,7 +467,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+            if let amendmentInfo = response?["proposal_amendment"] as? [String: Any] {
                 responseItem = ProposalAmendment.from(dict: amendmentInfo)
             }
         }
@@ -881,7 +882,9 @@ class HTTPRequestTests: XCTestCase {
         let teamId = "\(team.id)"
         let updatedTitle = "test team (edited)"
         let updatedDescription = "description (edited)"
-        let payload: [String: Any] = ["team": ["title": updatedTitle, "description": updatedDescription]]
+        let payload: [String: Any] = ["team": ["name": updatedTitle,
+                                               "description": updatedDescription,
+                                               "thumbnail": ""]]
         
         // test
         request.put(endpoint: "teams", args: [teamId], payload: payload) { response, error in
@@ -939,12 +942,12 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: TeamDetail? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["2", "detail"]) { response, error in
+        request.get(endpoint: "teams", args: ["2"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let detailInfo = response?["detail"] as? [String: Any] {
+            if let detailInfo = response?["team"] as? [String: Any] {
                 responseItem = TeamDetail.from(dict: detailInfo)
             }
         }
@@ -972,7 +975,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let actionInfos = response?["actions"] as? [[String: Any]] {
+            if let actionInfos = response?["team_actions"] as? [[String: Any]] {
                 responseLength = actionInfos.count
                 responseList = actionInfos.compactMap { TeamAction.from(dict: $0) }
             }
@@ -1003,7 +1006,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let actionInfo = response?["action"] as? [String: Any] {
+            if let actionInfo = response?["team_action"] as? [String: Any] {
                 responseItem = TeamAction.from(dict: actionInfo)
             }
         }
@@ -1200,7 +1203,7 @@ extension HTTPRequestTests {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let amendmentInfo = response?["amendment"] as? [String: Any] {
+            if let amendmentInfo = response?["proposal_amendment"] as? [String: Any] {
                 responseItem = ProposalAmendment.from(dict: amendmentInfo)
             }
         }
@@ -1303,7 +1306,7 @@ extension HTTPRequestTests {
         return responseItem
     }
     
-    fileprivate func createAndVerifyTeamAction(teamId: Int, body: String = "test action", status: TeamActionStatus = .proposed) -> TeamAction? {
+    fileprivate func createAndVerifyTeamAction(teamId: Int, body: String = "test action", description: String = "test description", status: TeamActionStatus = .proposed) -> TeamAction? {
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "action response")
@@ -1312,7 +1315,9 @@ extension HTTPRequestTests {
         var responseItem: TeamAction? = nil
         
         let id = "\(teamId)"
-        let payload: [String: Any] = ["action": ["body": body, "type": status.rawValue]]
+        let payload: [String: Any] = ["action": ["title": body,
+                                                 "description": description,
+                                                 "type": status.rawValue]]
         
         // test
         request.post(endpoint: "teams", args: [id, "actions"], payload: payload) { response, error in
@@ -1320,7 +1325,7 @@ extension HTTPRequestTests {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let actionInfo = response?["action"] as? [String: Any] {
+            if let actionInfo = response?["team_action"] as? [String: Any] {
                 responseItem = TeamAction.from(dict: actionInfo)
             }
         }
