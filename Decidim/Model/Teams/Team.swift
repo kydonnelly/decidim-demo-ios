@@ -14,17 +14,20 @@ struct Team {
     let description: String
     let thumbnailUrl: String?
     let createdAt: Date
+    let updatedAt: Date
     let memberCount: Int
     
     public static func from(dict: [String: Any], memberCount: Int = 0, description: String? = nil) -> Team? {
         guard let teamId = dict["id"] as? Int,
-              let title = dict["title"] as? String,
-              let body = description ?? dict["body"] as? String,
-              let createdAt = dict["created_at"] as? String else {
+              let title = dict["name"] as? String,
+              let body = description ?? dict["description"] as? String,
+              let createdAt = dict["created_at"] as? String,
+              let updatedAt = dict["updated_at"] as? String else {
             return nil
         }
         
-        guard let createdDate = Date(timestamp: createdAt) else {
+        guard let createdDate = Date(timestamp: createdAt),
+              let updatedDate = Date(timestamp: updatedAt) else {
             return nil
         }
         
@@ -33,6 +36,7 @@ struct Team {
                     description: body,
                     thumbnailUrl: nil,
                     createdAt: createdDate,
+                    updatedAt: updatedDate,
                     memberCount: memberCount)
     }
 }

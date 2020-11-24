@@ -14,18 +14,21 @@ struct TeamAction {
     let description: String
     let thumbnailUrl: String?
     let createdAt: Date
+    let updatedAt: Date
     let status: TeamActionStatus?
     
     public static func from(dict: [String: Any]) -> TeamAction? {
         guard let actionId = dict["id"] as? Int,
               let title = dict["title"] as? String,
-              let body = dict["body"] as? String,
-              let status = dict["status"] as? String,
-              let createdAt = dict["created_at"] as? String else {
+              let body = dict["description"] as? String,
+              let status = dict["action"] as? String,
+              let createdAt = dict["created_at"] as? String,
+              let updatedAt = dict["updated_at"] as? String else {
             return nil
         }
         
-        guard let createdDate = Date(timestamp: createdAt) else {
+        guard let createdDate = Date(timestamp: createdAt),
+              let updatedDate = Date(timestamp: updatedAt) else {
             return nil
         }
         
@@ -34,6 +37,7 @@ struct TeamAction {
                           description: body,
                           thumbnailUrl: nil,
                           createdAt: createdDate,
+                          updatedAt: updatedDate,
                           status: TeamActionStatus(rawValue: status))
     }
 }
