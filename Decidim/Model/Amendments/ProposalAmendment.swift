@@ -64,10 +64,6 @@ struct ProposalAmendment {
         if let rawStatus = dict["status"] as? String {
             status = AmendmentStatus(rawValue: rawStatus)
         }
-        if status == nil {
-            let possibleStatuses = AmendmentStatus.allCases
-            status = possibleStatuses[Int(arc4random()) % possibleStatuses.count]
-        }
         
         return ProposalAmendment(amendmentId: amendmentId,
                                  proposalId: proposalId,
