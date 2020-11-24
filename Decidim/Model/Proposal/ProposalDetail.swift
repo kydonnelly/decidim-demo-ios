@@ -11,28 +11,32 @@ import UIKit
 struct ProposalDetail {
     let proposal: Proposal
     
-    let deadline: Date
+    let deadline: Date?
     let likeCount: Int
+    let voteCount: Int
     let commentCount: Int
     let amendmentCount: Int
     
     var hasLocalLike: Bool = false
     
-    public static func from(dict: [String: Any]) -> ProposalDetail? {
-        guard let likeCount = dict["like_count"] as? Int,
-              let commentCount = dict["comment_count"] as? Int,
-              let amendmentCount = dict["amendment_count"] as? Int,
-              let deadline = dict["deadline"] as? String else {
+    public static func from(dict: [String: Any], proposal: Proposal) -> ProposalDetail? {
+        guard let voteCount = dict["vote_count"] as? Int,
+              let commentCount = dict["comments_count"] as? Int,
+              let amendmentCount = dict["amendments_count"] as? Int else {
             return nil
         }
         
-        guard let deadlineDate = Date(timestamp: deadline) else {
-            return nil
+        let likeCount = dict["like_count"] as? Int ?? 0
+        
+        var deadline: Date? = nil
+        if let deadlineString = dict["deadline"] as? String {
+            deadline = Date(timestamp: deadlineString)
         }
         
-        return ProposalDetail(proposal: Proposal(id: 0, authorId: 0, title: "", body: "", iconUrl: nil, createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0),
-                              deadline: deadlineDate,
+        return ProposalDetail(proposal: proposal,
+                              deadline: deadline,
                               likeCount: likeCount,
+                              voteCount: voteCount,
                               commentCount: commentCount,
                               amendmentCount: amendmentCount)
     }

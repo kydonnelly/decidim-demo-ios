@@ -61,7 +61,7 @@ extension PublicProposalDataController {
         }
     }
     
-    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
+    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date?, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": description]]
         

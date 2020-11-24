@@ -100,8 +100,8 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
             guard let self = self else { return }
             
             self.tableView.reloadData()
-            if let detail = self.proposalDetail {
-                self.voteDeadlineLabel.text = detail.deadline.asShortStringLeft()
+            if let deadline = self.proposalDetail?.deadline {
+                self.voteDeadlineLabel.text = deadline.asShortStringLeft()
             }
         }
         
