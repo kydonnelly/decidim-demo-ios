@@ -121,35 +121,6 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseLength, responseList?.count)
     }
 
-    func testHTTPRequest_ProposalItem() {
-        // setup
-        let proposalId = "2"
-        let request = HTTPRequest.shared
-        
-        let expectation = XCTestExpectation(description: "proposal response")
-        var receivedError: Error? = nil
-        var responseStatus: String? = nil
-        var responseItem: Proposal? = nil
-        
-        // test
-        request.get(endpoint: "proposals", args: [proposalId]) { response, error in
-            defer { expectation.fulfill() }
-            
-            receivedError = error
-            responseStatus = response?["status"] as? String
-            if let proposalInfo = response?["proposal"] as? [String: Any] {
-                responseItem = Proposal.from(dict: proposalInfo)
-            }
-        }
-        
-        // verify
-        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
-        XCTAssertEqual(responseStatus, "found")
-        XCTAssertNotNil(responseItem)
-        XCTAssertEqual(responseItem?.id, 2)
-        XCTAssertNil(receivedError)
-    }
-
     func testHTTPRequest_CreateProposal() {
         // setup
         let title = "Proposal Title"
