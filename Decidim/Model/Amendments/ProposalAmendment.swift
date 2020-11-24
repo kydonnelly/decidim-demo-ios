@@ -49,7 +49,7 @@ struct ProposalAmendment {
         guard let amendmentId = dict["id"] as? Int,
               let authorId = dict["user_id"] as? Int,
               let proposalId = dict["proposal_id"] as? Int,
-              let body = dict["body"] as? String,
+              let body = dict["text"] as? String,
               let createdAt = dict["created_at"] as? String,
               let updatedAt = dict["updated_at"] as? String else {
             return nil
