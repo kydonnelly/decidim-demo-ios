@@ -537,9 +537,9 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseLength, responseList?.count)
     }
 
-    func testHTTPRequest_ProposalVote() {
+    func testHTTPRequest_ProposalVoteMine() {
         // setup
-        let voteId = "2"
+        let voteId = "86"
         let proposalId = "2"
         let request = HTTPRequest.shared
         
@@ -563,7 +563,37 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "found")
         XCTAssertNotNil(responseItem)
-        XCTAssertEqual(responseItem?.voteId, 2)
+        XCTAssertEqual(responseItem?.voteId, 86)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_ProposalVoteOther() {
+        // setup
+        let voteId = "91"
+        let proposalId = "2"
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "vote response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProposalVote? = nil
+        
+        // test
+        request.get(endpoint: "proposals", args: [proposalId, "votes", voteId]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let voteInfo = response?["vote"] as? [String: Any] {
+                responseItem = ProposalVote.from(dict: voteInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(responseItem?.voteId, 91)
         XCTAssertNil(receivedError)
     }
 
