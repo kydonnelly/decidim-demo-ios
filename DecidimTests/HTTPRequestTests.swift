@@ -1109,19 +1109,22 @@ extension HTTPRequestTests {
         let password = "password"
         
         let expectation = XCTestExpectation(description: "registration response")
+        var receivedUserId: Int? = nil
         var receivedError: Error? = nil
         var hasAuthenticated: Bool = false
         
         // test
-        request.refreshSession(username: username, password: password) { error in
+        request.refreshSession(username: username, password: password) { userId, error in
             defer { expectation.fulfill() }
             
             receivedError = error
+            receivedUserId = userId
             hasAuthenticated = request.hasAuthenticated
         }
         
         // verify
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNotNil(receivedUserId)
         XCTAssertTrue(hasAuthenticated)
         XCTAssertNil(receivedError)
     }

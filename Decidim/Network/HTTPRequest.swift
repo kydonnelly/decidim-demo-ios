@@ -16,7 +16,8 @@ class HTTPRequest {
     private let url = URL(string: "https://kraken-api.herokuapp.com")!
     
     typealias SessionBlock = (Error?) -> Void
-    private var sessionRefreshBlocks: [SessionBlock] = []
+    typealias SessionRefreshBlock = (Int?, Error?) -> Void
+    private var sessionRefreshBlocks: [SessionRefreshBlock] = []
     
     enum RequestError: Error {
         case noSession
@@ -34,6 +35,17 @@ class HTTPRequest {
         post(session: session, endpoint: "registration", payload: authPayload) { results, error in
             guard error == nil else {
                 completion(nil, nil, RequestError.failedRegistration(underlying: error!))
+                return
+            }
+            
+            if let status = results?["status"] as? Int, status == 422 {
+                self.refreshSession(username: username, password: password) { userId, error in
+                    if let userId = userId {
+                        completion(userId, nil, nil)
+                    } else {
+                        completion(nil, nil, RequestError.failedRegistration(underlying: error!))
+                    }
+                }
                 return
             }
             
@@ -209,13 +221,13 @@ extension HTTPRequest {
         return self.sessionConfig != nil
     }
     
-    private func clearPendingBlocks(error: Error?) {
+    private func clearPendingBlocks(userId: Int? = nil, error: Error? = nil) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
         let flushBlocks = self.sessionRefreshBlocks
         self.sessionRefreshBlocks = []
         for refreshBlock in flushBlocks {
-            refreshBlock(error)
+            refreshBlock(userId, error)
         }
     }
     
@@ -231,12 +243,12 @@ extension HTTPRequest {
             return
         }
         
-        self.refreshSession(username: username, password: password) { error in
+        self.refreshSession(username: username, password: password) { _, error in
             completion(error)
         }
     }
     
-    internal func refreshSession(username: String, password: String, completion: @escaping SessionBlock) {
+    internal func refreshSession(username: String, password: String, completion: @escaping SessionRefreshBlock) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
         
@@ -268,12 +280,16 @@ extension HTTPRequest {
                 self.clearPendingBlocks(error: RequestError.missingKeyError)
                 return
             }
+            guard let userId = resultsDict["id"] as? Int else {
+                self.clearPendingBlocks(error: RequestError.missingKeyError)
+                return
+            }
             
             let config = URLSessionConfiguration.default
             config.httpAdditionalHeaders = ["Authorization": apiKey]
             self.sessionConfig = config
             
-            self.clearPendingBlocks(error: nil)
+            self.clearPendingBlocks(userId: userId)
         }
     }
     
