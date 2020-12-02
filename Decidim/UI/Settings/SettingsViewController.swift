@@ -33,8 +33,11 @@ class SettingsViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refresh() {
-        guard MyProfileController.shared.isRegistered else {
+        defer {
             self.tableView.reloadData()
+        }
+        
+        guard MyProfileController.shared.isRegistered else {
             return
         }
         
