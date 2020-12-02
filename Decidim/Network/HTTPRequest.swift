@@ -10,14 +10,20 @@ import Foundation
 
 class HTTPRequest {
     
+    public static var environment: Environment = .production
     public static let shared = HTTPRequest()
     
     private var sessionConfig: URLSessionConfiguration? = nil
-    private let url = URL(string: "https://kraken-api.herokuapp.com")!
+    private let url: URL
     
     typealias SessionBlock = (Error?) -> Void
     typealias SessionRefreshBlock = (Int?, Error?) -> Void
     private var sessionRefreshBlocks: [SessionRefreshBlock] = []
+    
+    enum Environment: String {
+        case staging
+        case production
+    }
     
     enum RequestError: Error {
         case noSession
@@ -27,6 +33,15 @@ class HTTPRequest {
         case statusError(response: [String: Any]?)
         case failedRefresh(underlying: Error)
         case failedRegistration(underlying: Error)
+    }
+    
+    init() {
+        switch HTTPRequest.environment {
+        case .production:
+            self.url = URL(string: "https://kraken-api.herokuapp.com")!
+        case .staging:
+            self.url = URL(string: "https://kraken-api-staging.herokuapp.com")!
+        }
     }
     
     public func createSession(username: String, password: String, completion: @escaping (Int?, [String: Any]?, Error?) -> Void) {
@@ -234,6 +249,11 @@ extension HTTPRequest {
     fileprivate func refreshSession(completion: @escaping SessionBlock) {
         guard !HTTPRequest.shared.hasAuthenticated else {
             completion(nil)
+            return
+        }
+        
+        guard MyProfileController.matchesHTTPRequestEnvironment else {
+            completion(RequestError.noSession)
             return
         }
         

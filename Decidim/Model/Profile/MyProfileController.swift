@@ -16,11 +16,23 @@ class MyProfileController {
     public var myProfileId: Int?
     
     init() {
-        self.myProfileId = MyProfileController.load(key: .profile_id)
+        if Self.matchesHTTPRequestEnvironment {
+            self.myProfileId = MyProfileController.load(key: .profile_id)
+        } else {
+            self.myProfileId = nil
+        }
     }
     
     public var isRegistered: Bool {
         return self.myProfileId != nil
+    }
+    
+    public static var matchesHTTPRequestEnvironment: Bool {
+        if let environment: String = self.load(key: .environment) {
+            return HTTPRequest.Environment(rawValue: environment) == HTTPRequest.environment
+        } else {
+            return false
+        }
     }
     
 }
@@ -44,6 +56,7 @@ extension MyProfileController {
                 MyProfileController.save(key: .username, value: username)
                 MyProfileController.save(key: .password, value: password)
                 MyProfileController.save(key: .profile_id, value: userId)
+                MyProfileController.save(key: .environment, value: HTTPRequest.environment.rawValue)
                 
                 self.myProfileId = userId
             }
@@ -58,6 +71,7 @@ extension MyProfileController {
         MyProfileController.remove(key: .username)
         MyProfileController.remove(key: .password)
         MyProfileController.remove(key: .profile_id)
+        MyProfileController.remove(key: .environment)
     }
     
 }
@@ -68,6 +82,7 @@ extension MyProfileController {
         case profile_id
         case username
         case password
+        case environment
     }
     
     @discardableResult
