@@ -23,7 +23,7 @@ class PublicProposalDataController: NetworkDataController {
                 return
             }
             
-            let proposals = proposalInfos.filter {TeamDetail.from(dict: $0) == nil}.compactMap { Proposal.from(dict: $0) }
+            let proposals = proposalInfos.compactMap { Proposal.from(dict: $0) }
             completion(proposals, Cursor(next: "", done: true), nil)
         }
     }

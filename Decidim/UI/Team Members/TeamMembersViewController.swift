@@ -73,8 +73,8 @@ class TeamMembersViewController: UIViewController, CustomTableController {
 
 extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate {
     
-    fileprivate func members(status: TeamMemberStatus) -> [Int] {
-        return self.teamDetail.memberList.compactMap { $1 == status ? $0 : nil }
+    fileprivate func members(status: TeamMemberStatus) -> [TeamMember] {
+        return self.teamDetail.memberList.filter { $0.status == status }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -107,31 +107,31 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.MemberCellId, for: indexPath) as! TeamMemberCell
             
             let status = TeamMemberStatus.allCases[indexPath.section]
-            let memberId = self.members(status: status)[indexPath.row]
+            let member = self.members(status: status)[indexPath.row]
             
             var canManage = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canManage = teamDetail.memberList[myProfileId] == .joined
+                canManage = teamDetail.memberList.contains { $0.user_id == myProfileId && $0.status == .joined }
             }
             
             let profileInfos = ProfileInfoDataController.shared().data as? [ProfileInfo]
-            let profileInfo = profileInfos?.first { $0.profileId == memberId }
+            let profileInfo = profileInfos?.first { $0.profileId == member.user_id }
             
             cell.setup(profile: profileInfo, status: status, canManage: canManage) { [weak self] in
                 guard let self = self else { return }
+                let dataController = TeamMembersDataController.shared(teamId: self.teamDetail.team.id)
                 
-                var teamMembers = self.teamDetail.memberList
                 switch status {
                 case .requested:
-                    teamMembers[memberId] = .joined
+                    dataController.updateMember(member.user_id, status: .joined, completion: { [weak self] _ in
+                        self?.refreshData()
+                    })
                 case .joined:
-                    teamMembers.removeValue(forKey: memberId)
+                    fallthrough
                 case .invited:
-                    teamMembers.removeValue(forKey: memberId)
-                }
-                
-                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: teamMembers, delegates: self.teamDetail.delegationList) { [weak self] _ in
-                    self?.refreshData()
+                    dataController.removeMember(member.user_id) { [weak self] _ in
+                        self?.refreshData()
+                    }
                 }
             }
 
@@ -146,9 +146,9 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
         
         if indexPath.section < TeamMemberStatus.allCases.count {
             let status = TeamMemberStatus.allCases[indexPath.section]
-            let memberId = self.members(status: status)[indexPath.row]
+            let member = self.members(status: status)[indexPath.row]
             
-            let vc = ProfileViewController.create(profileId: memberId)
+            let vc = ProfileViewController.create(profileId: member.user_id)
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

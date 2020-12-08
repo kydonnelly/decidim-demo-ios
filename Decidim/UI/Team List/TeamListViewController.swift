@@ -109,7 +109,8 @@ class TeamListViewController: UIViewController, CustomTableController {
             case .recommended: return nil
             }
         }()
-        return self.dataController.allTeams.filter { $0.memberList[profileId] == memberStatus }
+        
+        return self.dataController.teams(profileId: profileId, status: memberStatus)
     }
     
 }

@@ -46,7 +46,7 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
             return []
         }
         
-        return self.dataController.allTeams.filter { $0.memberList[profileId] == .joined }
+        return self.dataController.teams(profileId: profileId, status: .joined)
     }
     
 }

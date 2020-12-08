@@ -10,80 +10,25 @@ import UIKit
 
 struct TeamDetail {
     let team: Team
-    let memberList: [Int: TeamMemberStatus]
-    let actionList: [String: TeamActionStatus]
-    let delegationList: [Int: [Int]]
+    let memberList: [TeamMember]
+    let actionList: [TeamAction]
     
-    public static func from(dict: [String: Any]) -> TeamDetail? {
-        guard let body = dict["body"] as? String else {
+    public static func from(teamDict: [String: Any],
+                            actionDicts: [[String: Any]],
+                            memberDicts: [[String: Any]]) -> TeamDetail? {
+        guard let team = Team.from(dict: teamDict) else {
             return nil
         }
         
-        let components = body.components(separatedBy: "###")
-        guard components.count >= 5 else {
-            return nil
-        }
-        
-        let memberStatuses = components[1].components(separatedBy: "|")
-        let members = memberStatuses.reduce(into: [Int: TeamMemberStatus]()) { accumulator, statusString in
-            guard statusString.count > 0 else {
-                return
-            }
-            
-            let statusComponents = statusString.components(separatedBy: ":")
-            guard let profileId = Int(statusComponents[0]) else {
-                return
-            }
-            guard let rawStatus = Int(statusComponents[1]), let status = TeamMemberStatus(rawValue: rawStatus) else {
-                return
-            }
-            
-            accumulator[profileId] = status
-        }
-        
-        let actionStatuses = components[2].components(separatedBy: "|")
-        let actions = actionStatuses.reduce(into: [String: TeamActionStatus]()) { accumulator, statusString in
-            guard statusString.count > 0 else {
-                return
-            }
-            
-            let statusComponents = statusString.components(separatedBy: ":")
-            let description = statusComponents[0]
-            
-            guard let status = TeamActionStatus(rawValue: statusComponents[1]) else {
-                return
-            }
-            
-            accumulator[description] = status
-        }
-        
-        let description = components[3]
-        
-        var delegationList: [Int: [Int]] = [:]
-        if components.count >= 6 {
-            let delegationChains = components[4].components(separatedBy: "|")
-            delegationList = delegationChains.reduce(into: [Int: [Int]]()) { accumulator, delegateString in
-                guard delegateString.count > 0 else {
-                    return
-                }
-                
-                let delegateComponents = delegateString.components(separatedBy: ":")
-                guard let profileId = Int(delegateComponents[0]) else {
-                    return
-                }
-                
-                let delegates = delegateComponents[1].components(separatedBy: ",").compactMap({ Int($0) })
-                accumulator[profileId] = delegates
-            }
-        }
-        
-        guard let team = Team.from(dict: dict, memberCount: members.count, description: description) else {
+        let members = memberDicts.compactMap({ TeamMember.from(dict: $0) })
+        let actions = actionDicts.compactMap({ TeamAction.from(dict: $0) })
+        guard members.count == memberDicts.count,
+              actions.count == actionDicts.count else {
             return nil
         }
         
         return TeamDetail(team: team,
                           memberList: members,
-                          actionList: actions,
-                          delegationList: delegationList)
+                          actionList: actions)
     }
 }

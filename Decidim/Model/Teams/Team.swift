@@ -16,11 +16,12 @@ struct Team {
     let createdAt: Date
     let updatedAt: Date
     let memberCount: Int
+    let actionCount: Int
     
-    public static func from(dict: [String: Any], memberCount: Int = 0, description: String? = nil) -> Team? {
+    public static func from(dict: [String: Any], memberCount: Int = 0, actionCount: Int = 0) -> Team? {
         guard let teamId = dict["id"] as? Int,
               let title = dict["name"] as? String,
-              let body = description ?? dict["description"] as? String,
+              let body = dict["description"] as? String,
               let createdAt = dict["created_at"] as? String,
               let updatedAt = dict["updated_at"] as? String else {
             return nil
@@ -37,7 +38,8 @@ struct Team {
                     thumbnailUrl: nil,
                     createdAt: createdDate,
                     updatedAt: updatedDate,
-                    memberCount: memberCount)
+                    memberCount: memberCount,
+                    actionCount: actionCount)
     }
 }
 

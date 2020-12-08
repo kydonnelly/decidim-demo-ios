@@ -80,6 +80,8 @@
 		2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E0249861DE0023DC91 /* Profile.storyboard */; };
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
+		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
+		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
 		277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C22511D1600063FFE6 /* Delegate.swift */; };
 		277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */; };
 		277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */; };
@@ -249,6 +251,8 @@
 		2756A6E0249861DE0023DC91 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
+		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
+		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
 		277FD2C22511D1600063FFE6 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegationDataController.swift; sourceTree = "<group>"; };
 		277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcesses.graphql.swift; sourceTree = "<group>"; };
@@ -744,7 +748,9 @@
 				27F8838624E7917A00B216D2 /* Team.swift */,
 				2725C0D5253FD4010008010A /* TeamAction.swift */,
 				27F8838824E791A100B216D2 /* TeamDetail.swift */,
+				2773D155257F7BD4007FD3F0 /* TeamMember.swift */,
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
+				2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -1115,6 +1121,7 @@
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
+				2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */,
 				277FD2C92511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift in Sources */,
 				27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */,
 				2739747C24B568EF00CA16A3 /* ProposalDetailViewController.swift in Sources */,
@@ -1135,6 +1142,7 @@
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
 				27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */,
 				277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */,
+				2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */,
 				27B22B5B24D93978005DF376 /* ProfileIconListView.swift in Sources */,
 				2789E99024B68A990061C3E9 /* VotePreferencesToggleCell.swift in Sources */,
 				2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */,

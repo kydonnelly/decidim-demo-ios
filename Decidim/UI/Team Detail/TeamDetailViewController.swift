@@ -111,20 +111,27 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     guard let self = self else { return }
                     guard let profileId = MyProfileController.shared.myProfileId else { return }
                     
-                    var memberList = detail.memberList
+                    var newStatus: TeamMemberStatus?
                     switch status {
                     case .none:
-                        memberList[profileId] = .requested
+                        newStatus = .requested
                     case .invited:
-                        memberList[profileId] = .joined
+                        newStatus = .joined
                     case .joined:
-                        memberList.removeValue(forKey: profileId)
+                        newStatus = nil
                     case .requested:
                         return
                     }
                     
-                    self.detailDataController.editTeam(detail.team.id, title: detail.team.name, description: detail.team.description, thumbnail: detail.team.thumbnail, members: memberList, delegates: detail.delegationList) { [weak self] _ in
-                        self?.refreshData()
+                    let dataController = TeamMembersDataController.shared(teamId: detail.team.id)
+                    if let newStatus = newStatus {
+                        dataController.updateMember(profileId, status: newStatus, completion: { [weak self] _ in
+                            self?.refreshData()
+                        })
+                    } else {
+                        dataController.removeMember(profileId) { [weak self] _ in
+                            self?.refreshData()
+                        }
                     }
                 }
             case .members:

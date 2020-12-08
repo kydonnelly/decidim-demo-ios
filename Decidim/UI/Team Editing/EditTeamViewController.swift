@@ -105,7 +105,7 @@ extension EditTeamViewController {
             return
         }
         
-        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail, members: self.originalTeam!.memberList, delegates: self.originalTeam!.delegationList) { _ in }
+        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail) { _ in }
     }
     
 }

@@ -212,14 +212,14 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: ProposalDetail? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["2"]) { response, error in
+        request.get(endpoint: "proposals", args: ["1"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
             if let detailInfo = response?["proposal"] as? [String: Any] {
                 responseItem = ProposalDetail.from(dict: detailInfo,
-                                                   proposal: Proposal(id: 2, authorId: 0, title: "", body: "", iconUrl: "", createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
+                                                   proposal: Proposal(id: 1, authorId: 0, title: "", body: "", iconUrl: "", createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
             }
         }
         
@@ -241,7 +241,7 @@ class HTTPRequestTests: XCTestCase {
         var responseLength: Int? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["2", "comments"]) { response, error in
+        request.get(endpoint: "proposals", args: ["1", "comments"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -263,7 +263,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_ProposalComment() {
         // setup
         let commentId = "2"
-        let proposalId = "2"
+        let proposalId = "1"
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "comment response")
@@ -292,7 +292,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddProposalComment() {
         // setup
-        let proposalId = 2
+        let proposalId = 1
         let comment = "new comment"
         
         // test
@@ -305,7 +305,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_EditProposalComment() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "edit comment response")
         var receivedError: Error? = nil
@@ -341,7 +341,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_DeleteProposalComment() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "delete comment response")
         var receivedError: Error? = nil
@@ -378,7 +378,7 @@ class HTTPRequestTests: XCTestCase {
         var responseLength: Int? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["2", "amendments"]) { response, error in
+        request.get(endpoint: "proposals", args: ["1", "amendments"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -400,7 +400,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_ProposalAmendment() {
         // setup
         let amendmentId = "2"
-        let proposalId = "2"
+        let proposalId = "1"
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "amendment response")
@@ -429,7 +429,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddProposalAmendment() {
         // setup
-        let proposalId = 2
+        let proposalId = 1
         let amendment = "new amendment"
         let status = AmendmentStatus.submitted
         
@@ -444,7 +444,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_EditProposalAmendment() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "edit amendment response")
         var receivedError: Error? = nil
@@ -481,7 +481,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_DeleteProposalAmendment() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "delete amendment response")
         var receivedError: Error? = nil
@@ -518,7 +518,7 @@ class HTTPRequestTests: XCTestCase {
         var responseLength: Int? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["2", "votes"]) { response, error in
+        request.get(endpoint: "proposals", args: ["1", "votes"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -540,7 +540,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_ProposalVoteMine() {
         // setup
         let voteId = "86"
-        let proposalId = "2"
+        let proposalId = "1"
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "vote response")
@@ -570,7 +570,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_ProposalVoteOther() {
         // setup
         let voteId = "91"
-        let proposalId = "2"
+        let proposalId = "1"
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "vote response")
@@ -599,7 +599,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddProposalVoteYes() {
         // setup
-        let proposalId = 2
+        let proposalId = 1
         let vote = VoteType.yes
         
         // test
@@ -611,7 +611,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddProposalVoteNo() {
         // setup
-        let proposalId = 2
+        let proposalId = 1
         let vote = VoteType.no
         
         // test
@@ -623,7 +623,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddProposalVoteAbstain() {
         // setup
-        let proposalId = 2
+        let proposalId = 1
         let vote = VoteType.abstain
         
         // test
@@ -636,7 +636,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_EditProposalVote() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "edit vote response")
         var receivedError: Error? = nil
@@ -672,7 +672,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_DeleteProposalVote() {
         // setup
         let request = HTTPRequest.shared
-        let proposalId = 2
+        let proposalId = 1
         
         let expectation = XCTestExpectation(description: "delete vote response")
         var receivedError: Error? = nil
@@ -856,7 +856,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_Team() {
         // setup
-        let teamId = "2"
+        let teamId = 1
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "team response")
@@ -865,7 +865,7 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: Team? = nil
         
         // test
-        request.get(endpoint: "teams", args: [teamId]) { response, error in
+        request.get(endpoint: "teams", args: ["\(teamId)"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -879,7 +879,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "found")
         XCTAssertNotNil(responseItem)
-        XCTAssertEqual(responseItem?.id, 2)
+        XCTAssertEqual(responseItem?.id, teamId)
         XCTAssertNil(receivedError)
     }
 
@@ -972,13 +972,15 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: TeamDetail? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["2"]) { response, error in
+        request.get(endpoint: "teams", args: ["1"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let detailInfo = response?["team"] as? [String: Any] {
-                responseItem = TeamDetail.from(dict: detailInfo)
+            if let teamInfo = response?["team"] as? [String: Any],
+               let memberInfo = response?["members"] as? [[String: Any]],
+               let actionInfo = response?["actions"] as? [[String: Any]] {
+                responseItem = TeamDetail.from(teamDict: teamInfo, actionDicts: actionInfo, memberDicts: memberInfo)
             }
         }
         
@@ -1000,7 +1002,7 @@ class HTTPRequestTests: XCTestCase {
         var responseLength: Int? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["2", "actions"]) { response, error in
+        request.get(endpoint: "teams", args: ["1", "actions"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1021,7 +1023,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_TeamAction() {
         // setup
-        let teamId = "2"
+        let teamId = "1"
         let actionId = "2"
         let request = HTTPRequest.shared
         
@@ -1051,7 +1053,7 @@ class HTTPRequestTests: XCTestCase {
 
     func testHTTPRequest_AddTeamAction() {
         // setup
-        let teamId = 2
+        let teamId = 1
         let action = "new action"
         
         // test
@@ -1064,7 +1066,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_EditTeamAction() {
         // setup
         let request = HTTPRequest.shared
-        let teamId = 2
+        let teamId = 1
         
         let expectation = XCTestExpectation(description: "edit action response")
         var receivedError: Error? = nil
@@ -1104,7 +1106,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_DeleteTeamAction() {
         // setup
         let request = HTTPRequest.shared
-        let teamId = 2
+        let teamId = 1
         
         let expectation = XCTestExpectation(description: "delete action response")
         var receivedError: Error? = nil
@@ -1128,6 +1130,103 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "deleted")
         XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_TeamUsers() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "team users response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseCount: Int? = nil
+        var responseLength: Int? = nil
+        var responseList: [TeamMember]? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["1", "users"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let userCount = response?["members_count"] as? Int {
+                responseCount = userCount
+            }
+            if let userInfos = response?["members"] as? [[String: Any]] {
+                responseLength = userInfos.count
+                responseList = userInfos.compactMap { TeamMember.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseCount)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_AddTeamUser() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "add user response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [TeamMember]? = nil
+        
+        // test
+        request.put(endpoint: "teams", args: ["\(teamId)", "users", "\(userId)", "add"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let userInfos = response?["members"] as? [[String: Any]] {
+                responseList = userInfos.compactMap { TeamMember.from(dict: $0) }
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        
+        // verify
+        XCTAssertEqual(responseList?.contains { $0.user_id == userId && $0.team_id == teamId }, true)
+    }
+
+    func testHTTPRequest_RemoveTeamUser() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "delete user response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [TeamMember]? = nil
+        
+        // test
+        request.put(endpoint: "teams", args: ["\(teamId)", "users", "\(userId)", "remove"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let userInfos = response?["members"] as? [[String: Any]] {
+                responseList = userInfos.compactMap { TeamMember.from(dict: $0) }
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        
+        // verify
+        XCTAssertEqual(responseList?.contains { $0.user_id == userId && $0.team_id == teamId }, false)
     }
 
 }

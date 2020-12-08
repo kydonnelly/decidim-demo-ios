@@ -13,17 +13,17 @@ class TeamListDataController: NetworkDataController {
     private var localTeams: [TeamDetail] = []
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "proposals") { response, error in
+        HTTPRequest.shared.get(endpoint: "teams") { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
-            guard let proposalInfos = response?["proposals"] as? [[String: Any]] else {
+            guard let teamInfos = response?["teams"] as? [[String: Any]] else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
             }
             
-            let teams = proposalInfos.compactMap { TeamDetail.from(dict: $0) }
+            let teams = teamInfos.compactMap { TeamDetail.from(teamDict: $0, actionDicts: [], memberDicts: []) }
             completion(teams, Cursor(next: "", done: true), nil)
         }
     }
@@ -37,23 +37,31 @@ class TeamListDataController: NetworkDataController {
         return teams
     }
     
+    public func teams(profileId: Int, status: TeamMemberStatus?) -> [TeamDetail] {
+        if let targetStatus = status {
+            return self.allTeams.filter { $0.memberList.contains { $0.user_id == profileId && $0.status == targetStatus } }
+        } else {
+            return self.allTeams.filter { !$0.memberList.contains { $0.user_id == profileId } }
+        }
+    }
+    
 }
 
 extension TeamListDataController {
     
     public func addTeam(title: String, description: String, thumbnail: UIImage?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
-        let membersString = members.map { [String($0), String($1.rawValue)].joined(separator: ":") }.joined(separator: "|")
-        let dataString = ["", membersString, "", description, ""].joined(separator: "###")
-        let payload: [String: Any] = ["proposal": ["title": title,
-                                                   "body": dataString]]
+        let payload: [String: Any] = ["team": ["name": title,
+                                               "description": description]]
         
-        HTTPRequest.shared.post(endpoint: "proposals", payload: payload) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "teams", payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let proposalInfo = response?["proposal"] as? [String: Any],
-                  let team = TeamDetail.from(dict: proposalInfo) else {
+            guard let teamInfo = response?["team"] as? [String: Any],
+                  let memberInfo = response?["members"] as? [[String: Any]],
+                  let actionInfo = response?["actions"] as? [[String: Any]],
+                  let team = TeamDetail.from(teamDict: teamInfo, actionDicts: actionInfo, memberDicts: memberInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
@@ -63,21 +71,19 @@ extension TeamListDataController {
         }
     }
     
-    public func editTeam(_ teamId: Int, title: String, description: String, thumbnail: UIImage?, members: [Int: TeamMemberStatus], delegates: [Int: [Int]], completion: @escaping (Error?) -> Void) {
-        let membersString = members.map { [String($0), String($1.rawValue)].joined(separator: ":") }.joined(separator: "|")
-        let delegatesString = delegates.map { [String($0), $1.compactMap { String($0) }.joined(separator: ",")].joined(separator: ":") }.joined(separator: "|")
+    public func editTeam(_ teamId: Int, title: String, description: String, thumbnail: UIImage?, completion: @escaping (Error?) -> Void) {
+        let payload: [String: Any] = ["team": ["name": title,
+                                               "description": description]]
         
-        let dataString = ["", membersString, description, delegatesString, ""].joined(separator: "###")
-        let payload: [String: Any] = ["proposal": ["title": title,
-                                                   "body": dataString]]
-        
-        HTTPRequest.shared.put(endpoint: "proposals", args: ["\(teamId)"], payload: payload) { [weak self] response, error in
+        HTTPRequest.shared.put(endpoint: "teams", args: ["\(teamId)"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let proposalInfo = response?["proposal"] as? [String: Any],
-                  let team = TeamDetail.from(dict: proposalInfo) else {
+            guard let teamInfo = response?["team"] as? [String: Any],
+                  let memberInfo = response?["members"] as? [[String: Any]],
+                  let actionInfo = response?["actions"] as? [[String: Any]],
+                  let team = TeamDetail.from(teamDict: teamInfo, actionDicts: actionInfo, memberDicts: memberInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
@@ -97,7 +103,7 @@ extension TeamListDataController {
     }
     
     public func deleteTeam(_ teamId: Int, completion: @escaping (Error?) -> Void) {
-        HTTPRequest.shared.delete(endpoint: "proposals", args: ["\(teamId)"]) { [weak self] response, error in
+        HTTPRequest.shared.delete(endpoint: "teams", args: ["\(teamId)"]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return

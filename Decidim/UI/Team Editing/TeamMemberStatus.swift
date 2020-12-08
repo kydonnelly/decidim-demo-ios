@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum TeamMemberStatus: Int, CaseIterable {
+enum TeamMemberStatus: String, CaseIterable {
     case invited
     case requested
     case joined
