@@ -136,13 +136,13 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
+        if indexPath.row < 2 {
             return 72
-        } else if indexPath.row == 1 {
+        } else if indexPath.row == 2 {
             return 44
         } else {
             return 128
@@ -152,14 +152,23 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-            cell.setup(field: "Description", content: self.actionDescription, required: true, updateBlock: { [weak self] text in
-                self?.actionDescription = text
+            cell.setup(field: "Action Name", content: self.actionName, required: true, updateBlock: { [weak self] text in
+                self?.actionName = text
                 return true
             }, submitBlock: { [weak self] text in
-                self?.actionDescription = text
+                self?.actionName = text
             })
             return cell
         } else if indexPath.row == 1 {
+           let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
+           cell.setup(field: "Description", content: self.actionDescription, required: true, updateBlock: { [weak self] text in
+               self?.actionDescription = text
+               return true
+           }, submitBlock: { [weak self] text in
+               self?.actionDescription = text
+           })
+           return cell
+        } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! VotePreferencesToggleCell
             cell.setup(title: "Ongoing", isOn: false) { [weak self] isOn in
                 self?.isOngoing = isOn
