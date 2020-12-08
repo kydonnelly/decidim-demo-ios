@@ -22,31 +22,18 @@ class ProposalAmendmentDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let id = String(describing: self.proposalId!)
         
-//        HTTPRequest.shared.get(endpoint: "proposals", args: [id, "amendments"]) { response, error in
-//            guard error == nil else {
-//                completion(nil, Cursor(next: "error", done: true), error)
-//                return
-//            }
-//            guard let amendmentInfos = response?["amendments"] as? [[String: Any]] else {
-//                completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
-//                return
-//            }
-//
-//            let amendments = amendmentInfos.compactMap { ProposalAmendment.from(dict: $0) }
-//            completion(amendments, Cursor(next: "", done: true), nil)
-//        }
-        HTTPRequest.shared.get(endpoint: "proposals", args: [id, "comments"]) { response, error in
+        HTTPRequest.shared.get(endpoint: "proposals", args: [id, "amendments"]) { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
-            guard let commentInfos = response?["comments"] as? [[String: Any]] else {
+            guard let amendmentInfos = response?["proposal_amendments"] as? [[String: Any]] else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
             }
-            
-            let proposals = commentInfos.compactMap { ProposalAmendment.from(commentInfo: $0) }
-            completion(proposals, Cursor(next: "", done: true), nil)
+
+            let amendments = amendmentInfos.compactMap { ProposalAmendment.from(dict: $0) }
+            completion(amendments, Cursor(next: "", done: true), nil)
         }
     }
     
@@ -59,57 +46,39 @@ class ProposalAmendmentDataController: NetworkDataController {
         return amendments
     }
     
-    public func addAmendment(_ amendment: String, completion: @escaping (Error?) -> Void) {
+    public func addAmendment(_ amendment: String, status: AmendmentStatus, completion: @escaping (Error?) -> Void) {
         let id = String(describing: self.proposalId!)
-//        let payload: [String: Any] = ["amendment": ["body": amendment]]
-//
-//        HTTPRequest.shared.post(endpoint: "proposals", args: [id, "amendment"], payload: payload) { [weak self] response, error in
-//            guard error == nil else {
-//                completion(error)
-//                return
-//            }
-//            guard let amendmentInfo = response?["amendment"] as? [String: Any],
-//                  let amendment = ProposalAmendment.from(dict: amendmentInfo) else {
-//                completion(HTTPRequest.RequestError.parseError(response: response))
-//                return
-//            }
-//
-//            self?.localAmendments.append(amendment)
-//            completion(nil)
-//        }
-        
-        let commentText = "\(amendment):\(String(describing: AmendmentStatus.submitted)):AMENDMENT"
-        let payload: [String: Any] = ["comment": ["body": commentText]]
-        
-        HTTPRequest.shared.post(endpoint: "proposals", args: [id, "comments"], payload: payload) { [weak self] response, error in
+        let payload: [String: Any] = ["amendment": ["text": amendment,
+                                                    "status": status.rawValue]]
+
+        HTTPRequest.shared.post(endpoint: "proposals", args: [id, "amendments"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let commentInfo = response?["comment"] as? [String: Any],
-                  let amendment = ProposalAmendment.from(commentInfo: commentInfo) else {
+            guard let amendmentInfo = response?["proposal_amendment"] as? [String: Any],
+                  let amendment = ProposalAmendment.from(dict: amendmentInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
-            
+
             self?.localAmendments.append(amendment)
             completion(nil)
         }
     }
     
     public func editAmendment(_ amendmentId: Int, status: AmendmentStatus, text: String, completion: @escaping (Error?) -> Void) {
-        let commentText = "\(text):\(String(describing: status)):AMENDMENT"
-        
-        let args: [String] = [String(describing: self.proposalId!), "comments", "\(amendmentId)"]
-        let payload: [String: Any] = ["comment": ["body": commentText]]
+        let args: [String] = [String(describing: self.proposalId!), "amendments", "\(amendmentId)"]
+        let payload: [String: Any] = ["amendment": ["text": text,
+                                                    "status": status.rawValue]]
         
         HTTPRequest.shared.put(endpoint: "proposals", args: args, payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let commentInfo = response?["comment"] as? [String: Any],
-                  let amendment = ProposalAmendment.from(commentInfo: commentInfo) else {
+            guard let amendmentInfo = response?["proposal_amendment"] as? [String: Any],
+                  let amendment = ProposalAmendment.from(dict: amendmentInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }

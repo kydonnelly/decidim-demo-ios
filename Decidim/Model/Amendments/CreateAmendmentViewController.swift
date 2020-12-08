@@ -69,7 +69,7 @@ extension CreateAmendmentViewController {
                 self?.navigationController?.popViewController(animated: true)
             }
         } else {
-            self.dataController.addAmendment(text) { [weak self] error in
+            self.dataController.addAmendment(text, status: .submitted) { [weak self] error in
                 guard error == nil else {
                     return
                 }

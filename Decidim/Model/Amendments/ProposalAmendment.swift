@@ -26,25 +26,6 @@ struct ProposalAmendment {
     let updatedAt: Date
     let status: AmendmentStatus
     
-    // temp helper
-    internal static func from(commentInfo: [String: Any]) -> ProposalAmendment? {
-        var proposalInfo = commentInfo
-        guard let text = proposalInfo["body"] as? String, text.hasSuffix(":AMENDMENT") else {
-            return nil
-        }
-        
-        var components = text.components(separatedBy: ":")
-        guard components.count > 2 else {
-            return nil
-        }
-        
-        _ = components.popLast()
-        proposalInfo["status"] = components.popLast()
-        proposalInfo["body"] = components.joined(separator: ":")
-        
-        return ProposalAmendment.from(dict: proposalInfo)
-    }
-    
     public static func from(dict: [String: Any]) -> ProposalAmendment? {
         guard let amendmentId = dict["id"] as? Int,
               let authorId = dict["user_id"] as? Int,
