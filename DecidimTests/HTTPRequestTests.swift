@@ -1055,10 +1055,10 @@ class HTTPRequestTests: XCTestCase {
         let action = "new action"
         
         // test
-        let responseItem = self.createAndVerifyTeamAction(teamId: teamId, body: action)
+        let responseItem = self.createAndVerifyTeamAction(teamId: teamId, name: action)
         
         // verify
-        XCTAssertEqual(responseItem?.description, action)
+        XCTAssertEqual(responseItem?.name, action)
     }
 
     func testHTTPRequest_EditTeamAction() {
@@ -1079,7 +1079,9 @@ class HTTPRequestTests: XCTestCase {
         let actionId = "\(action.id)"
         let updatedAction = "action (edited)"
         let updatedStatus = TeamActionStatus.inProgress
-        let payload: [String: Any] = ["action": ["body": updatedAction, "type": updatedStatus.rawValue]]
+        let payload: [String: Any] = ["team_action": ["title": updatedAction,
+                                                      "description": action.description,
+                                                      "type": updatedStatus.rawValue]]
         
         // test
         request.put(endpoint: "teams", args: ["\(teamId)", "actions", actionId], payload: payload) { response, error in
@@ -1087,7 +1089,7 @@ class HTTPRequestTests: XCTestCase {
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let actionInfo = response?["action"] as? [String: Any] {
+            if let actionInfo = response?["team_action"] as? [String: Any] {
                 responseItem = TeamAction.from(dict: actionInfo)
             }
         }
@@ -1095,7 +1097,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "updated")
         XCTAssertEqual(responseItem?.status, updatedStatus)
-        XCTAssertEqual(responseItem?.description, updatedAction)
+        XCTAssertEqual(responseItem?.name, updatedAction)
         XCTAssertNil(receivedError)
     }
 
@@ -1339,7 +1341,7 @@ extension HTTPRequestTests {
         return responseItem
     }
     
-    fileprivate func createAndVerifyTeamAction(teamId: Int, body: String = "test action", description: String = "test description", status: TeamActionStatus = .proposed) -> TeamAction? {
+    fileprivate func createAndVerifyTeamAction(teamId: Int, name: String = "test action", description: String = "test description", status: TeamActionStatus = .proposed) -> TeamAction? {
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "action response")
@@ -1348,9 +1350,9 @@ extension HTTPRequestTests {
         var responseItem: TeamAction? = nil
         
         let id = "\(teamId)"
-        let payload: [String: Any] = ["action": ["title": body,
-                                                 "description": description,
-                                                 "type": status.rawValue]]
+        let payload: [String: Any] = ["team_action": ["title": name,
+                                                      "description": description,
+                                                      "type": status.rawValue]]
         
         // test
         request.post(endpoint: "teams", args: [id, "actions"], payload: payload) { response, error in
