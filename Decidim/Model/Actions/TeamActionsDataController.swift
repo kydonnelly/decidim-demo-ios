@@ -33,7 +33,7 @@ class TeamActionsDataController: NetworkDataController {
             }
             
             self?.localActions.removeAll()
-            let actions = actionInfos.compactMap { ProposalComment.from(dict: $0) }
+            let actions = actionInfos.compactMap { TeamAction.from(dict: $0) }
             completion(actions, Cursor(next: "", done: true), nil)
         }
     }
