@@ -15,7 +15,7 @@ struct TeamAction {
     let thumbnailUrl: String?
     let createdAt: Date
     let updatedAt: Date
-    let status: TeamActionStatus?
+    let status: TeamActionStatus
     
     public static func from(dict: [String: Any]) -> TeamAction? {
         guard let actionId = dict["id"] as? Int,
@@ -32,12 +32,14 @@ struct TeamAction {
             return nil
         }
         
+        let actionStatus = TeamActionStatus(rawValue: status) ?? TeamActionStatus.unknown
+        
         return TeamAction(id: actionId,
                           name: title,
                           description: body,
                           thumbnailUrl: nil,
                           createdAt: createdDate,
                           updatedAt: updatedDate,
-                          status: TeamActionStatus(rawValue: status))
+                          status: actionStatus)
     }
 }

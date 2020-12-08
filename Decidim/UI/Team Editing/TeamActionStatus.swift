@@ -9,9 +9,12 @@
 import Foundation
 
 enum TeamActionStatus: String, CaseIterable {
+    case unknown
+    
     case proposed
     case pending
     case inProgress
     case ongoing
     case done
+    case archived
 }

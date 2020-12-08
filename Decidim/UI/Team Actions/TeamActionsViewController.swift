@@ -45,7 +45,7 @@ class TeamActionsViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     
     private var teamDetail: TeamDetail!
-    private var dataController: TeamListDataController!
+    private var dataController: TeamActionsDataController!
     
     public static func create(detail: TeamDetail) -> TeamActionsViewController {
         let sb = UIStoryboard(name: "TeamActions", bundle: .main)
@@ -56,7 +56,7 @@ class TeamActionsViewController: UIViewController, CustomTableController {
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamListDataController.shared()
+        self.dataController = TeamActionsDataController.shared(teamId: detail.team.id)
     }
     
     override func viewDidLoad() {
@@ -90,13 +90,9 @@ class TeamActionsViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
-        if let fresh = self.dataController.allTeams.last(where: { $0.team.id == self.teamDetail.team.id }) {
-            self.teamDetail = fresh
-        }
-        
         self.tableView.reloadData()
         
-        if self.dataController.donePaging && self.teamDetail.actionList.count == 0 {
+        if self.dataController.donePaging && self.dataController.allActions.count == 0 {
             self.tableView.showNoResults(message: "No actions")
         } else {
             self.tableView.hideNoResultsIfNeeded()
@@ -107,9 +103,9 @@ class TeamActionsViewController: UIViewController, CustomTableController {
 
 extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate {
     
-    fileprivate func actions(section: Sections) -> [String] {
+    fileprivate func actions(section: Sections) -> [TeamAction] {
         let actionStatus = section.asActionStatus
-        return self.teamDetail.actionList.compactMap { $1 == actionStatus ? $0 : nil }
+        return self.dataController.allActions.filter { $0.status == actionStatus }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -162,31 +158,31 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! TeamActionCell
             
             let section = Sections.allCases[indexPath.section]
-            let description = self.actions(section: section)[indexPath.row]
+            let action = self.actions(section: section)[indexPath.row]
             
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canUpdate = teamDetail.memberList[myProfileId] == .joined
+                canUpdate = self.teamDetail.memberList[myProfileId] == .joined
             }
             
-            cell.setup(description: description, status: section.asActionStatus, canUpdate: canUpdate) { [weak self] in
+            cell.setup(description: action.description, status: section.asActionStatus, canUpdate: canUpdate) { [weak self] in
                 guard let self = self else { return }
                 
-                var teamActions = self.teamDetail.actionList
+                var newStatus: TeamActionStatus
                 switch section {
                 case .done:
-                    teamActions.removeValue(forKey: description)
+                    newStatus = .archived
                 case .inProgress:
-                    teamActions[description] = .done
+                    newStatus = .done
                 case .ongoing:
-                    teamActions[description] = .done
+                    newStatus = .done
                 case .pending:
-                    teamActions[description] = .inProgress
+                    newStatus = .inProgress
                 case .proposed:
-                    teamActions[description] = .pending
+                    newStatus = .pending
                 }
                 
-                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] _ in
+                self.dataController.editAction(action.id, name: action.name, description: action.description, status: newStatus) { [weak self] _ in
                     self?.refreshData()
                 }
             }
@@ -203,14 +199,14 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
         if indexPath.section < Sections.allCases.count {
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canUpdate = teamDetail.memberList[myProfileId] == .joined
+                canUpdate = self.teamDetail.memberList[myProfileId] == .joined
             }
             
             if canUpdate {
                 let section = Sections.allCases[indexPath.section]
-                let description = self.actions(section: section)[indexPath.row]
+                let action = self.actions(section: section)[indexPath.row]
                 
-                let createVC = EditActionViewController.create(detail: self.teamDetail, action: description)
+                let createVC = EditActionViewController.create(teamId: self.teamDetail.team.id, action: action)
                 createVC.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(createVC, animated: true, completion: nil)
             }
@@ -222,7 +218,7 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
 extension TeamActionsViewController {
     
     @IBAction func tappedCreateButton(_ sender: UIBarButtonItem) {
-        let createVC = EditActionViewController.create(detail: self.teamDetail)
+        let createVC = EditActionViewController.create(teamId: self.teamDetail.team.id)
         createVC.modalPresentationStyle = .overCurrentContext
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }

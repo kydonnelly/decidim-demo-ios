@@ -130,7 +130,7 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
                     teamMembers.removeValue(forKey: memberId)
                 }
                 
-                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: teamMembers, actions: self.teamDetail.actionList, delegates: self.teamDetail.delegationList) { [weak self] _ in
+                self.dataController.editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: teamMembers, delegates: self.teamDetail.delegationList) { [weak self] _ in
                     self?.refreshData()
                 }
             }

@@ -17,8 +17,12 @@ class EditActionViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     
-    fileprivate var teamDetail: TeamDetail!
-    fileprivate var originalAction: String?
+    fileprivate var teamId: Int!
+    fileprivate var originalAction: TeamAction?
+    
+    fileprivate var actionName: String? {
+        didSet { refreshDoneButton() }
+    }
     
     fileprivate var actionDescription: String? {
         didSet { refreshDoneButton() }
@@ -27,16 +31,16 @@ class EditActionViewController: UIViewController, CustomTableController {
     fileprivate var deadline: Date!
     fileprivate var isOngoing: Bool = false
     
-    public static func create(detail: TeamDetail, action: String? = nil) -> UIViewController {
+    public static func create(teamId: Int, action: TeamAction? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "EditAction", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! UINavigationController
         let eavc = vc.viewControllers.first! as! EditActionViewController
-        eavc.setup(detail: detail, action: action)
+        eavc.setup(teamId: teamId, action: action)
         return vc
     }
     
-    private func setup(detail: TeamDetail, action: String?) {
-        self.teamDetail = detail
+    private func setup(teamId: Int, action: TeamAction?) {
+        self.teamId = teamId
         self.originalAction = action
     }
     
@@ -44,7 +48,8 @@ class EditActionViewController: UIViewController, CustomTableController {
         super.viewDidLoad()
         
         if let editingAction = self.originalAction {
-            self.actionDescription = editingAction
+            self.actionName = editingAction.name
+            self.actionDescription = editingAction.description
 //            self.deadline = editingAction.deadline
             self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
         } else {
@@ -66,7 +71,8 @@ class EditActionViewController: UIViewController, CustomTableController {
 extension EditActionViewController {
     
     fileprivate func refreshDoneButton() {
-        if let description = self.actionDescription, description.count > 0 {
+        if let name = self.actionName, name.count > 0,
+           let description = self.actionDescription, description.count > 0 {
             self.doneButtonItem.isEnabled = true
         } else {
             self.doneButtonItem.isEnabled = false
@@ -90,15 +96,14 @@ extension EditActionViewController {
     }
     
     private func submitNewAction() {
-        guard let description = self.actionDescription, description.count > 0 else {
+        guard let name = self.actionName, name.count > 0,
+              let description = self.actionDescription, description.count > 0 else {
             return
         }
         
         let newStatus: TeamActionStatus = self.isOngoing ? .ongoing : .pending
-        var teamActions = self.teamDetail.actionList
-        teamActions[description] = newStatus
         
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] error in
+        TeamActionsDataController.shared(teamId: self.teamId).addAction(name: name, description: description, status: newStatus) { [weak self] error in
             guard error == nil else {
                 return
             }
@@ -107,17 +112,13 @@ extension EditActionViewController {
         }
     }
     
-    private func submitEditedAction(_ originalDescription: String) {
-        guard let description = self.actionDescription, description.count > 0 else {
+    private func submitEditedAction(_ originalAction: TeamAction) {
+        guard let name = self.actionName, name.count > 0,
+              let description = self.actionDescription, description.count > 0 else {
             return
         }
         
-        var teamActions = self.teamDetail.actionList
-        let status = teamActions[originalDescription]
-        teamActions.removeValue(forKey: originalDescription)
-        teamActions[description] = status
-        
-        TeamListDataController.shared().editTeam(self.teamDetail.team.id, title: self.teamDetail.team.name, description: self.teamDetail.team.description, thumbnail: self.teamDetail.team.thumbnail, members: self.teamDetail.memberList, actions: teamActions, delegates: self.teamDetail.delegationList) { [weak self] error in
+        TeamActionsDataController.shared(teamId: self.teamId).editAction(originalAction.id, name: name, description: description, status: originalAction.status) { [weak self] error in
             guard error == nil else {
                 return
             }

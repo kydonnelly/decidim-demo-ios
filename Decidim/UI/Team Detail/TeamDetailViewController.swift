@@ -123,7 +123,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                         return
                     }
                     
-                    self.detailDataController.editTeam(detail.team.id, title: detail.team.name, description: detail.team.description, thumbnail: detail.team.thumbnail, members: memberList, actions: detail.actionList, delegates: detail.delegationList) { [weak self] _ in
+                    self.detailDataController.editTeam(detail.team.id, title: detail.team.name, description: detail.team.description, thumbnail: detail.team.thumbnail, members: memberList, delegates: detail.delegationList) { [weak self] _ in
                         self?.refreshData()
                     }
                 }

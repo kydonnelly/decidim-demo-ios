@@ -109,7 +109,7 @@ extension VoteDelegationManager {
         var delegationList = team.delegationList
         delegationList[profileId] = profileIds
         
-        TeamListDataController.shared().editTeam(team.team.id, title: team.team.name, description: team.team.description, thumbnail: team.team.thumbnail, members: team.memberList, actions: team.actionList, delegates: delegationList) { error in
+        TeamListDataController.shared().editTeam(team.team.id, title: team.team.name, description: team.team.description, thumbnail: team.team.thumbnail, members: team.memberList, delegates: delegationList) { error in
             completion(error == nil)
         }
     }

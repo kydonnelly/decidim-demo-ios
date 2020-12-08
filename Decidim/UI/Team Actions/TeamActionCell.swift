@@ -52,6 +52,12 @@ class TeamActionCell: CustomTableViewCell {
             self.updateButton.setTitle("Approve", for: .normal)
             self.statusImageView.icon = .hourglass
             self.statusImageView.iconBackgroundColor = .systemRed
+        case .archived:
+            fallthrough
+        case .unknown:
+            self.updateButton.setTitle("", for: .normal)
+            self.statusImageView.icon = .cancel_circle
+            self.statusImageView.iconBackgroundColor = .clear
         }
     }
     
