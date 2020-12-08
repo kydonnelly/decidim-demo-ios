@@ -82,8 +82,6 @@ extension EditTeamViewController {
     }
     
     @IBAction func didTapDoneButton(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
-        
         if let editingTeamId = self.originalTeam?.team.id {
             self.submitEditedTeam(id: editingTeamId)
         } else {
@@ -97,7 +95,11 @@ extension EditTeamViewController {
             return
         }
         
-        TeamListDataController.shared().addTeam(title: name, description: description, thumbnail: self.thumbnail, members: [memberId: .joined]) { _ in }
+        TeamListDataController.shared().addTeam(title: name, description: description, thumbnail: self.thumbnail, members: [memberId: .joined]) { [weak self] error in
+            if error == nil {
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     private func submitEditedTeam(id: Int) {
@@ -105,7 +107,11 @@ extension EditTeamViewController {
             return
         }
         
-        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail) { _ in }
+        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail) { [weak self] error in
+            if error == nil {
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
 }
