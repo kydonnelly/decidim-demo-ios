@@ -13,7 +13,7 @@ class DelegationDataController: NetworkDataController {
     private var localDelegates: [String: Delegate] = [:]
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "delegations") { response, error in
+        HTTPRequest.shared.get(endpoint: "delegations") { [weak self] response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
@@ -23,6 +23,7 @@ class DelegationDataController: NetworkDataController {
                 return
             }
             
+            self?.localDelegates.removeAll()
             delegationInfo["category"] = "Global"
             guard let delegation = Delegate.from(dict: delegationInfo) else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))

@@ -22,7 +22,7 @@ class TeamActionsDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let id = String(describing: self.teamId!)
         
-        HTTPRequest.shared.get(endpoint: "teams", args: [id, "actions"]) { response, error in
+        HTTPRequest.shared.get(endpoint: "teams", args: [id, "actions"]) { [weak self] response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
@@ -32,6 +32,7 @@ class TeamActionsDataController: NetworkDataController {
                 return
             }
             
+            self?.localActions.removeAll()
             let actions = actionInfos.compactMap { ProposalComment.from(dict: $0) }
             completion(actions, Cursor(next: "", done: true), nil)
         }

@@ -13,7 +13,7 @@ class TeamListDataController: NetworkDataController {
     private var localTeams: [TeamDetail] = []
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "teams") { response, error in
+        HTTPRequest.shared.get(endpoint: "teams") { [weak self] response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
@@ -23,6 +23,7 @@ class TeamListDataController: NetworkDataController {
                 return
             }
             
+            self?.localTeams.removeAll()
             let teams = teamInfos.compactMap { TeamDetail.from(teamDict: $0, actionDicts: [], memberDicts: []) }
             completion(teams, Cursor(next: "", done: true), nil)
         }

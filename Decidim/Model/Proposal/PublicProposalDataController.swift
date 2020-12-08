@@ -13,7 +13,7 @@ class PublicProposalDataController: NetworkDataController {
     private var localProposals: [Proposal] = []
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "proposals") { response, error in
+        HTTPRequest.shared.get(endpoint: "proposals") { [weak self] response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
@@ -23,6 +23,7 @@ class PublicProposalDataController: NetworkDataController {
                 return
             }
             
+            self?.localProposals.removeAll()
             let proposals = proposalInfos.compactMap { Proposal.from(dict: $0) }
             completion(proposals, Cursor(next: "", done: true), nil)
         }
