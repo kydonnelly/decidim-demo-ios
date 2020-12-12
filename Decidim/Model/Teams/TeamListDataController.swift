@@ -38,11 +38,11 @@ class TeamListDataController: NetworkDataController {
         return teams
     }
     
-    public func teams(profileId: Int, status: TeamMemberStatus?) -> [TeamDetail] {
+    public func teams(profileId: Int, status: TeamMemberStatus?) -> [Team] {
         if let targetStatus = status {
-            return self.allTeams.filter { $0.memberList.contains { $0.user_id == profileId && $0.status == targetStatus } }
+            return self.allTeams.filter { $0.memberList.contains { $0.user_id == profileId && $0.status == targetStatus } }.compactMap { $0.team }
         } else {
-            return self.allTeams.filter { !$0.memberList.contains { $0.user_id == profileId } }
+            return self.allTeams.filter { !$0.memberList.contains { $0.user_id == profileId } }.compactMap { $0.team }
         }
     }
     

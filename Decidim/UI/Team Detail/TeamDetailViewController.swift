@@ -25,21 +25,20 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
-    private var teamDetail: TeamDetail!
-    private var detailDataController: TeamListDataController!
+    private var teamDetail: TeamDetail?
+    private var detailDataController: TeamDetailDataController!
     
     fileprivate var expandBody = false
     
-    public static func create(team: TeamDetail) -> TeamDetailViewController {
+    public static func create(team: Team) -> TeamDetailViewController {
         let sb = UIStoryboard(name: "TeamDetail", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! TeamDetailViewController
         vc.setup(team: team)
         return vc
     }
     
-    private func setup(team: TeamDetail) {
-        self.teamDetail = team
-        self.detailDataController = TeamListDataController.shared()
+    private func setup(team: Team) {
+        self.detailDataController = TeamDetailDataController.shared(team: team)
     }
     
     override func viewDidLoad() {
@@ -70,9 +69,7 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
-        if let fresh = self.detailDataController.allTeams.last(where: { $0.team.id == self.teamDetail.team.id }) {
-            self.teamDetail = fresh
-        }
+        self.teamDetail = self.detailDataController.data?.first as? TeamDetail
         
         self.tableView.reloadData()
     }
@@ -154,6 +151,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 0 {
+            let detail = self.teamDetail!
             let cellId = StaticCell.ordered()[indexPath.row]
             
             switch cellId {
@@ -161,10 +159,10 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .members:
-                let vc = TeamMembersViewController.create(detail: self.teamDetail)
+                let vc = TeamMembersViewController.create(detail: detail)
                 self.navigationController?.pushViewController(vc, animated: true)
             case .actions:
-                let vc = TeamActionsViewController.create(detail: self.teamDetail)
+                let vc = TeamActionsViewController.create(detail: detail)
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
                 break
@@ -198,7 +196,7 @@ extension TeamDetailViewController {
                 return
             }
             
-            self.detailDataController.deleteTeam(teamId) { [weak self] error in
+            TeamListDataController.shared().deleteTeam(teamId) { [weak self] error in
                 guard error == nil else {
                     return
                 }

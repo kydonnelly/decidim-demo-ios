@@ -41,7 +41,7 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         }
     }
     
-    fileprivate func allTeams() -> [TeamDetail] {
+    fileprivate func allTeams() -> [Team] {
         guard let profileId = self.dataSource?.profileId else {
             return []
         }
@@ -82,7 +82,7 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! TeamListCell
             
             let team = self.allTeams()[indexPath.row]
-            cell.setup(team: team.team)
+            cell.setup(team: team)
 
             return cell
         } else {

@@ -16,7 +16,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     
     private var teamDetail: TeamDetail!
-    private var dataController: TeamListDataController!
+    private var dataController: TeamDetailDataController!
     
     public static func create(detail: TeamDetail) -> TeamMembersViewController {
         let sb = UIStoryboard(name: "TeamMembers", bundle: .main)
@@ -27,7 +27,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamListDataController.shared()
+        self.dataController = TeamDetailDataController.shared(team: detail.team)
     }
     
     override func viewDidLoad() {
@@ -56,9 +56,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
-        if let fresh = self.dataController.allTeams.last(where: { $0.team.id == self.teamDetail.team.id }) {
-            self.teamDetail = fresh
-        }
+        self.teamDetail = self.dataController.data?.first as? TeamDetail
         
         self.tableView.reloadData()
         

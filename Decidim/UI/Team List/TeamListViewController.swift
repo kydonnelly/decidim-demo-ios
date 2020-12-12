@@ -93,7 +93,7 @@ class TeamListViewController: UIViewController, CustomTableController {
         }
     }
     
-    fileprivate func teams(section: Sections) -> [TeamDetail] {
+    fileprivate func teams(section: Sections) -> [Team] {
         guard let profileId = self.profileId else {
             return []
         }
@@ -166,7 +166,7 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.TeamDetailCellID, for: indexPath) as! TeamListCell
             
             let team = self.teams(section: section)[indexPath.row]
-            cell.setup(team: team.team)
+            cell.setup(team: team)
 
             return cell
         } else {

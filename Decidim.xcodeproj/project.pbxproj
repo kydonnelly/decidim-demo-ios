@@ -82,6 +82,7 @@
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
 		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
+		2773D15A25849FE7007FD3F0 /* TeamDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */; };
 		277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C22511D1600063FFE6 /* Delegate.swift */; };
 		277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */; };
 		277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */; };
@@ -253,6 +254,7 @@
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
+		2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailDataController.swift; sourceTree = "<group>"; };
 		277FD2C22511D1600063FFE6 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegationDataController.swift; sourceTree = "<group>"; };
 		277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcesses.graphql.swift; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 				2725C0D5253FD4010008010A /* TeamAction.swift */,
 				27F8838824E791A100B216D2 /* TeamDetail.swift */,
 				2773D155257F7BD4007FD3F0 /* TeamMember.swift */,
+				2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */,
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
 				2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */,
 			);
@@ -1113,6 +1116,7 @@
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				277FD2CD2511E9530063FFE6 /* Assemblies.graphql.swift in Sources */,
 				27F883AB24E798CE00B216D2 /* TeamListCell.swift in Sources */,
+				2773D15A25849FE7007FD3F0 /* TeamDetailDataController.swift in Sources */,
 				275114EE2506B168006277AA /* SettingsViewController.swift in Sources */,
 				27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */,
 				27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */,
