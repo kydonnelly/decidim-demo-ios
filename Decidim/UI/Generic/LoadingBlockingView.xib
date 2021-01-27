@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="qXv-Ru-BLn" customClass="LoadingBlockingView" customModule="Agora" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view alpha="0.90000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0wd-l1-sz9">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                    <color key="backgroundColor" name="PrimaryBackground"/>
+                </view>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="E8h-3R-bWH">
+                    <rect key="frame" x="197" y="352.5" width="20" height="20"/>
+                    <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fl6-lH-JzK">
+                    <rect key="frame" x="32" y="388.5" width="350" height="21.5"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                    <color key="textColor" name="PrimaryDark"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="E8h-3R-bWH" firstAttribute="centerY" secondItem="pav-qx-7F6" secondAttribute="centerY" multiplier="0.8" id="4xi-S8-Dkd"/>
+                <constraint firstAttribute="trailing" secondItem="0wd-l1-sz9" secondAttribute="trailing" id="5TD-MH-IbM"/>
+                <constraint firstAttribute="bottom" secondItem="0wd-l1-sz9" secondAttribute="bottom" id="7zj-up-T5a"/>
+                <constraint firstItem="0wd-l1-sz9" firstAttribute="leading" secondItem="qXv-Ru-BLn" secondAttribute="leading" id="T6x-yZ-Ag5"/>
+                <constraint firstItem="E8h-3R-bWH" firstAttribute="centerX" secondItem="pav-qx-7F6" secondAttribute="centerX" id="com-A0-fsq"/>
+                <constraint firstItem="Fl6-lH-JzK" firstAttribute="leading" secondItem="pav-qx-7F6" secondAttribute="leading" constant="32" id="eFr-kV-aPK"/>
+                <constraint firstItem="pav-qx-7F6" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Fl6-lH-JzK" secondAttribute="bottom" constant="64" id="lkc-f4-1RP"/>
+                <constraint firstItem="0wd-l1-sz9" firstAttribute="top" secondItem="qXv-Ru-BLn" secondAttribute="top" id="tFc-n6-Lfx"/>
+                <constraint firstItem="Fl6-lH-JzK" firstAttribute="centerX" secondItem="pav-qx-7F6" secondAttribute="centerX" id="vuR-as-hEl"/>
+                <constraint firstItem="Fl6-lH-JzK" firstAttribute="top" secondItem="E8h-3R-bWH" secondAttribute="bottom" constant="16" id="x7a-D0-fs9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="pav-qx-7F6"/>
+            <connections>
+                <outlet property="indicator" destination="E8h-3R-bWH" id="zDx-EZ-iJy"/>
+                <outlet property="messageLabel" destination="Fl6-lH-JzK" id="1cz-AD-LB1"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="113"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="PrimaryBackground">
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

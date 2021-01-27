@@ -83,6 +83,9 @@
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
 		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
 		2773D15A25849FE7007FD3F0 /* TeamDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */; };
+		2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D15B25C157AD007FD3F0 /* UIView+Blocking.swift */; };
+		2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2773D15D25C15D3E007FD3F0 /* LoadingBlockingView.xib */; };
+		2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D15F25C15D5F007FD3F0 /* LoadingBlockingView.swift */; };
 		277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C22511D1600063FFE6 /* Delegate.swift */; };
 		277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */; };
 		277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */; };
@@ -255,6 +258,9 @@
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
 		2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailDataController.swift; sourceTree = "<group>"; };
+		2773D15B25C157AD007FD3F0 /* UIView+Blocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blocking.swift"; sourceTree = "<group>"; };
+		2773D15D25C15D3E007FD3F0 /* LoadingBlockingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingBlockingView.xib; sourceTree = "<group>"; };
+		2773D15F25C15D5F007FD3F0 /* LoadingBlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingBlockingView.swift; sourceTree = "<group>"; };
 		277FD2C22511D1600063FFE6 /* Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Delegate.swift; sourceTree = "<group>"; };
 		277FD2C42511D2A30063FFE6 /* DelegationDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegationDataController.swift; sourceTree = "<group>"; };
 		277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcesses.graphql.swift; sourceTree = "<group>"; };
@@ -712,12 +718,15 @@
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
 				27B22B5524D93760005DF376 /* GradientView.swift */,
+				2773D15F25C15D5F007FD3F0 /* LoadingBlockingView.swift */,
+				2773D15D25C15D3E007FD3F0 /* LoadingBlockingView.xib */,
 				27293FCD25071F8F000D27D1 /* NoResultsView.swift */,
 				27293FCF25071F9A000D27D1 /* NoResultsView.xib */,
 				27293FC2250707D2000D27D1 /* Options Bar */,
 				270169EE24FF6B3500CB97BF /* PaddedTextField.swift */,
 				27293FD52508B3E2000D27D1 /* TouchThroughView.swift */,
 				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
+				2773D15B25C157AD007FD3F0 /* UIView+Blocking.swift */,
 				27B22B5924D93978005DF376 /* Profile Info */,
 				2717F46424DAA99200189F7C /* Voting */,
 			);
@@ -970,6 +979,7 @@
 				27F883D724EDD94500B216D2 /* TeamMembers.storyboard in Resources */,
 				27F883DE24EDD99200B216D2 /* TeamActions.storyboard in Resources */,
 				27293FCA25071495000D27D1 /* BrowseProposals.storyboard in Resources */,
+				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
 				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
 			);
@@ -1159,6 +1169,7 @@
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
 				27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */,
+				2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */,
 				27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */,
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
 				27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */,
@@ -1188,6 +1199,7 @@
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
+				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
