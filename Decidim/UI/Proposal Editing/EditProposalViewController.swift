@@ -93,7 +93,10 @@ extension EditProposalViewController {
             return
         }
         
-        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { error in
+        self.blockView(message: "Submitting proposal...")
+        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { [weak self] error in
+            self?.unblockView()
+            
             guard error == nil else {
                 return
             }
@@ -114,7 +117,10 @@ extension EditProposalViewController {
             return
         }
         
-        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { error in
+        self.blockView(message: "Editing proposal...")
+        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { [weak self] error in
+            self?.unblockView()
+            
             guard error == nil else {
                 return
             }

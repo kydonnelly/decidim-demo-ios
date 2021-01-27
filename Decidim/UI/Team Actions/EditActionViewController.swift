@@ -103,7 +103,10 @@ extension EditActionViewController {
         
         let newStatus: TeamActionStatus = self.isOngoing ? .ongoing : .pending
         
+        self.blockView(message: "Submitting action...")
         TeamActionsDataController.shared(teamId: self.teamId).addAction(name: name, description: description, status: newStatus) { [weak self] error in
+            self?.unblockView()
+            
             guard error == nil else {
                 return
             }
@@ -118,7 +121,10 @@ extension EditActionViewController {
             return
         }
         
+        self.blockView(message: "Editing action...")
         TeamActionsDataController.shared(teamId: self.teamId).editAction(originalAction.id, name: name, description: description, status: originalAction.status) { [weak self] error in
+            self?.unblockView()
+            
             guard error == nil else {
                 return
             }

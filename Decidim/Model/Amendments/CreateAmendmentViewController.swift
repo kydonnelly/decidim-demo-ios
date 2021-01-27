@@ -61,7 +61,10 @@ extension CreateAmendmentViewController {
         }
         
         if let amendment = self.originalAmendment {
+            self.blockView(message: "Editing amendment...")
             self.dataController.editAmendment(amendment.amendmentId, status: amendment.status, text: text) { [weak self] error in
+                self?.unblockView()
+                
                 guard error == nil else {
                     return
                 }
@@ -69,7 +72,10 @@ extension CreateAmendmentViewController {
                 self?.navigationController?.popViewController(animated: true)
             }
         } else {
+            self.blockView(message: "Submitting amendment...")
             self.dataController.addAmendment(text, status: .submitted) { [weak self] error in
+                self?.unblockView()
+                
                 guard error == nil else {
                     return
                 }

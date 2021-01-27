@@ -95,7 +95,10 @@ extension EditTeamViewController {
             return
         }
         
+        self.blockView(message: "Creating team...")
         TeamListDataController.shared().addTeam(title: name, description: description, thumbnail: self.thumbnail, members: [memberId: .joined]) { [weak self] error in
+            self?.unblockView()
+            
             if error == nil {
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             }
@@ -107,7 +110,10 @@ extension EditTeamViewController {
             return
         }
         
+        self.blockView(message: "Editing team...")
         TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail) { [weak self] error in
+            self?.unblockView()
+            
             if error == nil {
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             }
