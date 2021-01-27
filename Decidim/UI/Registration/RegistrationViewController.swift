@@ -51,8 +51,10 @@ extension RegistrationViewController {
             return
         }
         
+        self.blockView(message: "Creating Account...")
         MyProfileController.shared.register(username: username, password: password) { [weak self] error in
             guard let self = self else { return }
+            self.unblockView()
             
             if error == nil {
                 ProfileInfoDataController.shared().invalidate()
