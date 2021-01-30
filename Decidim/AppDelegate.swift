@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let tabController = self.window?.rootViewController as? UITabBarController {
             tabController.delegate = self
-            tabController.selectedIndex = MyProfileController.shared.isRegistered ? 1 : 0
+            tabController.selectedIndex = MyProfileController.shared.isRegistered ? 2 : 0
             
             // named colors aren't available until after the trait collection is known :(
             tabController.viewControllers?.forEach {
