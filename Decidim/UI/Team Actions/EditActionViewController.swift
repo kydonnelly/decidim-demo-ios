@@ -48,6 +48,7 @@ class EditActionViewController: UIViewController, CustomTableController {
         super.viewDidLoad()
         
         if let editingAction = self.originalAction {
+            self.title = "Edit Action"
             self.actionName = editingAction.name
             self.actionDescription = editingAction.description
 //            self.deadline = editingAction.deadline

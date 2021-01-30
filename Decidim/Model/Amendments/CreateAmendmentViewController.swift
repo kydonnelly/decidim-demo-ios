@@ -35,6 +35,7 @@ class CreateAmendmentViewController: UIViewController {
         super.viewDidLoad()
         
         if let amendment = self.originalAmendment {
+            self.title = "Edit Amendment"
             self.descriptionTextView.text = amendment.text
         } else {
             self.descriptionTextView.text = self.proposalDetail.proposal.body
