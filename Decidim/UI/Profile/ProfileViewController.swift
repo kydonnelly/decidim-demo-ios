@@ -79,6 +79,12 @@ class ProfileViewController: UIViewController, CustomTableController {
         self.refresh()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.tableView.layoutNoResultsView(below: 1)
+    }
+    
     fileprivate func refresh() {
         self.tableView.hideNoResultsIfNeeded()
         

@@ -31,9 +31,6 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         
         dataSource.tableView.reloadData()
         
-        dataSource.tableView.setNeedsLayout()
-        dataSource.tableView.layoutIfNeeded()
-        
         if self.dataController.donePaging && self.allTeams().count == 0 {
             dataSource.tableView.showNoResults(message: "No teams", below: dataSource.sectionOffset)
         } else {

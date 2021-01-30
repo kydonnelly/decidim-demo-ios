@@ -31,7 +31,19 @@ extension UITableView {
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         view.translatesAutoresizingMaskIntoConstraints = true
         
-        let inset = self.rect(forSection: section).minY + self.rectForHeader(inSection: section).height
+        self.layoutNoResultsView(below: section)
+    }
+    
+    public func layoutNoResultsView(below section: Int = 0) {
+        guard let view = self.currentNoResultsView else {
+            return
+        }
+        
+        // make sure section rects are updated
+        self.setNeedsLayout()
+        self.layoutIfNeeded()
+        
+        let inset = self.rect(forSection: section).maxY
         var frame = self.bounds
         frame.origin.y = inset
         frame.size.height -= inset

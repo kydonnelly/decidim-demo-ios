@@ -40,9 +40,6 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
         guard count > 0 else {
             self.isRefreshing = false
             self.dataSource?.tableView?.reloadData()
-            
-            self.dataSource?.tableView.setNeedsLayout()
-            self.dataSource?.tableView.layoutIfNeeded()
             self.dataSource?.tableView.showNoResults(message: "No votes")
             return
         }
@@ -61,7 +58,12 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
                 if count == 0 {
                     self.isRefreshing = false
                     self.dataSource?.tableView.reloadData()
-                    self.dataSource?.tableView.hideNoResultsIfNeeded()
+                    
+                    if self.proposalVotes.count > 0 {
+                        self.dataSource?.tableView.hideNoResultsIfNeeded()
+                    } else {
+                        self.dataSource?.tableView.showNoResults(message: "No votes")
+                    }
                 }
             }
         }

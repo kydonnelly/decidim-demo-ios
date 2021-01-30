@@ -42,7 +42,7 @@
                     <constraints>
                         <constraint firstItem="ibk-gB-UfP" firstAttribute="leading" secondItem="Ba1-ky-9x3" secondAttribute="leading" constant="24" id="7lk-Hq-APK"/>
                         <constraint firstItem="ibk-gB-UfP" firstAttribute="top" secondItem="EnS-o9-3Ix" secondAttribute="bottom" constant="8" id="Fsp-PA-rXY"/>
-                        <constraint firstAttribute="bottom" secondItem="ibk-gB-UfP" secondAttribute="bottom" constant="12" id="ISX-kH-wGL"/>
+                        <constraint firstAttribute="bottom" secondItem="ibk-gB-UfP" secondAttribute="bottom" priority="51" constant="12" id="ISX-kH-wGL"/>
                         <constraint firstItem="EnS-o9-3Ix" firstAttribute="top" secondItem="Ba1-ky-9x3" secondAttribute="top" constant="12" id="OJH-RG-9iH"/>
                         <constraint firstItem="EnS-o9-3Ix" firstAttribute="centerX" secondItem="Ba1-ky-9x3" secondAttribute="centerX" id="re2-Rh-PEF"/>
                         <constraint firstAttribute="trailing" secondItem="ibk-gB-UfP" secondAttribute="trailing" constant="24" id="xfW-ZE-8aU"/>
@@ -53,7 +53,7 @@
             <constraints>
                 <constraint firstItem="Ba1-ky-9x3" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" multiplier="0.8" id="CwG-5A-jey"/>
                 <constraint firstItem="Ba1-ky-9x3" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="lxp-vU-aLf"/>
-                <constraint firstItem="Ba1-ky-9x3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="vae-Df-k0P"/>
+                <constraint firstItem="Ba1-ky-9x3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" priority="760" constant="24" id="vae-Df-k0P"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
