@@ -100,8 +100,10 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
             guard let self = self else { return }
             
             self.tableView.reloadData()
-            if let deadline = self.proposalDetail?.deadline {
+            if let deadline = self.deadlineIfFuture {
                 self.voteDeadlineLabel.text = deadline.asShortStringLeft()
+            } else {
+                self.voteDeadlineLabel.text = "Voting has ended"
             }
         }
         
@@ -356,14 +358,24 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
 
 extension ProposalDetailViewController {
     
+    fileprivate var deadlineIfFuture: Date? {
+        if let deadline = self.proposalDetail?.deadline, deadline.compare(Date()) == .orderedDescending {
+            return deadline
+        } else {
+            return nil
+        }
+    }
+    
     fileprivate func refreshVoteUI() {
         let allVotes = self.voteDataController.allVotes.filter { $0.proposalId == self.proposal.id }
         let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
         
         if let voteType = myVote {
             self.voteStatusLabel.text = "You voted \(String(describing: voteType.voteType))"
-        } else {
+        } else if self.deadlineIfFuture != nil {
             self.voteStatusLabel.text = "Vote now!"
+        } else {
+            self.voteStatusLabel.text = ""
         }
         
         let hasVotes = allVotes.contains { $0.voteType != .abstain }
@@ -380,7 +392,7 @@ extension ProposalDetailViewController {
             self.votePercentageIcon.icon = overallVoteType.icon
             self.votePercentageIcon.iconColor = overallVoteType.tintColor
             
-            if let deadline = self.proposalDetail?.deadline, deadline.compare(Date()) == .orderedDescending {
+            if self.deadlineIfFuture != nil {
                 self.voteResultsLabel.text = "Current Vote"
             } else {
                 self.voteResultsLabel.text = "Final Vote"
