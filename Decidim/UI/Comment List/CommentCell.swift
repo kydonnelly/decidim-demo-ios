@@ -24,10 +24,12 @@ class CommentCell: CustomTableViewCell {
     fileprivate var onOptionsTapped: OptionsBlock?
     fileprivate var onProfileTapped: ProfileBlock?
     
-    func setup(comment: ProposalComment, isOwn: Bool, isEditing: Bool, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
+    func setup(comment: ProposalComment, isOwn: Bool, isExpanded: Bool, isEditing: Bool, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
         self.timeLabel.text = comment.createdAt.asShortStringAgo()
+        
+        self.commentLabel.numberOfLines = isExpanded ? 0 : 2
         
         self.reactButton.isHidden = isOwn
         self.optionsButton.isHidden = !isOwn

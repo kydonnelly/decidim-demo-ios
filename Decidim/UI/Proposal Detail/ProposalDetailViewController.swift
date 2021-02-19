@@ -277,7 +277,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let comment = self.commentDataController.allComments[indexPath.row]
             let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
             
-            cell.setup(comment: comment, isOwn: isMyComment, isEditing: false, optionsBlock: { [weak self] button in
+            cell.setup(comment: comment, isOwn: isMyComment, isExpanded: false, isEditing: false, optionsBlock: { [weak self] button in
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 if isMyComment {
                     alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
