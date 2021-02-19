@@ -46,7 +46,7 @@ class EditProposalViewController: UIViewController, CustomTableController {
         
         if let editingProposal = self.originalProposal {
             self.title = "Edit Proposal"
-            self.deadline = editingProposal.deadline
+            self.deadline = editingProposal.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
             self.thumbnail = editingProposal.proposal.thumbnail
             self.proposalTitle = editingProposal.proposal.title
             self.proposalDescription = editingProposal.proposal.body
