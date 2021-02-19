@@ -27,11 +27,11 @@ class CommentListViewController: UIViewController, CustomTableController {
         let sb = UIStoryboard(name: "CommentList", bundle: .main)
         let nvc = sb.instantiateInitialViewController() as! UINavigationController
         let clvc = nvc.viewControllers.first! as! CommentListViewController
-        clvc.setup(proposalDetail: proposalDetail, editComment: editComment)
+        clvc.setup(proposalDetail: proposalDetail, editComment: editComment, focusComment: focusComment)
         return nvc
     }
     
-    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment?) {
+    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment?, focusComment: ProposalComment?) {
         self.editingComment = editComment
         self.initialFocusComment = focusComment ?? editComment
         self.dataController = ProposalCommentsDataController.shared(proposalId: proposalDetail.proposal.id)
