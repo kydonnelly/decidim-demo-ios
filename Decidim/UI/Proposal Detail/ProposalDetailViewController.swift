@@ -343,6 +343,11 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 vc.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(vc, animated: true, completion: nil)
             }
+        } else if indexPath.section == 2 {
+            let comment = self.commentDataController.allComments[indexPath.row]
+            let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!, focusComment: comment)
+            commentVC.modalPresentationStyle = .overCurrentContext
+            self.navigationController?.present(commentVC, animated: true, completion: nil)
         }
     }
     

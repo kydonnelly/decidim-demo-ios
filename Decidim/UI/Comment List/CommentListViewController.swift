@@ -21,8 +21,9 @@ class CommentListViewController: UIViewController, CustomTableController {
     private var dataController: ProposalCommentsDataController!
     
     fileprivate var editingComment: ProposalComment?
+    fileprivate var initialFocusComment: ProposalComment?
     
-    static func create(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil) -> UIViewController {
+    static func create(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil, focusComment: ProposalComment? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "CommentList", bundle: .main)
         let nvc = sb.instantiateInitialViewController() as! UINavigationController
         let clvc = nvc.viewControllers.first! as! CommentListViewController
@@ -30,8 +31,9 @@ class CommentListViewController: UIViewController, CustomTableController {
         return nvc
     }
     
-    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil) {
+    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment?) {
         self.editingComment = editComment
+        self.initialFocusComment = focusComment ?? editComment
         self.dataController = ProposalCommentsDataController.shared(proposalId: proposalDetail.proposal.id)
     }
     
@@ -62,6 +64,11 @@ class CommentListViewController: UIViewController, CustomTableController {
                 self.textView.text = comment.text
             } else {
                 self.textView.text = nil
+            }
+            
+            if let comment = self.initialFocusComment {
+                self.initialFocusComment = nil
+                self.scrollToComment(comment, animated: false)
             }
         })
     }
@@ -210,6 +217,21 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
         })
         
         return cell
+    }
+    
+}
+
+extension CommentListViewController {
+    
+    @discardableResult
+    fileprivate func scrollToComment(_ comment: ProposalComment, animated: Bool = true) -> Bool {
+        if let index = self.comments.lastIndex(where: { $0.commentId == comment.commentId }) {
+            let indexPath = IndexPath(row: index, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
+            return true
+        } else {
+            return false
+        }
     }
     
 }
