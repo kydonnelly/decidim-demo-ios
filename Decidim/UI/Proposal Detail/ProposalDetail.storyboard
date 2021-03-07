@@ -161,7 +161,7 @@
                                                                                 <constraint firstAttribute="height" constant="24" id="b24-ck-FYo"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
-                                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubble2"/>
+                                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="message_circle"/>
                                                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                                                     <color key="value" name="DetailDark"/>
                                                                                 </userDefinedRuntimeAttribute>

@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="width" constant="48" id="CZA-VY-Jc3"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubble2"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="message_circle"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                         <color key="value" name="Action"/>
                                     </userDefinedRuntimeAttribute>

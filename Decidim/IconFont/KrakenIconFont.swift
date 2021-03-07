@@ -11,11 +11,28 @@ import KTDIconFont
 public enum KrakenIcon: unichar, IconFont {
     case notFound = 0x0
     
-    case image = 0xe90d
-    case bubble2 = 0xe96e
+    case bell = 0xe900
+    case check = 0xe901
+    case chevron_down = 0xe902
+    case chevron_left = 0xe903
+    case chevron_up = 0xe904
+    case circle = 0xe905
+    case edit_2 = 0xe906
+    case feather = 0xe907
+    case heart1 = 0xe908
+    case home = 0xe909
+    case message_circle = 0xe90a
+    case plus = 0xe90b
+    case `repeat` = 0xe90c
+    case search = 0xe90d
+    case thumbs_down = 0xe90e
+    case thumbs_up = 0xe90f
+    case user_check = 0xe910
+    case user = 0xe911
+    case users = 0xe912
+    case x = 0xe913
+    case image = 0xe914
     case bubbles3 = 0xe96f
-    case user = 0xe971
-    case users = 0xe972
     case hourglass = 0xe979
     case spinner8 = 0xe981
     case shrink2 = 0xe98c
@@ -35,7 +52,6 @@ public enum KrakenIcon: unichar, IconFont {
     case circle_up = 0xea41
     case checkbox_checked = 0xea52
     case checkbox_unchecked = 0xea53
-    case circle = 0xea56
     
     public static var fontFileName: String {
         return "Kraken"
