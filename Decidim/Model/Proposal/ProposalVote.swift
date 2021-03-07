@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum VoteType: String {
+enum VoteType: String, CaseIterable {
     case yes
     case no
     case abstain
