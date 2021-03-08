@@ -16,6 +16,8 @@ class VotingOptionsView: UIView {
     
     private var onVote: VoteBlock?
     private var currentVote: VoteType?
+    private var allVotes: [ProposalVote]?
+    
     private var collectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -38,14 +40,24 @@ class VotingOptionsView: UIView {
         self.collectionView.register(cellNib, forCellWithReuseIdentifier: Self.VotingOptionCellId)
     }
     
-    public func setup(currentVote: VoteType?, onVote: VoteBlock?) {
+    public func setup(currentVote: VoteType?, allVotes: [ProposalVote], onVote: VoteBlock?) {
         self.onVote = onVote
+        self.allVotes = allVotes
         self.currentVote = currentVote
         self.collectionView.reloadData()
     }
     
     fileprivate var orderedVoteTypes: [VoteType] {
         return [.no, .abstain, .yes]
+    }
+    
+    fileprivate func voteShare(type: VoteType) -> CGFloat? {
+        guard let allVotes = self.allVotes, allVotes.count > 0 else {
+            return nil
+        }
+        
+        let votes = allVotes.filter { $0.voteType == type }
+        return CGFloat(votes.count) / CGFloat(allVotes.count)
     }
     
 }
@@ -60,7 +72,8 @@ extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegat
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.VotingOptionCellId, for: indexPath) as! VotingOptionCell
         
         let voteType = self.orderedVoteTypes[indexPath.row]
-        cell.setup(voteType: voteType, isSelected: self.currentVote == voteType) { [weak self] in
+        let percentage = self.voteShare(type: voteType)
+        cell.setup(voteType: voteType, percentage: percentage, isSelected: self.currentVote == voteType) { [weak self] in
             self?.onVote?(voteType)
         }
         
@@ -71,33 +84,27 @@ extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegat
 
 extension VotingOptionsView: UICollectionViewDelegateFlowLayout {
     
+    static let CellPadding: CGFloat = 8.0
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let numItems = CGFloat(self.orderedVoteTypes.count)
-        let maxWidth = min(self.bounds.size.height, self.bounds.size.width / numItems)
-        let maxHeight = min(self.bounds.size.width, self.bounds.size.height / numItems)
-        let dimension = max(maxWidth, maxHeight)
+        let maxWidth = self.bounds.size.width / numItems - Self.CellPadding
+        let maxHeight = self.bounds.size.height / numItems - Self.CellPadding
         
-        return CGSize(width: dimension, height: dimension)
+        if maxWidth < maxHeight {
+            return CGSize(width: self.bounds.size.width, height: maxHeight)
+        } else {
+            return CGSize(width: maxWidth, height: self.bounds.size.height)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let minDimension = min(self.bounds.size.width, self.bounds.size.height)
-        let maxDimension = max(self.bounds.size.width, self.bounds.size.height)
-        
-        let numItems = self.orderedVoteTypes.count
-        let totalPadding = max(0, maxDimension - minDimension * CGFloat(numItems))
-        let inset = totalPadding / CGFloat(numItems) * 0.5
-        
+        let inset = Self.CellPadding * 0.5
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        let minDimension = min(self.bounds.size.width, self.bounds.size.height)
-        let maxDimension = max(self.bounds.size.width, self.bounds.size.height)
-        
-        let numItems = self.orderedVoteTypes.count
-        let totalPadding = max(0, maxDimension - minDimension * CGFloat(numItems))
-        return totalPadding / CGFloat(numItems)
+        return Self.CellPadding
     }
     
 }

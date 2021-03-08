@@ -31,7 +31,7 @@ class VotingResultsView: UIView {
     public func setup(votes: [ProposalVote], expectedVoteCount: Int? = nil) {
         var slices: [DonutSlice] = VoteType.allCases.compactMap { voteType in
             let weight = CGFloat(votes.filter { $0.voteType == voteType }.count)
-            return DonutSlice(name: voteType.rawValue, color: voteType.tintColor, weight: weight)
+            return DonutSlice(name: voteType.displayString, color: voteType.tintColor, weight: weight)
         }
         
         if let expectedVotes = expectedVoteCount, votes.count < expectedVotes {

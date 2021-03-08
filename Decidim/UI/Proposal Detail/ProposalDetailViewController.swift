@@ -34,16 +34,11 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
-    @IBOutlet var voteStatusLabel: UILabel!
     @IBOutlet var voteView: VotingOptionsView!
+    @IBOutlet var voteResultsView: VotingResultsView!
     
     @IBOutlet var voteContainerView: UIView!
     @IBOutlet var voteDeadlineLabel: UILabel!
-    
-    @IBOutlet var votingDetailView: UIView!
-    @IBOutlet var voteResultsLabel: UILabel!
-    @IBOutlet var votePercentageLabel: UILabel!
-    @IBOutlet var votePercentageIcon: UIImageView!
     
     @IBOutlet var voteDelegationVisibilityConstraint: NSLayoutConstraint!
     
@@ -90,7 +85,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         super.viewWillAppear(animated)
         
         self.voteDeadlineLabel.text = ""
-        self.votingDetailView.isHidden = true
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -173,9 +167,9 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             }
             
             if self.voteWasDelegated {
-                return 196
+                return 276
             } else {
-                return 162
+                return 240
             }
         } else {
             return 0
@@ -375,40 +369,12 @@ extension ProposalDetailViewController {
         let allVotes = self.voteDataController.allVotes.filter { $0.proposalId == self.proposal.id }
         let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
         
-        if let voteType = myVote {
-            self.voteStatusLabel.text = "You voted \(String(describing: voteType.voteType))"
-        } else if self.deadlineIfFuture != nil {
-            self.voteStatusLabel.text = "Vote now!"
-        } else {
-            self.voteStatusLabel.text = ""
-        }
-        
-        let hasVotes = allVotes.contains { $0.voteType != .abstain }
-        self.votingDetailView.isHidden = !hasVotes
-        
-        if hasVotes {
-            let noCount = allVotes.filter { $0.voteType == .no }.count
-            let yesCount = allVotes.filter { $0.voteType == .yes }.count
-            let percentage = Int(100 * Double(yesCount) / Double(yesCount + noCount))
-            
-            let overallVoteType: VoteType = percentage > 50 ? .yes : .no
-            self.votePercentageLabel.text = "\(percentage)%"
-            self.votePercentageLabel.textColor = overallVoteType.tintColor
-            self.votePercentageIcon.icon = overallVoteType.icon
-            self.votePercentageIcon.iconColor = overallVoteType.tintColor
-            
-            if self.deadlineIfFuture != nil {
-                self.voteResultsLabel.text = "Current Vote"
-            } else {
-                self.voteResultsLabel.text = "Final Vote"
-            }
-        }
-        
-        self.refreshVoteButtons(myVote: myVote)
+        self.refreshVoteButtons(myVote: myVote, allVotes: allVotes)
+        self.voteResultsView.setup(votes: allVotes)
     }
     
-    private func refreshVoteButtons(myVote: ProposalVote?) {
-        self.voteView.setup(currentVote: myVote?.voteType) { [weak self] type in
+    private func refreshVoteButtons(myVote: ProposalVote?, allVotes: [ProposalVote]) {
+        self.voteView.setup(currentVote: myVote?.voteType, allVotes: allVotes) { [weak self] type in
             if let existingVote = myVote {
                 self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
                     self?.refreshVoteUI()

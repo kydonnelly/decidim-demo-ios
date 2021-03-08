@@ -12,18 +12,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ad2-Ok-1nm" customClass="VotingOptionCell" customModule="Decidim" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="F8z-KU-4D0">
-                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-He-VwJ">
-                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                    <view contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="rBg-He-VwJ">
+                        <rect key="frame" x="8" y="4" width="112" height="60.5"/>
                         <color key="backgroundColor" name="PrimaryLight"/>
+                        <constraints>
+                            <constraint firstAttribute="width" priority="500" constant="128" id="85p-M9-ioF"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="64"/>
+                                <real key="value" value="8"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                 <color key="value" name="Action"/>
@@ -33,25 +36,38 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-Wa-7fB">
-                        <rect key="frame" x="8" y="8" width="112" height="112"/>
+                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YjY-Wa-7fB">
+                        <rect key="frame" x="52" y="12" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="PmB-2K-Zk9"/>
+                            <constraint firstAttribute="width" constant="24" id="WWW-XY-9vq"/>
+                        </constraints>
                         <connections>
                             <action selector="didTapVoteButton:" destination="ad2-Ok-1nm" eventType="touchUpInside" id="AXi-uu-q0E"/>
                         </connections>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="69% Approved" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6i-aM-7Kl">
+                        <rect key="frame" x="12" y="42" width="104" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" name="PrimaryDark"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="rBg-He-VwJ" firstAttribute="leading" secondItem="F8z-KU-4D0" secondAttribute="leading" id="CAs-cq-2Ah"/>
-                    <constraint firstAttribute="trailing" secondItem="rBg-He-VwJ" secondAttribute="trailing" id="FRm-ES-nJB"/>
-                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="centerY" secondItem="F8z-KU-4D0" secondAttribute="centerY" id="N1v-BF-PBF"/>
-                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="centerX" secondItem="F8z-KU-4D0" secondAttribute="centerX" id="NJK-UJ-wHJ"/>
-                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="leading" secondItem="F8z-KU-4D0" secondAttribute="leading" constant="8" id="Qib-no-cQX"/>
-                    <constraint firstAttribute="bottom" secondItem="rBg-He-VwJ" secondAttribute="bottom" id="T6A-JQ-1t7"/>
-                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="top" secondItem="F8z-KU-4D0" secondAttribute="top" constant="8" id="ash-uk-zKs"/>
-                    <constraint firstItem="rBg-He-VwJ" firstAttribute="top" secondItem="F8z-KU-4D0" secondAttribute="top" id="d6Q-oy-Wh6"/>
+                    <constraint firstItem="m6i-aM-7Kl" firstAttribute="leading" secondItem="rBg-He-VwJ" secondAttribute="leading" constant="4" id="1eM-VO-Jh0"/>
+                    <constraint firstAttribute="bottom" secondItem="rBg-He-VwJ" secondAttribute="bottom" priority="51" constant="4" id="Eoj-Ge-Adg"/>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="F8z-KU-4D0" secondAttribute="leading" constant="8" id="U1E-VF-Lue"/>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="bottom" secondItem="m6i-aM-7Kl" secondAttribute="bottom" constant="8" id="WW5-Mq-Ehe"/>
+                    <constraint firstItem="m6i-aM-7Kl" firstAttribute="centerX" secondItem="rBg-He-VwJ" secondAttribute="centerX" id="XeA-9l-fxL"/>
+                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="top" secondItem="rBg-He-VwJ" secondAttribute="top" constant="8" id="ad5-Tk-N1q"/>
+                    <constraint firstItem="m6i-aM-7Kl" firstAttribute="top" secondItem="YjY-Wa-7fB" secondAttribute="bottom" constant="6" id="b1w-ID-lue"/>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="top" secondItem="F8z-KU-4D0" secondAttribute="top" constant="4" id="d6Q-oy-Wh6"/>
+                    <constraint firstItem="YjY-Wa-7fB" firstAttribute="centerX" secondItem="rBg-He-VwJ" secondAttribute="centerX" id="na6-nZ-YKx"/>
+                    <constraint firstItem="rBg-He-VwJ" firstAttribute="centerX" secondItem="F8z-KU-4D0" secondAttribute="centerX" id="wuY-yC-a2G"/>
                 </constraints>
             </collectionViewCellContentView>
             <connections>
+                <outlet property="detailLabel" destination="m6i-aM-7Kl" id="mEL-h0-hAQ"/>
                 <outlet property="selectedView" destination="rBg-He-VwJ" id="GbA-MH-OzT"/>
                 <outlet property="voteButton" destination="YjY-Wa-7fB" id="PFg-CK-zxk"/>
             </connections>
@@ -61,6 +77,9 @@
     <resources>
         <namedColor name="Action">
             <color red="0.11400000005960464" green="0.47099998593330383" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

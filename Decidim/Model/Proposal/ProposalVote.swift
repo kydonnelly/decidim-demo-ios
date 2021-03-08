@@ -71,4 +71,15 @@ extension VoteType {
         }
     }
     
+    var displayString: String {
+        switch self {
+        case .yes:
+            return "Approve"
+        case .no:
+            return "Oppose"
+        case .abstain:
+            return "Abstain"
+        }
+    }
+    
 }

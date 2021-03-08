@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8G5-du-qRJ" customClass="DonutView" customModule="Agora" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="0.0" width="360" height="360"/>
+                    <rect key="frame" x="16" y="16" width="328" height="328"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="8G5-du-qRJ" secondAttribute="height" multiplier="1:1" id="uYQ-ZD-Q59"/>
@@ -33,16 +33,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3n-NA-kEH">
-                    <rect key="frame" x="20" y="155" width="320" height="50.5"/>
+                    <rect key="frame" x="36" y="155" width="288" height="50.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="150" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ylS-xf-RYt">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                            <rect key="frame" x="0.0" y="0.0" width="288" height="29"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
                             <color key="textColor" name="PrimaryDark"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOTES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1z7-0o-w2C">
-                            <rect key="frame" x="0.0" y="31" width="320" height="19.5"/>
+                            <rect key="frame" x="0.0" y="31" width="288" height="19.5"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                             <color key="textColor" name="PrimaryDark"/>
                             <nil key="highlightedColor"/>
@@ -62,12 +62,12 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="8G5-du-qRJ" firstAttribute="leading" secondItem="ovk-Li-d29" secondAttribute="leading" priority="500" id="7ir-37-UjS"/>
+                <constraint firstItem="8G5-du-qRJ" firstAttribute="leading" secondItem="ovk-Li-d29" secondAttribute="leading" priority="500" constant="16" id="7ir-37-UjS"/>
                 <constraint firstItem="M3n-NA-kEH" firstAttribute="centerY" secondItem="8G5-du-qRJ" secondAttribute="centerY" id="ACp-0A-ed5"/>
-                <constraint firstItem="8G5-du-qRJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ovk-Li-d29" secondAttribute="top" id="Eqf-JI-kCQ"/>
-                <constraint firstItem="8G5-du-qRJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ovk-Li-d29" secondAttribute="leading" id="FE9-8d-Ig6"/>
+                <constraint firstItem="8G5-du-qRJ" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ovk-Li-d29" secondAttribute="top" constant="16" id="Eqf-JI-kCQ"/>
+                <constraint firstItem="8G5-du-qRJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ovk-Li-d29" secondAttribute="leading" constant="16" id="FE9-8d-Ig6"/>
                 <constraint firstItem="M3n-NA-kEH" firstAttribute="leading" secondItem="8G5-du-qRJ" secondAttribute="leading" constant="20" id="HGQ-a3-gMQ"/>
-                <constraint firstItem="8G5-du-qRJ" firstAttribute="top" secondItem="ovk-Li-d29" secondAttribute="top" priority="500" id="Taf-SE-13W"/>
+                <constraint firstItem="8G5-du-qRJ" firstAttribute="top" secondItem="ovk-Li-d29" secondAttribute="top" priority="500" constant="16" id="Taf-SE-13W"/>
                 <constraint firstItem="8G5-du-qRJ" firstAttribute="centerY" secondItem="ovk-Li-d29" secondAttribute="centerY" id="Yl6-L5-tD1"/>
                 <constraint firstItem="8G5-du-qRJ" firstAttribute="centerX" secondItem="ovk-Li-d29" secondAttribute="centerX" id="dQH-M7-O4m"/>
                 <constraint firstItem="M3n-NA-kEH" firstAttribute="centerX" secondItem="8G5-du-qRJ" secondAttribute="centerX" id="rug-wh-SqU"/>
