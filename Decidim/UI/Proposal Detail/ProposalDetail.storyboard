@@ -12,7 +12,7 @@
         <!--ProposalDetailViewController-->
         <scene sceneID="cZM-qc-mRq">
             <objects>
-                <viewController id="Thi-t9-BhW" userLabel="ProposalDetailViewController" customClass="ProposalDetailViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Thi-t9-BhW" userLabel="ProposalDetailViewController" customClass="ProposalDetailViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIl-ot-lT9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,14 +21,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="aue-cF-8hv" customClass="ProposalDetailTitleCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="aue-cF-8hv" customClass="ProposalDetailTitleCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aue-cF-8hv" id="xfl-a7-6rR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -74,7 +74,7 @@
                                             <outlet property="titleLabel" destination="vU4-Gj-hbI" id="xWc-Aa-B6J"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EngagementCell" rowHeight="48" id="l33-Wd-9Vr" customClass="ProposalDetailEngagementCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EngagementCell" rowHeight="48" id="l33-Wd-9Vr" customClass="ProposalDetailEngagementCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124" width="414" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="l33-Wd-9Vr" id="PM9-T4-stX">
@@ -334,8 +334,53 @@
                                             <outlet property="numVotesLabel" destination="acG-JD-i6B" id="dYq-3e-QXB"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="64" id="9CZ-M7-fEQ" customClass="ProposalDetailBodyCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="172" width="414" height="64"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeadlineCell" id="INi-wH-9eU" customClass="ProposalDetailDeadlineCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="172" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="INi-wH-9eU" id="cTc-a8-0fn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="DEADLINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OD4-pm-34k">
+                                                    <rect key="frame" x="24" y="12" width="70" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2W-hl-Sei">
+                                                    <rect key="frame" x="102" y="12" width="288" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" name="SecondaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PdQ-Rp-YOy">
+                                                    <rect key="frame" x="0.0" y="42.5" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="xzL-QI-O8x"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="OD4-pm-34k" secondAttribute="bottom" priority="500" constant="12" id="5U5-WO-yKC"/>
+                                                <constraint firstItem="t2W-hl-Sei" firstAttribute="top" secondItem="cTc-a8-0fn" secondAttribute="top" constant="12" id="9GZ-2a-oqI"/>
+                                                <constraint firstItem="PdQ-Rp-YOy" firstAttribute="leading" secondItem="cTc-a8-0fn" secondAttribute="leading" id="BD3-Be-6Ze"/>
+                                                <constraint firstAttribute="bottom" secondItem="PdQ-Rp-YOy" secondAttribute="bottom" id="HX5-P8-9JZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="t2W-hl-Sei" secondAttribute="trailing" constant="24" id="eOf-F3-FeB"/>
+                                                <constraint firstItem="t2W-hl-Sei" firstAttribute="leading" secondItem="OD4-pm-34k" secondAttribute="trailing" constant="8" id="fTh-HY-2Bk"/>
+                                                <constraint firstItem="OD4-pm-34k" firstAttribute="leading" secondItem="cTc-a8-0fn" secondAttribute="leading" constant="24" id="mdH-P4-b4h"/>
+                                                <constraint firstAttribute="bottom" secondItem="t2W-hl-Sei" secondAttribute="bottom" priority="500" constant="12" id="pJ8-cB-Ol6"/>
+                                                <constraint firstAttribute="trailing" secondItem="PdQ-Rp-YOy" secondAttribute="trailing" id="ssQ-d2-yC3"/>
+                                                <constraint firstItem="OD4-pm-34k" firstAttribute="top" secondItem="cTc-a8-0fn" secondAttribute="top" constant="12" id="yCw-AM-E8Y"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="OD4-pm-34k" id="FS0-a2-Bge"/>
+                                            <outlet property="timeLabel" destination="t2W-hl-Sei" id="Yvv-Ba-o6u"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="64" id="9CZ-M7-fEQ" customClass="ProposalDetailBodyCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="215.5" width="414" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9CZ-M7-fEQ" id="hh7-pf-kJH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
@@ -370,8 +415,8 @@
                                             <outlet property="bodyLabel" destination="Z2c-8u-hr7" id="kBz-DP-rWU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="60" id="7fw-Ml-GHk" customClass="ProposalDetailAuthorCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="236" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="60" id="7fw-Ml-GHk" customClass="ProposalDetailAuthorCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="279.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7fw-Ml-GHk" id="bXV-5J-CEC">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -384,7 +429,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="758-2B-Y5L"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydb-qA-94g" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ydb-qA-94g" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="36" height="36"/>
                                                     <color key="tintColor" name="PrimaryDark"/>
                                                     <constraints>
@@ -422,8 +467,8 @@
                                             <outlet property="iconImageView" destination="Ydb-qA-94g" id="qvZ-dj-diI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="92" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Decidim" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="296" width="414" height="92"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="92" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="339.5" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v49-yy-95g" id="Psb-AX-yGB">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
@@ -442,7 +487,7 @@
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Decidim" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="35.5" width="366" height="44"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -471,7 +516,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="388" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="431.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -521,7 +566,6 @@
                     <connections>
                         <outlet property="tableView" destination="e4K-Fd-uxI" id="Xch-F7-VoU"/>
                         <outlet property="voteContainerView" destination="faM-YE-avr" id="nlq-mJ-maO"/>
-                        <outlet property="voteDeadlineLabel" destination="lvq-qH-M7V" id="dE5-TR-jiC"/>
                         <outlet property="voteDelegationVisibilityConstraint" destination="ZZP-mA-kae" id="Klf-Tr-fTb"/>
                         <outlet property="voteResultsView" destination="M3w-ac-8oL" id="vBH-ub-Dvq"/>
                         <outlet property="voteView" destination="0XQ-kT-dpp" id="C7O-D7-881"/>
@@ -538,12 +582,6 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3w-ac-8oL" customClass="VotingResultsView" customModule="Agora" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="3 days left" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvq-qH-M7V">
-                                            <rect key="frame" x="24" y="122" width="67.5" height="17"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <color key="textColor" name="SecondaryDark"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-Z9-9fH">
                                             <rect key="frame" x="0.0" y="147" width="414" height="1"/>
                                             <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
@@ -556,13 +594,11 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="ofX-Z9-9fH" secondAttribute="bottom" id="6aU-mj-dKi"/>
                                         <constraint firstAttribute="height" constant="148" id="D8H-DG-l96"/>
-                                        <constraint firstItem="lvq-qH-M7V" firstAttribute="leading" secondItem="M3w-ac-8oL" secondAttribute="leading" constant="24" id="Lxc-mA-KdI"/>
                                         <constraint firstItem="ofX-Z9-9fH" firstAttribute="leading" secondItem="M3w-ac-8oL" secondAttribute="leading" id="n38-KD-sDr"/>
                                         <constraint firstAttribute="trailing" secondItem="ofX-Z9-9fH" secondAttribute="trailing" id="qZg-wn-1am"/>
-                                        <constraint firstItem="ofX-Z9-9fH" firstAttribute="top" secondItem="lvq-qH-M7V" secondAttribute="bottom" priority="51" constant="8" id="sA8-H5-pKt"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Decidim" customModuleProvider="target">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Agora" customModuleProvider="target">
                                     <rect key="frame" x="24" y="160" width="366" height="68"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>

@@ -82,6 +82,10 @@ extension Date {
         return "\(string) left"
     }
     
+    public var isFuture: Bool {
+        return self.compare(Date()) == .orderedDescending
+    }
+    
 }
 
 extension Date {

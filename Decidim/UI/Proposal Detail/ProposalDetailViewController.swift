@@ -15,10 +15,11 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     fileprivate enum TopSectionCell: String, CaseIterable {
         case engagement = "EngagementCell"
+        case deadline = "DeadlineCell"
         case title = "TitleCell"
         
         static func ordered() -> [TopSectionCell] {
-            return [.title, .engagement]
+            return [.title, .engagement, .deadline]
         }
     }
     
@@ -38,7 +39,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     @IBOutlet var voteResultsView: VotingResultsView!
     
     @IBOutlet var voteContainerView: UIView!
-    @IBOutlet var voteDeadlineLabel: UILabel!
     
     @IBOutlet var voteDelegationVisibilityConstraint: NSLayoutConstraint!
     
@@ -81,12 +81,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellID)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        self.voteDeadlineLabel.text = ""
-    }
-    
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -94,11 +88,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
             guard let self = self else { return }
             
             self.tableView.reloadData()
-            if let deadline = self.deadlineIfFuture {
-                self.voteDeadlineLabel.text = deadline.asShortStringLeft()
-            } else {
-                self.voteDeadlineLabel.text = "Voting has ended"
-            }
         }
         
         self.voteDataController.refresh { [weak self] dc in
@@ -241,6 +230,8 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 }
                 
                 (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
+            case .deadline:
+                (cell as! ProposalDetailDeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:
                 (cell as! ProposalDetailTitleCell).setup(detail: detail)
             }
@@ -356,14 +347,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
 }
 
 extension ProposalDetailViewController {
-    
-    fileprivate var deadlineIfFuture: Date? {
-        if let deadline = self.proposalDetail?.deadline, deadline.compare(Date()) == .orderedDescending {
-            return deadline
-        } else {
-            return nil
-        }
-    }
     
     fileprivate func refreshVoteUI() {
         let allVotes = self.voteDataController.allVotes.filter { $0.proposalId == self.proposal.id }
