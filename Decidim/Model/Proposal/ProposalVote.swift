@@ -52,11 +52,11 @@ extension VoteType {
     var icon: KrakenIcon {
         switch self {
         case .yes:
-            return .checkmark
+            return .check
         case .no:
-            return .cross
+            return .x
         case .abstain:
-            return .minus
+            return .circle
         }
     }
     

@@ -44,7 +44,6 @@ public enum KrakenIcon: unichar, IconFont {
     case star_full = 0xe9d9
     case heart = 0xe9da
     case sad = 0xe9e5
-    case minus = 0xea0b
     case cancel_circle = 0xea0d
     case cross = 0xea0f
     case checkmark = 0xea10
