@@ -28,7 +28,7 @@
         <!--CommentListViewController-->
         <scene sceneID="WxB-se-h61">
             <objects>
-                <viewController id="cgL-cf-YgS" userLabel="CommentListViewController" customClass="CommentListViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cgL-cf-YgS" userLabel="CommentListViewController" customClass="CommentListViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ikm-m3-k7g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

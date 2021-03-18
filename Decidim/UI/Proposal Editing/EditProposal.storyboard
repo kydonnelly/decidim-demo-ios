@@ -28,7 +28,7 @@
         <!--New Proposal-->
         <scene sceneID="h7M-dx-sII">
             <objects>
-                <viewController id="7Ka-tf-gBS" customClass="EditProposalViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Ka-tf-gBS" customClass="EditProposalViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAX-MA-1eB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,7 +37,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="51" id="XJD-JU-k3M" customClass="ProposalInputCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="51" id="XJD-JU-k3M" customClass="ProposalInputCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJD-JU-k3M" id="PB7-60-MrO">
@@ -51,7 +51,7 @@
                                                         <constraint firstAttribute="height" constant="1" id="qIt-kj-Jao"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wu8-0G-1pR" customClass="PaddedTextField" customModule="Decidim" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wu8-0G-1pR" customClass="PaddedTextField" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="8" width="366" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -75,7 +75,7 @@
                                             <outlet property="inputField" destination="wu8-0G-1pR" id="KQp-Zg-i90"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="72" id="GIv-ly-cQk" customClass="ProposalImageCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="72" id="GIv-ly-cQk" customClass="ProposalImageCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="79" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GIv-ly-cQk" id="0oZ-j7-a1t">
@@ -129,7 +129,7 @@
                                             <outlet property="iconImageView" destination="O3Z-xT-seM" id="PHX-xe-3jQ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="128" id="vsC-O2-c8p" customClass="ProposalDatePickerCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="128" id="vsC-O2-c8p" customClass="ProposalDatePickerCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="151" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vsC-O2-c8p" id="Osz-hv-80X">

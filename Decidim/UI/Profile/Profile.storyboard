@@ -28,7 +28,7 @@
         <!--ProfileViewController-->
         <scene sceneID="RBm-2k-OVm">
             <objects>
-                <viewController id="G5u-Ii-366" userLabel="ProfileViewController" customClass="ProfileViewController" customModule="Decidim" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="G5u-Ii-366" userLabel="ProfileViewController" customClass="ProfileViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Obl-UI-4BN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,18 +37,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UsernameCell" rowHeight="80" id="RGq-jH-zgp" customClass="ProfileNameCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UsernameCell" rowHeight="80" id="RGq-jH-zgp" customClass="ProfileNameCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGq-jH-zgp" id="gmR-QY-x8W">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-4e-Wa5" customClass="LinearGradientView" customModule="Decidim" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-4e-Wa5" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="56" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u1V-hu-o4O" secondAttribute="height" multiplier="1:1" id="VxC-m5-T62"/>
@@ -108,7 +108,7 @@
                                             <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="H9d-z0-Akp" customClass="TeamListCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="H9d-z0-Akp" customClass="TeamListCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="108" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H9d-z0-Akp" id="IWu-zC-ILy">
@@ -129,7 +129,7 @@
                                                         <constraint firstAttribute="width" id="pXb-W9-LKx"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IOo-cR-smb" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IOo-cR-smb" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="19.5" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="P2g-m8-rob"/>
@@ -197,7 +197,7 @@
                                             <outlet property="titleLabel" destination="Q3W-bw-xQp" id="tXb-kS-6Kh"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" rowHeight="126" id="KK7-Dr-UgF" customClass="ProposalVoteCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" rowHeight="126" id="KK7-Dr-UgF" customClass="ProposalVoteCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="207" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KK7-Dr-UgF" id="gNq-kf-2Uk">
@@ -218,7 +218,7 @@
                                                         <constraint firstAttribute="width" id="Xjm-VC-EoH"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u76-0K-OtR" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u76-0K-OtR" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="42" id="POQ-pk-llq"/>
@@ -325,7 +325,7 @@
                                             <outlet property="votesLabel" destination="DHD-sc-HhE" id="vR3-5g-8Ey"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalListCell" rowHeight="126" id="Yz2-iE-n9X" customClass="ProposalListCell" customModule="Decidim" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalListCell" rowHeight="126" id="Yz2-iE-n9X" customClass="ProposalListCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="333" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yz2-iE-n9X" id="AoG-MF-pvs">
@@ -346,7 +346,7 @@
                                                         <constraint firstAttribute="width" id="zOp-Vr-3sn"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VVX-qc-V8t" customClass="CircleImageView" customModule="Decidim" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VVX-qc-V8t" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="12" width="42" height="42"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="VVX-qc-V8t" secondAttribute="height" id="RMV-4G-lZi"/>
@@ -481,7 +481,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-XR-g5z" customClass="OptionsBar" customModule="Decidim" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-XR-g5z" customClass="OptionsBar" customModule="Agora" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-AN-D1I">
