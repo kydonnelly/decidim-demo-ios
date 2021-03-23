@@ -31,7 +31,6 @@
 		2725C0D6253FD4010008010A /* TeamAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725C0D5253FD4010008010A /* TeamAction.swift */; };
 		27293FA42506B97B000D27D1 /* SettingsProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */; };
 		27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA52506BF19000D27D1 /* SettingsPreferencesCell.swift */; };
-		27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */; };
 		27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */; };
 		27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */; };
 		27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */; };
@@ -210,7 +209,6 @@
 		2725C0D5253FD4010008010A /* TeamAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAction.swift; sourceTree = "<group>"; };
 		27293FA32506B97B000D27D1 /* SettingsProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileCell.swift; sourceTree = "<group>"; };
 		27293FA52506BF19000D27D1 /* SettingsPreferencesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPreferencesCell.swift; sourceTree = "<group>"; };
-		27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordCell.swift; sourceTree = "<group>"; };
 		27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
 		27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsActionCell.swift; sourceTree = "<group>"; };
@@ -542,7 +540,6 @@
 			isa = PBXGroup;
 			children = (
 				27293FAB2506BFBF000D27D1 /* ChangePassword.storyboard */,
-				27293FA72506BF72000D27D1 /* ChangePasswordCell.swift */,
 				27293FA82506BF72000D27D1 /* ChangePasswordViewController.swift */,
 				275114EB2506B168006277AA /* Settings.storyboard */,
 				27293FAD2506C09A000D27D1 /* SettingsActionCell.swift */,
@@ -1183,7 +1180,6 @@
 				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
-				27293FA92506BF72000D27D1 /* ChangePasswordCell.swift in Sources */,
 				2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */,
 				27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */,
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
