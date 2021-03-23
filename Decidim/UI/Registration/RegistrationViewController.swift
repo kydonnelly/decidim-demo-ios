@@ -54,7 +54,8 @@ extension RegistrationViewController {
     }
     
     fileprivate func refreshSubmitButton() {
-        self.submitButton.isUserInteractionEnabled = self.hasValidInput
+        self.submitButton.isEnabled = self.hasValidInput
+        self.submitButton.backgroundColor = self.hasValidInput ? .action : .lightGray
     }
     
     fileprivate func refreshDisplayType() {
