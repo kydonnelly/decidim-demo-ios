@@ -34,6 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        guard let rootVC = self.window?.rootViewController else {
+            return
+        }
+        guard !(rootVC.presentedViewController is RegistrationViewController) else {
+            return
+        }
+        
+        if !MyProfileController.shared.isRegistered {
+            let registrationVC = RegistrationViewController.create()
+            registrationVC.modalPresentationStyle = .fullScreen
+            self.window?.rootViewController?.present(registrationVC, animated: false, completion: nil)
+        }
+    }
 
 }
 

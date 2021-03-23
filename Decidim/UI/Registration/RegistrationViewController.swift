@@ -22,9 +22,9 @@ class RegistrationViewController: UIViewController {
     
     private var currentMode: RegistrationType = .existingUser
     
-    public static func create() -> UINavigationController {
+    public static func create() -> RegistrationViewController {
         let sb = UIStoryboard(name: "Registration", bundle: .main)
-        let nvc = sb.instantiateInitialViewController() as! UINavigationController
+        let nvc = sb.instantiateInitialViewController() as! RegistrationViewController
         return nvc
     }
     
@@ -86,7 +86,7 @@ extension RegistrationViewController {
             
             if error == nil {
                 ProfileInfoDataController.shared().invalidate()
-                self.navigationController?.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: .alert)
                 
@@ -117,10 +117,6 @@ extension RegistrationViewController {
         }
         
         self.refreshDisplayType()
-    }
-    
-    @IBAction func closeButtonTapped(_ sender: UIButton) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
 }
