@@ -58,56 +58,6 @@
             </objects>
             <point key="canvasLocation" x="1686" y="674"/>
         </scene>
-        <!--Settings-->
-        <scene sceneID="8LS-dg-kHb">
-            <objects>
-                <viewController id="4kW-Hz-eN0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="j7d-xI-bbD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwB-0t-XHj">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <connections>
-                                    <segue destination="7yR-ey-JjF" kind="embed" id="LRJ-NN-RSz"/>
-                                </connections>
-                            </containerView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gwB-0t-XHj" secondAttribute="bottom" id="2hW-n2-1cX"/>
-                            <constraint firstAttribute="trailing" secondItem="gwB-0t-XHj" secondAttribute="trailing" id="Evo-aj-GZM"/>
-                            <constraint firstItem="gwB-0t-XHj" firstAttribute="top" secondItem="j7d-xI-bbD" secondAttribute="top" id="IYo-wO-3Fo"/>
-                            <constraint firstItem="gwB-0t-XHj" firstAttribute="leading" secondItem="j7d-xI-bbD" secondAttribute="leading" id="WmC-Fz-7xp"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="OJE-Xu-ISd"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="3ip-pJ-6TP">
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                <color key="value" name="DetailDark"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="cog"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
-                                <color key="value" name="Action"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </tabBarItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KE7-Id-cdd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1103" y="1273"/>
-        </scene>
-        <!--Settings-->
-        <scene sceneID="i5Y-lf-6gp">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Settings" id="7yR-ey-JjF" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="slo-3s-RCB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1686" y="1273"/>
-        </scene>
         <!--Profile-->
         <scene sceneID="b9Y-cY-2Cd">
             <objects>
@@ -216,7 +166,6 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="4kW-Hz-eN0" kind="relationship" relationship="viewControllers" id="x7y-HJ-Wdh"/>
                         <segue destination="EyX-kk-y0C" kind="relationship" relationship="viewControllers" id="LAC-gP-qUU"/>
                         <segue destination="z4v-CE-0J7" kind="relationship" relationship="viewControllers" id="DGl-ZA-d8f"/>
                         <segue destination="Ibt-Tg-Z2c" kind="relationship" relationship="viewControllers" id="4so-rW-uj1"/>
@@ -224,12 +173,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0A-p4-saI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="30" y="674"/>
+            <point key="canvasLocation" x="-39" y="-7"/>
         </scene>
     </scenes>
     <resources>
         <namedColor name="Action">
-            <color red="0.11400000005960464" green="0.47099998593330383" blue="0.45500001311302185" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="DetailDark">
             <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

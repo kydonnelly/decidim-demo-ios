@@ -233,3 +233,12 @@ extension ProfileViewController {
     }
     
 }
+
+extension ProfileViewController {
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        let settingsVC = SettingsViewController.create()
+        self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+}

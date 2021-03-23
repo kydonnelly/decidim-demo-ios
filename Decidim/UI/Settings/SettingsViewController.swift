@@ -26,6 +26,18 @@ class SettingsViewController: UIViewController, CustomTableController {
     static let passwordCellId = "PasswordCell"
     static let votingCellId = "VotingCell"
     
+    public static func create() -> SettingsViewController {
+        let sb = UIStoryboard(name: "Settings", bundle: .main)
+        let nvc = sb.instantiateInitialViewController() as! SettingsViewController
+        return nvc
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.title = "Settings"
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
