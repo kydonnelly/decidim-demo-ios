@@ -65,6 +65,21 @@ extension MyProfileController {
         }
     }
     
+    public func signIn(username: String, password: String, completion: UpdateBlock?) {
+        HTTPRequest.shared.refreshSession(username: username, password: password) { userId, error in
+            if error == nil {
+                MyProfileController.save(key: .username, value: username)
+                MyProfileController.save(key: .password, value: password)
+                MyProfileController.save(key: .profile_id, value: userId)
+                MyProfileController.save(key: .environment, value: HTTPRequest.environment.rawValue)
+                
+                self.myProfileId = userId
+            }
+            
+            completion?(error)
+        }
+    }
+    
     public func signOut() {
         self.myProfileId = nil
         
