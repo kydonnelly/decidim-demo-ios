@@ -215,7 +215,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                         return
                     }
                     
-                    let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
+                    let commentVC = CommentListViewController.create(commentable: self.proposalDetail!)
                     commentVC.modalPresentationStyle = .overCurrentContext
                     self.navigationController?.present(commentVC, animated: true, completion: nil)
                 }
@@ -267,7 +267,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 if isMyComment {
                     alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
                         guard let self = self else { return }
-                        let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!, editComment: comment)
+                        let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, editComment: comment)
                         commentVC.modalPresentationStyle = .overCurrentContext
                         self.navigationController?.present(commentVC, animated: true, completion: nil)
                     }))
@@ -279,7 +279,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 } else {
                     alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
                         guard let self = self else { return }
-                        let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!)
+                        let commentVC = CommentListViewController.create(commentable: self.proposalDetail!)
                         commentVC.modalPresentationStyle = .overCurrentContext
                         self.navigationController?.present(commentVC, animated: true, completion: nil)
                     }))
@@ -330,7 +330,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             }
         } else if indexPath.section == 2 {
             let comment = self.commentDataController.allComments[indexPath.row]
-            let commentVC = CommentListViewController.create(proposalDetail: self.proposalDetail!, focusComment: comment)
+            let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, focusComment: comment)
             commentVC.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(commentVC, animated: true, completion: nil)
         }
