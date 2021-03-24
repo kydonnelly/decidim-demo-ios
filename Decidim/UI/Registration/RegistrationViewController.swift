@@ -131,10 +131,15 @@ extension RegistrationViewController: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if self.hasValidInput {
+            self.submitButtonPressed(nil)
+            return true
+        }
+        
         if textField == self.usernameField {
             self.passwordField.becomeFirstResponder()
         } else if textField == self.passwordField {
-            self.submitButtonPressed(nil)
+            self.usernameField.becomeFirstResponder()
         }
         
         return true
