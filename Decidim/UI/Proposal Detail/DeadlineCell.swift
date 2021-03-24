@@ -9,6 +9,7 @@
 import UIKit
 
 enum DeadlineType {
+    case generic
     case amendment
     case voting
 }
@@ -22,6 +23,8 @@ class DeadlineCell: CustomTableViewCell {
         self.timeLabel.text = self.displayString(deadline: deadline)
         
         switch type {
+        case .generic:
+            self.descriptionLabel.text = "Deadline"
         case .amendment:
             self.descriptionLabel.text = "Amendment Deadline"
         case .voting:
