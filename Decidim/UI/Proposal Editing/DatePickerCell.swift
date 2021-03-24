@@ -1,5 +1,5 @@
 //
-//  ProposalDatePickerCell.swift
+//  DatePickerCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 7/13/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProposalDatePickerCell: CustomTableViewCell {
+class DatePickerCell: CustomTableViewCell {
     
     typealias DateChangedBlock = (Date) -> Void
     

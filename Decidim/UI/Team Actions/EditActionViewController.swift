@@ -182,7 +182,7 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! ProposalDatePickerCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(deadline: self.deadline) { [weak self] date in
                 self?.deadline = date
             }
