@@ -231,7 +231,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 
                 (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
             case .deadline:
-                (cell as! ProposalDetailDeadlineCell).setup(type: .voting, deadline: detail.deadline)
+                (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:
                 (cell as! ProposalDetailTitleCell).setup(detail: detail)
             }

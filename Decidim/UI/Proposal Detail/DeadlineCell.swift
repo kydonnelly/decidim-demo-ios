@@ -1,5 +1,5 @@
 //
-//  ProposalDetailDeadlineCell.swift
+//  DeadlineCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 3/7/21.
@@ -13,7 +13,7 @@ enum DeadlineType {
     case voting
 }
 
-class ProposalDetailDeadlineCell: CustomTableViewCell {
+class DeadlineCell: CustomTableViewCell {
     
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
