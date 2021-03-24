@@ -106,7 +106,7 @@ extension EditIssueViewController {
             }
             
             IssueDetailDataController.shared(issue: issue).refresh { dc in
-                dc.data = [IssueDetail(issue: issue, deadline: deadline, likeCount: 0, commentCount: 0)]
+                dc.data = [IssueDetail(issue: issue, deadline: deadline, commentCount: 0, followersCount: 0, userIsFollowing: true)]
             }
         }
     }
@@ -130,7 +130,7 @@ extension EditIssueViewController {
             }
             
             IssueDetailDataController.shared(issue: issue).refresh { dc in
-                dc.data = [IssueDetail(issue: issue, deadline: deadline, likeCount: 0, commentCount: 0)]
+                dc.data = [IssueDetail(issue: issue, deadline: deadline, commentCount: 0, followersCount: 0, userIsFollowing: true)]
             }
         }
     }

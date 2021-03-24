@@ -35,4 +35,10 @@ extension UIImageView {
         set { self.highlightedIconColor = newValue }
     }
 
+    @IBInspectable
+    public var _iconInset: CGFloat {
+        get { 0 }
+        set { self.iconInset = newValue }
+    }
+
 }

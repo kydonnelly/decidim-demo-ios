@@ -131,7 +131,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             let detail = self.issueDetail!
             switch cellId {
             case .engagement:
-                let likeBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
+                let followBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
                     guard let self = self else {
                         return
                     }
@@ -140,22 +140,15 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                         guard var detail = dc.data?.first as? IssueDetail else {
                             return
                         }
-                        detail.hasLocalLike = true
+                        detail.hasLocalFollow = true
                         dc.data = [detail]
                         self?.tableView.reloadData()
                     }
                 }
-                let commentBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    let commentVC = CommentListViewController.create(commentable: self.issueDetail!)
-                    commentVC.modalPresentationStyle = .overCurrentContext
-                    self.navigationController?.present(commentVC, animated: true, completion: nil)
+                let followersBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
                 }
                 
-                (cell as! IssueDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, commentBlock: commentBlock)
+                (cell as! IssueDetailEngagementCell).setup(detail: detail, followBlock: followBlock, allFollowersBlock: followersBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:

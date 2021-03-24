@@ -12,17 +12,19 @@ struct IssueDetail {
     let issue: Issue
     
     let deadline: Date?
-    let likeCount: Int
     let commentCount: Int
+    let followersCount: Int
+    let userIsFollowing: Bool
     
-    var hasLocalLike: Bool = false
+    var hasLocalFollow: Bool = false
     
     public static func from(dict: [String: Any], issue: Issue) -> IssueDetail? {
         guard let commentCount = dict["comments_count"] as? Int else {
             return nil
         }
         
-        let likeCount = dict["like_count"] as? Int ?? 0
+        let followCount = dict["follow_count"] as? Int ?? 0
+        let userIsFollowing = dict["is_following"] as? Bool ?? false
         
         var deadline: Date? = nil
         if let deadlineString = dict["deadline"] as? String {
@@ -31,8 +33,9 @@ struct IssueDetail {
         
         return IssueDetail(issue: issue,
                            deadline: deadline,
-                           likeCount: likeCount,
-                           commentCount: commentCount)
+                           commentCount: commentCount,
+                           followersCount: followCount,
+                           userIsFollowing: userIsFollowing)
     }
 }
 
