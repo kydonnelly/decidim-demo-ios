@@ -83,6 +83,21 @@
 		27649C56260AD53B003D29D4 /* IssueDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */; };
 		27649C58260AD582003D29D4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C57260AD582003D29D4 /* Issue.swift */; };
 		27649C5A260AE027003D29D4 /* IssueStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C59260AE027003D29D4 /* IssueStatus.swift */; };
+		27649C92260AE2F7003D29D4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */; };
+		27649C94260AE2F7003D29D4 /* IssueDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */; };
+		27649C95260AE2F7003D29D4 /* IssueDetailAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */; };
+		27649C96260AE2F7003D29D4 /* IssueDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */; };
+		27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */; };
+		27649C98260AE2F7003D29D4 /* EditIssue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */; };
+		27649C99260AE2F7003D29D4 /* EditIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */; };
+		27649C9A260AE2F7003D29D4 /* IssueImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */; };
+		27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */; };
+		27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */; };
+		27649C9D260AE2F7003D29D4 /* IssueListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C90260AE2F7003D29D4 /* IssueListCell.swift */; };
+		27649C9E260AE2F7003D29D4 /* IssueList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C91260AE2F7003D29D4 /* IssueList.storyboard */; };
+		27649CA0260AE386003D29D4 /* IssueCommentsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C9F260AE386003D29D4 /* IssueCommentsDataController.swift */; };
+		27649CA2260AE3BB003D29D4 /* IssueComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA1260AE3BB003D29D4 /* IssueComment.swift */; };
+		27649CA4260AE54E003D29D4 /* IssueDetailEngagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */; };
 		27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA5260AE70B003D29D4 /* Commentable.swift */; };
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
@@ -267,6 +282,21 @@
 		27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailDataController.swift; sourceTree = "<group>"; };
 		27649C57260AD582003D29D4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		27649C59260AE027003D29D4 /* IssueStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueStatus.swift; sourceTree = "<group>"; };
+		27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
+		27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTitleCell.swift; sourceTree = "<group>"; };
+		27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailAuthorCell.swift; sourceTree = "<group>"; };
+		27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueDetail.storyboard; sourceTree = "<group>"; };
+		27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailBodyCell.swift; sourceTree = "<group>"; };
+		27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditIssue.storyboard; sourceTree = "<group>"; };
+		27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssueViewController.swift; sourceTree = "<group>"; };
+		27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueImageCell.swift; sourceTree = "<group>"; };
+		27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueInputCell.swift; sourceTree = "<group>"; };
+		27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
+		27649C90260AE2F7003D29D4 /* IssueListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListCell.swift; sourceTree = "<group>"; };
+		27649C91260AE2F7003D29D4 /* IssueList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueList.storyboard; sourceTree = "<group>"; };
+		27649C9F260AE386003D29D4 /* IssueCommentsDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueCommentsDataController.swift; sourceTree = "<group>"; };
+		27649CA1260AE3BB003D29D4 /* IssueComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueComment.swift; sourceTree = "<group>"; };
+		27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailEngagementCell.swift; sourceTree = "<group>"; };
 		27649CA5260AE70B003D29D4 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
@@ -593,6 +623,9 @@
 			children = (
 				27B22B2724BF0C13005DF376 /* Comment List */,
 				27B22B5424D93751005DF376 /* Generic */,
+				27649C82260AE2F7003D29D4 /* Issue Detail */,
+				27649C89260AE2F7003D29D4 /* Issue Editing */,
+				27649C8E260AE2F7003D29D4 /* Issue List */,
 				2756A6CB24985D280023DC91 /* Profile */,
 				27B22B6024D93FCE005DF376 /* Proposal Amendments */,
 				2739747A24B568D300CA16A3 /* Proposal Detail */,
@@ -664,11 +697,46 @@
 			children = (
 				27649C50260AD53B003D29D4 /* PublicIssuesDataController.swift */,
 				27649C57260AD582003D29D4 /* Issue.swift */,
+				27649CA1260AE3BB003D29D4 /* IssueComment.swift */,
 				27649C51260AD53B003D29D4 /* IssueDetail.swift */,
 				27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */,
 				27649C59260AE027003D29D4 /* IssueStatus.swift */,
 			);
 			path = Issues;
+			sourceTree = "<group>";
+		};
+		27649C82260AE2F7003D29D4 /* Issue Detail */ = {
+			isa = PBXGroup;
+			children = (
+				27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */,
+				27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */,
+				27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */,
+				27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */,
+				27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */,
+				27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */,
+			);
+			path = "Issue Detail";
+			sourceTree = "<group>";
+		};
+		27649C89260AE2F7003D29D4 /* Issue Editing */ = {
+			isa = PBXGroup;
+			children = (
+				27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */,
+				27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */,
+				27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */,
+				27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */,
+			);
+			path = "Issue Editing";
+			sourceTree = "<group>";
+		};
+		27649C8E260AE2F7003D29D4 /* Issue List */ = {
+			isa = PBXGroup;
+			children = (
+				27649C90260AE2F7003D29D4 /* IssueListCell.swift */,
+				27649C91260AE2F7003D29D4 /* IssueList.storyboard */,
+				27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */,
+			);
+			path = "Issue List";
 			sourceTree = "<group>";
 		};
 		2773D152257F644A007FD3F0 /* Actions */ = {
@@ -720,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				27649CA5260AE70B003D29D4 /* Commentable.swift */,
+				27649C9F260AE386003D29D4 /* IssueCommentsDataController.swift */,
 				27B22B3124BFC692005DF376 /* ProposalCommentsDataController.swift */,
 			);
 			path = Comments;
@@ -987,8 +1056,11 @@
 				27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */,
 				27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */,
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
+				27649C96260AE2F7003D29D4 /* IssueDetail.storyboard in Resources */,
 				27F883E424EDDF1D00B216D2 /* EditAction.storyboard in Resources */,
+				27649C9E260AE2F7003D29D4 /* IssueList.storyboard in Resources */,
 				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
+				27649C98260AE2F7003D29D4 /* EditIssue.storyboard in Resources */,
 				275114ED2506B168006277AA /* Settings.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
@@ -1151,10 +1223,12 @@
 				27B22B3E24D23CE8005DF376 /* ProfileSearchViewController.swift in Sources */,
 				2789E99224B68B310061C3E9 /* VotePreferencesDelegateCell.swift in Sources */,
 				277FD2CB2511E7850063FFE6 /* AssemblyType.graphql.swift in Sources */,
+				27649CA4260AE54E003D29D4 /* IssueDetailEngagementCell.swift in Sources */,
 				277FD2CF2511F3230063FFE6 /* Assembly.graphql.swift in Sources */,
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */,
 				278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */,
+				27649C9D260AE2F7003D29D4 /* IssueListCell.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				278DA22325F5423E002825CE /* VotingResultsView.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
@@ -1162,6 +1236,7 @@
 				2739748824B5A07600CA16A3 /* ProposalDetailAuthorCell.swift in Sources */,
 				27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */,
 				27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */,
+				27649C9A260AE2F7003D29D4 /* IssueImageCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				277FD2CD2511E9530063FFE6 /* Assemblies.graphql.swift in Sources */,
 				27F883AB24E798CE00B216D2 /* TeamListCell.swift in Sources */,
@@ -1170,6 +1245,7 @@
 				27B22B5124D93505005DF376 /* ProposalAmendment.swift in Sources */,
 				27B22B4024D23D87005DF376 /* ProfileSearchResultCell.swift in Sources */,
 				27293FD62508B3E2000D27D1 /* TouchThroughView.swift in Sources */,
+				27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */,
 				27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */,
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
@@ -1190,6 +1266,7 @@
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
 				27B22B4624D7DC2E005DF376 /* VoterListViewController.swift in Sources */,
 				270B26FA247BC893001804D6 /* AssemblyTypes.graphql.swift in Sources */,
+				27649C92260AE2F7003D29D4 /* IssueDetailViewController.swift in Sources */,
 				2789E98824B680BA0061C3E9 /* ProposalVoteCell.swift in Sources */,
 				27B22B5324D9356C005DF376 /* ProposalAmendmentDataController.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
@@ -1202,6 +1279,8 @@
 				2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */,
 				2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */,
 				2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */,
+				27649CA2260AE3BB003D29D4 /* IssueComment.swift in Sources */,
+				27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */,
 				277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */,
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
@@ -1217,6 +1296,7 @@
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				27293FBB2506CF0E000D27D1 /* ProfileVotesTabSection.swift in Sources */,
 				27B22B4A24D7EEC0005DF376 /* MyProfileController.swift in Sources */,
+				27649CA0260AE386003D29D4 /* IssueCommentsDataController.swift in Sources */,
 				277FD2C32511D1600063FFE6 /* Delegate.swift in Sources */,
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */,
@@ -1229,6 +1309,7 @@
 				2717F46824DAA9C200189F7C /* VotingOptionCell.swift in Sources */,
 				27293FCE25071F8F000D27D1 /* NoResultsView.swift in Sources */,
 				2739748424B5A03200CA16A3 /* ProposalDetailEngagementCell.swift in Sources */,
+				27649C95260AE2F7003D29D4 /* IssueDetailAuthorCell.swift in Sources */,
 				27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */,
 				27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
@@ -1240,6 +1321,7 @@
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
+				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
 				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
@@ -1252,7 +1334,9 @@
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
 				27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */,
+				27649C94260AE2F7003D29D4 /* IssueDetailTitleCell.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
+				27649C99260AE2F7003D29D4 /* EditIssueViewController.swift in Sources */,
 				277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */,
 				278DA22525F54253002825CE /* DonutView.swift in Sources */,
 				27649C5A260AE027003D29D4 /* IssueStatus.swift in Sources */,

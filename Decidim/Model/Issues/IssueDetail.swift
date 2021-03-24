@@ -35,3 +35,9 @@ struct IssueDetail {
                            commentCount: commentCount)
     }
 }
+
+extension IssueDetail: Commentable {
+    var associatedDataController: CommentDataController {
+        return IssueCommentsDataController.shared(issueId: self.issue.id)
+    }
+}
