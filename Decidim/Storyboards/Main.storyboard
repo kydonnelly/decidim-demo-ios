@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Proposals-->
+        <!--Issues-->
         <scene sceneID="LDd-Nr-BBQ">
             <objects>
                 <viewController id="z4v-CE-0J7" sceneMemberID="viewController">
@@ -33,7 +33,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Proposals" id="zTl-4Y-KwV">
+                    <tabBarItem key="tabBarItem" title="Issues" id="zTl-4Y-KwV">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
@@ -50,10 +50,10 @@
             </objects>
             <point key="canvasLocation" x="1104" y="674"/>
         </scene>
-        <!--BrowseProposals-->
+        <!--IssueList-->
         <scene sceneID="7PH-uS-cB1">
             <objects>
-                <viewControllerPlaceholder storyboardName="BrowseProposals" id="oBO-tP-8tf" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="IssueList" id="oBO-tP-8tf" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="26r-cx-wUL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1686" y="674"/>
