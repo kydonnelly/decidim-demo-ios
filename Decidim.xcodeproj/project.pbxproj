@@ -83,6 +83,7 @@
 		27649C56260AD53B003D29D4 /* IssueDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */; };
 		27649C58260AD582003D29D4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C57260AD582003D29D4 /* Issue.swift */; };
 		27649C5A260AE027003D29D4 /* IssueStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C59260AE027003D29D4 /* IssueStatus.swift */; };
+		27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA5260AE70B003D29D4 /* Commentable.swift */; };
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
 		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
@@ -266,6 +267,7 @@
 		27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailDataController.swift; sourceTree = "<group>"; };
 		27649C57260AD582003D29D4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		27649C59260AE027003D29D4 /* IssueStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueStatus.swift; sourceTree = "<group>"; };
+		27649CA5260AE70B003D29D4 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 		27B22B2E24BFC676005DF376 /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				27649CA5260AE70B003D29D4 /* Commentable.swift */,
 				27B22B3124BFC692005DF376 /* ProposalCommentsDataController.swift */,
 			);
 			path = Comments;
@@ -1203,6 +1206,7 @@
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
+				27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
 				2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */,

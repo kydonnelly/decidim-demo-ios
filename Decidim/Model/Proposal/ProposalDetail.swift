@@ -41,3 +41,9 @@ struct ProposalDetail {
                               amendmentCount: amendmentCount)
     }
 }
+
+extension ProposalDetail: Commentable {
+    var associatedDataController: CommentDataController {
+        return ProposalCommentsDataController.shared(proposalId: self.proposal.id)
+    }
+}

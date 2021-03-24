@@ -18,23 +18,23 @@ class CommentListViewController: UIViewController, CustomTableController {
     
     @IBOutlet var keyboardOffsetConstraint: NSLayoutConstraint!
     
-    private var dataController: ProposalCommentsDataController!
+    private var dataController: CommentDataController!
     
-    fileprivate var editingComment: ProposalComment?
-    fileprivate var initialFocusComment: ProposalComment?
+    fileprivate var editingComment: Comment?
+    fileprivate var initialFocusComment: Comment?
     
-    static func create(proposalDetail: ProposalDetail, editComment: ProposalComment? = nil, focusComment: ProposalComment? = nil) -> UIViewController {
+    static func create(commentable: Commentable, editComment: Comment? = nil, focusComment: Comment? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "CommentList", bundle: .main)
         let nvc = sb.instantiateInitialViewController() as! UINavigationController
         let clvc = nvc.viewControllers.first! as! CommentListViewController
-        clvc.setup(proposalDetail: proposalDetail, editComment: editComment, focusComment: focusComment)
+        clvc.setup(commentable: commentable, editComment: editComment, focusComment: focusComment)
         return nvc
     }
     
-    func setup(proposalDetail: ProposalDetail, editComment: ProposalComment?, focusComment: ProposalComment?) {
+    func setup(commentable: Commentable, editComment: Comment?, focusComment: Comment?) {
         self.editingComment = editComment
         self.initialFocusComment = focusComment ?? editComment
-        self.dataController = ProposalCommentsDataController.shared(proposalId: proposalDetail.proposal.id)
+        self.dataController = commentable.associatedDataController
     }
     
     override func viewDidLoad() {
@@ -79,8 +79,8 @@ class CommentListViewController: UIViewController, CustomTableController {
         self.textView.becomeFirstResponder()
     }
     
-    fileprivate var comments: [ProposalComment] {
-        return self.dataController.allComments
+    fileprivate var comments: [Comment] {
+        return self.dataController.commentData
     }
     
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
@@ -224,7 +224,7 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
 extension CommentListViewController {
     
     @discardableResult
-    fileprivate func scrollToComment(_ comment: ProposalComment, animated: Bool = true) -> Bool {
+    fileprivate func scrollToComment(_ comment: Comment, animated: Bool = true) -> Bool {
         if let index = self.comments.lastIndex(where: { $0.commentId == comment.commentId }) {
             let indexPath = IndexPath(row: index, section: 0)
             self.tableView.scrollToRow(at: indexPath, at: .top, animated: animated)

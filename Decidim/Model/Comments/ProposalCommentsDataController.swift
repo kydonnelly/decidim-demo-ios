@@ -121,3 +121,11 @@ class ProposalCommentsDataController: NetworkDataController {
     }
     
 }
+
+extension ProposalCommentsDataController: CommentDataController {
+    
+    var commentData: [Comment] {
+        return self.allComments
+    }
+    
+}

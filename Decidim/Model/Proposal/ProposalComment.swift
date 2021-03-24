@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct ProposalComment {
+struct ProposalComment: Comment {
     let commentId: Int
     let authorId: Int
     let proposalId: Int
