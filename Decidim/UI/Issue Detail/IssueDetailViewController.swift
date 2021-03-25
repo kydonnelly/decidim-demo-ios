@@ -136,7 +136,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 return 0
             }
             
-            return 42
+            return 36
         }
         
         return 0

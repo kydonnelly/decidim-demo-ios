@@ -12,20 +12,20 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="HN3-Pk-wBL" customClass="ActionHeaderView" customModule="Agora" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEd-ux-qhb">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aXP-RF-TO0">
-                            <rect key="frame" x="24" y="12.5" width="304" height="17"/>
+                            <rect key="frame" x="24" y="13.5" width="304" height="17"/>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                             <color key="textColor" name="PrimaryDark"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7uH-fh-h6e">
-                            <rect key="frame" x="336" y="11" width="62" height="20"/>
+                            <rect key="frame" x="336" y="12" width="62" height="20"/>
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                             <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
                             <state key="normal" title="Action">
@@ -35,25 +35,14 @@
                                 <action selector="actionButtonTapped:" destination="HN3-Pk-wBL" eventType="touchUpInside" id="1zJ-Wh-8QG"/>
                             </connections>
                         </button>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbH-ms-bTJ">
-                            <rect key="frame" x="0.0" y="41" width="414" height="1"/>
-                            <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="1" id="fge-6Y-fC1"/>
-                            </constraints>
-                        </view>
                     </subviews>
                     <color key="backgroundColor" name="PrimaryBackground"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="7uH-fh-h6e" secondAttribute="trailing" constant="16" id="2e7-s8-htp"/>
                         <constraint firstItem="7uH-fh-h6e" firstAttribute="leading" secondItem="aXP-RF-TO0" secondAttribute="trailing" constant="8" id="5qo-Zw-c0K"/>
-                        <constraint firstAttribute="trailing" secondItem="GbH-ms-bTJ" secondAttribute="trailing" id="G2H-xM-iPB"/>
                         <constraint firstItem="aXP-RF-TO0" firstAttribute="leading" secondItem="QEd-ux-qhb" secondAttribute="leading" constant="24" id="MAn-9T-5C7"/>
-                        <constraint firstItem="GbH-ms-bTJ" firstAttribute="top" secondItem="aXP-RF-TO0" secondAttribute="bottom" priority="51" constant="12" id="PYD-Od-ffN"/>
-                        <constraint firstAttribute="bottom" secondItem="GbH-ms-bTJ" secondAttribute="bottom" id="YGc-bW-0M1"/>
-                        <constraint firstItem="aXP-RF-TO0" firstAttribute="centerY" secondItem="QEd-ux-qhb" secondAttribute="centerY" id="eCS-BF-LPq"/>
-                        <constraint firstItem="GbH-ms-bTJ" firstAttribute="leading" secondItem="QEd-ux-qhb" secondAttribute="leading" id="gOm-o3-gES"/>
-                        <constraint firstItem="7uH-fh-h6e" firstAttribute="centerY" secondItem="QEd-ux-qhb" secondAttribute="centerY" id="uMa-d9-Jik"/>
+                        <constraint firstItem="aXP-RF-TO0" firstAttribute="centerY" secondItem="7uH-fh-h6e" secondAttribute="centerY" id="XQx-b5-jdU"/>
+                        <constraint firstItem="7uH-fh-h6e" firstAttribute="top" secondItem="QEd-ux-qhb" secondAttribute="top" constant="12" id="uMa-d9-Jik"/>
                     </constraints>
                 </view>
             </subviews>
