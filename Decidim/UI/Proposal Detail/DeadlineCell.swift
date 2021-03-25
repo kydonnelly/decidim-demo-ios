@@ -24,11 +24,11 @@ class DeadlineCell: CustomTableViewCell {
         
         switch type {
         case .generic:
-            self.descriptionLabel.text = "Deadline"
+            self.descriptionLabel.text = "DEADLINE"
         case .amendment:
-            self.descriptionLabel.text = "Amendment Deadline"
+            self.descriptionLabel.text = "AMENDMENT DEADLINE"
         case .voting:
-            self.descriptionLabel.text = "Voting Deadline"
+            self.descriptionLabel.text = "VOTING DEADLINE"
         }
     }
     
