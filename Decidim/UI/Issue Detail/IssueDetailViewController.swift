@@ -121,7 +121,8 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
         } else if section == 1 {
             return self.issueDetail != nil ? MidSectionCell.ordered().count : 0
         } else if section == 2 {
-            return self.issueDetail != nil ? (self.commentDataController?.allComments.count ?? 0) : 0
+            guard self.issueDetail != nil, let dc = self.commentDataController else { return 0 }
+            return min(dc.allComments.count, 5)
         } else {
             return 1
         }
