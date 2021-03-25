@@ -12,14 +12,15 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     
     static let LoadingCellID = "LoadingCell"
     static let CommentCellID = "CommentCell"
+    static let CommentHeaderID = "CommentHeader"
     
     fileprivate enum TopSectionCell: String, CaseIterable {
         case engagement = "EngagementCell"
         case deadline = "DeadlineCell"
-        case title = "TitleCell"
+        case banner = "BannerCell"
         
         static func ordered() -> [TopSectionCell] {
-            return [.title, .engagement, .deadline]
+            return [.banner, .engagement, .deadline]
         }
     }
     
@@ -61,12 +62,15 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = self.issue.title
+        
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellID)
+        self.tableView.register(UINib(nibName: "ActionHeaderView", bundle: .main), forHeaderFooterViewReuseIdentifier: Self.CommentHeaderID)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -123,6 +127,42 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 2 {
+            guard self.issueDetail != nil else {
+                return 0
+            }
+            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
+                return 0
+            }
+            
+            return 42
+        }
+        
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 2 {
+            guard let issueDetail = self.issueDetail else {
+                return nil
+            }
+            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
+                return nil
+            }
+            
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
+            header.setup(title: "DISCUSSION", action: "See More...") {
+                let commentVC = CommentListViewController.create(commentable: issueDetail)
+                commentVC.modalPresentationStyle = .overCurrentContext
+                self.navigationController?.present(commentVC, animated: true, completion: nil)
+            }
+            return header
+        }
+        
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cellId = TopSectionCell.ordered()[indexPath.row]
@@ -151,8 +191,8 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 (cell as! IssueDetailEngagementCell).setup(detail: detail, followBlock: followBlock, allFollowersBlock: followersBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(type: .generic, deadline: detail.deadline)
-            case .title:
-                (cell as! IssueDetailTitleCell).setup(detail: detail)
+            case .banner:
+                (cell as! IssueDetailBannerCell).setup(detail: detail)
             }
             
             return cell

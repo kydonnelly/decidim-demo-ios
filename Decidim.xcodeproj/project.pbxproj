@@ -84,7 +84,7 @@
 		27649C58260AD582003D29D4 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C57260AD582003D29D4 /* Issue.swift */; };
 		27649C5A260AE027003D29D4 /* IssueStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C59260AE027003D29D4 /* IssueStatus.swift */; };
 		27649C92260AE2F7003D29D4 /* IssueDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */; };
-		27649C94260AE2F7003D29D4 /* IssueDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */; };
+		27649C94260AE2F7003D29D4 /* IssueDetailBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C85260AE2F7003D29D4 /* IssueDetailBannerCell.swift */; };
 		27649C95260AE2F7003D29D4 /* IssueDetailAuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */; };
 		27649C96260AE2F7003D29D4 /* IssueDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */; };
 		27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */; };
@@ -99,6 +99,8 @@
 		27649CA2260AE3BB003D29D4 /* IssueComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA1260AE3BB003D29D4 /* IssueComment.swift */; };
 		27649CA4260AE54E003D29D4 /* IssueDetailEngagementCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */; };
 		27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA5260AE70B003D29D4 /* Commentable.swift */; };
+		27649CB2260C29CF003D29D4 /* ActionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */; };
+		27649CB4260C2A0E003D29D4 /* ActionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */; };
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
 		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
@@ -283,7 +285,7 @@
 		27649C57260AD582003D29D4 /* Issue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		27649C59260AE027003D29D4 /* IssueStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueStatus.swift; sourceTree = "<group>"; };
 		27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailViewController.swift; sourceTree = "<group>"; };
-		27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailTitleCell.swift; sourceTree = "<group>"; };
+		27649C85260AE2F7003D29D4 /* IssueDetailBannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailBannerCell.swift; sourceTree = "<group>"; };
 		27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailAuthorCell.swift; sourceTree = "<group>"; };
 		27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueDetail.storyboard; sourceTree = "<group>"; };
 		27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailBodyCell.swift; sourceTree = "<group>"; };
@@ -298,6 +300,8 @@
 		27649CA1260AE3BB003D29D4 /* IssueComment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueComment.swift; sourceTree = "<group>"; };
 		27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailEngagementCell.swift; sourceTree = "<group>"; };
 		27649CA5260AE70B003D29D4 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
+		27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeaderView.swift; sourceTree = "<group>"; };
+		27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionHeaderView.xib; sourceTree = "<group>"; };
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
@@ -711,7 +715,7 @@
 				27649C86260AE2F7003D29D4 /* IssueDetailAuthorCell.swift */,
 				27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */,
 				27649CA3260AE54E003D29D4 /* IssueDetailEngagementCell.swift */,
-				27649C85260AE2F7003D29D4 /* IssueDetailTitleCell.swift */,
+				27649C85260AE2F7003D29D4 /* IssueDetailBannerCell.swift */,
 				27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */,
 				27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */,
 			);
@@ -817,6 +821,8 @@
 		27B22B5424D93751005DF376 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */,
+				27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */,
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
@@ -1076,6 +1082,7 @@
 				2717F47C24E0C79100189F7C /* EditProposal.storyboard in Resources */,
 				278DA22725F54866002825CE /* VotingResultsView.xib in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
+				27649CB4260C2A0E003D29D4 /* ActionHeaderView.xib in Resources */,
 				27F883B824E79D7100B216D2 /* EditTeam.storyboard in Resources */,
 				2789E98424B67FDE0061C3E9 /* VoteList.storyboard in Resources */,
 				27B22B5F24D9399C005DF376 /* ProfileIconCollectionCell.xib in Resources */,
@@ -1229,6 +1236,7 @@
 				27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */,
 				278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */,
 				27649C9D260AE2F7003D29D4 /* IssueListCell.swift in Sources */,
+				27649CB2260C29CF003D29D4 /* ActionHeaderView.swift in Sources */,
 				270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */,
 				278DA22325F5423E002825CE /* VotingResultsView.swift in Sources */,
 				270B26FC247BC893001804D6 /* Version.graphql.swift in Sources */,
@@ -1334,7 +1342,7 @@
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
 				27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */,
-				27649C94260AE2F7003D29D4 /* IssueDetailTitleCell.swift in Sources */,
+				27649C94260AE2F7003D29D4 /* IssueDetailBannerCell.swift in Sources */,
 				27B22B4824D7DDD2005DF376 /* ProposalVoterCell.swift in Sources */,
 				27649C99260AE2F7003D29D4 /* EditIssueViewController.swift in Sources */,
 				277FD2C52511D2A30063FFE6 /* DelegationDataController.swift in Sources */,
