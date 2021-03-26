@@ -328,7 +328,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfB-ar-NRJ">
-                                                    <rect key="frame" x="24" y="37" width="366" height="38.5"/>
+                                                    <rect key="frame" x="24" y="41" width="366" height="38.5"/>
                                                     <string key="text">"Traffic is still pretty light, what do people think about extending the Open Streets and keeping some neighborhood roads closed to thru traffic?"</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="UserInput"/>
@@ -352,7 +352,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="cfB-ar-NRJ" secondAttribute="trailing" constant="24" id="czH-MQ-d2m"/>
                                                 <constraint firstItem="cfB-ar-NRJ" firstAttribute="leading" secondItem="ehB-J7-LaW" secondAttribute="leading" constant="24" id="mj7-HJ-zb7"/>
                                                 <constraint firstAttribute="bottom" secondItem="cfB-ar-NRJ" secondAttribute="bottom" priority="51" constant="12" id="uZb-ab-0hP"/>
-                                                <constraint firstItem="cfB-ar-NRJ" firstAttribute="top" secondItem="ePh-2E-nuJ" secondAttribute="bottom" constant="8" id="utn-p5-Dcr"/>
+                                                <constraint firstItem="cfB-ar-NRJ" firstAttribute="top" secondItem="ePh-2E-nuJ" secondAttribute="bottom" constant="12" id="utn-p5-Dcr"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
