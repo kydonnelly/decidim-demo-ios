@@ -22,10 +22,10 @@ class ProposalDetailAmendmentsCell: CustomTableViewCell {
     func setup(detail: ProposalDetail, onExpandBlock: ExpandBlock?, tappedProfileBlock: ProfileBlock?) {
         self.onExpandBlock = onExpandBlock
         
-        self.numAmendmentsLabel.text = "Amendments"
+        self.numAmendmentsLabel.text = "AMENDMENTS"
         ProposalAmendmentDataController.shared(proposalId: detail.proposal.id).refresh { [weak self] dc in
             let amendments = dc.data as? [ProposalAmendment] ?? []
-            self?.numAmendmentsLabel.text = "Amendments: \(amendments.count)"
+            self?.numAmendmentsLabel.text = "AMENDMENTS: \(amendments.count)"
 
             ProfileInfoDataController.shared().refresh { [weak self] dc in
                 guard let self = self else { return }
