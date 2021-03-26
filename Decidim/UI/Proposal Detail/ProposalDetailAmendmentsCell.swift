@@ -10,13 +10,18 @@ import UIKit
 
 class ProposalDetailAmendmentsCell: CustomTableViewCell {
     
+    typealias ExpandBlock = () -> Void
     typealias ProfileBlock = (Int) -> Void
     
     @IBOutlet var numAmendmentsLabel: UILabel!
     @IBOutlet var profileListView: ProfileIconListView!
     @IBOutlet var listViewConstraints: [NSLayoutConstraint]!
     
-    func setup(detail: ProposalDetail, tappedProfileBlock: ProfileBlock?) {
+    fileprivate var onExpandBlock: ExpandBlock?
+    
+    func setup(detail: ProposalDetail, onExpandBlock: ExpandBlock?, tappedProfileBlock: ProfileBlock?) {
+        self.onExpandBlock = onExpandBlock
+        
         self.numAmendmentsLabel.text = "Amendments"
         ProposalAmendmentDataController.shared(proposalId: detail.proposal.id).refresh { [weak self] dc in
             let amendments = dc.data as? [ProposalAmendment] ?? []
@@ -35,6 +40,10 @@ class ProposalDetailAmendmentsCell: CustomTableViewCell {
                 self.listViewConstraints.forEach { $0.isActive = profiles.count > 0 }
             }
         }
+    }
+    
+    @IBAction func expandButtonTapped(_ sender: UIButton) {
+        self.onExpandBlock?()
     }
     
 }

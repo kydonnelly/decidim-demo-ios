@@ -209,17 +209,8 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     commentVC.modalPresentationStyle = .overCurrentContext
                     self.navigationController?.present(commentVC, animated: true, completion: nil)
                 }
-                let amendmentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
-                    vc.modalPresentationStyle = .overCurrentContext
-                    self.navigationController?.present(vc, animated: true, completion: nil)
-                }
                 
-                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
+                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, commentBlock: commentBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:
@@ -234,11 +225,20 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let detail = self.proposalDetail!
             switch cellId {
             case .amendments:
-                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail) { [weak self] profileId in
+                let expandBlock: ProposalDetailAmendmentsCell.ExpandBlock = { [weak self] in
+                    guard let self = self else { return }
+                    let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
+                    vc.modalPresentationStyle = .overCurrentContext
+                    self.navigationController?.present(vc, animated: true, completion: nil)
+                }
+                
+                let profileBlock: ProposalDetailAmendmentsCell.ProfileBlock = { [weak self] profileId in
                     guard let navController = self?.navigationController else { return }
                     let profileVC = ProfileViewController.create(profileId: profileId)
                     navController.pushViewController(profileVC, animated: true)
                 }
+                
+                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail, onExpandBlock: expandBlock, tappedProfileBlock: profileBlock)
             case .voting:
                 let allVotes = self.voteDataController.allVotes
                 let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
