@@ -22,7 +22,12 @@ class IssueDetailProposalCell: UITableViewCell {
         self.deadlineLabel.text = Date(timeIntervalSinceNow: TimeInterval(arc4random() % 600000)).asShortStringLeft()
         
         self.votingResultsView.setup(votes: votes)
-        self.votingButton.setTitle(myVote?.displayString, for: .normal)
+        if let vote = myVote {
+            self.votingButton.isHidden = false
+            self.votingButton.setTitle(vote.displayString, for: .normal)
+        } else {
+            self.votingButton.isHidden = true
+        }
     }
     
 }
