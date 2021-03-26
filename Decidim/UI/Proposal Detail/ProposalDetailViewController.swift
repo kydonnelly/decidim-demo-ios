@@ -262,14 +262,20 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let comment = self.commentDataController.allComments[indexPath.row]
             let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
             
-            cell.setup(comment: comment, isOwn: isMyComment, isExpanded: false, isEditing: false, optionsBlock: { [weak self] button in
+            let replyBlock: (Comment?, Comment?) -> Void = { [weak self] editComment, focusComment in
+                guard let self = self else { return }
+                let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, editComment: editComment, focusComment: focusComment)
+                commentVC.modalPresentationStyle = .overCurrentContext
+                self.navigationController?.present(commentVC, animated: true, completion: nil)
+            }
+            
+            cell.setup(comment: comment, isOwn: isMyComment, isExpanded: false, isEditing: false, replyBlock: { _ in
+                replyBlock(nil, comment)
+            }, optionsBlock: { [weak self] button in
                 let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
                 if isMyComment {
-                    alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
-                        guard let self = self else { return }
-                        let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, editComment: comment)
-                        commentVC.modalPresentationStyle = .overCurrentContext
-                        self.navigationController?.present(commentVC, animated: true, completion: nil)
+                    alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { _ in
+                        replyBlock(comment, nil)
                     }))
                     alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
                         self?.commentDataController.deleteComment(comment.commentId, completion: { [weak self] _ in
@@ -278,10 +284,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     }))
                 } else {
                     alert.addAction(UIAlertAction(title: "Reply", style: .default, handler: { _ in
-                        guard let self = self else { return }
-                        let commentVC = CommentListViewController.create(commentable: self.proposalDetail!)
-                        commentVC.modalPresentationStyle = .overCurrentContext
-                        self.navigationController?.present(commentVC, animated: true, completion: nil)
+                        replyBlock(nil, comment)
                     }))
                     alert.addAction(UIAlertAction(title: "Report", style: .default, handler: { _ in
                         

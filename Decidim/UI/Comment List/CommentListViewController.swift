@@ -169,7 +169,11 @@ extension CommentListViewController: UITableViewDataSource, UITableViewDelegate 
         let isEditing = comment.commentId == self.editingComment?.commentId
         let isMyComment = comment.authorId == MyProfileController.shared.myProfileId
         
-        cell.setup(comment: comment, isOwn: isMyComment, isExpanded: true, isEditing: isEditing, optionsBlock: { [weak self] button in
+        cell.setup(comment: comment, isOwn: isMyComment, isExpanded: true, isEditing: isEditing, replyBlock: { [weak self] info in
+            guard let self = self, let info = info else { return }
+            self.textView.text = "@\(info.handle) "
+            self.textView.becomeFirstResponder()
+        }, optionsBlock: { [weak self] button in
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             
             if isMyComment {

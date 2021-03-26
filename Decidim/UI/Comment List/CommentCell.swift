@@ -15,25 +15,30 @@ class CommentCell: CustomTableViewCell {
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var iconImageView: UIImageView!
     
-    @IBOutlet var reactButton: UIButton!
+    @IBOutlet var replyButton: UIButton!
     @IBOutlet var optionsButton: UIButton!
     
     typealias ProfileBlock = () -> Void
     typealias OptionsBlock = (UIButton) -> Void
+    typealias ReplyBlock = (ProfileInfo?) -> Void
     
+    fileprivate var onReplyTapped: ReplyBlock?
     fileprivate var onOptionsTapped: OptionsBlock?
     fileprivate var onProfileTapped: ProfileBlock?
     
-    func setup(comment: Comment, isOwn: Bool, isExpanded: Bool, isEditing: Bool, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
+    fileprivate var profileInfo: ProfileInfo?
+    
+    func setup(comment: Comment, isOwn: Bool, isExpanded: Bool, isEditing: Bool, replyBlock: ReplyBlock?, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
-        self.timeLabel.text = comment.createdAt.asShortStringAgo()
+        self.timeLabel.text = " • \(comment.createdAt.asShortStringAgo())"
         
         self.commentLabel.numberOfLines = isExpanded ? 0 : 2
         
-        self.reactButton.isHidden = isOwn
+        self.replyButton.isHidden = isOwn
         self.optionsButton.isHidden = !isOwn
         
+        self.onReplyTapped = replyBlock
         self.onOptionsTapped = optionsBlock
         self.onProfileTapped = tappedProfileBlock
         
@@ -54,6 +59,7 @@ class CommentCell: CustomTableViewCell {
                 return
             }
             
+            self.profileInfo = info
             self.handleLabel.text = info.handle
             self.iconImageView.image = info.thumbnail
         }
@@ -62,6 +68,10 @@ class CommentCell: CustomTableViewCell {
 }
 
 extension CommentCell {
+    
+    @IBAction func replyButtonTapped(_ sender: UIButton) {
+        self.onReplyTapped?(self.profileInfo)
+    }
     
     @IBAction func optionsButtonTapped(_ sender: UIButton) {
         self.onOptionsTapped?(sender)
