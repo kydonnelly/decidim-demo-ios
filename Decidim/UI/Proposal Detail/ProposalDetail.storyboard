@@ -553,7 +553,7 @@
                     <navigationItem key="navigationItem" title="Proposal" id="1iA-zQ-m34">
                         <barButtonItem key="rightBarButtonItem" id="W3h-91-F6T">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                     <color key="value" name="SecondaryDark"/>
                                 </userDefinedRuntimeAttribute>
@@ -689,7 +689,7 @@
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31372549019607843" green="0.51372549019607838" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

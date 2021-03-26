@@ -432,7 +432,7 @@
                     <navigationItem key="navigationItem" title="Issue" id="1iA-zQ-m34">
                         <barButtonItem key="rightBarButtonItem" id="W3h-91-F6T">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                     <color key="value" name="SecondaryDark"/>
                                 </userDefinedRuntimeAttribute>
