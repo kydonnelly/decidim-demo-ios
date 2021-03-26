@@ -591,40 +591,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpa-Xf-7j7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="faM-YE-avr">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYv-1z-N56">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="310"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M3w-ac-8oL" customClass="VotingResultsView" customModule="Agora" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="148"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="182"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofX-Z9-9fH">
-                                            <rect key="frame" x="0.0" y="147" width="414" height="1"/>
+                                            <rect key="frame" x="0.0" y="181" width="414" height="1"/>
                                             <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="vtS-Zw-eu9"/>
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" name="SecondaryBackground"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="ofX-Z9-9fH" secondAttribute="bottom" id="6aU-mj-dKi"/>
-                                        <constraint firstAttribute="height" constant="148" id="D8H-DG-l96"/>
+                                        <constraint firstAttribute="height" constant="182" id="D8H-DG-l96"/>
                                         <constraint firstItem="ofX-Z9-9fH" firstAttribute="leading" secondItem="M3w-ac-8oL" secondAttribute="leading" id="n38-KD-sDr"/>
                                         <constraint firstAttribute="trailing" secondItem="ofX-Z9-9fH" secondAttribute="trailing" id="qZg-wn-1am"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Agora" customModuleProvider="target">
-                                    <rect key="frame" x="24" y="160" width="366" height="68"/>
+                                    <rect key="frame" x="24" y="194" width="366" height="68"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="68" id="UzC-Jg-N2M"/>
                                     </constraints>
                                 </view>
                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ASv-CF-D0u">
-                                    <rect key="frame" x="0.0" y="240" width="414" height="36"/>
+                                    <rect key="frame" x="0.0" y="274" width="414" height="36"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delegated via @" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxL-3A-vLJ">
                                             <rect key="frame" x="24" y="8.5" width="116" height="19.5"/>
@@ -680,7 +680,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" name="SecondaryBackground"/>
+                    <color key="backgroundColor" name="PrimaryBackground"/>
                     <constraints>
                         <constraint firstItem="MYv-1z-N56" firstAttribute="centerX" secondItem="zXE-uA-L6t" secondAttribute="centerX" id="1hj-5s-Ria"/>
                         <constraint firstItem="MYv-1z-N56" firstAttribute="leading" secondItem="faM-YE-avr" secondAttribute="leading" id="Zwz-VP-kN1"/>
@@ -699,6 +699,9 @@
         </namedColor>
         <namedColor name="DetailDark">
             <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryDark">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

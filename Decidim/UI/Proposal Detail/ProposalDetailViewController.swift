@@ -159,9 +159,9 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             }
             
             if self.voteWasDelegated {
-                return 276
+                return 310
             } else {
-                return 240
+                return 274
             }
         } else if section == 2 {
             guard self.proposalDetail != nil else {
