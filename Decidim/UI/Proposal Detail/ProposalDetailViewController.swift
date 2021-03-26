@@ -12,6 +12,7 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     static let LoadingCellID = "LoadingCell"
     static let CommentCellID = "CommentCell"
+    static let CommentHeaderID = "CommentHeader"
     
     fileprivate enum TopSectionCell: String, CaseIterable {
         case engagement = "EngagementCell"
@@ -79,6 +80,7 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellID)
+        self.tableView.register(UINib(nibName: "ActionHeaderView", bundle: .main), forHeaderFooterViewReuseIdentifier: Self.CommentHeaderID)
     }
     
     public override func viewDidAppear(_ animated: Bool) {
@@ -143,7 +145,8 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         } else if section == 1 {
             return self.proposalDetail != nil ? MidSectionCell.ordered().count : 0
         } else if section == 2 {
-            return self.proposalDetail != nil ? (self.commentDataController?.allComments.count ?? 0) : 0
+            guard self.proposalDetail != nil, let dc = self.commentDataController else { return 0 }
+            return min(dc.allComments.count, 5)
         } else {
             return 1
         }
@@ -160,6 +163,15 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             } else {
                 return 240
             }
+        } else if section == 2 {
+            guard self.proposalDetail != nil else {
+                return 0
+            }
+            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
+                return 0
+            }
+            
+            return 36
         } else {
             return 0
         }
@@ -174,6 +186,21 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             self.voteDelegationVisibilityConstraint.isActive = self.voteWasDelegated
             
             return self.voteContainerView
+        } else if section == 2 {
+            guard let detail = self.proposalDetail else {
+                return nil
+            }
+            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
+                return nil
+            }
+            
+            let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
+            header.setup(title: "DISCUSSION", action: "See All ›") {
+                let commentVC = CommentListViewController.create(commentable: detail)
+                commentVC.modalPresentationStyle = .overCurrentContext
+                self.navigationController?.present(commentVC, animated: true, completion: nil)
+            }
+            return header
         } else {
             return nil
         }

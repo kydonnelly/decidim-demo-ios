@@ -154,7 +154,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             }
             
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
-            header.setup(title: "DISCUSSION", action: "See More ›") {
+            header.setup(title: "DISCUSSION", action: "See All ›") {
                 let commentVC = CommentListViewController.create(commentable: issueDetail)
                 commentVC.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
