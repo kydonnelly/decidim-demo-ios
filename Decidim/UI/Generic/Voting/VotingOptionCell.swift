@@ -10,7 +10,7 @@ import UIKit
 
 class VotingOptionCell: UICollectionViewCell {
     
-    @IBOutlet var voteButton: UIButton!
+    @IBOutlet var voteIcon: UIImageView!
     @IBOutlet var selectedView: UIView!
     @IBOutlet var detailLabel: UILabel!
     
@@ -18,11 +18,15 @@ class VotingOptionCell: UICollectionViewCell {
     
     private var onVote: VoteBlock?
     
-    public func setup(voteType: VoteType, percentage: CGFloat?, isSelected: Bool, onVote: VoteBlock?) {
-        self.voteButton.icon = voteType.icon
-        self.voteButton.iconColor = voteType.tintColor
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        self.selectedView.isHidden = !isSelected
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapVoteButton(_:)))
+        self.selectedView.addGestureRecognizer(gesture)
+    }
+    
+    public func setup(voteType: VoteType, percentage: CGFloat?, onVote: VoteBlock?) {
+        self.voteIcon.icon = voteType.icon
         
         if let percentage = percentage {
             self.detailLabel.text = "\(Int(percentage * 100))% \(voteType.displayString)"
@@ -33,7 +37,17 @@ class VotingOptionCell: UICollectionViewCell {
         self.onVote = onVote
     }
     
-    @IBAction func didTapVoteButton(_ sender: UIButton) {
+    // For some reason selectedView.backgroundColor needs to be set on willDisplayCell
+    public func refreshVote(type: VoteType, isSelected: Bool) {
+        self.voteIcon.iconColor = isSelected ? .primaryDark : type.tintColor
+        self.selectedView.backgroundColor = isSelected ? type.tintColor : .primaryBackground
+    }
+    
+}
+
+extension VotingOptionCell {
+    
+    @IBAction func didTapVoteButton(_ sender: UITapGestureRecognizer) {
         self.onVote?()
     }
     
