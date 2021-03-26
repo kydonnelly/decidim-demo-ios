@@ -62,6 +62,8 @@
 		2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */; };
 		2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */; };
 		2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */; };
+		27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */; };
+		27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */; };
 		275114E924FFDF66006277AA /* CustomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275114E824FFDF66006277AA /* CustomTableController.swift */; };
 		275114ED2506B168006277AA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275114EB2506B168006277AA /* Settings.storyboard */; };
 		275114EE2506B168006277AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275114EC2506B168006277AA /* SettingsViewController.swift */; };
@@ -268,6 +270,8 @@
 		2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAmendmentsCell.swift; sourceTree = "<group>"; };
 		2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetail.swift; sourceTree = "<group>"; };
 		2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailDataController.swift; sourceTree = "<group>"; };
+		27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCellAdd.swift; sourceTree = "<group>"; };
+		27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileIconCollectionCellAdd.xib; sourceTree = "<group>"; };
 		275114E824FFDF66006277AA /* CustomTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableController.swift; sourceTree = "<group>"; };
 		275114EB2506B168006277AA /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		275114EC2506B168006277AA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -861,6 +865,8 @@
 		27B22B5924D93978005DF376 /* Profile Info */ = {
 			isa = PBXGroup;
 			children = (
+				27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */,
+				27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */,
 				27B22B5C24D93988005DF376 /* ProfileIconCollectionCell.swift */,
 				27B22B5E24D9399C005DF376 /* ProfileIconCollectionCell.xib */,
 				27B22B5A24D93978005DF376 /* ProfileIconListView.swift */,
@@ -1086,6 +1092,7 @@
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
+				27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */,
 				27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
 				278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */,
@@ -1295,6 +1302,7 @@
 				27B22B5324D9356C005DF376 /* ProposalAmendmentDataController.swift in Sources */,
 				270B271C2495FAC6001804D6 /* HTTPRequest.swift in Sources */,
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
+				27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */,
 				27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */,
 				277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */,
 				2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */,

@@ -316,7 +316,6 @@
                                                 <constraint firstAttribute="trailing" secondItem="upc-2q-LjS" secondAttribute="trailing" id="BI7-Wf-3Fi"/>
                                                 <constraint firstItem="Odx-xD-y2d" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" constant="24" id="FQa-2o-Xeg"/>
                                                 <constraint firstAttribute="trailing" secondItem="Vko-ST-AqO" secondAttribute="trailing" constant="16" id="HuH-Kz-75b"/>
-                                                <constraint firstAttribute="bottom" secondItem="Vko-ST-AqO" secondAttribute="bottom" priority="51" constant="12" id="N0s-St-m85"/>
                                                 <constraint firstAttribute="bottom" secondItem="upc-2q-LjS" secondAttribute="bottom" id="Pcj-V0-fCb"/>
                                                 <constraint firstItem="2Q4-ct-uI6" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" constant="24" id="ZI8-Mx-92p"/>
                                                 <constraint firstItem="Vko-ST-AqO" firstAttribute="top" secondItem="Psb-AX-yGB" secondAttribute="top" constant="12" id="h6l-LG-DR6"/>
@@ -324,14 +323,12 @@
                                                 <constraint firstItem="Vko-ST-AqO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2Q4-ct-uI6" secondAttribute="trailing" constant="8" id="jWu-La-ES4"/>
                                                 <constraint firstItem="upc-2q-LjS" firstAttribute="leading" secondItem="Psb-AX-yGB" secondAttribute="leading" id="jX8-U3-ucA"/>
                                                 <constraint firstAttribute="trailing" secondItem="Odx-xD-y2d" secondAttribute="trailing" constant="24" id="kPX-Jq-VU6"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Odx-xD-y2d" secondAttribute="bottom" constant="12" id="s5y-zh-jQ5"/>
+                                                <constraint firstAttribute="bottom" secondItem="Odx-xD-y2d" secondAttribute="bottom" priority="51" constant="12" id="s5y-zh-jQ5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="numAmendmentsLabel" destination="2Q4-ct-uI6" id="dTw-zc-eE0"/>
                                             <outlet property="profileListView" destination="Odx-xD-y2d" id="8Km-pS-HV1"/>
-                                            <outletCollection property="listViewConstraints" destination="ndl-Sz-gQD" collectionClass="NSMutableArray" id="qgl-g4-Iac"/>
-                                            <outletCollection property="listViewConstraints" destination="s5y-zh-jQ5" collectionClass="NSMutableArray" id="R3Y-yV-hOO"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">

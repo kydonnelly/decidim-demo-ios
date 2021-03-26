@@ -26,9 +26,9 @@ class VotePreferencesDelegateCell: CustomTableViewCell {
             
             let profiles = dc.data as? [ProfileInfo] ?? []
             let filtered = profiles.filter { delegates.contains($0.profileId) }
-            self.profileListView.setup(profiles: filtered) { profileId in
+            self.profileListView.setup(profiles: filtered, showAddCell: false, tappedProfileBlock: { profileId in
                 tappedProfileBlock?(profileId)
-            }
+            }, tappedAddBlock: nil)
             
             self.listViewConstraints.forEach { $0.isActive = filtered.count > 0 }
         }

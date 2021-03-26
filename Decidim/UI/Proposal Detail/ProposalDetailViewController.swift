@@ -211,7 +211,14 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     navController.pushViewController(profileVC, animated: true)
                 }
                 
-                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail, onExpandBlock: expandBlock, tappedProfileBlock: profileBlock)
+                let createBlock: ProposalDetailAmendmentsCell.CreateBlock = { [weak self] in
+                    guard let self = self else { return }
+                    let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail!)
+                    vc.modalPresentationStyle = .overCurrentContext
+                    self.navigationController?.present(vc, animated: true, completion: nil)
+                }
+                
+                (cell as! ProposalDetailAmendmentsCell).setup(detail: detail, onExpandBlock: expandBlock, tappedProfileBlock: profileBlock, tappedCreateBlock: createBlock)
             case .voting:
                 let allVotes = self.voteDataController.allVotes
                 let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }

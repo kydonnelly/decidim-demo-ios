@@ -11,15 +11,15 @@ import UIKit
 class ProposalDetailAmendmentsCell: CustomTableViewCell {
     
     typealias ExpandBlock = () -> Void
+    typealias CreateBlock = () -> Void
     typealias ProfileBlock = (Int) -> Void
     
     @IBOutlet var numAmendmentsLabel: UILabel!
     @IBOutlet var profileListView: ProfileIconListView!
-    @IBOutlet var listViewConstraints: [NSLayoutConstraint]!
     
     fileprivate var onExpandBlock: ExpandBlock?
     
-    func setup(detail: ProposalDetail, onExpandBlock: ExpandBlock?, tappedProfileBlock: ProfileBlock?) {
+    func setup(detail: ProposalDetail, onExpandBlock: ExpandBlock?, tappedProfileBlock: ProfileBlock?, tappedCreateBlock: CreateBlock?) {
         self.onExpandBlock = onExpandBlock
         
         self.numAmendmentsLabel.text = "AMENDMENTS"
@@ -33,11 +33,11 @@ class ProposalDetailAmendmentsCell: CustomTableViewCell {
                 let allProfiles = dc.data as? [ProfileInfo] ?? []
                 let allAmenders = Set<Int>(amendments.map { $0.authorId })
                 let profiles = allProfiles.filter { allAmenders.contains($0.profileId) }
-                self.profileListView.setup(profiles: profiles) { profileId in
+                self.profileListView.setup(profiles: profiles, showAddCell: true, tappedProfileBlock: { profileId in
                     tappedProfileBlock?(profileId)
-                }
-                
-                self.listViewConstraints.forEach { $0.isActive = profiles.count > 0 }
+                }, tappedAddBlock: {
+                    tappedCreateBlock?()
+                })
             }
         }
     }
