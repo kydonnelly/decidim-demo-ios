@@ -25,11 +25,12 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     }
     
     fileprivate enum MidSectionCell: String, CaseIterable {
-        case author = "AuthorCell"
         case body = "BodyCell"
+        case author = "AuthorCell"
+        case proposals = "ProposalPreviewCell"
         
         static func ordered() -> [MidSectionCell] {
-            return [.body, .author]
+            return [.body, .author, .proposals]
         }
     }
     
@@ -207,6 +208,8 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 (cell as! IssueDetailAuthorCell).setup(detail: detail)
             case .body:
                 (cell as! IssueDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
+            case .proposals:
+                (cell as! IssueDetailProposalListCell).setup(detail: self.issueDetail!, onCreate: nil, onExpand: nil)
             }
             
             return cell
@@ -277,6 +280,8 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
+            case .proposals:
+                break
             }
         } else if indexPath.section == 2 {
             let comment = self.commentDataController.allComments[indexPath.row]

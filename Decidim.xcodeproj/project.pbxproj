@@ -101,6 +101,11 @@
 		27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CA5260AE70B003D29D4 /* Commentable.swift */; };
 		27649CB2260C29CF003D29D4 /* ActionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */; };
 		27649CB4260C2A0E003D29D4 /* ActionHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */; };
+		27649CB6260C3231003D29D4 /* IssueDetailProposalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CB5260C3231003D29D4 /* IssueDetailProposalListCell.swift */; };
+		27649CB8260C32A9003D29D4 /* IssueDetailProposalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CB7260C32A9003D29D4 /* IssueDetailProposalListViewController.swift */; };
+		27649CBA260C3817003D29D4 /* IssueDetailProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649CB9260C3817003D29D4 /* IssueDetailProposalList.storyboard */; };
+		27649CBC260C39AC003D29D4 /* IssueDetailProposalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CBB260C39AC003D29D4 /* IssueDetailProposalCell.swift */; };
+		27649CBE260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649CBD260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift */; };
 		2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */; };
 		2773D156257F7BD4007FD3F0 /* TeamMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D155257F7BD4007FD3F0 /* TeamMember.swift */; };
 		2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */; };
@@ -302,6 +307,11 @@
 		27649CA5260AE70B003D29D4 /* Commentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Commentable.swift; sourceTree = "<group>"; };
 		27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionHeaderView.swift; sourceTree = "<group>"; };
 		27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionHeaderView.xib; sourceTree = "<group>"; };
+		27649CB5260C3231003D29D4 /* IssueDetailProposalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailProposalListCell.swift; sourceTree = "<group>"; };
+		27649CB7260C32A9003D29D4 /* IssueDetailProposalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailProposalListViewController.swift; sourceTree = "<group>"; };
+		27649CB9260C3817003D29D4 /* IssueDetailProposalList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = IssueDetailProposalList.storyboard; sourceTree = "<group>"; };
+		27649CBB260C39AC003D29D4 /* IssueDetailProposalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailProposalCell.swift; sourceTree = "<group>"; };
+		27649CBD260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueDetailCreateProposalCell.swift; sourceTree = "<group>"; };
 		2773D153257F6461007FD3F0 /* TeamActionsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamActionsDataController.swift; sourceTree = "<group>"; };
 		2773D155257F7BD4007FD3F0 /* TeamMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMember.swift; sourceTree = "<group>"; };
 		2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersDataController.swift; sourceTree = "<group>"; };
@@ -718,6 +728,11 @@
 				27649C85260AE2F7003D29D4 /* IssueDetailBannerCell.swift */,
 				27649C87260AE2F7003D29D4 /* IssueDetail.storyboard */,
 				27649C83260AE2F7003D29D4 /* IssueDetailViewController.swift */,
+				27649CB5260C3231003D29D4 /* IssueDetailProposalListCell.swift */,
+				27649CB9260C3817003D29D4 /* IssueDetailProposalList.storyboard */,
+				27649CB7260C32A9003D29D4 /* IssueDetailProposalListViewController.swift */,
+				27649CBB260C39AC003D29D4 /* IssueDetailProposalCell.swift */,
+				27649CBD260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift */,
 			);
 			path = "Issue Detail";
 			sourceTree = "<group>";
@@ -1080,6 +1095,7 @@
 				2756A6E1249861DE0023DC91 /* Profile.storyboard in Resources */,
 				27F883AF24E798CE00B216D2 /* TeamDetail.storyboard in Resources */,
 				2717F47C24E0C79100189F7C /* EditProposal.storyboard in Resources */,
+				27649CBA260C3817003D29D4 /* IssueDetailProposalList.storyboard in Resources */,
 				278DA22725F54866002825CE /* VotingResultsView.xib in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
 				27649CB4260C2A0E003D29D4 /* ActionHeaderView.xib in Resources */,
@@ -1288,6 +1304,7 @@
 				2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */,
 				2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */,
 				27649CA2260AE3BB003D29D4 /* IssueComment.swift in Sources */,
+				27649CBC260C39AC003D29D4 /* IssueDetailProposalCell.swift in Sources */,
 				27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */,
 				277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */,
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
@@ -1295,11 +1312,13 @@
 				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
 				27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
+				27649CBE260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
 				2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */,
 				27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */,
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
 				27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */,
+				27649CB6260C3231003D29D4 /* IssueDetailProposalListCell.swift in Sources */,
 				27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
 				27293FBB2506CF0E000D27D1 /* ProfileVotesTabSection.swift in Sources */,
@@ -1352,6 +1371,7 @@
 				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
+				27649CB8260C32A9003D29D4 /* IssueDetailProposalListViewController.swift in Sources */,
 				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,
 				2717F47E24E0C79100189F7C /* DatePickerCell.swift in Sources */,
 			);
