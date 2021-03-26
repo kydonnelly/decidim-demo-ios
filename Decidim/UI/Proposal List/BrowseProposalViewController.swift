@@ -39,14 +39,7 @@ class BrowseProposalsViewController: UIViewController {
             case 0: childVC = ProposalListViewController.create()
             case 1:
                 childVC = ProposalListViewController.create { proposal in
-                    var include = false
-                    ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                        guard let detail = dc.data?.first as? ProposalDetail else {
-                            return
-                        }
-                        include = detail.hasLocalLike
-                    }
-                    return include
+                    return false
                 }
             default: preconditionFailure("Mismatch between selection bar and handler")
             }

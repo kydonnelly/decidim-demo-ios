@@ -12,12 +12,9 @@ struct ProposalDetail {
     let proposal: Proposal
     
     let deadline: Date?
-    let likeCount: Int
     let voteCount: Int
     let commentCount: Int
     let amendmentCount: Int
-    
-    var hasLocalLike: Bool = false
     
     public static func from(dict: [String: Any], proposal: Proposal) -> ProposalDetail? {
         guard let voteCount = dict["vote_count"] as? Int,
@@ -26,8 +23,6 @@ struct ProposalDetail {
             return nil
         }
         
-        let likeCount = dict["like_count"] as? Int ?? 0
-        
         var deadline: Date? = nil
         if let deadlineString = dict["deadline"] as? String {
             deadline = Date(timestamp: deadlineString)
@@ -35,7 +30,6 @@ struct ProposalDetail {
         
         return ProposalDetail(proposal: proposal,
                               deadline: deadline,
-                              likeCount: likeCount,
                               voteCount: voteCount,
                               commentCount: commentCount,
                               amendmentCount: amendmentCount)

@@ -15,12 +15,11 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     static let CommentHeaderID = "CommentHeader"
     
     fileprivate enum TopSectionCell: String, CaseIterable {
-        case engagement = "EngagementCell"
         case deadline = "DeadlineCell"
         case title = "TitleCell"
         
         static func ordered() -> [TopSectionCell] {
-            return [.title, .engagement, .deadline]
+            return [.title, .deadline]
         }
     }
     
@@ -185,32 +184,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             
             let detail = self.proposalDetail!
             switch cellId {
-            case .engagement:
-                let likeBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    self.detailDataController.refresh { [weak self] dc in
-                        guard var detail = dc.data?.first as? ProposalDetail else {
-                            return
-                        }
-                        detail.hasLocalLike = true
-                        dc.data = [detail]
-                        self?.tableView.reloadData()
-                    }
-                }
-                let commentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    let commentVC = CommentListViewController.create(commentable: self.proposalDetail!)
-                    commentVC.modalPresentationStyle = .overCurrentContext
-                    self.navigationController?.present(commentVC, animated: true, completion: nil)
-                }
-                
-                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, commentBlock: commentBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:

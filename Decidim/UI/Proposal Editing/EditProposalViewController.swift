@@ -106,7 +106,7 @@ extension EditProposalViewController {
             }
             
             ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, likeCount: 0, voteCount: 0, commentCount: 0, amendmentCount: 0)]
+                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }
     }
@@ -130,7 +130,7 @@ extension EditProposalViewController {
             }
             
             ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, likeCount: 0, voteCount: 0, commentCount: 0, amendmentCount: 0)]
+                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }
     }
