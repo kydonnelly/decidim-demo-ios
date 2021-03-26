@@ -26,22 +26,16 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     fileprivate enum MidSectionCell: String, CaseIterable {
         case amendments = "AmendmentsCell"
+        case voting = "VotingCell"
         case author = "AuthorCell"
         case body = "BodyCell"
         
         static func ordered() -> [MidSectionCell] {
-            return [.body, .author, .amendments]
+            return [.voting, .body, .author, .amendments]
         }
     }
     
     @IBOutlet var tableView: UITableView!
-    
-    @IBOutlet var voteView: VotingOptionsView!
-    @IBOutlet var voteResultsView: VotingResultsView!
-    
-    @IBOutlet var voteContainerView: UIView!
-    
-    @IBOutlet var voteDelegationVisibilityConstraint: NSLayoutConstraint!
     
     private var proposal: Proposal!
     private var voteDataController: ProposalVotesDataController!
@@ -72,8 +66,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.voteContainerView.roundTopCorners(radius: 16.0, addShadow: true)
-        
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
@@ -98,8 +90,6 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
             self.tableView.reloadData()
             self.tableView.setNeedsLayout()
             self.tableView.layoutIfNeeded()
-            
-            self.refreshVoteUI()
         }
         
         self.commentDataController.refresh { [weak self] dc in
@@ -153,17 +143,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 1 {
-            guard self.proposalDetail != nil else {
-                return 0
-            }
-            
-            if self.voteWasDelegated {
-                return 310
-            } else {
-                return 274
-            }
-        } else if section == 2 {
+        if section == 2 {
             guard self.proposalDetail != nil else {
                 return 0
             }
@@ -178,15 +158,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 1 {
-            guard self.proposalDetail != nil else {
-                return nil
-            }
-            
-            self.voteDelegationVisibilityConstraint.isActive = self.voteWasDelegated
-            
-            return self.voteContainerView
-        } else if section == 2 {
+        if section == 2 {
             guard let detail = self.proposalDetail else {
                 return nil
             }
@@ -228,15 +200,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                         self?.tableView.reloadData()
                     }
                 }
-                let voteBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
-                    guard let self = self else {
-                        return
-                    }
-                    
-                    let votersVC = VoterListViewController.create(proposal: self.proposal)
-                    votersVC.modalPresentationStyle = .overCurrentContext
-                    self.navigationController?.present(votersVC, animated: true, completion: nil)
-                }
                 let commentBlock: ProposalDetailEngagementCell.ActionBlock = { [weak self] in
                     guard let self = self else {
                         return
@@ -256,7 +219,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     self.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
-                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, voteBlock: voteBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
+                (cell as! ProposalDetailEngagementCell).setup(detail: detail, likeBlock: likeBlock, commentBlock: commentBlock, amendmentBlock: amendmentBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
             case .title:
@@ -276,6 +239,23 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     let profileVC = ProfileViewController.create(profileId: profileId)
                     navController.pushViewController(profileVC, animated: true)
                 }
+            case .voting:
+                let allVotes = self.voteDataController.allVotes
+                let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
+                
+                let voteBlock: VotingOptionsView.VoteBlock = { [weak self] type in
+                    if let existingVote = myVote {
+                        self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
+                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                        })
+                    } else {
+                        self?.voteDataController.addVote(type) { [weak self] error in
+                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                        }
+                    }
+                }
+                
+                (cell as! ProposalDetailVotingCell).setup(proposal: self.proposal, votes: allVotes, myVote: myVote?.voteType, onVote: voteBlock)
             case .author:
                 (cell as! ProposalDetailAuthorCell).setup(detail: detail)
             case .body:
@@ -353,6 +333,10 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
+            case .voting:
+                let votersVC = VoterListViewController.create(proposal: self.proposal)
+                votersVC.modalPresentationStyle = .overCurrentContext
+                self.navigationController?.present(votersVC, animated: true, completion: nil)
             case .amendments:
                 let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
                 vc.modalPresentationStyle = .overCurrentContext
@@ -370,32 +354,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         if indexPath.section == 3 {
             self.detailDataController.page { [weak self] dc in
                 self?.tableView.reloadData()
-            }
-        }
-    }
-    
-}
-
-extension ProposalDetailViewController {
-    
-    fileprivate func refreshVoteUI() {
-        let allVotes = self.voteDataController.allVotes.filter { $0.proposalId == self.proposal.id }
-        let myVote = self.voteDataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
-        
-        self.refreshVoteButtons(myVote: myVote, allVotes: allVotes)
-        self.voteResultsView.setup(votes: allVotes)
-    }
-    
-    private func refreshVoteButtons(myVote: ProposalVote?, allVotes: [ProposalVote]) {
-        self.voteView.setup(currentVote: myVote?.voteType, allVotes: allVotes) { [weak self] type in
-            if let existingVote = myVote {
-                self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
-                    self?.refreshVoteUI()
-                })
-            } else {
-                self?.voteDataController.addVote(type) { [weak self] error in
-                    self?.refreshVoteUI()
-                }
             }
         }
     }
