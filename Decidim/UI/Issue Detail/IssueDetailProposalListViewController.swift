@@ -11,7 +11,7 @@ import UIKit
 class IssueDetailProposalListViewController: UIViewController {
     
     typealias CreateBlock = () -> Void
-    typealias ExpandBlock = (Int) -> Void
+    typealias ExpandBlock = (Proposal) -> Void
     
     static let createCellId = "CreateCell"
     static let proposalCellId = "ProposalCell"
@@ -108,7 +108,7 @@ extension IssueDetailProposalListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             let proposal = self.proposals[indexPath.row]
-            self.expandBlock?(proposal.id)
+            self.expandBlock?(proposal)
         } else {
             self.createBlock?()
         }
