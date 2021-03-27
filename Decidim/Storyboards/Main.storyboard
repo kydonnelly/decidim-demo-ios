@@ -107,7 +107,7 @@
             </objects>
             <point key="canvasLocation" x="1686" y="-7"/>
         </scene>
-        <!--Teams-->
+        <!--Home-->
         <scene sceneID="IkL-Hm-Mfr">
             <objects>
                 <viewController id="EyX-kk-y0C" sceneMemberID="viewController">
@@ -131,16 +131,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LrU-GZ-h0c"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Teams" id="Yyx-tx-Lct">
+                    <tabBarItem key="tabBarItem" title="Home" id="Yyx-tx-Lct">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="users"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="home"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
                                 <color key="value" name="Action"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="users"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="home"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                 </viewController>
@@ -148,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="1103" y="-708"/>
         </scene>
-        <!--TeamList-->
+        <!--Explore-->
         <scene sceneID="Brn-Nw-ZXW">
             <objects>
-                <viewControllerPlaceholder storyboardName="TeamList" id="mON-WQ-n5f" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Explore" id="mON-WQ-n5f" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uua-AE-hCD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1686" y="-708"/>
