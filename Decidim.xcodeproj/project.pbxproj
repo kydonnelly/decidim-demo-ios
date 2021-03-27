@@ -75,6 +75,8 @@
 		27490CD7260EDDF300FAD841 /* Teams+Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CD6260EDDF300FAD841 /* Teams+Previewable.swift */; };
 		27490CD9260EDE4B00FAD841 /* Issues+Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CD8260EDE4B00FAD841 /* Issues+Previewable.swift */; };
 		27490CDB260EDE7900FAD841 /* Profile+Previewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CDA260EDE7900FAD841 /* Profile+Previewable.swift */; };
+		27490CDE260EE10600FAD841 /* CreateAmendment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27490CDC260EE10600FAD841 /* CreateAmendment.storyboard */; };
+		27490CDF260EE10600FAD841 /* CreateAmendmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CDD260EE10600FAD841 /* CreateAmendmentViewController.swift */; };
 		275114E924FFDF66006277AA /* CustomTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275114E824FFDF66006277AA /* CustomTableController.swift */; };
 		275114ED2506B168006277AA /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 275114EB2506B168006277AA /* Settings.storyboard */; };
 		275114EE2506B168006277AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275114EC2506B168006277AA /* SettingsViewController.swift */; };
@@ -172,8 +174,6 @@
 		27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */; };
 		27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6324D94025005DF376 /* AmendmentCell.swift */; };
 		27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B6524D94077005DF376 /* AmendmentList.storyboard */; };
-		27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */; };
-		27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -294,6 +294,8 @@
 		27490CD6260EDDF300FAD841 /* Teams+Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Teams+Previewable.swift"; sourceTree = "<group>"; };
 		27490CD8260EDE4B00FAD841 /* Issues+Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issues+Previewable.swift"; sourceTree = "<group>"; };
 		27490CDA260EDE7900FAD841 /* Profile+Previewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Profile+Previewable.swift"; sourceTree = "<group>"; };
+		27490CDC260EE10600FAD841 /* CreateAmendment.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateAmendment.storyboard; sourceTree = "<group>"; };
+		27490CDD260EE10600FAD841 /* CreateAmendmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAmendmentViewController.swift; sourceTree = "<group>"; };
 		275114E824FFDF66006277AA /* CustomTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableController.swift; sourceTree = "<group>"; };
 		275114EB2506B168006277AA /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		275114EC2506B168006277AA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -391,8 +393,6 @@
 		27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentListViewController.swift; sourceTree = "<group>"; };
 		27B22B6324D94025005DF376 /* AmendmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentCell.swift; sourceTree = "<group>"; };
 		27B22B6524D94077005DF376 /* AmendmentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AmendmentList.storyboard; sourceTree = "<group>"; };
-		27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CreateAmendment.storyboard; sourceTree = "<group>"; };
-		27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAmendmentViewController.swift; sourceTree = "<group>"; };
 		27F8838424E7914700B216D2 /* TeamListDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDataController.swift; sourceTree = "<group>"; };
 		27F8838624E7917A00B216D2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		27F8838824E791A100B216D2 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -876,8 +876,6 @@
 		27B22B4F24D934F6005DF376 /* Amendments */ = {
 			isa = PBXGroup;
 			children = (
-				27F8837D24E3B92B00B216D2 /* CreateAmendment.storyboard */,
-				27F8837F24E3B93C00B216D2 /* CreateAmendmentViewController.swift */,
 				27B22B5024D93505005DF376 /* ProposalAmendment.swift */,
 				27B22B5224D9356C005DF376 /* ProposalAmendmentDataController.swift */,
 			);
@@ -929,6 +927,8 @@
 				27B22B6324D94025005DF376 /* AmendmentCell.swift */,
 				27B22B6524D94077005DF376 /* AmendmentList.storyboard */,
 				27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */,
+				27490CDC260EE10600FAD841 /* CreateAmendment.storyboard */,
+				27490CDD260EE10600FAD841 /* CreateAmendmentViewController.swift */,
 			);
 			path = "Proposal Amendments";
 			sourceTree = "<group>";
@@ -1142,8 +1142,8 @@
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */,
-				27F8837E24E3B92B00B216D2 /* CreateAmendment.storyboard in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
+				27490CDE260EE10600FAD841 /* CreateAmendment.storyboard in Resources */,
 				278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */,
 				27293FD025071F9A000D27D1 /* NoResultsView.xib in Resources */,
 				27490CCE260ED10F00FAD841 /* ExploreList.storyboard in Resources */,
@@ -1345,7 +1345,6 @@
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
 				277FD2D12511F53B0063FFE6 /* AssemblyProposals.graphql.swift in Sources */,
 				27F883E224EDDF0700B216D2 /* EditActionViewController.swift in Sources */,
-				27F8838024E3B93C00B216D2 /* CreateAmendmentViewController.swift in Sources */,
 				27649C58260AD582003D29D4 /* Issue.swift in Sources */,
 				27293FA42506B97B000D27D1 /* SettingsProfileCell.swift in Sources */,
 				2789E98624B67FF50061C3E9 /* VoteListViewController.swift in Sources */,
@@ -1385,6 +1384,7 @@
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
 				27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */,
 				27649CB6260C3231003D29D4 /* IssueDetailProposalListCell.swift in Sources */,
+				27490CDF260EE10600FAD841 /* CreateAmendmentViewController.swift in Sources */,
 				27B22B3A24D2382C005DF376 /* VoteDelegationManager.swift in Sources */,
 				27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */,
 				2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */,
