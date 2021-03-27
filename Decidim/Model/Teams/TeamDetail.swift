@@ -6,7 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct TeamDetail {
     let team: Team
