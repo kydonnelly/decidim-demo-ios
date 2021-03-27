@@ -8,15 +8,13 @@
 
 import UIKit
 
-class IssueDetailProposalListViewController: UIViewController {
+class IssueDetailProposalListViewController: HorizontalListViewController {
     
     typealias CreateBlock = () -> Void
     typealias ExpandBlock = (Proposal) -> Void
     
     static let createCellId = "CreateCell"
     static let proposalCellId = "ProposalCell"
-    
-    @IBOutlet var horizontalTableView: UITableView!
     
     private var createBlock: CreateBlock?
     private var expandBlock: ExpandBlock?
@@ -48,20 +46,14 @@ class IssueDetailProposalListViewController: UIViewController {
             
             self.proposals.forEach {
                 ProposalVotesDataController.shared(proposalId: $0.id).refresh { [weak self] _ in
-                    self?.horizontalTableView.reloadData()
+                    self?.tableView.reloadData()
                 }
             }
             
-            self.horizontalTableView.reloadData()
+            self.tableView.reloadData()
         }
         
-        self.horizontalTableView.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.horizontalTableView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * -0.5)
+        self.tableView.reloadData()
     }
     
 }
@@ -103,7 +95,9 @@ extension IssueDetailProposalListViewController: UITableViewDataSource {
     
 }
 
-extension IssueDetailProposalListViewController: UITableViewDelegate {
+/// UITableViewDelegate
+
+extension IssueDetailProposalListViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
@@ -112,10 +106,6 @@ extension IssueDetailProposalListViewController: UITableViewDelegate {
         } else {
             self.createBlock?()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.5)
     }
     
 }

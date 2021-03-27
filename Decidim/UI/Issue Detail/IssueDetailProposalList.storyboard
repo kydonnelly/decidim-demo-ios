@@ -171,7 +171,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="400"/>
                     <connections>
-                        <outlet property="horizontalTableView" destination="QjD-96-XcA" id="h6c-nk-nEa"/>
+                        <outlet property="tableView" destination="QjD-96-XcA" id="f0L-Ax-8nq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RGB-dF-p96" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
