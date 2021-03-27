@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if let tabController = self.window?.rootViewController as? UITabBarController {
             tabController.delegate = self
-            tabController.selectedIndex = 1 // proposals
+            tabController.selectedIndex = 0 // home
             
             // named colors aren't available until after the trait collection is known :(
             tabController.viewControllers?.forEach {
