@@ -150,6 +150,8 @@
 		278DA22525F54253002825CE /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DA22425F54253002825CE /* DonutView.swift */; };
 		278DA22725F54866002825CE /* VotingResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278DA22625F54866002825CE /* VotingResultsView.xib */; };
 		278DA22925F5EBD8002825CE /* DeadlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DA22825F5EBD8002825CE /* DeadlineCell.swift */; };
+		27A4ADE62612DD4E003C507A /* Giphy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27A4ADE52612DD4E003C507A /* Giphy-Info.plist */; };
+		27A4ADE82612DE04003C507A /* GiphyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A4ADE72612DE04003C507A /* GiphyManager.swift */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -369,6 +371,8 @@
 		278DA22425F54253002825CE /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
 		278DA22625F54866002825CE /* VotingResultsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingResultsView.xib; sourceTree = "<group>"; };
 		278DA22825F5EBD8002825CE /* DeadlineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineCell.swift; sourceTree = "<group>"; };
+		27A4ADE52612DD4E003C507A /* Giphy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Giphy-Info.plist"; sourceTree = "<group>"; };
+		27A4ADE72612DE04003C507A /* GiphyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyManager.swift; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -593,6 +597,7 @@
 			isa = PBXGroup;
 			children = (
 				2739747824AB287000CA16A3 /* Date+Helpers.swift */,
+				27A4ADE72612DE04003C507A /* GiphyManager.swift */,
 				27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */,
 				2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */,
 				27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */,
@@ -1018,6 +1023,7 @@
 		27F883E824F5242A00B216D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				27A4ADE52612DD4E003C507A /* Giphy-Info.plist */,
 				27F883E924F5242A00B216D2 /* Kraken.ttf */,
 			);
 			path = Resources;
@@ -1056,6 +1062,7 @@
 				270B26C2247B6A4A001804D6 /* Frameworks */,
 				270B26C3247B6A4A001804D6 /* Resources */,
 				5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */,
+				C16D0159807B9E9A36D3D018 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1075,11 +1082,12 @@
 				270B26E0247BA178001804D6 /* Frameworks */,
 				270B26E1247BA178001804D6 /* Resources */,
 				7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */,
+				73A1549C2145509F4A68B42B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				270B26E9247BA178001804D6 /* PBXTargetDependency */,
+				274C93A7255B773A004EE73A /* PBXTargetDependency */,
 			);
 			name = DecidimTests;
 			productName = DecidimTests;
@@ -1129,6 +1137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A4ADE62612DD4E003C507A /* Giphy-Info.plist in Resources */,
 				27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */,
 				27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */,
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
@@ -1241,6 +1250,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		73A1549C2145509F4A68B42B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1278,6 +1304,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C16D0159807B9E9A36D3D018 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1414,6 +1457,7 @@
 				27F883E724F5241F00B216D2 /* KrakenIconFont.swift in Sources */,
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
+				27A4ADE82612DE04003C507A /* GiphyManager.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
 				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
@@ -1457,10 +1501,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		270B26E9247BA178001804D6 /* PBXTargetDependency */ = {
+		274C93A7255B773A004EE73A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 270B26C4247B6A4A001804D6 /* Decidim */;
-			targetProxy = 270B26E8247BA178001804D6 /* PBXContainerItemProxy */;
+			targetProxy = 274C93A6255B773A004EE73A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
