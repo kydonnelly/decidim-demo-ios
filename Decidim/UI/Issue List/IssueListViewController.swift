@@ -21,11 +21,12 @@ class IssueListViewController: UIViewController, CustomTableController {
     
     private var filter: IssueFilter?
     
-    public static func create(filter: IssueFilter? = nil) -> IssueListViewController {
+    public static func create(filter: IssueFilter? = nil) -> UINavigationController {
         let sb = UIStoryboard(name: "IssueList", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! IssueListViewController
+        let nvc = sb.instantiateInitialViewController() as! UINavigationController
+        let vc = nvc.viewControllers.first as! IssueListViewController
         vc.setup(filter: filter)
-        return vc
+        return nvc
     }
     
     private func setup(filter: IssueFilter?) {
