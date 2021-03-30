@@ -10,7 +10,7 @@ import UIKit
 
 class ExploreListViewController: HorizontalListViewController {
     
-    typealias SelectBlock = (Proposal) -> Void
+    typealias SelectBlock = (Previewable) -> Void
     
     static let previewCellId = "PreviewCell"
     static let loadingCellId = "LoadingCell"
@@ -74,6 +74,18 @@ extension ExploreListViewController: UITableViewDataSource {
             return cell
         } else {
             return tableView.dequeueReusableCell(withIdentifier: Self.loadingCellId, for: indexPath)
+        }
+    }
+    
+}
+
+// UITableViewDelegate
+extension ExploreListViewController {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            let previewItem = self.dataController!.previewItems[indexPath.row]
+            self.selectBlock?(previewItem)
         }
     }
     

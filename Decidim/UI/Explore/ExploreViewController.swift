@@ -91,7 +91,24 @@ extension ExploreViewController: UITableViewDataSource {
             }
         }
         
-        cell.setup(title: cellId.title, dataController: cellId.dataController, showCreateButton: cellId.creatable, onSelect: nil, onCreate: onCreateBlock)
+        let onSelectBlock: ExploreListViewController.SelectBlock = { item in
+            switch cellId {
+                case .teams:
+                    guard let teamDetail = item as? TeamDetail else { break }
+                    let vc = TeamDetailViewController.create(team: teamDetail.team)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                case .issues:
+                    guard let issue = item as? Issue else { break }
+                    let vc = IssueDetailViewController.create(issue: issue)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                case .people:
+                    guard let profile = item as? ProfileInfo else { break }
+                    let vc = ProfileViewController.create(profileId: profile.profileId)
+                    self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        
+        cell.setup(title: cellId.title, dataController: cellId.dataController, showCreateButton: cellId.creatable, onSelect: onSelectBlock, onCreate: onCreateBlock)
         
         return cell
     }
