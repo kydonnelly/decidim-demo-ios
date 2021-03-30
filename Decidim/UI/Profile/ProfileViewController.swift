@@ -46,6 +46,7 @@ class ProfileViewController: UIViewController, CustomTableController {
         
         if self.profileId != nil {
             self.title = "Profile"
+            self.navigationItem.leftBarButtonItem = nil
         } else {
             self.title = "My Profile"
             self.profileId = MyProfileController.shared.myProfileId
