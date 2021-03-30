@@ -70,6 +70,13 @@
                                                     <rect key="frame" x="24" y="49" width="366" height="103"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5x0-7j-SJ4">
+                                                    <rect key="frame" x="0.0" y="163" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="jmZ-ly-pfl"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Zhj-wc-6BB" secondAttribute="trailing" constant="24" id="4A7-hk-Xxg"/>
@@ -78,9 +85,12 @@
                                                 <constraint firstItem="8xe-fJ-ikd" firstAttribute="leading" secondItem="9U6-mI-d4e" secondAttribute="leading" constant="24" id="AXf-zr-0eW"/>
                                                 <constraint firstAttribute="bottom" secondItem="EZH-fJ-qqr" secondAttribute="bottom" priority="51" constant="12" id="BR9-Wc-rFu"/>
                                                 <constraint firstAttribute="trailing" secondItem="EZH-fJ-qqr" secondAttribute="trailing" constant="24" id="JpF-gd-lb8"/>
+                                                <constraint firstAttribute="trailing" secondItem="5x0-7j-SJ4" secondAttribute="trailing" id="OSi-kK-PqF"/>
+                                                <constraint firstAttribute="bottom" secondItem="5x0-7j-SJ4" secondAttribute="bottom" id="VPX-9R-cnV"/>
                                                 <constraint firstItem="EZH-fJ-qqr" firstAttribute="top" secondItem="8xe-fJ-ikd" secondAttribute="bottom" constant="16" id="hnP-DX-7f2"/>
                                                 <constraint firstItem="Zhj-wc-6BB" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8xe-fJ-ikd" secondAttribute="trailing" constant="8" id="lX4-e3-zk2"/>
                                                 <constraint firstItem="Zhj-wc-6BB" firstAttribute="centerY" secondItem="8xe-fJ-ikd" secondAttribute="centerY" id="o9S-bC-c09"/>
+                                                <constraint firstItem="5x0-7j-SJ4" firstAttribute="leading" secondItem="9U6-mI-d4e" secondAttribute="leading" id="upQ-ll-zMB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" name="PrimaryBackground"/>
