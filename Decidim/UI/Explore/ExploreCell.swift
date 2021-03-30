@@ -10,8 +10,13 @@ import UIKit
 
 class ExploreCell: UITableViewCell {
     
+    typealias CreateBlock = () -> Void
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var containerView: UIView!
+    @IBOutlet var createButton: UIButton!
+    
+    private var createBlock: CreateBlock?
     
     private var childViewController: ExploreListViewController! = nil
     
@@ -24,9 +29,20 @@ class ExploreCell: UITableViewCell {
         self.childViewController.view.frame = self.containerView.bounds
     }
     
-    public func setup(title: String, dataController: PreviewableDataController, onSelect: ExploreListViewController.SelectBlock?) {
+    public func setup(title: String, dataController: PreviewableDataController, showCreateButton: Bool, onSelect: ExploreListViewController.SelectBlock?, onCreate: CreateBlock? = nil) {
         self.titleLabel.text = title
+        self.createButton.isHidden = !showCreateButton
+        self.createBlock = onCreate
+        
         self.childViewController.setup(dataController: dataController, onSelect: onSelect)
+    }
+    
+}
+
+extension ExploreCell {
+    
+    @IBAction func createButtonTapped(_ sender: UIButton) {
+        self.createBlock?()
     }
     
 }

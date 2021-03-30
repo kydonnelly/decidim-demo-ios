@@ -34,6 +34,14 @@ class ExploreViewController: UIViewController, CustomTableController {
             case .people: return ProfileInfoDataController.shared()
             }
         }
+        
+        var creatable: Bool {
+            switch self {
+            case .issues: return true
+            case .teams: return true
+            case .people: return false
+            }
+        }
     }
     
     static let ExploreCellId = "ExploreCell"
@@ -66,15 +74,24 @@ extension ExploreViewController: UITableViewDataSource {
         return Sections.ordered().count
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 224
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellId = Sections.ordered()[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.ExploreCellId, for: indexPath) as! ExploreCell
         
-        cell.setup(title: cellId.title, dataController: cellId.dataController, onSelect: nil)
+        let onCreateBlock: ExploreCell.CreateBlock = {
+            switch cellId {
+            case .teams:
+                let vc = EditTeamViewController.create()
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            case .issues:
+                let vc = EditIssueViewController.create()
+                self.navigationController?.present(vc, animated: true, completion: nil)
+            case .people:
+                break
+            }
+        }
+        
+        cell.setup(title: cellId.title, dataController: cellId.dataController, showCreateButton: cellId.creatable, onSelect: nil, onCreate: onCreateBlock)
         
         return cell
     }
@@ -83,20 +100,8 @@ extension ExploreViewController: UITableViewDataSource {
 
 extension ExploreViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cellId = Sections.ordered()[indexPath.row]
-        
-        switch cellId {
-        case .teams:
-            let vc = TeamListViewController.create(profileId: MyProfileController.shared.myProfileId)
-            self.navigationController?.pushViewController(vc, animated: true)
-        case .issues:
-            let vc = IssueListViewController.create()
-            self.navigationController?.pushViewController(vc, animated: true)
-        case .people:
-            let vc = ProfileSearchViewController.create(category: "People I Follow", selectedProfileIds: [], onToggle: nil)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 224
     }
     
 }
