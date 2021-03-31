@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="80" id="XJD-JU-k3M" customClass="IssueInputCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="80" id="XJD-JU-k3M" customClass="IssueInputCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJD-JU-k3M" id="PB7-60-MrO">
@@ -199,6 +199,40 @@
                                         <connections>
                                             <outlet property="datePicker" destination="Ycd-Fb-est" id="OBJ-uw-anq"/>
                                             <outlet property="titleLabel" destination="2ZS-b0-b5t" id="qtK-rz-TaX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="QDW-Bu-sWU" customClass="SingleActionCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="348" width="414" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QDW-Bu-sWU" id="By9-52-NAz">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMR-9l-a60" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                    <rect key="frame" x="138.5" y="12" width="137" height="48"/>
+                                                    <color key="backgroundColor" name="Action"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="hCe-tA-BKm"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
+                                                    <state key="normal" title="Change Image">
+                                                        <color key="titleColor" name="PrimaryLight"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="actionButtonTapped:" destination="QDW-Bu-sWU" eventType="touchUpInside" id="Xes-mE-DYo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EMR-9l-a60" firstAttribute="centerY" secondItem="By9-52-NAz" secondAttribute="centerY" id="DLc-b4-czp"/>
+                                                <constraint firstItem="EMR-9l-a60" firstAttribute="centerX" secondItem="By9-52-NAz" secondAttribute="centerX" id="ZY2-oM-3Ml"/>
+                                                <constraint firstItem="EMR-9l-a60" firstAttribute="top" relation="greaterThanOrEqual" secondItem="By9-52-NAz" secondAttribute="top" constant="12" id="bUZ-l8-SjR"/>
+                                                <constraint firstItem="EMR-9l-a60" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="By9-52-NAz" secondAttribute="leading" constant="24" id="tSy-EP-ZRf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actionButton" destination="EMR-9l-a60" id="LrO-z4-vof"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

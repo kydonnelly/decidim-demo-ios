@@ -11,6 +11,7 @@ import UIKit
 
 class EditIssueViewController: UIViewController, CustomTableController {
     
+    fileprivate static let ActionCellId = "ActionCell"
     fileprivate static let InputCellId = "InputCell"
     fileprivate static let ImageCellId = "ImageCell"
     fileprivate static let DateCellId = "DateCell"
@@ -148,7 +149,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -158,8 +159,10 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             return 112
         } else if indexPath.row == 2 {
             return 128
-        } else {
+        } else if indexPath.row == 3 {
             return 120
+        } else {
+            return 72
         }
     }
     
@@ -182,10 +185,16 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
                 self?.deadline = date
             }
             return cell
-        } else {
+        } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! IssueInputCell
             cell.setup(field: "Description", content: self.issueDescription, required: true) { [weak self] text in
                 self?.issueDescription = text
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
+            cell.setup(action: "Save Changes") { [weak self] sender in
+                self?.didTapDoneButton(sender)
             }
             return cell
         }

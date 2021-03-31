@@ -156,6 +156,7 @@
 		27A81F3C261429FE0088E07C /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F3B261429FE0088E07C /* PillButton.swift */; };
 		27A81F4626142CD10088E07C /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4526142CD10088E07C /* EditImageCell.swift */; };
 		27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4926142CFB0088E07C /* DatePickerCell.swift */; };
+		27A81F5026142E220088E07C /* SingleActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4F26142E220088E07C /* SingleActionCell.swift */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -381,6 +382,7 @@
 		27A81F3B261429FE0088E07C /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
 		27A81F4526142CD10088E07C /* EditImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
 		27A81F4926142CFB0088E07C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		27A81F4F26142E220088E07C /* SingleActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleActionCell.swift; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -925,6 +927,7 @@
 				270169EE24FF6B3500CB97BF /* PaddedTextField.swift */,
 				27A81F3B261429FE0088E07C /* PillButton.swift */,
 				27490CD3260EDDC600FAD841 /* Previewable.swift */,
+				27A81F4F26142E220088E07C /* SingleActionCell.swift */,
 				27293FD52508B3E2000D27D1 /* TouchThroughView.swift */,
 				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
 				2773D15B25C157AD007FD3F0 /* UIView+Blocking.swift */,
@@ -1354,6 +1357,7 @@
 				270169EF24FF6B3500CB97BF /* PaddedTextField.swift in Sources */,
 				27A81F322613D5E00088E07C /* Proposal+HasDeadline.swift in Sources */,
 				27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */,
+				27A81F5026142E220088E07C /* SingleActionCell.swift in Sources */,
 				27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */,
 				27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */,
 				27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */,
