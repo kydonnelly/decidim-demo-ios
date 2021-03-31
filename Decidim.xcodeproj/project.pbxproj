@@ -157,6 +157,9 @@
 		27A81F58261432420088E07C /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F56261432420088E07C /* EditImageCell.swift */; };
 		27A81F59261432420088E07C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F57261432420088E07C /* DatePickerCell.swift */; };
 		27A81F5D261432660088E07C /* SingleLineEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F5C261432660088E07C /* SingleLineEntryCell.swift */; };
+		27A81F632614345D0088E07C /* EditImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F622614345D0088E07C /* EditImageCell.xib */; };
+		27A81F67261434680088E07C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F66261434680088E07C /* DatePickerCell.xib */; };
+		27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F6C261434710088E07C /* SingleLineEntryCell.xib */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -383,6 +386,9 @@
 		27A81F56261432420088E07C /* EditImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
 		27A81F57261432420088E07C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		27A81F5C261432660088E07C /* SingleLineEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineEntryCell.swift; sourceTree = "<group>"; };
+		27A81F622614345D0088E07C /* EditImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImageCell.xib; sourceTree = "<group>"; };
+		27A81F66261434680088E07C /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
+		27A81F6C261434710088E07C /* SingleLineEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleLineEntryCell.xib; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -868,8 +874,11 @@
 			isa = PBXGroup;
 			children = (
 				27A81F56261432420088E07C /* EditImageCell.swift */,
+				27A81F622614345D0088E07C /* EditImageCell.xib */,
 				27A81F57261432420088E07C /* DatePickerCell.swift */,
+				27A81F66261434680088E07C /* DatePickerCell.xib */,
 				27A81F5C261432660088E07C /* SingleLineEntryCell.swift */,
+				27A81F6C261434710088E07C /* SingleLineEntryCell.xib */,
 			);
 			path = "Input Cells";
 			sourceTree = "<group>";
@@ -1183,6 +1192,7 @@
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
+				27A81F67261434680088E07C /* DatePickerCell.xib in Resources */,
 				27490CDE260EE10600FAD841 /* CreateAmendment.storyboard in Resources */,
 				278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */,
 				27293FD025071F9A000D27D1 /* NoResultsView.xib in Resources */,
@@ -1203,11 +1213,13 @@
 				2739747E24B5691B00CA16A3 /* ProposalDetail.storyboard in Resources */,
 				27B22B4424D7DC24005DF376 /* VoterList.storyboard in Resources */,
 				2717F47524E0BC4600189F7C /* CommentCell.xib in Resources */,
+				27A81F632614345D0088E07C /* EditImageCell.xib in Resources */,
 				27B22B3C24D23CD2005DF376 /* ProfileSearch.storyboard in Resources */,
 				27F883D724EDD94500B216D2 /* TeamMembers.storyboard in Resources */,
 				27F883DE24EDD99200B216D2 /* TeamActions.storyboard in Resources */,
 				27293FCA25071495000D27D1 /* BrowseProposals.storyboard in Resources */,
 				27490CCA260ECC8000FAD841 /* Explore.storyboard in Resources */,
+				27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */,
 				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
 				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,

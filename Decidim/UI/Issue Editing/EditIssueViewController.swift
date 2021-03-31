@@ -46,6 +46,13 @@ class EditIssueViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "DatePickerCell", bundle: .main),
+                                forCellReuseIdentifier: Self.DateCellId)
+        self.tableView.register(UINib(nibName: "EditImageCell", bundle: .main),
+                                forCellReuseIdentifier: Self.ImageCellId)
+        self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.TitleCellId)
+        
         if let editingIssue = self.originalIssue {
             self.title = "Edit Issue"
             self.deadline = editingIssue.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
