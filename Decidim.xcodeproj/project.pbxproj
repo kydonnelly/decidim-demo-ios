@@ -194,8 +194,6 @@
 		27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A624E798CE00B216D2 /* TeamDetailViewController.swift */; };
 		27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A724E798CE00B216D2 /* TeamDetailTitleCell.swift */; };
 		27F883AF24E798CE00B216D2 /* TeamDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F883A824E798CE00B216D2 /* TeamDetail.storyboard */; };
-		27F883B524E79D7100B216D2 /* TeamImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883B124E79D7100B216D2 /* TeamImageCell.swift */; };
-		27F883B624E79D7100B216D2 /* TeamInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883B224E79D7100B216D2 /* TeamInputCell.swift */; };
 		27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883B324E79D7100B216D2 /* EditTeamViewController.swift */; };
 		27F883B824E79D7100B216D2 /* EditTeam.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F883B424E79D7100B216D2 /* EditTeam.storyboard */; };
 		27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */; };
@@ -423,8 +421,6 @@
 		27F883A624E798CE00B216D2 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		27F883A724E798CE00B216D2 /* TeamDetailTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailTitleCell.swift; sourceTree = "<group>"; };
 		27F883A824E798CE00B216D2 /* TeamDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamDetail.storyboard; sourceTree = "<group>"; };
-		27F883B124E79D7100B216D2 /* TeamImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamImageCell.swift; sourceTree = "<group>"; };
-		27F883B224E79D7100B216D2 /* TeamInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamInputCell.swift; sourceTree = "<group>"; };
 		27F883B324E79D7100B216D2 /* EditTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTeamViewController.swift; sourceTree = "<group>"; };
 		27F883B424E79D7100B216D2 /* EditTeam.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditTeam.storyboard; sourceTree = "<group>"; };
 		27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMemberStatus.swift; sourceTree = "<group>"; };
@@ -1020,8 +1016,6 @@
 		27F883B024E79D7100B216D2 /* Team Editing */ = {
 			isa = PBXGroup;
 			children = (
-				27F883B124E79D7100B216D2 /* TeamImageCell.swift */,
-				27F883B224E79D7100B216D2 /* TeamInputCell.swift */,
 				27F883C324ECFA3100B216D2 /* TeamActionStatus.swift */,
 				27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */,
 				27F883B324E79D7100B216D2 /* EditTeamViewController.swift */,
@@ -1383,7 +1377,6 @@
 				27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */,
 				27A81F272613051D0088E07C /* GiphyImageView.swift in Sources */,
 				2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */,
-				27F883B524E79D7100B216D2 /* TeamImageCell.swift in Sources */,
 				27B22B4224D7B399005DF376 /* ProposalVotesDataController.swift in Sources */,
 				2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */,
 				27649C56260AD53B003D29D4 /* IssueDetailDataController.swift in Sources */,
@@ -1498,7 +1491,6 @@
 				27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */,
 				27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
-				27F883B624E79D7100B216D2 /* TeamInputCell.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */,
 				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,

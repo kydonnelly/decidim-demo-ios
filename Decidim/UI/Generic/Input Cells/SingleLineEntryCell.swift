@@ -34,6 +34,10 @@ class SingleLineEntryCell: CustomTableViewCell {
         self.onSubmit = submitBlock
     }
     
+    public func makeTextFieldFirstResponder() {
+        self.inputField.becomeFirstResponder()
+    }
+    
 }
 
 extension SingleLineEntryCell: UITextFieldDelegate {

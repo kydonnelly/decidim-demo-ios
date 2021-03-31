@@ -10,8 +10,10 @@ import UIKit
 
 class EditActionViewController: UIViewController, CustomTableController {
     
-    fileprivate static let InputCellId = "InputCell"
     fileprivate static let ToggleCellId = "ToggleCell"
+    fileprivate static let ActionCellId = "ActionCell"
+    fileprivate static let TitleCellId = "TitleCell"
+    fileprivate static let BodyCellId = "BodyCell"
     fileprivate static let DateCellId = "DateCell"
     
     @IBOutlet var tableView: UITableView!
@@ -47,6 +49,13 @@ class EditActionViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "DatePickerCell", bundle: .main),
+                                forCellReuseIdentifier: Self.DateCellId)
+        self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.BodyCellId)
+        self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.TitleCellId)
+        
         if let editingAction = self.originalAction {
             self.title = "Edit Action"
             self.actionName = editingAction.name
@@ -62,7 +71,7 @@ class EditActionViewController: UIViewController, CustomTableController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TeamInputCell {
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SingleLineEntryCell {
             cell.makeTextFieldFirstResponder()
         }
     }
@@ -143,22 +152,26 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row < 2 {
-            return 72
+        if indexPath.row == 0 {
+            return 80
+        } else if indexPath.row == 1 {
+            return 112
         } else if indexPath.row == 2 {
             return 44
-        } else {
+        } else if indexPath.row == 3 {
             return 128
+        } else {
+            return 72
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Action Name", content: self.actionName, required: true, updateBlock: { [weak self] text in
                 self?.actionName = text
                 return true
@@ -167,24 +180,31 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
             })
             return cell
         } else if indexPath.row == 1 {
-           let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-           cell.setup(field: "Description", content: self.actionDescription, required: true, updateBlock: { [weak self] text in
-               self?.actionDescription = text
-               return true
-           }, submitBlock: { [weak self] text in
-               self?.actionDescription = text
-           })
-           return cell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
+            cell.setup(field: "Description", content: self.actionDescription, updateBlock: { [weak self] text in
+                self?.actionDescription = text
+                return true
+            }, submitBlock: { [weak self] text in
+                self?.actionDescription = text
+            })
+            return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! VotePreferencesToggleCell
             cell.setup(title: "Ongoing", isOn: false) { [weak self] isOn in
                 self?.isOngoing = isOn
             }
             return cell
-        } else {
+        } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(title: "Deadline", deadline: self.deadline) { [weak self] date in
                 self?.deadline = date
+            }
+            return cell
+        } else {
+            let actionTitle = self.originalAction == nil ? "Create Action" : "Save Changes"
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
+            cell.setup(action: actionTitle) { [weak self] sender in
+                self?.didTapDoneButton(sender)
             }
             return cell
         }

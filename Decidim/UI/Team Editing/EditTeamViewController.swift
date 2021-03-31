@@ -11,8 +11,10 @@ import UIKit
 
 class EditTeamViewController: UIViewController, CustomTableController {
     
-    fileprivate static let InputCellId = "InputCell"
+    fileprivate static let ActionCellId = "ActionCell"
     fileprivate static let ImageCellId = "ImageCell"
+    fileprivate static let TitleCellId = "TitleCell"
+    fileprivate static let BodyCellId = "BodyCell"
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
@@ -43,6 +45,13 @@ class EditTeamViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "EditImageCell", bundle: .main),
+                                forCellReuseIdentifier: Self.ImageCellId)
+        self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.BodyCellId)
+        self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.TitleCellId)
+        
         if let editingTeam = self.originalTeam {
             self.title = "Edit Team"
             self.thumbnailMediaId = editingTeam.team.thumbnailUrl
@@ -56,7 +65,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? TeamInputCell {
+        if let cell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SingleLineEntryCell {
             cell.makeTextFieldFirstResponder()
         }
     }
@@ -130,12 +139,16 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 4
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 || indexPath.row == 1 {
-            return 50
+        if indexPath.row == 0 {
+            return 80
+        } else if indexPath.row == 1 {
+            return 112
+        } else if indexPath.row == 2 {
+            return 120
         } else {
             return 72
         }
@@ -143,7 +156,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Title", content: self.teamName, required: true, updateBlock: { [weak self] text in
                 self?.teamName = text
                 return true
@@ -152,8 +165,14 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             })
             return cell
         } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! TeamInputCell
-            cell.setup(field: "Description", content: self.teamDescription, required: true, updateBlock: { [weak self] text in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! EditImageCell
+            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
+                self?.showImagePicker(indexPath: indexPath)
+            }
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
+            cell.setup(field: "Description", content: self.teamDescription, updateBlock: { [weak self] text in
                 self?.teamDescription = text
                 return true
             }, submitBlock: { [weak self] text in
@@ -161,16 +180,17 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             })
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! TeamImageCell
-            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
-                self?.showImagePicker(indexPath: indexPath)
+            let actionTitle = self.originalTeam == nil ? "Create Team" : "Save Changes"
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
+            cell.setup(action: actionTitle) { [weak self] sender in
+                self?.didTapDoneButton(sender)
             }
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             self.showImagePicker(indexPath: indexPath)
         }
     }
