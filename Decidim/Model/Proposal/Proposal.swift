@@ -14,8 +14,13 @@ struct Proposal {
     let title: String
     let body: String
     let iconUrl: String?
+    
+    let votingDeadline: Date?
+    let amendmentDeadline: Date?
+    
     let createdAt: Date
     let updatedAt: Date
+    
     let commentCount: Int
     let voteCount: Int
     
@@ -34,11 +39,16 @@ struct Proposal {
             return nil
         }
         
+        let votingDeadline = Date(timestamp: dict["voting_deadline"] as? String)
+        let amendmentDeadline = Date(timestamp: dict["amendment_deadline"] as? String)
+        
         return Proposal(id: proposalId,
                         authorId: authorId,
                         title: title,
                         body: body,
                         iconUrl: nil,
+                        votingDeadline: votingDeadline,
+                        amendmentDeadline: amendmentDeadline,
                         createdAt: createdDate,
                         updatedAt: updatedDate,
                         commentCount: 0,

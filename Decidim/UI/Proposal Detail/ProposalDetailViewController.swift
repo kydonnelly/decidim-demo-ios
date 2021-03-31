@@ -185,7 +185,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let detail = self.proposalDetail!
             switch cellId {
             case .deadline:
-                (cell as! DeadlineCell).setup(type: .voting, deadline: detail.deadline)
+                (cell as! DeadlineCell).setup(deadlineProvider: detail.proposal)
             case .title:
                 (cell as! ProposalDetailTitleCell).setup(detail: detail)
             }

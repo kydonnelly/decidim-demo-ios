@@ -181,7 +181,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
-            cell.setup(deadline: self.deadline) { [weak self] date in
+            cell.setup(title: "Deadline", deadline: self.deadline) { [weak self] date in
                 self?.deadline = date
             }
             return cell

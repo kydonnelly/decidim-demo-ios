@@ -27,7 +27,8 @@ class EditProposalViewController: UIViewController, CustomTableController {
     }
     
     fileprivate var thumbnail: UIImage?
-    fileprivate var deadline: Date!
+    fileprivate var amendmentDeadline: Date!
+    fileprivate var votingDeadline: Date!
     
     public static func create(proposal: ProposalDetail? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "EditProposal", bundle: .main)
@@ -46,14 +47,20 @@ class EditProposalViewController: UIViewController, CustomTableController {
         
         if let editingProposal = self.originalProposal {
             self.title = "Edit Proposal"
-            self.deadline = editingProposal.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
             self.thumbnail = editingProposal.proposal.thumbnail
+            self.amendmentDeadline = editingProposal.proposal.amendmentDeadline ?? self.defaultDeadline
+            self.votingDeadline = editingProposal.proposal.votingDeadline ?? self.defaultDeadline
             self.proposalTitle = editingProposal.proposal.title
             self.proposalDescription = editingProposal.proposal.body
         } else {
             self.refreshDoneButton()
-            self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+            self.votingDeadline = self.defaultDeadline
+            self.amendmentDeadline = self.defaultDeadline
         }
+    }
+    
+    private var defaultDeadline: Date {
+        return Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
     }
     
 }
@@ -88,13 +95,12 @@ extension EditProposalViewController {
     }
     
     private func submitNewProposal() {
-        let deadline: Date = self.deadline
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
         
         self.blockView(message: "Submitting proposal...")
-        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { [weak self] error in
+        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {
@@ -106,19 +112,18 @@ extension EditProposalViewController {
             }
             
             ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, voteCount: 0, commentCount: 0, amendmentCount: 0)]
+                dc.data = [ProposalDetail(proposal: proposal, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }
     }
     
     private func submitEditedProposal(id: Int) {
-        let deadline: Date = self.deadline
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
         
         self.blockView(message: "Editing proposal...")
-        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, deadline: self.deadline) { [weak self] error in
+        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {
@@ -130,7 +135,7 @@ extension EditProposalViewController {
             }
             
             ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
-                dc.data = [ProposalDetail(proposal: proposal, deadline: deadline, voteCount: 0, commentCount: 0, amendmentCount: 0)]
+                dc.data = [ProposalDetail(proposal: proposal, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }
     }
@@ -144,7 +149,7 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -176,10 +181,16 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
                 self?.showImagePicker(indexPath: indexPath)
             }
             return cell
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
+            cell.setup(title: "Amendment Deadline", deadline: self.amendmentDeadline) { [weak self] date in
+                self?.amendmentDeadline = date
+            }
+            return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
-            cell.setup(deadline: self.deadline) { [weak self] date in
-                self?.deadline = date
+            cell.setup(title: "Voting Deadline", deadline: self.votingDeadline) { [weak self] date in
+                self?.votingDeadline = date
             }
             return cell
         }

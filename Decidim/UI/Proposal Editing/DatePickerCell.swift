@@ -12,11 +12,13 @@ class DatePickerCell: CustomTableViewCell {
     
     typealias DateChangedBlock = (Date) -> Void
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var datePicker: UIDatePicker!
     
     private var onDateChanged: DateChangedBlock?
     
-    public func setup(deadline: Date, dateChangedBlock: DateChangedBlock?) {
+    public func setup(title: String, deadline: Date, dateChangedBlock: DateChangedBlock?) {
+        self.titleLabel.text = title
         self.datePicker.date = deadline
         
         self.datePicker.minimumDate = Date()

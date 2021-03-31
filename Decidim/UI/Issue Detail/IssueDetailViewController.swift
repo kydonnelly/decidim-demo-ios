@@ -192,7 +192,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 
                 (cell as! IssueDetailEngagementCell).setup(detail: detail, followBlock: followBlock, allFollowersBlock: followersBlock)
             case .deadline:
-                (cell as! DeadlineCell).setup(type: .generic, deadline: detail.deadline)
+                (cell as! DeadlineCell).setup(deadlineProvider: detail.issue)
             case .banner:
                 (cell as! IssueDetailBannerCell).setup(detail: detail)
             }

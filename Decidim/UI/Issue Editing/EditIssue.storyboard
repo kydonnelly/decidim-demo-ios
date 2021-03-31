@@ -172,6 +172,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="datePicker" destination="Ycd-Fb-est" id="OBJ-uw-anq"/>
+                                            <outlet property="titleLabel" destination="2ZS-b0-b5t" id="qtK-rz-TaX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

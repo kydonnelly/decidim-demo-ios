@@ -11,7 +11,6 @@ import UIKit
 struct ProposalDetail {
     let proposal: Proposal
     
-    let deadline: Date?
     let voteCount: Int
     let commentCount: Int
     let amendmentCount: Int
@@ -23,13 +22,7 @@ struct ProposalDetail {
             return nil
         }
         
-        var deadline: Date? = nil
-        if let deadlineString = dict["deadline"] as? String {
-            deadline = Date(timestamp: deadlineString)
-        }
-        
         return ProposalDetail(proposal: proposal,
-                              deadline: deadline,
                               voteCount: voteCount,
                               commentCount: commentCount,
                               amendmentCount: amendmentCount)

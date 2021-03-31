@@ -15,6 +15,7 @@ struct Issue {
     let title: String
     let body: String
     let iconUrl: String?
+    let deadline: Date?
     let createdAt: Date
     let updatedAt: Date
     let commentCount: Int
@@ -36,6 +37,7 @@ struct Issue {
         }
         
         let status = IssueStatus(rawValue: issueStatus) ?? IssueStatus.unknown
+        let deadline = Date(timestamp: dict["deadline"] as? String)
         
         return Issue(id: issueId,
                      status: status,
@@ -43,6 +45,7 @@ struct Issue {
                      title: title,
                      body: body,
                      iconUrl: nil,
+                     deadline: deadline,
                      createdAt: createdDate,
                      updatedAt: updatedDate,
                      commentCount: 0)

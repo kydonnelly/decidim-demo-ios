@@ -42,9 +42,11 @@ class PublicProposalDataController: NetworkDataController {
 
 extension PublicProposalDataController {
     
-    public func addProposal(title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
+    public func addProposal(title: String, description: String, thumbnail: UIImage?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
-                                                   "body": description]]
+                                                   "body": description,
+                                                   "amendment_deadline": amendmentDeadline.timestamp,
+                                                   "voting_deadline": votingDeadline.timestamp]]
         
         HTTPRequest.shared.post(endpoint: "proposals", payload: payload) { [weak self] response, error in
             guard error == nil else {
@@ -62,9 +64,11 @@ extension PublicProposalDataController {
         }
     }
     
-    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date?, completion: @escaping (Error?) -> Void) {
+    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
-                                                   "body": description]]
+                                                   "body": description,
+                                                   "amendment_deadline": amendmentDeadline.timestamp,
+                                                   "voting_deadline": votingDeadline.timestamp]]
         
         HTTPRequest.shared.put(endpoint: "proposals", args: ["\(proposalId)"], payload: payload) { [weak self] response, error in
             guard error == nil else {

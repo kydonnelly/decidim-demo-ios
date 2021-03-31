@@ -14,16 +14,21 @@ enum DeadlineType {
     case voting
 }
 
+protocol HasDeadline {
+    var deadline: Date? { get }
+    var type: DeadlineType? { get }
+}
+
 class DeadlineCell: CustomTableViewCell {
     
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     
-    public func setup(type: DeadlineType, deadline: Date?) {
-        self.timeLabel.text = self.displayString(deadline: deadline)
+    public func setup(deadlineProvider: HasDeadline) {
+        self.timeLabel.text = self.displayString(deadline: deadlineProvider.deadline)
         
-        switch type {
-        case .generic:
+        switch deadlineProvider.type {
+        case .generic, .none:
             self.descriptionLabel.text = "DEADLINE"
         case .amendment:
             self.descriptionLabel.text = "AMENDMENT DEADLINE"

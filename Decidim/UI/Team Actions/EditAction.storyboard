@@ -160,6 +160,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="datePicker" destination="10W-zx-aKc" id="fLj-kE-yVX"/>
+                                            <outlet property="titleLabel" destination="Oi0-wZ-TOS" id="Joe-on-gnM"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

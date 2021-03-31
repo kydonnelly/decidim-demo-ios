@@ -44,7 +44,8 @@ extension PublicIssueDataController {
     
     public func addIssue(title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["issue": ["title": title,
-                                                "body": description]]
+                                                "body": description,
+                                                "deadline": deadline]]
         
         HTTPRequest.shared.post(endpoint: "issues", payload: payload) { [weak self] response, error in
             guard error == nil else {
@@ -62,9 +63,10 @@ extension PublicIssueDataController {
         }
     }
     
-    public func editIssue(_ issueId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date?, completion: @escaping (Error?) -> Void) {
+    public func editIssue(_ issueId: Int, title: String, description: String, thumbnail: UIImage?, deadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["issue": ["title": title,
-                                                "body": description]]
+                                                "body": description,
+                                                "deadline": deadline.timestamp]]
         
         HTTPRequest.shared.put(endpoint: "issues", args: ["\(issueId)"], payload: payload) { [weak self] response, error in
             guard error == nil else {

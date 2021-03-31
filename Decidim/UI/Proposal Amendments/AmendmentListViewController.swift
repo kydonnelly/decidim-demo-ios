@@ -152,7 +152,8 @@ extension AmendmentListViewController: UITableViewDataSource, UITableViewDelegat
                 alert.addAction(UIAlertAction(title: "Accept", style: .default, handler: { [weak self] _  in
                     guard let self = self else { return }
                     self.selectStatus(.accepted, amendment: amendment)
-                    PublicProposalDataController.shared().editProposal(self.proposalDetail.proposal.id, title: self.proposalDetail.proposal.title, description: amendment.text, thumbnail: nil, deadline: self.proposalDetail.deadline) { [weak self] _ in
+                    let defaultDeadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+                    PublicProposalDataController.shared().editProposal(self.proposalDetail.proposal.id, title: self.proposalDetail.proposal.title, description: amendment.text, thumbnailUrl: nil, amendmentDeadline: self.proposalDetail.proposal.amendmentDeadline ?? defaultDeadline, votingDeadline: self.proposalDetail.proposal.votingDeadline ?? defaultDeadline) { [weak self] _ in
                         self?.navigationController?.dismiss(animated: true, completion: nil)
                     }
                 }))

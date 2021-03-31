@@ -90,7 +90,11 @@ extension Date {
 
 extension Date {
     
-    public init?(timestamp: String) {
+    public init?(timestamp: String?) {
+        guard let timestamp = timestamp else {
+            return nil
+        }
+        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let date = formatter.date(from: timestamp) else {
@@ -98,6 +102,12 @@ extension Date {
         }
         
         self = date
+    }
+    
+    public var timestamp: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        return formatter.string(from: self)
     }
     
 }
