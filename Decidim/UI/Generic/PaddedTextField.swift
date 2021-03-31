@@ -43,19 +43,19 @@ class PaddedTextField: UITextField {
     
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
-        return CGSize(width: size.width + 32, height: size.height + 24)
+        return CGSize(width: size.width + 24, height: size.height + 24)
     }
     
     override func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 16, dy: 0)
+        return bounds.insetBy(dx: 12, dy: 0)
     }
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 16, dy: 0)
+        return bounds.insetBy(dx: 12, dy: 0)
     }
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
-        return bounds.insetBy(dx: 16, dy: 0)
+        return bounds.insetBy(dx: 12, dy: 0)
     }
     
 }
