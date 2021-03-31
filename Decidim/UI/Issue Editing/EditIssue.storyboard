@@ -38,22 +38,28 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="51" id="XJD-JU-k3M" customClass="IssueInputCell" customModule="Agora" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="51"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="80" id="XJD-JU-k3M" customClass="IssueInputCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJD-JU-k3M" id="PB7-60-MrO">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XF1-e5-UNy">
-                                                    <rect key="frame" x="0.0" y="50" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="79" width="414" height="1"/>
                                                     <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="qIt-kj-Jao"/>
                                                     </constraints>
                                                 </view>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title (required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wu8-0G-1pR" customClass="PaddedTextField" customModule="Agora" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="8" width="366" height="34"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQO-jH-C73">
+                                                    <rect key="frame" x="24" y="12" width="366" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="wu8-0G-1pR" customClass="PaddedTextField" customModule="Agora" customModuleProvider="target">
+                                                    <rect key="frame" x="24" y="33" width="366" height="34"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
@@ -64,31 +70,34 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="wu8-0G-1pR" firstAttribute="leading" secondItem="PB7-60-MrO" secondAttribute="leading" constant="24" id="9m9-Ow-WFr"/>
+                                                <constraint firstItem="tQO-jH-C73" firstAttribute="leading" secondItem="PB7-60-MrO" secondAttribute="leading" constant="24" id="Kym-SI-QAK"/>
+                                                <constraint firstItem="tQO-jH-C73" firstAttribute="top" secondItem="PB7-60-MrO" secondAttribute="top" constant="12" id="MR7-OS-kbk"/>
                                                 <constraint firstAttribute="bottom" secondItem="XF1-e5-UNy" secondAttribute="bottom" id="NZh-d8-PWL"/>
                                                 <constraint firstAttribute="trailing" secondItem="wu8-0G-1pR" secondAttribute="trailing" constant="24" id="WH8-xV-QBj"/>
                                                 <constraint firstAttribute="trailing" secondItem="XF1-e5-UNy" secondAttribute="trailing" id="aIC-hv-qwU"/>
-                                                <constraint firstItem="wu8-0G-1pR" firstAttribute="top" secondItem="PB7-60-MrO" secondAttribute="top" constant="8" id="ceK-HR-86t"/>
                                                 <constraint firstItem="XF1-e5-UNy" firstAttribute="leading" secondItem="PB7-60-MrO" secondAttribute="leading" id="eX2-i1-MhG"/>
-                                                <constraint firstItem="XF1-e5-UNy" firstAttribute="top" secondItem="wu8-0G-1pR" secondAttribute="bottom" constant="8" id="zUz-Si-2Zk"/>
+                                                <constraint firstAttribute="trailing" secondItem="tQO-jH-C73" secondAttribute="trailing" constant="24" id="rkf-Mz-5Om"/>
+                                                <constraint firstItem="wu8-0G-1pR" firstAttribute="top" secondItem="tQO-jH-C73" secondAttribute="bottom" constant="4" id="yOx-ff-zjn"/>
+                                                <constraint firstItem="XF1-e5-UNy" firstAttribute="top" secondItem="wu8-0G-1pR" secondAttribute="bottom" constant="12" id="zUz-Si-2Zk"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="inputField" destination="wu8-0G-1pR" id="KQp-Zg-i90"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="72" id="GIv-ly-cQk" customClass="IssueImageCell" customModule="Agora" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="79" width="414" height="72"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="112" id="GIv-ly-cQk" customClass="EditImageCell" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="108" width="414" height="112"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GIv-ly-cQk" id="0oZ-j7-a1t">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="112"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O3Z-xT-seM" customClass="GPHMediaView" customModule="GiphyUISDK">
-                                                    <rect key="frame" x="24" y="8" width="56" height="56"/>
+                                                    <rect key="frame" x="24" y="8" width="96" height="96"/>
                                                     <color key="tintColor" systemColor="linkColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="56" id="20O-G8-z1j"/>
-                                                        <constraint firstAttribute="height" constant="56" id="HHK-Np-XLe"/>
+                                                        <constraint firstAttribute="width" constant="96" id="20O-G8-z1j"/>
+                                                        <constraint firstAttribute="height" constant="96" id="HHK-Np-XLe"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="image"/>
@@ -104,17 +113,27 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CmM-zH-niM">
-                                                    <rect key="frame" x="0.0" y="71" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="111" width="414" height="1"/>
                                                     <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="j7E-lt-dRt"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-9p-aZL">
-                                                    <rect key="frame" x="92" y="21" width="298" height="30"/>
-                                                    <state key="normal" title="Choose Thumbnail">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fq5-9p-aZL" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                    <rect key="frame" x="136" y="38" width="129" height="36"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
+                                                    <state key="normal" title="Change Image">
                                                         <color key="titleColor" name="Action"/>
                                                     </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" name="Action"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="didTapChangeImage:" destination="GIv-ly-cQk" eventType="touchUpInside" id="8b1-Sa-8s0"/>
                                                     </connections>
@@ -123,9 +142,9 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="O3Z-xT-seM" firstAttribute="leading" secondItem="0oZ-j7-a1t" secondAttribute="leading" constant="24" id="0AV-Uw-fIr"/>
-                                                <constraint firstAttribute="trailing" secondItem="Fq5-9p-aZL" secondAttribute="trailing" constant="24" id="4Mr-pH-Cw3"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Fq5-9p-aZL" secondAttribute="trailing" constant="16" id="4Mr-pH-Cw3"/>
                                                 <constraint firstItem="CmM-zH-niM" firstAttribute="leading" secondItem="0oZ-j7-a1t" secondAttribute="leading" id="CtL-Pj-a0M"/>
-                                                <constraint firstItem="Fq5-9p-aZL" firstAttribute="leading" secondItem="O3Z-xT-seM" secondAttribute="trailing" constant="12" id="XIp-EN-gU6"/>
+                                                <constraint firstItem="Fq5-9p-aZL" firstAttribute="leading" secondItem="O3Z-xT-seM" secondAttribute="trailing" constant="16" id="XIp-EN-gU6"/>
                                                 <constraint firstAttribute="trailing" secondItem="CmM-zH-niM" secondAttribute="trailing" id="YdI-F7-Aia"/>
                                                 <constraint firstAttribute="bottom" secondItem="CmM-zH-niM" secondAttribute="bottom" id="eFs-dK-XHs"/>
                                                 <constraint firstItem="Fq5-9p-aZL" firstAttribute="centerY" secondItem="0oZ-j7-a1t" secondAttribute="centerY" id="rLU-BY-e9o"/>
@@ -137,20 +156,20 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DateCell" rowHeight="128" id="vsC-O2-c8p" customClass="DatePickerCell" customModule="Agora" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="151" width="414" height="128"/>
+                                        <rect key="frame" x="0.0" y="220" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vsC-O2-c8p" id="Osz-hv-80X">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Deadline" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZS-b0-b5t">
-                                                    <rect key="frame" x="24" y="8" width="366" height="19.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" name="SecondaryDark"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="DEADLINE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ZS-b0-b5t">
+                                                    <rect key="frame" x="24" y="8" width="366" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ycd-Fb-est">
-                                                    <rect key="frame" x="24" y="31.5" width="320" height="88.5"/>
+                                                    <rect key="frame" x="24" y="29" width="320" height="91"/>
                                                     <connections>
                                                         <action selector="dateChanged:" destination="vsC-O2-c8p" eventType="valueChanged" id="TTS-jm-gXD"/>
                                                     </connections>
@@ -225,16 +244,13 @@
             <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryDark">
-            <color red="0.09799999744" green="0.09799999744" blue="0.09799999744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="SecondaryDark">
-            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

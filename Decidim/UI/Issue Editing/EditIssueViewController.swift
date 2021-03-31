@@ -152,12 +152,14 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 || indexPath.row == 1 {
-            return 50
+        if indexPath.row == 0 {
+            return 80
+        } else if indexPath.row == 1 {
+            return 112
         } else if indexPath.row == 2 {
-            return 72
-        } else {
             return 128
+        } else {
+            return 120
         }
     }
     
@@ -169,28 +171,28 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! IssueInputCell
-            cell.setup(field: "Description", content: self.issueDescription, required: true) { [weak self] text in
-                self?.issueDescription = text
-            }
-            return cell
-        } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! IssueImageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! EditImageCell
             cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
                 self?.showImagePicker(indexPath: indexPath)
             }
             return cell
-        } else {
+        } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(title: "Deadline", deadline: self.deadline) { [weak self] date in
                 self?.deadline = date
+            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! IssueInputCell
+            cell.setup(field: "Description", content: self.issueDescription, required: true) { [weak self] text in
+                self?.issueDescription = text
             }
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
+        if indexPath.row == 1 {
             self.showImagePicker(indexPath: indexPath)
         }
     }

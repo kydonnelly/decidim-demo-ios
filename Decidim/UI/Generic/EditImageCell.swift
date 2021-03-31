@@ -8,13 +8,21 @@
 
 import UIKit
 
-class IssueImageCell: CustomTableViewCell {
+class EditImageCell: CustomTableViewCell {
     
     typealias ChangeImageBlock = () -> Void
     
     @IBOutlet var iconImageView: GiphyMediaView!
     
     private var onChangeImage: ChangeImageBlock?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        // Support tapping the image to change it
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeImage(_:)))
+        self.iconImageView.addGestureRecognizer(gesture)
+    }
     
     public func setup(thumbnailUrl: String?, changeImageBlock: ChangeImageBlock?) {
         self.iconImageView.setThumbnail(url: thumbnailUrl)

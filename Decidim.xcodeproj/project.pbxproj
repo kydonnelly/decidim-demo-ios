@@ -25,7 +25,6 @@
 		2717F47524E0BC4600189F7C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2717F47424E0BC4600189F7C /* CommentCell.xib */; };
 		2717F47C24E0C79100189F7C /* EditProposal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2717F47724E0C79000189F7C /* EditProposal.storyboard */; };
 		2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47824E0C79000189F7C /* ProposalImageCell.swift */; };
-		2717F47E24E0C79100189F7C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47924E0C79000189F7C /* DatePickerCell.swift */; };
 		2717F47F24E0C79100189F7C /* ProposalInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47A24E0C79000189F7C /* ProposalInputCell.swift */; };
 		2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2717F47B24E0C79000189F7C /* EditProposalViewController.swift */; };
 		2725C0D6253FD4010008010A /* TeamAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2725C0D5253FD4010008010A /* TeamAction.swift */; };
@@ -104,7 +103,6 @@
 		27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */; };
 		27649C98260AE2F7003D29D4 /* EditIssue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */; };
 		27649C99260AE2F7003D29D4 /* EditIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */; };
-		27649C9A260AE2F7003D29D4 /* IssueImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */; };
 		27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */; };
 		27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */; };
 		27649C9D260AE2F7003D29D4 /* IssueListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C90260AE2F7003D29D4 /* IssueListCell.swift */; };
@@ -155,6 +153,9 @@
 		27A81F2E2613D5D10088E07C /* DeadlineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F2D2613D5D10088E07C /* DeadlineCell.swift */; };
 		27A81F322613D5E00088E07C /* Proposal+HasDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F312613D5E00088E07C /* Proposal+HasDeadline.swift */; };
 		27A81F362613D73E0088E07C /* Issue+HasDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F352613D73E0088E07C /* Issue+HasDeadline.swift */; };
+		27A81F3C261429FE0088E07C /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F3B261429FE0088E07C /* PillButton.swift */; };
+		27A81F4626142CD10088E07C /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4526142CD10088E07C /* EditImageCell.swift */; };
+		27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4926142CFB0088E07C /* DatePickerCell.swift */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -249,7 +250,6 @@
 		2717F47424E0BC4600189F7C /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		2717F47724E0C79000189F7C /* EditProposal.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditProposal.storyboard; sourceTree = "<group>"; };
 		2717F47824E0C79000189F7C /* ProposalImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalImageCell.swift; sourceTree = "<group>"; };
-		2717F47924E0C79000189F7C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		2717F47A24E0C79000189F7C /* ProposalInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProposalInputCell.swift; sourceTree = "<group>"; };
 		2717F47B24E0C79000189F7C /* EditProposalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProposalViewController.swift; sourceTree = "<group>"; };
 		2725C0D5253FD4010008010A /* TeamAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAction.swift; sourceTree = "<group>"; };
@@ -328,7 +328,6 @@
 		27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailBodyCell.swift; sourceTree = "<group>"; };
 		27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditIssue.storyboard; sourceTree = "<group>"; };
 		27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssueViewController.swift; sourceTree = "<group>"; };
-		27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueImageCell.swift; sourceTree = "<group>"; };
 		27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueInputCell.swift; sourceTree = "<group>"; };
 		27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		27649C90260AE2F7003D29D4 /* IssueListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListCell.swift; sourceTree = "<group>"; };
@@ -379,6 +378,9 @@
 		27A81F2D2613D5D10088E07C /* DeadlineCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCell.swift; sourceTree = "<group>"; };
 		27A81F312613D5E00088E07C /* Proposal+HasDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Proposal+HasDeadline.swift"; sourceTree = "<group>"; };
 		27A81F352613D73E0088E07C /* Issue+HasDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+HasDeadline.swift"; sourceTree = "<group>"; };
+		27A81F3B261429FE0088E07C /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
+		27A81F4526142CD10088E07C /* EditImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
+		27A81F4926142CFB0088E07C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -572,7 +574,6 @@
 				2717F47724E0C79000189F7C /* EditProposal.storyboard */,
 				2717F47B24E0C79000189F7C /* EditProposalViewController.swift */,
 				2717F47824E0C79000189F7C /* ProposalImageCell.swift */,
-				2717F47924E0C79000189F7C /* DatePickerCell.swift */,
 				2717F47A24E0C79000189F7C /* ProposalInputCell.swift */,
 			);
 			path = "Proposal Editing";
@@ -803,7 +804,6 @@
 			children = (
 				27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */,
 				27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */,
-				27649C8C260AE2F7003D29D4 /* IssueImageCell.swift */,
 				27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */,
 			);
 			path = "Issue Editing";
@@ -910,8 +910,10 @@
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
+				27A81F4926142CFB0088E07C /* DatePickerCell.swift */,
 				27A81F2C2613D5D10088E07C /* Deadlines */,
 				278DA22425F54253002825CE /* DonutView.swift */,
+				27A81F4526142CD10088E07C /* EditImageCell.swift */,
 				27A81F262613051D0088E07C /* GiphyImageView.swift */,
 				27B22B5524D93760005DF376 /* GradientView.swift */,
 				27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */,
@@ -921,6 +923,7 @@
 				27293FCF25071F9A000D27D1 /* NoResultsView.xib */,
 				27293FC2250707D2000D27D1 /* Options Bar */,
 				270169EE24FF6B3500CB97BF /* PaddedTextField.swift */,
+				27A81F3B261429FE0088E07C /* PillButton.swift */,
 				27490CD3260EDDC600FAD841 /* Previewable.swift */,
 				27293FD52508B3E2000D27D1 /* TouchThroughView.swift */,
 				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
@@ -1352,6 +1355,7 @@
 				27A81F322613D5E00088E07C /* Proposal+HasDeadline.swift in Sources */,
 				27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */,
 				27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */,
+				27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */,
 				27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */,
 				27A81F272613051D0088E07C /* GiphyImageView.swift in Sources */,
 				2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */,
@@ -1382,7 +1386,6 @@
 				27B22B4E24D929EB005DF376 /* UIColor+Helpers.swift in Sources */,
 				27A81F2E2613D5D10088E07C /* DeadlineCell.swift in Sources */,
 				27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */,
-				27649C9A260AE2F7003D29D4 /* IssueImageCell.swift in Sources */,
 				2756A6DB249861560023DC91 /* ProposalVote.swift in Sources */,
 				277FD2CD2511E9530063FFE6 /* Assemblies.graphql.swift in Sources */,
 				27F883AB24E798CE00B216D2 /* TeamListCell.swift in Sources */,
@@ -1459,6 +1462,7 @@
 				27F883D824EDD94500B216D2 /* TeamMembersViewController.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
 				27F883DC24EDD98600B216D2 /* TeamActionsViewController.swift in Sources */,
+				27A81F4626142CD10088E07C /* EditImageCell.swift in Sources */,
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
 				27649C55260AD53B003D29D4 /* IssueDetail.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
@@ -1483,6 +1487,7 @@
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
 				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
+				27A81F3C261429FE0088E07C /* PillButton.swift in Sources */,
 				2756A6DC249861560023DC91 /* Proposal.swift in Sources */,
 				27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */,
 				27293FD82508BE3C000D27D1 /* CustomTableViewCell.swift in Sources */,
@@ -1505,7 +1510,6 @@
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				27649CB8260C32A9003D29D4 /* IssueDetailProposalListViewController.swift in Sources */,
 				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,
-				2717F47E24E0C79100189F7C /* DatePickerCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
