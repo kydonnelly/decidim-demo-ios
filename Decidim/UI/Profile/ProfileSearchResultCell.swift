@@ -11,12 +11,12 @@ import UIKit
 class ProfileSearchResultCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var pictureImageView: UIImageView!
     @IBOutlet var selectedView: UIImageView!
+    @IBOutlet var pictureImageView: GiphyMediaView!
     
     public func setup(profile: ProfileInfo, isSelected: Bool) {
         self.handleLabel.text = profile.handle
-        self.pictureImageView.image = profile.thumbnail
+        self.pictureImageView.setThumbnail(url: profile.thumbnailUrl)
         
         self.selectedView.isHighlighted = isSelected
     }

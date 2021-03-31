@@ -11,7 +11,7 @@ import UIKit
 class ProposalDetailAuthorCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     func setup(detail: ProposalDetail) {
         self.handleLabel.text = "Unknown Proposer"
@@ -25,7 +25,7 @@ class ProposalDetailAuthorCell: CustomTableViewCell {
             }
             
             self.handleLabel.text = info.handle
-            self.iconImageView.image = info.thumbnail
+            self.iconImageView.setThumbnail(url: info.thumbnailUrl)
         }
     }
     

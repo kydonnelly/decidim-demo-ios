@@ -12,12 +12,12 @@ class ProfileIconCollectionCell: UICollectionViewCell {
     
     typealias ActionBlock = () -> Void
     
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     private var onProfileTapped: ActionBlock?
     
     public func setup(profile: ProfileInfo, tappedProfileBlock: ActionBlock?) {
-        self.iconImageView.image = profile.thumbnail
+        self.iconImageView.setThumbnail(url: profile.thumbnailUrl)
         
         self.onProfileTapped = tappedProfileBlock
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))

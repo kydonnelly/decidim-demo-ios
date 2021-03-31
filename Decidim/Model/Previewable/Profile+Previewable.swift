@@ -6,7 +6,7 @@
 //  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension ProfileInfoDataController: PreviewableDataController {
     
@@ -30,8 +30,12 @@ extension ProfileInfo: Previewable {
         return ""
     }
     
-    var previewThumbnail: UIImage? {
-        return self.thumbnail
+    var previewThumbnailUrl: String? {
+        return self.thumbnailUrl
+    }
+    
+    var previewFallbackIcon: KrakenIcon {
+        return .user
     }
     
 }

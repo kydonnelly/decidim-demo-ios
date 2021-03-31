@@ -10,10 +10,10 @@ import UIKit
 
 class ProposalVoterCell: CustomTableViewCell {
     
-    @IBOutlet var voteImage: UIImageView!
-    @IBOutlet var profileImageView: UIImageView!
-    @IBOutlet var handleLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var handleLabel: UILabel!
+    @IBOutlet var voteImage: UIImageView!
+    @IBOutlet var profileImageView: GiphyMediaView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,7 +40,7 @@ class ProposalVoterCell: CustomTableViewCell {
             }
             
             self.handleLabel.text = info.handle
-            self.profileImageView.image = info.thumbnail
+            self.profileImageView.setThumbnail(url: info.thumbnailUrl)
         }
     }
     

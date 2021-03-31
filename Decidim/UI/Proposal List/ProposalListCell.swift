@@ -13,7 +13,7 @@ class ProposalListCell: CustomTableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var commentsLabel: UILabel!
@@ -22,7 +22,7 @@ class ProposalListCell: CustomTableViewCell {
     public func setup(proposal: Proposal) {
         self.titleLabel.text = proposal.title
         self.subtitleLabel.text = proposal.body
-        self.iconImageView.image = proposal.thumbnail
+        self.iconImageView.setThumbnail(url: proposal.iconUrl)
         
         self.createdAtLabel.text = "\(proposal.createdAt.asShortStringAgo()) •"
         self.commentsLabel.text = "\(proposal.commentCount) comments •"

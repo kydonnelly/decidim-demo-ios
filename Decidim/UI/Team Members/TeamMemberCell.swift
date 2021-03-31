@@ -13,14 +13,14 @@ class TeamMemberCell: CustomTableViewCell {
     typealias ManageBlock = () -> Void
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var profileImageView: UIImageView!
     @IBOutlet var manageButton: UIButton!
+    @IBOutlet var profileImageView: GiphyMediaView!
     
     private var onManage: ManageBlock?
     
     public func setup(profile: ProfileInfo?, status: TeamMemberStatus, canManage: Bool, manageBlock: ManageBlock?) {
         self.handleLabel.text = profile?.handle
-        self.profileImageView.image = profile?.thumbnail
+        self.profileImageView.setThumbnail(url: profile?.thumbnailUrl)
         
         self.onManage = manageBlock
         

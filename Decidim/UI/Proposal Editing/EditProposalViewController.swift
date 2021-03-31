@@ -6,6 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
+import GiphyUISDK
 import UIKit
 
 class EditProposalViewController: UIViewController, CustomTableController {
@@ -26,7 +27,7 @@ class EditProposalViewController: UIViewController, CustomTableController {
         didSet { refreshDoneButton() }
     }
     
-    fileprivate var thumbnail: UIImage?
+    fileprivate var thumbnailMediaId: String?
     fileprivate var amendmentDeadline: Date!
     fileprivate var votingDeadline: Date!
     
@@ -47,9 +48,9 @@ class EditProposalViewController: UIViewController, CustomTableController {
         
         if let editingProposal = self.originalProposal {
             self.title = "Edit Proposal"
-            self.thumbnail = editingProposal.proposal.thumbnail
             self.amendmentDeadline = editingProposal.proposal.amendmentDeadline ?? self.defaultDeadline
             self.votingDeadline = editingProposal.proposal.votingDeadline ?? self.defaultDeadline
+            self.thumbnailMediaId = editingProposal.proposal.iconUrl
             self.proposalTitle = editingProposal.proposal.title
             self.proposalDescription = editingProposal.proposal.body
         } else {
@@ -100,7 +101,7 @@ extension EditProposalViewController {
         }
         
         self.blockView(message: "Submitting proposal...")
-        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnail: self.thumbnail, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
+        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnailUrl: self.thumbnailMediaId, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {
@@ -123,7 +124,7 @@ extension EditProposalViewController {
         }
         
         self.blockView(message: "Editing proposal...")
-        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnail: self.thumbnail, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
+        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnailUrl: self.thumbnailMediaId, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {
@@ -177,7 +178,7 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! ProposalImageCell
-            cell.setup(thumbnail: self.thumbnail) { [weak self] in
+            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
                 self?.showImagePicker(indexPath: indexPath)
             }
             return cell
@@ -204,40 +205,23 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
     
 }
 
-extension EditProposalViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditProposalViewController: GiphyDelegate {
     
     fileprivate func showImagePicker(indexPath: IndexPath) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
-            imagePicker.mediaTypes = mediaTypes
-        }
-        
+        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = self.mediaImage(info: info) {
-            self.thumbnail = image
-        }
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        self.thumbnailMediaId = media.id
         
-        picker.dismiss(animated: true) { [weak self] in
+        giphyViewController.dismiss(animated: true) { [weak self] in
             self?.tableView.reloadData()
         }
     }
     
-    private func mediaImage(info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
-        if let image = info[.editedImage] as? UIImage {
-            return image
-        }
-        
-        if let image = info[.originalImage] as? UIImage {
-            return image
-        }
-        
-        return nil
+    func didDismiss(controller: GiphyViewController?) {
+        self.tableView.reloadData()
     }
     
 }

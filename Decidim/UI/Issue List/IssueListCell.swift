@@ -13,7 +13,7 @@ class IssueListCell: CustomTableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var authorLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var commentsLabel: UILabel!
@@ -21,7 +21,7 @@ class IssueListCell: CustomTableViewCell {
     public func setup(issue: Issue) {
         self.titleLabel.text = issue.title
         self.subtitleLabel.text = issue.body
-        self.iconImageView.image = issue.thumbnail
+        self.iconImageView.setThumbnail(url: issue.iconUrl)
         
         self.createdAtLabel.text = "\(issue.createdAt.asShortStringAgo()) •"
         self.commentsLabel.text = "\(issue.commentCount) comments"

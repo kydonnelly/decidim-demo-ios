@@ -6,13 +6,14 @@
 //  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol Previewable {
     
     var previewTitle: String { get }
     var previewBody: String { get }
-    var previewThumbnail: UIImage? { get }
+    var previewThumbnailUrl: String? { get }
+    var previewFallbackIcon: KrakenIcon { get }
     
 }
 

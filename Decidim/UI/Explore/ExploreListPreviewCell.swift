@@ -12,12 +12,13 @@ class ExploreListPreviewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
-    @IBOutlet var thumbnailImageView: UIImageView!
+    @IBOutlet var thumbnailImageView: GiphyMediaView!
     
     func setup(item: Previewable) {
         self.titleLabel.text = item.previewTitle
         self.bodyLabel.text = item.previewBody
-        self.thumbnailImageView.image = item.previewThumbnail
+        self.thumbnailImageView.icon = item.previewFallbackIcon
+        self.thumbnailImageView.setThumbnail(url: item.previewThumbnailUrl)
     }
     
 }

@@ -22,6 +22,12 @@ extension UIImageView {
         get { nil }
         set { self.iconColor = newValue }
     }
+    
+    @IBInspectable
+    public var _iconBackgroundColor: UIColor {
+        get { self.iconBackgroundColor }
+        set { self.iconBackgroundColor = newValue }
+    }
 
     @IBInspectable
     public var highlightedIconName: String? {

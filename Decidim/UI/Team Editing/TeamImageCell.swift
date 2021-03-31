@@ -12,17 +12,12 @@ class TeamImageCell: CustomTableViewCell {
     
     typealias ChangeImageBlock = () -> Void
     
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     private var onChangeImage: ChangeImageBlock?
     
-    public func setup(thumbnail: UIImage?, changeImageBlock: ChangeImageBlock?) {
-        if let image = thumbnail {
-            self.iconImageView.image = image
-        } else {
-            self.iconImageView.icon = .image
-        }
-        
+    public func setup(thumbnailUrl: String?, changeImageBlock: ChangeImageBlock?) {
+        self.iconImageView.setThumbnail(url: thumbnailUrl)
         self.onChangeImage = changeImageBlock
     }
     

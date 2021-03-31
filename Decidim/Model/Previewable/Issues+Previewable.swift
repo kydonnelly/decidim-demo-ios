@@ -6,7 +6,7 @@
 //  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension PublicIssueDataController: PreviewableDataController {
     
@@ -26,8 +26,12 @@ extension Issue: Previewable {
         return self.body
     }
     
-    var previewThumbnail: UIImage? {
-        return self.thumbnail
+    var previewThumbnailUrl: String? {
+        return self.iconUrl
+    }
+    
+    var previewFallbackIcon: KrakenIcon {
+        return .clipboard
     }
     
 }

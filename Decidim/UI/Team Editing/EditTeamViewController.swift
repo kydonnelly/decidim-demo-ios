@@ -6,6 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
+import GiphyUISDK
 import UIKit
 
 class EditTeamViewController: UIViewController, CustomTableController {
@@ -25,7 +26,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
         didSet { refreshDoneButton() }
     }
     
-    fileprivate var thumbnail: UIImage?
+    fileprivate var thumbnailMediaId: String?
     
     public static func create(team: TeamDetail? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "EditTeam", bundle: .main)
@@ -44,7 +45,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
         
         if let editingTeam = self.originalTeam {
             self.title = "Edit Team"
-            self.thumbnail = editingTeam.team.thumbnail
+            self.thumbnailMediaId = editingTeam.team.thumbnailUrl
             self.teamName = editingTeam.team.name
             self.teamDescription = editingTeam.team.description
         } else {
@@ -96,7 +97,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Creating team...")
-        TeamListDataController.shared().addTeam(title: name, description: description, thumbnail: self.thumbnail, members: [memberId: .joined]) { [weak self] error in
+        TeamListDataController.shared().addTeam(title: name, description: description, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .joined]) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -111,7 +112,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Editing team...")
-        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnail: self.thumbnail) { [weak self] error in
+        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnailUrl: self.thumbnailMediaId) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -161,7 +162,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! TeamImageCell
-            cell.setup(thumbnail: self.thumbnail) { [weak self] in
+            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
                 self?.showImagePicker(indexPath: indexPath)
             }
             return cell
@@ -176,40 +177,23 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension EditTeamViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension EditTeamViewController: GiphyDelegate {
     
     fileprivate func showImagePicker(indexPath: IndexPath) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
-            imagePicker.mediaTypes = mediaTypes
-        }
-        
+        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = self.mediaImage(info: info) {
-            self.thumbnail = image
-        }
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        self.thumbnailMediaId = media.id
         
-        picker.dismiss(animated: true) { [weak self] in
+        giphyViewController.dismiss(animated: true) { [weak self] in
             self?.tableView.reloadData()
         }
     }
     
-    private func mediaImage(info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
-        if let image = info[.editedImage] as? UIImage {
-            return image
-        }
-        
-        if let image = info[.originalImage] as? UIImage {
-            return image
-        }
-        
-        return nil
+    func didDismiss(controller: GiphyViewController?) {
+        self.tableView.reloadData()
     }
     
 }

@@ -13,7 +13,7 @@ class ProfileNameCell: CustomTableViewCell {
     typealias DelegateBlock = () -> Void
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var pictureImageView: UIImageView!
+    @IBOutlet var pictureImageView: GiphyMediaView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     @IBOutlet var makeDelegateButton: UIButton!
@@ -22,7 +22,7 @@ class ProfileNameCell: CustomTableViewCell {
     
     public func setup(profile: ProfileInfo, isDelegate: Bool, makeDelegateBlock: DelegateBlock?) {
         self.handleLabel.text = profile.handle
-        self.pictureImageView.image = profile.thumbnail
+        self.pictureImageView.setThumbnail(url: profile.thumbnailUrl)
         self.gradientBackground.setupWithRandomColors(seed: profile.profileId + 1, direction: .horizontal)
         
         let delegateTitle = isDelegate ? "Voting Delegate" : "Make Delegate"

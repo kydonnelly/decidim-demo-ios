@@ -42,7 +42,7 @@ class PublicProposalDataController: NetworkDataController {
 
 extension PublicProposalDataController {
     
-    public func addProposal(title: String, description: String, thumbnail: UIImage?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
+    public func addProposal(title: String, description: String, thumbnailUrl: String?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": description,
                                                    "amendment_deadline": amendmentDeadline.timestamp,
@@ -64,7 +64,7 @@ extension PublicProposalDataController {
         }
     }
     
-    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnail: UIImage?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
+    public func editProposal(_ proposalId: Int, title: String, description: String, thumbnailUrl: String?, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": description,
                                                    "amendment_deadline": amendmentDeadline.timestamp,

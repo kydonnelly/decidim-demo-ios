@@ -15,7 +15,7 @@ class AmendmentCell: CustomTableViewCell {
     @IBOutlet var amendmentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     
     @IBOutlet var statusImageView: UIImageView!
     
@@ -52,7 +52,7 @@ class AmendmentCell: CustomTableViewCell {
             }
             
             self.handleLabel.text = info.handle
-            self.iconImageView.image = info.thumbnail
+            self.iconImageView.setThumbnail(url: info.thumbnailUrl)
         }
     }
     

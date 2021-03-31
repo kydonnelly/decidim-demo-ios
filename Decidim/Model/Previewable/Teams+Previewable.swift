@@ -6,7 +6,7 @@
 //  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension TeamListDataController: PreviewableDataController {
     
@@ -26,8 +26,12 @@ extension TeamDetail: Previewable {
         return self.team.description
     }
     
-    var previewThumbnail: UIImage? {
-        return self.team.thumbnail
+    var previewThumbnailUrl: String? {
+        return self.team.thumbnailUrl
+    }
+    
+    var previewFallbackIcon: KrakenIcon {
+        return .bubbles3
     }
     
 }

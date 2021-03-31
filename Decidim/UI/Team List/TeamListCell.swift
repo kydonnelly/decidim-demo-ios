@@ -12,15 +12,16 @@ class TeamListCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
     
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var memberCoundLabel: UILabel!
     
+    @IBOutlet var iconImageView: GiphyMediaView!
+    
     public func setup(team: Team) {
         self.titleLabel.text = team.name
         self.subtitleLabel.text = team.description
-        self.iconImageView.image = team.thumbnail
+        self.iconImageView.setThumbnail(url: team.thumbnailUrl)
         
         self.createdAtLabel.text = team.createdAt.asShortStringAgo()
         self.memberCoundLabel.text = "\(team.memberCount) members"

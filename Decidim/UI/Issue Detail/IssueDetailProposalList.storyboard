@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJj-Xf-sy2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KJj-Xf-sy2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,7 +47,7 @@
                                                         <constraint firstAttribute="width" secondItem="hBh-ot-ruU" secondAttribute="height" id="jZV-Vv-9xW"/>
                                                     </constraints>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4N-oB-44e">
+                                                <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4N-oB-44e">
                                                     <rect key="frame" x="131" y="407.5" width="94" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="7bl-iJ-BAW"/>
@@ -156,6 +156,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Ig0-yC-VUk"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="QjD-96-XcA" firstAttribute="centerX" secondItem="Ig0-yC-VUk" secondAttribute="centerX" id="aJz-LJ-BH0"/>
@@ -163,7 +164,6 @@
                             <constraint firstItem="QjD-96-XcA" firstAttribute="centerY" secondItem="Ig0-yC-VUk" secondAttribute="centerY" id="njn-Aj-Lgn"/>
                             <constraint firstItem="QjD-96-XcA" firstAttribute="width" secondItem="Ig0-yC-VUk" secondAttribute="height" id="nxo-Rw-gqW"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ig0-yC-VUk"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <nil key="simulatedTopBarMetrics"/>

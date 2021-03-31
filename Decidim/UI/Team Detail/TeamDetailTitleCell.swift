@@ -13,7 +13,7 @@ class TeamDetailTitleCell: CustomTableViewCell {
     typealias UpdateStatusBlock = (TeamMemberStatus?) -> Void
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var iconImageView: UIImageView!
+    @IBOutlet var iconImageView: GiphyMediaView!
     @IBOutlet var memberStatusButton: UIButton!
     @IBOutlet var gradientBackground: LinearGradientView!
     
@@ -22,7 +22,7 @@ class TeamDetailTitleCell: CustomTableViewCell {
     
     func setup(detail: TeamDetail, onUpdateStatus: UpdateStatusBlock?) {
         self.titleLabel.text = detail.team.name
-        self.iconImageView.image = detail.team.thumbnail
+        self.iconImageView.setThumbnail(url: detail.team.thumbnailUrl)
         self.memberStatusButton.setTitle(self.statusText(detail: detail), for: .normal)
         self.gradientBackground.setupWithRandomColors(seed: detail.team.id + 1, direction: .horizontal)
         

@@ -50,7 +50,7 @@ class TeamListDataController: NetworkDataController {
 
 extension TeamListDataController {
     
-    public func addTeam(title: String, description: String, thumbnail: UIImage?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
+    public func addTeam(title: String, description: String, thumbnailUrl: String?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["team": ["name": title,
                                                "description": description]]
         
@@ -72,7 +72,7 @@ extension TeamListDataController {
         }
     }
     
-    public func editTeam(_ teamId: Int, title: String, description: String, thumbnail: UIImage?, completion: @escaping (Error?) -> Void) {
+    public func editTeam(_ teamId: Int, title: String, description: String, thumbnailUrl: String?, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["team": ["name": title,
                                                "description": description]]
         
