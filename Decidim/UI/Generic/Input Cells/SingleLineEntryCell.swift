@@ -1,24 +1,25 @@
 //
-//  IssueInputCell.swift
+//  SingleLineEntryCell.swift
 //  Decidim
 //
-//  Created by Kyle Donnelly on 7/13/20.
-//  Copyright © 2020 Kyle Donnelly. All rights reserved.
+//  Created by Kyle Donnelly on 3/30/21.
+//  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
 import UIKit
 
-class IssueInputCell: CustomTableViewCell {
+class SingleLineEntryCell: CustomTableViewCell {
     
-    typealias IssueInputUpdateBlock = (String) -> Bool
-    typealias IssueInputSubmitBlock = (String) -> Void
+    typealias UpdateBlock = (String) -> Bool
+    typealias SubmitBlock = (String) -> Void
     
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var inputField: UITextField!
     
-    private var onUpdate: IssueInputUpdateBlock?
-    private var onSubmit: IssueInputSubmitBlock?
+    private var onUpdate: UpdateBlock?
+    private var onSubmit: SubmitBlock?
     
-    public func setup(field: String, content: String?, required: Bool, characterLimit: Int? = nil, updateBlock: IssueInputUpdateBlock? = nil, submitBlock: IssueInputSubmitBlock?) {
+    public func setup(field: String, content: String?, required: Bool, characterLimit: Int? = nil, updateBlock: UpdateBlock? = nil, submitBlock: SubmitBlock?) {
         var placeholder = field
         if required {
             placeholder.append(" (Required)")
@@ -27,13 +28,15 @@ class IssueInputCell: CustomTableViewCell {
         self.inputField.placeholder = placeholder
         self.inputField.text = content
         
+        self.titleLabel.text = field
+        
         self.onUpdate = updateBlock
         self.onSubmit = submitBlock
     }
     
 }
 
-extension IssueInputCell: UITextFieldDelegate {
+extension SingleLineEntryCell: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let onUpdate = self.onUpdate, let text = textField.text, let range = Range(range, in: text) {
@@ -56,3 +59,4 @@ extension IssueInputCell: UITextFieldDelegate {
     }
     
 }
+

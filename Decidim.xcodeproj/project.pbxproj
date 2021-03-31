@@ -103,7 +103,6 @@
 		27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */; };
 		27649C98260AE2F7003D29D4 /* EditIssue.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */; };
 		27649C99260AE2F7003D29D4 /* EditIssueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */; };
-		27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */; };
 		27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */; };
 		27649C9D260AE2F7003D29D4 /* IssueListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C90260AE2F7003D29D4 /* IssueListCell.swift */; };
 		27649C9E260AE2F7003D29D4 /* IssueList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27649C91260AE2F7003D29D4 /* IssueList.storyboard */; };
@@ -154,9 +153,10 @@
 		27A81F322613D5E00088E07C /* Proposal+HasDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F312613D5E00088E07C /* Proposal+HasDeadline.swift */; };
 		27A81F362613D73E0088E07C /* Issue+HasDeadline.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F352613D73E0088E07C /* Issue+HasDeadline.swift */; };
 		27A81F3C261429FE0088E07C /* PillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F3B261429FE0088E07C /* PillButton.swift */; };
-		27A81F4626142CD10088E07C /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4526142CD10088E07C /* EditImageCell.swift */; };
-		27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4926142CFB0088E07C /* DatePickerCell.swift */; };
 		27A81F5026142E220088E07C /* SingleActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F4F26142E220088E07C /* SingleActionCell.swift */; };
+		27A81F58261432420088E07C /* EditImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F56261432420088E07C /* EditImageCell.swift */; };
+		27A81F59261432420088E07C /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F57261432420088E07C /* DatePickerCell.swift */; };
+		27A81F5D261432660088E07C /* SingleLineEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F5C261432660088E07C /* SingleLineEntryCell.swift */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -329,7 +329,6 @@
 		27649C88260AE2F7003D29D4 /* IssueDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailBodyCell.swift; sourceTree = "<group>"; };
 		27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EditIssue.storyboard; sourceTree = "<group>"; };
 		27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditIssueViewController.swift; sourceTree = "<group>"; };
-		27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueInputCell.swift; sourceTree = "<group>"; };
 		27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListViewController.swift; sourceTree = "<group>"; };
 		27649C90260AE2F7003D29D4 /* IssueListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueListCell.swift; sourceTree = "<group>"; };
 		27649C91260AE2F7003D29D4 /* IssueList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueList.storyboard; sourceTree = "<group>"; };
@@ -380,9 +379,10 @@
 		27A81F312613D5E00088E07C /* Proposal+HasDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Proposal+HasDeadline.swift"; sourceTree = "<group>"; };
 		27A81F352613D73E0088E07C /* Issue+HasDeadline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Issue+HasDeadline.swift"; sourceTree = "<group>"; };
 		27A81F3B261429FE0088E07C /* PillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillButton.swift; sourceTree = "<group>"; };
-		27A81F4526142CD10088E07C /* EditImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
-		27A81F4926142CFB0088E07C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
 		27A81F4F26142E220088E07C /* SingleActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleActionCell.swift; sourceTree = "<group>"; };
+		27A81F56261432420088E07C /* EditImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageCell.swift; sourceTree = "<group>"; };
+		27A81F57261432420088E07C /* DatePickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		27A81F5C261432660088E07C /* SingleLineEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleLineEntryCell.swift; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -806,7 +806,6 @@
 			children = (
 				27649C8A260AE2F7003D29D4 /* EditIssue.storyboard */,
 				27649C8B260AE2F7003D29D4 /* EditIssueViewController.swift */,
-				27649C8D260AE2F7003D29D4 /* IssueInputCell.swift */,
 			);
 			path = "Issue Editing";
 			sourceTree = "<group>";
@@ -865,6 +864,16 @@
 			path = Deadlines;
 			sourceTree = "<group>";
 		};
+		27A81F55261432420088E07C /* Input Cells */ = {
+			isa = PBXGroup;
+			children = (
+				27A81F56261432420088E07C /* EditImageCell.swift */,
+				27A81F57261432420088E07C /* DatePickerCell.swift */,
+				27A81F5C261432660088E07C /* SingleLineEntryCell.swift */,
+			);
+			path = "Input Cells";
+			sourceTree = "<group>";
+		};
 		27B22B2724BF0C13005DF376 /* Comment List */ = {
 			isa = PBXGroup;
 			children = (
@@ -912,13 +921,12 @@
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
-				27A81F4926142CFB0088E07C /* DatePickerCell.swift */,
 				27A81F2C2613D5D10088E07C /* Deadlines */,
 				278DA22425F54253002825CE /* DonutView.swift */,
-				27A81F4526142CD10088E07C /* EditImageCell.swift */,
 				27A81F262613051D0088E07C /* GiphyImageView.swift */,
 				27B22B5524D93760005DF376 /* GradientView.swift */,
 				27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */,
+				27A81F55261432420088E07C /* Input Cells */,
 				2773D15F25C15D5F007FD3F0 /* LoadingBlockingView.swift */,
 				2773D15D25C15D3E007FD3F0 /* LoadingBlockingView.xib */,
 				27293FCD25071F8F000D27D1 /* NoResultsView.swift */,
@@ -1359,7 +1367,6 @@
 				27F883C424ECFA3100B216D2 /* TeamActionStatus.swift in Sources */,
 				27A81F5026142E220088E07C /* SingleActionCell.swift in Sources */,
 				27293FAA2506BF72000D27D1 /* ChangePasswordViewController.swift in Sources */,
-				27A81F4A26142CFB0088E07C /* DatePickerCell.swift in Sources */,
 				27293FA62506BF19000D27D1 /* SettingsPreferencesCell.swift in Sources */,
 				27A81F272613051D0088E07C /* GiphyImageView.swift in Sources */,
 				2717F46624DAA9A600189F7C /* VotingOptionsView.swift in Sources */,
@@ -1368,6 +1375,7 @@
 				2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */,
 				27649C56260AD53B003D29D4 /* IssueDetailDataController.swift in Sources */,
 				2725C0D6253FD4010008010A /* TeamAction.swift in Sources */,
+				27A81F59261432420088E07C /* DatePickerCell.swift in Sources */,
 				2756A6CE24985D280023DC91 /* ProposalListViewController.swift in Sources */,
 				270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */,
 				2756A6DD249861560023DC91 /* ProposalComment.swift in Sources */,
@@ -1436,9 +1444,9 @@
 				2717F47D24E0C79100189F7C /* ProposalImageCell.swift in Sources */,
 				2789E97D24B5BD6A0061C3E9 /* UIView+Helpers.swift in Sources */,
 				2773D154257F6461007FD3F0 /* TeamActionsDataController.swift in Sources */,
+				27A81F5D261432660088E07C /* SingleLineEntryCell.swift in Sources */,
 				27649CA2260AE3BB003D29D4 /* IssueComment.swift in Sources */,
 				27649CBC260C39AC003D29D4 /* IssueDetailProposalCell.swift in Sources */,
-				27649C9B260AE2F7003D29D4 /* IssueInputCell.swift in Sources */,
 				277FD2C72511D6C60063FFE6 /* ParticipatoryProcesses.graphql.swift in Sources */,
 				27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */,
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
@@ -1465,8 +1473,8 @@
 				2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */,
 				27F883D824EDD94500B216D2 /* TeamMembersViewController.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
+				27A81F58261432420088E07C /* EditImageCell.swift in Sources */,
 				27F883DC24EDD98600B216D2 /* TeamActionsViewController.swift in Sources */,
-				27A81F4626142CD10088E07C /* EditImageCell.swift in Sources */,
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
 				27649C55260AD53B003D29D4 /* IssueDetail.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,

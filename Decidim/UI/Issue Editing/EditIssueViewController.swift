@@ -12,8 +12,8 @@ import UIKit
 class EditIssueViewController: UIViewController, CustomTableController {
     
     fileprivate static let ActionCellId = "ActionCell"
-    fileprivate static let InputCellId = "InputCell"
     fileprivate static let ImageCellId = "ImageCell"
+    fileprivate static let TitleCellId = "TitleCell"
     fileprivate static let DateCellId = "DateCell"
     
     @IBOutlet var tableView: UITableView!
@@ -168,7 +168,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! IssueInputCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Title", content: self.issueTitle, required: true) { [weak self] text in
                 self?.issueTitle = text
             }
@@ -186,7 +186,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! IssueInputCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Description", content: self.issueDescription, required: true) { [weak self] text in
                 self?.issueDescription = text
             }

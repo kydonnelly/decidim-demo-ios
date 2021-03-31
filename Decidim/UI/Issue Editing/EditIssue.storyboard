@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InputCell" rowHeight="80" id="XJD-JU-k3M" customClass="IssueInputCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="80" id="XJD-JU-k3M" customClass="SingleLineEntryCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJD-JU-k3M" id="PB7-60-MrO">
@@ -83,6 +83,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="inputField" destination="wu8-0G-1pR" id="KQp-Zg-i90"/>
+                                            <outlet property="titleLabel" destination="tQO-jH-C73" id="mSL-Ey-g3T"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCell" rowHeight="112" id="GIv-ly-cQk" customClass="EditImageCell" customModule="Agora" customModuleProvider="target">
