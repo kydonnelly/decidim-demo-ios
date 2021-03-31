@@ -43,10 +43,10 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="image"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="PrimaryDark"/>
+                                                            <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
-                                                            <color key="value" name="PrimaryLight"/>
+                                                            <color key="value" name="SecondaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
                                                             <integer key="value" value="2"/>
@@ -248,10 +248,10 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="PrimaryDark"/>
+                                                            <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
-                                                            <color key="value" name="PrimaryLight"/>
+                                                            <color key="value" name="SecondaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
@@ -403,13 +403,13 @@
             <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryDark">
-            <color red="0.09799999744" green="0.09799999744" blue="0.09799999744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
-            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049999998" green="0.51399999860000001" blue="0.62000000479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

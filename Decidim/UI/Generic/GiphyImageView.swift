@@ -50,7 +50,14 @@ extension GPHMediaView {
     
     private func useFallbackIcon() {
         self.refreshIconAppearance()
-        self.layer.cornerRadius = 4
+        
+        if self.iconInset < 4 {
+            self.layer.cornerRadius = 2
+        } else if self.iconInset < 8 {
+            self.layer.cornerRadius = 4
+        } else {
+            self.layer.cornerRadius = 8
+        }
     }
     
     

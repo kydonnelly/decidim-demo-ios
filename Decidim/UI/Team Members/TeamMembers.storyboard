@@ -38,10 +38,10 @@
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="PrimaryDark"/>
+                                                            <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
-                                                            <color key="value" name="PrimaryLight"/>
+                                                            <color key="value" name="SecondaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
                                                             <integer key="value" value="4"/>

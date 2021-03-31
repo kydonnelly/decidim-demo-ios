@@ -41,10 +41,10 @@
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="PrimaryDark"/>
+                                                            <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
-                                                            <color key="value" name="PrimaryLight"/>
+                                                            <color key="value" name="SecondaryBackground"/>
                                                         </userDefinedRuntimeAttribute>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
                                                             <integer key="value" value="8"/>
@@ -131,6 +131,9 @@
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.31400001049999998" green="0.51399999860000001" blue="0.62000000479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
