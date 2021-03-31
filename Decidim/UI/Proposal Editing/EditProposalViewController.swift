@@ -6,13 +6,13 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
-import GiphyUISDK
 import UIKit
 
 class EditProposalViewController: UIViewController, CustomTableController {
     
-    fileprivate static let InputCellId = "InputCell"
-    fileprivate static let ImageCellId = "ImageCell"
+    fileprivate static let ActionCellId = "ActionCell"
+    fileprivate static let TitleCellId = "TitleCell"
+    fileprivate static let BodyCellId = "BodyCell"
     fileprivate static let DateCellId = "DateCell"
     
     @IBOutlet var tableView: UITableView!
@@ -45,6 +45,13 @@ class EditProposalViewController: UIViewController, CustomTableController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tableView.register(UINib(nibName: "DatePickerCell", bundle: .main),
+                                forCellReuseIdentifier: Self.DateCellId)
+        self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.BodyCellId)
+        self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.TitleCellId)
         
         if let editingProposal = self.originalProposal {
             self.title = "Edit Proposal"
@@ -154,74 +161,50 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 || indexPath.row == 1 {
-            return 50
-        } else if indexPath.row == 2 {
-            return 72
-        } else {
+        if indexPath.row == 0 {
+            return 80
+        } else if indexPath.row == 1 {
+            return 120
+        } else if indexPath.row == 2 || indexPath.row == 3 {
             return 128
+        } else {
+            return 72
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! ProposalInputCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Title", content: self.proposalTitle, required: true) { [weak self] text in
                 self?.proposalTitle = text
             }
             return cell
         } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InputCellId, for: indexPath) as! ProposalInputCell
-            cell.setup(field: "Description", content: self.proposalDescription, required: true) { [weak self] text in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
+            cell.setup(field: "Description", content: self.proposalDescription) { [weak self] text in
                 self?.proposalDescription = text
             }
             return cell
         } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! ProposalImageCell
-            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
-                self?.showImagePicker(indexPath: indexPath)
-            }
-            return cell
-        } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(title: "Amendment Deadline", deadline: self.amendmentDeadline) { [weak self] date in
                 self?.amendmentDeadline = date
             }
             return cell
-        } else {
+        } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(title: "Voting Deadline", deadline: self.votingDeadline) { [weak self] date in
                 self?.votingDeadline = date
             }
             return cell
+        } else {
+            let actionTitle = self.originalProposal == nil ? "Create Proposal" : "Save Changes"
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
+            cell.setup(action: actionTitle) { [weak self] sender in
+                self?.didTapDoneButton(sender)
+            }
+            return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 2 {
-            self.showImagePicker(indexPath: indexPath)
-        }
-    }
-    
-}
-
-extension EditProposalViewController: GiphyDelegate {
-    
-    fileprivate func showImagePicker(indexPath: IndexPath) {
-        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
-        self.present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
-        self.thumbnailMediaId = media.id
-        
-        giphyViewController.dismiss(animated: true) { [weak self] in
-            self?.tableView.reloadData()
-        }
-    }
-    
-    func didDismiss(controller: GiphyViewController?) {
-        self.tableView.reloadData()
     }
     
 }

@@ -202,8 +202,9 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else {
+            let actionTitle = self.originalIssue == nil ? "Create Issue" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
-            cell.setup(action: "Save Changes") { [weak self] sender in
+            cell.setup(action: actionTitle) { [weak self] sender in
                 self?.didTapDoneButton(sender)
             }
             return cell
