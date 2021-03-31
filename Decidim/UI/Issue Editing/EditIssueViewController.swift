@@ -14,6 +14,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
     fileprivate static let ActionCellId = "ActionCell"
     fileprivate static let ImageCellId = "ImageCell"
     fileprivate static let TitleCellId = "TitleCell"
+    fileprivate static let BodyCellId = "BodyCell"
     fileprivate static let DateCellId = "DateCell"
     
     @IBOutlet var tableView: UITableView!
@@ -50,6 +51,8 @@ class EditIssueViewController: UIViewController, CustomTableController {
                                 forCellReuseIdentifier: Self.DateCellId)
         self.tableView.register(UINib(nibName: "EditImageCell", bundle: .main),
                                 forCellReuseIdentifier: Self.ImageCellId)
+        self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
+                                forCellReuseIdentifier: Self.BodyCellId)
         self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
                                 forCellReuseIdentifier: Self.TitleCellId)
         
@@ -193,8 +196,8 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
-            cell.setup(field: "Description", content: self.issueDescription, required: true) { [weak self] text in
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
+            cell.setup(field: "Description", content: self.issueDescription) { [weak self] text in
                 self?.issueDescription = text
             }
             return cell

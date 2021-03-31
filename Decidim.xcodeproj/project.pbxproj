@@ -160,6 +160,8 @@
 		27A81F632614345D0088E07C /* EditImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F622614345D0088E07C /* EditImageCell.xib */; };
 		27A81F67261434680088E07C /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F66261434680088E07C /* DatePickerCell.xib */; };
 		27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F6C261434710088E07C /* SingleLineEntryCell.xib */; };
+		27A81F72261435C60088E07C /* MultiLineEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F70261435C60088E07C /* MultiLineEntryCell.xib */; };
+		27A81F73261435C60088E07C /* MultiLineEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F71261435C60088E07C /* MultiLineEntryCell.swift */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -389,6 +391,8 @@
 		27A81F622614345D0088E07C /* EditImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditImageCell.xib; sourceTree = "<group>"; };
 		27A81F66261434680088E07C /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		27A81F6C261434710088E07C /* SingleLineEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleLineEntryCell.xib; sourceTree = "<group>"; };
+		27A81F70261435C60088E07C /* MultiLineEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiLineEntryCell.xib; sourceTree = "<group>"; };
+		27A81F71261435C60088E07C /* MultiLineEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineEntryCell.swift; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -877,6 +881,8 @@
 				27A81F622614345D0088E07C /* EditImageCell.xib */,
 				27A81F57261432420088E07C /* DatePickerCell.swift */,
 				27A81F66261434680088E07C /* DatePickerCell.xib */,
+				27A81F71261435C60088E07C /* MultiLineEntryCell.swift */,
+				27A81F70261435C60088E07C /* MultiLineEntryCell.xib */,
 				27A81F5C261432660088E07C /* SingleLineEntryCell.swift */,
 				27A81F6C261434710088E07C /* SingleLineEntryCell.xib */,
 			);
@@ -1181,6 +1187,7 @@
 				27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */,
 				27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */,
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
+				27A81F72261435C60088E07C /* MultiLineEntryCell.xib in Resources */,
 				27649C96260AE2F7003D29D4 /* IssueDetail.storyboard in Resources */,
 				27F883E424EDDF1D00B216D2 /* EditAction.storyboard in Resources */,
 				27649C9E260AE2F7003D29D4 /* IssueList.storyboard in Resources */,
@@ -1421,6 +1428,7 @@
 				27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */,
 				27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */,
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
+				27A81F73261435C60088E07C /* MultiLineEntryCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
 				2773D158257F8B88007FD3F0 /* TeamMembersDataController.swift in Sources */,
