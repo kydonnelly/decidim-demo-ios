@@ -48,6 +48,8 @@ extension MyProfileController {
         if let newPassword = password {
             MyProfileController.save(key: .password, value: newPassword)
         }
+        
+        completion?(nil)
     }
     
     public func register(username: String, password: String, thumbnail: String?, completion: UpdateBlock?) {

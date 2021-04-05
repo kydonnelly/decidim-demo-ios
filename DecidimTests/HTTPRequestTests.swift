@@ -1364,6 +1364,39 @@ class HTTPRequestTests: XCTestCase {
         // verify
         XCTAssertEqual(responseList?.contains { $0.user_id == userId && $0.team_id == teamId }, false)
     }
+    
+    func testHTTPRequest_EditProfile() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "edit profile response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: ProfileInfo? = nil
+        
+        let userId = "\(MyProfileController.shared.myProfileId!)"
+        let updatedName = "test"
+        let updatedThumbnail = "test_url"
+        let payload: [String: Any] = ["user": ["name": updatedName,
+                                               "icon_url": updatedThumbnail]]
+        
+        // test
+        request.put(endpoint: "users", args: [userId], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let userInfo = response?["user"] as? [String: Any] {
+                responseItem = ProfileInfo.from(dict: userInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem?.handle, updatedName)
+        XCTAssertEqual(responseItem?.thumbnailUrl, updatedThumbnail)
+        XCTAssertNil(receivedError)
+    }
 
 }
 

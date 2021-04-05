@@ -6,6 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
+import GiphyUISDK
 import UIKit
 
 class SettingsViewController: UIViewController, CustomTableController {
@@ -142,7 +143,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! SettingsProfileCell
-            nameCell.setup(profile: profileInfo)
+            nameCell.setup(profile: profileInfo) { [weak self] in
+                self?.showImagePicker(indexPath: indexPath)
+            }
             return nameCell
         } else if indexPath.row == 1 {
             let passwordCell = tableView.dequeueReusableCell(withIdentifier: Self.passwordCellId, for: indexPath) as! SettingsPreferencesCell
@@ -178,13 +181,40 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             break
         }
         
-        if indexPath.row == 1 {
+        if indexPath.row == 0 {
+            self.showImagePicker(indexPath: indexPath)
+        } else if indexPath.row == 1 {
             let passwordVC = ChangePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
         } else if indexPath.row == 2 {
             let preferencesVC = VotePreferencesViewController.create()
             self.navigationController?.pushViewController(preferencesVC, animated: true)
         }
+    }
+    
+}
+
+extension SettingsViewController: GiphyDelegate {
+    
+    fileprivate func showImagePicker(indexPath: IndexPath) {
+        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        giphyViewController.dismiss(animated: true, completion: nil)
+        
+        guard case let .profile(info) = self.state else {
+            return
+        }
+        
+        ProfileInfoDataController.shared().editProfile(info.profileId, name: info.handle, thumbnailUrl: media.id) { [weak self] _ in
+            self?.refresh()
+        }
+    }
+    
+    func didDismiss(controller: GiphyViewController?) {
+        self.tableView.reloadData()
     }
     
 }
