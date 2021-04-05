@@ -13,7 +13,7 @@ class TeamActionListCell: CustomTableViewCell {
     @IBOutlet var numActionsLabel: UILabel!
     
     public func setup(detail: TeamDetail) {
-        self.numActionsLabel.text = "\(detail.actionList.count) Actions"
+        self.numActionsLabel.text = "\(detail.actionList.count) ACTIONS"
     }
     
 }

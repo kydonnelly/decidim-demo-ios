@@ -17,7 +17,7 @@ class TeamMemberListCell: CustomTableViewCell {
     @IBOutlet var listViewConstraints: [NSLayoutConstraint]!
     
     func setup(detail: TeamDetail, tappedProfileBlock: ProfileBlock?) {
-        self.numMembersLabel.text = "Members: \(detail.memberList.count)"
+        self.numMembersLabel.text = "MEMBERS: \(detail.memberList.count)"
 
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else { return }
