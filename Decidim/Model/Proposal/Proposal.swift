@@ -10,6 +10,7 @@ import Foundation
 
 struct Proposal {
     let id: Int
+    let issueId: Int
     let authorId: Int
     let title: String
     let body: String
@@ -26,6 +27,7 @@ struct Proposal {
     
     public static func from(dict: [String: Any]) -> Proposal? {
         guard let proposalId = dict["id"] as? Int,
+              let issueId = dict["issue_id"] as? Int,
               let authorId = dict["user_id"] as? Int,
               let title = dict["title"] as? String,
               let body = dict["body"] as? String,
@@ -44,6 +46,7 @@ struct Proposal {
         let amendmentDeadline = Date(timestamp: dict["amendment_deadline"] as? String)
         
         return Proposal(id: proposalId,
+                        issueId: issueId,
                         authorId: authorId,
                         title: title,
                         body: body,

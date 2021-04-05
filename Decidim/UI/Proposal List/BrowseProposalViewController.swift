@@ -70,13 +70,3 @@ extension BrowseProposalsViewController: CustomTableController {
         return self.containedViewController!.tableView
     }
 }
-
-extension BrowseProposalsViewController {
-    
-    @IBAction func tappedCreateButton(_ sender: UIButton) {
-        let createVC = EditProposalViewController.create()
-        createVC.modalPresentationStyle = .overCurrentContext
-        self.navigationController?.present(createVC, animated: true, completion: nil)
-    }
-    
-}

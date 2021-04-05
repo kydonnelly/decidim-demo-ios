@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ckU-V4-qpW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ckU-V4-qpW">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -78,6 +78,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jAa-Lc-GUY"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="jAa-Lc-GUY" firstAttribute="trailing" secondItem="JA4-EK-itZ" secondAttribute="trailing" id="1C4-uX-RnC"/>
@@ -88,15 +89,8 @@
                             <constraint firstAttribute="trailing" secondItem="FRv-MW-be3" secondAttribute="trailing" id="tR6-G5-rpZ"/>
                             <constraint firstItem="JA4-EK-itZ" firstAttribute="leading" secondItem="jAa-Lc-GUY" secondAttribute="leading" id="veC-tZ-Vff"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jAa-Lc-GUY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Proposals" id="jMz-bf-GeS">
-                        <barButtonItem key="rightBarButtonItem" title="Create" id="paD-YO-QbP">
-                            <connections>
-                                <action selector="tappedCreateButton:" destination="OeF-nN-LGS" id="go5-1s-Crj"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Proposals" id="jMz-bf-GeS"/>
                     <connections>
                         <outlet property="containerView" destination="FRv-MW-be3" id="tdb-Fc-0X1"/>
                         <outlet property="optionsBar" destination="osc-9X-VAh" id="eV9-oY-HcG"/>

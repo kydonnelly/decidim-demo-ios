@@ -346,8 +346,8 @@ extension ProposalDetailViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
        
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
-            guard let self = self else { return }
-            let editVC = EditProposalViewController.create(proposal: self.proposalDetail)
+            guard let self = self, let detail = self.proposalDetail else { return }
+            let editVC = EditProposalViewController.create(proposal: detail)
             editVC.modalPresentationStyle = .overCurrentContext
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))

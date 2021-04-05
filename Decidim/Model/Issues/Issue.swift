@@ -35,7 +35,7 @@ struct Issue {
             return nil
         }
         
-        let iconUrl = dict["icon_url"] as? String ?? nil
+        let iconUrl = dict["icon_url"] as? String
         let issueStatus = dict["status"] as? String ?? ""
         let status = IssueStatus(rawValue: issueStatus) ?? IssueStatus.unknown
         let deadline = Date(timestamp: dict["deadline"] as? String)

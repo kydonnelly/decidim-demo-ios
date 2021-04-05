@@ -18,6 +18,7 @@ class EditProposalViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     
+    fileprivate var associatedIssue: IssueDetail?
     fileprivate var originalProposal: ProposalDetail?
     
     fileprivate var proposalTitle: String? {
@@ -27,19 +28,27 @@ class EditProposalViewController: UIViewController, CustomTableController {
         didSet { refreshDoneButton() }
     }
     
-    fileprivate var thumbnailMediaId: String?
     fileprivate var amendmentDeadline: Date!
     fileprivate var votingDeadline: Date!
     
-    public static func create(proposal: ProposalDetail? = nil) -> UIViewController {
+    public static func create(proposal: ProposalDetail) -> UIViewController {
         let sb = UIStoryboard(name: "EditProposal", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! UINavigationController
         let epvc = vc.viewControllers.first! as! EditProposalViewController
-        epvc.setup(proposal: proposal)
+        epvc.setup(proposal: proposal, issue: nil)
         return vc
     }
     
-    private func setup(proposal: ProposalDetail?) {
+    public static func create(issue: IssueDetail) -> UIViewController {
+        let sb = UIStoryboard(name: "EditProposal", bundle: .main)
+        let vc = sb.instantiateInitialViewController() as! UINavigationController
+        let epvc = vc.viewControllers.first! as! EditProposalViewController
+        epvc.setup(proposal: nil, issue: issue)
+        return vc
+    }
+    
+    private func setup(proposal: ProposalDetail?, issue: IssueDetail?) {
+        self.associatedIssue = issue
         self.originalProposal = proposal
     }
     
@@ -57,7 +66,6 @@ class EditProposalViewController: UIViewController, CustomTableController {
             self.title = "Edit Proposal"
             self.amendmentDeadline = editingProposal.proposal.amendmentDeadline ?? self.defaultDeadline
             self.votingDeadline = editingProposal.proposal.votingDeadline ?? self.defaultDeadline
-            self.thumbnailMediaId = editingProposal.proposal.iconUrl
             self.proposalTitle = editingProposal.proposal.title
             self.proposalDescription = editingProposal.proposal.body
         } else {
@@ -107,8 +115,12 @@ extension EditProposalViewController {
             return
         }
         
+        guard let issueId = self.associatedIssue?.issue.id else {
+            return
+        }
+        
         self.blockView(message: "Submitting proposal...")
-        PublicProposalDataController.shared().addProposal(title: title, description: description, thumbnailUrl: self.thumbnailMediaId, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
+        PublicProposalDataController.shared().addProposal(issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {
@@ -130,8 +142,12 @@ extension EditProposalViewController {
             return
         }
         
+        guard let issueId = self.originalProposal?.proposal.issueId else {
+            return
+        }
+        
         self.blockView(message: "Editing proposal...")
-        PublicProposalDataController.shared().editProposal(id, title: title, description: description, thumbnailUrl: self.thumbnailMediaId, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
+        PublicProposalDataController.shared().editProposal(id, issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
             guard error == nil else {

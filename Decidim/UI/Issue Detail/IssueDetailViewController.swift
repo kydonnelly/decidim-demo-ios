@@ -209,8 +209,9 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             case .body:
                 (cell as! IssueDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .proposals:
-                (cell as! IssueDetailProposalListCell).setup(detail: self.issueDetail!, onCreate: { [weak self] in
-                    let createVC = EditProposalViewController.create()
+                let detail = self.issueDetail!
+                (cell as! IssueDetailProposalListCell).setup(detail: detail, onCreate: { [weak self] in
+                    let createVC = EditProposalViewController.create(issue: detail)
                     createVC.modalPresentationStyle = .overCurrentContext
                     self?.navigationController?.present(createVC, animated: true, completion: nil)
                 }, onExpand: { [weak self] proposal in

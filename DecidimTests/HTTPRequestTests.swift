@@ -31,7 +31,7 @@ class HTTPRequestTests: XCTestCase {
         var receivedError: Error? = nil
         
         // test
-        request.createSession(username: username, password: password) { userId, results, error in
+        request.createSession(username: username, password: password, thumbnail: nil) { userId, results, error in
             defer { expectation.fulfill() }
             
             guard error == nil else {
@@ -219,7 +219,7 @@ class HTTPRequestTests: XCTestCase {
             responseStatus = response?["status"] as? String
             if let detailInfo = response?["proposal"] as? [String: Any] {
                 responseItem = ProposalDetail.from(dict: detailInfo,
-                                                   proposal: Proposal(id: 1, authorId: 0, title: "", body: "", iconUrl: "", votingDeadline: Date(), amendmentDeadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
+                                                   proposal: Proposal(id: 1, issueId: 1, authorId: 1, title: "", body: "", iconUrl: "", votingDeadline: Date(), amendmentDeadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
             }
         }
         
@@ -929,6 +929,46 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseStatus, "updated")
         XCTAssertEqual(responseItem?.title, updatedTitle)
         XCTAssertEqual(responseItem?.body, updatedBody)
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_LinkIssueProposal() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "link proposal to issue response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: Proposal? = nil
+        
+        guard let issue = self.createAndVerifyIssue() else {
+            XCTFail("Could not create issue to edit")
+            return
+        }
+
+        guard let proposal = self.createAndVerifyProposal() else {
+            XCTFail("Could not create proposal to link")
+            return
+        }
+        
+        let payload: [String: Any] = ["proposal": ["title": "Proposal title",
+                                                   "body": "Proposal description",
+                                                   "issue_id": "\(issue.id)"]]
+        
+        // test
+        request.put(endpoint: "proposals", args: ["\(proposal.id)"], payload: payload) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let proposalInfo = response?["proposal"] as? [String: Any] {
+                responseItem = Proposal.from(dict: proposalInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "updated")
+        XCTAssertEqual(responseItem?.issueId, 1)
         XCTAssertNil(receivedError)
     }
 
