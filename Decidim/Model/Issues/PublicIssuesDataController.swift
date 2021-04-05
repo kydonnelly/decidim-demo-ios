@@ -18,11 +18,11 @@ class PublicIssueDataController: NetworkDataController {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
-            guard let issueInfos = response?["issues"] as? [[String: Any]] else {
+            guard let issueInfos = response?["issue"] as? [[String: Any]] else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
             }
-            
+
             self?.localIssues.removeAll()
             let issues = issueInfos.compactMap { Issue.from(dict: $0) }
             completion(issues, Cursor(next: "", done: true), nil)
@@ -43,10 +43,14 @@ class PublicIssueDataController: NetworkDataController {
 extension PublicIssueDataController {
     
     public func addIssue(title: String, description: String, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
-        let payload: [String: Any] = ["issue": ["title": title,
-                                                "body": description,
-                                                "deadline": deadline]]
+        var issueInfo: [String: Any] = ["title": title,
+                                        "body": description,
+                                        "deadline": deadline.timestamp]
+        if let iconUrl = thumbnailUrl {
+            issueInfo["icon_url"] = iconUrl
+        }
         
+        let payload: [String: Any] = ["issue": issueInfo]
         HTTPRequest.shared.post(endpoint: "issues", payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
@@ -64,10 +68,14 @@ extension PublicIssueDataController {
     }
     
     public func editIssue(_ issueId: Int, title: String, description: String, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
-        let payload: [String: Any] = ["issue": ["title": title,
-                                                "body": description,
-                                                "deadline": deadline.timestamp]]
+        var issueInfo: [String: Any] = ["title": title,
+                                        "body": description,
+                                        "deadline": deadline.timestamp]
+        if let iconUrl = thumbnailUrl {
+            issueInfo["icon_url"] = iconUrl
+        }
         
+        let payload: [String: Any] = ["issue": issueInfo]
         HTTPRequest.shared.put(endpoint: "issues", args: ["\(issueId)"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)

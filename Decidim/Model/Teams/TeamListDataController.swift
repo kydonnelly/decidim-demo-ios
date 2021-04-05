@@ -51,9 +51,13 @@ class TeamListDataController: NetworkDataController {
 extension TeamListDataController {
     
     public func addTeam(title: String, description: String, thumbnailUrl: String?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
-        let payload: [String: Any] = ["team": ["name": title,
-                                               "description": description]]
+        var teamInfo: [String: Any] = ["name": title,
+                                       "description": description]
+        if let iconUrl = thumbnailUrl {
+            teamInfo["icon_url"] = iconUrl
+        }
         
+        let payload: [String: Any] = ["team": teamInfo]
         HTTPRequest.shared.post(endpoint: "teams", payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
@@ -73,9 +77,13 @@ extension TeamListDataController {
     }
     
     public func editTeam(_ teamId: Int, title: String, description: String, thumbnailUrl: String?, completion: @escaping (Error?) -> Void) {
-        let payload: [String: Any] = ["team": ["name": title,
-                                               "description": description]]
+        var teamInfo: [String: Any] = ["name": title,
+                                       "description": description]
+        if let iconUrl = thumbnailUrl {
+            teamInfo["icon_url"] = iconUrl
+        }
         
+        let payload: [String: Any] = ["team": teamInfo]
         HTTPRequest.shared.put(endpoint: "teams", args: ["\(teamId)"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)

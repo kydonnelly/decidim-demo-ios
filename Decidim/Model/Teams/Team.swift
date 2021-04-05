@@ -32,7 +32,7 @@ struct Team {
             return nil
         }
         
-        let thumbnailUrl = dict["icon_url"] as? String ?? ""
+        let thumbnailUrl = dict["icon_url"] as? String
         
         return Team(id: teamId,
                     name: title,
