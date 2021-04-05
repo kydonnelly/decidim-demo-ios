@@ -19,7 +19,7 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         case actions = "ActionsCell"
         
         static func ordered() -> [StaticCell] {
-            return [.title, .body, .members, .actions]
+            return [.title, .body, .members]
         }
     }
     
