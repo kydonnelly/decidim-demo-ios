@@ -6,6 +6,7 @@
 //  Copyright © 2020 Kyle Donnelly. All rights reserved.
 //
 
+import GiphyUISDK
 import UIKit
 
 class RegistrationViewController: UIViewController {
@@ -20,6 +21,10 @@ class RegistrationViewController: UIViewController {
     @IBOutlet var submitButton: UIButton!
     @IBOutlet var registrationModeButton: UIButton!
     
+    @IBOutlet var photoImageView: GiphyMediaView!
+    @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
+    
+    private var thumbnailUrl: String?
     private var currentMode: RegistrationType = .existingUser
     
     public static func create() -> RegistrationViewController {
@@ -50,6 +55,10 @@ extension RegistrationViewController {
             return false
         }
         
+        if self.currentMode == .newUser, self.thumbnailUrl == nil {
+            return false
+        }
+        
         return username.count > 2 && password.count > 2
     }
     
@@ -63,13 +72,19 @@ extension RegistrationViewController {
         case .newUser:
             self.submitButton.setTitle("Create Account", for: .normal)
             self.registrationModeButton.setTitle("Log In", for: .normal)
+            self.photoContainerConstraint.constant = 72
         case .existingUser:
             self.submitButton.setTitle("Log In", for: .normal)
             self.registrationModeButton.setTitle("Sign Up", for: .normal)
+            self.photoContainerConstraint.constant = 0
         }
         
         self.usernameField.text = ""
         self.passwordField.text = ""
+    }
+    
+    @IBAction func photoButtonPressed(_ sender: UIButton?) {
+        self.showImagePicker()
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton?) {
@@ -102,7 +117,7 @@ extension RegistrationViewController {
         switch self.currentMode {
         case .newUser:
             self.blockView(message: "Creating Account...")
-            MyProfileController.shared.register(username: username, password: password, completion: updateBlock)
+            MyProfileController.shared.register(username: username, password: password, thumbnail: self.thumbnailUrl, completion: updateBlock)
         case .existingUser:
             self.blockView(message: "Logging In...")
             MyProfileController.shared.signIn(username: username, password: password, completion: updateBlock)
@@ -143,6 +158,28 @@ extension RegistrationViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+    
+}
+
+extension RegistrationViewController: GiphyDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        self.thumbnailUrl = media.id
+        
+        giphyViewController.dismiss(animated: true) { [weak self] in
+            self?.photoImageView.setThumbnail(url: media.id)
+            self?.refreshSubmitButton()
+        }
+    }
+    
+    func didDismiss(controller: GiphyViewController?) {
+        
     }
     
 }

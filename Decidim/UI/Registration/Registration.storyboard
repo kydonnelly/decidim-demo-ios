@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pL4-c4-HSy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pL4-c4-HSy">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -39,8 +40,62 @@
                                     <outlet property="delegate" destination="pL4-c4-HSy" id="HT5-jD-6ZL"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="901" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-6V-M62">
-                                <rect key="frame" x="120.5" y="353.5" width="173" height="48"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is3-ZG-Rq7">
+                                <rect key="frame" x="32" y="353.5" width="350" height="72"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-jY-oNp" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                        <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
+                                        <color key="tintColor" systemColor="linkColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="72" id="1sm-4J-aAL"/>
+                                            <constraint firstAttribute="width" constant="72" id="jGd-4B-Rt8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="image"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                <color key="value" name="PrimaryLight"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                <color key="value" name="SecondaryBackground"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-ON-D3q" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="18" width="128" height="36"/>
+                                        <color key="backgroundColor" name="PrimaryBackground"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
+                                        <state key="normal" title="Choose Image">
+                                            <color key="titleColor" name="Action"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" name="Action"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="photoButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="Ty9-YS-Tve"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="WzZ-ON-D3q" firstAttribute="leading" secondItem="9xc-jY-oNp" secondAttribute="trailing" constant="16" id="6tT-pd-5Zh"/>
+                                    <constraint firstItem="9xc-jY-oNp" firstAttribute="leading" secondItem="is3-ZG-Rq7" secondAttribute="leading" id="I8n-nG-7UD"/>
+                                    <constraint firstAttribute="height" constant="72" id="M7B-HJ-noj"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="WzZ-ON-D3q" secondAttribute="trailing" constant="16" id="frY-B1-HAS"/>
+                                    <constraint firstItem="9xc-jY-oNp" firstAttribute="centerY" secondItem="is3-ZG-Rq7" secondAttribute="centerY" id="jC4-R1-6gB"/>
+                                    <constraint firstItem="WzZ-ON-D3q" firstAttribute="centerY" secondItem="is3-ZG-Rq7" secondAttribute="centerY" id="vyT-rk-r3P"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="901" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-6V-M62">
+                                <rect key="frame" x="120.5" y="449.5" width="173" height="48"/>
                                 <color key="backgroundColor" name="Action"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="d93-6d-bce"/>
@@ -63,8 +118,8 @@
                                     <action selector="submitButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="qsc-sU-Q2N"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-4W-fv1">
-                                <rect key="frame" x="114" y="417.5" width="186" height="48"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-4W-fv1">
+                                <rect key="frame" x="114" y="513.5" width="186" height="48"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="NSP-tj-90X"/>
@@ -88,30 +143,35 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="H3L-14-ldl"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
+                            <constraint firstItem="is3-ZG-Rq7" firstAttribute="leading" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="10j-8t-sgA"/>
+                            <constraint firstItem="is3-ZG-Rq7" firstAttribute="top" secondItem="5VC-XQ-hQg" secondAttribute="bottom" constant="24" id="1L3-zw-aW4"/>
                             <constraint firstItem="1v3-hf-kUf" firstAttribute="leading" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="6vd-bZ-V39"/>
                             <constraint firstItem="N2S-4W-fv1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="DfT-9b-Wfc"/>
                             <constraint firstItem="H3L-14-ldl" firstAttribute="trailing" secondItem="5VC-XQ-hQg" secondAttribute="trailing" constant="32" id="Elt-0T-YFW"/>
-                            <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="5VC-XQ-hQg" secondAttribute="bottom" constant="24" id="Ff3-W5-pub"/>
                             <constraint firstItem="zUL-6V-M62" firstAttribute="centerX" secondItem="H3L-14-ldl" secondAttribute="centerX" id="H9a-OZ-chW"/>
                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="top" secondItem="9kA-li-zkE" secondAttribute="bottom" constant="16" id="JAw-8I-1fi"/>
                             <constraint firstItem="N2S-4W-fv1" firstAttribute="top" secondItem="zUL-6V-M62" secondAttribute="bottom" constant="16" id="JwG-Od-BwL"/>
                             <constraint firstItem="H3L-14-ldl" firstAttribute="trailing" secondItem="9kA-li-zkE" secondAttribute="trailing" constant="32" id="MbL-vu-lQr"/>
                             <constraint firstItem="N2S-4W-fv1" firstAttribute="centerX" secondItem="H3L-14-ldl" secondAttribute="centerX" id="QOw-Gn-Apk"/>
                             <constraint firstItem="1v3-hf-kUf" firstAttribute="centerX" secondItem="H3L-14-ldl" secondAttribute="centerX" id="U66-6z-DrP"/>
+                            <constraint firstItem="is3-ZG-Rq7" firstAttribute="centerX" secondItem="H3L-14-ldl" secondAttribute="centerX" id="arv-Gs-azY"/>
                             <constraint firstItem="zUL-6V-M62" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
                             <constraint firstItem="9kA-li-zkE" firstAttribute="leading" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="lu8-ph-Uzl"/>
                             <constraint firstItem="1v3-hf-kUf" firstAttribute="top" secondItem="H3L-14-ldl" secondAttribute="top" constant="96" id="na0-9K-jfk"/>
+                            <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="is3-ZG-Rq7" secondAttribute="bottom" constant="24" id="ncK-Lx-thL"/>
                             <constraint firstItem="H3L-14-ldl" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N2S-4W-fv1" secondAttribute="bottom" constant="48" id="oxa-fF-kEe"/>
                             <constraint firstItem="9kA-li-zkE" firstAttribute="top" secondItem="1v3-hf-kUf" secondAttribute="bottom" constant="48" id="wTg-2a-f8o"/>
                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="leading" secondItem="H3L-14-ldl" secondAttribute="leading" constant="32" id="yhS-aV-VC6"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="H3L-14-ldl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="Z88-Z5-Ixe"/>
                     <connections>
                         <outlet property="passwordField" destination="5VC-XQ-hQg" id="BYE-uS-Bg8"/>
+                        <outlet property="photoContainerConstraint" destination="M7B-HJ-noj" id="3kT-Lf-s2v"/>
+                        <outlet property="photoImageView" destination="9xc-jY-oNp" id="Ed4-aR-Y8n"/>
                         <outlet property="registrationModeButton" destination="N2S-4W-fv1" id="79h-2r-0NK"/>
                         <outlet property="submitButton" destination="zUL-6V-M62" id="4UT-td-pPV"/>
                         <outlet property="usernameField" destination="9kA-li-zkE" id="WOZ-9z-KaJ"/>
@@ -126,6 +186,9 @@
         <namedColor name="Action">
             <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="PrimaryDark">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -133,7 +196,10 @@
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31372549019607843" green="0.51372549019607838" blue="0.61960784313725492" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -19,7 +19,7 @@ struct ProfileInfo {
             return nil
         }
         
-        let thumbnailUrl = dict["icon_url"] as? String ?? ""
+        let thumbnailUrl = dict["icon_url"] as? String
         
         return ProfileInfo(profileId: profileId,
                            handle: handle,

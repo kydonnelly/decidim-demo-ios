@@ -50,8 +50,8 @@ extension MyProfileController {
         }
     }
     
-    public func register(username: String, password: String, completion: UpdateBlock?) {
-        HTTPRequest.shared.createSession(username: username, password: password) { userId, response, error in
+    public func register(username: String, password: String, thumbnail: String?, completion: UpdateBlock?) {
+        HTTPRequest.shared.createSession(username: username, password: password, thumbnail: thumbnail) { userId, response, error in
             if error == nil {
                 MyProfileController.save(key: .username, value: username)
                 MyProfileController.save(key: .password, value: password)

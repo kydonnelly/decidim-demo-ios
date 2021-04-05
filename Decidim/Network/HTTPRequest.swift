@@ -44,9 +44,14 @@ class HTTPRequest {
         }
     }
     
-    public func createSession(username: String, password: String, completion: @escaping (Int?, [String: Any]?, Error?) -> Void) {
+    public func createSession(username: String, password: String, thumbnail: String?, completion: @escaping (Int?, [String: Any]?, Error?) -> Void) {
         let session = URLSession(configuration: .default)
-        let authPayload = ["user": ["name": username, "password": password]]
+        var authInfo: [String: Any] = ["name": username, "password": password]
+        if let iconUrl = thumbnail {
+            authInfo["icon_url"] = iconUrl
+        }
+        
+        let authPayload = ["user": authInfo]
         post(session: session, endpoint: "registration", payload: authPayload) { results, error in
             guard error == nil else {
                 completion(nil, nil, RequestError.failedRegistration(underlying: error!))
