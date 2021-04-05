@@ -22,7 +22,6 @@ struct Issue {
     
     public static func from(dict: [String: Any]) -> Issue? {
         guard let issueId = dict["id"] as? Int,
-              let issueStatus = dict["status"] as? String,
               let authorId = dict["user_id"] as? Int,
               let title = dict["title"] as? String,
               let body = dict["body"] as? String,
@@ -37,6 +36,7 @@ struct Issue {
         }
         
         let iconUrl = dict["icon_url"] as? String ?? nil
+        let issueStatus = dict["status"] as? String ?? ""
         let status = IssueStatus(rawValue: issueStatus) ?? IssueStatus.unknown
         let deadline = Date(timestamp: dict["deadline"] as? String)
         
