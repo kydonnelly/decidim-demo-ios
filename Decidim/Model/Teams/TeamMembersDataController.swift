@@ -48,7 +48,7 @@ class TeamMembersDataController: NetworkDataController {
                 completion(error)
                 return
             }
-            guard let memberInfos = response?["found"] as? [[String: Any]] else {
+            guard let memberInfos = response?["members"] as? [[String: Any]] else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
@@ -71,7 +71,7 @@ class TeamMembersDataController: NetworkDataController {
                 completion(HTTPRequest.RequestError.statusError(response: response))
                 return
             }
-            guard let memberInfos = response?["found"] as? [[String: Any]] else {
+            guard let memberInfos = response?["members"] as? [[String: Any]] else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
