@@ -56,6 +56,12 @@ class ExploreViewController: UIViewController, CustomTableController {
         self.tableView.addSubview(refreshControl)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
+    
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
         sender.endRefreshing()
         
