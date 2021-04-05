@@ -146,9 +146,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             guard self.proposalDetail != nil else {
                 return 0
             }
-            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
-                return 0
-            }
             
             return 36
         } else {
@@ -159,9 +156,6 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 2 {
             guard let detail = self.proposalDetail else {
-                return nil
-            }
-            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
                 return nil
             }
             

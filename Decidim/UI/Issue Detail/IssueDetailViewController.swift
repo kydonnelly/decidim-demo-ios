@@ -134,9 +134,6 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             guard self.issueDetail != nil else {
                 return 0
             }
-            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
-                return 0
-            }
             
             return 36
         }
@@ -147,9 +144,6 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 2 {
             guard let issueDetail = self.issueDetail else {
-                return nil
-            }
-            guard let dc = self.commentDataController, dc.allComments.count > 0 else {
                 return nil
             }
             
