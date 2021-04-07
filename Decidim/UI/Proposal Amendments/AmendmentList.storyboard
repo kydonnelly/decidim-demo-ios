@@ -202,10 +202,10 @@
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
-            <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049999998" green="0.51399999860000001" blue="0.62000000479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

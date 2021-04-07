@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r58-cP-GVT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r58-cP-GVT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -44,16 +45,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-Mt-qLC" customClass="CircleImageView" customModule="Agora" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZMd-Mt-qLC" customClass="GPHMediaView" customModule="GiphyUISDK">
                                                     <rect key="frame" x="24" y="12" width="52" height="52"/>
-                                                    <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="ZMd-Mt-qLC" secondAttribute="height" multiplier="1:1" id="pbA-uc-Te7"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="Action"/>
+                                                            <color key="value" name="PrimaryLight"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                            <color key="value" name="SecondaryBackground"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                            <integer key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
@@ -94,7 +101,7 @@
                                                 </imageView>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9iF-4e-xjp">
                                                     <rect key="frame" x="0.0" y="75" width="414" height="1"/>
-                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="GWt-n9-6aq"/>
                                                     </constraints>
@@ -152,6 +159,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JW7-MH-bZb"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="MxJ-Uc-Trs" firstAttribute="top" secondItem="Skc-5W-6XK" secondAttribute="top" id="bMC-Jf-bVr"/>
@@ -159,7 +167,6 @@
                             <constraint firstItem="MxJ-Uc-Trs" firstAttribute="leading" secondItem="Skc-5W-6XK" secondAttribute="leading" id="w5D-ro-5AE"/>
                             <constraint firstAttribute="bottom" secondItem="MxJ-Uc-Trs" secondAttribute="bottom" id="ySt-gx-j1N"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="JW7-MH-bZb"/>
                     </view>
                     <navigationItem key="navigationItem" title="Vote History" id="zjj-5q-ajt">
                         <barButtonItem key="leftBarButtonItem" title="Close" id="8px-4W-bRC">
@@ -184,11 +191,20 @@
         <namedColor name="PrimaryDark">
             <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31400001049999998" green="0.51399999860000001" blue="0.62000000479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
