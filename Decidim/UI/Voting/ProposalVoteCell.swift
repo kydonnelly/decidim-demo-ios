@@ -11,7 +11,7 @@ import UIKit
 class ProposalVoteCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var authorLabel: UILabel!
+    @IBOutlet var issueLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var iconImageView: GiphyMediaView!
     
@@ -30,7 +30,7 @@ class ProposalVoteCell: CustomTableViewCell {
     public func setup(proposal: Proposal, myVote: VoteType?) {
         self.titleLabel.text = proposal.title
         self.subtitleLabel.text = proposal.body
-        self.iconImageView.setThumbnail(url: proposal.iconUrl)
+        self.iconImageView.setThumbnail(url: nil)
         
         self.createdAtLabel.text = "\(proposal.createdAt.asShortStringAgo()) •"
         self.commentsLabel.text = "\(proposal.commentCount) comments •"
@@ -45,18 +45,12 @@ class ProposalVoteCell: CustomTableViewCell {
             self.myVoteImage.isHidden = true
         }
         
-        ProfileInfoDataController.shared().refresh { [weak self] dc in
-            guard let self = self else {
-                return
-            }
-            guard let infos = dc.data as? [ProfileInfo] else {
-                return
-            }
-            guard let info = infos.first(where: { $0.profileId == proposal.authorId }) else {
-                return
-            }
+        PublicIssueDataController.shared().refresh { [weak self] dc in
+            guard let self = self, let dataController = dc as? PublicIssueDataController else { return }
+            let parentIssue = dataController.allIssues.first { $0.id == proposal.issueId }
             
-            self.authorLabel.text = info.handle
+            self.issueLabel.text = parentIssue?.title
+            self.iconImageView.setThumbnail(url: parentIssue?.iconUrl)
         }
         
         ProposalCommentsDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in

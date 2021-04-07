@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7pJ-92-0oS">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7pJ-92-0oS">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -30,14 +31,14 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-2i-XWV">
                                                     <rect key="frame" x="0.0" y="95" width="414" height="1"/>
-                                                    <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="Xyd-hg-4E6"/>
                                                     </constraints>
                                                 </view>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="les-t6-NOv" userLabel="Centering Reference View">
                                                     <rect key="frame" x="0.0" y="12" width="0.0" height="56.5"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" id="5F6-x7-I8b"/>
                                                     </constraints>
@@ -162,6 +163,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="Dnl-SR-xHY"/>
                         <color key="backgroundColor" name="SecondaryBackground"/>
                         <constraints>
                             <constraint firstItem="skV-5L-zJR" firstAttribute="top" secondItem="HMU-pz-29d" secondAttribute="top" id="CeV-CN-fDG"/>
@@ -169,7 +171,6 @@
                             <constraint firstAttribute="bottom" secondItem="skV-5L-zJR" secondAttribute="bottom" id="ip4-tI-d4K"/>
                             <constraint firstItem="skV-5L-zJR" firstAttribute="leading" secondItem="HMU-pz-29d" secondAttribute="leading" id="qI2-zW-Yic"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Dnl-SR-xHY"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="skV-5L-zJR" id="J5K-qF-kdf"/>
@@ -196,5 +197,11 @@
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

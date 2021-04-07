@@ -14,7 +14,6 @@ struct Proposal {
     let authorId: Int
     let title: String
     let body: String
-    let iconUrl: String?
     
     let votingDeadline: Date?
     let amendmentDeadline: Date?
@@ -41,7 +40,6 @@ struct Proposal {
             return nil
         }
         
-        let thumbnailUrl = dict["icon_url"] as? String
         let votingDeadline = Date(timestamp: dict["voting_deadline"] as? String)
         let amendmentDeadline = Date(timestamp: dict["amendment_deadline"] as? String)
         
@@ -50,7 +48,6 @@ struct Proposal {
                         authorId: authorId,
                         title: title,
                         body: body,
-                        iconUrl: thumbnailUrl,
                         votingDeadline: votingDeadline,
                         amendmentDeadline: amendmentDeadline,
                         createdAt: createdDate,

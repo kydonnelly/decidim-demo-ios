@@ -250,7 +250,7 @@
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yp-LD-RyZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issue Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Yp-LD-RyZ">
                                                     <rect key="frame" x="78" y="35" width="268" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="DetailDark"/>
@@ -328,10 +328,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="authorLabel" destination="4Yp-LD-RyZ" id="K7z-Be-2PP"/>
                                             <outlet property="commentsLabel" destination="agE-fF-Itc" id="rMW-y2-DHD"/>
                                             <outlet property="createdAtLabel" destination="wJw-e8-EZp" id="WSh-Ye-EO5"/>
                                             <outlet property="iconImageView" destination="u76-0K-OtR" id="er4-ye-pFN"/>
+                                            <outlet property="issueLabel" destination="4Yp-LD-RyZ" id="qId-8N-pop"/>
                                             <outlet property="myVoteImage" destination="ISS-I7-wTN" id="4q5-jg-azg"/>
                                             <outlet property="subtitleLabel" destination="iGd-YZ-OdT" id="hZs-Qc-Zlf"/>
                                             <outlet property="titleLabel" destination="f3z-Ej-SJA" id="07S-TT-h6j"/>
@@ -381,7 +381,7 @@
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCS-O1-6j3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issue Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCS-O1-6j3">
                                                     <rect key="frame" x="78" y="35" width="104" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="DetailDark"/>
@@ -440,10 +440,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="authorLabel" destination="MCS-O1-6j3" id="uKl-Di-ksR"/>
                                             <outlet property="commentsLabel" destination="bw0-Fx-ebz" id="fss-2U-jYa"/>
                                             <outlet property="createdAtLabel" destination="Dag-nQ-pgJ" id="0au-AV-r8q"/>
                                             <outlet property="iconImageView" destination="VVX-qc-V8t" id="KYG-a2-VQe"/>
+                                            <outlet property="issueLabel" destination="MCS-O1-6j3" id="v0z-Um-EI2"/>
                                             <outlet property="subtitleLabel" destination="dBI-zD-xXL" id="HdW-0X-ekT"/>
                                             <outlet property="titleLabel" destination="V3i-QL-23T" id="LUh-dl-93X"/>
                                             <outlet property="votesLabel" destination="UwJ-dc-4uN" id="n9G-jS-ZSn"/>
