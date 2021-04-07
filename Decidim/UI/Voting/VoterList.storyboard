@@ -65,20 +65,20 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nvo-vR-OB9">
-                                                    <rect key="frame" x="0.0" y="19" width="0.0" height="38"/>
+                                                    <rect key="frame" x="0.0" y="20" width="0.0" height="36.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" id="fWQ-r6-vLy"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kI8-5A-6bS">
-                                                    <rect key="frame" x="84" y="19" width="266" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="88" y="20" width="258" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4 days ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUX-JX-6bM">
-                                                    <rect key="frame" x="84" y="40" width="266" height="17"/>
+                                                    <rect key="frame" x="88" y="39.5" width="258" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="SecondaryDark"/>
                                                     <nil key="highlightedColor"/>
@@ -119,10 +119,10 @@
                                                 <constraint firstItem="GUX-JX-6bM" firstAttribute="trailing" secondItem="kI8-5A-6bS" secondAttribute="trailing" id="La4-iH-Nr5"/>
                                                 <constraint firstItem="GUX-JX-6bM" firstAttribute="leading" secondItem="kI8-5A-6bS" secondAttribute="leading" id="M6a-PC-rOz"/>
                                                 <constraint firstItem="Nvo-vR-OB9" firstAttribute="centerY" secondItem="O6P-nM-uqz" secondAttribute="centerY" id="Xa6-Qr-IwE"/>
-                                                <constraint firstItem="kI8-5A-6bS" firstAttribute="leading" secondItem="ZMd-Mt-qLC" secondAttribute="trailing" constant="8" id="ch0-QF-fUo"/>
+                                                <constraint firstItem="kI8-5A-6bS" firstAttribute="leading" secondItem="ZMd-Mt-qLC" secondAttribute="trailing" constant="12" id="ch0-QF-fUo"/>
                                                 <constraint firstItem="ZMd-Mt-qLC" firstAttribute="leading" secondItem="O6P-nM-uqz" secondAttribute="leading" constant="24" id="eXN-F6-moE"/>
                                                 <constraint firstItem="Nvo-vR-OB9" firstAttribute="bottom" secondItem="GUX-JX-6bM" secondAttribute="bottom" id="oH8-S4-Q2k"/>
-                                                <constraint firstItem="lvq-pv-o82" firstAttribute="leading" secondItem="kI8-5A-6bS" secondAttribute="trailing" constant="8" id="sm4-Qm-HJO"/>
+                                                <constraint firstItem="lvq-pv-o82" firstAttribute="leading" secondItem="kI8-5A-6bS" secondAttribute="trailing" constant="12" id="sm4-Qm-HJO"/>
                                                 <constraint firstAttribute="trailing" secondItem="lvq-pv-o82" secondAttribute="trailing" constant="24" id="tma-jz-FFq"/>
                                                 <constraint firstAttribute="bottom" secondItem="9iF-4e-xjp" secondAttribute="bottom" id="veQ-WM-aoV"/>
                                             </constraints>
