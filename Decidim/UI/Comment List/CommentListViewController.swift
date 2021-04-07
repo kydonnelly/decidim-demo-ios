@@ -110,9 +110,6 @@ extension CommentListViewController {
         guard let commentText = self.textView.text, commentText.count > 0 else {
             return
         }
-        
-        self.textView.text = nil
-        self.editingComment = nil
 
         if let editingId = self.editingComment?.commentId {
             self.dataController.editComment(editingId, comment: commentText) { [weak self] error in
@@ -131,6 +128,9 @@ extension CommentListViewController {
                 self?.refreshData()
             }
         }
+        
+        self.textView.text = nil
+        self.editingComment = nil
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
