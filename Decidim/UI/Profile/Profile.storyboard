@@ -74,20 +74,14 @@
                                                     <color key="textColor" name="PrimaryLight"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-jR-0lT">
-                                                    <rect key="frame" x="267" y="26" width="123" height="28"/>
-                                                    <color key="backgroundColor" name="PrimaryLight"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
-                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-jR-0lT" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                    <rect key="frame" x="249" y="22" width="141" height="36"/>
+                                                    <color key="backgroundColor" name="Action"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
                                                     <state key="normal" title="Make Delegate">
-                                                        <color key="titleColor" name="Action"/>
+                                                        <color key="titleColor" name="PrimaryLight"/>
                                                     </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="4"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                     <connections>
                                                         <action selector="makeDelegateButtonPressed:" destination="RGq-jH-zgp" eventType="touchUpInside" id="Lr2-Ny-T1h"/>
                                                     </connections>

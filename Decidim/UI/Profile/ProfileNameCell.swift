@@ -25,7 +25,7 @@ class ProfileNameCell: CustomTableViewCell {
         self.pictureImageView.setThumbnail(url: profile.thumbnailUrl)
         self.gradientBackground.setupWithRandomColors(seed: profile.profileId + 1, direction: .horizontal)
         
-        let delegateTitle = isDelegate ? "Voting Delegate" : "Make Delegate"
+        let delegateTitle = isDelegate ? "Remove Delegate" : "Make Delegate"
         self.makeDelegateButton.setTitle(delegateTitle, for: .normal)
         self.onMakeDelegateTapped = makeDelegateBlock
         self.makeDelegateButton.isHidden = profile.profileId == MyProfileController.shared.myProfileId
