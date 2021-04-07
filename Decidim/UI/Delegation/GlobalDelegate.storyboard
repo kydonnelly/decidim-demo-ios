@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hcp-7S-voy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="rfh-UJ-TaO">
+            <objects>
+                <navigationController id="hcp-7S-voy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qN1-bF-40I">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BkH-4t-hXB" kind="relationship" relationship="rootViewController" id="QcC-NN-FBq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gOL-K3-cD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1132" y="-3"/>
+        </scene>
+        <!--Delegation-->
+        <scene sceneID="QNh-gV-IQu">
+            <objects>
+                <viewController id="BkH-4t-hXB" customClass="GlobalDelegateViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nKz-W3-BK5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="WMt-yF-loG">
+                                <rect key="frame" x="24" y="120" width="366" height="379"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-pv-qbK">
+                                        <rect key="frame" x="0.0" y="0.0" width="366" height="38.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" text="You have not globally delegated your vote to anyone." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X1b-yR-LCG">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <color key="textColor" name="PrimaryDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="X1b-yR-LCG" secondAttribute="bottom" id="7F8-cM-QY1"/>
+                                            <constraint firstAttribute="trailing" secondItem="X1b-yR-LCG" secondAttribute="trailing" id="Q1y-a1-wzH"/>
+                                            <constraint firstItem="X1b-yR-LCG" firstAttribute="top" secondItem="ozi-pv-qbK" secondAttribute="top" id="VoS-cp-5uZ"/>
+                                            <constraint firstItem="X1b-yR-LCG" firstAttribute="leading" secondItem="ozi-pv-qbK" secondAttribute="leading" id="zdk-AW-9IO"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kf2-JE-Nes">
+                                        <rect key="frame" x="0.0" y="62.5" width="366" height="129"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F4K-KS-PMx" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                                <rect key="frame" x="135" y="0.0" width="96" height="96"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="96" id="A9M-9i-9By"/>
+                                                    <constraint firstAttribute="height" constant="96" id="LO9-Va-0EB"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                        <color key="value" name="PrimaryLight"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                        <color key="value" name="SecondaryBackground"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="790" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvu-Pw-NS5">
+                                                <rect key="frame" x="0.0" y="112" width="366" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                <color key="textColor" name="PrimaryDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="F4K-KS-PMx" firstAttribute="top" secondItem="kf2-JE-Nes" secondAttribute="top" id="0lf-Jp-JU5"/>
+                                            <constraint firstItem="hvu-Pw-NS5" firstAttribute="top" secondItem="F4K-KS-PMx" secondAttribute="bottom" constant="16" id="NUw-V6-l0E"/>
+                                            <constraint firstAttribute="trailing" secondItem="hvu-Pw-NS5" secondAttribute="trailing" id="QxW-dR-Nmz"/>
+                                            <constraint firstItem="F4K-KS-PMx" firstAttribute="centerX" secondItem="kf2-JE-Nes" secondAttribute="centerX" id="WHO-Zz-tpt"/>
+                                            <constraint firstItem="hvu-Pw-NS5" firstAttribute="leading" secondItem="kf2-JE-Nes" secondAttribute="leading" id="b49-2J-cRI"/>
+                                            <constraint firstAttribute="bottom" secondItem="hvu-Pw-NS5" secondAttribute="bottom" id="vlm-oo-KVz"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="95K-FX-bFq">
+                                        <rect key="frame" x="0.0" y="215.5" width="366" height="19.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="990" text="This person is voting on issues on your behalf." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7q-9l-7s9">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="19.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <color key="textColor" name="SecondaryDark"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="c7q-9l-7s9" firstAttribute="leading" secondItem="95K-FX-bFq" secondAttribute="leading" id="0ma-sT-wsM"/>
+                                            <constraint firstItem="c7q-9l-7s9" firstAttribute="top" secondItem="95K-FX-bFq" secondAttribute="top" id="BUV-2r-0TC"/>
+                                            <constraint firstAttribute="trailing" secondItem="c7q-9l-7s9" secondAttribute="trailing" id="ajS-k6-Jtx"/>
+                                            <constraint firstAttribute="bottom" secondItem="c7q-9l-7s9" secondAttribute="bottom" id="rer-OS-Ikl"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdD-Cg-6FU">
+                                        <rect key="frame" x="0.0" y="259" width="366" height="48"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-e6-NTd">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufo-GR-YrR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="48"/>
+                                                        <color key="backgroundColor" name="Action"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="jrb-1Y-TUS"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                        <state key="normal" title="Change Delegate">
+                                                            <color key="titleColor" name="PrimaryLight"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="changeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="z1d-nV-Ea8"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHN-FM-wTR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                        <rect key="frame" x="193" y="0.0" width="173" height="48"/>
+                                                        <color key="backgroundColor" name="PrimaryBackground"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="48" id="y71-AC-8C2"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                        <state key="normal" title="Remove Delegate">
+                                                            <color key="titleColor" name="Action"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                                <color key="value" name="Action"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="removeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="foZ-37-5vS"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="Ufo-GR-YrR" secondAttribute="bottom" id="91C-rp-odD"/>
+                                                    <constraint firstItem="ZHN-FM-wTR" firstAttribute="leading" secondItem="Ufo-GR-YrR" secondAttribute="trailing" priority="745" constant="24" id="AAC-By-bh3"/>
+                                                    <constraint firstItem="Ufo-GR-YrR" firstAttribute="top" secondItem="Mdc-e6-NTd" secondAttribute="top" id="MQS-16-OWA"/>
+                                                    <constraint firstItem="ZHN-FM-wTR" firstAttribute="top" secondItem="Mdc-e6-NTd" secondAttribute="top" id="YUV-is-Ait"/>
+                                                    <constraint firstItem="Ufo-GR-YrR" firstAttribute="leading" secondItem="Mdc-e6-NTd" secondAttribute="leading" id="pfR-X1-rpo"/>
+                                                    <constraint firstAttribute="bottom" secondItem="ZHN-FM-wTR" secondAttribute="bottom" id="qCa-NP-FdL"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ZHN-FM-wTR" secondAttribute="trailing" id="rvc-Gl-In3"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="centerX" secondItem="KdD-Cg-6FU" secondAttribute="centerX" id="1nJ-hK-RX9"/>
+                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KdD-Cg-6FU" secondAttribute="leading" id="PpK-XH-7cW"/>
+                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="top" secondItem="KdD-Cg-6FU" secondAttribute="top" id="VQH-LN-s7k"/>
+                                            <constraint firstAttribute="bottom" secondItem="Mdc-e6-NTd" secondAttribute="bottom" id="tln-Yx-jme"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-cI-atf">
+                                        <rect key="frame" x="0.0" y="331" width="366" height="48"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-ft-ja7" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                <rect key="frame" x="98" y="0.0" width="170" height="48"/>
+                                                <color key="backgroundColor" name="Action"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="abc-Rx-L1x"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                <state key="normal" title="Choose Delegate">
+                                                    <color key="titleColor" name="PrimaryLight"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="dnk-12-pW2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="j6a-ft-ja7" firstAttribute="centerX" secondItem="Irx-cI-atf" secondAttribute="centerX" id="6lY-IT-AgS"/>
+                                            <constraint firstItem="j6a-ft-ja7" firstAttribute="top" secondItem="Irx-cI-atf" secondAttribute="top" id="AIN-dh-7n9"/>
+                                            <constraint firstAttribute="bottom" secondItem="j6a-ft-ja7" secondAttribute="bottom" id="hpp-Af-CTX"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rEZ-G8-NEP"/>
+                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <constraints>
+                            <constraint firstItem="rEZ-G8-NEP" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="WMt-yF-loG" secondAttribute="bottom" constant="32" id="BAi-Ks-YHC"/>
+                            <constraint firstItem="WMt-yF-loG" firstAttribute="leading" secondItem="rEZ-G8-NEP" secondAttribute="leading" constant="24" id="D7X-Sp-uQV"/>
+                            <constraint firstItem="rEZ-G8-NEP" firstAttribute="trailing" secondItem="WMt-yF-loG" secondAttribute="trailing" constant="24" id="YcF-Or-Sgo"/>
+                            <constraint firstItem="WMt-yF-loG" firstAttribute="top" secondItem="rEZ-G8-NEP" secondAttribute="top" constant="32" id="fep-KU-7IC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Delegation" id="8pX-pB-7hP"/>
+                    <connections>
+                        <outlet property="changeDelegateContainerView" destination="KdD-Cg-6FU" id="uwm-5h-4VL"/>
+                        <outlet property="createDelegateContainerView" destination="Irx-cI-atf" id="6wd-AM-RhO"/>
+                        <outlet property="delegateContainerView" destination="kf2-JE-Nes" id="KP8-VP-RlR"/>
+                        <outlet property="delegateNameLabel" destination="hvu-Pw-NS5" id="ZPv-XB-6Au"/>
+                        <outlet property="delegatePictureView" destination="F4K-KS-PMx" id="gMp-AF-eyr"/>
+                        <outlet property="descriptionLabel" destination="c7q-9l-7s9" id="kZL-fz-jTz"/>
+                        <outlet property="titleLabel" destination="X1b-yR-LCG" id="4jB-gE-0mr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z8F-8k-YVt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-286" y="-3"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Action">
+            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryBackground">
+            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

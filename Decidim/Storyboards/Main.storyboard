@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9U-vt-1oD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E9U-vt-1oD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,14 +25,14 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="S1F-2c-YeC" secondAttribute="trailing" id="5r5-fw-h2b"/>
                             <constraint firstAttribute="bottom" secondItem="S1F-2c-YeC" secondAttribute="bottom" id="P8o-va-0qQ"/>
                             <constraint firstItem="S1F-2c-YeC" firstAttribute="top" secondItem="bI1-hz-kra" secondAttribute="top" id="n0V-Da-jic"/>
                             <constraint firstItem="S1F-2c-YeC" firstAttribute="leading" secondItem="bI1-hz-kra" secondAttribute="leading" id="nID-gg-2Bo"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="flR-SM-jXH"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Issues" id="zTl-4Y-KwV">
                         <userDefinedRuntimeAttributes>
@@ -58,6 +59,55 @@
             </objects>
             <point key="canvasLocation" x="1686" y="674"/>
         </scene>
+        <!--Delegation-->
+        <scene sceneID="9BT-o7-8PV">
+            <objects>
+                <viewController id="Yow-p5-1gr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EC1-sq-lcp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-LP-Uie">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <connections>
+                                    <segue destination="aZQ-z6-UkE" kind="embed" id="z5D-H1-Sbb"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="7uV-St-AVu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OdC-LP-Uie" secondAttribute="trailing" id="6Ey-DM-Xot"/>
+                            <constraint firstItem="OdC-LP-Uie" firstAttribute="leading" secondItem="EC1-sq-lcp" secondAttribute="leading" id="K88-Ge-yP8"/>
+                            <constraint firstItem="OdC-LP-Uie" firstAttribute="top" secondItem="EC1-sq-lcp" secondAttribute="top" id="fra-5y-BsC"/>
+                            <constraint firstAttribute="bottom" secondItem="OdC-LP-Uie" secondAttribute="bottom" id="uii-16-gYL"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Delegation" id="PaG-pi-ug3">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="users"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                <color key="value" name="DetailDark"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="users"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
+                                <color key="value" name="Action"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LcV-FR-CH7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1103" y="1363"/>
+        </scene>
+        <!--GlobalDelegate-->
+        <scene sceneID="R6C-BB-403">
+            <objects>
+                <viewControllerPlaceholder storyboardName="GlobalDelegate" id="aZQ-z6-UkE" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jy2-gM-RjQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1712" y="1363"/>
+        </scene>
         <!--Profile-->
         <scene sceneID="b9Y-cY-2Cd">
             <objects>
@@ -73,14 +123,14 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="vyx-Pm-nx1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Het-KG-aej" secondAttribute="trailing" id="DuJ-5P-nJJ"/>
                             <constraint firstItem="Het-KG-aej" firstAttribute="leading" secondItem="HJm-yo-SJo" secondAttribute="leading" id="bUJ-ht-JvA"/>
                             <constraint firstItem="Het-KG-aej" firstAttribute="top" secondItem="HJm-yo-SJo" secondAttribute="top" id="mbQ-Rq-Kkb"/>
                             <constraint firstAttribute="bottom" secondItem="Het-KG-aej" secondAttribute="bottom" id="sCD-M8-Z3R"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="vyx-Pm-nx1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="dG5-B4-OIf">
                         <userDefinedRuntimeAttributes>
@@ -122,14 +172,14 @@
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="LrU-GZ-h0c"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="f4d-VG-p5W" firstAttribute="top" secondItem="GR3-W1-Wkx" secondAttribute="top" id="TsD-mO-ypT"/>
                             <constraint firstItem="f4d-VG-p5W" firstAttribute="leading" secondItem="GR3-W1-Wkx" secondAttribute="leading" id="XbF-TT-GDZ"/>
                             <constraint firstAttribute="trailing" secondItem="f4d-VG-p5W" secondAttribute="trailing" id="ff5-1r-79m"/>
                             <constraint firstAttribute="bottom" secondItem="f4d-VG-p5W" secondAttribute="bottom" id="iKj-vb-xNq"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="LrU-GZ-h0c"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" id="Yyx-tx-Lct">
                         <userDefinedRuntimeAttributes>
@@ -169,11 +219,12 @@
                         <segue destination="EyX-kk-y0C" kind="relationship" relationship="viewControllers" id="LAC-gP-qUU"/>
                         <segue destination="z4v-CE-0J7" kind="relationship" relationship="viewControllers" id="DGl-ZA-d8f"/>
                         <segue destination="Ibt-Tg-Z2c" kind="relationship" relationship="viewControllers" id="4so-rW-uj1"/>
+                        <segue destination="Yow-p5-1gr" kind="relationship" relationship="viewControllers" id="fmB-2b-XJo"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0A-p4-saI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-39" y="-7"/>
+            <point key="canvasLocation" x="-297" y="820"/>
         </scene>
     </scenes>
     <resources>
@@ -183,5 +234,8 @@
         <namedColor name="DetailDark">
             <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

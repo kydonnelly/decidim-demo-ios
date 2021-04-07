@@ -160,6 +160,8 @@
 		27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F6C261434710088E07C /* SingleLineEntryCell.xib */; };
 		27A81F72261435C60088E07C /* MultiLineEntryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F70261435C60088E07C /* MultiLineEntryCell.xib */; };
 		27A81F73261435C60088E07C /* MultiLineEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F71261435C60088E07C /* MultiLineEntryCell.swift */; };
+		27A81F8A261D57320088E07C /* GlobalDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F89261D57310088E07C /* GlobalDelegateViewController.swift */; };
+		27A81F90261D59D70088E07C /* GlobalDelegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F8F261D59D70088E07C /* GlobalDelegate.storyboard */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
@@ -387,6 +389,8 @@
 		27A81F6C261434710088E07C /* SingleLineEntryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SingleLineEntryCell.xib; sourceTree = "<group>"; };
 		27A81F70261435C60088E07C /* MultiLineEntryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MultiLineEntryCell.xib; sourceTree = "<group>"; };
 		27A81F71261435C60088E07C /* MultiLineEntryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiLineEntryCell.swift; sourceTree = "<group>"; };
+		27A81F89261D57310088E07C /* GlobalDelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDelegateViewController.swift; sourceTree = "<group>"; };
+		27A81F8F261D59D70088E07C /* GlobalDelegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalDelegate.storyboard; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
@@ -699,6 +703,7 @@
 			isa = PBXGroup;
 			children = (
 				27B22B2724BF0C13005DF376 /* Comment List */,
+				27A81F88261D57310088E07C /* Delegation */,
 				27490CC4260EC89600FAD841 /* Explore */,
 				27B22B5424D93751005DF376 /* Generic */,
 				27649C82260AE2F7003D29D4 /* Issue Detail */,
@@ -877,6 +882,15 @@
 				27A81F6C261434710088E07C /* SingleLineEntryCell.xib */,
 			);
 			path = "Input Cells";
+			sourceTree = "<group>";
+		};
+		27A81F88261D57310088E07C /* Delegation */ = {
+			isa = PBXGroup;
+			children = (
+				27A81F8F261D59D70088E07C /* GlobalDelegate.storyboard */,
+				27A81F89261D57310088E07C /* GlobalDelegateViewController.swift */,
+			);
+			path = Delegation;
 			sourceTree = "<group>";
 		};
 		27B22B2724BF0C13005DF376 /* Comment List */ = {
@@ -1191,6 +1205,7 @@
 				27490CDE260EE10600FAD841 /* CreateAmendment.storyboard in Resources */,
 				278646DD24FF7BA8004C2C82 /* ColorTheme.xcassets in Resources */,
 				27293FD025071F9A000D27D1 /* NoResultsView.xib in Resources */,
+				27A81F90261D59D70088E07C /* GlobalDelegate.storyboard in Resources */,
 				27490CCE260ED10F00FAD841 /* ExploreList.storyboard in Resources */,
 				2717F46A24DAA9DB00189F7C /* VotingOptionCell.xib in Resources */,
 				2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */,
@@ -1479,6 +1494,7 @@
 				2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */,
 				27F883D824EDD94500B216D2 /* TeamMembersViewController.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
+				27A81F8A261D57320088E07C /* GlobalDelegateViewController.swift in Sources */,
 				27A81F58261432420088E07C /* EditImageCell.swift in Sources */,
 				27F883DC24EDD98600B216D2 /* TeamActionsViewController.swift in Sources */,
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
