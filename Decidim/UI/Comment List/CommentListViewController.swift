@@ -96,7 +96,7 @@ class CommentListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.comments.count == 0 {
-            self.tableView.showNoResults(message: "No comments yet")
+            self.tableView.showNoResults(message: "No comments yet. Be the first!", icon: .message_circle)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

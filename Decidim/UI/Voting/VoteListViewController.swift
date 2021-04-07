@@ -68,7 +68,7 @@ class VoteListViewController: UIViewController, CustomTableController {
         guard count > 0 else {
             self.isRefreshing = false
             self.tableView?.reloadData()
-            self.tableView?.showNoResults(message: "No votes")
+            self.tableView?.showNoResults(message: "No votes to display", icon: .search)
             return
         }
         

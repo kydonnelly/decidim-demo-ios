@@ -49,7 +49,7 @@ class ProfileSearchViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.profileInfoDataController.donePaging && self.profileInfos?.count == 0 {
-            self.tableView.showNoResults(message: "No search results")
+            self.tableView.showNoResults(message: "No search results to display", icon: .search)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

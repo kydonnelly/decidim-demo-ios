@@ -93,7 +93,7 @@ class TeamActionsViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.dataController.allActions.count == 0 {
-            self.tableView.showNoResults(message: "No actions")
+            self.tableView.showNoResults(message: "No actions for this team", icon: .user_check)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

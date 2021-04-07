@@ -67,7 +67,7 @@ class IssueListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.allIssues.count == 0 {
-            self.tableView.showNoResults(message: "No issues")
+            self.tableView.showNoResults(message: "No issues to display", icon: .bubbles3)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

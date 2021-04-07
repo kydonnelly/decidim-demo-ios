@@ -55,7 +55,7 @@ class VoterListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.allVotes.count == 0 {
-            self.tableView.showNoResults(message: "No voters")
+            self.tableView.showNoResults(message: "No votes on this proposal yet", icon: .circle)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

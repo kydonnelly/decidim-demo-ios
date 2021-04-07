@@ -32,7 +32,7 @@ class ProfileProposalsTabSection: NSObject, ProfileTabSection {
         dataSource.tableView.reloadData()
         
         if self.dataController.donePaging && self.allProposals.count == 0 {
-            dataSource.tableView.showNoResults(message: "No proposals", below: dataSource.sectionOffset)
+            dataSource.tableView.showNoResults(message: "No proposals to display", icon: .search, below: dataSource.sectionOffset)
         } else {
             dataSource.tableView.hideNoResultsIfNeeded()
         }
