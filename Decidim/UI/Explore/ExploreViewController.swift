@@ -88,9 +88,11 @@ extension ExploreViewController: UITableViewDataSource {
             switch cellId {
             case .teams:
                 let vc = EditTeamViewController.create()
+                vc.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(vc, animated: true, completion: nil)
             case .issues:
                 let vc = EditIssueViewController.create()
+                vc.modalPresentationStyle = .overCurrentContext
                 self.navigationController?.present(vc, animated: true, completion: nil)
             case .people:
                 break
