@@ -23,7 +23,7 @@ class ExploreViewController: UIViewController, CustomTableController {
             switch self {
             case .issues: return "Issues"
             case .teams: return "Groups"
-            case .people: return "People I Follow"
+            case .people: return "People"
             }
         }
         
