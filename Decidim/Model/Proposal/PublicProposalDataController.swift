@@ -45,7 +45,7 @@ extension PublicProposalDataController {
     public func addProposal(issueId: Int, title: String, description: String, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": description,
-                                                   "issue_id": "\(issueId)",
+                                                   "issue_id": issueId,
                                                    "amendment_deadline": amendmentDeadline.timestamp,
                                                    "voting_deadline": votingDeadline.timestamp]]
         
@@ -68,7 +68,7 @@ extension PublicProposalDataController {
     public func editProposal(_ proposalId: Int, issueId: Int, title: String, description: String, amendmentDeadline: Date, votingDeadline: Date, completion: @escaping (Error?) -> Void) {
         let payload: [String: Any] = ["proposal": ["title": title,
                                                    "body": description,
-                                                   "issue_id": "\(issueId)",
+                                                   "issue_id": issueId,
                                                    "amendment_deadline": amendmentDeadline.timestamp,
                                                    "voting_deadline": votingDeadline.timestamp]]
         

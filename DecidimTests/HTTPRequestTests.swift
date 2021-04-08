@@ -953,7 +953,7 @@ class HTTPRequestTests: XCTestCase {
         
         let payload: [String: Any] = ["proposal": ["title": "Proposal title",
                                                    "body": "Proposal description",
-                                                   "issue_id": "\(issue.id)"]]
+                                                   "issue_id": issue.id]]
         
         // test
         request.put(endpoint: "proposals", args: ["\(proposal.id)"], payload: payload) { response, error in
