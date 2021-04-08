@@ -50,8 +50,11 @@ class RegistrationViewController: UIViewController {
 
 extension RegistrationViewController {
     
-    private var hasValidInput: Bool {
-        guard let username = usernameField.text, let password = passwordField.text else {
+    private func hasValidInput(editingField: UITextField? = nil, editedText: String? = nil) -> Bool {
+        let usernameText = editingField == self.usernameField ? editedText : self.usernameField.text
+        let passwordText = editingField == self.passwordField ? editedText : self.passwordField.text
+        
+        guard let username = usernameText, let password = passwordText else {
             return false
         }
         
@@ -62,9 +65,11 @@ extension RegistrationViewController {
         return username.count > 2 && password.count > 2
     }
     
-    fileprivate func refreshSubmitButton() {
-        self.submitButton.isEnabled = self.hasValidInput
-        self.submitButton.backgroundColor = self.hasValidInput ? .action : .lightGray
+    fileprivate func refreshSubmitButton(editingField: UITextField? = nil, editedText: String? = nil) {
+        let hasValidInput = self.hasValidInput(editingField: editingField, editedText: editedText)
+        
+        self.submitButton.isEnabled = hasValidInput
+        self.submitButton.backgroundColor = hasValidInput ? .action : .lightGray
     }
     
     fileprivate func refreshDisplayType() {
@@ -88,7 +93,7 @@ extension RegistrationViewController {
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton?) {
-        guard self.hasValidInput else {
+        guard self.hasValidInput() else {
             return
         }
         
@@ -140,13 +145,18 @@ extension RegistrationViewController {
 extension RegistrationViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        self.refreshSubmitButton()
+        guard let text = textField.text, let range = Range(range, in: text) else {
+            return true
+        }
+        
+        let updatedString = text.replacingCharacters(in: range, with: string)
+        self.refreshSubmitButton(editingField: textField, editedText: updatedString)
         
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if self.hasValidInput {
+        if self.hasValidInput() && textField == self.passwordField {
             self.submitButtonPressed(nil)
             return true
         }
