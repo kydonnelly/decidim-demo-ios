@@ -74,13 +74,21 @@ class EditTeamViewController: UIViewController, CustomTableController {
 
 extension EditTeamViewController {
     
-    fileprivate func refreshDoneButton() {
-        if let name = self.teamName, name.count > 0,
-           let description = self.teamDescription, description.count > 0 {
-            self.doneButtonItem.isEnabled = true
-        } else {
-            self.doneButtonItem.isEnabled = false
+    fileprivate var hasValidInput: Bool {
+        guard let name = self.teamName, name.count > 0 else {
+            return false
         }
+        
+        guard let description = self.teamDescription, description.count > 0 else {
+            return false
+        }
+        
+        return true
+    }
+    
+    fileprivate func refreshDoneButton() {
+        self.doneButtonItem.isEnabled = self.hasValidInput
+        self.tableView.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .none)
     }
     
 }
@@ -160,8 +168,6 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(field: "Title", content: self.teamName, required: true, updateBlock: { [weak self] text in
                 self?.teamName = text
                 return true
-            }, submitBlock: { [weak self] text in
-                self?.teamName = text
             })
             return cell
         } else if indexPath.row == 1 {
@@ -175,14 +181,12 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(field: "Description", content: self.teamDescription, updateBlock: { [weak self] text in
                 self?.teamDescription = text
                 return true
-            }, submitBlock: { [weak self] text in
-                self?.teamDescription = text
             })
             return cell
         } else {
             let actionTitle = self.originalTeam == nil ? "Create Team" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
-            cell.setup(action: actionTitle) { [weak self] sender in
+            cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)
             }
             return cell

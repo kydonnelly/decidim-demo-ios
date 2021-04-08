@@ -11,13 +11,11 @@ import UIKit
 class MultiLineEntryCell: CustomTableViewCell {
     
     typealias UpdateBlock = (String) -> Bool
-    typealias SubmitBlock = (String) -> Void
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var inputField: UITextView!
     
     private var onUpdate: UpdateBlock?
-    private var onSubmit: SubmitBlock?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,12 +26,11 @@ class MultiLineEntryCell: CustomTableViewCell {
         self.inputField.textContainerInset = insets
     }
     
-    public func setup(field: String, content: String?, updateBlock: UpdateBlock? = nil, submitBlock: SubmitBlock?) {
+    public func setup(field: String, content: String?, updateBlock: UpdateBlock?) {
         self.titleLabel.text = field
         self.inputField.text = content
         
         self.onUpdate = updateBlock
-        self.onSubmit = submitBlock
     }
     
 }
@@ -46,12 +43,6 @@ extension MultiLineEntryCell: UITextViewDelegate {
             return onUpdate(updatedString)
         } else {
             return true
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        if let onSubmit = self.onSubmit, let text = textView.text {
-            onSubmit(text)
         }
     }
     

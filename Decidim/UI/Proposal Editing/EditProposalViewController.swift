@@ -83,13 +83,21 @@ class EditProposalViewController: UIViewController, CustomTableController {
 
 extension EditProposalViewController {
     
-    fileprivate func refreshDoneButton() {
-        if let title = self.proposalTitle, title.count > 0,
-           let description = self.proposalDescription, description.count > 0 {
-            self.doneButtonItem.isEnabled = true
-        } else {
-            self.doneButtonItem.isEnabled = false
+    fileprivate var hasValidInput: Bool {
+        guard let title = self.proposalTitle, title.count > 0 else {
+            return false
         }
+        
+        guard let description = self.proposalDescription, description.count > 0 else {
+            return false
+        }
+        
+        return true
+    }
+    
+    fileprivate func refreshDoneButton() {
+        self.doneButtonItem.isEnabled = self.hasValidInput
+        self.tableView.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .none)
     }
     
 }
@@ -193,12 +201,14 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Title", content: self.proposalTitle, required: true) { [weak self] text in
                 self?.proposalTitle = text
+                return true
             }
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
             cell.setup(field: "Description", content: self.proposalDescription) { [weak self] text in
                 self?.proposalDescription = text
+                return true
             }
             return cell
         } else if indexPath.row == 2 {
@@ -216,7 +226,7 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
         } else {
             let actionTitle = self.originalProposal == nil ? "Create Proposal" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
-            cell.setup(action: actionTitle) { [weak self] sender in
+            cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)
             }
             return cell

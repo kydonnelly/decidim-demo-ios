@@ -11,15 +11,13 @@ import UIKit
 class SingleLineEntryCell: CustomTableViewCell {
     
     typealias UpdateBlock = (String) -> Bool
-    typealias SubmitBlock = (String) -> Void
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var inputField: UITextField!
     
     private var onUpdate: UpdateBlock?
-    private var onSubmit: SubmitBlock?
     
-    public func setup(field: String, content: String?, required: Bool, characterLimit: Int? = nil, updateBlock: UpdateBlock? = nil, submitBlock: SubmitBlock?) {
+    public func setup(field: String, content: String?, required: Bool, characterLimit: Int? = nil, updateBlock: UpdateBlock?) {
         var placeholder = field
         if required {
             placeholder.append(" (Required)")
@@ -31,7 +29,6 @@ class SingleLineEntryCell: CustomTableViewCell {
         self.titleLabel.text = field
         
         self.onUpdate = updateBlock
-        self.onSubmit = submitBlock
     }
     
     public func makeTextFieldFirstResponder() {
@@ -48,12 +45,6 @@ extension SingleLineEntryCell: UITextFieldDelegate {
             return onUpdate(updatedString)
         } else {
             return true
-        }
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        if let onSubmit = self.onSubmit, let text = textField.text {
-            onSubmit(text)
         }
     }
     

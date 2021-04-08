@@ -16,8 +16,13 @@ class SingleActionCell: UITableViewCell {
     
     private var actionBlock: ActionBlock?
     
-    public func setup(action: String, onAction: ActionBlock?) {
+    public func setup(action: String, isEnabled: Bool, onAction: ActionBlock?) {
         self.actionButton.setTitle(action, for: .normal)
+        self.actionButton.isEnabled = isEnabled
+        
+        let alpha: CGFloat = isEnabled ? 1.0 : 0.5
+        self.actionButton.backgroundColor = self.actionButton.backgroundColor?.withAlphaComponent(alpha)
+        
         self.actionBlock = onAction
     }
     

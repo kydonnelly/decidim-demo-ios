@@ -80,13 +80,21 @@ class EditActionViewController: UIViewController, CustomTableController {
 
 extension EditActionViewController {
     
-    fileprivate func refreshDoneButton() {
-        if let name = self.actionName, name.count > 0,
-           let description = self.actionDescription, description.count > 0 {
-            self.doneButtonItem.isEnabled = true
-        } else {
-            self.doneButtonItem.isEnabled = false
+    fileprivate var hasValidInput: Bool {
+        guard let name = self.actionName, name.count > 0 else {
+            return false
         }
+        
+        guard let description = self.actionDescription, description.count > 0 else {
+            return false
+        }
+        
+        return true
+    }
+    
+    fileprivate func refreshDoneButton() {
+        self.doneButtonItem.isEnabled = self.hasValidInput
+        self.tableView.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .none)
     }
     
 }
@@ -175,8 +183,6 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(field: "Action Name", content: self.actionName, required: true, updateBlock: { [weak self] text in
                 self?.actionName = text
                 return true
-            }, submitBlock: { [weak self] text in
-                self?.actionName = text
             })
             return cell
         } else if indexPath.row == 1 {
@@ -184,8 +190,6 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(field: "Description", content: self.actionDescription, updateBlock: { [weak self] text in
                 self?.actionDescription = text
                 return true
-            }, submitBlock: { [weak self] text in
-                self?.actionDescription = text
             })
             return cell
         } else if indexPath.row == 2 {
@@ -203,7 +207,7 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
         } else {
             let actionTitle = self.originalAction == nil ? "Create Action" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
-            cell.setup(action: actionTitle) { [weak self] sender in
+            cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)
             }
             return cell

@@ -72,13 +72,21 @@ class EditIssueViewController: UIViewController, CustomTableController {
 
 extension EditIssueViewController {
     
-    fileprivate func refreshDoneButton() {
-        if let title = self.issueTitle, title.count > 0,
-           let description = self.issueDescription, description.count > 0 {
-            self.doneButtonItem.isEnabled = true
-        } else {
-            self.doneButtonItem.isEnabled = false
+    fileprivate var hasValidInput: Bool {
+        guard let title = self.issueTitle, title.count > 0 else {
+            return false
         }
+        
+        guard let description = self.issueDescription, description.count > 0 else {
+            return false
+        }
+        
+        return true
+    }
+    
+    fileprivate func refreshDoneButton() {
+        self.doneButtonItem.isEnabled = self.hasValidInput
+        self.tableView.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .none)
     }
     
 }
@@ -181,6 +189,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.TitleCellId, for: indexPath) as! SingleLineEntryCell
             cell.setup(field: "Title", content: self.issueTitle, required: true) { [weak self] text in
                 self?.issueTitle = text
+                return true
             }
             return cell
         } else if indexPath.row == 1 {
@@ -199,12 +208,13 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.BodyCellId, for: indexPath) as! MultiLineEntryCell
             cell.setup(field: "Description", content: self.issueDescription) { [weak self] text in
                 self?.issueDescription = text
+                return true
             }
             return cell
         } else {
             let actionTitle = self.originalIssue == nil ? "Create Issue" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
-            cell.setup(action: actionTitle) { [weak self] sender in
+            cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)
             }
             return cell
