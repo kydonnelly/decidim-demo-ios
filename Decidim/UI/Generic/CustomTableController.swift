@@ -26,3 +26,29 @@ extension CustomTableController {
     }
     
 }
+
+extension CustomTableController {
+    
+    func autoInsetForKeyboard() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+}
+
+extension UIViewController {
+    
+    @objc public func keyboardWillChangeFrame(_ notification: Notification) {
+        guard let vc = self as? CustomTableController else {
+            return
+        }
+        
+        guard let keyboardFrame = notification.userInfo?[UIView.keyboardFrameEndUserInfoKey] as? CGRect else {
+            return
+        }
+        
+        var insets = vc.tableView.contentInset
+        insets.bottom = keyboardFrame.height
+        vc.tableView.contentInset = insets
+    }
+    
+}

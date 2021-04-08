@@ -45,6 +45,8 @@ class EditTeamViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.autoInsetForKeyboard()
+        
         self.tableView.register(UINib(nibName: "EditImageCell", bundle: .main),
                                 forCellReuseIdentifier: Self.ImageCellId)
         self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),

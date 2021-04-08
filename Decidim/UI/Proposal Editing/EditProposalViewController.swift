@@ -55,6 +55,8 @@ class EditProposalViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.autoInsetForKeyboard()
+        
         self.tableView.register(UINib(nibName: "DatePickerCell", bundle: .main),
                                 forCellReuseIdentifier: Self.DateCellId)
         self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
