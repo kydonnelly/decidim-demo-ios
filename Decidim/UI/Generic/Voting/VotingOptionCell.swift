@@ -39,8 +39,17 @@ class VotingOptionCell: UICollectionViewCell {
     
     // For some reason selectedView.backgroundColor needs to be set on willDisplayCell
     public func refreshVote(type: VoteType, isSelected: Bool) {
-        self.voteIcon.iconColor = isSelected ? .primaryDark : type.tintColor
-        self.selectedView.backgroundColor = isSelected ? type.tintColor : .primaryBackground
+        self.voteIcon.iconColor = type.tintColor
+        
+        if isSelected {
+            self.selectedView.backgroundColor = type.tintColor.withAlphaComponent(0.15)
+            self.selectedView.borderColor = type.tintColor
+            self.selectedView.borderWidth = 2
+        } else {
+            self.selectedView.backgroundColor = .clear
+            self.selectedView.borderColor = .clear
+            self.selectedView.borderWidth = 0
+        }
     }
     
 }
