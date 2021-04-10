@@ -22,38 +22,84 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="aue-cF-8hv" customClass="ProposalDetailTitleCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="fHV-ab-RzN" customClass="ProposalDetailTitleCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aue-cF-8hv" id="xfl-a7-6rR">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fHV-ab-RzN" id="B8G-bM-Z7d">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODe-OB-Ge4" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title of the proposal" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vU4-Gj-hbI">
-                                                    <rect key="frame" x="24" y="37.5" width="366" height="21.5"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                    <color key="textColor" name="PrimaryLight"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dbp-Oc-03o" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                                    <rect key="frame" x="24" y="24" width="48" height="48"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="dnl-zO-wHZ"/>
+                                                        <constraint firstAttribute="width" constant="48" id="lXm-6P-uK0"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryLight"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                            <color key="value" name="SecondaryBackground"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zcM-yX-Q96">
+                                                    <rect key="frame" x="88" y="26.5" width="302" height="43"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Team name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EG7-XI-Pf0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="302" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                            <color key="textColor" name="PrimaryLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Issue Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vM-WC-Utq">
+                                                            <rect key="frame" x="0.0" y="23.5" width="302" height="19.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                            <color key="textColor" name="SecondaryLight"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="EG7-XI-Pf0" firstAttribute="top" secondItem="zcM-yX-Q96" secondAttribute="top" id="Fmx-wy-MQa"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2vM-WC-Utq" secondAttribute="trailing" id="GJC-Kq-yIM"/>
+                                                        <constraint firstItem="2vM-WC-Utq" firstAttribute="top" secondItem="EG7-XI-Pf0" secondAttribute="bottom" constant="2" id="I72-Jo-XD9"/>
+                                                        <constraint firstItem="EG7-XI-Pf0" firstAttribute="leading" secondItem="zcM-yX-Q96" secondAttribute="leading" id="Kxi-uf-YcW"/>
+                                                        <constraint firstAttribute="bottom" secondItem="2vM-WC-Utq" secondAttribute="bottom" id="Vab-pa-qhA"/>
+                                                        <constraint firstAttribute="trailing" secondItem="EG7-XI-Pf0" secondAttribute="trailing" id="hQj-bO-TiG"/>
+                                                        <constraint firstItem="2vM-WC-Utq" firstAttribute="leading" secondItem="zcM-yX-Q96" secondAttribute="leading" id="o88-I8-vDC"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="vU4-Gj-hbI" secondAttribute="bottom" priority="51" constant="16" id="1GZ-fv-ch6"/>
-                                                <constraint firstItem="XYE-l8-lci" firstAttribute="top" secondItem="xfl-a7-6rR" secondAttribute="top" id="1Q8-mp-nJX"/>
-                                                <constraint firstAttribute="trailing" secondItem="XYE-l8-lci" secondAttribute="trailing" id="AJU-fb-5hK"/>
-                                                <constraint firstAttribute="trailing" secondItem="vU4-Gj-hbI" secondAttribute="trailing" constant="24" id="HTc-QL-qsg"/>
-                                                <constraint firstItem="vU4-Gj-hbI" firstAttribute="centerY" secondItem="xfl-a7-6rR" secondAttribute="centerY" id="Oq7-Kr-RSD"/>
-                                                <constraint firstItem="XYE-l8-lci" firstAttribute="leading" secondItem="xfl-a7-6rR" secondAttribute="leading" id="RJp-kF-gAb"/>
-                                                <constraint firstItem="vU4-Gj-hbI" firstAttribute="leading" secondItem="xfl-a7-6rR" secondAttribute="leading" constant="24" id="oLk-c7-qnb"/>
-                                                <constraint firstAttribute="bottom" secondItem="XYE-l8-lci" secondAttribute="bottom" id="wb7-SD-wcz"/>
+                                                <constraint firstAttribute="trailing" secondItem="ODe-OB-Ge4" secondAttribute="trailing" id="0nD-Ko-Lkw"/>
+                                                <constraint firstItem="dbp-Oc-03o" firstAttribute="leading" secondItem="B8G-bM-Z7d" secondAttribute="leading" constant="24" id="1Fq-Ln-LcV"/>
+                                                <constraint firstAttribute="bottom" secondItem="ODe-OB-Ge4" secondAttribute="bottom" id="3zr-hE-0w7"/>
+                                                <constraint firstItem="dbp-Oc-03o" firstAttribute="centerY" secondItem="B8G-bM-Z7d" secondAttribute="centerY" id="Dtm-Ek-sF9"/>
+                                                <constraint firstItem="ODe-OB-Ge4" firstAttribute="leading" secondItem="B8G-bM-Z7d" secondAttribute="leading" id="MQG-Bg-8Ny"/>
+                                                <constraint firstItem="zcM-yX-Q96" firstAttribute="leading" secondItem="dbp-Oc-03o" secondAttribute="trailing" constant="16" id="PVH-96-M8p"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="zcM-yX-Q96" secondAttribute="bottom" constant="24" id="QnO-gt-Qtm"/>
+                                                <constraint firstItem="zcM-yX-Q96" firstAttribute="centerY" secondItem="B8G-bM-Z7d" secondAttribute="centerY" id="hkX-NT-87x"/>
+                                                <constraint firstItem="ODe-OB-Ge4" firstAttribute="top" secondItem="B8G-bM-Z7d" secondAttribute="top" id="lQ8-NO-1lG"/>
+                                                <constraint firstAttribute="bottom" secondItem="dbp-Oc-03o" secondAttribute="bottom" priority="550" constant="24" id="snw-1h-kah"/>
+                                                <constraint firstAttribute="trailing" secondItem="zcM-yX-Q96" secondAttribute="trailing" constant="24" id="uG7-zO-krC"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="gradientBackground" destination="XYE-l8-lci" id="880-Xf-5uK"/>
-                                            <outlet property="titleLabel" destination="vU4-Gj-hbI" id="xWc-Aa-B6J"/>
+                                            <outlet property="gradientBackground" destination="ODe-OB-Ge4" id="HtQ-vP-Pn3"/>
+                                            <outlet property="iconImageView" destination="dbp-Oc-03o" id="Gny-K2-JBY"/>
+                                            <outlet property="subtitleLabel" destination="2vM-WC-Utq" id="uzw-mB-3cP"/>
+                                            <outlet property="titleLabel" destination="EG7-XI-Pf0" id="d8t-2X-buR"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeadlineCell" id="INi-wH-9eU" customClass="DeadlineCell" customModule="Agora" customModuleProvider="target">
@@ -388,6 +434,9 @@
         </namedColor>
         <namedColor name="SecondaryDark">
             <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryLight">
+            <color red="0.90600001811981201" green="0.93300002813339233" blue="0.92900002002716064" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="UserInput">
             <color red="0.046999998390674591" green="0.19200000166893005" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
