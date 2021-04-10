@@ -39,8 +39,9 @@ class ProposalVoteCell: CustomTableViewCell {
         if let vote = myVote {
             self.myVoteImage.isHidden = false
             self.myVoteImage.icon = vote.icon
-            self.myVoteImage.iconColor = .primaryLight
-            self.myVoteImage.iconBackgroundColor = vote.tintColor
+            self.myVoteImage.iconColor = vote.tintColor
+            self.myVoteImage.borderColor = vote.tintColor
+            self.myVoteImage.iconBackgroundColor = vote.tintColor.withAlphaComponent(0.15)
         } else {
             self.myVoteImage.isHidden = true
         }

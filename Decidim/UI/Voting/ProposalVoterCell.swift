@@ -25,8 +25,9 @@ class ProposalVoterCell: CustomTableViewCell {
         self.timeLabel.text = vote.createdAt.asShortStringAgo()
         
         self.voteImage.icon = vote.voteType.icon
-        self.voteImage.iconColor = .primaryLight
-        self.voteImage.iconBackgroundColor = vote.voteType.tintColor
+        self.voteImage.iconColor = vote.voteType.tintColor
+        self.voteImage.borderColor = vote.voteType.tintColor
+        self.voteImage.iconBackgroundColor = vote.voteType.tintColor.withAlphaComponent(0.15)
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
