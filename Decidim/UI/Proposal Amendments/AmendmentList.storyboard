@@ -89,7 +89,7 @@
                                                         <constraint firstAttribute="height" constant="32" id="bcz-7A-KDe"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="checkmark"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="check"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                             <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
