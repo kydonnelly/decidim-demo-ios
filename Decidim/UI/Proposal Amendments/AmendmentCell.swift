@@ -25,6 +25,10 @@ class AmendmentCell: CustomTableViewCell {
         super.awakeFromNib()
         
         self.statusImageView.iconInset = 8
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
+        self.iconImageView.addGestureRecognizer(tapGesture)
+        self.iconImageView.isUserInteractionEnabled = true
     }
     
     func setup(amendment: ProposalAmendment, tappedProfileBlock: ActionBlock?) {
@@ -36,9 +40,6 @@ class AmendmentCell: CustomTableViewCell {
         self.statusImageView.iconBackgroundColor = amendment.status.tintColor
         
         self.onProfileTapped = tappedProfileBlock
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
-        self.iconImageView.addGestureRecognizer(tapGesture)
-        self.iconImageView.isUserInteractionEnabled = true
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {

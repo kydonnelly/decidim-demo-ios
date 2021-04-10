@@ -23,6 +23,7 @@ class SettingsProfileCell: CustomTableViewCell {
         // Support tapping the image to change it
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeImage(_:)))
         self.pictureImageView.addGestureRecognizer(gesture)
+        self.pictureImageView.isUserInteractionEnabled = true
     }
     
     public func setup(profile: ProfileInfo, changeImageBlock: ChangeImageBlock?) {

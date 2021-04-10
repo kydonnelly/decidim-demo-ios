@@ -16,11 +16,16 @@ class ProfileIconCollectionCellAdd: UICollectionViewCell {
     
     private var onAddTapped: ActionBlock?
     
-    public func setup(actionBlock: ActionBlock?) {
-        self.onAddTapped = actionBlock
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedImageView(_:)))
         self.iconImageView.addGestureRecognizer(tapGesture)
         self.iconImageView.isUserInteractionEnabled = true
+    }
+    
+    public func setup(actionBlock: ActionBlock?) {
+        self.onAddTapped = actionBlock
     }
     
 }

@@ -16,13 +16,17 @@ class ProfileIconCollectionCell: UICollectionViewCell {
     
     private var onProfileTapped: ActionBlock?
     
-    public func setup(profile: ProfileInfo, tappedProfileBlock: ActionBlock?) {
-        self.iconImageView.setThumbnail(url: profile.thumbnailUrl)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        self.onProfileTapped = tappedProfileBlock
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
         self.iconImageView.addGestureRecognizer(tapGesture)
         self.iconImageView.isUserInteractionEnabled = true
+    }
+    
+    public func setup(profile: ProfileInfo, tappedProfileBlock: ActionBlock?) {
+        self.iconImageView.setThumbnail(url: profile.thumbnailUrl)
+        self.onProfileTapped = tappedProfileBlock
     }
     
 }

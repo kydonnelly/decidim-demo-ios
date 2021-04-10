@@ -28,6 +28,14 @@ class CommentCell: CustomTableViewCell {
     
     fileprivate var profileInfo: ProfileInfo?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
+        self.iconImageView.addGestureRecognizer(tapGesture)
+        self.iconImageView.isUserInteractionEnabled = true
+    }
+    
     func setup(comment: Comment, isOwn: Bool, isExpanded: Bool, isEditing: Bool, replyBlock: ReplyBlock?, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
@@ -41,10 +49,6 @@ class CommentCell: CustomTableViewCell {
         self.onReplyTapped = replyBlock
         self.onOptionsTapped = optionsBlock
         self.onProfileTapped = tappedProfileBlock
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedProfileImageView(_:)))
-        self.iconImageView.addGestureRecognizer(tapGesture)
-        self.iconImageView.isUserInteractionEnabled = true
         
         self.contentView.backgroundColor = isEditing ? UIColor.action.withAlphaComponent(0.1) : .clear
         
