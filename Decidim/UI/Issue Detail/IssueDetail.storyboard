@@ -22,30 +22,63 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BannerCell" rowHeight="96" id="aue-cF-8hv" customClass="IssueDetailBannerCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BannerCell" rowHeight="96" id="8Z7-Hz-wkj" customClass="IssueDetailBannerCell" customModule="Agora" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aue-cF-8hv" id="xfl-a7-6rR">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Z7-Hz-wkj" id="FZF-vZ-x3f">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMz-yo-cpm" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
-                                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="96" id="yu1-rz-6VQ"/>
-                                                    </constraints>
+                                                    <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JvL-cY-2KR" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                                    <rect key="frame" x="24" y="24" width="48" height="48"/>
+                                                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="48" id="Sak-GX-Vgh"/>
+                                                        <constraint firstAttribute="width" constant="48" id="Xlg-T8-a1d"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="users"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryLight"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                            <color key="value" name="SecondaryBackground"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team's name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="heX-sj-okD">
+                                                    <rect key="frame" x="88" y="37.5" width="302" height="21.5"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                    <color key="textColor" name="PrimaryLight"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XYE-l8-lci" firstAttribute="top" secondItem="xfl-a7-6rR" secondAttribute="top" id="1Q8-mp-nJX"/>
-                                                <constraint firstAttribute="trailing" secondItem="XYE-l8-lci" secondAttribute="trailing" id="AJU-fb-5hK"/>
-                                                <constraint firstItem="XYE-l8-lci" firstAttribute="leading" secondItem="xfl-a7-6rR" secondAttribute="leading" id="RJp-kF-gAb"/>
-                                                <constraint firstAttribute="bottom" secondItem="XYE-l8-lci" secondAttribute="bottom" priority="51" id="wb7-SD-wcz"/>
+                                                <constraint firstItem="rMz-yo-cpm" firstAttribute="leading" secondItem="FZF-vZ-x3f" secondAttribute="leading" id="5N9-wh-vcA"/>
+                                                <constraint firstItem="JvL-cY-2KR" firstAttribute="top" secondItem="FZF-vZ-x3f" secondAttribute="top" constant="24" id="DTF-cp-v8g"/>
+                                                <constraint firstItem="heX-sj-okD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JvL-cY-2KR" secondAttribute="top" id="E4O-sd-AvK"/>
+                                                <constraint firstAttribute="trailing" secondItem="heX-sj-okD" secondAttribute="trailing" constant="24" id="K7C-xK-QvO"/>
+                                                <constraint firstAttribute="bottom" secondItem="heX-sj-okD" secondAttribute="bottom" priority="51" constant="16" id="M2x-6Q-k2R"/>
+                                                <constraint firstAttribute="trailing" secondItem="rMz-yo-cpm" secondAttribute="trailing" id="QBL-Y5-CJf"/>
+                                                <constraint firstItem="heX-sj-okD" firstAttribute="leading" secondItem="JvL-cY-2KR" secondAttribute="trailing" constant="16" id="Uph-Rs-azU"/>
+                                                <constraint firstItem="JvL-cY-2KR" firstAttribute="leading" secondItem="FZF-vZ-x3f" secondAttribute="leading" constant="24" id="Z62-X1-8RT"/>
+                                                <constraint firstAttribute="bottom" secondItem="rMz-yo-cpm" secondAttribute="bottom" id="bVc-ZJ-QDf"/>
+                                                <constraint firstItem="JvL-cY-2KR" firstAttribute="centerY" secondItem="FZF-vZ-x3f" secondAttribute="centerY" id="iQF-Pp-Fgr"/>
+                                                <constraint firstItem="rMz-yo-cpm" firstAttribute="top" secondItem="FZF-vZ-x3f" secondAttribute="top" id="ugy-jo-MTO"/>
+                                                <constraint firstItem="heX-sj-okD" firstAttribute="centerY" secondItem="FZF-vZ-x3f" secondAttribute="centerY" id="uiC-HP-DFf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="gradientBackground" destination="XYE-l8-lci" id="880-Xf-5uK"/>
+                                            <outlet property="gradientBackground" destination="rMz-yo-cpm" id="Dsa-D4-fgi"/>
+                                            <outlet property="iconImageView" destination="JvL-cY-2KR" id="CG0-zy-0oX"/>
+                                            <outlet property="titleLabel" destination="heX-sj-okD" id="g8Y-hM-Dgc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="EngagementCell" rowHeight="68" id="l33-Wd-9Vr" customClass="IssueDetailEngagementCell" customModule="Agora" customModuleProvider="target">

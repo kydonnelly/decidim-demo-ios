@@ -10,9 +10,13 @@ import UIKit
 
 class IssueDetailBannerCell: CustomTableViewCell {
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var iconImageView: GiphyMediaView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     func setup(detail: IssueDetail) {
+        self.titleLabel.text = detail.issue.title
+        self.iconImageView.setThumbnail(url: detail.issue.iconUrl)
         self.gradientBackground.setupWithRandomColors(seed: detail.issue.id + 1, direction: .horizontal)
     }
     
