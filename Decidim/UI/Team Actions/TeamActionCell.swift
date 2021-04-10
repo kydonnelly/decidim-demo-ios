@@ -34,7 +34,7 @@ class TeamActionCell: CustomTableViewCell {
         switch status {
         case .done:
             self.updateButton.setTitle("Archive", for: .normal)
-            self.statusImageView.icon = .checkmark
+            self.statusImageView.icon = .check
             self.statusImageView.iconBackgroundColor = .systemGreen
         case .inProgress:
             self.updateButton.setTitle("Done", for: .normal)

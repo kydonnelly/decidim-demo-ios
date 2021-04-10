@@ -68,9 +68,9 @@ extension AmendmentStatus {
         case .open:
             return .circle
         case .accepted:
-            return .checkmark
+            return .check
         case .rejected:
-            return .cross
+            return .x
         }
     }
     
