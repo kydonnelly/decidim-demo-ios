@@ -85,11 +85,41 @@ extension IssueDetailProposalListViewController: UITableViewDataSource {
             let allVotes = dataController.allVotes
             let myVote = dataController.allVotes.last { $0.authorId == MyProfileController.shared.myProfileId }
             
-            cell.setup(proposal: proposal, votes: allVotes, myVote: myVote?.voteType)
+            cell.setup(proposal: proposal, votes: allVotes, myVote: myVote?.voteType) { [weak self] _ in
+                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                
+                for voteType in VoteType.allCases {
+                    alert.addAction(UIAlertAction(title: voteType.displayString, style: .default, handler: { [weak self] _ in
+                        self?.updateVote(proposal: proposal, existingVote: myVote, voteType: voteType)
+                    }))
+                }
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                
+                self?.present(alert, animated: true, completion: nil)
+            }
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.createCellId, for: indexPath) as! IssueDetailCreateProposalCell
             return cell
+        }
+    }
+    
+}
+
+extension IssueDetailProposalListViewController {
+    
+    fileprivate func updateVote(proposal: Proposal, existingVote: ProposalVote?, voteType: VoteType) {
+        let votesDC = ProposalVotesDataController.shared(proposalId: proposal.id)
+        
+        if let existingId = existingVote?.voteId {
+            votesDC.editVote(existingId, voteType: voteType) { [weak self] _ in
+                self?.tableView.reloadData()
+            }
+        } else {
+            votesDC.addVote(voteType) { [weak self] _ in
+                self?.tableView.reloadData()
+            }
         }
     }
     
