@@ -34,7 +34,12 @@ class IssueDetailProposalCell: UITableViewCell {
     public func setup(proposal: Proposal, votes: [ProposalVote], myVote: VoteType?, onChangeVote: ChangeVoteBlock?) {
         self.titleLabel.text = proposal.title
         self.descriptionLabel.text = proposal.body
-        self.deadlineLabel.text = Date(timeIntervalSinceNow: TimeInterval(arc4random() % 600000)).asShortStringLeft()
+        
+        if let deadline = proposal.votingDeadline {
+            self.deadlineLabel.text = deadline.asShortStringLeft()
+        } else {
+            self.deadlineLabel.text = "No deadline"
+        }
         
         self.changeVoteBlock = onChangeVote
         
