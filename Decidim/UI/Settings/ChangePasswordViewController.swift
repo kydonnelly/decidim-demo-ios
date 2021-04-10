@@ -63,12 +63,18 @@ extension ChangePasswordViewController {
         self.submitButton.backgroundColor = hasValidInput ? .action : .lightGray
     }
     
+    fileprivate func clearField(_ textField: UITextField) {
+        textField.text = ""
+        self.refreshSubmitButton()
+    }
+    
     @IBAction func submitButtonTapped(_ sender: UIButton?) {
         guard let currentPassword = self.currentPasswordField.text, currentPassword == MyProfileController.load(key: .password) else {
             let alert = UIAlertController(title: "Error", message: "Incorrect current password.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
-                self?.currentPasswordField.text = ""
-                self?.currentPasswordField.becomeFirstResponder()
+                guard let self = self else { return }
+                self.clearField(self.currentPasswordField)
+                self.currentPasswordField.becomeFirstResponder()
             }))
             self.present(alert, animated: true, completion: nil)
             
@@ -80,8 +86,9 @@ extension ChangePasswordViewController {
               newPassword == confirmedPassword else {
             let alert = UIAlertController(title: "Error", message: "New password does not match.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { [weak self] _ in
-                self?.confirmedPasswordField.text = ""
-                self?.confirmedPasswordField.becomeFirstResponder()
+                guard let self = self else { return }
+                self.clearField(self.confirmedPasswordField)
+                self.confirmedPasswordField.becomeFirstResponder()
             }))
             self.present(alert, animated: true, completion: nil)
                 

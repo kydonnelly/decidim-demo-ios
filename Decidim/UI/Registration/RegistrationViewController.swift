@@ -86,6 +86,7 @@ extension RegistrationViewController {
         
         self.usernameField.text = ""
         self.passwordField.text = ""
+        self.refreshSubmitButton()
     }
     
     @IBAction func photoButtonPressed(_ sender: UIButton?) {
