@@ -183,7 +183,10 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             case .deadline:
                 (cell as! DeadlineCell).setup(deadlineProvider: detail.proposal)
             case .title:
-                (cell as! ProposalDetailTitleCell).setup(detail: detail)
+                (cell as! ProposalDetailTitleCell).setup(detail: detail) { [weak self] issue in
+                    let vc = IssueDetailViewController.create(issue: issue)
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
             }
             
             return cell

@@ -10,17 +10,34 @@ import UIKit
 
 class ProposalDetailTitleCell: CustomTableViewCell {
     
+    typealias IconActionBlock = (Issue) -> Void
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var iconImageView: GiphyMediaView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
-    func setup(detail: ProposalDetail) {
+    private var parentIssue: Issue?
+    private var iconActionBlock: IconActionBlock?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(iconImageTapped(_:)))
+        self.iconImageView.addGestureRecognizer(tapGesture)
+        self.iconImageView.isUserInteractionEnabled = true
+    }
+    
+    func setup(detail: ProposalDetail, onIconAction: IconActionBlock?) {
         self.titleLabel.text = detail.proposal.title
         self.gradientBackground.setupWithRandomColors(seed: detail.proposal.id + 1, direction: .horizontal)
         
+        self.iconActionBlock = onIconAction
+        
+        self.parentIssue = nil
         self.subtitleLabel.text = nil
         self.iconImageView.setThumbnail(url: nil)
+        
         PublicIssueDataController.shared().refresh { [weak self] dc in
             guard let issues = dc.data as? [Issue] else {
                 return
@@ -30,9 +47,22 @@ class ProposalDetailTitleCell: CustomTableViewCell {
                 return
             }
             
+            self?.parentIssue = issue
             self?.subtitleLabel.text = issue.title
             self?.iconImageView.setThumbnail(url: issue.iconUrl)
         }
+    }
+    
+}
+
+extension ProposalDetailTitleCell {
+    
+    @objc func iconImageTapped(_ sender: Any) {
+        guard let issue = self.parentIssue else {
+            return
+        }
+        
+        self.iconActionBlock?(issue)
     }
     
 }
