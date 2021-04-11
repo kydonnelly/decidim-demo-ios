@@ -20,10 +20,7 @@ class IssueDetailEngagementCell: CustomTableViewCell {
     private var followBlock: ActionBlock!
     private var allFollowersBlock: ActionBlock!
     
-    func setup(detail: IssueDetail, followBlock: ActionBlock?, allFollowersBlock: ActionBlock?) {
-        let isFollowing = detail.userIsFollowing
-        let followCount = detail.followersCount
-        
+    func setup(followCount: Int, isFollowing: Bool, followBlock: ActionBlock?, allFollowersBlock: ActionBlock?) {
         self.followImageView.isHighlighted = isFollowing
         
         self.followBlock = followBlock

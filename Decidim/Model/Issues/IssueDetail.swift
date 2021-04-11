@@ -14,7 +14,6 @@ struct IssueDetail {
     let proposalIds: [Int]
     let commentCount: Int
     let followersCount: Int
-    let userIsFollowing: Bool
     
     public static func from(dict: [String: Any], issue: Issue) -> IssueDetail? {
         guard let commentCount = dict["comments_count"] as? Int else {
@@ -22,7 +21,6 @@ struct IssueDetail {
         }
         
         let followCount = dict["follow_count"] as? Int ?? 0
-        let userIsFollowing = dict["is_following"] as? Bool ?? false
         let proposalIds = dict["proposal_ids"] as? [Int] ?? []
         
         var deadline: Date? = nil
@@ -34,8 +32,7 @@ struct IssueDetail {
                            deadline: deadline,
                            proposalIds: proposalIds,
                            commentCount: commentCount,
-                           followersCount: followCount,
-                           userIsFollowing: userIsFollowing)
+                           followersCount: followCount)
     }
 }
 

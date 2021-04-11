@@ -39,6 +39,7 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     private var issue: Issue!
     private var detailDataController: IssueDetailDataController!
     private var commentDataController: IssueCommentsDataController!
+    private var followersDataController: IssueFollowersDataController!
     
     fileprivate var expandBody = false
     fileprivate var previousContentOffset: CGPoint = .zero
@@ -54,6 +55,7 @@ class IssueDetailViewController: UIViewController, CustomTableController {
         self.issue = issue
         self.detailDataController = IssueDetailDataController.shared(issue: issue)
         self.commentDataController = IssueCommentsDataController.shared(issueId: issue.id)
+        self.followersDataController = IssueFollowersDataController.shared(issue: issue)
     }
     
     fileprivate var issueDetail: IssueDetail? {
@@ -84,6 +86,12 @@ class IssueDetailViewController: UIViewController, CustomTableController {
         }
         
         self.commentDataController.refresh { [weak self] dc in
+            guard let self = self else { return }
+            
+            self.tableView.reloadData()
+        }
+        
+        self.followersDataController.refresh { [weak self] dc in
             guard let self = self else { return }
             
             self.tableView.reloadData()
@@ -167,29 +175,32 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             let detail = self.issueDetail!
             switch cellId {
             case .engagement:
+                let followers = self.followersDataController.allFollowers
+                let followInfo = followers.first { $0.userId == MyProfileController.shared.myProfileId }
+                
                 let followBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
                     guard let self = self else {
                         return
                     }
                     
-                    let dataController = IssueFollowersDataController.shared(issue: detail.issue)
-                    if detail.userIsFollowing {
-                        dataController.removeFollower(IssueFollower(followId: -1, issueId: detail.issue.id, userId: MyProfileController.shared.myProfileId!)) { [weak self] _ in
+                    if let myInfo = followInfo {
+                        self.followersDataController.removeFollower(myInfo) { [weak self] _ in
                             self?.tableView.reloadRows(at: [indexPath], with: .none)
                         }
                     } else {
-                        dataController.addFollower { [weak self] _ in
+                        self.followersDataController.addFollower { [weak self] _ in
                             self?.tableView.reloadRows(at: [indexPath], with: .none)
                         }
                     }
                 }
+                
                 let followersBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
                     let vc = IssueFollowersViewController.create(detail: detail)
                     vc.modalPresentationStyle = .overCurrentContext
                     self?.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
-                (cell as! IssueDetailEngagementCell).setup(detail: detail, followBlock: followBlock, allFollowersBlock: followersBlock)
+                (cell as! IssueDetailEngagementCell).setup(followCount: followers.count, isFollowing: followInfo != nil, followBlock: followBlock, allFollowersBlock: followersBlock)
             case .deadline:
                 (cell as! DeadlineCell).setup(deadlineProvider: detail.issue)
             case .banner:
