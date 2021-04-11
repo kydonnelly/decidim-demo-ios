@@ -219,7 +219,7 @@ class HTTPRequestTests: XCTestCase {
             responseStatus = response?["status"] as? String
             if let detailInfo = response?["proposal"] as? [String: Any] {
                 responseItem = ProposalDetail.from(dict: detailInfo,
-                                                   proposal: Proposal(id: 1, issueId: 1, authorId: 1, title: "", body: "", iconUrl: "", votingDeadline: Date(), amendmentDeadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
+                                                   proposal: Proposal(id: 1, issueId: 1, authorId: 1, title: "", body: "", votingDeadline: Date(), amendmentDeadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
             }
         }
         
