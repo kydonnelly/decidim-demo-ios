@@ -999,6 +999,106 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseStatus, "deleted")
         XCTAssertNil(receivedError)
     }
+    
+    func testHTTPRequest_IssueFollowers() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "issue followers response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [IssueFollower]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "issues", args: ["14", "follows"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let followerInfos = response?["issue_follows"] as? [[String: Any]] {
+                responseLength = followerInfos.count
+                responseList = followerInfos.compactMap { IssueFollower.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
+
+    func testHTTPRequest_AddIssueFollower() {
+        // setup
+        let request = HTTPRequest.shared
+        let expectation = XCTestExpectation(description: "add issue follow response")
+        var responseItem: IssueFollower?
+        var receivedError: Error?
+        
+        let issue = self.createAndVerifyIssue()
+        guard let issueId = issue?.id else {
+            XCTFail("Could not create issue")
+            return
+        }
+        
+        // test
+        request.post(endpoint: "issues", args: ["\(issueId)", "follows"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let followerInfo = response?["issue_follow"] as? [String: Any] {
+                responseItem = IssueFollower.from(dict: followerInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNil(receivedError)
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(issueId, responseItem?.issueId)
+    }
+
+    func testHTTPRequest_DeleteIssueFollower() {
+        // setup
+        let request = HTTPRequest.shared
+        let expectation = XCTestExpectation(description: "delete issue follow response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        let issue = self.createAndVerifyIssue()
+        guard let issueId = issue?.id else {
+            XCTFail("Could not create issue")
+            return
+        }
+        
+        // test
+        request.post(endpoint: "issues", args: ["\(issueId)", "follows"], payload: [:]) { response, error in
+            receivedError = error
+            guard receivedError == nil else {
+                expectation.fulfill()
+                return
+            }
+            
+            guard let followerInfo = response?["issue_follow"] as? [String: Any],
+                  let issueFollower = IssueFollower.from(dict: followerInfo) else {
+                expectation.fulfill()
+                return
+            }
+
+            request.delete(endpoint: "issues", args: ["\(issueId)", "follows", "\(issueFollower.followId)"]) { response, error in
+                receivedError = error
+                responseStatus = response?["status"] as? String
+                
+                expectation.fulfill()
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "deleted")
+        XCTAssertNil(receivedError)
+    }
 
     func testHTTPRequest_TeamList() {
         // setup
