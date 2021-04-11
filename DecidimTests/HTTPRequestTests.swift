@@ -806,7 +806,7 @@ class HTTPRequestTests: XCTestCase {
         var receivedError: Error? = nil
         var responseStatus: String? = nil
         
-        guard let comment = self.createAndVerifyDelegate(delegateId: delegateId) else {
+        guard let delegate = self.createAndVerifyDelegate(delegateId: delegateId) else {
             XCTFail("Could not create delegate to delete")
             return
         }
