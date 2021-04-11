@@ -39,6 +39,15 @@ class IssueFollowersDataController: NetworkDataController {
         }
     }
     
+    public var allFollowers: [IssueFollower] {
+        var followers = self.localFollowers
+        if let data = self.data as? [IssueFollower] {
+            followers.append(contentsOf: data)
+        }
+        
+        return followers
+    }
+    
     public func addFollower(completion: @escaping (Error?) -> Void) {
         let issueId = "\(self.backingIssue!.id)"
         

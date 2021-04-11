@@ -16,8 +16,6 @@ struct IssueDetail {
     let followersCount: Int
     let userIsFollowing: Bool
     
-    var hasLocalFollow: Bool = false
-    
     public static func from(dict: [String: Any], issue: Issue) -> IssueDetail? {
         guard let commentCount = dict["comments_count"] as? Int else {
             return nil

@@ -172,16 +172,21 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                         return
                     }
                     
-                    self.detailDataController.refresh { [weak self] dc in
-                        guard var detail = dc.data?.first as? IssueDetail else {
-                            return
+                    let dataController = IssueFollowersDataController.shared(issue: detail.issue)
+                    if detail.userIsFollowing {
+                        dataController.removeFollower(IssueFollower(followId: -1, issueId: detail.issue.id, userId: MyProfileController.shared.myProfileId!)) { [weak self] _ in
+                            self?.tableView.reloadRows(at: [indexPath], with: .none)
                         }
-                        detail.hasLocalFollow = true
-                        dc.data = [detail]
-                        self?.tableView.reloadData()
+                    } else {
+                        dataController.addFollower { [weak self] _ in
+                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                        }
                     }
                 }
                 let followersBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
+                    let vc = IssueFollowersViewController.create(detail: detail)
+                    vc.modalPresentationStyle = .overCurrentContext
+                    self?.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
                 (cell as! IssueDetailEngagementCell).setup(detail: detail, followBlock: followBlock, allFollowersBlock: followersBlock)

@@ -91,6 +91,9 @@
 		2756A6E3249861E30023DC91 /* ProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2756A6E2249861E30023DC91 /* ProposalList.storyboard */; };
 		2763CA71262284C7007B0E2E /* IssueFollowersDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CA70262284C7007B0E2E /* IssueFollowersDataController.swift */; };
 		2763CA75262284F9007B0E2E /* IssueFollower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CA74262284F9007B0E2E /* IssueFollower.swift */; };
+		2763CA94262293CD007B0E2E /* IssueFollowers.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2763CA91262293CD007B0E2E /* IssueFollowers.storyboard */; };
+		2763CA95262293CD007B0E2E /* IssueFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CA92262293CD007B0E2E /* IssueFollowersViewController.swift */; };
+		2763CA96262293CD007B0E2E /* IssueFollowerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2763CA93262293CD007B0E2E /* IssueFollowerCell.swift */; };
 		27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C50260AD53B003D29D4 /* PublicIssuesDataController.swift */; };
 		27649C55260AD53B003D29D4 /* IssueDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C51260AD53B003D29D4 /* IssueDetail.swift */; };
 		27649C56260AD53B003D29D4 /* IssueDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */; };
@@ -322,6 +325,9 @@
 		2756A6E2249861E30023DC91 /* ProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProposalList.storyboard; sourceTree = "<group>"; };
 		2763CA70262284C7007B0E2E /* IssueFollowersDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFollowersDataController.swift; sourceTree = "<group>"; };
 		2763CA74262284F9007B0E2E /* IssueFollower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueFollower.swift; sourceTree = "<group>"; };
+		2763CA91262293CD007B0E2E /* IssueFollowers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueFollowers.storyboard; sourceTree = "<group>"; };
+		2763CA92262293CD007B0E2E /* IssueFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueFollowersViewController.swift; sourceTree = "<group>"; };
+		2763CA93262293CD007B0E2E /* IssueFollowerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueFollowerCell.swift; sourceTree = "<group>"; };
 		27649C50260AD53B003D29D4 /* PublicIssuesDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicIssuesDataController.swift; sourceTree = "<group>"; };
 		27649C51260AD53B003D29D4 /* IssueDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetail.swift; sourceTree = "<group>"; };
 		27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailDataController.swift; sourceTree = "<group>"; };
@@ -712,6 +718,7 @@
 				27B22B5424D93751005DF376 /* Generic */,
 				27649C82260AE2F7003D29D4 /* Issue Detail */,
 				27649C89260AE2F7003D29D4 /* Issue Editing */,
+				2763CA90262293CD007B0E2E /* Issue Following */,
 				27649C8E260AE2F7003D29D4 /* Issue List */,
 				2756A6CB24985D280023DC91 /* Profile */,
 				27B22B6024D93FCE005DF376 /* Proposal Amendments */,
@@ -777,6 +784,16 @@
 				2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		2763CA90262293CD007B0E2E /* Issue Following */ = {
+			isa = PBXGroup;
+			children = (
+				2763CA91262293CD007B0E2E /* IssueFollowers.storyboard */,
+				2763CA92262293CD007B0E2E /* IssueFollowersViewController.swift */,
+				2763CA93262293CD007B0E2E /* IssueFollowerCell.swift */,
+			);
+			path = "Issue Following";
 			sourceTree = "<group>";
 		};
 		27649C4E260AD53B003D29D4 /* Issues */ = {
@@ -1198,6 +1215,7 @@
 				27A81F72261435C60088E07C /* MultiLineEntryCell.xib in Resources */,
 				27649C96260AE2F7003D29D4 /* IssueDetail.storyboard in Resources */,
 				27F883E424EDDF1D00B216D2 /* EditAction.storyboard in Resources */,
+				2763CA94262293CD007B0E2E /* IssueFollowers.storyboard in Resources */,
 				27649C9E260AE2F7003D29D4 /* IssueList.storyboard in Resources */,
 				2789E98E24B689CF0061C3E9 /* VotePreferences.storyboard in Resources */,
 				27649C98260AE2F7003D29D4 /* EditIssue.storyboard in Resources */,
@@ -1511,6 +1529,7 @@
 				27293FCE25071F8F000D27D1 /* NoResultsView.swift in Sources */,
 				27649C95260AE2F7003D29D4 /* IssueDetailAuthorCell.swift in Sources */,
 				27A81F362613D73E0088E07C /* Issue+HasDeadline.swift in Sources */,
+				2763CA96262293CD007B0E2E /* IssueFollowerCell.swift in Sources */,
 				27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */,
 				27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
@@ -1522,6 +1541,7 @@
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27A4ADE82612DE04003C507A /* GiphyManager.swift in Sources */,
+				2763CA95262293CD007B0E2E /* IssueFollowersViewController.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
 				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,

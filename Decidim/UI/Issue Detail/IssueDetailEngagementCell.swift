@@ -21,12 +21,8 @@ class IssueDetailEngagementCell: CustomTableViewCell {
     private var allFollowersBlock: ActionBlock!
     
     func setup(detail: IssueDetail, followBlock: ActionBlock?, allFollowersBlock: ActionBlock?) {
-        var isFollowing = detail.userIsFollowing
-        var followCount = detail.followersCount
-        if detail.hasLocalFollow {
-            followCount += 1
-            isFollowing = true
-        }
+        let isFollowing = detail.userIsFollowing
+        let followCount = detail.followersCount
         
         self.followImageView.isHighlighted = isFollowing
         
