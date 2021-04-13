@@ -100,16 +100,18 @@ extension EditIssueViewController {
     }
     
     @IBAction func didTapDoneButton(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        let completion: () -> Void = { [weak self] in
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        }
         
         if let editingIssueId = self.originalIssue?.issue.id {
-            self.submitEditedIssue(id: editingIssueId)
+            self.submitEditedIssue(id: editingIssueId, completion: completion)
         } else {
-            self.submitNewIssue()
+            self.submitNewIssue(completion: completion)
         }
     }
     
-    private func submitNewIssue() {
+    private func submitNewIssue(completion: (() -> Void)?) {
         let deadline: Date = self.deadline
         guard let title = self.issueTitle, let description = self.issueDescription else {
             return
@@ -118,6 +120,10 @@ extension EditIssueViewController {
         self.blockView(message: "Submitting issue...")
         PublicIssueDataController.shared().addIssue(title: title, description: description, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
+            
+            defer {
+                completion?()
+            }
             
             guard error == nil else {
                 return
@@ -133,7 +139,7 @@ extension EditIssueViewController {
         }
     }
     
-    private func submitEditedIssue(id: Int) {
+    private func submitEditedIssue(id: Int, completion: (() -> Void)?) {
         let deadline: Date = self.deadline
         guard let detail = self.originalIssue else {
             return
@@ -145,6 +151,10 @@ extension EditIssueViewController {
         self.blockView(message: "Editing issue...")
         PublicIssueDataController.shared().editIssue(id, title: title, description: description, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
+            
+            defer {
+                completion?()
+            }
             
             guard error == nil else {
                 return

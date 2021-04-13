@@ -111,16 +111,18 @@ extension EditProposalViewController {
     }
     
     @IBAction func didTapDoneButton(_ sender: Any) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        let completion: () -> Void = { [weak self] in
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        }
         
         if let editingProposalId = self.originalProposal?.proposal.id {
-            self.submitEditedProposal(id: editingProposalId)
+            self.submitEditedProposal(id: editingProposalId, completion: completion)
         } else {
-            self.submitNewProposal()
+            self.submitNewProposal(completion: completion)
         }
     }
     
-    private func submitNewProposal() {
+    private func submitNewProposal(completion: (() -> Void)?) {
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
@@ -132,6 +134,10 @@ extension EditProposalViewController {
         self.blockView(message: "Submitting proposal...")
         PublicProposalDataController.shared().addProposal(issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
+            
+            defer {
+                completion?()
+            }
             
             guard error == nil else {
                 return
@@ -147,7 +153,7 @@ extension EditProposalViewController {
         }
     }
     
-    private func submitEditedProposal(id: Int) {
+    private func submitEditedProposal(id: Int, completion: (() -> Void)?) {
         guard let title = self.proposalTitle, let description = self.proposalDescription else {
             return
         }
@@ -159,6 +165,10 @@ extension EditProposalViewController {
         self.blockView(message: "Editing proposal...")
         PublicProposalDataController.shared().editProposal(id, issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
+            
+            defer {
+                completion?()
+            }
             
             guard error == nil else {
                 return
