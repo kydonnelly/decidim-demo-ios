@@ -162,7 +162,8 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             }
             
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
-            header.setup(title: "DISCUSSION", action: "See All ›") {
+            let ctaText = self.commentDataController.commentData.count > 0 ? "See All ›" : "Add Comment"
+            header.setup(title: "DISCUSSION", action: ctaText) {
                 let commentVC = CommentListViewController.create(commentable: detail)
                 commentVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
