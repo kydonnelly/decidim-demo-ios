@@ -33,7 +33,7 @@ class VotePreferencesViewController: UIViewController, CustomTableController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        VoteDelegationManager.shared.refresh { [weak self] in
+        VoteDelegationManager.shared.refresh { [weak self] _ in
             self?.tableView.reloadData()
         }
     }

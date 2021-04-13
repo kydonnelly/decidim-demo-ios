@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController, CustomTableController {
             }
         }
         
-        VoteDelegationManager.shared.refresh { [weak self] in
+        VoteDelegationManager.shared.refresh { [weak self] _ in
             self?.tableView.reloadData()
         }
     }

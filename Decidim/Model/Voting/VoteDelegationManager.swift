@@ -28,10 +28,12 @@ class VoteDelegationManager {
 
 extension VoteDelegationManager {
     
-    public func refresh(completion: (() -> Void)?) {
-        self.globalDataController.refresh { dc in
-            completion?()
-        }
+    public func refresh(completion: ((Error?) -> Void)?) {
+        self.globalDataController.refresh(failBlock: { error in
+            completion?(error)
+        }, successBlock: { dc in
+            completion?(nil)
+        })
     }
     
     var doneLoading: Bool {

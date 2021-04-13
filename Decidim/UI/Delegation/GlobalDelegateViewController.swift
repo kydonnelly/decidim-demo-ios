@@ -29,16 +29,23 @@ class GlobalDelegateViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        VoteDelegationManager.shared.refresh { [weak self] in
+        VoteDelegationManager.shared.refresh { [weak self] error in
             self?.unblockView()
-            self?.reloadUI()
+            self?.reloadUI(error: error)
         }
     }
     
-    fileprivate func reloadUI() {
+    fileprivate func reloadUI(error: Error? = nil) {
         let delegates = VoteDelegationManager.shared.getDelegates(category: "Global")
         
-        if let delegateId = delegates.first {
+        if let _ = error {
+            self.titleLabel.text = "Something went wrong"
+            self.descriptionLabel.text = "We could not find your delegate.\n\nPlease try again later or select a new delegate to vote on your behalf. This person will be able to vote on any issue for you."
+            
+            self.delegateContainerView.isHidden = true
+            self.changeDelegateContainerView.isHidden = true
+            self.createDelegateContainerView.isHidden = false
+        } else if let delegateId = delegates.first {
             self.titleLabel.text = "Your vote has been globally delegated to:"
             self.descriptionLabel.text = "This person is voting on issues on your behalf."
             
