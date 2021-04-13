@@ -27,7 +27,7 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
     
     private var thumbnailUrl: String?
-    private var currentMode: RegistrationType = .existingUser
+    private var currentMode: RegistrationType = .newUser
     
     public static func create() -> RegistrationViewController {
         let sb = UIStoryboard(name: "Registration", bundle: .main)
