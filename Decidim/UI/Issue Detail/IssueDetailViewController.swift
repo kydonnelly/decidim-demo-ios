@@ -186,11 +186,11 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                     
                     if let myInfo = followInfo {
                         self.followersDataController.removeFollower(myInfo) { [weak self] _ in
-                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                            self?.tableView.reloadData()
                         }
                     } else {
                         self.followersDataController.addFollower { [weak self] _ in
-                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                            self?.tableView.reloadData()
                         }
                     }
                 }

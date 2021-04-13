@@ -226,11 +226,11 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 let voteBlock: VotingOptionsView.VoteBlock = { [weak self] type in
                     if let existingVote = myVote {
                         self?.voteDataController.editVote(existingVote.voteId, voteType: type, completion: { [weak self] error in
-                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                            self?.tableView.reloadData()
                         })
                     } else {
                         self?.voteDataController.addVote(type) { [weak self] error in
-                            self?.tableView.reloadRows(at: [indexPath], with: .none)
+                            self?.tableView.reloadData()
                         }
                     }
                 }
