@@ -16,6 +16,8 @@ class RegistrationViewController: UIViewController {
         case existingUser
     }
     
+    @IBOutlet var scrollView: UIScrollView!
+    
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var submitButton: UIButton!
