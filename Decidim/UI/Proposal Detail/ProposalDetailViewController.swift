@@ -164,7 +164,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
             header.setup(title: "DISCUSSION", action: "See All ›") {
                 let commentVC = CommentListViewController.create(commentable: detail)
-                commentVC.modalPresentationStyle = .overCurrentContext
+                commentVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
             }
             return header
@@ -200,7 +200,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 let expandBlock: ProposalDetailAmendmentsCell.ExpandBlock = { [weak self] in
                     guard let self = self else { return }
                     let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
-                    vc.modalPresentationStyle = .overCurrentContext
+                    vc.modalPresentationStyle = .fullScreen
                     self.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
@@ -213,7 +213,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 let createBlock: ProposalDetailAmendmentsCell.CreateBlock = { [weak self] in
                     guard let self = self else { return }
                     let vc = CreateAmendmentViewController.create(proposal: self.proposalDetail!)
-                    vc.modalPresentationStyle = .overCurrentContext
+                    vc.modalPresentationStyle = .fullScreen
                     self.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
@@ -251,7 +251,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
             let replyBlock: (Comment?, Comment?) -> Void = { [weak self] editComment, focusComment in
                 guard let self = self else { return }
                 let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, editComment: editComment, focusComment: focusComment)
-                commentVC.modalPresentationStyle = .overCurrentContext
+                commentVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
             }
             
@@ -314,17 +314,17 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .voting:
                 let votersVC = VoterListViewController.create(proposal: self.proposal)
-                votersVC.modalPresentationStyle = .overCurrentContext
+                votersVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(votersVC, animated: true, completion: nil)
             case .amendments:
                 let vc = AmendmentListViewController.create(proposalDetail: self.proposalDetail!)
-                vc.modalPresentationStyle = .overCurrentContext
+                vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(vc, animated: true, completion: nil)
             }
         } else if indexPath.section == 2 {
             let comment = self.commentDataController.allComments[indexPath.row]
             let commentVC = CommentListViewController.create(commentable: self.proposalDetail!, focusComment: comment)
-            commentVC.modalPresentationStyle = .overCurrentContext
+            commentVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(commentVC, animated: true, completion: nil)
         }
     }
@@ -347,7 +347,7 @@ extension ProposalDetailViewController {
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self, let detail = self.proposalDetail else { return }
             let editVC = EditProposalViewController.create(proposal: detail)
-            editVC.modalPresentationStyle = .overCurrentContext
+            editVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in

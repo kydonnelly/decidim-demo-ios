@@ -188,7 +188,7 @@ extension TeamDetailViewController {
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             let editVC = EditTeamViewController.create(team: self.teamDetail)
-            editVC.modalPresentationStyle = .overCurrentContext
+            editVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in

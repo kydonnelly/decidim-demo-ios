@@ -158,7 +158,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.CommentHeaderID) as! ActionHeaderView
             header.setup(title: "DISCUSSION", action: "See All ›") {
                 let commentVC = CommentListViewController.create(commentable: issueDetail)
-                commentVC.modalPresentationStyle = .overCurrentContext
+                commentVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
             }
             return header
@@ -196,7 +196,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 
                 let followersBlock: IssueDetailEngagementCell.ActionBlock = { [weak self] in
                     let vc = IssueFollowersViewController.create(detail: detail)
-                    vc.modalPresentationStyle = .overCurrentContext
+                    vc.modalPresentationStyle = .fullScreen
                     self?.navigationController?.present(vc, animated: true, completion: nil)
                 }
                 
@@ -222,7 +222,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
                 let detail = self.issueDetail!
                 (cell as! IssueDetailProposalListCell).setup(detail: detail, onCreate: { [weak self] in
                     let createVC = EditProposalViewController.create(issue: detail)
-                    createVC.modalPresentationStyle = .overCurrentContext
+                    createVC.modalPresentationStyle = .fullScreen
                     self?.navigationController?.present(createVC, animated: true, completion: nil)
                 }, onExpand: { [weak self] proposal in
                     let vc = ProposalDetailViewController.create(proposal: proposal)
@@ -240,7 +240,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
             let replyBlock: (Comment?, Comment?) -> Void = { [weak self] editComment, focusComment in
                 guard let self = self else { return }
                 let commentVC = CommentListViewController.create(commentable: self.issueDetail!, editComment: editComment, focusComment: focusComment)
-                commentVC.modalPresentationStyle = .overCurrentContext
+                commentVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(commentVC, animated: true, completion: nil)
             }
             
@@ -307,7 +307,7 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
         } else if indexPath.section == 2 {
             let comment = self.commentDataController.allComments[indexPath.row]
             let commentVC = CommentListViewController.create(commentable: self.issueDetail!, focusComment: comment)
-            commentVC.modalPresentationStyle = .overCurrentContext
+            commentVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(commentVC, animated: true, completion: nil)
         }
     }
@@ -330,7 +330,7 @@ extension IssueDetailViewController {
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             let editVC = EditIssueViewController.create(issue: self.issueDetail)
-            editVC.modalPresentationStyle = .overCurrentContext
+            editVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))
         alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
