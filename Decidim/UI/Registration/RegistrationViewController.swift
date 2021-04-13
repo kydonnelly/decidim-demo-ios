@@ -9,7 +9,7 @@
 import GiphyUISDK
 import UIKit
 
-class RegistrationViewController: UIViewController {
+class RegistrationViewController: UIViewController, CustomScrollController {
     
     enum RegistrationType {
         case newUser
@@ -37,6 +37,8 @@ class RegistrationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.autoInsetForKeyboard()
         
         self.refreshDisplayType()
         self.refreshSubmitButton()

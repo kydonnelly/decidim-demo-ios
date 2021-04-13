@@ -8,8 +8,18 @@
 
 import UIKit
 
-protocol CustomTableController: UIViewController {
+protocol CustomScrollController: UIViewController {
+    var scrollView: UIScrollView! { get }
+}
+
+protocol CustomTableController: CustomScrollController {
     var tableView: UITableView! { get }
+}
+
+extension CustomTableController {
+    var scrollView: UIScrollView! {
+        return self.tableView
+    }
 }
 
 extension CustomTableController {
@@ -27,7 +37,7 @@ extension CustomTableController {
     
 }
 
-extension CustomTableController {
+extension CustomScrollController {
     
     func autoInsetForKeyboard() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
@@ -38,7 +48,7 @@ extension CustomTableController {
 extension UIViewController {
     
     @objc public func keyboardWillChangeFrame(_ notification: Notification) {
-        guard let vc = self as? CustomTableController else {
+        guard let vc = self as? CustomScrollController else {
             return
         }
         
@@ -46,9 +56,9 @@ extension UIViewController {
             return
         }
         
-        var insets = vc.tableView.contentInset
+        var insets = vc.scrollView.contentInset
         insets.bottom = keyboardFrame.height
-        vc.tableView.contentInset = insets
+        vc.scrollView.contentInset = insets
     }
     
 }
