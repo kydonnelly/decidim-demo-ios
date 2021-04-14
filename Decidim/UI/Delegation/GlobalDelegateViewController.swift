@@ -22,6 +22,10 @@ class GlobalDelegateViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tappedDelegateImageView(_:)))
+        self.delegatePictureView.addGestureRecognizer(tapGesture)
+        self.delegatePictureView.isUserInteractionEnabled = true
+        
         self.reloadUI()
         self.blockView(message: "Loading...")
     }
@@ -100,6 +104,20 @@ extension GlobalDelegateViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension GlobalDelegateViewController {
+    
+    @IBAction func tappedDelegateImageView(_ sender: UIGestureRecognizer) {
+        let delegates = VoteDelegationManager.shared.getDelegates(category: "Global")
+        guard let delegate = delegates.first else {
+            return
+        }
+        
+        let vc = ProfileViewController.create(profileId: delegate)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }
