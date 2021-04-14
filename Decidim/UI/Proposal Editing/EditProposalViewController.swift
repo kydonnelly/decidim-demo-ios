@@ -94,6 +94,10 @@ extension EditProposalViewController {
             return false
         }
         
+        guard self.votingDeadline >= self.amendmentDeadline else {
+            return false
+        }
+        
         return true
     }
     
@@ -227,11 +231,12 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
             cell.setup(title: "Amendment Deadline", deadline: self.amendmentDeadline) { [weak self] date in
                 self?.amendmentDeadline = date
+                self?.tableView.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .none)
             }
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.DateCellId, for: indexPath) as! DatePickerCell
-            cell.setup(title: "Voting Deadline", deadline: self.votingDeadline) { [weak self] date in
+            cell.setup(title: "Voting Deadline", deadline: self.votingDeadline, minDeadline: self.amendmentDeadline) { [weak self] date in
                 self?.votingDeadline = date
             }
             return cell

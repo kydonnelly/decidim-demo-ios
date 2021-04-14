@@ -17,11 +17,11 @@ class DatePickerCell: CustomTableViewCell {
     
     private var onDateChanged: DateChangedBlock?
     
-    public func setup(title: String, deadline: Date, dateChangedBlock: DateChangedBlock?) {
+    public func setup(title: String, deadline: Date, minDeadline: Date? = nil, dateChangedBlock: DateChangedBlock?) {
         self.titleLabel.text = title
         self.datePicker.date = deadline
+        self.datePicker.minimumDate = minDeadline ?? Date()
         
-        self.datePicker.minimumDate = Date()
         self.onDateChanged = dateChangedBlock
     }
     
