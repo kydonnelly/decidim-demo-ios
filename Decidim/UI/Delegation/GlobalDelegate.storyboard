@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="WMt-yF-loG">
-                                <rect key="frame" x="24" y="120" width="366" height="379"/>
+                                <rect key="frame" x="24" y="120" width="366" height="439"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozi-pv-qbK">
                                         <rect key="frame" x="0.0" y="0.0" width="366" height="38.5"/>
@@ -111,73 +111,8 @@
                                             <constraint firstAttribute="bottom" secondItem="c7q-9l-7s9" secondAttribute="bottom" id="rer-OS-Ikl"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdD-Cg-6FU">
-                                        <rect key="frame" x="0.0" y="259" width="366" height="48"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-e6-NTd">
-                                                <rect key="frame" x="0.0" y="0.0" width="366" height="48"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufo-GR-YrR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="171" height="48"/>
-                                                        <color key="backgroundColor" name="Action"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="jrb-1Y-TUS"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                        <state key="normal" title="Change Delegate">
-                                                            <color key="titleColor" name="PrimaryLight"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="changeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="z1d-nV-Ea8"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHN-FM-wTR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
-                                                        <rect key="frame" x="193" y="0.0" width="173" height="48"/>
-                                                        <color key="backgroundColor" name="PrimaryBackground"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="48" id="y71-AC-8C2"/>
-                                                        </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
-                                                        <state key="normal" title="Remove Delegate">
-                                                            <color key="titleColor" name="Action"/>
-                                                        </state>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                <real key="value" value="2"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                <color key="value" name="Action"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="removeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="foZ-37-5vS"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="Ufo-GR-YrR" secondAttribute="bottom" id="91C-rp-odD"/>
-                                                    <constraint firstItem="ZHN-FM-wTR" firstAttribute="leading" secondItem="Ufo-GR-YrR" secondAttribute="trailing" priority="745" constant="24" id="AAC-By-bh3"/>
-                                                    <constraint firstItem="Ufo-GR-YrR" firstAttribute="top" secondItem="Mdc-e6-NTd" secondAttribute="top" id="MQS-16-OWA"/>
-                                                    <constraint firstItem="ZHN-FM-wTR" firstAttribute="top" secondItem="Mdc-e6-NTd" secondAttribute="top" id="YUV-is-Ait"/>
-                                                    <constraint firstItem="Ufo-GR-YrR" firstAttribute="leading" secondItem="Mdc-e6-NTd" secondAttribute="leading" id="pfR-X1-rpo"/>
-                                                    <constraint firstAttribute="bottom" secondItem="ZHN-FM-wTR" secondAttribute="bottom" id="qCa-NP-FdL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ZHN-FM-wTR" secondAttribute="trailing" id="rvc-Gl-In3"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="centerX" secondItem="KdD-Cg-6FU" secondAttribute="centerX" id="1nJ-hK-RX9"/>
-                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KdD-Cg-6FU" secondAttribute="leading" id="PpK-XH-7cW"/>
-                                            <constraint firstItem="Mdc-e6-NTd" firstAttribute="top" secondItem="KdD-Cg-6FU" secondAttribute="top" id="VQH-LN-s7k"/>
-                                            <constraint firstAttribute="bottom" secondItem="Mdc-e6-NTd" secondAttribute="bottom" id="tln-Yx-jme"/>
-                                        </constraints>
-                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-cI-atf">
-                                        <rect key="frame" x="0.0" y="331" width="366" height="48"/>
+                                        <rect key="frame" x="0.0" y="259" width="366" height="48"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j6a-ft-ja7" customClass="PillButton" customModule="Agora" customModuleProvider="target">
                                                 <rect key="frame" x="98" y="0.0" width="170" height="48"/>
@@ -200,6 +135,57 @@
                                             <constraint firstItem="j6a-ft-ja7" firstAttribute="centerX" secondItem="Irx-cI-atf" secondAttribute="centerX" id="6lY-IT-AgS"/>
                                             <constraint firstItem="j6a-ft-ja7" firstAttribute="top" secondItem="Irx-cI-atf" secondAttribute="top" id="AIN-dh-7n9"/>
                                             <constraint firstAttribute="bottom" secondItem="j6a-ft-ja7" secondAttribute="bottom" id="hpp-Af-CTX"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KdD-Cg-6FU">
+                                        <rect key="frame" x="0.0" y="331" width="366" height="108"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufo-GR-YrR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                <rect key="frame" x="97.5" y="0.0" width="171" height="48"/>
+                                                <color key="backgroundColor" name="Action"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="jrb-1Y-TUS"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                <state key="normal" title="Change Delegate">
+                                                    <color key="titleColor" name="PrimaryLight"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="changeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="z1d-nV-Ea8"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZHN-FM-wTR" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                <rect key="frame" x="96.5" y="60" width="173" height="48"/>
+                                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="y71-AC-8C2"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <inset key="contentEdgeInsets" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                                <state key="normal" title="Remove Delegate">
+                                                    <color key="titleColor" name="Action"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" name="Action"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="removeDelegateTapped:" destination="BkH-4t-hXB" eventType="touchUpInside" id="foZ-37-5vS"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="Ufo-GR-YrR" firstAttribute="centerX" secondItem="KdD-Cg-6FU" secondAttribute="centerX" id="7YS-pO-LfK"/>
+                                            <constraint firstItem="ZHN-FM-wTR" firstAttribute="top" secondItem="Ufo-GR-YrR" secondAttribute="bottom" constant="12" id="Cbd-01-PB8"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZHN-FM-wTR" secondAttribute="bottom" id="UPF-tg-Smz"/>
+                                            <constraint firstItem="ZHN-FM-wTR" firstAttribute="centerX" secondItem="KdD-Cg-6FU" secondAttribute="centerX" id="aMx-qY-Q5c"/>
+                                            <constraint firstItem="Ufo-GR-YrR" firstAttribute="top" secondItem="KdD-Cg-6FU" secondAttribute="top" id="aop-xQ-Jh0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
