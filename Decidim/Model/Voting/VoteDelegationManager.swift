@@ -51,8 +51,8 @@ extension VoteDelegationManager {
         return [delegate.delegateId]
     }
     
-    public func updateDelegates(category: String, profileIds: [Int], completion: @escaping UpdateCompletion) {
-        if let profileId = profileIds.first {
+    public func updateDelegate(category: String, profileId: Int?, completion: @escaping UpdateCompletion) {
+        if let profileId = profileId {
             self.globalDataController.addDelegate(profileId) { error in
                 completion(error == nil)
             }

@@ -78,9 +78,9 @@ extension GlobalDelegateViewController {
     
     @IBAction func changeDelegateTapped(_ sender: UIButton) {
         let category = "Global"
-        let delegates = VoteDelegationManager.shared.getDelegates(category: category)
-        let vc = ProfileSearchViewController.create(category: category, selectedProfileIds: delegates) { [weak self] toggledId, remainingIds in
-            VoteDelegationManager.shared.updateDelegates(category: category, profileIds: remainingIds) { [weak self] _ in
+        let delegate = VoteDelegationManager.shared.getDelegates(category: category).first
+        let vc = ProfileSearchViewController.create(category: category, selectedProfileId: delegate) { [weak self] toggledId, selectedId in
+            VoteDelegationManager.shared.updateDelegate(category: category, profileId: selectedId) { [weak self] _ in
                 self?.reloadUI()
             }
         }
@@ -92,7 +92,7 @@ extension GlobalDelegateViewController {
         let alert = UIAlertController(title: "Remove Delegation", message: "Are you sure you want to remove your delegation and vote on all issues yourself?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { [weak self] _ in
-            VoteDelegationManager.shared.updateDelegates(category: "Global", profileIds: []) { [weak self] success in
+            VoteDelegationManager.shared.updateDelegate(category: "Global", profileId: nil) { [weak self] success in
                 self?.reloadUI()
             }
         }))

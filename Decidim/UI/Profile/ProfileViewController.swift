@@ -190,7 +190,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                         let preferencesVC = VotePreferencesViewController.create()
                         self?.navigationController?.pushViewController(preferencesVC, animated: true)
                     } else {
-                        VoteDelegationManager.shared.updateDelegates(category: "Global", profileIds: [info.profileId]) { [weak self] _ in
+                        VoteDelegationManager.shared.updateDelegate(category: "Global", profileId: info.profileId) { [weak self] _ in
                             self?.refresh()
                         }
                     }

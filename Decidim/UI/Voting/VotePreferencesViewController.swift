@@ -87,8 +87,8 @@ extension VotePreferencesViewController: UITableViewDataSource, UITableViewDeleg
         } else if VoteDelegationManager.shared.doneLoading {
             let category = VoteDelegationManager.shared.allCategories[indexPath.row]
             let delegates = VoteDelegationManager.shared.getDelegates(category: category)
-            let vc = ProfileSearchViewController.create(category: category, selectedProfileIds: delegates) { [weak self] toggledId, remainingIds in
-                VoteDelegationManager.shared.updateDelegates(category: category, profileIds: remainingIds) { [weak self] _ in
+            let vc = ProfileSearchViewController.create(category: category, selectedProfileId: delegates.first) { [weak self] toggledId, selectedId in
+                VoteDelegationManager.shared.updateDelegate(category: category, profileId: selectedId) { [weak self] _ in
                     self?.tableView.reloadData()
                 }
             }

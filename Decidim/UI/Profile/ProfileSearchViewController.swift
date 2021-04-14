@@ -10,11 +10,11 @@ import UIKit
 
 class ProfileSearchViewController: UIViewController, CustomTableController {
     
-    public typealias ToggleBlock = (Int, [Int]) -> Void
+    public typealias ToggleBlock = (Int, Int?) -> Void
     
     @IBOutlet var tableView: UITableView!
     
-    private var selectedProfileIds: [Int]!
+    private var selectedProfileId: Int?
     private var profileInfoDataController: ProfileInfoDataController!
     private var toggleBlock: ToggleBlock?
     
@@ -23,16 +23,16 @@ class ProfileSearchViewController: UIViewController, CustomTableController {
     private static let LoadingCellId = "LoadingCell"
     private static let ResultCellId = "ProfileResultCell"
     
-    static func create(category: String, selectedProfileIds: [Int], onToggle: ToggleBlock?) -> ProfileSearchViewController {
+    static func create(category: String, selectedProfileId: Int?, onToggle: ToggleBlock?) -> ProfileSearchViewController {
         let sb = UIStoryboard(name: "ProfileSearch", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! ProfileSearchViewController
-        vc.setup(selectedProfileIds: selectedProfileIds, onToggle: onToggle)
+        vc.setup(selectedProfileId: selectedProfileId, onToggle: onToggle)
         vc.title = category
         return vc
     }
     
-    private func setup(selectedProfileIds: [Int], onToggle: ToggleBlock?) {
-        self.selectedProfileIds = selectedProfileIds
+    private func setup(selectedProfileId: Int?, onToggle: ToggleBlock?) {
+        self.selectedProfileId = selectedProfileId
         self.profileInfoDataController = ProfileInfoDataController.shared()
         self.toggleBlock = onToggle
     }
@@ -97,7 +97,7 @@ extension ProfileSearchViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.ResultCellId, for: indexPath) as! ProfileSearchResultCell
         
         let info = infos[indexPath.row]
-        let isSelected = self.selectedProfileIds.contains(info.profileId)
+        let isSelected = self.selectedProfileId == info.profileId
         
         cell.setup(profile: info, isSelected: isSelected)
         
@@ -111,16 +111,21 @@ extension ProfileSearchViewController: UITableViewDataSource, UITableViewDelegat
             return
         }
         
-        let profileId = infos[indexPath.row].profileId
-        if let index = self.selectedProfileIds.firstIndex(of: profileId) {
-            self.selectedProfileIds.remove(at: index)
-        } else {
-            self.selectedProfileIds.append(profileId)
+        var reloadPaths = [indexPath]
+        if let index = infos.firstIndex(where: { $0.profileId == self.selectedProfileId}) {
+            reloadPaths.append(IndexPath(row: index, section: 0))
         }
         
-        self.toggleBlock?(profileId, self.selectedProfileIds)
+        let profileId = infos[indexPath.row].profileId
+        if profileId == self.selectedProfileId {
+            self.selectedProfileId = nil
+        } else {
+            self.selectedProfileId = profileId
+        }
         
-        tableView.reloadRows(at: [indexPath], with: .none)
+        self.toggleBlock?(profileId, self.selectedProfileId)
+        
+        tableView.reloadRows(at: reloadPaths, with: .none)
     }
     
 }
