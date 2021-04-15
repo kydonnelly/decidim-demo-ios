@@ -141,7 +141,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         case .noProfile:
             return 0
         case .profile:
-            return 1 + (self.currentTab.numberOfSections?(in: tableView) ?? 0)
+            return 1 + (self.currentTab?.numberOfSections?(in: tableView) ?? 1)
         }
     }
     
@@ -151,7 +151,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         } else if section == 1 {
             return 44
         } else {
-            return self.currentTab.tableView?(tableView, heightForHeaderInSection: section) ?? 0
+            return self.currentTab?.tableView?(tableView, heightForHeaderInSection: section) ?? 0
         }
     }
     
@@ -161,7 +161,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         } else if section == 1 {
             return self.tabSectionHeader
         } else {
-            return self.currentTab.tableView?(tableView, viewForHeaderInSection: section)
+            return self.currentTab?.tableView?(tableView, viewForHeaderInSection: section)
         }
     }
     
@@ -169,7 +169,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 1
         } else {
-            return self.currentTab.tableView(tableView, numberOfRowsInSection: section)
+            return self.currentTab?.tableView(tableView, numberOfRowsInSection: section) ?? 0
         }
     }
     
