@@ -103,7 +103,7 @@ class NetworkDataController {
         }
         
         guard let cursor = self.pagingCursor else {
-            self.flushBlocks(error: NSError(domain: "test", code: 0, userInfo: nil))
+            self.flushBlocks(error: NSError(domain: "com.cooperative4thecommunity.Decidim.pagingError", code: 0, userInfo: nil))
             return
         }
         
