@@ -226,7 +226,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		270B26E8247BA178001804D6 /* PBXContainerItemProxy */ = {
+		2763CAE52627BE32007B0E2E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 270B26BD247B6A4A001804D6 /* Project object */;
 			proxyType = 1;
@@ -238,7 +238,7 @@
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
 		270169EE24FF6B3500CB97BF /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
-		270B26C5247B6A4A001804D6 /* Agora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Agora.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		270B26C5247B6A4A001804D6 /* Votion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Votion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		270B26D6247B6A4B001804D6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -328,6 +328,7 @@
 		2763CA91262293CD007B0E2E /* IssueFollowers.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueFollowers.storyboard; sourceTree = "<group>"; };
 		2763CA92262293CD007B0E2E /* IssueFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueFollowersViewController.swift; sourceTree = "<group>"; };
 		2763CA93262293CD007B0E2E /* IssueFollowerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueFollowerCell.swift; sourceTree = "<group>"; };
+		2763CB172627C106007B0E2E /* Votion.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Votion.entitlements; sourceTree = "<group>"; };
 		27649C50260AD53B003D29D4 /* PublicIssuesDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicIssuesDataController.swift; sourceTree = "<group>"; };
 		27649C51260AD53B003D29D4 /* IssueDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetail.swift; sourceTree = "<group>"; };
 		27649C52260AD53B003D29D4 /* IssueDetailDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueDetailDataController.swift; sourceTree = "<group>"; };
@@ -496,7 +497,7 @@
 		270B26C6247B6A4A001804D6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				270B26C5247B6A4A001804D6 /* Agora.app */,
+				270B26C5247B6A4A001804D6 /* Votion.app */,
 				270B26E3247BA178001804D6 /* DecidimTests.xctest */,
 			);
 			name = Products;
@@ -505,6 +506,7 @@
 		270B26C7247B6A4A001804D6 /* Decidim */ = {
 			isa = PBXGroup;
 			children = (
+				2763CB172627C106007B0E2E /* Votion.entitlements */,
 				270B26C8247B6A4A001804D6 /* AppDelegate.swift */,
 				270B26D1247B6A4B001804D6 /* Assets.xcassets */,
 				278646DC24FF7BA8004C2C82 /* ColorTheme.xcassets */,
@@ -1141,7 +1143,7 @@
 			);
 			name = Decidim;
 			productName = Decidim;
-			productReference = 270B26C5247B6A4A001804D6 /* Agora.app */;
+			productReference = 270B26C5247B6A4A001804D6 /* Votion.app */;
 			productType = "com.apple.product-type.application";
 		};
 		270B26E2247BA178001804D6 /* DecidimTests */ = {
@@ -1588,7 +1590,7 @@
 		274C93A7255B773A004EE73A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 270B26C4247B6A4A001804D6 /* Decidim */;
-			targetProxy = 274C93A6255B773A004EE73A /* PBXContainerItemProxy */;
+			targetProxy = 2763CAE52627BE32007B0E2E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1720,7 +1722,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
-				PRODUCT_NAME = Agora;
+				PRODUCT_NAME = Votion;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1740,7 +1742,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
-				PRODUCT_NAME = Agora;
+				PRODUCT_NAME = Votion;
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1764,7 +1766,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Agora.app/Agora";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Votion.app/Votion";
 			};
 			name = Debug;
 		};
@@ -1785,7 +1787,7 @@
 				STRIP_INSTALLED_PRODUCT = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Agora.app/Agora";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Votion.app/Votion";
 			};
 			name = Release;
 		};

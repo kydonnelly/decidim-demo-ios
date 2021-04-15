@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Agora
+@testable import Votion
 
 class GraphRequestTests: XCTestCase {
 
