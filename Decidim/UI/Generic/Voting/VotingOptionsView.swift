@@ -73,9 +73,7 @@ extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegat
         
         let voteType = self.orderedVoteTypes[indexPath.row]
         let percentage = self.voteShare(type: voteType)
-        cell.setup(voteType: voteType, percentage: percentage) { [weak self] in
-            self?.onVote?(voteType)
-        }
+        cell.setup(voteType: voteType, percentage: percentage)
         
         return cell
     }
@@ -83,6 +81,11 @@ extension VotingOptionsView: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let voteType = self.orderedVoteTypes[indexPath.row]
         (cell as! VotingOptionCell).refreshVote(type: voteType, isSelected: self.currentVote == voteType)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let voteType = self.orderedVoteTypes[indexPath.row]
+        self.onVote?(voteType)
     }
     
 }

@@ -14,18 +14,7 @@ class VotingOptionCell: UICollectionViewCell {
     @IBOutlet var selectedView: UIView!
     @IBOutlet var detailLabel: UILabel!
     
-    typealias VoteBlock = () -> Void
-    
-    private var onVote: VoteBlock?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapVoteButton(_:)))
-        self.selectedView.addGestureRecognizer(gesture)
-    }
-    
-    public func setup(voteType: VoteType, percentage: CGFloat?, onVote: VoteBlock?) {
+    public func setup(voteType: VoteType, percentage: CGFloat?) {
         self.voteIcon.icon = voteType.icon
         
         if let percentage = percentage {
@@ -33,8 +22,6 @@ class VotingOptionCell: UICollectionViewCell {
         } else {
             self.detailLabel.text = voteType.displayString
         }
-        
-        self.onVote = onVote
     }
     
     // For some reason selectedView.backgroundColor needs to be set on willDisplayCell
@@ -50,14 +37,6 @@ class VotingOptionCell: UICollectionViewCell {
             self.selectedView.borderColor = .clear
             self.selectedView.borderWidth = 0
         }
-    }
-    
-}
-
-extension VotingOptionCell {
-    
-    @IBAction func didTapVoteButton(_ sender: UITapGestureRecognizer) {
-        self.onVote?()
     }
     
 }
