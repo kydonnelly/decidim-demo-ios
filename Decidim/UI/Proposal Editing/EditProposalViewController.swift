@@ -71,9 +71,9 @@ class EditProposalViewController: UIViewController, CustomTableController {
             self.proposalTitle = editingProposal.proposal.title
             self.proposalDescription = editingProposal.proposal.body
         } else {
-            self.refreshDoneButton()
-            self.votingDeadline = self.defaultDeadline
             self.amendmentDeadline = self.defaultDeadline
+            self.votingDeadline = self.defaultDeadline
+            self.refreshDoneButton()
         }
     }
     
