@@ -36,6 +36,8 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var editDetailsItem: UIBarButtonItem!
+    
     private var issue: Issue!
     private var detailDataController: IssueDetailDataController!
     private var commentDataController: IssueCommentsDataController!
@@ -66,6 +68,12 @@ class IssueDetailViewController: UIViewController, CustomTableController {
         super.viewDidLoad()
         
         self.title = self.issue.title
+        
+        if self.issue.authorId == MyProfileController.shared.myProfileId {
+            self.navigationItem.rightBarButtonItem = self.editDetailsItem
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)

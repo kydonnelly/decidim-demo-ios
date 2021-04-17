@@ -13,7 +13,7 @@
         <!--ProposalDetailViewController-->
         <scene sceneID="cZM-qc-mRq">
             <objects>
-                <viewController id="Thi-t9-BhW" userLabel="ProposalDetailViewController" customClass="ProposalDetailViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Thi-t9-BhW" userLabel="ProposalDetailViewController" customClass="ProposalDetailViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIl-ot-lT9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,14 +22,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="fHV-ab-RzN" customClass="ProposalDetailTitleCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="fHV-ab-RzN" customClass="ProposalDetailTitleCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fHV-ab-RzN" id="B8G-bM-Z7d">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODe-OB-Ge4" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODe-OB-Ge4" customClass="LinearGradientView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -102,7 +102,7 @@
                                             <outlet property="titleLabel" destination="EG7-XI-Pf0" id="d8t-2X-buR"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeadlineCell" id="INi-wH-9eU" customClass="DeadlineCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeadlineCell" id="INi-wH-9eU" customClass="DeadlineCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="INi-wH-9eU" id="cTc-a8-0fn">
@@ -147,14 +147,14 @@
                                             <outlet property="timeLabel" destination="t2W-hl-Sei" id="Yvv-Ba-o6u"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VotingCell" rowHeight="250" id="PuX-7w-h2C" customClass="ProposalDetailVotingCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VotingCell" rowHeight="250" id="PuX-7w-h2C" customClass="ProposalDetailVotingCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="167.5" width="414" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PuX-7w-h2C" id="23A-dC-iu6">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEP-Px-m7g" customClass="VotingResultsView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEP-Px-m7g" customClass="VotingResultsView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="116" y="0.0" width="182" height="182"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -162,7 +162,7 @@
                                                         <constraint firstAttribute="height" constant="182" id="VUT-wF-JSw"/>
                                                     </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-kT-dpp" customClass="VotingOptionsView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="182" width="366" height="68"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
@@ -194,7 +194,7 @@
                                             <outlet property="votingResultsView" destination="dEP-Px-m7g" id="xXI-X8-82v"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="83" id="EWq-yi-YbV" customClass="ProposalDetailBodyCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="83" id="EWq-yi-YbV" customClass="ProposalDetailBodyCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="417.5" width="414" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EWq-yi-YbV" id="ehB-J7-LaW">
@@ -239,7 +239,7 @@
                                             <outlet property="bodyLabel" destination="cfB-ar-NRJ" id="9SH-qq-c54"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="85" id="sqG-i6-739" customClass="ProposalDetailAuthorCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="85" id="sqG-i6-739" customClass="ProposalDetailAuthorCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="500.5" width="414" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sqG-i6-739" id="ZGn-Pw-2OT">
@@ -303,7 +303,7 @@
                                             <outlet property="iconImageView" destination="cIR-j6-GNs" id="PQf-0X-sWJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="92" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="92" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="585.5" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v49-yy-95g" id="Psb-AX-yGB">
@@ -334,7 +334,7 @@
                                                         <action selector="expandButtonTapped:" destination="v49-yy-95g" eventType="touchUpInside" id="sX7-Bc-zi0"/>
                                                     </connections>
                                                 </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="36" width="366" height="44"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
@@ -411,6 +411,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editDetailsItem" destination="W3h-91-F6T" id="pYK-RS-44W"/>
                         <outlet property="tableView" destination="e4K-Fd-uxI" id="Xch-F7-VoU"/>
                     </connections>
                 </viewController>

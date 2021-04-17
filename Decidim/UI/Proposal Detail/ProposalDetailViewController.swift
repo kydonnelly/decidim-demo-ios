@@ -36,6 +36,8 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var editDetailsItem: UIBarButtonItem!
+    
     private var proposal: Proposal!
     private var voteDataController: ProposalVotesDataController!
     private var detailDataController: ProposalDetailDataController!
@@ -66,6 +68,12 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         super.viewDidLoad()
         
         self.title = self.proposal.title
+        
+        if self.proposal.authorId == MyProfileController.shared.myProfileId {
+            self.navigationItem.rightBarButtonItem = self.editDetailsItem
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)

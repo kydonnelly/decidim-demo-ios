@@ -13,7 +13,7 @@
         <!--TeamDetailViewController-->
         <scene sceneID="cZM-qc-mRq">
             <objects>
-                <viewController id="Thi-t9-BhW" userLabel="TeamDetailViewController" customClass="TeamDetailViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Thi-t9-BhW" userLabel="TeamDetailViewController" customClass="TeamDetailViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oIl-ot-lT9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,14 +22,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="aue-cF-8hv" customClass="TeamDetailTitleCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" rowHeight="96" id="aue-cF-8hv" customClass="TeamDetailTitleCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aue-cF-8hv" id="xfl-a7-6rR">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYE-l8-lci" customClass="LinearGradientView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
                                                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
@@ -102,7 +102,7 @@
                                             <outlet property="titleLabel" destination="vU4-Gj-hbI" id="xWc-Aa-B6J"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="88" id="9CZ-M7-fEQ" customClass="TeamDetailBodyCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BodyCell" rowHeight="88" id="9CZ-M7-fEQ" customClass="TeamDetailBodyCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="124" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9CZ-M7-fEQ" id="hh7-pf-kJH">
@@ -147,7 +147,7 @@
                                             <outlet property="bodyLabel" destination="Z2c-8u-hr7" id="kBz-DP-rWU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="96" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="96" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="212" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4yK-Yy-eCZ" id="1Uv-go-wMT">
@@ -167,7 +167,7 @@
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-6V-ayB" customClass="ProfileIconListView" customModule="Agora" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-6V-ayB" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="24" y="33" width="366" height="44"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
@@ -195,7 +195,7 @@
                                             <outletCollection property="listViewConstraints" destination="Fa0-ZZ-18S" collectionClass="NSMutableArray" id="KnF-8z-QO2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionsCell" rowHeight="42" id="vBW-a4-7FR" customClass="TeamActionListCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionsCell" rowHeight="42" id="vBW-a4-7FR" customClass="TeamActionListCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="308" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vBW-a4-7FR" id="T3F-uG-1mr">
@@ -279,6 +279,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="editDetailsItem" destination="W3h-91-F6T" id="Rtx-7x-26L"/>
                         <outlet property="tableView" destination="e4K-Fd-uxI" id="Xch-F7-VoU"/>
                     </connections>
                 </viewController>

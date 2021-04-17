@@ -25,6 +25,9 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var tableView: UITableView!
     
+    @IBOutlet var editDetailsItem: UIBarButtonItem!
+    
+    private var team: Team!
     private var teamDetail: TeamDetail?
     private var detailDataController: TeamDetailDataController!
     
@@ -38,11 +41,15 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     }
     
     private func setup(team: Team) {
+        self.team = team
         self.detailDataController = TeamDetailDataController.shared(team: team)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = self.team.name
+        self.navigationItem.rightBarButtonItem = nil
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -70,6 +77,14 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     
     fileprivate func refreshData() {
         self.teamDetail = self.detailDataController.data?.first as? TeamDetail
+        
+        if let memberList = self.teamDetail?.memberList,
+           let profileId = MyProfileController.shared.myProfileId,
+           memberList.contains(where: { $0.user_id == profileId }) {
+            self.navigationItem.rightBarButtonItem = self.editDetailsItem
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+        }
         
         self.tableView.reloadData()
     }
