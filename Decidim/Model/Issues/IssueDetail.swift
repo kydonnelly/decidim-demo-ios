@@ -10,7 +10,6 @@ import UIKit
 
 struct IssueDetail {
     let issue: Issue
-    let deadline: Date?
     let proposalIds: [Int]
     let commentCount: Int
     let followersCount: Int
@@ -23,13 +22,7 @@ struct IssueDetail {
         let followCount = dict["follow_count"] as? Int ?? 0
         let proposalIds = dict["proposal_ids"] as? [Int] ?? []
         
-        var deadline: Date? = nil
-        if let deadlineString = dict["deadline"] as? String {
-            deadline = Date(timestamp: deadlineString)
-        }
-        
         return IssueDetail(issue: issue,
-                           deadline: deadline,
                            proposalIds: proposalIds,
                            commentCount: commentCount,
                            followersCount: followCount)

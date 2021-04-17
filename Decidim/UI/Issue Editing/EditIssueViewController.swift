@@ -60,7 +60,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
         
         if let editingIssue = self.originalIssue {
             self.title = "Edit Issue"
-            self.deadline = editingIssue.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+            self.deadline = editingIssue.issue.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
             self.issueTitle = editingIssue.issue.title
             self.issueDescription = editingIssue.issue.body
             self.thumbnailMediaId = editingIssue.issue.iconUrl
@@ -112,7 +112,6 @@ extension EditIssueViewController {
     }
     
     private func submitNewIssue(completion: (() -> Void)?) {
-        let deadline: Date = self.deadline
         guard let title = self.issueTitle, let description = self.issueDescription else {
             return
         }
@@ -133,14 +132,11 @@ extension EditIssueViewController {
                 return
             }
             
-            IssueDetailDataController.shared(issue: issue).refresh { dc in
-                dc.data = [IssueDetail(issue: issue, deadline: deadline, proposalIds: [], commentCount: 0, followersCount: 0)]
-            }
+            IssueDetailDataController.shared(issue: issue).data = [IssueDetail(issue: issue, proposalIds: [], commentCount: 0, followersCount: 0)]
         }
     }
     
     private func submitEditedIssue(id: Int, completion: (() -> Void)?) {
-        let deadline: Date = self.deadline
         guard let detail = self.originalIssue else {
             return
         }
@@ -164,9 +160,7 @@ extension EditIssueViewController {
                 return
             }
             
-            IssueDetailDataController.shared(issue: issue).refresh { dc in
-                dc.data = [IssueDetail(issue: issue, deadline: deadline, proposalIds: detail.proposalIds, commentCount: detail.commentCount, followersCount: detail.followersCount)]
-            }
+            IssueDetailDataController.shared(issue: issue).data = [IssueDetail(issue: issue, proposalIds: detail.proposalIds, commentCount: detail.commentCount, followersCount: detail.followersCount)]
         }
     }
     
