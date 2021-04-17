@@ -30,7 +30,7 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         case body = "BodyCell"
         
         static func ordered() -> [MidSectionCell] {
-            return [.voting, .body, .author, .amendments]
+            return [.voting, .body, .author]
         }
     }
     
