@@ -241,6 +241,9 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                             self?.tableView.reloadData()
                         }
                     }
+                    
+                    // immediately update with fake client vote
+                    self?.tableView.reloadData()
                 }
                 
                 (cell as! ProposalDetailVotingCell).setup(proposal: self.proposal, votes: allVotes, myVote: myVote?.voteType, onVote: voteBlock)

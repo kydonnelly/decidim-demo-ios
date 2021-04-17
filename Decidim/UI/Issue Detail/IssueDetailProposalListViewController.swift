@@ -121,6 +121,9 @@ extension IssueDetailProposalListViewController {
                 self?.tableView.reloadData()
             }
         }
+        
+        // immediately update with fake client vote
+        self.tableView.reloadData()
     }
     
 }
