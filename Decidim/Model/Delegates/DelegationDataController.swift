@@ -25,12 +25,12 @@ class DelegationDataController: NetworkDataController {
             
             self?.localDelegates.removeAll()
             delegationInfo["category"] = "Global"
-            guard let delegation = Delegate.from(dict: delegationInfo) else {
-                completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
-                return
+            var delegates = [Delegate]()
+            if let delegation = Delegate.from(dict: delegationInfo) {
+                delegates.append(delegation)
             }
             
-            completion([delegation], Cursor(next: "", done: true), nil)
+            completion(delegates, Cursor(next: "", done: true), nil)
         }
     }
     
