@@ -55,7 +55,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
                                 forCellReuseIdentifier: Self.TitleCellId)
         
         if let editingTeam = self.originalTeam {
-            self.title = "Edit Team"
+            self.title = "Edit Group"
             self.thumbnailMediaId = editingTeam.team.thumbnailUrl
             self.teamName = editingTeam.team.name
             self.teamDescription = editingTeam.team.description
@@ -115,7 +115,7 @@ extension EditTeamViewController {
             return
         }
         
-        self.blockView(message: "Creating team...")
+        self.blockView(message: "Creating group...")
         TeamListDataController.shared().addTeam(title: name, description: description, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .joined]) { [weak self] error in
             self?.unblockView()
             
@@ -130,7 +130,7 @@ extension EditTeamViewController {
             return
         }
         
-        self.blockView(message: "Editing team...")
+        self.blockView(message: "Editing group...")
         TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnailUrl: self.thumbnailMediaId) { [weak self] error in
             self?.unblockView()
             

@@ -58,7 +58,7 @@ class ProfileViewController: UIViewController, CustomTableController {
         
         self.tableView.rowHeight = UITableView.automaticDimension
         
-        self.tabOptionsBar.setup(options: ["Teams", "Proposals", "Votes"], selectedIndex: nil) { [weak self] index in
+        self.tabOptionsBar.setup(options: ["Groups", "Proposals", "Votes"], selectedIndex: nil) { [weak self] index in
             guard let self = self else { return }
             
             switch index {

@@ -265,7 +265,7 @@
                             <constraint firstAttribute="bottom" secondItem="e4K-Fd-uxI" secondAttribute="bottom" id="wY8-F0-XwV"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Team" id="1iA-zQ-m34">
+                    <navigationItem key="navigationItem" title="Group" id="1iA-zQ-m34">
                         <barButtonItem key="rightBarButtonItem" id="W3h-91-F6T">
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>

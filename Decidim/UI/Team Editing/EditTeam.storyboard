@@ -28,7 +28,7 @@
         <!--EditTeamViewController-->
         <scene sceneID="h7M-dx-sII">
             <objects>
-                <viewController id="7Ka-tf-gBS" userLabel="EditTeamViewController" customClass="EditTeamViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Ka-tf-gBS" userLabel="EditTeamViewController" customClass="EditTeamViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAX-MA-1eB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,14 +37,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="nMA-P7-8En" customClass="SingleActionCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="nMA-P7-8En" customClass="SingleActionCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nMA-P7-8En" id="SLn-Gq-6z5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5h-8g-RXw" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5h-8g-RXw" customClass="PillButton" customModule="Votion" customModuleProvider="target">
                                                     <rect key="frame" x="152.5" y="12" width="109" height="48"/>
                                                     <color key="backgroundColor" name="Action"/>
                                                     <constraints>
@@ -87,7 +87,7 @@
                             <constraint firstAttribute="trailing" secondItem="nKs-xQ-79a" secondAttribute="trailing" id="zb4-6v-P3E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Team" id="HZo-be-JX6">
+                    <navigationItem key="navigationItem" title="New Group" id="HZo-be-JX6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="5dg-Sz-4cv">
                             <connections>
                                 <action selector="didTapCancelButton:" destination="7Ka-tf-gBS" id="zBc-0m-0x9"/>

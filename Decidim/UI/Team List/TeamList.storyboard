@@ -29,7 +29,7 @@
         <!--TeamListViewController-->
         <scene sceneID="jHU-rZ-DlK">
             <objects>
-                <viewController id="OeF-nN-LGS" userLabel="TeamListViewController" customClass="TeamListViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OeF-nN-LGS" userLabel="TeamListViewController" customClass="TeamListViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zm6-Fz-H5c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamDetailCell" id="vk8-ez-XMN" customClass="TeamListCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamDetailCell" id="vk8-ez-XMN" customClass="TeamListCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vk8-ez-XMN" id="ZEo-uO-ilI">
@@ -165,7 +165,7 @@
                             <constraint firstAttribute="trailing" secondItem="gRv-cL-tVz" secondAttribute="trailing" id="ibY-Qw-zih"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Teams" id="jMz-bf-GeS">
+                    <navigationItem key="navigationItem" title="Groups" id="jMz-bf-GeS">
                         <barButtonItem key="rightBarButtonItem" title="Create" id="paD-YO-QbP">
                             <connections>
                                 <action selector="tappedCreateButton:" destination="OeF-nN-LGS" id="go5-1s-Crj"/>

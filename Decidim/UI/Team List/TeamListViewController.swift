@@ -78,7 +78,7 @@ class TeamListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.dataController.allTeams.count == 0 {
-            self.tableView.showNoResults(message: "No teams to display", icon: .users)
+            self.tableView.showNoResults(message: "No groups to display", icon: .users)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }
