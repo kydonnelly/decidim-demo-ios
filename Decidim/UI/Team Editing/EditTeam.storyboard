@@ -45,14 +45,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i5h-8g-RXw" customClass="PillButton" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="152.5" y="12" width="109" height="48"/>
+                                                    <rect key="frame" x="149" y="12" width="116" height="48"/>
                                                     <color key="backgroundColor" name="Action"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="Bir-QX-gmT"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
-                                                    <state key="normal" title="Save Issue">
+                                                    <state key="normal" title="Save Group">
                                                         <color key="titleColor" name="PrimaryLight"/>
                                                     </state>
                                                     <connections>

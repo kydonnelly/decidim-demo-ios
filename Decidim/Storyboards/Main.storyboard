@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Issues-->
+        <!--Topics-->
         <scene sceneID="LDd-Nr-BBQ">
             <objects>
                 <viewController id="z4v-CE-0J7" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                             <constraint firstItem="S1F-2c-YeC" firstAttribute="leading" secondItem="bI1-hz-kra" secondAttribute="leading" id="nID-gg-2Bo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Issues" id="zTl-4Y-KwV">
+                    <tabBarItem key="tabBarItem" title="Topics" id="zTl-4Y-KwV">
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">

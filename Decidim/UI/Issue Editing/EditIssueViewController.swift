@@ -59,7 +59,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
                                 forCellReuseIdentifier: Self.TitleCellId)
         
         if let editingIssue = self.originalIssue {
-            self.title = "Edit Issue"
+            self.title = "Edit Topic"
             self.deadline = editingIssue.issue.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
             self.issueTitle = editingIssue.issue.title
             self.issueDescription = editingIssue.issue.body
@@ -116,7 +116,7 @@ extension EditIssueViewController {
             return
         }
         
-        self.blockView(message: "Submitting issue...")
+        self.blockView(message: "Submitting topic...")
         PublicIssueDataController.shared().addIssue(title: title, description: description, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
             
@@ -218,7 +218,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else {
-            let actionTitle = self.originalIssue == nil ? "Create Issue" : "Save Changes"
+            let actionTitle = self.originalIssue == nil ? "Create Topic" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
             cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)

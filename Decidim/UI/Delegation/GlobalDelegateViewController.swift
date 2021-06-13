@@ -44,14 +44,14 @@ class GlobalDelegateViewController: UIViewController {
         
         if let _ = error {
             self.titleLabel.text = "Something went wrong"
-            self.descriptionLabel.text = "We could not find your delegate.\n\nPlease try again later or select a new delegate to vote on your behalf. This person will be able to vote on any issue for you."
+            self.descriptionLabel.text = "We could not find your delegate.\n\nPlease try again later or select a new delegate to vote on your behalf. This person will be able to vote on any topic for you."
             
             self.delegateContainerView.isHidden = true
             self.changeDelegateContainerView.isHidden = true
             self.createDelegateContainerView.isHidden = false
         } else if let delegateId = delegates.first {
             self.titleLabel.text = "Your vote has been globally delegated to:"
-            self.descriptionLabel.text = "This person is voting on issues on your behalf."
+            self.descriptionLabel.text = "This person is voting on topics on your behalf."
             
             self.delegateContainerView.isHidden = false
             self.changeDelegateContainerView.isHidden = false
@@ -68,7 +68,7 @@ class GlobalDelegateViewController: UIViewController {
             }
         } else {
             self.titleLabel.text = "You have not globally delegated your vote to anyone"
-            self.descriptionLabel.text = "Select a delegate to vote on your behalf. This person will be able to vote on any issue for you."
+            self.descriptionLabel.text = "Select a delegate to vote on your behalf. This person will be able to vote on any topic for you."
             
             self.delegateContainerView.isHidden = true
             self.changeDelegateContainerView.isHidden = true
@@ -93,7 +93,7 @@ extension GlobalDelegateViewController {
     }
     
     @IBAction func removeDelegateTapped(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Remove Delegation", message: "Are you sure you want to remove your delegation and vote on all issues yourself?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Remove Delegation", message: "Are you sure you want to remove your delegation and vote on all topics yourself?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { [weak self] _ in
             VoteDelegationManager.shared.updateDelegate(category: "Global", profileId: nil) { [weak self] success in

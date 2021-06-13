@@ -25,10 +25,10 @@
             </objects>
             <point key="canvasLocation" x="-693" y="71"/>
         </scene>
-        <!--New Issue-->
+        <!--New Topic-->
         <scene sceneID="h7M-dx-sII">
             <objects>
-                <viewController id="7Ka-tf-gBS" customClass="EditIssueViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="7Ka-tf-gBS" customClass="EditIssueViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pAX-MA-1eB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,22 +37,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="QDW-Bu-sWU" customClass="SingleActionCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="QDW-Bu-sWU" customClass="SingleActionCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QDW-Bu-sWU" id="By9-52-NAz">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMR-9l-a60" customClass="PillButton" customModule="Agora" customModuleProvider="target">
-                                                    <rect key="frame" x="152.5" y="12" width="109" height="48"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMR-9l-a60" customClass="PillButton" customModule="Votion" customModuleProvider="target">
+                                                    <rect key="frame" x="151.5" y="12" width="111" height="48"/>
                                                     <color key="backgroundColor" name="Action"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="48" id="hCe-tA-BKm"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="16" maxX="16" maxY="16"/>
-                                                    <state key="normal" title="Save Issue">
+                                                    <state key="normal" title="Save Topic">
                                                         <color key="titleColor" name="PrimaryLight"/>
                                                     </state>
                                                     <connections>
@@ -87,7 +87,7 @@
                             <constraint firstAttribute="trailing" secondItem="nKs-xQ-79a" secondAttribute="trailing" id="zb4-6v-P3E"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New Issue" id="HZo-be-JX6">
+                    <navigationItem key="navigationItem" title="New Topic" id="HZo-be-JX6">
                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="5dg-Sz-4cv">
                             <connections>
                                 <action selector="didTapCancelButton:" destination="7Ka-tf-gBS" id="zBc-0m-0x9"/>

@@ -29,7 +29,7 @@
         <!--IssueListViewController-->
         <scene sceneID="jHU-rZ-DlK">
             <objects>
-                <viewController id="OeF-nN-LGS" userLabel="IssueListViewController" customClass="IssueListViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OeF-nN-LGS" userLabel="IssueListViewController" customClass="IssueListViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zm6-Fz-H5c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IssueDetailCell" id="vk8-ez-XMN" customClass="IssueListCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IssueDetailCell" id="vk8-ez-XMN" customClass="IssueListCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="173"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vk8-ez-XMN" id="ZEo-uO-ilI">
@@ -71,7 +71,7 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Issue Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgM-jw-iIe">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Topic Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgM-jw-iIe">
                                                             <rect key="frame" x="78" y="12" width="264" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                             <color key="textColor" name="PrimaryDark"/>
@@ -85,7 +85,7 @@
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6O-qk-mLK">
                                                             <rect key="frame" x="24" y="62.5" width="318" height="57.5"/>
-                                                            <string key="text">Issue Detail that can expand onto three lines when absolutely necessary but no more than that or else longer issues will take up the entire screen</string>
+                                                            <string key="text">Topic Detail that can expand onto three lines when absolutely necessary but no more than that or else longer topics will take up the entire screen</string>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
@@ -191,7 +191,7 @@
                             <constraint firstAttribute="trailing" secondItem="gRv-cL-tVz" secondAttribute="trailing" id="ibY-Qw-zih"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Issues" id="dua-2x-awq"/>
+                    <navigationItem key="navigationItem" title="Topics" id="dua-2x-awq"/>
                     <connections>
                         <outlet property="tableView" destination="gRv-cL-tVz" id="euQ-iu-xMJ"/>
                     </connections>

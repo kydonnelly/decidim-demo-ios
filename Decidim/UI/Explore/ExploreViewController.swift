@@ -21,7 +21,7 @@ class ExploreViewController: UIViewController, CustomTableController {
         
         var title: String {
             switch self {
-            case .issues: return "Issues"
+            case .issues: return "Topics"
             case .teams: return "Groups"
             case .people: return "People"
             }
