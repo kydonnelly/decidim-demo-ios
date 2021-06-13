@@ -53,7 +53,7 @@ class AmendmentListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.allAmendments.count == 0 {
-            self.tableView.showNoResults(message: "No amendments on this proposal yet", icon: .clipboard)
+            self.tableView.showNoResults(message: "No amendments to this idea yet", icon: .clipboard)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

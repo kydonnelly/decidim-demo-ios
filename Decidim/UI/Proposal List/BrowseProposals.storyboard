@@ -28,7 +28,7 @@
         <!--BrowseProposalsViewController-->
         <scene sceneID="jHU-rZ-DlK">
             <objects>
-                <viewController id="OeF-nN-LGS" userLabel="BrowseProposalsViewController" customClass="BrowseProposalsViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OeF-nN-LGS" userLabel="BrowseProposalsViewController" customClass="BrowseProposalsViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zm6-Fz-H5c">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,7 +39,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JA4-EK-itZ">
                                 <rect key="frame" x="0.0" y="88" width="414" height="48"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osc-9X-VAh" customClass="OptionsBar" customModule="Agora" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osc-9X-VAh" customClass="OptionsBar" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-W0-GWt">
@@ -90,7 +90,7 @@
                             <constraint firstItem="JA4-EK-itZ" firstAttribute="leading" secondItem="jAa-Lc-GUY" secondAttribute="leading" id="veC-tZ-Vff"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Proposals" id="jMz-bf-GeS"/>
+                    <navigationItem key="navigationItem" title="Ideas" id="jMz-bf-GeS"/>
                     <connections>
                         <outlet property="containerView" destination="FRv-MW-be3" id="tdb-Fc-0X1"/>
                         <outlet property="optionsBar" destination="osc-9X-VAh" id="eV9-oY-HcG"/>

@@ -65,7 +65,7 @@ class EditProposalViewController: UIViewController, CustomTableController {
                                 forCellReuseIdentifier: Self.TitleCellId)
         
         if let editingProposal = self.originalProposal {
-            self.title = "Edit Proposal"
+            self.title = "Edit Idea"
             self.amendmentDeadline = editingProposal.proposal.amendmentDeadline ?? self.defaultDeadline
             self.votingDeadline = editingProposal.proposal.votingDeadline ?? self.defaultDeadline
             self.proposalTitle = editingProposal.proposal.title
@@ -135,7 +135,7 @@ extension EditProposalViewController {
             return
         }
         
-        self.blockView(message: "Submitting proposal...")
+        self.blockView(message: "Submitting idea...")
         PublicProposalDataController.shared().addProposal(issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
@@ -166,7 +166,7 @@ extension EditProposalViewController {
             return
         }
         
-        self.blockView(message: "Editing proposal...")
+        self.blockView(message: "Editing idea...")
         PublicProposalDataController.shared().editProposal(id, issueId: issueId, title: title, description: description, amendmentDeadline: self.amendmentDeadline, votingDeadline: self.votingDeadline) { [weak self] error in
             self?.unblockView()
             
@@ -241,7 +241,7 @@ extension EditProposalViewController: UITableViewDataSource, UITableViewDelegate
             }
             return cell
         } else {
-            let actionTitle = self.originalProposal == nil ? "Create Proposal" : "Save Changes"
+            let actionTitle = self.originalProposal == nil ? "Create Idea" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
             cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)

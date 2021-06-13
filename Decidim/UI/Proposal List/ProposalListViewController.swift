@@ -66,7 +66,7 @@ class ProposalListViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.allProposals.count == 0 {
-            self.tableView.showNoResults(message: "No proposals to display", icon: .search)
+            self.tableView.showNoResults(message: "No ideas to display", icon: .search)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }

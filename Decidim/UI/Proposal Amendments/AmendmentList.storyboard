@@ -29,7 +29,7 @@
         <!--AmendmentListViewController-->
         <scene sceneID="GjW-qb-44n">
             <objects>
-                <viewController id="Rp6-St-QLN" userLabel="AmendmentListViewController" customClass="AmendmentListViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Rp6-St-QLN" userLabel="AmendmentListViewController" customClass="AmendmentListViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="H96-t2-gug">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentCell" rowHeight="96" id="2Ca-yZ-FXn" customClass="AmendmentCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentCell" rowHeight="96" id="2Ca-yZ-FXn" customClass="AmendmentCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Ca-yZ-FXn" id="38u-z0-YdW">
@@ -101,7 +101,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tjt-S2-ywe">
                                                     <rect key="frame" x="42" y="53.5" width="304" height="38.5"/>
                                                     <color key="backgroundColor" name="SecondaryBackground"/>
-                                                    <string key="text">This proposal is a good start but would be greatly improved if you incorporate my suggestion of making Old Town Road the city's national anthem!!!!!!</string>
+                                                    <string key="text">This idea is a good start but would be greatly improved if you incorporate my suggestion of making Old Town Road the city's national anthem!!!!!!</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" name="UserInput"/>
                                                     <nil key="highlightedColor"/>
