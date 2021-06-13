@@ -10,10 +10,16 @@ import Foundation
 import Security
 
 class MyProfileController {
+    
+    public static let profileUpdatedNotification = Notification.Name("Decidim.MyProfileController.ProfileUpdated")
 
     public static let shared = MyProfileController()
     
-    public var myProfileId: Int?
+    public var myProfileId: Int? {
+        didSet {
+            NotificationCenter.default.post(name: Self.profileUpdatedNotification, object: nil)
+        }
+    }
     
     init() {
         if Self.matchesHTTPRequestEnvironment {

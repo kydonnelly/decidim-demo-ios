@@ -196,6 +196,7 @@
 		27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */; };
 		27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */; };
 		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
+		27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF712675DCF30094349F /* OpenURLQueue.swift */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -436,6 +437,7 @@
 		27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroups.graphql.swift; sourceTree = "<group>"; };
 		27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroup.graphql.swift; sourceTree = "<group>"; };
 		27C2DF3E2674969C0094349F /* Session.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.graphql.swift; sourceTree = "<group>"; };
+		27C2DF712675DCF30094349F /* OpenURLQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenURLQueue.swift; sourceTree = "<group>"; };
 		27F8838424E7914700B216D2 /* TeamListDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDataController.swift; sourceTree = "<group>"; };
 		27F8838624E7917A00B216D2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		27F8838824E791A100B216D2 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -737,6 +739,7 @@
 				27649C89260AE2F7003D29D4 /* Issue Editing */,
 				2763CA90262293CD007B0E2E /* Issue Following */,
 				27649C8E260AE2F7003D29D4 /* Issue List */,
+				27C2DF702675DCDA0094349F /* Linking */,
 				2756A6CB24985D280023DC91 /* Profile */,
 				27B22B6024D93FCE005DF376 /* Proposal Amendments */,
 				2739747A24B568D300CA16A3 /* Proposal Detail */,
@@ -1026,6 +1029,14 @@
 				27490CDD260EE10600FAD841 /* CreateAmendmentViewController.swift */,
 			);
 			path = "Proposal Amendments";
+			sourceTree = "<group>";
+		};
+		27C2DF702675DCDA0094349F /* Linking */ = {
+			isa = PBXGroup;
+			children = (
+				27C2DF712675DCF30094349F /* OpenURLQueue.swift */,
+			);
+			path = Linking;
 			sourceTree = "<group>";
 		};
 		27F8838324E7913200B216D2 /* Teams */ = {
@@ -1567,6 +1578,7 @@
 				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
 				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
+				27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
 				2763CA75262284F9007B0E2E /* IssueFollower.swift in Sources */,
 				27A81F3C261429FE0088E07C /* PillButton.swift in Sources */,

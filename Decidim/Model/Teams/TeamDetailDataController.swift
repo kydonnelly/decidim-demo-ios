@@ -10,16 +10,16 @@ import Foundation
 
 class TeamDetailDataController: NetworkDataController {
     
-    private var backingTeam: Team!
+    private var teamId: Int!
     
-    static func shared(team: Team) -> Self {
-        let controller = self.shared(keyInfo: "\(team.id)")
-        controller.backingTeam = team
+    static func shared(teamId: Int) -> Self {
+        let controller = self.shared(keyInfo: "\(teamId)")
+        controller.teamId = teamId
         return controller
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let teamId = "\(self.backingTeam.id)"
+        let teamId = "\(self.teamId!)"
         
         HTTPRequest.shared.get(endpoint: "teams", args: [teamId]) { response, error in
             guard error == nil else {

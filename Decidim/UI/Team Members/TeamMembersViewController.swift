@@ -27,7 +27,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamDetailDataController.shared(team: detail.team)
+        self.dataController = TeamDetailDataController.shared(teamId: detail.team.id)
     }
     
     override func viewDidLoad() {

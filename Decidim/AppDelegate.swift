@@ -13,6 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     
+    let urlQueue = OpenURLQueue()
+    
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         HTTPRequest.environment = .staging
         return true
@@ -48,6 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             registrationVC.modalPresentationStyle = .fullScreen
             self.window?.rootViewController?.present(registrationVC, animated: false, completion: nil)
         }
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        guard url.scheme?.caseInsensitiveCompare("votionapp") == .orderedSame else {
+            return false
+        }
+        
+        guard url.host != nil else {
+            return false
+        }
+        
+        return self.urlQueue.addURL(url)
     }
 
 }
