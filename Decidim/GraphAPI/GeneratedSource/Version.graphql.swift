@@ -11,6 +11,8 @@ public final class VersionQuery: GraphQLQuery {
     query Version {
       decidim {
         __typename
+        applicationName
+        rubyVersion
         version
       }
     }
@@ -53,6 +55,8 @@ public final class VersionQuery: GraphQLQuery {
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("applicationName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("rubyVersion", type: .nonNull(.scalar(String.self))),
         GraphQLField("version", type: .nonNull(.scalar(String.self))),
       ]
 
@@ -62,8 +66,8 @@ public final class VersionQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(version: String) {
-        self.init(unsafeResultMap: ["__typename": "Decidim", "version": version])
+      public init(applicationName: String, rubyVersion: String, version: String) {
+        self.init(unsafeResultMap: ["__typename": "Decidim", "applicationName": applicationName, "rubyVersion": rubyVersion, "version": version])
       }
 
       public var __typename: String {
@@ -72,6 +76,26 @@ public final class VersionQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      /// The current installation's name.
+      public var applicationName: String {
+        get {
+          return resultMap["applicationName"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "applicationName")
+        }
+      }
+
+      /// The current ruby version
+      public var rubyVersion: String {
+        get {
+          return resultMap["rubyVersion"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "rubyVersion")
         }
       }
 

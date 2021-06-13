@@ -191,6 +191,11 @@
 		27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */; };
 		27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6324D94025005DF376 /* AmendmentCell.swift */; };
 		27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B6524D94077005DF376 /* AmendmentList.storyboard */; };
+		27C2DF2B26748DAA0094349F /* Hashtags.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF2A26748DAA0094349F /* Hashtags.graphql.swift */; };
+		27C2DF312674924E0094349F /* Organization.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF302674924E0094349F /* Organization.graphql.swift */; };
+		27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */; };
+		27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */; };
+		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -426,6 +431,11 @@
 		27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentListViewController.swift; sourceTree = "<group>"; };
 		27B22B6324D94025005DF376 /* AmendmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentCell.swift; sourceTree = "<group>"; };
 		27B22B6524D94077005DF376 /* AmendmentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AmendmentList.storyboard; sourceTree = "<group>"; };
+		27C2DF2A26748DAA0094349F /* Hashtags.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtags.graphql.swift; sourceTree = "<group>"; };
+		27C2DF302674924E0094349F /* Organization.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.graphql.swift; sourceTree = "<group>"; };
+		27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroups.graphql.swift; sourceTree = "<group>"; };
+		27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroup.graphql.swift; sourceTree = "<group>"; };
+		27C2DF3E2674969C0094349F /* Session.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.graphql.swift; sourceTree = "<group>"; };
 		27F8838424E7914700B216D2 /* TeamListDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDataController.swift; sourceTree = "<group>"; };
 		27F8838624E7917A00B216D2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		27F8838824E791A100B216D2 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -558,8 +568,13 @@
 				277FD2D02511F53B0063FFE6 /* AssemblyProposals.graphql.swift */,
 				277FD2CA2511E7850063FFE6 /* AssemblyType.graphql.swift */,
 				270B26F7247BC893001804D6 /* AssemblyTypes.graphql.swift */,
+				27C2DF2A26748DAA0094349F /* Hashtags.graphql.swift */,
+				27C2DF302674924E0094349F /* Organization.graphql.swift */,
 				277FD2C82511DC2A0063FFE6 /* ParticipatoryProcess.graphql.swift */,
 				277FD2C62511D6C50063FFE6 /* ParticipatoryProcesses.graphql.swift */,
+				27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */,
+				27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */,
+				27C2DF3E2674969C0094349F /* Session.graphql.swift */,
 				270B26F8247BC893001804D6 /* Types.graphql.swift */,
 				277FD2D32511FD9C0063FFE6 /* Users.graphql.swift */,
 				270B26F9247BC893001804D6 /* Version.graphql.swift */,
@@ -1457,6 +1472,7 @@
 				27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */,
 				27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */,
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
+				27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */,
 				27A81F73261435C60088E07C /* MultiLineEntryCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
 				2739747924AB287000CA16A3 /* Date+Helpers.swift in Sources */,
@@ -1484,6 +1500,7 @@
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
 				27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */,
 				27490CCC260ECFBE00FAD841 /* ExploreListViewController.swift in Sources */,
+				27C2DF312674924E0094349F /* Organization.graphql.swift in Sources */,
 				27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */,
 				277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */,
 				27490CC3260EC76000FAD841 /* HorizontalListViewController.swift in Sources */,
@@ -1505,6 +1522,7 @@
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
 				27490CC8260ECC0F00FAD841 /* ExploreCell.swift in Sources */,
 				2773D16025C15D5F007FD3F0 /* LoadingBlockingView.swift in Sources */,
+				27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */,
 				27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */,
 				27F8838724E7917A00B216D2 /* Team.swift in Sources */,
 				27F883BA24EA5C1700B216D2 /* TeamMemberStatus.swift in Sources */,
@@ -1535,6 +1553,7 @@
 				27293FB72506CEF0000D27D1 /* ProfileTeamsTabSection.swift in Sources */,
 				27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
+				27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */,
 				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,
@@ -1558,6 +1577,7 @@
 				27490CD7260EDDF300FAD841 /* Teams+Previewable.swift in Sources */,
 				27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */,
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,
+				27C2DF2B26748DAA0094349F /* Hashtags.graphql.swift in Sources */,
 				27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */,
 				27293FCC2507154B000D27D1 /* BrowseProposalViewController.swift in Sources */,
 				27649C94260AE2F7003D29D4 /* IssueDetailBannerCell.swift in Sources */,

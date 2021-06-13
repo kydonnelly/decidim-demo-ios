@@ -1,5 +1,7 @@
 query Version {
   decidim {
+    applicationName
+    rubyVersion
     version
   }
 }

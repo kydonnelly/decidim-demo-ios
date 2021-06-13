@@ -1,0 +1,14 @@
+query Session {
+  session {
+    user {
+      name
+      nickname
+      avatarUrl
+      badge
+      deleted
+      organizationName
+      profilePath
+    }
+  }
+}
+

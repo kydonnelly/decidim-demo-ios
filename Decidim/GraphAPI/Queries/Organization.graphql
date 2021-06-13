@@ -1,0 +1,10 @@
+query Organization {
+  organization {
+    name
+    stats {
+      name
+      value
+    }
+  }
+}
+

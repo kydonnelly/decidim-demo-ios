@@ -1,0 +1,20 @@
+query ParticipatoryProcessGroups {
+  participatoryProcessGroups {
+    id
+    name {
+      translation(locale: "en")
+    }
+    description {
+      translation(locale: "en")
+    }
+    heroImage
+    participatoryProcesses {
+      id
+      slug
+      title {
+        translation(locale: "en")
+      }
+    }
+  }
+}
+

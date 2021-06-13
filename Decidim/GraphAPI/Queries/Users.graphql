@@ -3,6 +3,10 @@ query Users {
     name
     nickname
     avatarUrl
+    badge
+    deleted
+    organizationName
+    profilePath
   }
 }
 

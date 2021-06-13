@@ -1,0 +1,6 @@
+query Hashtags {
+  hashtags {
+    name
+  }
+}
+

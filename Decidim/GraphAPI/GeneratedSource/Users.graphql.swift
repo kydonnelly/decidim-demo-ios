@@ -14,6 +14,10 @@ public final class UsersQuery: GraphQLQuery {
         name
         nickname
         avatarUrl
+        badge
+        deleted
+        organizationName
+        profilePath
       }
     }
     """
@@ -58,6 +62,10 @@ public final class UsersQuery: GraphQLQuery {
         GraphQLField("name", type: .nonNull(.scalar(String.self))),
         GraphQLField("nickname", type: .nonNull(.scalar(String.self))),
         GraphQLField("avatarUrl", type: .nonNull(.scalar(String.self))),
+        GraphQLField("badge", type: .nonNull(.scalar(String.self))),
+        GraphQLField("deleted", type: .nonNull(.scalar(Bool.self))),
+        GraphQLField("organizationName", type: .nonNull(.scalar(String.self))),
+        GraphQLField("profilePath", type: .nonNull(.scalar(String.self))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -66,8 +74,8 @@ public final class UsersQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(name: String, nickname: String, avatarUrl: String) {
-        self.init(unsafeResultMap: ["__typename": "User", "name": name, "nickname": nickname, "avatarUrl": avatarUrl])
+      public init(name: String, nickname: String, avatarUrl: String, badge: String, deleted: Bool, organizationName: String, profilePath: String) {
+        self.init(unsafeResultMap: ["__typename": "User", "name": name, "nickname": nickname, "avatarUrl": avatarUrl, "badge": badge, "deleted": deleted, "organizationName": organizationName, "profilePath": profilePath])
       }
 
       public var __typename: String {
@@ -106,6 +114,46 @@ public final class UsersQuery: GraphQLQuery {
         }
         set {
           resultMap.updateValue(newValue, forKey: "avatarUrl")
+        }
+      }
+
+      /// A badge for the user group
+      public var badge: String {
+        get {
+          return resultMap["badge"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "badge")
+        }
+      }
+
+      /// Whether the user's account has been deleted or not
+      public var deleted: Bool {
+        get {
+          return resultMap["deleted"]! as! Bool
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "deleted")
+        }
+      }
+
+      /// The user's organization name
+      public var organizationName: String {
+        get {
+          return resultMap["organizationName"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "organizationName")
+        }
+      }
+
+      /// The user's profile url
+      public var profilePath: String {
+        get {
+          return resultMap["profilePath"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "profilePath")
         }
       }
     }

@@ -16,20 +16,28 @@ class GraphRequestTests: XCTestCase {
         let request = GraphRequest()
         let query = VersionQuery()
         let expectedVersion = "0.21.0"
+        let expectedRubyVersion = "2.5.0"
+        let expectedApplicationName = "My Application Name"
         
         let expectation = XCTestExpectation(description: "graph response")
         var receivedVersion: String? = nil
+        var receivedRubyVersion: String? = nil
+        var receivedApplicationName: String? = nil
         var receivedError: Error? = nil
         
         // test
         request.fetch(query: query) { response, error in
             receivedVersion = response?.decidim?.version
+            receivedRubyVersion = response?.decidim?.rubyVersion
+            receivedApplicationName = response?.decidim?.applicationName
             receivedError = error
             expectation.fulfill()
         }
         
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
         XCTAssertEqual(receivedVersion, expectedVersion)
+        XCTAssertEqual(receivedRubyVersion, expectedRubyVersion)
+        XCTAssertEqual(receivedApplicationName, expectedApplicationName)
         XCTAssertNil(receivedError)
     }
 
@@ -121,8 +129,7 @@ class GraphRequestTests: XCTestCase {
         // setup
         let request = GraphRequest()
         let query = AssemblyQuery()
-        let expectedAssembly: AssemblyQuery.Data.Assembly?
-        let expectedComponents: [AssemblyQuery.Data.Assembly.Component]?
+        let expectedComponentIds: [String] = ["30"]
         
         let expectation = XCTestExpectation(description: "graph response")
         var receivedAssembly: AssemblyQuery.Data.Assembly?
@@ -140,7 +147,7 @@ class GraphRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
         XCTAssertNotNil(receivedAssembly)
         XCTAssertNotNil(receivedComponents)
-        XCTAssertEqual(receivedComponents?.first?.resultMap["id"] as? String, "30")
+        XCTAssertEqual(receivedComponents?.map { $0.resultMap["id"] as? String }, expectedComponentIds)
         XCTAssertNil(receivedError)
     }
 
@@ -148,8 +155,6 @@ class GraphRequestTests: XCTestCase {
         // setup
         let request = GraphRequest()
         let query = AssemblyProposalsQuery()
-        let expectedAssembly: AssemblyProposalsQuery.Data.Assembly?
-        let expectedComponent: AssemblyProposalsQuery.Data.Assembly.Component?
         let expectedProposalTitles = ["Atque incidunt. Perspiciatis.", "Et necessitatibus."]
         
         let expectation = XCTestExpectation(description: "graph response")
@@ -173,7 +178,107 @@ class GraphRequestTests: XCTestCase {
         XCTAssertEqual(receivedProposalTitles, expectedProposalTitles)
         XCTAssertNil(receivedError)
     }
+    
+    func testGraphRequest_Hashtags() {
+        // setup
+        let request = GraphRequest()
+        let query = HashtagsQuery()
+        let expectedHashtags: [String] = []
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedHashtags: [HashtagsQuery.Data.Hashtag?]? = nil
+        var receivedError: Error? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            receivedHashtags = response?.hashtags
+            receivedError = error
+            expectation.fulfill()
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertEqual(receivedHashtags?.compactMap { $0?.name }, expectedHashtags)
+        XCTAssertNil(receivedError)
+    }
+    
+    func testGraphRequest_Organization() {
+        // setup
+        let request = GraphRequest()
+        let query = OrganizationQuery()
+        let expectedName: String? = "The Kraken Project"
+        let expectedStats: [String]? = ["users_count", "processes_count", "assemblies_count", "comments_count", "followers_count", "participants_count"]
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedError: Error? = nil
+        var receivedName: String? = nil
+        var receivedStats: [OrganizationQuery.Data.Organization.Stat?]? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            receivedName = response?.organization?.name
+            receivedStats = response?.organization?.stats
+            receivedError = error
+            expectation.fulfill()
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertEqual(receivedName, expectedName)
+        XCTAssertEqual(receivedStats?.compactMap { $0?.name }, expectedStats)
+        XCTAssertNil(receivedError)
+    }
 
+    func testGraphRequest_ParticipatoryProcessGroup() {
+        // setup
+        let request = GraphRequest()
+        let query = ParticipatoryProcessGroupQuery()
+        let expectedGroupName = "Architecto aut quo."
+        let expectedGroupDescription = "<p>Voluptatum necessitatibus provident. Dolorum architecto nihil. Eos consequatur deserunt.</p>"
+        let expectedProcessesCount = 2
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedGroup: ParticipatoryProcessGroupQuery.Data.ParticipatoryProcessGroup? = nil
+        var receivedError: Error? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            receivedGroup = response?.participatoryProcessGroup
+            receivedError = error
+            expectation.fulfill()
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertEqual(receivedGroup?.name?.translation, expectedGroupName)
+        XCTAssertEqual(receivedGroup?.description?.translation, expectedGroupDescription)
+        XCTAssertEqual(receivedGroup?.participatoryProcesses.count, expectedProcessesCount)
+        XCTAssertNil(receivedError)
+    }
+
+    func testGraphRequest_ParticipatoryProcessGroups() {
+        // setup
+        let request = GraphRequest()
+        let query = ParticipatoryProcessGroupsQuery()
+        let expectedGroupTitles = ["Nobis enim ab.", "Architecto aut quo."]
+        let expectedGroupDescriptions = ["<p>Aut cumque praesentium. Alias harum eos. Blanditiis repellat dignissimos.</p>", "<p>Voluptatum necessitatibus provident. Dolorum architecto nihil. Eos consequatur deserunt.</p>"]
+        let expectedProcessesCounts = [0, 2]
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedGroups: [ParticipatoryProcessGroupsQuery.Data.ParticipatoryProcessGroup?]? = nil
+        var receivedError: Error? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            receivedGroups = response?.participatoryProcessGroups
+            receivedError = error
+            expectation.fulfill()
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertEqual(receivedGroups?.compactMap { $0?.name?.translation }, expectedGroupTitles)
+        XCTAssertEqual(receivedGroups?.compactMap { $0?.description?.translation }, expectedGroupDescriptions)
+        XCTAssertEqual(receivedGroups?.compactMap { $0?.participatoryProcesses.count }, expectedProcessesCounts)
+        XCTAssertNil(receivedError)
+    }
+    
     func testGraphRequest_ParticipatoryProcess() {
         // setup
         let request = GraphRequest()
@@ -217,6 +322,32 @@ class GraphRequestTests: XCTestCase {
         XCTAssertEqual(receivedProcesses, expectedProcesses)
         XCTAssertNil(receivedError)
     }
+    
+    func testGraphRequest_Session() {
+        // setup
+        let request = GraphRequest()
+        let query = SessionQuery()
+        let expectedUsername: String? = nil // "Kyle"
+        let expectedNickname: String? = nil // "Alien"
+        let expectedOrganization: String? = nil // "The Kraken Project"
+        
+        let expectation = XCTestExpectation(description: "graph response")
+        var receivedSession: SessionQuery.Data.Session? = nil
+        var receivedError: Error? = nil
+        
+        // test
+        request.fetch(query: query) { response, error in
+            defer { expectation.fulfill()}
+            receivedError = error
+            receivedSession = response?.session
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
+        XCTAssertEqual(receivedSession?.user?.name, expectedUsername)
+        XCTAssertEqual(receivedSession?.user?.nickname, expectedNickname)
+        XCTAssertEqual(receivedSession?.user?.organizationName, expectedOrganization)
+        XCTAssertNil(receivedError)
+    }
 
     func testGraphRequest_Users() {
         // setup
@@ -224,10 +355,12 @@ class GraphRequestTests: XCTestCase {
         let query = UsersQuery()
         let expectedNames = Set<String>(["Leon Runte", "Marlon Kassulke"])
         let expectedNicknames = Set<String>(["@neal", "@julius"])
+        let expectedOrganization = "The Kraken Project"
         
         let expectation = XCTestExpectation(description: "graph response")
         var receivedNames: Set<String>?
         var receivedNicknames: Set<String>?
+        var receivedUsers: [UsersQuery.Data.User?]? = nil
         var receivedError: Error? = nil
         
         // test
@@ -236,6 +369,7 @@ class GraphRequestTests: XCTestCase {
             receivedError = error
             
             guard let users = response?.users else { return }
+            receivedUsers = users
             receivedNames = Set<String>(users.compactMap { $0?.name })
             receivedNicknames = Set<String>(users.compactMap { $0?.nickname })
         }
@@ -243,6 +377,7 @@ class GraphRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 5), XCTWaiter.Result.completed)
         XCTAssertTrue(receivedNames?.isSuperset(of: expectedNames) == true)
         XCTAssertTrue(receivedNicknames?.isSuperset(of: expectedNicknames) == true)
+        XCTAssertTrue(receivedUsers?.allSatisfy { $0?.organizationName == expectedOrganization } == true)
         XCTAssertNil(receivedError)
     }
 
