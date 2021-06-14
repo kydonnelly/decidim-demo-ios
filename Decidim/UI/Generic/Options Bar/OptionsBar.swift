@@ -133,6 +133,7 @@ extension OptionsBar: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
         cell.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.5)
     }
     
