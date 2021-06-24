@@ -13,7 +13,7 @@ class TeamListDataController: NetworkDataController {
     private var localTeams: [TeamDetail] = []
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "teams") { [weak self] response, error in
+        HTTPRequest.shared.get(endpoint: "teams", args: ["list"]) { [weak self] response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
@@ -58,7 +58,7 @@ extension TeamListDataController {
         }
         
         let payload: [String: Any] = ["team": teamInfo]
-        HTTPRequest.shared.post(endpoint: "teams", payload: payload) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "teams", args: ["create"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
@@ -84,7 +84,7 @@ extension TeamListDataController {
         }
         
         let payload: [String: Any] = ["team": teamInfo]
-        HTTPRequest.shared.put(endpoint: "teams", args: ["\(teamId)"], payload: payload) { [weak self] response, error in
+        HTTPRequest.shared.put(endpoint: "teams", args: ["\(teamId)", "edit"], payload: payload) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
@@ -112,7 +112,7 @@ extension TeamListDataController {
     }
     
     public func deleteTeam(_ teamId: Int, completion: @escaping (Error?) -> Void) {
-        HTTPRequest.shared.delete(endpoint: "teams", args: ["\(teamId)"]) { [weak self] response, error in
+        HTTPRequest.shared.delete(endpoint: "teams", args: ["\(teamId)", "delete"]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return

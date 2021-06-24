@@ -21,7 +21,7 @@ class TeamDetailDataController: NetworkDataController {
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
         let teamId = "\(self.teamId!)"
         
-        HTTPRequest.shared.get(endpoint: "teams", args: [teamId]) { response, error in
+        HTTPRequest.shared.get(endpoint: "teams", args: [teamId, "info"]) { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return

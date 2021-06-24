@@ -1111,7 +1111,7 @@ class HTTPRequestTests: XCTestCase {
         var responseLength: Int? = nil
         
         // test
-        request.get(endpoint: "teams") { response, error in
+        request.get(endpoint: "teams", args: ["list"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1141,7 +1141,7 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: Team? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["\(teamId)"]) { response, error in
+        request.get(endpoint: "teams", args: ["\(teamId)", "info"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1193,7 +1193,7 @@ class HTTPRequestTests: XCTestCase {
                                                "icon_url": ""]]
         
         // test
-        request.put(endpoint: "teams", args: [teamId], payload: payload) { response, error in
+        request.put(endpoint: "teams", args: [teamId, "edit"], payload: payload) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1226,7 +1226,7 @@ class HTTPRequestTests: XCTestCase {
         let teamId = "\(team.id)"
         
         // test
-        request.delete(endpoint: "teams", args: [teamId]) { response, error in
+        request.delete(endpoint: "teams", args: [teamId, "delete"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1248,7 +1248,7 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: TeamDetail? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["1"]) { response, error in
+        request.get(endpoint: "teams", args: ["1", "info"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1760,7 +1760,7 @@ extension HTTPRequestTests {
         let payload: [String: Any] = ["team": ["name": name, "description": description]]
         
         // test
-        request.post(endpoint: "teams", payload: payload) { response, error in
+        request.post(endpoint: "teams", args: ["create"], payload: payload) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
