@@ -63,6 +63,8 @@
 		2739821E26A2776C00B550FF /* TeamJoinRequests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */; };
 		2739821F26A2776C00B550FF /* TeamJoinRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */; };
 		2739822026A2776C00B550FF /* TeamJoinRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */; };
+		2739822A26A28A3300B550FF /* UserTeamsListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739822926A28A3300B550FF /* UserTeamsListDataController.swift */; };
+		2739823026A298F600B550FF /* TeamsOwnedDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739822F26A298F600B550FF /* TeamsOwnedDataController.swift */; };
 		27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */; };
 		27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */; };
 		27490CC3260EC76000FAD841 /* HorizontalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */; };
@@ -307,6 +309,8 @@
 		2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamJoinRequests.storyboard; sourceTree = "<group>"; };
 		2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestCell.swift; sourceTree = "<group>"; };
 		2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestsViewController.swift; sourceTree = "<group>"; };
+		2739822926A28A3300B550FF /* UserTeamsListDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTeamsListDataController.swift; sourceTree = "<group>"; };
+		2739822F26A298F600B550FF /* TeamsOwnedDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOwnedDataController.swift; sourceTree = "<group>"; };
 		27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCellAdd.swift; sourceTree = "<group>"; };
 		27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileIconCollectionCellAdd.xib; sourceTree = "<group>"; };
 		27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalListViewController.swift; sourceTree = "<group>"; };
@@ -1069,6 +1073,8 @@
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
 				2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */,
 				2739821626A2750000B550FF /* TeamJoinRequestDataController.swift */,
+				2739822F26A298F600B550FF /* TeamsOwnedDataController.swift */,
+				2739822926A28A3300B550FF /* UserTeamsListDataController.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -1550,6 +1556,7 @@
 				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
 				27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */,
 				2739821F26A2776C00B550FF /* TeamJoinRequestCell.swift in Sources */,
+				2739823026A298F600B550FF /* TeamsOwnedDataController.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27649CBE260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
@@ -1576,6 +1583,7 @@
 				27A81F58261432420088E07C /* EditImageCell.swift in Sources */,
 				27F883DC24EDD98600B216D2 /* TeamActionsViewController.swift in Sources */,
 				2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */,
+				2739822A26A28A3300B550FF /* UserTeamsListDataController.swift in Sources */,
 				27649C55260AD53B003D29D4 /* IssueDetail.swift in Sources */,
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
 				2717F46824DAA9C200189F7C /* VotingOptionCell.swift in Sources */,

@@ -11,15 +11,38 @@ import UIKit
 class ProfileTeamsTabSection: NSObject, ProfileTabSection {
     
     static let teamsCellId = "TeamListCell"
+    static let sectionHeaderId = "TeamsSectionHeader"
+    
+    fileprivate enum TableSection: Int, CaseIterable {
+        case owned
+        case joined
+        
+        var title: String {
+            switch self {
+            case .owned: return "Owned"
+            case .joined: return "Joined"
+            }
+        }
+    }
     
     private weak var dataSource: ProfileTabDataSource?
-    private var dataController: TeamListDataController!
+    private var teamsDataController: UserTeamsListDataController!
+    private var ownedDataController: TeamsOwnedDataController!
     
     func setup(dataSource: ProfileTabDataSource) {
         self.dataSource = dataSource
         
-        self.dataController = TeamListDataController.shared()
-        self.dataController.refresh { [weak self] dc in
+        dataSource.tableView.register(UINib(nibName: "TeamListHeaderView", bundle: .main),
+                                      forHeaderFooterViewReuseIdentifier: Self.sectionHeaderId)
+        
+        guard let profileId = dataSource.profileId else { return }
+        self.teamsDataController = UserTeamsListDataController.shared(userId: profileId)
+        self.teamsDataController.refresh { [weak self] dc in
+            self?.reloadData()
+        }
+        
+        self.ownedDataController = TeamsOwnedDataController.shared()
+        self.ownedDataController.refresh { [weak self] dc in
             self?.reloadData()
         }
     }
@@ -31,19 +54,20 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         
         dataSource.tableView.reloadData()
         
-        if self.dataController.donePaging && self.allTeams().count == 0 {
+        if self.teamsDataController.donePaging && self.teamsDataController.allTeams.count == 0 {
             dataSource.tableView.showNoResults(message: "No groups to display", icon: .users, below: dataSource.sectionOffset)
         } else {
             dataSource.tableView.hideNoResultsIfNeeded()
         }
     }
     
-    fileprivate func allTeams() -> [Team] {
-        guard let profileId = self.dataSource?.profileId else {
-            return []
+    fileprivate func teams(section: TableSection) -> [TeamDetail] {
+        switch section {
+        case .owned:
+            return self.ownedDataController.allTeams
+        case .joined:
+            return self.teamsDataController.allTeams
         }
-        
-        return self.dataController.teams(profileId: profileId, status: .joined)
     }
     
 }
@@ -51,11 +75,53 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
 extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        if self.dataController.donePaging {
-            return 1
-        } else {
-            return 2
+        var numSections = TableSection.allCases.count
+        if !self.teamsDataController.donePaging {
+            numSections += 1
         }
+        return numSections
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard let sectionOffset = self.dataSource?.sectionOffset else {
+            return 0
+        }
+        
+        guard let tableSection = TableSection(rawValue: section - sectionOffset) else {
+            return 0
+        }
+        
+        guard TableSection.allCases.filter({ self.teams(section: $0).count > 0 }).count > 1 else {
+            return 0
+        }
+        
+        guard self.teams(section: tableSection).count > 0 else {
+            return 0
+        }
+        
+        return 48
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let sectionOffset = self.dataSource?.sectionOffset else {
+            return nil
+        }
+        
+        guard let tableSection = TableSection(rawValue: section - sectionOffset) else {
+            return nil
+        }
+        
+        guard TableSection.allCases.filter({ self.teams(section: $0).count > 0 }).count > 1 else {
+            return nil
+        }
+        
+        guard self.teams(section: tableSection).count > 0 else {
+            return nil
+        }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.sectionHeaderId) as! TeamListHeaderView
+        header.setup(title: tableSection.title)
+        return header
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,9 +129,10 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             return 0
         }
         
-        if section == sectionOffset {
-            return self.allTeams().count
+        if let tableSection = TableSection(rawValue: section - sectionOffset) {
+            return self.teams(section: tableSection).count
         } else {
+            // loading section
             return 1
         }
     }
@@ -75,10 +142,10 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             preconditionFailure("Missing section offset")
         }
         
-        if indexPath.section == sectionOffset {
+        if let tableSection = TableSection(rawValue: indexPath.section - sectionOffset) {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! TeamListCell
             
-            let team = self.allTeams()[indexPath.row]
+            let team = self.teams(section: tableSection)[indexPath.row].team
             cell.setup(team: team)
 
             return cell
@@ -98,9 +165,9 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        if indexPath.section == sectionOffset {
-            let team = self.allTeams()[indexPath.row]
-            let vc = TeamDetailViewController.create(team: team)
+        if let tableSection = TableSection(rawValue: indexPath.section - sectionOffset) {
+            let teamDetail = self.teams(section: tableSection)[indexPath.row]
+            let vc = TeamDetailViewController.create(team: teamDetail.team)
             self.dataSource?.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -110,8 +177,8 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             return
         }
         
-        if indexPath.section == sectionOffset + 1 {
-            self.dataController.page { [weak self] dc in
+        if indexPath.section == sectionOffset + TableSection.allCases.count {
+            self.teamsDataController.page { [weak self] dc in
                 self?.reloadData()
             }
         }
