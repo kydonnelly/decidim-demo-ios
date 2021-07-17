@@ -180,7 +180,9 @@ extension TeamMembersViewController {
             self.navigationController?.pushViewController(profileVC, animated: true)
         }))
         alert.addAction(UIAlertAction(title: "Requests", style: .default, handler: { [weak self] _ in
-            
+            guard let self = self else { return }
+            let requestsVC = TeamJoinRequestsViewController.create(detail: detail)
+            self.navigationController?.pushViewController(requestsVC, animated: true)
         }))
          
         if let presenter = alert.popoverPresentationController {

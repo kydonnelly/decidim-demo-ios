@@ -59,6 +59,10 @@
 		2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */; };
 		2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */; };
 		2739749024B5A30E00CA16A3 /* ProposalDetailDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */; };
+		2739821726A2750000B550FF /* TeamJoinRequestDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821626A2750000B550FF /* TeamJoinRequestDataController.swift */; };
+		2739821E26A2776C00B550FF /* TeamJoinRequests.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */; };
+		2739821F26A2776C00B550FF /* TeamJoinRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */; };
+		2739822026A2776C00B550FF /* TeamJoinRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */; };
 		27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */; };
 		27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */; };
 		27490CC3260EC76000FAD841 /* HorizontalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */; };
@@ -299,6 +303,10 @@
 		2739748924B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailAmendmentsCell.swift; sourceTree = "<group>"; };
 		2739748D24B5A23E00CA16A3 /* ProposalDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetail.swift; sourceTree = "<group>"; };
 		2739748F24B5A30E00CA16A3 /* ProposalDetailDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailDataController.swift; sourceTree = "<group>"; };
+		2739821626A2750000B550FF /* TeamJoinRequestDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestDataController.swift; sourceTree = "<group>"; };
+		2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamJoinRequests.storyboard; sourceTree = "<group>"; };
+		2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestCell.swift; sourceTree = "<group>"; };
+		2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestsViewController.swift; sourceTree = "<group>"; };
 		27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCellAdd.swift; sourceTree = "<group>"; };
 		27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileIconCollectionCellAdd.xib; sourceTree = "<group>"; };
 		27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalListViewController.swift; sourceTree = "<group>"; };
@@ -664,6 +672,16 @@
 			path = "Proposal Detail";
 			sourceTree = "<group>";
 		};
+		2739821A26A2773800B550FF /* Team Requests */ = {
+			isa = PBXGroup;
+			children = (
+				2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */,
+				2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */,
+				2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */,
+			);
+			path = "Team Requests";
+			sourceTree = "<group>";
+		};
 		27490CC4260EC89600FAD841 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
@@ -752,6 +770,7 @@
 				27F883B024E79D7100B216D2 /* Team Editing */,
 				27F883A024E798CE00B216D2 /* Team List */,
 				27F883D324EDD94400B216D2 /* Team Members */,
+				2739821A26A2773800B550FF /* Team Requests */,
 				2789E98224B67FD00061C3E9 /* Voting */,
 			);
 			path = UI;
@@ -1049,6 +1068,7 @@
 				2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */,
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
 				2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */,
+				2739821626A2750000B550FF /* TeamJoinRequestDataController.swift */,
 			);
 			path = Teams;
 			sourceTree = "<group>";
@@ -1283,6 +1303,7 @@
 				27490CCA260ECC8000FAD841 /* Explore.storyboard in Resources */,
 				27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */,
 				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
+				2739821E26A2776C00B550FF /* TeamJoinRequests.storyboard in Resources */,
 				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
 			);
@@ -1528,6 +1549,7 @@
 				2739748E24B5A23E00CA16A3 /* ProposalDetail.swift in Sources */,
 				27293FAE2506C09A000D27D1 /* SettingsActionCell.swift in Sources */,
 				27649CA6260AE70B003D29D4 /* Commentable.swift in Sources */,
+				2739821F26A2776C00B550FF /* TeamJoinRequestCell.swift in Sources */,
 				27F883B724E79D7100B216D2 /* EditTeamViewController.swift in Sources */,
 				27649CBE260C3EDE003D29D4 /* IssueDetailCreateProposalCell.swift in Sources */,
 				27293FB92506CEFE000D27D1 /* ProfileProposalsTabSection.swift in Sources */,
@@ -1565,6 +1587,7 @@
 				27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */,
 				2789E98C24B689A60061C3E9 /* VotePreferencesViewController.swift in Sources */,
 				27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */,
+				2739822026A2776C00B550FF /* TeamJoinRequestsViewController.swift in Sources */,
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */,
 				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,
@@ -1579,6 +1602,7 @@
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
 				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
 				27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */,
+				2739821726A2750000B550FF /* TeamJoinRequestDataController.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
 				2763CA75262284F9007B0E2E /* IssueFollower.swift in Sources */,
 				27A81F3C261429FE0088E07C /* PillButton.swift in Sources */,
