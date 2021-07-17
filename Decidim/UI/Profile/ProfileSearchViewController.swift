@@ -23,11 +23,11 @@ class ProfileSearchViewController: UIViewController, CustomTableController {
     private static let LoadingCellId = "LoadingCell"
     private static let ResultCellId = "ProfileResultCell"
     
-    static func create(category: String, selectedProfileId: Int?, onToggle: ToggleBlock?) -> ProfileSearchViewController {
+    static func create(title: String, selectedProfileId: Int?, onToggle: ToggleBlock?) -> ProfileSearchViewController {
         let sb = UIStoryboard(name: "ProfileSearch", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! ProfileSearchViewController
         vc.setup(selectedProfileId: selectedProfileId, onToggle: onToggle)
-        vc.title = category
+        vc.title = title
         return vc
     }
     

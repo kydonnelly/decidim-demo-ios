@@ -167,8 +167,26 @@
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sd-Vx-zR1">
+                                                    <rect key="frame" x="336" y="6.5" width="54" height="28"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal" title="Invite">
+                                                        <color key="titleColor" name="Action"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didTapInviteButton:" destination="4yK-Yy-eCZ" eventType="touchUpInside" id="rTW-dx-3e1"/>
+                                                    </connections>
+                                                </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-6V-ayB" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="33" width="366" height="44"/>
+                                                    <rect key="frame" x="24" y="38.5" width="366" height="44"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="iWI-hL-t2F"/>
@@ -179,16 +197,20 @@
                                                 <constraint firstAttribute="trailing" secondItem="bLd-6h-Roh" secondAttribute="trailing" id="8Oy-6Q-iLj"/>
                                                 <constraint firstAttribute="bottom" secondItem="oTC-Jo-qK7" secondAttribute="bottom" priority="51" constant="12" id="D07-N0-764"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yEL-6V-ayB" secondAttribute="bottom" constant="12" id="Fa0-ZZ-18S"/>
+                                                <constraint firstAttribute="trailing" secondItem="4sd-Vx-zR1" secondAttribute="trailing" constant="24" id="G0Z-d5-aoa"/>
                                                 <constraint firstAttribute="trailing" secondItem="yEL-6V-ayB" secondAttribute="trailing" constant="24" id="JME-fq-pWY"/>
                                                 <constraint firstItem="oTC-Jo-qK7" firstAttribute="top" secondItem="1Uv-go-wMT" secondAttribute="top" constant="12" id="Pwd-G2-qT7"/>
                                                 <constraint firstAttribute="bottom" secondItem="bLd-6h-Roh" secondAttribute="bottom" id="R8v-bT-VT4"/>
+                                                <constraint firstItem="yEL-6V-ayB" firstAttribute="top" secondItem="4sd-Vx-zR1" secondAttribute="bottom" constant="4" id="VLU-ZC-4RK"/>
                                                 <constraint firstItem="bLd-6h-Roh" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" id="Wb6-tL-bD9"/>
-                                                <constraint firstItem="yEL-6V-ayB" firstAttribute="top" secondItem="oTC-Jo-qK7" secondAttribute="bottom" constant="4" id="i9v-Nh-XLF"/>
+                                                <constraint firstItem="4sd-Vx-zR1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oTC-Jo-qK7" secondAttribute="trailing" constant="8" id="Xox-ja-35c"/>
                                                 <constraint firstItem="oTC-Jo-qK7" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" constant="24" id="ofr-km-cDE"/>
+                                                <constraint firstItem="4sd-Vx-zR1" firstAttribute="centerY" secondItem="oTC-Jo-qK7" secondAttribute="centerY" id="vCw-G0-jFp"/>
                                                 <constraint firstItem="yEL-6V-ayB" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" constant="24" id="y90-LK-JZO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="inviteButton" destination="4sd-Vx-zR1" id="8o6-fF-DRy"/>
                                             <outlet property="numMembersLabel" destination="oTC-Jo-qK7" id="Fkw-8l-uHH"/>
                                             <outlet property="profileListView" destination="yEL-6V-ayB" id="pDL-sY-GsG"/>
                                             <outletCollection property="listViewConstraints" destination="iWI-hL-t2F" collectionClass="NSMutableArray" id="4L3-OS-Tym"/>

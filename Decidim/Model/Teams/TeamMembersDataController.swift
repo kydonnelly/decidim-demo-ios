@@ -82,4 +82,42 @@ class TeamMembersDataController: NetworkDataController {
         }
     }
     
+    public func inviteMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.teamId!), "admin", "membership", "invitation", "send", "\(userId)"]
+        
+        HTTPRequest.shared.put(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let memberInfos = response?["members"] as? [[String: Any]] else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            // overwrite old data
+            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
+            completion(nil)
+        }
+    }
+    
+    public func inviteMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.teamId!), "admin", "membership", "invitation", "send", "\(userId)"]
+        
+        HTTPRequest.shared.put(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let memberInfos = response?["members"] as? [[String: Any]] else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            // overwrite old data
+            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
+            completion(nil)
+        }
+    }
+    
 }

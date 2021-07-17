@@ -147,11 +147,21 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             case .members:
-                (cell as! TeamMemberListCell).setup(detail: detail) { [weak self] profileId in
+                (cell as! TeamMemberListCell).setup(detail: detail, inviteBlock: { [weak self] in
+                    guard let navController = self?.navigationController else { return }
+                    let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { toggleId, selectedId in
+                        if let selected = selectedId {
+                            TeamMembersDataController.shared(teamId: detail.team.id).inviteMember(selected) { _ in
+                                // todo
+                            }
+                        }
+                    }
+                    navController.pushViewController(profileVC, animated: true)
+                }, tappedProfileBlock: { [weak self] profileId in
                     guard let navController = self?.navigationController else { return }
                     let profileVC = ProfileViewController.create(profileId: profileId)
                     navController.pushViewController(profileVC, animated: true)
-                }
+                })
             case .actions:
                 (cell as! TeamActionListCell).setup(detail: detail)
             }

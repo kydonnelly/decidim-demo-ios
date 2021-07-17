@@ -13,7 +13,7 @@
         <!--TeamMembersViewController-->
         <scene sceneID="4aL-0j-Eob">
             <objects>
-                <viewController id="Ieg-4D-Dd6" userLabel="TeamMembersViewController" customClass="TeamMembersViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ieg-4D-Dd6" userLabel="TeamMembersViewController" customClass="TeamMembersViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g2t-cX-MSr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="76" id="kTc-FE-MfV" customClass="TeamMemberCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberCell" rowHeight="76" id="kTc-FE-MfV" customClass="TeamMemberCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="76"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kTc-FE-MfV" id="uon-bx-Td1">
@@ -128,8 +128,23 @@
                             <constraint firstItem="x6X-z6-aau" firstAttribute="top" secondItem="g2t-cX-MSr" secondAttribute="top" id="SZb-Bh-5SH"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Members" id="dYM-Hq-THi"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Members" id="dYM-Hq-THi">
+                        <barButtonItem key="rightBarButtonItem" id="VIs-Ak-ZNo">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                    <color key="value" name="SecondaryDark"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="tappedOptionsButton:" destination="Ieg-4D-Dd6" id="dgd-XT-T3t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="settingsItem" destination="VIs-Ak-ZNo" id="JHu-cu-ecu"/>
                         <outlet property="tableView" destination="x6X-z6-aau" id="xau-oE-moZ"/>
                     </connections>
                 </viewController>
@@ -150,6 +165,9 @@
         </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

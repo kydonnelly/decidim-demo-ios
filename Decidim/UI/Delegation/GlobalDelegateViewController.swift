@@ -83,7 +83,7 @@ extension GlobalDelegateViewController {
     @IBAction func changeDelegateTapped(_ sender: UIButton) {
         let category = "Global"
         let delegate = VoteDelegationManager.shared.getDelegates(category: category).first
-        let vc = ProfileSearchViewController.create(category: category, selectedProfileId: delegate) { [weak self] toggledId, selectedId in
+        let vc = ProfileSearchViewController.create(title: category, selectedProfileId: delegate) { [weak self] toggledId, selectedId in
             VoteDelegationManager.shared.updateDelegate(category: category, profileId: selectedId) { [weak self] _ in
                 self?.reloadUI()
             }

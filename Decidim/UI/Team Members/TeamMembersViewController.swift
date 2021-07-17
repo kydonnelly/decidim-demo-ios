@@ -14,6 +14,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     private static let MemberCellId = "MemberCell"
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var settingsItem: UIBarButtonItem!
     
     private var teamDetail: TeamDetail!
     private var dataController: TeamDetailDataController!
@@ -36,6 +37,8 @@ class TeamMembersViewController: UIViewController, CustomTableController {
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
+        
+        self.navigationItem.rightBarButtonItem = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +67,12 @@ class TeamMembersViewController: UIViewController, CustomTableController {
             self.tableView.showNoResults(message: "No group members", icon: .users)
         } else {
             self.tableView.hideNoResultsIfNeeded()
+        }
+        
+        if let myId = MyProfileController.shared.myProfileId, self.teamDetail.memberList.contains(where: { $0.user_id == myId }) {
+            self.navigationItem.rightBarButtonItem = self.settingsItem
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
         }
     }
     
@@ -149,6 +158,40 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
             let vc = ProfileViewController.create(profileId: member.user_id)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+}
+
+extension TeamMembersViewController {
+    
+    @IBAction func tappedOptionsButton(_ sender: UIBarButtonItem) {
+        let detail = self.teamDetail!
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+       
+        alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { toggleId, selectedId in
+                if let selected = selectedId {
+                    TeamMembersDataController.shared(teamId: detail.team.id).inviteMember(selected) { _ in
+                        // todo
+                    }
+                }
+            }
+            self.navigationController?.pushViewController(profileVC, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Requests", style: .default, handler: { [weak self] _ in
+            
+        }))
+         
+        if let presenter = alert.popoverPresentationController {
+            presenter.barButtonItem = sender
+        } else {
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _  in
+                weakAlert?.dismiss(animated: true, completion: nil)
+            }))
+        }
+
+        self.present(alert, animated: true, completion: nil)
     }
     
 }
