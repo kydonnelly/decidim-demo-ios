@@ -11,7 +11,7 @@ import UIKit
 
 class RegistrationViewController: UIViewController, CustomScrollController {
     
-    enum RegistrationType {
+    enum RegistrationType: Int {
         case newUser
         case existingUser
     }
@@ -21,13 +21,17 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var submitButton: UIButton!
-    @IBOutlet var registrationModeButton: UIButton!
+    @IBOutlet var optionsBar: OptionsBar!
     
     @IBOutlet var photoImageView: GiphyMediaView!
     @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
     
     private var thumbnailUrl: String?
-    private var currentMode: RegistrationType = .newUser
+    private var currentMode: RegistrationType = .newUser {
+        didSet {
+            self.refreshDisplayType()
+        }
+    }
     
     public static func create() -> RegistrationViewController {
         let sb = UIStoryboard(name: "Registration", bundle: .main)
@@ -42,6 +46,11 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         
         self.refreshDisplayType()
         self.refreshSubmitButton()
+        
+        self.optionsBar.setup(options: ["Sign Up", "Log In"], selectedIndex: self.currentMode.rawValue) { index in
+            guard let mode = RegistrationType(rawValue: index) else { return }
+            self.currentMode = mode
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,11 +89,9 @@ extension RegistrationViewController {
         switch self.currentMode {
         case .newUser:
             self.submitButton.setTitle("Create Account", for: .normal)
-            self.registrationModeButton.setTitle("Log In", for: .normal)
             self.photoContainerConstraint.constant = 72
         case .existingUser:
             self.submitButton.setTitle("Log In", for: .normal)
-            self.registrationModeButton.setTitle("Sign Up", for: .normal)
             self.photoContainerConstraint.constant = 0
         }
         
@@ -132,17 +139,6 @@ extension RegistrationViewController {
             self.blockView(message: "Logging In...")
             MyProfileController.shared.signIn(username: username, password: password, completion: updateBlock)
         }
-    }
-    
-    @IBAction func switchModeButtonPressed(_ sender: UIButton) {
-        switch self.currentMode {
-        case .newUser:
-            self.currentMode = .existingUser
-        case .existingUser:
-            self.currentMode = .newUser
-        }
-        
-        self.refreshDisplayType()
     }
     
 }

@@ -13,7 +13,7 @@
         <!--RegistrationViewController-->
         <scene sceneID="QWl-JX-lNx">
             <objects>
-                <viewController id="pL4-c4-HSy" userLabel="RegistrationViewController" customClass="RegistrationViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="pL4-c4-HSy" userLabel="RegistrationViewController" customClass="RegistrationViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OAQ-yv-mXd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-uA-RWz" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="565.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="549.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="775" text="VOTION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1v3-hf-kUf">
                                                 <rect key="frame" x="32" y="96" width="350" height="57.5"/>
@@ -30,16 +30,40 @@
                                                 <color key="textColor" name="PrimaryDark"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kA-li-zkE" customClass="PaddedTextField" customModule="Agora" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="201.5" width="350" height="34"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uN-1G-agg" customClass="OptionsBar" customModule="Votion" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="177.5" width="362" height="48"/>
+                                                <subviews>
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1n4-FF-2pC">
+                                                        <rect key="frame" x="157" y="-157" width="48" height="362"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <outlet property="dataSource" destination="4uN-1G-agg" id="yVW-ZU-rrM"/>
+                                                            <outlet property="delegate" destination="4uN-1G-agg" id="Wwy-N1-Z4m"/>
+                                                        </connections>
+                                                    </tableView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="48" id="9yW-Up-75k"/>
+                                                    <constraint firstItem="1n4-FF-2pC" firstAttribute="centerY" secondItem="4uN-1G-agg" secondAttribute="centerY" id="HAz-pT-eSm"/>
+                                                    <constraint firstItem="1n4-FF-2pC" firstAttribute="height" secondItem="4uN-1G-agg" secondAttribute="width" id="l7H-zw-KWy"/>
+                                                    <constraint firstItem="1n4-FF-2pC" firstAttribute="width" secondItem="4uN-1G-agg" secondAttribute="height" id="luK-4l-KQI"/>
+                                                    <constraint firstItem="1n4-FF-2pC" firstAttribute="centerX" secondItem="4uN-1G-agg" secondAttribute="centerX" id="pav-Fy-AiT"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="tableView" destination="1n4-FF-2pC" id="Fnn-VL-Q5d"/>
+                                                </connections>
+                                            </view>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kA-li-zkE" customClass="PaddedTextField" customModule="Votion" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="249.5" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="pL4-c4-HSy" id="K9Y-bw-E6A"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VC-XQ-hQg" customClass="PaddedTextField" customModule="Agora" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="251.5" width="350" height="34"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VC-XQ-hQg" customClass="PaddedTextField" customModule="Votion" customModuleProvider="target">
+                                                <rect key="frame" x="32" y="299.5" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                                 <connections>
@@ -47,7 +71,7 @@
                                                 </connections>
                                             </textField>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is3-ZG-Rq7">
-                                                <rect key="frame" x="32" y="309.5" width="350" height="72"/>
+                                                <rect key="frame" x="32" y="357.5" width="350" height="72"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-jY-oNp" customClass="GPHMediaView" customModule="GiphyUISDK">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
@@ -69,7 +93,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-ON-D3q" customClass="PillButton" customModule="Agora" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-ON-D3q" customClass="PillButton" customModule="Votion" customModuleProvider="target">
                                                         <rect key="frame" x="88" y="18" width="128" height="36"/>
                                                         <color key="backgroundColor" name="PrimaryBackground"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -101,7 +125,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="901" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-6V-M62">
-                                                <rect key="frame" x="120.5" y="405.5" width="173" height="48"/>
+                                                <rect key="frame" x="120.5" y="453.5" width="173" height="48"/>
                                                 <color key="backgroundColor" name="Action"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="d93-6d-bce"/>
@@ -124,51 +148,27 @@
                                                     <action selector="submitButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="qsc-sU-Q2N"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="900" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N2S-4W-fv1">
-                                                <rect key="frame" x="114" y="469.5" width="186" height="48"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="NSP-tj-90X"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <inset key="contentEdgeInsets" minX="64" minY="0.0" maxX="64" maxY="0.0"/>
-                                                <state key="normal" title="Sign Up">
-                                                    <color key="titleColor" name="PrimaryDark"/>
-                                                </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="24"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="switchModeButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="FAM-Qi-zPq"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="is3-ZG-Rq7" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="10j-8t-sgA"/>
                                             <constraint firstItem="is3-ZG-Rq7" firstAttribute="top" secondItem="5VC-XQ-hQg" secondAttribute="bottom" constant="24" id="1L3-zw-aW4"/>
+                                            <constraint firstAttribute="bottom" secondItem="zUL-6V-M62" secondAttribute="bottom" constant="48" id="6I8-gc-vDP"/>
                                             <constraint firstItem="1v3-hf-kUf" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="6vd-bZ-V39"/>
-                                            <constraint firstItem="N2S-4W-fv1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="DfT-9b-Wfc"/>
                                             <constraint firstAttribute="trailing" secondItem="5VC-XQ-hQg" secondAttribute="trailing" constant="32" id="Elt-0T-YFW"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="H9a-OZ-chW"/>
                                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="top" secondItem="9kA-li-zkE" secondAttribute="bottom" constant="16" id="JAw-8I-1fi"/>
-                                            <constraint firstItem="N2S-4W-fv1" firstAttribute="top" secondItem="zUL-6V-M62" secondAttribute="bottom" constant="16" id="JwG-Od-BwL"/>
-                                            <constraint firstAttribute="bottom" secondItem="N2S-4W-fv1" secondAttribute="bottom" priority="51" constant="48" id="L0M-wf-sIn"/>
+                                            <constraint firstItem="4uN-1G-agg" firstAttribute="top" secondItem="1v3-hf-kUf" secondAttribute="bottom" constant="24" id="Khe-7d-bWQ"/>
                                             <constraint firstAttribute="trailing" secondItem="9kA-li-zkE" secondAttribute="trailing" constant="32" id="MbL-vu-lQr"/>
-                                            <constraint firstItem="N2S-4W-fv1" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="QOw-Gn-Apk"/>
                                             <constraint firstItem="1v3-hf-kUf" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="U66-6z-DrP"/>
+                                            <constraint firstItem="9kA-li-zkE" firstAttribute="top" secondItem="4uN-1G-agg" secondAttribute="bottom" constant="24" id="aI5-PA-8qk"/>
                                             <constraint firstItem="is3-ZG-Rq7" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="arv-Gs-azY"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
                                             <constraint firstItem="9kA-li-zkE" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lu8-ph-Uzl"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="is3-ZG-Rq7" secondAttribute="bottom" constant="24" id="ncK-Lx-thL"/>
                                             <constraint firstItem="1v3-hf-kUf" firstAttribute="top" secondItem="2wu-uA-RWz" secondAttribute="top" constant="96" id="rGV-lC-lun"/>
-                                            <constraint firstItem="9kA-li-zkE" firstAttribute="top" secondItem="1v3-hf-kUf" secondAttribute="bottom" constant="48" id="wTg-2a-f8o"/>
+                                            <constraint firstAttribute="trailing" secondItem="4uN-1G-agg" secondAttribute="trailing" constant="32" id="vDE-IH-v33"/>
+                                            <constraint firstItem="4uN-1G-agg" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="20" symbolic="YES" id="w57-0b-t3V"/>
                                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="yhS-aV-VC6"/>
                                         </constraints>
                                     </view>
@@ -195,10 +195,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="Z88-Z5-Ixe"/>
                     <connections>
+                        <outlet property="optionsBar" destination="4uN-1G-agg" id="kCR-xk-rh1"/>
                         <outlet property="passwordField" destination="5VC-XQ-hQg" id="BYE-uS-Bg8"/>
                         <outlet property="photoContainerConstraint" destination="M7B-HJ-noj" id="3kT-Lf-s2v"/>
                         <outlet property="photoImageView" destination="9xc-jY-oNp" id="Ed4-aR-Y8n"/>
-                        <outlet property="registrationModeButton" destination="N2S-4W-fv1" id="79h-2r-0NK"/>
                         <outlet property="scrollView" destination="0mq-Is-BOZ" id="owh-Kp-UoU"/>
                         <outlet property="submitButton" destination="zUL-6V-M62" id="4UT-td-pPV"/>
                         <outlet property="usernameField" destination="9kA-li-zkE" id="WOZ-9z-KaJ"/>
