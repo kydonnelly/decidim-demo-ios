@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ieg-4D-Dd6">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--TeamInvitesViewController-->
+        <scene sceneID="4aL-0j-Eob">
+            <objects>
+                <viewController id="Ieg-4D-Dd6" userLabel="TeamInvitesViewController" customClass="TeamInvitesViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g2t-cX-MSr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="x6X-z6-aau">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="InviteCell" rowHeight="76" id="KK9-6R-fEI" customClass="TeamInviteCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="76"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KK9-6R-fEI" id="62N-DF-45X">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIm-oo-tCC" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                                    <rect key="frame" x="24" y="12" width="52" height="52"/>
+                                                    <color key="tintColor" systemColor="labelColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="pIm-oo-tCC" secondAttribute="height" multiplier="1:1" id="dpT-4y-UtH"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryLight"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                            <color key="value" name="SecondaryBackground"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="_iconInset">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-2Y-X8y">
+                                                    <rect key="frame" x="84" y="27.5" width="234" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVX-1c-z1D" userLabel="Reject Button">
+                                                    <rect key="frame" x="326" y="24" width="28" height="28"/>
+                                                    <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="28" id="87x-p5-Gem"/>
+                                                        <constraint firstAttribute="width" constant="28" id="ezD-uA-8rq"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" name="Action"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="x"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryDark"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" systemColor="systemRedColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedRejectButton:" destination="KK9-6R-fEI" eventType="touchUpInside" id="aLY-XF-B1e"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tCQ-Ak-nyU" userLabel="Approve Button">
+                                                    <rect key="frame" x="362" y="24" width="28" height="28"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="0.14999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="28" id="9zv-ck-0DM"/>
+                                                        <constraint firstAttribute="height" constant="28" id="fhZ-ub-qV5"/>
+                                                    </constraints>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" name="Action"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="check"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryDark"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                            <color key="value" systemColor="systemGreenColor"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                            <integer key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedApproveButton:" destination="KK9-6R-fEI" eventType="touchUpInside" id="jpy-sL-N7R"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uap-Wj-XIs">
+                                                    <rect key="frame" x="0.0" y="75" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="vmw-4O-Z0U"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pIm-oo-tCC" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="30h-ST-tzE"/>
+                                                <constraint firstItem="Uap-Wj-XIs" firstAttribute="leading" secondItem="62N-DF-45X" secondAttribute="leading" id="A0y-XD-Mzs"/>
+                                                <constraint firstItem="tCQ-Ak-nyU" firstAttribute="leading" secondItem="JVX-1c-z1D" secondAttribute="trailing" constant="8" id="AyP-fS-X09"/>
+                                                <constraint firstItem="tCQ-Ak-nyU" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="D3t-UE-8Gz"/>
+                                                <constraint firstAttribute="bottom" secondItem="Uap-Wj-XIs" secondAttribute="bottom" id="Fkn-D9-EHg"/>
+                                                <constraint firstAttribute="trailing" secondItem="Uap-Wj-XIs" secondAttribute="trailing" id="Gqy-RP-JzT"/>
+                                                <constraint firstItem="7Ps-2Y-X8y" firstAttribute="leading" secondItem="pIm-oo-tCC" secondAttribute="trailing" constant="8" id="Hk6-m2-Hxz"/>
+                                                <constraint firstItem="JVX-1c-z1D" firstAttribute="centerY" secondItem="tCQ-Ak-nyU" secondAttribute="centerY" id="K2g-I6-PA6"/>
+                                                <constraint firstItem="pIm-oo-tCC" firstAttribute="leading" secondItem="62N-DF-45X" secondAttribute="leading" constant="24" id="LoZ-LR-XH0"/>
+                                                <constraint firstItem="JVX-1c-z1D" firstAttribute="leading" secondItem="7Ps-2Y-X8y" secondAttribute="trailing" constant="8" id="mMt-SS-0Lo"/>
+                                                <constraint firstAttribute="trailing" secondItem="tCQ-Ak-nyU" secondAttribute="trailing" constant="24" id="o2g-sh-nC0"/>
+                                                <constraint firstItem="7Ps-2Y-X8y" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="pkJ-c5-Jiy"/>
+                                                <constraint firstItem="pIm-oo-tCC" firstAttribute="top" secondItem="62N-DF-45X" secondAttribute="top" constant="12" id="vQq-3C-rvZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="7Ps-2Y-X8y" id="bVt-oS-UMf"/>
+                                            <outlet property="teamImageView" destination="pIm-oo-tCC" id="G67-hI-Eeo"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="hPf-P7-PQ5">
+                                        <rect key="frame" x="0.0" y="104" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hPf-P7-PQ5" id="IDG-nh-eo7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="IAQ-re-1sV">
+                                                    <rect key="frame" x="197" y="12" width="20" height="20"/>
+                                                    <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </activityIndicatorView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="IAQ-re-1sV" firstAttribute="centerX" secondItem="IDG-nh-eo7" secondAttribute="centerX" id="Uny-8P-0VJ"/>
+                                                <constraint firstItem="IAQ-re-1sV" firstAttribute="centerY" secondItem="IDG-nh-eo7" secondAttribute="centerY" id="qHa-Tp-Bcz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ieg-4D-Dd6" id="mBC-sK-Spu"/>
+                                    <outlet property="delegate" destination="Ieg-4D-Dd6" id="Wpo-Ug-bQ3"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Wwu-Zn-2pv"/>
+                        <color key="backgroundColor" name="SecondaryBackground"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="x6X-z6-aau" secondAttribute="bottom" id="O6N-E3-4Dn"/>
+                            <constraint firstItem="x6X-z6-aau" firstAttribute="leading" secondItem="g2t-cX-MSr" secondAttribute="leading" id="ONU-HQ-QOE"/>
+                            <constraint firstAttribute="trailing" secondItem="x6X-z6-aau" secondAttribute="trailing" id="PFM-0F-SBB"/>
+                            <constraint firstItem="x6X-z6-aau" firstAttribute="top" secondItem="g2t-cX-MSr" secondAttribute="top" id="SZb-Bh-5SH"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Team Invites" id="dYM-Hq-THi"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="x6X-z6-aau" id="xau-oE-moZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fc9-64-O4F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="123"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Action">
+            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

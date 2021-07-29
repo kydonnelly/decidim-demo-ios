@@ -98,7 +98,7 @@ class TeamJoinRequestDataController: NetworkDataController {
             }
             
             if let member = TeamMember.from(dict: userInfo) {
-                self?.data = self?.allJoinRequests.filter { $0.user_id != userId }
+                self?.data = self?.allJoinRequests.filter { $0.user_id != member.user_id }
                 TeamMembersDataController.shared(teamId: member.team_id).invalidate()
             }
             

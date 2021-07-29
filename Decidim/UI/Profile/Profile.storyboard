@@ -497,6 +497,17 @@
                                 <action selector="settingsButtonTapped:" destination="G5u-Ii-366" id="DSg-jf-FIe"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" id="2Gb-tv-0VP">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bell"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                    <color key="value" name="PrimaryDark"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="notificationsButtonTapped:" destination="G5u-Ii-366" id="i6N-dZ-iGR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tabOptionsBar" destination="2gb-XR-g5z" id="ssY-Cz-oPM"/>

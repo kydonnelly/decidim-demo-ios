@@ -47,6 +47,7 @@ class ProfileViewController: UIViewController, CustomTableController {
         if self.profileId != nil {
             self.title = "Profile"
             self.navigationItem.leftBarButtonItem = nil
+            self.navigationItem.rightBarButtonItem = nil
         } else {
             self.title = "My Profile"
             self.profileId = MyProfileController.shared.myProfileId
@@ -240,6 +241,11 @@ extension ProfileViewController {
     @IBAction func settingsButtonTapped(_ sender: Any) {
         let settingsVC = SettingsViewController.create()
         self.navigationController?.pushViewController(settingsVC, animated: true)
+    }
+    
+    @IBAction func notificationsButtonTapped(_ sender: Any) {
+        let invitesVC = TeamInvitesViewController.create()
+        self.navigationController?.pushViewController(invitesVC, animated: true)
     }
     
 }
