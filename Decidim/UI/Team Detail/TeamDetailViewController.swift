@@ -243,11 +243,11 @@ extension TeamDetailViewController {
         
         let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
             if profileId == selectedProfileId {
-                TeamMembersDataController.shared(teamId: teamId).inviteMember(profileId) { _ in
+                TeamInvitationsDataController.shared(teamId: teamId).inviteMember(profileId) { _ in
                     // todo
                 }
             } else {
-                TeamMembersDataController.shared(teamId: teamId).cancelInvitation(profileId) { _ in
+                TeamInvitationsDataController.shared(teamId: teamId).cancelInvitation(profileId) { _ in
                     // todo
                 }
             }

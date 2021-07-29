@@ -65,6 +65,10 @@
 		2739822026A2776C00B550FF /* TeamJoinRequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */; };
 		2739822A26A28A3300B550FF /* UserTeamsListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739822926A28A3300B550FF /* UserTeamsListDataController.swift */; };
 		2739823026A298F600B550FF /* TeamsOwnedDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739822F26A298F600B550FF /* TeamsOwnedDataController.swift */; };
+		2739823626B2535300B550FF /* TeamInvitationsDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739823526B2535300B550FF /* TeamInvitationsDataController.swift */; };
+		2739823C26B2571800B550FF /* TeamInvitationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739823B26B2571800B550FF /* TeamInvitationCell.swift */; };
+		2739824226B2575200B550FF /* TeamInvitationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739824126B2575200B550FF /* TeamInvitationsViewController.swift */; };
+		2739824826B2588F00B550FF /* TeamInvitations.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2739824726B2588F00B550FF /* TeamInvitations.storyboard */; };
 		27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */; };
 		27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */; };
 		27490CC3260EC76000FAD841 /* HorizontalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */; };
@@ -311,6 +315,10 @@
 		2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamJoinRequestsViewController.swift; sourceTree = "<group>"; };
 		2739822926A28A3300B550FF /* UserTeamsListDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTeamsListDataController.swift; sourceTree = "<group>"; };
 		2739822F26A298F600B550FF /* TeamsOwnedDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsOwnedDataController.swift; sourceTree = "<group>"; };
+		2739823526B2535300B550FF /* TeamInvitationsDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInvitationsDataController.swift; sourceTree = "<group>"; };
+		2739823B26B2571800B550FF /* TeamInvitationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInvitationCell.swift; sourceTree = "<group>"; };
+		2739824126B2575200B550FF /* TeamInvitationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamInvitationsViewController.swift; sourceTree = "<group>"; };
+		2739824726B2588F00B550FF /* TeamInvitations.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamInvitations.storyboard; sourceTree = "<group>"; };
 		27490CBE260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIconCollectionCellAdd.swift; sourceTree = "<group>"; };
 		27490CC0260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileIconCollectionCellAdd.xib; sourceTree = "<group>"; };
 		27490CC2260EC75F00FAD841 /* HorizontalListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalListViewController.swift; sourceTree = "<group>"; };
@@ -679,6 +687,9 @@
 		2739821A26A2773800B550FF /* Team Requests */ = {
 			isa = PBXGroup;
 			children = (
+				2739823B26B2571800B550FF /* TeamInvitationCell.swift */,
+				2739824726B2588F00B550FF /* TeamInvitations.storyboard */,
+				2739824126B2575200B550FF /* TeamInvitationsViewController.swift */,
 				2739821C26A2776C00B550FF /* TeamJoinRequestCell.swift */,
 				2739821B26A2776C00B550FF /* TeamJoinRequests.storyboard */,
 				2739821D26A2776C00B550FF /* TeamJoinRequestsViewController.swift */,
@@ -1070,6 +1081,7 @@
 				27F8838824E791A100B216D2 /* TeamDetail.swift */,
 				2773D155257F7BD4007FD3F0 /* TeamMember.swift */,
 				2773D15925849FE7007FD3F0 /* TeamDetailDataController.swift */,
+				2739823526B2535300B550FF /* TeamInvitationsDataController.swift */,
 				27F8838424E7914700B216D2 /* TeamListDataController.swift */,
 				2773D157257F8B88007FD3F0 /* TeamMembersDataController.swift */,
 				2739821626A2750000B550FF /* TeamJoinRequestDataController.swift */,
@@ -1263,6 +1275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27A4ADE62612DD4E003C507A /* Giphy-Info.plist in Resources */,
+				2739824826B2588F00B550FF /* TeamInvitations.storyboard in Resources */,
 				27293FAC2506BFBF000D27D1 /* ChangePassword.storyboard in Resources */,
 				27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */,
 				270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */,
@@ -1510,6 +1523,7 @@
 				27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */,
 				27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */,
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
+				2739824226B2575200B550FF /* TeamInvitationsViewController.swift in Sources */,
 				27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */,
 				27A81F73261435C60088E07C /* MultiLineEntryCell.swift in Sources */,
 				27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */,
@@ -1538,6 +1552,7 @@
 				2717F48024E0C79100189F7C /* EditProposalViewController.swift in Sources */,
 				27490CBF260DC3AA00FAD841 /* ProfileIconCollectionCellAdd.swift in Sources */,
 				27490CCC260ECFBE00FAD841 /* ExploreListViewController.swift in Sources */,
+				2739823626B2535300B550FF /* TeamInvitationsDataController.swift in Sources */,
 				27C2DF312674924E0094349F /* Organization.graphql.swift in Sources */,
 				27293FB52506CEB0000D27D1 /* ProfileTabSection.swift in Sources */,
 				277FD2D52511FD9D0063FFE6 /* Users.graphql.swift in Sources */,
@@ -1588,6 +1603,7 @@
 				2739747624AB267B00CA16A3 /* ProposalListCell.swift in Sources */,
 				2717F46824DAA9C200189F7C /* VotingOptionCell.swift in Sources */,
 				27293FCE25071F8F000D27D1 /* NoResultsView.swift in Sources */,
+				2739823C26B2571800B550FF /* TeamInvitationCell.swift in Sources */,
 				27649C95260AE2F7003D29D4 /* IssueDetailAuthorCell.swift in Sources */,
 				27A81F362613D73E0088E07C /* Issue+HasDeadline.swift in Sources */,
 				2763CA96262293CD007B0E2E /* IssueFollowerCell.swift in Sources */,

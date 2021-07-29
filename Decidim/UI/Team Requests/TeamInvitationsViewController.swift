@@ -1,34 +1,34 @@
 //
-//  TeamJoinRequestsViewController.swift
+//  TeamInvitationsViewController.swift
 //  Decidim
 //
-//  Created by Kyle Donnelly on 7/16/21.
+//  Created by Kyle Donnelly on 7/28/21.
 //  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
 
 import UIKit
 
-class TeamJoinRequestsViewController: UIViewController, CustomTableController {
+class TeamInvitationsViewController: UIViewController, CustomTableController {
     
     private static let LoadingCellId = "LoadingCell"
-    private static let RequestCellId = "RequestCell"
+    private static let InvitationCellId = "InvitationCell"
     
     @IBOutlet var tableView: UITableView!
     
     private var teamDetail: TeamDetail!
-    private var joinRequests: [TeamMember]?
-    private var dataController: TeamJoinRequestDataController!
+    private var invitations: [TeamMember]?
+    private var dataController: TeamInvitationsDataController!
     
     public static func create(detail: TeamDetail) -> UIViewController {
-        let sb = UIStoryboard(name: "TeamJoinRequests", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! TeamJoinRequestsViewController
+        let sb = UIStoryboard(name: "TeamInvitations", bundle: .main)
+        let vc = sb.instantiateInitialViewController() as! TeamInvitationsViewController
         vc.setup(detail: detail)
         return vc
     }
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
+        self.dataController = TeamInvitationsDataController.shared(teamId: detail.team.id)
     }
     
     override func viewDidLoad() {
@@ -57,12 +57,12 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
-        self.joinRequests = self.dataController.allJoinRequests
+        self.invitations = self.dataController.allInvitations
         
         self.tableView.reloadData()
         
-        if self.dataController.donePaging && self.dataController.allJoinRequests.count == 0 {
-            self.tableView.showNoResults(message: "No join requests", icon: .users)
+        if self.dataController.donePaging && self.dataController.allInvitations.count == 0 {
+            self.tableView.showNoResults(message: "No invitations", icon: .users)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }
@@ -70,7 +70,7 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
     
 }
 
-extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDelegate {
+extension TeamInvitationsViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.dataController.donePaging {
@@ -82,7 +82,7 @@ extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.joinRequests?.count ?? 0
+            return self.invitations?.count ?? 0
         } else if section == 1 {
             return 1
         } else {
@@ -100,23 +100,17 @@ extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.RequestCellId, for: indexPath) as! TeamJoinRequestCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.InvitationCellId, for: indexPath) as! TeamInvitationCell
             
-            let member = self.joinRequests![indexPath.row]
+            let member = self.invitations![indexPath.row]
             
             let profileInfos = ProfileInfoDataController.shared().data as? [ProfileInfo]
             let profileInfo = profileInfos?.first { $0.profileId == member.user_id }
             
-            cell.setup(profile: profileInfo) { [weak self] approved in
+            cell.setup(profile: profileInfo) { [weak self] in
                 guard let self = self else { return }
-                if approved {
-                    self.dataController.approveRequest(member.user_id) { [weak self] _ in
-                        self?.refreshData()
-                    }
-                } else {
-                    self.dataController.rejectRequest(member.user_id) { [weak self] _ in
-                        self?.refreshData()
-                    }
+                self.dataController.cancelInvitation(member.user_id) { [weak self] _ in
+                    self?.refreshData()
                 }
             }
 

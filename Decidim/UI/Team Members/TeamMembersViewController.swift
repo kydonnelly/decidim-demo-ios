@@ -188,6 +188,11 @@ extension TeamMembersViewController {
             let requestsVC = TeamJoinRequestsViewController.create(detail: detail)
             self.navigationController?.pushViewController(requestsVC, animated: true)
         }))
+        alert.addAction(UIAlertAction(title: "Invitations", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            let requestsVC = TeamInvitationsViewController.create(detail: detail)
+            self.navigationController?.pushViewController(requestsVC, animated: true)
+        }))
          
         if let presenter = alert.popoverPresentationController {
             presenter.barButtonItem = sender
