@@ -148,15 +148,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 }
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail, inviteBlock: { [weak self] in
-                    guard let navController = self?.navigationController else { return }
-                    let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { toggleId, selectedId in
-                        if let selected = selectedId {
-                            TeamMembersDataController.shared(teamId: detail.team.id).inviteMember(selected) { _ in
-                                // todo
-                            }
-                        }
-                    }
-                    navController.pushViewController(profileVC, animated: true)
+                    self?.showInviteScreen()
                 }, tappedProfileBlock: { [weak self] profileId in
                     guard let navController = self?.navigationController else { return }
                     let profileVC = ProfileViewController.create(profileId: profileId)
@@ -239,6 +231,28 @@ extension TeamDetailViewController {
         }
 
         self.present(alert, animated: true, completion: nil)
+    }
+    
+}
+
+extension TeamDetailViewController {
+    
+    fileprivate func showInviteScreen() {
+        let teamId = self.team.id
+        let selectedId = self.teamDetail?.memberList.first?.user_id
+        
+        let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
+            if profileId == selectedProfileId {
+                TeamMembersDataController.shared(teamId: teamId).inviteMember(profileId) { _ in
+                    // todo
+                }
+            } else {
+                TeamMembersDataController.shared(teamId: teamId).cancelInvitation(profileId) { _ in
+                    // todo
+                }
+            }
+        }
+        self.navigationController?.pushViewController(inviteVC, animated: true)
     }
     
 }

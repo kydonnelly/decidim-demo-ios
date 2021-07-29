@@ -85,18 +85,41 @@ class TeamMembersDataController: NetworkDataController {
     public func inviteMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
         let args: [String] = [String(describing: self.teamId!), "admin", "membership", "invitation", "send", "\(userId)"]
         
-        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let memberInfos = response?["members"] as? [[String: Any]] else {
+            guard let status = response?["status"] as? String else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
+            guard status == "success" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
             
-            // overwrite old data
-            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
+            completion(nil)
+        }
+    }
+    
+    public func cancelInvitation(_ userId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.teamId!), "admin", "membership", "invitation", "cancel", "\(userId)"]
+        
+        HTTPRequest.shared.delete(endpoint: "teams", args: args) { response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard let status = response?["status"] as? String else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            guard status == "success" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
+            
             completion(nil)
         }
     }

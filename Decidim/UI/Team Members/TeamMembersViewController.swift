@@ -171,8 +171,12 @@ extension TeamMembersViewController {
         alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { toggleId, selectedId in
-                if let selected = selectedId {
-                    TeamMembersDataController.shared(teamId: detail.team.id).inviteMember(selected) { _ in
+                if toggleId == selectedId {
+                    TeamInvitationsDataController.shared(teamId: detail.team.id).inviteMember(toggleId) { _ in
+                        // todo
+                    }
+                } else {
+                    TeamInvitationsDataController.shared(teamId: detail.team.id).cancelInvitation(toggleId) { _ in
                         // todo
                     }
                 }
