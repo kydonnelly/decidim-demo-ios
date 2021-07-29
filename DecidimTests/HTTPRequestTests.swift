@@ -1129,6 +1129,89 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertNil(receivedError)
         XCTAssertEqual(responseLength, responseList?.count)
     }
+    
+    func testHTTPRequest_UserTeams() {
+        // setup
+        let request = HTTPRequest.shared
+        let userId = "2"
+        
+        let expectation = XCTestExpectation(description: "user team membership response")
+        var receivedError: Error? = nil
+        var responseList: [Team]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["list", "byAccount", "member", "\(userId)"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let teamInfos = response?["user_teams"] as? [[String: Any]] {
+                responseLength = teamInfos.count
+                responseList = teamInfos.compactMap { Team.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNotNil(responseList)
+        XCTAssertEqual(responseLength, responseList?.count)
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_TeamsOwned() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "owned teams response")
+        var receivedError: Error? = nil
+        var responseList: [Team]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["myOwnership"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let teamInfos = response?["user_teams"] as? [[String: Any]] {
+                responseLength = teamInfos.count
+                responseList = teamInfos.compactMap { Team.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNotNil(responseList)
+        XCTAssertEqual(responseLength, responseList?.count)
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_TeamsUserOwns() {
+        // setup
+        let request = HTTPRequest.shared
+        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "teams owned response")
+        var receivedError: Error? = nil
+        var responseList: [Team]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["list", "byAccount", "owner", "\(userId)"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let teamInfos = response?["user_teams"] as? [[String: Any]] {
+                responseLength = teamInfos.count
+                responseList = teamInfos.compactMap { Team.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNotNil(responseList)
+        XCTAssertEqual(responseLength, responseList?.count)
+        XCTAssertNil(receivedError)
+    }
 
     func testHTTPRequest_Team() {
         // setup
