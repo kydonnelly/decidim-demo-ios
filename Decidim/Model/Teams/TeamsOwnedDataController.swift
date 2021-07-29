@@ -10,8 +10,25 @@ import Foundation
 
 class TeamsOwnedDataController: NetworkDataController {
     
+    private var userId: Int?
+    
+    static func shared(userId: Int) -> Self {
+        let controller = self.shared(keyInfo: "\(userId)")
+        controller.userId = userId
+        return controller
+    }
+    
+    private var args: [String] {
+        if let userId = self.userId {
+            return ["list", "byAccount", "member", String(describing: userId)]
+        } else {
+            return ["myOwnership"]
+        }
+    }
+    
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        HTTPRequest.shared.get(endpoint: "teams", args: ["myOwnership"]) { response, error in
+        
+        HTTPRequest.shared.get(endpoint: "teams", args: self.args) { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return

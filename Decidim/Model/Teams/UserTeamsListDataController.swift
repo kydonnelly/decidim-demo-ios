@@ -26,7 +26,7 @@ class UserTeamsListDataController: NetworkDataController {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
-            guard let teamInfos = response?["teams"] as? [[String: Any]] else {
+            guard let teamInfos = response?["user_teams"] as? [[String: Any]] else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
             }
