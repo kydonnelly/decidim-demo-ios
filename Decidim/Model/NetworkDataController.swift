@@ -50,7 +50,7 @@ class NetworkDataController {
         }
     }
     
-    internal required init(cacheDuration: TimeInterval = 15) {
+    internal required init(cacheDuration: TimeInterval = 300) {
         self.cacheDuration = cacheDuration
     }
     
