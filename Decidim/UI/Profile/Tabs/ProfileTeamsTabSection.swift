@@ -37,11 +37,11 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         
         guard let profileId = dataSource.profileId else { return }
         self.teamsDataController = UserTeamsListDataController.shared(userId: profileId)
+        self.ownedDataController = TeamsOwnedDataController.shared(userId: profileId)
+        
         self.teamsDataController.refresh { [weak self] dc in
             self?.reloadData()
         }
-        
-        self.ownedDataController = TeamsOwnedDataController.shared()
         self.ownedDataController.refresh { [weak self] dc in
             self?.reloadData()
         }
