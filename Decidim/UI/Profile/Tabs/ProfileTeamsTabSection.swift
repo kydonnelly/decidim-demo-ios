@@ -26,8 +26,11 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
     }
     
     private weak var dataSource: ProfileTabDataSource?
-    private var teamsDataController: UserTeamsListDataController!
+    
+    private var ownedTeams: [TeamDetail] = []
+    private var joinedTeams: [TeamDetail] = []
     private var ownedDataController: TeamsOwnedDataController!
+    private var teamsDataController: UserTeamsListDataController!
     
     func setup(dataSource: ProfileTabDataSource) {
         self.dataSource = dataSource
@@ -52,6 +55,12 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
             return
         }
         
+        self.ownedTeams = self.ownedDataController.allTeams
+        let ownedTeamIds = Set(self.ownedTeams.map { $0.team.id })
+        self.joinedTeams = self.teamsDataController.allTeams.filter {
+            !ownedTeamIds.contains($0.team.id)
+        }
+        
         dataSource.tableView.reloadData()
         
         if self.teamsDataController.donePaging && self.teamsDataController.allTeams.count == 0 {
@@ -64,9 +73,9 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
     fileprivate func teams(section: TableSection) -> [TeamDetail] {
         switch section {
         case .owned:
-            return self.ownedDataController.allTeams
+            return self.ownedTeams
         case .joined:
-            return self.teamsDataController.allTeams
+            return self.joinedTeams
         }
     }
     
