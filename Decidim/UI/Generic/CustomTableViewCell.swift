@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// General purpose cell that provides consistent selection UI throughout the app
 class CustomTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
