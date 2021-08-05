@@ -118,7 +118,7 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
             
             var canManage = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canManage = teamDetail.memberList.contains { $0.user_id == myProfileId && $0.status == .joined }
+                canManage = teamDetail.memberList.contains { $0.user_id == myProfileId && $0.isAdmin }
             }
             
             let profileInfos = ProfileInfoDataController.shared().data as? [ProfileInfo]

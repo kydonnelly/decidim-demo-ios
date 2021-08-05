@@ -162,7 +162,7 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
             
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canUpdate = self.teamDetail.memberList.contains { $0.user_id == myProfileId && $0.status == .joined }
+                canUpdate = self.teamDetail.memberList.contains { $0.user_id == myProfileId && $0.isAdmin }
             }
             
             cell.setup(description: action.description, status: section.asActionStatus, canUpdate: canUpdate) { [weak self] in
@@ -199,7 +199,7 @@ extension TeamActionsViewController: UITableViewDataSource, UITableViewDelegate 
         if indexPath.section < Sections.allCases.count {
             var canUpdate = false
             if let myProfileId = MyProfileController.shared.myProfileId {
-                canUpdate = self.teamDetail.memberList.contains { $0.user_id == myProfileId && $0.status == .joined }
+                canUpdate = self.teamDetail.memberList.contains { $0.user_id == myProfileId && $0.isAdmin }
             }
             
             if canUpdate {

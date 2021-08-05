@@ -15,6 +15,7 @@ struct TeamMember {
     let createdAt: Date
     let updatedAt: Date
     let status: TeamMemberStatus
+    let isAdmin: Bool
     
     public static func from(dict: [String: Any]) -> TeamMember? {
         guard let memberId = dict["id"] as? Int,
@@ -36,11 +37,15 @@ struct TeamMember {
             memberStatus = tms
         }
         
+        // this field is nil when not an admin
+        let isAdmin = (dict["admin"] as? Bool) ?? false
+        
         return TeamMember(id: memberId,
                           user_id: userId,
                           team_id: teamId,
                           createdAt: createdDate,
                           updatedAt: updatedDate,
-                          status: memberStatus)
+                          status: memberStatus,
+                          isAdmin: isAdmin)
     }
 }
