@@ -41,7 +41,7 @@ class TeamJoinRequestDataController: NetworkDataController {
     }
     
     public func sendJoinRequest(completion: @escaping (Error?) -> Void) {
-        let args: [String] = [String(describing: self.teamId!), "admin", "membership", "request", "send"]
+        let args: [String] = [String(describing: self.teamId!), "membership", "request", "send"]
         
         HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
             guard error == nil else {
@@ -60,7 +60,7 @@ class TeamJoinRequestDataController: NetworkDataController {
     }
     
     public func cancelJoinRequest(completion: @escaping (Error?) -> Void) {
-        let args: [String] = [String(describing: self.teamId!), "admin", "membership", "request", "cancel"]
+        let args: [String] = [String(describing: self.teamId!), "membership", "request", "cancel"]
         
         HTTPRequest.shared.delete(endpoint: "teams", args: args) { [weak self] response, error in
             guard error == nil else {
