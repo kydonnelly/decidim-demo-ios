@@ -64,6 +64,7 @@ class EditActionViewController: UIViewController, CustomTableController {
             self.actionDescription = editingAction.description
 //            self.deadline = editingAction.deadline
             self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
+            self.isOngoing = editingAction.status == .ongoing
         } else {
             self.refreshDoneButton()
             self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
@@ -196,7 +197,7 @@ extension EditActionViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! VotePreferencesToggleCell
-            cell.setup(title: "Ongoing", isOn: false) { [weak self] isOn in
+            cell.setup(title: "Ongoing", isOn: self.isOngoing) { [weak self] isOn in
                 self?.isOngoing = isOn
             }
             return cell
