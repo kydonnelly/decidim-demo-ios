@@ -104,7 +104,7 @@ class TeamListViewController: UIViewController, CustomTableController {
         let memberStatus: TeamMemberStatus? = {
             switch section {
             case .invited: return .invited
-            case .joined: return .joined
+            case .joined: return .active
             case .requested: return .requested
             case .recommended: return nil
             }

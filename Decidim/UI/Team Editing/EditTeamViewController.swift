@@ -116,7 +116,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Creating group...")
-        TeamListDataController.shared().addTeam(title: name, description: description, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .joined]) { [weak self] error in
+        TeamListDataController.shared().addTeam(title: name, description: description, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .active]) { [weak self] error in
             self?.unblockView()
             
             if error == nil {

@@ -123,27 +123,27 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     guard let self = self else { return }
                     guard let profileId = MyProfileController.shared.myProfileId else { return }
                     
-                    var newStatus: TeamMemberStatus?
-                    switch status {
-                    case .none:
-                        newStatus = .requested
-                    case .invited:
-                        newStatus = .joined
-                    case .joined:
-                        newStatus = nil
-                    case .requested:
-                        return
+                    let completion: (Error?) -> Void = { [weak self] _ in
+                        self?.refreshData()
                     }
                     
-                    let dataController = TeamMembersDataController.shared(teamId: detail.team.id)
-                    if let newStatus = newStatus {
-                        dataController.updateMember(profileId, status: newStatus, completion: { [weak self] _ in
-                            self?.refreshData()
-                        })
-                    } else {
-                        dataController.removeMember(profileId) { [weak self] _ in
-                            self?.refreshData()
-                        }
+                    switch status {
+                    case .none:
+                        let dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
+                        dataController.sendJoinRequest(completion: completion)
+                    case .invited:
+                        let dataController = TeamInvitesDataController.shared()
+                        dataController.acceptInvite(detail.team.id, completion: completion)
+                    case .active:
+                        let dataController = UserTeamsListDataController.shared(userId: profileId)
+                        dataController.leaveTeam(detail.team.id, completion: completion)
+                    case .requested:
+                        let dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
+                        dataController.cancelJoinRequest(completion: completion)
+                    case .banned:
+                        completion(nil)
+                    case .unknown:
+                        completion(nil)
                     }
                 }
             case .members:

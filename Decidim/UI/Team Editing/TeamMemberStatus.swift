@@ -11,5 +11,8 @@ import Foundation
 enum TeamMemberStatus: String, CaseIterable {
     case invited
     case requested
-    case joined
+    case active
+    case banned
+    
+    case unknown
 }

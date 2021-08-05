@@ -30,7 +30,7 @@ class TeamMemberListCell: CustomTableViewCell {
             guard let self = self else { return }
             
             let allProfiles = dc.data as? [ProfileInfo] ?? []
-            let allMembers = Set<Int>(detail.memberList.filter { $0.status == .joined }.map { $0.user_id })
+            let allMembers = Set<Int>(detail.memberList.filter { $0.status == .active }.map { $0.user_id })
             let profiles = allProfiles.filter { allMembers.contains($0.profileId) }
             self.profileListView.setup(profiles: profiles, showAddCell: false, tappedProfileBlock: { profileId in
                 tappedProfileBlock?(profileId)

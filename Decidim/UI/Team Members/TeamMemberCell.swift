@@ -27,10 +27,14 @@ class TeamMemberCell: CustomTableViewCell {
         switch status {
         case .requested:
             self.manageButton.setTitle("Approve", for: .normal)
-        case .joined:
-            self.manageButton.setTitle("Remove", for: .normal)
+        case .active:
+            self.manageButton.setTitle("Ban", for: .normal)
         case .invited:
-            self.manageButton.setTitle("Uninvite", for: .normal)
+            self.manageButton.setTitle("Cancel", for: .normal)
+        case .banned:
+            self.manageButton.setTitle("Unban", for: .normal)
+        case .unknown:
+            self.manageButton.setTitle("", for: .normal)
         }
     }
     

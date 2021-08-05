@@ -1320,6 +1320,90 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseStatus, "deleted")
         XCTAssertNil(receivedError)
     }
+    
+    func testHTTPRequest_LeaveTeam() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        
+        let expectation = XCTestExpectation(description: "leave team response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        // test
+        request.delete(endpoint: "teams", args: ["\(teamId)", "member", "leave"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_BanUserFromTeam() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 21
+        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "team ban response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: TeamMember? = nil
+        
+        // test
+        request.post(endpoint: "teams", args: ["\(teamId)", "admin", "ban", "\(userId)"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            
+            if let memberInfo = response?["team_user"] as? [String: Any] {
+                responseItem = TeamMember.from(dict: memberInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(userId, responseItem?.user_id)
+        XCTAssertEqual(teamId, responseItem?.team_id)
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_UnbanUserFromTeam() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 21
+        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "team ban response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: TeamMember? = nil
+        
+        // test
+        request.post(endpoint: "teams", args: ["\(teamId)", "admin", "unban", "\(userId)"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            
+            if let memberInfo = response?["team_user"] as? [String: Any] {
+                responseItem = TeamMember.from(dict: memberInfo)
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(userId, responseItem?.user_id)
+        XCTAssertEqual(teamId, responseItem?.team_id)
+        XCTAssertNil(receivedError)
+    }
 
     func testHTTPRequest_TeamDetail() {
         // setup
@@ -1503,7 +1587,7 @@ class HTTPRequestTests: XCTestCase {
         var responseList: [TeamMember]? = nil
         
         // test
-        request.get(endpoint: "teams", args: ["1", "users"]) { response, error in
+        request.get(endpoint: "teams", args: ["1", "info"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
@@ -1526,66 +1610,179 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseLength, responseList?.count)
     }
 
-    func testHTTPRequest_AddTeamUser() {
+    func testHTTPRequest_SendMembershipRequest() {
         // setup
         let request = HTTPRequest.shared
         let teamId = 1
-        let userId = 2
         
-        let expectation = XCTestExpectation(description: "add user response")
+        let expectation = XCTestExpectation(description: "join team request response")
         var receivedError: Error? = nil
         var responseStatus: String? = nil
-        var responseList: [TeamMember]? = nil
         
         // test
-        request.put(endpoint: "teams", args: ["\(teamId)", "users", "\(userId)", "add"], payload: [:]) { response, error in
+        request.post(endpoint: "teams", args: ["\(teamId)", "membership", "request", "send"], payload: [:]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let userInfos = response?["members"] as? [[String: Any]] {
-                responseList = userInfos.compactMap { TeamMember.from(dict: $0) }
-            }
         }
         
-        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
-        XCTAssertEqual(responseStatus, "found")
-        XCTAssertNotNil(responseList)
-        XCTAssertNil(receivedError)
-        
         // verify
-        XCTAssertEqual(responseList?.contains { $0.user_id == userId && $0.team_id == teamId }, true)
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNil(receivedError)
     }
 
-    func testHTTPRequest_RemoveTeamUser() {
+    func testHTTPRequest_CancelMembershipRequest() {
         // setup
         let request = HTTPRequest.shared
         let teamId = 1
-        let userId = 2
+        
+        let expectation = XCTestExpectation(description: "cancel join request response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        
+        self.sendJoinRequest(teamId: teamId)
+        
+        // test
+        request.delete(endpoint: "teams", args: ["\(teamId)", "membership", "request", "cancel"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        
+        // verify
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNil(receivedError)
+    }
+    
+    private func sendJoinRequest(teamId: Int) {
+        let expectation = XCTestExpectation(description: "team request response")
+        
+        HTTPRequest.shared.post(endpoint: "teams", args: ["\(teamId)", "membership", "request", "send"], payload: [:]) { response, error in
+            XCTAssertEqual(response?["status"] as? String, "success")
+            expectation.fulfill()
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+    }
+    
+    func testHTTPRequest_ApproveTeamMember() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        let userId = MyProfileController.shared.myProfileId!
+        
+        let expectation = XCTestExpectation(description: "approve team member response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseItem: TeamMember? = nil
+        
+        self.sendJoinRequest(teamId: teamId)
+        
+        // test
+        request.put(endpoint: "teams", args: ["\(teamId)", "admin", "membership", "request", "approve", "\(userId)"], payload: [:]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let userInfo = response?["team_user"] as? [String: Any] {
+                responseItem = TeamMember.from(dict: userInfo)
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNotNil(responseItem)
+        XCTAssertEqual(responseItem?.team_id, teamId)
+        XCTAssertNil(receivedError)
+    }
+
+    func testHTTPRequest_RejectTeamMember() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        let userId = MyProfileController.shared.myProfileId!
         
         let expectation = XCTestExpectation(description: "delete user response")
         var receivedError: Error? = nil
         var responseStatus: String? = nil
-        var responseList: [TeamMember]? = nil
+        
+        self.sendJoinRequest(teamId: teamId)
         
         // test
-        request.put(endpoint: "teams", args: ["\(teamId)", "users", "\(userId)", "remove"], payload: [:]) { response, error in
+        request.delete(endpoint: "teams", args: ["\(teamId)", "admin", "membership", "request", "reject", "\(userId)"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let userInfos = response?["members"] as? [[String: Any]] {
-                responseList = userInfos.compactMap { TeamMember.from(dict: $0) }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "success")
+        XCTAssertNil(receivedError)
+    }
+    
+    func testHTTPRequest_MyInvitations() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        
+        let expectation = XCTestExpectation(description: "team invitations response")
+        var receivedError: Error? = nil
+        var responseList: [TeamMember]? = nil
+        
+        // test
+        request.get(endpoint: "teams", args: ["list", "invitations"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let membershipRequests = response?["members"] as? [[String: Any]] {
+                responseList = membershipRequests.compactMap { TeamMember.from(dict: $0) }
             }
         }
         
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
-        XCTAssertEqual(responseStatus, "found")
         XCTAssertNotNil(responseList)
         XCTAssertNil(receivedError)
         
         // verify
-        XCTAssertEqual(responseList?.contains { $0.user_id == userId && $0.team_id == teamId }, false)
+        XCTAssertEqual(responseList?.contains { $0.team_id == teamId }, true)
+    }
+    
+    func testHTTPRequest_MyJoinRequests() {
+        // setup
+        let request = HTTPRequest.shared
+        let teamId = 1
+        
+        let expectation = XCTestExpectation(description: "team join requests response")
+        var receivedError: Error? = nil
+        var responseList: [TeamMember]? = nil
+        
+        self.sendJoinRequest(teamId: teamId)
+        
+        // test
+        request.get(endpoint: "teams", args: ["list", "myRequest"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            if let membershipRequests = response?["members"] as? [[String: Any]] {
+                responseList = membershipRequests.compactMap { TeamMember.from(dict: $0) }
+            }
+        }
+        
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        
+        // verify
+        XCTAssertEqual(responseList?.contains { $0.team_id == teamId }, true)
     }
     
     func testHTTPRequest_EditProfile() {

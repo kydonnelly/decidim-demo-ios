@@ -125,20 +125,24 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
             let profileInfo = profileInfos?.first { $0.profileId == member.user_id }
             
             cell.setup(profile: profileInfo, status: status, canManage: canManage) { [weak self] in
-                guard let self = self else { return }
-                let dataController = TeamMembersDataController.shared(teamId: self.teamDetail.team.id)
+                let completion: (Error?) -> Void = { [weak self] _ in
+                    self?.refreshData()
+                }
                 
                 switch status {
                 case .requested:
-                    dataController.updateMember(member.user_id, status: .joined, completion: { [weak self] _ in
-                        self?.refreshData()
-                    })
-                case .joined:
-                    fallthrough
+                    let dataController = TeamJoinRequestDataController.shared(teamId: member.team_id)
+                    dataController.approveRequest(member.user_id, completion: completion)
+                case .active:
+                    let dataController = TeamMembersDataController.shared(teamId: member.team_id)
+                    dataController.banMember(member.user_id, completion: completion)
                 case .invited:
-                    dataController.removeMember(member.user_id) { [weak self] _ in
-                        self?.refreshData()
-                    }
+                    let dataController = TeamInvitationsDataController.shared(teamId: member.team_id)
+                    dataController.cancelInvitation(member.user_id, completion: completion)
+                case .banned:
+                    completion(nil)
+                case .unknown:
+                    completion(nil)
                 }
             }
 

@@ -32,7 +32,7 @@ struct TeamMember {
         }
         
         // TODO: support team member administration
-        var memberStatus = TeamMemberStatus.joined
+        var memberStatus = TeamMemberStatus.unknown
         if let s = dict["status"] as? String, let tms = TeamMemberStatus(rawValue: s) {
             memberStatus = tms
         }

@@ -37,15 +37,19 @@ extension TeamDetailTitleCell {
     fileprivate func statusText(detail: TeamDetail) -> String {
         guard let profileId = MyProfileController.shared.myProfileId,
               let member = detail.memberList.last(where: { $0.user_id == profileId }) else {
-            return "Join"
+            return "Request to Join"
         }
         
         switch member.status {
         case .invited:
             return "Accept Invite"
         case .requested:
-            return "Pending"
-        case .joined:
+            return "Cancel Request"
+        case .active:
+            return "Leave"
+        case .unknown:
+            return "Request to Join"
+        case .banned:
             return "Leave"
         }
     }

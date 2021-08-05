@@ -40,44 +40,33 @@ class TeamMembersDataController: NetworkDataController {
         return self.data as? [TeamMember] ?? []
     }
     
-    public func updateMember(_ userId: Int, status: TeamMemberStatus, completion: @escaping (Error?) -> Void) {
-        let args: [String] = [String(describing: self.teamId!), "users", "\(userId)", "add"]
+    public func banMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.teamId!), "admin", "ban", "\(userId)"]
         
-        HTTPRequest.shared.put(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let memberInfos = response?["members"] as? [[String: Any]] else {
-                completion(HTTPRequest.RequestError.parseError(response: response))
-                return
-            }
-            
-            // overwrite old data
-            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
-            completion(nil)
-        }
-    }
-    
-    public func removeMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
-        let args: [String] = [String(describing: self.teamId!), "users", "\(userId)", "remove"]
-        
-        HTTPRequest.shared.put(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
-            guard error == nil else {
-                completion(error)
-                return
-            }
-            guard response?["status"] as? String == "found" else {
+            guard response?["status"] as? String == "success" else {
                 completion(HTTPRequest.RequestError.statusError(response: response))
                 return
             }
-            guard let memberInfos = response?["members"] as? [[String: Any]] else {
+            guard let memberInfo = response?["team_user"] as? [String: Any],
+                  let member = TeamMember.from(dict: memberInfo) else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
             
             // overwrite old data
-            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
+            self?.data = self?.allMembers.map {
+                if $0.user_id == member.user_id {
+                    return member
+                } else {
+                    return $0
+                }
+            }
+            
             completion(nil)
         }
     }
