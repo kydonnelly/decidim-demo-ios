@@ -140,7 +140,8 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
                     let dataController = TeamInvitationsDataController.shared(teamId: member.team_id)
                     dataController.cancelInvitation(member.user_id, completion: completion)
                 case .banned:
-                    completion(nil)
+                    let dataController = TeamMembersDataController.shared(teamId: member.team_id)
+                    dataController.unbanMember(member.user_id, completion: completion)
                 case .unknown:
                     completion(nil)
                 }

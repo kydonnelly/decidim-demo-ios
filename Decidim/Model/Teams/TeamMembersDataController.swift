@@ -71,4 +71,35 @@ class TeamMembersDataController: NetworkDataController {
         }
     }
     
+    public func unbanMember(_ userId: Int, completion: @escaping (Error?) -> Void) {
+        let args: [String] = [String(describing: self.teamId!), "admin", "unban", "\(userId)"]
+        
+        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+            guard error == nil else {
+                completion(error)
+                return
+            }
+            guard response?["status"] as? String == "success" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
+            guard let memberInfo = response?["team_user"] as? [String: Any],
+                  let member = TeamMember.from(dict: memberInfo) else {
+                completion(HTTPRequest.RequestError.parseError(response: response))
+                return
+            }
+            
+            // overwrite old data
+            self?.data = self?.allMembers.map {
+                if $0.user_id == member.user_id {
+                    return member
+                } else {
+                    return $0
+                }
+            }
+            
+            completion(nil)
+        }
+    }
+    
 }
