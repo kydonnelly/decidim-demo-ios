@@ -43,18 +43,20 @@ class TeamJoinRequestDataController: NetworkDataController {
     public func sendJoinRequest(completion: @escaping (Error?) -> Void) {
         let args: [String] = [String(describing: self.teamId!), "membership", "request", "send"]
         
-        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { response, error in
             guard error == nil else {
                 completion(error)
                 return
             }
-            guard let memberInfos = response?["members"] as? [[String: Any]] else {
+            guard let status = response?["status"] as? String else {
                 completion(HTTPRequest.RequestError.parseError(response: response))
                 return
             }
+            guard status == "success" else {
+                completion(HTTPRequest.RequestError.statusError(response: response))
+                return
+            }
             
-            // overwrite old data
-            self?.data = memberInfos.compactMap { TeamMember.from(dict: $0) }
             completion(nil)
         }
     }
