@@ -124,7 +124,12 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     guard let profileId = MyProfileController.shared.myProfileId else { return }
                     
                     let completion: (Error?) -> Void = { [weak self] _ in
-                        self?.refreshData()
+                        guard let self = self else { return }
+                        self.refreshData()
+                        self.detailDataController.invalidate()
+                        self.detailDataController.refresh { [weak self] _ in
+                            self?.refreshData()
+                        }
                     }
                     
                     switch status {

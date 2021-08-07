@@ -17,7 +17,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     @IBOutlet var settingsItem: UIBarButtonItem!
     
     private var teamDetail: TeamDetail!
-    private var dataController: TeamDetailDataController!
+    private var dataController: TeamMembersDataController!
     
     public static func create(detail: TeamDetail) -> TeamMembersViewController {
         let sb = UIStoryboard(name: "TeamMembers", bundle: .main)
@@ -28,7 +28,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamDetailDataController.shared(teamId: detail.team.id)
+        self.dataController = TeamMembersDataController.shared(teamId: detail.team.id)
     }
     
     override func viewDidLoad() {
@@ -59,17 +59,15 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
-        self.teamDetail = self.dataController.data?.first as? TeamDetail
-        
         self.tableView.reloadData()
         
-        if self.dataController.donePaging && self.teamDetail.memberList.count == 0 {
+        if self.dataController.donePaging && self.dataController.allMembers.count == 0 {
             self.tableView.showNoResults(message: "No group members", icon: .users)
         } else {
             self.tableView.hideNoResultsIfNeeded()
         }
         
-        if let myId = MyProfileController.shared.myProfileId, self.teamDetail.memberList.contains(where: { $0.user_id == myId }) {
+        if let myId = MyProfileController.shared.myProfileId, self.dataController.allMembers.contains(where: { $0.user_id == myId && $0.isAdmin }) {
             self.navigationItem.rightBarButtonItem = self.settingsItem
         } else {
             self.navigationItem.rightBarButtonItem = nil
@@ -81,7 +79,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
 extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate {
     
     fileprivate func members(status: TeamMemberStatus) -> [TeamMember] {
-        return self.teamDetail.memberList.filter { $0.status == status }
+        return self.dataController.allMembers.filter { $0.status == status }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -126,7 +124,12 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
             
             cell.setup(profile: profileInfo, status: status, canManage: canManage) { [weak self] in
                 let completion: (Error?) -> Void = { [weak self] _ in
-                    self?.refreshData()
+                    guard let self = self else { return }
+                    self.refreshData()
+                    self.dataController.invalidate()
+                    self.dataController.refresh { [weak self] _ in
+                        self?.refreshData()
+                    }
                 }
                 
                 switch status {
@@ -175,15 +178,21 @@ extension TeamMembersViewController {
        
         alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { toggleId, selectedId in
+            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { [weak self] toggleId, selectedId in
+                
+                let completion: (Error?) -> Void = { [weak self] _ in
+                    guard let self = self else { return }
+                    self.refreshData()
+                    self.dataController.invalidate()
+                    self.dataController.refresh { [weak self] _ in
+                        self?.refreshData()
+                    }
+                }
+                
                 if toggleId == selectedId {
-                    TeamInvitationsDataController.shared(teamId: detail.team.id).inviteMember(toggleId) { _ in
-                        // todo
-                    }
+                    TeamInvitationsDataController.shared(teamId: detail.team.id).inviteMember(toggleId, completion: completion)
                 } else {
-                    TeamInvitationsDataController.shared(teamId: detail.team.id).cancelInvitation(toggleId) { _ in
-                        // todo
-                    }
+                    TeamInvitationsDataController.shared(teamId: detail.team.id).cancelInvitation(toggleId, completion: completion)
                 }
             }
             self.navigationController?.pushViewController(profileVC, animated: true)
