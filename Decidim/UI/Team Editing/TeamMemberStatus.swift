@@ -9,9 +9,9 @@
 import Foundation
 
 enum TeamMemberStatus: String, CaseIterable {
-    case invited
-    case requested
     case active
+    case requested
+    case invited
     case banned
     
     case unknown
