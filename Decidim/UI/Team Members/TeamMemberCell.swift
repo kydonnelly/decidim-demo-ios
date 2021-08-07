@@ -23,6 +23,7 @@ class TeamMemberCell: CustomTableViewCell {
         self.profileImageView.setThumbnail(url: profile?.thumbnailUrl)
         
         self.onManage = manageBlock
+        self.manageButton.isHidden = !canManage
         
         switch status {
         case .requested:
