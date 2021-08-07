@@ -222,7 +222,7 @@ extension TeamMembersViewController {
        
         alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first?.user_id) { [weak self] toggleId, selectedId in
+            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first(where: {$0.status == .active })?.user_id) { [weak self] toggleId, selectedId in
                 
                 let completion: (Error?) -> Void = { [weak self] _ in
                     guard let self = self else { return }

@@ -27,10 +27,8 @@ struct TeamDetail {
             return nil
         }
         
-        let visibleMembers = members.filter { $0.status == .active }
-        
         return TeamDetail(team: team,
-                          memberList: visibleMembers,
+                          memberList: members,
                           actionList: actions)
     }
 }

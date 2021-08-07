@@ -20,28 +20,23 @@ class TeamMemberListCell: CustomTableViewCell {
     
     private var inviteBlock: InviteBlock?
     
-    func setup(detail: TeamDetail, inviteBlock: InviteBlock?, tappedProfileBlock: ProfileBlock?) {
-        self.numMembersLabel.text = "MEMBERS: \(detail.memberList.count)"
+    func setup(detail: TeamDetail, canInvite: Bool, inviteBlock: InviteBlock?, tappedProfileBlock: ProfileBlock?) {
+        let activeMembers = detail.memberList.filter { $0.status == .active }.map { $0.user_id }
+        self.numMembersLabel.text = "MEMBERS: \(activeMembers.count)"
         
         self.inviteBlock = inviteBlock
-        self.inviteButton.isHidden = true
+        self.inviteButton.isHidden = !canInvite
 
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else { return }
             
             let allProfiles = dc.data as? [ProfileInfo] ?? []
-            let allMembers = Set<Int>(detail.memberList.filter { $0.status == .active }.map { $0.user_id })
-            let profiles = allProfiles.filter { allMembers.contains($0.profileId) }
+            let profiles = allProfiles.filter { activeMembers.contains($0.profileId) }
             self.profileListView.setup(profiles: profiles, showAddCell: false, tappedProfileBlock: { profileId in
                 tappedProfileBlock?(profileId)
             }, tappedAddBlock: nil)
             
-            // todo: admins only
-            if let myId = MyProfileController.shared.myProfileId {
-                self.inviteButton.isHidden = !allMembers.contains(myId)
-            }
-            
-            self.listViewConstraints.forEach { $0.isActive = allMembers.count > 0 }
+            self.listViewConstraints.forEach { $0.isActive = activeMembers.count > 0 }
         }
     }
     

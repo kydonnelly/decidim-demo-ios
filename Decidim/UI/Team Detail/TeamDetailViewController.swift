@@ -31,6 +31,8 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     private var teamDetail: TeamDetail?
     private var detailDataController: TeamDetailDataController!
     
+    fileprivate var isAdmin = false
+    fileprivate var isMember = false
     fileprivate var expandBody = false
     
     public static func create(team: Team) -> TeamDetailViewController {
@@ -80,11 +82,16 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         
         if let memberList = self.teamDetail?.memberList,
            let profileId = MyProfileController.shared.myProfileId,
-           memberList.contains(where: { $0.user_id == profileId }) {
-            self.navigationItem.rightBarButtonItem = self.editDetailsItem
+           let profileMember = memberList.first(where: { $0.user_id == profileId && $0.status == .active })
+            {
+            self.isAdmin = profileMember.isAdmin
+            self.isMember = true
         } else {
-            self.navigationItem.rightBarButtonItem = nil
+            self.isAdmin = false
+            self.isMember = false
         }
+        
+        self.navigationItem.rightBarButtonItem = self.isAdmin ? self.editDetailsItem : nil
         
         self.tableView.reloadData()
     }
@@ -152,7 +159,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     }
                 }
             case .members:
-                (cell as! TeamMemberListCell).setup(detail: detail, inviteBlock: { [weak self] in
+                (cell as! TeamMemberListCell).setup(detail: detail, canInvite: self.isMember, inviteBlock: { [weak self] in
                     self?.showInviteScreen()
                 }, tappedProfileBlock: { [weak self] profileId in
                     guard let navController = self?.navigationController else { return }
@@ -244,7 +251,7 @@ extension TeamDetailViewController {
     
     fileprivate func showInviteScreen() {
         let teamId = self.team.id
-        let selectedId = self.teamDetail?.memberList.first?.user_id
+        let selectedId = self.teamDetail?.memberList.first(where: { $0.status == .active })?.user_id
         
         let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
             if profileId == selectedProfileId {
