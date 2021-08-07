@@ -10,6 +10,7 @@ import UIKit
 
 class TeamMembersViewController: UIViewController, CustomTableController {
     
+    static let SectionHeaderID = "SectionHeader"
     private static let LoadingCellId = "LoadingCell"
     private static let MemberCellId = "MemberCell"
     
@@ -18,6 +19,9 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     
     private var teamDetail: TeamDetail!
     private var dataController: TeamMembersDataController!
+    
+    private var isAdmin: Bool = false
+    private var visibleStatuses: [TeamMemberStatus] = []
     
     public static func create(detail: TeamDetail) -> TeamMembersViewController {
         let sb = UIStoryboard(name: "TeamMembers", bundle: .main)
@@ -37,6 +41,9 @@ class TeamMembersViewController: UIViewController, CustomTableController {
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
         self.tableView.addSubview(refreshControl)
+        
+        self.tableView.register(UINib(nibName: "TeamListHeaderView", bundle: .main),
+                                forHeaderFooterViewReuseIdentifier: Self.SectionHeaderID)
         
         self.navigationItem.rightBarButtonItem = nil
     }
@@ -59,6 +66,15 @@ class TeamMembersViewController: UIViewController, CustomTableController {
     }
     
     fileprivate func refreshData() {
+        if let myId = MyProfileController.shared.myProfileId {
+            self.isAdmin = self.dataController.allMembers.contains { $0.user_id == myId && $0.isAdmin }
+        } else {
+            self.isAdmin = false
+            
+        }
+        
+        self.visibleStatuses = self.isAdmin ? TeamMemberStatus.allCases : [.active]
+        
         self.tableView.reloadData()
         
         if self.dataController.donePaging && self.dataController.allMembers.count == 0 {
@@ -67,11 +83,7 @@ class TeamMembersViewController: UIViewController, CustomTableController {
             self.tableView.hideNoResultsIfNeeded()
         }
         
-        if let myId = MyProfileController.shared.myProfileId, self.dataController.allMembers.contains(where: { $0.user_id == myId && $0.isAdmin }) {
-            self.navigationItem.rightBarButtonItem = self.settingsItem
-        } else {
-            self.navigationItem.rightBarButtonItem = nil
-        }
+        self.navigationItem.rightBarButtonItem = isAdmin ? self.settingsItem : nil
     }
     
 }
@@ -83,7 +95,7 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        var numSections = TeamMemberStatus.allCases.count
+        var numSections = self.visibleStatuses.count
         if !self.dataController.donePaging {
             numSections += 1
         }
@@ -91,16 +103,16 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == TeamMemberStatus.allCases.count {
+        if section == self.visibleStatuses.count {
             return 1
         } else {
-            let status = TeamMemberStatus.allCases[section]
+            let status = self.visibleStatuses[section]
             return self.members(status: status).count
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == TeamMemberStatus.allCases.count {
+        if indexPath.section == self.visibleStatuses.count {
             return 44
         } else {
             return 76
@@ -108,17 +120,13 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section < TeamMemberStatus.allCases.count {
+        if indexPath.section < self.visibleStatuses.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.MemberCellId, for: indexPath) as! TeamMemberCell
             
-            let status = TeamMemberStatus.allCases[indexPath.section]
+            let status = self.visibleStatuses[indexPath.section]
             let member = self.members(status: status)[indexPath.row]
             
-            var canManage = false
-            if let myProfileId = MyProfileController.shared.myProfileId {
-                canManage = teamDetail.memberList.contains { $0.user_id == myProfileId && $0.isAdmin }
-            }
-            
+            let canManage = self.isAdmin
             let profileInfos = ProfileInfoDataController.shared().data as? [ProfileInfo]
             let profileInfo = profileInfos?.first { $0.profileId == member.user_id }
             
@@ -159,13 +167,49 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.section < TeamMemberStatus.allCases.count {
-            let status = TeamMemberStatus.allCases[indexPath.section]
+        if indexPath.section < self.visibleStatuses.count {
+            let status = self.visibleStatuses[indexPath.section]
             let member = self.members(status: status)[indexPath.row]
             
             let vc = ProfileViewController.create(profileId: member.user_id)
             self.navigationController?.pushViewController(vc, animated: true)
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        guard self.isAdmin else {
+            return 0
+        }
+        
+        guard section < self.visibleStatuses.count else {
+            return 0
+        }
+        
+        let status = self.visibleStatuses[section]
+        guard self.members(status: status).count > 0 else {
+            return 0
+        }
+        
+        return 44
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard self.isAdmin else {
+            return nil
+        }
+        
+        guard section < self.visibleStatuses.count else {
+            return nil
+        }
+        
+        let status = self.visibleStatuses[section]
+        guard self.members(status: status).count > 0 else {
+            return nil
+        }
+        
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Self.SectionHeaderID) as! TeamListHeaderView
+        header.setup(title: status.rawValue.capitalized)
+        return header
     }
     
 }
