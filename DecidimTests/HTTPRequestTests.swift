@@ -1817,6 +1817,36 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseItem?.thumbnailUrl, updatedThumbnail)
         XCTAssertNil(receivedError)
     }
+    
+    func testHTTPRequest_ActivityList() {
+        // setup
+        let request = HTTPRequest.shared
+        
+        let expectation = XCTestExpectation(description: "activity list response")
+        var receivedError: Error? = nil
+        var responseStatus: String? = nil
+        var responseList: [Activity]? = nil
+        var responseLength: Int? = nil
+        
+        // test
+        request.get(endpoint: "activity", args: ["list"]) { response, error in
+            defer { expectation.fulfill() }
+            
+            receivedError = error
+            responseStatus = response?["status"] as? String
+            if let issueInfos = response?["activities"] as? [[String: Any]] {
+                responseLength = issueInfos.count
+                responseList = issueInfos.compactMap { Activity.from(dict: $0) }
+            }
+        }
+        
+        // verify
+        XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
+        XCTAssertEqual(responseStatus, "found")
+        XCTAssertNotNil(responseList)
+        XCTAssertNil(receivedError)
+        XCTAssertEqual(responseLength, responseList?.count)
+    }
 
 }
 
