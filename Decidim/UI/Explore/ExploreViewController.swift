@@ -130,3 +130,12 @@ extension ExploreViewController: UITableViewDelegate {
     }
     
 }
+
+extension ExploreViewController {
+    
+    @IBAction func tappedActivityButton(_ sender: UIBarButtonItem) {
+        let vc = ActivityListViewController.create()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}

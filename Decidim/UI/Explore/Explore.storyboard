@@ -29,7 +29,7 @@
         <!--Explore-->
         <scene sceneID="Mdu-kT-697">
             <objects>
-                <viewController id="CGz-Ts-3yh" customClass="ExploreViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="CGz-Ts-3yh" customClass="ExploreViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U4F-ca-7os">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExploreCell" rowHeight="164" id="6tg-qV-oFe" customClass="ExploreCell" customModule="Agora" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ExploreCell" rowHeight="164" id="6tg-qV-oFe" customClass="ExploreCell" customModule="Votion" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="164"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6tg-qV-oFe" id="9U6-mI-d4e">
@@ -117,7 +117,19 @@
                             <constraint firstAttribute="bottom" secondItem="Zi9-h3-2nL" secondAttribute="bottom" id="nys-9o-KZn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Explore" id="RQy-Wg-CTD"/>
+                    <navigationItem key="navigationItem" title="Explore" id="RQy-Wg-CTD">
+                        <barButtonItem key="rightBarButtonItem" id="MDL-bU-rco">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bell"/>
+                                <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                    <color key="value" name="PrimaryDark"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="tappedActivityButton:" destination="CGz-Ts-3yh" id="p6K-LI-pjo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="Zi9-h3-2nL" id="Ptl-WN-gJr"/>
                     </connections>
