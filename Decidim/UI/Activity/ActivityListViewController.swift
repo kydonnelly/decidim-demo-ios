@@ -128,7 +128,10 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
             let activity = self.displayActivities[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: activity.type.cellId, for: indexPath) as! ActivityCell
             
-            cell.setup(activity: activity)
+            cell.setup(activity: activity) { [weak self] profileId in
+                let vc = ProfileViewController.create(profileId: profileId)
+                self?.navigationController?.pushViewController(vc, animated: true)
+            }
 
             return cell
         } else {
