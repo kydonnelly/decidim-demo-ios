@@ -37,7 +37,7 @@ class ExploreViewController: UIViewController, CustomTableController {
         
         var creatable: Bool {
             switch self {
-            case .issues: return true
+            case .issues: return false
             case .teams: return true
             case .people: return false
             }
@@ -91,9 +91,7 @@ extension ExploreViewController: UITableViewDataSource {
                 vc.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(vc, animated: true, completion: nil)
             case .issues:
-                let vc = EditIssueViewController.create()
-                vc.modalPresentationStyle = .fullScreen
-                self.navigationController?.present(vc, animated: true, completion: nil)
+                break
             case .people:
                 break
             }
