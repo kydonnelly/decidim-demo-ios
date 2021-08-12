@@ -10,17 +10,16 @@ import Foundation
 
 class ProposalDetailDataController: NetworkDataController {
     
-    private var backingProposal: Proposal!
+    private var proposalId: Int!
     
-    static func shared(proposal: Proposal) -> Self {
-        let controller = self.shared(keyInfo: "\(proposal.id)")
-        controller.backingProposal = proposal
+    static func shared(proposalId: Int) -> Self {
+        let controller = self.shared(keyInfo: "\(proposalId)")
+        controller.proposalId = proposalId
         return controller
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let proposal = self.backingProposal!
-        let proposalId = "\(proposal.id)"
+        let proposalId = "\(self.proposalId)"
         
         HTTPRequest.shared.get(endpoint: "proposals", args: [proposalId]) { response, error in
             guard error == nil else {

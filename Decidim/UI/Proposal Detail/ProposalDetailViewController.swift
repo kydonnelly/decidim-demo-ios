@@ -38,7 +38,8 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var editDetailsItem: UIBarButtonItem!
     
-    private var proposal: Proposal!
+    private var proposalId: Int!
+    private var proposalDetail: ProposalDetail?
     private var voteDataController: ProposalVotesDataController!
     private var detailDataController: ProposalDetailDataController!
     private var commentDataController: ProposalCommentsDataController!
@@ -46,34 +47,35 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
     fileprivate var expandBody = false
     fileprivate var previousContentOffset: CGPoint = .zero
     
-    public static func create(proposal: Proposal) -> ProposalDetailViewController {
+    private static func create() -> ProposalDetailViewController {
         let sb = UIStoryboard(name: "ProposalDetail", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! ProposalDetailViewController
-        vc.setup(proposal: proposal)
+        return sb.instantiateInitialViewController() as! ProposalDetailViewController
+    }
+    
+    public static func create(proposal: Proposal) -> ProposalDetailViewController {
+        let vc = self.create()
+        vc.setup(proposalId: proposal.id)
+        vc.title = proposal.title
         return vc
     }
     
-    private func setup(proposal: Proposal) {
-        self.proposal = proposal
-        self.detailDataController = ProposalDetailDataController.shared(proposal: proposal)
-        self.voteDataController = ProposalVotesDataController.shared(proposalId: proposal.id)
-        self.commentDataController = ProposalCommentsDataController.shared(proposalId: proposal.id)
+    public static func create(proposalId: Int) -> ProposalDetailViewController {
+        let vc = self.create()
+        vc.setup(proposalId: proposalId)
+        return vc
     }
     
-    fileprivate var proposalDetail: ProposalDetail? {
-        return self.detailDataController.data?.first as? ProposalDetail
+    private func setup(proposalId: Int) {
+        self.proposalId = proposalId
+        self.detailDataController = ProposalDetailDataController.shared(proposalId: proposalId)
+        self.voteDataController = ProposalVotesDataController.shared(proposalId: proposalId)
+        self.commentDataController = ProposalCommentsDataController.shared(proposalId: proposalId)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.proposal.title
-        
-        if self.proposal.authorId == MyProfileController.shared.myProfileId {
-            self.navigationItem.rightBarButtonItem = self.editDetailsItem
-        } else {
-            self.navigationItem.rightBarButtonItem = nil
-        }
+        self.navigationItem.rightBarButtonItem = nil
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -89,6 +91,17 @@ class ProposalDetailViewController: UIViewController, CustomTableController {
         
         self.detailDataController.refresh { [weak self] dc in
             guard let self = self else { return }
+            
+            if let detail = dc.data?.first as? ProposalDetail {
+                self.proposalDetail = detail
+                self.title = detail.proposal.title
+                
+                if detail.proposal.authorId == MyProfileController.shared.myProfileId {
+                    self.navigationItem.rightBarButtonItem = self.editDetailsItem
+                } else {
+                    self.navigationItem.rightBarButtonItem = nil
+                }
+            }
             
             self.tableView.reloadData()
         }
@@ -246,7 +259,7 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
                     self?.tableView.reloadData()
                 }
                 
-                (cell as! ProposalDetailVotingCell).setup(proposal: self.proposal, votes: allVotes, myVote: myVote?.voteType, onVote: voteBlock)
+                (cell as! ProposalDetailVotingCell).setup(proposal: detail.proposal, votes: allVotes, myVote: myVote?.voteType, onVote: voteBlock)
             case .author:
                 (cell as! ProposalDetailAuthorCell).setup(detail: detail)
             case .body:
@@ -315,17 +328,18 @@ extension ProposalDetailViewController: UITableViewDataSource, UITableViewDelega
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 1 {
+            let detail = self.proposalDetail!
             let cellId = MidSectionCell.ordered()[indexPath.row]
             
             switch cellId {
             case .author:
-                let vc = ProfileViewController.create(profileId: self.proposal.authorId)
+                let vc = ProfileViewController.create(profileId: detail.proposal.authorId)
                 self.navigationController?.pushViewController(vc, animated: true)
             case .body:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .voting:
-                let votersVC = VoterListViewController.create(proposal: self.proposal)
+                let votersVC = VoterListViewController.create(proposal: detail.proposal)
                 votersVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.present(votersVC, animated: true, completion: nil)
             case .amendments:
