@@ -146,6 +146,18 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
         
         let activity = self.displayActivities[indexPath.row]
         switch activity.type {
+        case .newIssue(let issue):
+            let vc = IssueDetailViewController.create(issue: issue)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .newProposal(let proposal):
+            let vc = ProposalDetailViewController.create(proposal: proposal)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .amendmentDeadline(let proposal):
+            let vc = ProposalDetailViewController.create(proposal: proposal)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .votingDeadline(let proposal):
+            let vc = ProposalDetailViewController.create(proposal: proposal)
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
