@@ -870,7 +870,7 @@ class HTTPRequestTests: XCTestCase {
             receivedError = error
             responseStatus = response?["status"] as? String
             if let issueInfo = response?["issue"] as? [String: Any] {
-                responseItem = IssueDetail.from(dict: issueInfo, issue: Issue(id: 1, status: .pending, authorId: 1, title: "test title", body: "test body", iconUrl: "", deadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0))
+                responseItem = IssueDetail.from(dict: issueInfo, issue: Issue(id: 1, status: .pending, teamId: 1, authorId: 1, title: "test title", body: "test body", iconUrl: "", deadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0))
             }
         }
         
@@ -912,6 +912,7 @@ class HTTPRequestTests: XCTestCase {
         let updatedBody = "issue body (edited)"
         let payload: [String: Any] = ["issue": ["title": updatedTitle,
                                                 "body": updatedBody,
+                                                "team_id": issue.teamId,
                                                 "icon_url": ""]]
         
         // test
@@ -2030,7 +2031,7 @@ extension HTTPRequestTests {
         return responseItem
     }
     
-    fileprivate func createAndVerifyIssue(name: String = "test issue", description: String = "test description") -> Issue? {
+    fileprivate func createAndVerifyIssue(name: String = "test issue", description: String = "test description", teamId: Int = 1) -> Issue? {
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "issue response")
@@ -2038,7 +2039,9 @@ extension HTTPRequestTests {
         var responseStatus: String? = nil
         var responseItem: Issue? = nil
         
-        let payload: [String: Any] = ["issue": ["title": name, "body": description]]
+        let payload: [String: Any] = ["issue": ["title": name,
+                                                "body": description,
+                                                "team_id": "\(teamId)"]]
         
         // test
         request.post(endpoint: "issues", payload: payload) { response, error in

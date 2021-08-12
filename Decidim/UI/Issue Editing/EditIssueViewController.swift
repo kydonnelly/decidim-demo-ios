@@ -21,6 +21,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     
     fileprivate var originalIssue: IssueDetail?
+    fileprivate var associatedTeamId: Int!
     
     fileprivate var issueTitle: String? {
         didSet { refreshDoneButton() }
@@ -32,16 +33,17 @@ class EditIssueViewController: UIViewController, CustomTableController {
     fileprivate var thumbnailMediaId: String?
     fileprivate var deadline: Date!
     
-    public static func create(issue: IssueDetail? = nil) -> UIViewController {
+    public static func create(teamId: Int, issue: IssueDetail? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "EditIssue", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! UINavigationController
         let epvc = vc.viewControllers.first! as! EditIssueViewController
-        epvc.setup(issue: issue)
+        epvc.setup(teamId: teamId, issue: issue)
         return vc
     }
     
-    private func setup(issue: IssueDetail?) {
+    private func setup(teamId: Int, issue: IssueDetail?) {
         self.originalIssue = issue
+        self.associatedTeamId = teamId
     }
     
     override func viewDidLoad() {
@@ -117,7 +119,7 @@ extension EditIssueViewController {
         }
         
         self.blockView(message: "Submitting topic...")
-        PublicIssueDataController.shared().addIssue(title: title, description: description, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
+        PublicIssueDataController.shared().addIssue(title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
             
             defer {
@@ -145,7 +147,7 @@ extension EditIssueViewController {
         }
         
         self.blockView(message: "Editing issue...")
-        PublicIssueDataController.shared().editIssue(id, title: title, description: description, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
+        PublicIssueDataController.shared().editIssue(id, title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
             
             defer {

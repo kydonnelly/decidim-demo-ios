@@ -42,9 +42,10 @@ class PublicIssueDataController: NetworkDataController {
 
 extension PublicIssueDataController {
     
-    public func addIssue(title: String, description: String, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
+    public func addIssue(title: String, description: String, teamId: Int, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
         var issueInfo: [String: Any] = ["title": title,
                                         "body": description,
+                                        "team_id": teamId,
                                         "deadline": deadline.timestamp]
         if let iconUrl = thumbnailUrl {
             issueInfo["icon_url"] = iconUrl
@@ -67,9 +68,10 @@ extension PublicIssueDataController {
         }
     }
     
-    public func editIssue(_ issueId: Int, title: String, description: String, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
+    public func editIssue(_ issueId: Int, title: String, description: String, teamId: Int, thumbnailUrl: String?, deadline: Date, completion: @escaping (Error?) -> Void) {
         var issueInfo: [String: Any] = ["title": title,
                                         "body": description,
+                                        "team_id": teamId,
                                         "deadline": deadline.timestamp]
         if let iconUrl = thumbnailUrl {
             issueInfo["icon_url"] = iconUrl

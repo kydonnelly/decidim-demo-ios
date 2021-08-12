@@ -11,6 +11,7 @@ import Foundation
 struct Issue {
     let id: Int
     let status: IssueStatus
+    let teamId: Int
     let authorId: Int
     let title: String
     let body: String
@@ -22,6 +23,7 @@ struct Issue {
     
     public static func from(dict: [String: Any]) -> Issue? {
         guard let issueId = dict["id"] as? Int,
+              let teamId = dict["team_id"] as? Int,
               let authorId = dict["user_id"] as? Int,
               let title = dict["title"] as? String,
               let body = dict["body"] as? String,
@@ -42,6 +44,7 @@ struct Issue {
         
         return Issue(id: issueId,
                      status: status,
+                     teamId: teamId,
                      authorId: authorId,
                      title: title,
                      body: body,
