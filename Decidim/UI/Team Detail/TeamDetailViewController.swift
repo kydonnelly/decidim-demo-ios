@@ -16,10 +16,11 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         case body = "BodyCell"
         case title = "TitleCell"
         case members = "MembersCell"
+        case issues = "IssuesCell"
         case actions = "ActionsCell"
         
         static func ordered() -> [StaticCell] {
-            return [.title, .body, .members]
+            return [.title, .body, .members, .issues]
         }
     }
     
@@ -166,6 +167,14 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     let profileVC = ProfileViewController.create(profileId: profileId)
                     navController.pushViewController(profileVC, animated: true)
                 })
+            case .issues:
+                (cell as! TeamIssueListCell).setup(detail: detail, canCreate: self.isMember, createBlock: { [weak self] in
+                    self?.showCreateIssueScreen()
+                }, tappedIssueBlock: { [weak self] issue in
+                    guard let navController = self?.navigationController else { return }
+                    let profileVC = IssueDetailViewController.create(issue: issue)
+                    navController.pushViewController(profileVC, animated: true)
+                })
             case .actions:
                 (cell as! TeamActionListCell).setup(detail: detail)
             }
@@ -189,6 +198,9 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .members:
                 let vc = TeamMembersViewController.create(detail: detail)
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .issues:
+                let vc = IssueListViewController.create { $0.teamId == detail.team.id }
                 self.navigationController?.pushViewController(vc, animated: true)
             case .actions:
                 let vc = TeamActionsViewController.create(detail: detail)
@@ -265,6 +277,12 @@ extension TeamDetailViewController {
             }
         }
         self.navigationController?.pushViewController(inviteVC, animated: true)
+    }
+    
+    fileprivate func showCreateIssueScreen() {
+        let createVC = EditIssueViewController.create(teamId: self.team.id)
+        createVC.modalPresentationStyle = .fullScreen
+        self.navigationController?.present(createVC, animated: true, completion: nil)
     }
     
 }
