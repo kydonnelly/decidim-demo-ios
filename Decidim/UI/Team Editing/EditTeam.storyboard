@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E2L-kR-7Rp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E2L-kR-7Rp">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -37,8 +38,52 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ToggleCell" rowHeight="48" id="tMW-gd-enF" customClass="PrivacyPreferenceToggleCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tMW-gd-enF" id="2kY-XO-5Af">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Private Group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GKD-ra-4cX">
+                                                    <rect key="frame" x="24" y="13.5" width="309" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GQa-nF-B7G">
+                                                    <rect key="frame" x="341" y="8.5" width="51" height="31"/>
+                                                    <color key="onTintColor" name="Action"/>
+                                                    <connections>
+                                                        <action selector="didToggleWithSender:" destination="tMW-gd-enF" eventType="valueChanged" id="vFu-tv-8rv"/>
+                                                    </connections>
+                                                </switch>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1T-8X-8hV">
+                                                    <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="vHi-tF-LCX"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="GQa-nF-B7G" firstAttribute="centerY" secondItem="2kY-XO-5Af" secondAttribute="centerY" id="900-PE-euc"/>
+                                                <constraint firstAttribute="bottom" secondItem="L1T-8X-8hV" secondAttribute="bottom" id="Bye-o5-ESA"/>
+                                                <constraint firstItem="GQa-nF-B7G" firstAttribute="leading" secondItem="GKD-ra-4cX" secondAttribute="trailing" constant="8" id="QgP-Pz-swj"/>
+                                                <constraint firstAttribute="trailing" secondItem="GQa-nF-B7G" secondAttribute="trailing" constant="24" id="VbU-e2-HII"/>
+                                                <constraint firstItem="GKD-ra-4cX" firstAttribute="centerY" secondItem="2kY-XO-5Af" secondAttribute="centerY" id="ajc-3E-vCa"/>
+                                                <constraint firstItem="L1T-8X-8hV" firstAttribute="leading" secondItem="2kY-XO-5Af" secondAttribute="leading" id="eun-WJ-ec8"/>
+                                                <constraint firstAttribute="trailing" secondItem="L1T-8X-8hV" secondAttribute="trailing" id="gs4-ss-OKT"/>
+                                                <constraint firstItem="GKD-ra-4cX" firstAttribute="leading" secondItem="2kY-XO-5Af" secondAttribute="leading" constant="24" id="pMV-SA-ar6"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="privateToggle" destination="GQa-nF-B7G" id="nQV-hS-Pmi"/>
+                                            <outlet property="titleLabel" destination="GKD-ra-4cX" id="sxz-w9-B5G"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActionCell" rowHeight="72" id="nMA-P7-8En" customClass="SingleActionCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="72"/>
+                                        <rect key="frame" x="0.0" y="72.5" width="414" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nMA-P7-8En" id="SLn-Gq-6z5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
@@ -113,11 +158,17 @@
         <namedColor name="Action">
             <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

@@ -1,31 +1,31 @@
 //
-//  VotePreferencesToggleCell.swift
+//  PrivacyPreferenceToggleCell.swift
 //  Decidim
 //
-//  Created by Kyle Donnelly on 7/8/20.
-//  Copyright © 2020 Kyle Donnelly. All rights reserved.
+//  Created by Samantha Au on 8/11/21.
+//  Copyright © 2021 Kyle Donnelly. All rights reserved.
 //
-
 import UIKit
+import Foundation
 
-class VotePreferencesToggleCell: CustomTableViewCell {
+class PrivacyPreferenceToggleCell: CustomTableViewCell {
     
     typealias ToggleBlock = (Bool) -> Void
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var toggle: UISwitch!
+    @IBOutlet var privateToggle: UISwitch!
     
     private var onToggle: ToggleBlock?
     
     func setup(title: String, isOn: Bool, onToggle: ToggleBlock?) {
         self.titleLabel.text = title
-        self.toggle.isOn = isOn
+        self.privateToggle.isOn = isOn
         self.onToggle = onToggle
     }
     
 }
 
-extension VotePreferencesToggleCell {
+extension PrivacyPreferenceToggleCell {
     
     @IBAction func didToggle(sender: UISwitch) {
         self.onToggle?(sender.isOn)

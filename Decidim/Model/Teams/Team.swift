@@ -12,6 +12,7 @@ struct Team {
     let id: Int
     let name: String
     let description: String
+    let isPrivate: Bool
     let thumbnailUrl: String?
     let createdAt: Date
     let updatedAt: Date
@@ -34,9 +35,12 @@ struct Team {
         
         let thumbnailUrl = dict["icon_url"] as? String
         
+        let isPrivate = (dict["private"] as? Bool) ?? false
+        
         return Team(id: teamId,
                     name: title,
                     description: body,
+                    isPrivate: isPrivate,
                     thumbnailUrl: thumbnailUrl,
                     createdAt: createdDate,
                     updatedAt: updatedDate,

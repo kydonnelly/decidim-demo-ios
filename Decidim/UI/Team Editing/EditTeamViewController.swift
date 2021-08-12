@@ -15,11 +15,13 @@ class EditTeamViewController: UIViewController, CustomTableController {
     fileprivate static let ImageCellId = "ImageCell"
     fileprivate static let TitleCellId = "TitleCell"
     fileprivate static let BodyCellId = "BodyCell"
+    fileprivate static let ToggleCellId = "ToggleCell"
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var doneButtonItem: UIBarButtonItem!
     
     fileprivate var originalTeam: TeamDetail?
+    fileprivate var isPrivate: Bool = false
     
     fileprivate var teamName: String? {
         didSet { refreshDoneButton() }
@@ -40,6 +42,9 @@ class EditTeamViewController: UIViewController, CustomTableController {
     
     private func setup(team: TeamDetail?) {
         self.originalTeam = team
+        if let origTeam = team {
+            self.isPrivate = origTeam.team.isPrivate
+        }
     }
     
     override func viewDidLoad() {
@@ -90,7 +95,7 @@ extension EditTeamViewController {
     
     fileprivate func refreshDoneButton() {
         self.doneButtonItem.isEnabled = self.hasValidInput
-        self.tableView.reloadRows(at: [IndexPath(row: 3, section: 0)], with: .none)
+        self.tableView.reloadRows(at: [IndexPath(row: 4, section: 0)], with: .none)
     }
     
 }
@@ -116,7 +121,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Creating group...")
-        TeamListDataController.shared().addTeam(title: name, description: description, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .active]) { [weak self] error in
+        TeamListDataController.shared().addTeam(title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .active]) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -131,7 +136,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Editing group...")
-        TeamListDataController.shared().editTeam(id, title: name, description: description, thumbnailUrl: self.thumbnailMediaId) { [weak self] error in
+        TeamListDataController.shared().editTeam(id, title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailMediaId) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -149,7 +154,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -159,6 +164,8 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             return 112
         } else if indexPath.row == 2 {
             return 120
+        } else if indexPath.row == 3{
+            return 44
         } else {
             return 72
         }
@@ -184,6 +191,13 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
                 self?.teamDescription = text
                 return true
             })
+            return cell
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! PrivacyPreferenceToggleCell
+            cell.setup(title: "Private Group", isOn: self.isPrivate) {
+                [weak self] isOn in
+                self?.isPrivate = isOn
+            }
             return cell
         } else {
             let actionTitle = self.originalTeam == nil ? "Create Team" : "Save Changes"
