@@ -276,7 +276,7 @@ extension TeamDetailViewController {
 extension TeamDetailViewController {
     
     fileprivate func showInviteScreen() {
-        let teamId = self.teamId
+        let teamId = self.teamId!
         let selectedId = self.teamDetail?.memberList.first(where: { $0.status == .active })?.user_id
         
         let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
