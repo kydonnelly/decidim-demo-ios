@@ -338,7 +338,7 @@ extension IssueDetailViewController {
        
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            let editVC = EditIssueViewController.create(issue: self.issueDetail)
+            let editVC = EditIssueViewController.create(teamId: self.issue.teamId, issue: self.issueDetail)
             editVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))

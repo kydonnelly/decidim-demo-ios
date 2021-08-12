@@ -217,8 +217,77 @@
                                             <outletCollection property="listViewConstraints" destination="Fa0-ZZ-18S" collectionClass="NSMutableArray" id="KnF-8z-QO2"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssuesCell" rowHeight="96" id="xsr-fz-nlU" customClass="TeamIssueListCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="308" width="414" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsr-fz-nlU" id="fP9-kD-388">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gMs-R7-NKZ">
+                                                    <rect key="frame" x="0.0" y="95" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="J6y-d1-jzy"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOPICS: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tcq-S3-dVf">
+                                                    <rect key="frame" x="24" y="12" width="69" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGU-O6-j0S">
+                                                    <rect key="frame" x="374" y="5.5" width="16" height="30"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
+                                                    <state key="normal">
+                                                        <color key="titleColor" name="Action"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="plus"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryDark"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tappedCreateButton:" destination="xsr-fz-nlU" eventType="touchUpInside" id="jXH-6Q-Muc"/>
+                                                    </connections>
+                                                </button>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZj-H2-MjB" customClass="IssueIconListView" customModule="Votion" customModuleProvider="target">
+                                                    <rect key="frame" x="24" y="39.5" width="366" height="44"/>
+                                                    <color key="backgroundColor" systemColor="systemTealColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="YFe-3k-PcN"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="BZj-H2-MjB" secondAttribute="trailing" constant="24" id="8pf-oL-HUg"/>
+                                                <constraint firstItem="BZj-H2-MjB" firstAttribute="leading" secondItem="fP9-kD-388" secondAttribute="leading" constant="24" id="95n-Dy-BGF"/>
+                                                <constraint firstItem="tcq-S3-dVf" firstAttribute="top" secondItem="fP9-kD-388" secondAttribute="top" constant="12" id="EIh-Kc-O7e"/>
+                                                <constraint firstItem="tcq-S3-dVf" firstAttribute="leading" secondItem="fP9-kD-388" secondAttribute="leading" constant="24" id="GPT-UI-6LM"/>
+                                                <constraint firstAttribute="bottom" secondItem="gMs-R7-NKZ" secondAttribute="bottom" id="JSZ-k8-efv"/>
+                                                <constraint firstAttribute="trailing" secondItem="IGU-O6-j0S" secondAttribute="trailing" constant="24" id="RIH-1n-kdy"/>
+                                                <constraint firstItem="IGU-O6-j0S" firstAttribute="centerY" secondItem="tcq-S3-dVf" secondAttribute="centerY" id="Syt-iJ-hTP"/>
+                                                <constraint firstItem="gMs-R7-NKZ" firstAttribute="leading" secondItem="fP9-kD-388" secondAttribute="leading" id="UfV-6F-JFb"/>
+                                                <constraint firstItem="IGU-O6-j0S" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tcq-S3-dVf" secondAttribute="trailing" constant="8" id="Y0N-Nk-BW3"/>
+                                                <constraint firstAttribute="bottom" secondItem="tcq-S3-dVf" secondAttribute="bottom" priority="51" constant="12" id="bPG-Yo-ZG5"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="BZj-H2-MjB" secondAttribute="bottom" constant="12" id="bs0-md-KVF"/>
+                                                <constraint firstAttribute="trailing" secondItem="gMs-R7-NKZ" secondAttribute="trailing" id="oO1-yC-Ob0"/>
+                                                <constraint firstItem="BZj-H2-MjB" firstAttribute="top" secondItem="IGU-O6-j0S" secondAttribute="bottom" constant="4" id="t34-m7-2Uq"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="createButton" destination="IGU-O6-j0S" id="MJY-jV-Pc0"/>
+                                            <outlet property="issueListView" destination="BZj-H2-MjB" id="8R7-XT-TCw"/>
+                                            <outlet property="numIssuesLabel" destination="tcq-S3-dVf" id="SNl-4z-w5a"/>
+                                            <outletCollection property="listViewConstraints" destination="YFe-3k-PcN" collectionClass="NSMutableArray" id="4pM-oD-g6p"/>
+                                            <outletCollection property="listViewConstraints" destination="bs0-md-KVF" collectionClass="NSMutableArray" id="nyy-oT-wQl"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionsCell" rowHeight="42" id="vBW-a4-7FR" customClass="TeamActionListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="308" width="414" height="42"/>
+                                        <rect key="frame" x="0.0" y="404" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vBW-a4-7FR" id="T3F-uG-1mr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
@@ -253,7 +322,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="350" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="446" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -334,6 +403,9 @@
         </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
