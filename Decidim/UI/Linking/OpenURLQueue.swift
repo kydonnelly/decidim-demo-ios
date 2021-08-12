@@ -85,17 +85,8 @@ class OpenURLQueue: NSObject {
                 return false
             }
             
-            navigationController.blockView(message: "Loading...")
-            
-            TeamDetailDataController.shared(teamId: teamId).refresh(failBlock: { _ in
-                navigationController.unblockView()
-            }, successBlock: { dc in
-                navigationController.unblockView()
-                
-                guard let detail = dc.data?.first as? TeamDetail else { return }
-                let teamVC = TeamDetailViewController.create(team: detail.team)
-                navigationController.pushViewController(teamVC, animated: true)
-            })
+            let teamVC = TeamDetailViewController.create(teamId: teamId
+            navigationController.pushViewController(teamVC, animated: true)
         }
         
         return true

@@ -28,7 +28,7 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var editDetailsItem: UIBarButtonItem!
     
-    private var team: Team!
+    private var teamId: Int!
     private var teamDetail: TeamDetail?
     private var detailDataController: TeamDetailDataController!
     
@@ -36,22 +36,32 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     fileprivate var isMember = false
     fileprivate var expandBody = false
     
-    public static func create(team: Team) -> TeamDetailViewController {
+    private static func create() -> TeamDetailViewController {
         let sb = UIStoryboard(name: "TeamDetail", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! TeamDetailViewController
-        vc.setup(team: team)
+        return sb.instantiateInitialViewController() as! TeamDetailViewController
+    }
+    
+    public static func create(team: Team) -> TeamDetailViewController {
+        let vc = self.create()
+        vc.setup(teamId: team.id)
+        vc.title = team.name
         return vc
     }
     
-    private func setup(team: Team) {
-        self.team = team
-        self.detailDataController = TeamDetailDataController.shared(teamId: team.id)
+    public static func create(teamId: Int) -> TeamDetailViewController {
+        let vc = self.create()
+        vc.setup(teamId: teamId)
+        return vc
+    }
+    
+    private func setup(teamId: Int) {
+        self.teamId = teamId
+        self.detailDataController = TeamDetailDataController.shared(teamId: teamId)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.team.name
         self.navigationItem.rightBarButtonItem = nil
         
         let refreshControl = UIRefreshControl(frame: .zero)
@@ -80,6 +90,10 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     
     fileprivate func refreshData() {
         self.teamDetail = self.detailDataController.data?.first as? TeamDetail
+        
+        if let detail = self.teamDetail {
+            self.title = detail.team.name
+        }
         
         if let memberList = self.teamDetail?.memberList,
            let profileId = MyProfileController.shared.myProfileId,
@@ -262,7 +276,7 @@ extension TeamDetailViewController {
 extension TeamDetailViewController {
     
     fileprivate func showInviteScreen() {
-        let teamId = self.team.id
+        let teamId = self.teamId
         let selectedId = self.teamDetail?.memberList.first(where: { $0.status == .active })?.user_id
         
         let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
@@ -280,7 +294,7 @@ extension TeamDetailViewController {
     }
     
     fileprivate func showCreateIssueScreen() {
-        let createVC = EditIssueViewController.create(teamId: self.team.id)
+        let createVC = EditIssueViewController.create(teamId: self.teamId)
         createVC.modalPresentationStyle = .fullScreen
         self.navigationController?.present(createVC, animated: true, completion: nil)
     }

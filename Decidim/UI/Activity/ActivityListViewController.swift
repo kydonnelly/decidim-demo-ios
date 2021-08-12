@@ -158,6 +158,12 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
         case .votingDeadline(let proposal):
             let vc = ProposalDetailViewController.create(proposal: proposal)
             self.navigationController?.pushViewController(vc, animated: true)
+        case .teamInvitation(let member):
+            let vc = TeamDetailViewController.create(teamId: member.team_id)
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .teamInvitationApproval(let member):
+            let vc = TeamDetailViewController.create(teamId: member.team_id)
+            self.navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
