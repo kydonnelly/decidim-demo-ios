@@ -151,7 +151,7 @@ extension EditProposalViewController {
                 return
             }
             
-            ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
+            ProposalDetailDataController.shared(proposalId: proposal.id).refresh { dc in
                 dc.data = [ProposalDetail(proposal: proposal, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }
@@ -182,7 +182,7 @@ extension EditProposalViewController {
                 return
             }
             
-            ProposalDetailDataController.shared(proposal: proposal).refresh { dc in
+            ProposalDetailDataController.shared(proposalId: proposal.id).refresh { dc in
                 dc.data = [ProposalDetail(proposal: proposal, voteCount: 0, commentCount: 0, amendmentCount: 0)]
             }
         }

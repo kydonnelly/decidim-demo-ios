@@ -205,6 +205,7 @@ class HTTPRequestTests: XCTestCase {
     func testHTTPRequest_ProposalDetail() {
         // setup
         let request = HTTPRequest.shared
+        let proposalId: Int = 1
         
         let expectation = XCTestExpectation(description: "proposal detail response")
         var receivedError: Error? = nil
@@ -212,14 +213,15 @@ class HTTPRequestTests: XCTestCase {
         var responseItem: ProposalDetail? = nil
         
         // test
-        request.get(endpoint: "proposals", args: ["1"]) { response, error in
+        request.get(endpoint: "proposals", args: ["\(proposalId)"]) { response, error in
             defer { expectation.fulfill() }
             
             receivedError = error
             responseStatus = response?["status"] as? String
-            if let detailInfo = response?["proposal"] as? [String: Any] {
+            if let detailInfo = response?["proposal"] as? [String: Any],
+               let proposal = Proposal.from(dict: detailInfo, id: proposalId) {
                 responseItem = ProposalDetail.from(dict: detailInfo,
-                                                   proposal: Proposal(id: 1, issueId: 1, authorId: 1, title: "", body: "", votingDeadline: Date(), amendmentDeadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0, voteCount: 0))
+                                                   proposal: proposal)
             }
         }
         

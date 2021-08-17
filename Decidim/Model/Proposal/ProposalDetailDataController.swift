@@ -19,14 +19,15 @@ class ProposalDetailDataController: NetworkDataController {
     }
     
     override func fetchPage(cursor: NetworkDataController.Cursor, completion: @escaping ([Any]?, NetworkDataController.Cursor?, Error?) -> Void) {
-        let proposalId = "\(self.proposalId)"
+        let proposalId = self.proposalId!
         
-        HTTPRequest.shared.get(endpoint: "proposals", args: [proposalId]) { response, error in
+        HTTPRequest.shared.get(endpoint: "proposals", args: ["\(proposalId)"]) { response, error in
             guard error == nil else {
                 completion(nil, Cursor(next: "error", done: true), error)
                 return
             }
             guard let detailInfo = response?["proposal"] as? [String: Any],
+                  let proposal = Proposal.from(dict: detailInfo, id: proposalId),
                   let detail = ProposalDetail.from(dict: detailInfo, proposal: proposal) else {
                 completion(nil, Cursor(next: "error", done: true), HTTPRequest.RequestError.parseError(response: response))
                 return
