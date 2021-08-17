@@ -85,7 +85,7 @@ class OpenURLQueue: NSObject {
                 return false
             }
             
-            let teamVC = TeamDetailViewController.create(teamId: teamId
+            let teamVC = TeamDetailViewController.create(teamId: teamId)
             navigationController.pushViewController(teamVC, animated: true)
         }
         
