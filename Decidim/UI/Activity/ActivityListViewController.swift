@@ -146,6 +146,12 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
         
         let activity = self.displayActivities[indexPath.row]
         switch activity.type {
+        case .comment(let comment):
+            let vc = CommentListViewController.create(proposalId: comment.proposalId, focusComment: comment)
+            self.navigationController?.present(vc, animated: true, completion: nil)
+        case .issueComment(let comment):
+            let vc = CommentListViewController.create(issueId: comment.issueId, focusComment: comment)
+            self.navigationController?.present(vc, animated: true, completion: nil)
         case .newIssue(let issue):
             let vc = IssueDetailViewController.create(issue: issue)
             self.navigationController?.pushViewController(vc, animated: true)
@@ -168,7 +174,7 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
             let vc = ProposalDetailViewController.create(proposalId: vote.proposalId)
             self.navigationController?.pushViewController(vc, animated: true)
         default:
-            break
+            preconditionFailure("Unknown cell")
         }
     }
     

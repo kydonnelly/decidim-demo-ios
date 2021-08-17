@@ -23,18 +23,15 @@ class CommentListViewController: UIViewController, CustomTableController {
     fileprivate var editingComment: Comment?
     fileprivate var initialFocusComment: Comment?
     
-    static func create(commentable: Commentable, editComment: Comment? = nil, focusComment: Comment? = nil) -> UIViewController {
+    fileprivate static func create() -> UINavigationController {
         let sb = UIStoryboard(name: "CommentList", bundle: .main)
-        let nvc = sb.instantiateInitialViewController() as! UINavigationController
-        let clvc = nvc.viewControllers.first! as! CommentListViewController
-        clvc.setup(commentable: commentable, editComment: editComment, focusComment: focusComment)
-        return nvc
+        return sb.instantiateInitialViewController() as! UINavigationController
     }
     
-    func setup(commentable: Commentable, editComment: Comment?, focusComment: Comment?) {
+    fileprivate func setup(dataController: CommentDataController, editComment: Comment?, focusComment: Comment?) {
         self.editingComment = editComment
         self.initialFocusComment = focusComment ?? editComment
-        self.dataController = commentable.associatedDataController
+        self.dataController = dataController
     }
     
     override func viewDidLoad() {
@@ -135,6 +132,33 @@ extension CommentListViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+}
+
+extension CommentListViewController {
+    
+    static func create(commentable: Commentable, editComment: Comment? = nil, focusComment: Comment? = nil) -> UIViewController {
+        let nvc = self.create()
+        let clvc = nvc.viewControllers.first! as! CommentListViewController
+        clvc.setup(dataController: commentable.associatedDataController, editComment: editComment, focusComment: focusComment)
+        return nvc
+    }
+    
+    static func create(proposalId: Int, focusComment: Comment? = nil) -> UIViewController {
+        let nvc = self.create()
+        let clvc = nvc.viewControllers.first! as! CommentListViewController
+        let dataController = ProposalCommentsDataController.shared(proposalId: proposalId)
+        clvc.setup(dataController: dataController, editComment: nil, focusComment: focusComment)
+        return nvc
+    }
+    
+    static func create(issueId: Int, focusComment: Comment? = nil) -> UIViewController {
+        let nvc = self.create()
+        let clvc = nvc.viewControllers.first! as! CommentListViewController
+        let dataController = IssueCommentsDataController.shared(issueId: issueId)
+        clvc.setup(dataController: dataController, editComment: nil, focusComment: focusComment)
+        return nvc
     }
     
 }
