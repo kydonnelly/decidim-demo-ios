@@ -142,7 +142,7 @@ extension TeamMembersViewController: UITableViewDataSource, UITableViewDelegate 
                 
                 switch status {
                 case .requested:
-                    let dataController = TeamJoinRequestDataController.shared(teamId: member.team_id)
+                    let dataController = TeamJoinRequestsDataController.shared(teamId: member.team_id)
                     dataController.approveRequest(member.user_id, completion: completion)
                 case .active:
                     let dataController = TeamMembersDataController.shared(teamId: member.team_id)

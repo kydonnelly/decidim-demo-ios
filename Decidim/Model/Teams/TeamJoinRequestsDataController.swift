@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TeamJoinRequestDataController: NetworkDataController {
+class TeamJoinRequestsDataController: NetworkDataController {
     
     private var teamId: Int!
     

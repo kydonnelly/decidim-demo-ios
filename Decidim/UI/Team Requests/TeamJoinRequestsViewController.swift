@@ -17,7 +17,7 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
     
     private var teamDetail: TeamDetail!
     private var joinRequests: [TeamMember]?
-    private var dataController: TeamJoinRequestDataController!
+    private var dataController: TeamJoinRequestsDataController!
     
     public static func create(detail: TeamDetail) -> UIViewController {
         let sb = UIStoryboard(name: "TeamJoinRequests", bundle: .main)
@@ -28,7 +28,7 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
     
     func setup(detail: TeamDetail) {
         self.teamDetail = detail
-        self.dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
+        self.dataController = TeamJoinRequestsDataController.shared(teamId: detail.team.id)
     }
     
     override func viewDidLoad() {
