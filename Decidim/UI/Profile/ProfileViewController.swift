@@ -256,6 +256,9 @@ extension ProfileViewController {
             let requestsVC = TeamJoinRequestViewController.create()
             self.navigationController?.pushViewController(requestsVC, animated: true)
         }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _  in
+            weakAlert?.dismiss(animated: true, completion: nil)
+        }))
         
         self.present(alert, animated: true, completion: nil)
     }
