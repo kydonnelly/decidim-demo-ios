@@ -173,8 +173,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     
                     switch status {
                     case .none:
-                        let dataController = TeamJoinRequestsDataController.shared(teamId: detail.team.id)
-                        dataController.sendJoinRequest(completion: completion)
+                        let dataController = TeamJoinRequestDataController.shared()
+                        dataController.sendJoinRequest(teamId: detail.team.id, completion: completion)
                         self.localStatus = .requested
                     case .invited:
                         let dataController = TeamInvitesDataController.shared()
@@ -185,8 +185,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                         dataController.leaveTeam(detail.team.id, completion: completion)
                         self.localStatus = .none
                     case .requested:
-                        let dataController = TeamJoinRequestsDataController.shared(teamId: detail.team.id)
-                        dataController.cancelJoinRequest(completion: completion)
+                        let dataController = TeamJoinRequestDataController.shared()
+                        dataController.cancelJoinRequest(teamId: detail.team.id, completion: completion)
                         self.localStatus = .none
                     case .banned:
                         completion(nil)

@@ -1,5 +1,5 @@
 //
-//  TeamJoinRequestsViewController.swift
+//  TeamJoinRequestViewController.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 7/16/21.
@@ -8,27 +8,27 @@
 
 import UIKit
 
-class TeamJoinRequestsViewController: UIViewController, CustomTableController {
+class TeamJoinRequestViewController: UIViewController, CustomTableController {
     
     private static let LoadingCellId = "LoadingCell"
     private static let RequestCellId = "RequestCell"
     
     @IBOutlet var tableView: UITableView!
     
-    private var teamDetail: TeamDetail!
-    private var joinRequests: [TeamMember]?
-    private var dataController: TeamJoinRequestsDataController!
+    private var teams: [TeamDetail]?
+    private var dataController: TeamJoinRequestDataController!
+    private var teamsDataController: TeamListDataController!
     
-    public static func create(detail: TeamDetail) -> UIViewController {
-        let sb = UIStoryboard(name: "TeamJoinRequests", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! TeamJoinRequestsViewController
-        vc.setup(detail: detail)
+    public static func create() -> UIViewController {
+        let sb = UIStoryboard(name: "TeamJoinRequest", bundle: .main)
+        let vc = sb.instantiateInitialViewController() as! TeamJoinRequestViewController
+        vc.setup()
         return vc
     }
     
-    func setup(detail: TeamDetail) {
-        self.teamDetail = detail
-        self.dataController = TeamJoinRequestsDataController.shared(teamId: detail.team.id)
+    func setup() {
+        self.dataController = TeamJoinRequestDataController.shared()
+        self.teamsDataController = TeamListDataController.shared()
     }
     
     override func viewDidLoad() {
@@ -45,6 +45,9 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
         self.dataController.refresh { [weak self] dc in
             self?.refreshData()
         }
+        self.teamsDataController.refresh { [weak self] dc in
+            self?.refreshData()
+        }
     }
     
     @objc public func pullToRefresh(_ sender: UIRefreshControl) {
@@ -54,10 +57,17 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
         self.dataController.refresh { [weak self] dc in
             self?.refreshData()
         }
+        self.teamsDataController.invalidate()
+        self.teamsDataController.refresh { [weak self] dc in
+            self?.refreshData()
+        }
     }
     
     fileprivate func refreshData() {
-        self.joinRequests = self.dataController.allJoinRequests
+        let requests = self.dataController.allJoinRequests
+        self.teams = self.teamsDataController.allTeams.filter { detail in
+            return requests.contains { detail.team.id == $0.team_id }
+        }
         
         self.tableView.reloadData()
         
@@ -70,7 +80,7 @@ class TeamJoinRequestsViewController: UIViewController, CustomTableController {
     
 }
 
-extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDelegate {
+extension TeamJoinRequestViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if self.dataController.donePaging {
@@ -82,7 +92,7 @@ extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.joinRequests?.count ?? 0
+            return self.teams?.count ?? 0
         } else if section == 1 {
             return 1
         } else {
@@ -100,23 +110,14 @@ extension TeamJoinRequestsViewController: UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.RequestCellId, for: indexPath) as! MemberJoinRequestCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.RequestCellId, for: indexPath) as! TeamJoinRequestCell
             
-            let member = self.joinRequests![indexPath.row]
+            let teamDetail = self.teams![indexPath.row]
             
-            let profileInfos = ProfileInfoDataController.shared().data as? [ProfileInfo]
-            let profileInfo = profileInfos?.first { $0.profileId == member.user_id }
-            
-            cell.setup(profile: profileInfo) { [weak self] approved in
+            cell.setup(team: teamDetail.team) { [weak self] in
                 guard let self = self else { return }
-                if approved {
-                    self.dataController.approveRequest(member.user_id) { [weak self] _ in
-                        self?.refreshData()
-                    }
-                } else {
-                    self.dataController.rejectRequest(member.user_id) { [weak self] _ in
-                        self?.refreshData()
-                    }
+                self.dataController.cancelJoinRequest(teamId: teamDetail.team.id) { [weak self] _ in
+                    self?.refreshData()
                 }
             }
 

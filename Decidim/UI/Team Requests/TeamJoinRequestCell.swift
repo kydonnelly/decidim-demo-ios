@@ -1,5 +1,5 @@
 //
-//  TeamMemberRequestCell.swift
+//  TeamJoinRequestCell.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 7/16/21.
@@ -10,30 +10,26 @@ import UIKit
 
 class TeamJoinRequestCell: CustomTableViewCell {
     
-    typealias ResponseBlock = (Bool) -> Void
+    typealias CancelBlock = () -> Void
     
-    @IBOutlet var handleLabel: UILabel!
+    @IBOutlet var nameLabel: UILabel!
     @IBOutlet var profileImageView: GiphyMediaView!
     
-    private var onResponse: ResponseBlock?
+    private var onCancel: CancelBlock?
     
-    public func setup(profile: ProfileInfo?, responseBlock: ResponseBlock?) {
-        self.handleLabel.text = profile?.handle
-        self.profileImageView.setThumbnail(url: profile?.thumbnailUrl)
+    public func setup(team: Team, cancelBlock: CancelBlock?) {
+        self.nameLabel.text = team.name
+        self.profileImageView.setThumbnail(url: team.thumbnailUrl)
         
-        self.onResponse = responseBlock
+        self.onCancel = cancelBlock
     }
     
 }
 
 extension TeamJoinRequestCell {
     
-    @IBAction func tappedApproveButton(_ sender: UIButton) {
-        self.onResponse?(true)
-    }
-    
-    @IBAction func tappedRejectButton(_ sender: UIButton) {
-        self.onResponse?(false)
+    @IBAction func tappedCancelButton(_ sender: UIButton) {
+        self.onCancel?()
     }
     
 }

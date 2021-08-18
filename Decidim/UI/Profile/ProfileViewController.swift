@@ -243,9 +243,21 @@ extension ProfileViewController {
         self.navigationController?.pushViewController(settingsVC, animated: true)
     }
     
-    @IBAction func notificationsButtonTapped(_ sender: Any) {
-        let invitesVC = TeamInvitesViewController.create()
-        self.navigationController?.pushViewController(invitesVC, animated: true)
+    @IBAction func teamsButtonTapped(_ sender: Any) {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Invitations", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            let invitesVC = TeamInvitesViewController.create()
+            self.navigationController?.pushViewController(invitesVC, animated: true)
+        }))
+        alert.addAction(UIAlertAction(title: "Join Requests", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            let requestsVC = TeamJoinRequestViewController.create()
+            self.navigationController?.pushViewController(requestsVC, animated: true)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
 }

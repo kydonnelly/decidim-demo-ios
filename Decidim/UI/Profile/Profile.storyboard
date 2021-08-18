@@ -499,13 +499,13 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="2Gb-tv-0VP">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bell"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                     <color key="value" name="PrimaryDark"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="notificationsButtonTapped:" destination="G5u-Ii-366" id="i6N-dZ-iGR"/>
+                                <action selector="teamsButtonTapped:" destination="G5u-Ii-366" id="fLN-cE-vuZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
