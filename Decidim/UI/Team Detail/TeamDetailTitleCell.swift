@@ -20,10 +20,10 @@ class TeamDetailTitleCell: CustomTableViewCell {
     private var teamDetail: TeamDetail!
     private var updateStatusBlock: UpdateStatusBlock?
     
-    func setup(detail: TeamDetail, onUpdateStatus: UpdateStatusBlock?) {
+    func setup(detail: TeamDetail, status: TeamMemberStatus?, onUpdateStatus: UpdateStatusBlock?) {
         self.titleLabel.text = detail.team.name
         self.iconImageView.setThumbnail(url: detail.team.thumbnailUrl)
-        self.memberStatusButton.setTitle(self.statusText(detail: detail), for: .normal)
+        self.memberStatusButton.setTitle(status?.actionText ?? "Request to Join", for: .normal)
         self.gradientBackground.setupWithRandomColors(seed: detail.team.id + 1, direction: .horizontal)
         
         self.teamDetail = detail
@@ -32,15 +32,10 @@ class TeamDetailTitleCell: CustomTableViewCell {
     
 }
 
-extension TeamDetailTitleCell {
+extension TeamMemberStatus {
     
-    fileprivate func statusText(detail: TeamDetail) -> String {
-        guard let profileId = MyProfileController.shared.myProfileId,
-              let member = detail.memberList.last(where: { $0.user_id == profileId }) else {
-            return "Request to Join"
-        }
-        
-        switch member.status {
+    fileprivate var actionText: String {
+        switch self {
         case .invited:
             return "Accept Invite"
         case .requested:
@@ -53,6 +48,10 @@ extension TeamDetailTitleCell {
             return "Leave"
         }
     }
+    
+}
+
+extension TeamDetailTitleCell {
     
     @IBAction func tappedMemberStatusButton(_ sender: UIButton) {
         guard let profileId = MyProfileController.shared.myProfileId else {

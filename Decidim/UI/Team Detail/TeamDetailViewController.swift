@@ -36,6 +36,9 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     fileprivate var isMember = false
     fileprivate var expandBody = false
     
+    private var overrideLocalStatus: Bool = false
+    private var localStatus: TeamMemberStatus? = nil
+    
     private static func create() -> TeamDetailViewController {
         let sb = UIStoryboard(name: "TeamDetail", bundle: .main)
         return sb.instantiateInitialViewController() as! TeamDetailViewController
@@ -111,6 +114,20 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         self.tableView.reloadData()
     }
     
+    fileprivate var currentMemberStatus: TeamMemberStatus? {
+        if overrideLocalStatus {
+            return self.localStatus
+        }
+        
+        guard let detail = self.teamDetail,
+              let profileId = MyProfileController.shared.myProfileId,
+              let member = detail.memberList.last(where: { $0.user_id == profileId }) else {
+            return nil
+        }
+        
+        return member.status
+    }
+    
 }
 
 extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -141,15 +158,15 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             case .body:
                 (cell as! TeamDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .title:
-                (cell as! TeamDetailTitleCell).setup(detail: detail) { [weak self] status in
+                (cell as! TeamDetailTitleCell).setup(detail: detail, status: self.currentMemberStatus) { [weak self] status in
                     guard let self = self else { return }
                     guard let profileId = MyProfileController.shared.myProfileId else { return }
                     
                     let completion: (Error?) -> Void = { [weak self] _ in
                         guard let self = self else { return }
-                        self.refreshData()
                         self.detailDataController.invalidate()
                         self.detailDataController.refresh { [weak self] _ in
+                            self?.overrideLocalStatus = false
                             self?.refreshData()
                         }
                     }
@@ -158,20 +175,29 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     case .none:
                         let dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
                         dataController.sendJoinRequest(completion: completion)
+                        self.localStatus = .requested
                     case .invited:
                         let dataController = TeamInvitesDataController.shared()
                         dataController.acceptInvite(detail.team.id, completion: completion)
+                        self.localStatus = .active
                     case .active:
                         let dataController = UserTeamsListDataController.shared(userId: profileId)
                         dataController.leaveTeam(detail.team.id, completion: completion)
+                        self.localStatus = .none
                     case .requested:
                         let dataController = TeamJoinRequestDataController.shared(teamId: detail.team.id)
                         dataController.cancelJoinRequest(completion: completion)
+                        self.localStatus = .none
                     case .banned:
                         completion(nil)
+                        self.localStatus = .requested
                     case .unknown:
                         completion(nil)
+                        self.localStatus = .requested
                     }
+                    
+                    self.overrideLocalStatus = true
+                    self.tableView.reloadRows(at: [indexPath], with: .none)
                 }
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail, canInvite: self.isMember, inviteBlock: { [weak self] in
