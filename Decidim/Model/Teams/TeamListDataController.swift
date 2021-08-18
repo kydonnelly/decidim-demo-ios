@@ -50,9 +50,10 @@ class TeamListDataController: NetworkDataController {
 
 extension TeamListDataController {
     
-    public func addTeam(title: String, description: String, thumbnailUrl: String?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
+    public func addTeam(title: String, description: String, isPrivate: Bool, thumbnailUrl: String?, members: [Int: TeamMemberStatus], completion: @escaping (Error?) -> Void) {
         var teamInfo: [String: Any] = ["name": title,
-                                       "description": description]
+                                       "description": description,
+                                       "private": isPrivate]
         if let iconUrl = thumbnailUrl {
             teamInfo["icon_url"] = iconUrl
         }
@@ -76,9 +77,10 @@ extension TeamListDataController {
         }
     }
     
-    public func editTeam(_ teamId: Int, title: String, description: String, thumbnailUrl: String?, completion: @escaping (Error?) -> Void) {
+    public func editTeam(_ teamId: Int, title: String, description: String, isPrivate: Bool, thumbnailUrl: String?, completion: @escaping (Error?) -> Void) {
         var teamInfo: [String: Any] = ["name": title,
-                                       "description": description]
+                                       "description": description,
+                                       "private": isPrivate]
         if let iconUrl = thumbnailUrl {
             teamInfo["icon_url"] = iconUrl
         }
