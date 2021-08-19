@@ -37,7 +37,11 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     fileprivate var expandBody = false
     
     private var overrideLocalStatus: Bool = false
-    private var localStatus: TeamMemberStatus? = nil
+    private var localStatus: TeamMemberStatus? = nil {
+        didSet {
+            self.overrideLocalStatus = true
+        }
+    }
     
     private static func create() -> TeamDetailViewController {
         let sb = UIStoryboard(name: "TeamDetail", bundle: .main)
@@ -160,7 +164,6 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             case .title:
                 (cell as! TeamDetailTitleCell).setup(detail: detail, status: self.currentMemberStatus) { [weak self] status in
                     guard let self = self else { return }
-                    guard let profileId = MyProfileController.shared.myProfileId else { return }
                     
                     let completion: (Error?) -> Void = { [weak self] _ in
                         guard let self = self else { return }
@@ -181,9 +184,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                         dataController.acceptInvite(detail.team.id, completion: completion)
                         self.localStatus = .active
                     case .active:
-                        let dataController = UserTeamsListDataController.shared(userId: profileId)
-                        dataController.leaveTeam(detail.team.id, completion: completion)
-                        self.localStatus = .none
+                        self.leaveOrDeleteTeam(completion: completion)
                     case .requested:
                         let dataController = TeamJoinRequestDataController.shared()
                         dataController.cancelJoinRequest(teamId: detail.team.id, completion: completion)
@@ -196,7 +197,6 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                         self.localStatus = .requested
                     }
                     
-                    self.overrideLocalStatus = true
                     self.tableView.reloadRows(at: [indexPath], with: .none)
                 }
             case .members:
@@ -323,6 +323,35 @@ extension TeamDetailViewController {
         let createVC = EditIssueViewController.create(teamId: self.teamId)
         createVC.modalPresentationStyle = .fullScreen
         self.navigationController?.present(createVC, animated: true, completion: nil)
+    }
+    
+    fileprivate func leaveOrDeleteTeam(completion: @escaping (Error?) -> Void) {
+        guard let detail = self.teamDetail,
+              let profileId = MyProfileController.shared.myProfileId else {
+            return
+        }
+        
+        if self.isAdmin && detail.memberList.allSatisfy({ $0.user_id == profileId}) {
+            let alert = UIAlertController(title: "Delete Group?", message: "You are the only admin in the group. If you leave the group will be deleted.", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _ in
+                weakAlert?.dismiss(animated: true, completion: nil)
+            }))
+            alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { [weak self] _ in
+                // Don't call the original completion
+                TeamListDataController.shared().deleteTeam(detail.team.id, completion: { [weak self] error in
+                    if error == nil {
+                        self?.navigationController?.popViewController(animated: true)
+                    }
+                })
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let dataController = UserTeamsListDataController.shared(userId: profileId)
+            dataController.leaveTeam(detail.team.id, completion: completion)
+            self.localStatus = .none
+        }
     }
     
 }
