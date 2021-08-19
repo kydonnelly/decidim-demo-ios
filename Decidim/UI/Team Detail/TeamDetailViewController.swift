@@ -303,10 +303,10 @@ extension TeamDetailViewController {
     
     fileprivate func showInviteScreen() {
         let teamId = self.teamId!
-        let selectedId = self.teamDetail?.memberList.first(where: { $0.status == .active })?.user_id
+        let selectedIds = self.teamDetail?.memberList.filter { $0.status == .invited }.map { $0.user_id } ?? []
         
-        let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: selectedId) { profileId, selectedProfileId in
-            if profileId == selectedProfileId {
+        let inviteVC = ProfileSearchViewController.create(title: "Invite", selectedProfileIds: selectedIds) { profileId, selectedProfileIds in
+            if selectedProfileIds.contains(profileId) {
                 TeamInvitationsDataController.shared(teamId: teamId).inviteMember(profileId) { _ in
                     // todo
                 }

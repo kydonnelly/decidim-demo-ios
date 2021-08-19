@@ -10,11 +10,12 @@ import UIKit
 
 class ProfileSearchViewController: UIViewController, CustomTableController {
     
-    public typealias ToggleBlock = (Int, Int?) -> Void
+    public typealias ToggleBlock = (Int, [Int]) -> Void
     
     @IBOutlet var tableView: UITableView!
     
-    private var selectedProfileId: Int?
+    private var selectedProfileIds: [Int]!
+    private var allowsMultipleSelection: Bool = false
     private var profileInfoDataController: ProfileInfoDataController!
     private var toggleBlock: ToggleBlock?
     
@@ -23,16 +24,32 @@ class ProfileSearchViewController: UIViewController, CustomTableController {
     private static let LoadingCellId = "LoadingCell"
     private static let ResultCellId = "ProfileResultCell"
     
-    static func create(title: String, selectedProfileId: Int?, onToggle: ToggleBlock?) -> ProfileSearchViewController {
+    private static func create() -> ProfileSearchViewController {
         let sb = UIStoryboard(name: "ProfileSearch", bundle: .main)
-        let vc = sb.instantiateInitialViewController() as! ProfileSearchViewController
-        vc.setup(selectedProfileId: selectedProfileId, onToggle: onToggle)
-        vc.title = title
+        return sb.instantiateInitialViewController() as! ProfileSearchViewController
+    }
+    
+    // Create with only a single profile able to be selected at a time
+    static func create(title: String, selectedProfileId: Int?, onToggle: ((Int, Int?) -> Void)?) -> ProfileSearchViewController {
+        let vc = self.create()
+        let selected = [selectedProfileId].compactMap {$0}
+        vc.setup(title: title, selectedProfileIds: selected, allowMultiSelect: false) { updated, selected in
+            onToggle?(updated, selected.first)
+        }
         return vc
     }
     
-    private func setup(selectedProfileId: Int?, onToggle: ToggleBlock?) {
-        self.selectedProfileId = selectedProfileId
+    // Create with multiple profiles able to be selected at a time
+    static func create(title: String, selectedProfileIds: [Int], onToggle: ToggleBlock?) -> ProfileSearchViewController {
+        let vc = self.create()
+        vc.setup(title: title, selectedProfileIds: selectedProfileIds, allowMultiSelect: true, onToggle: onToggle)
+        return vc
+    }
+    
+    private func setup(title: String, selectedProfileIds: [Int], allowMultiSelect: Bool, onToggle: ToggleBlock?) {
+        self.title = title
+        self.selectedProfileIds = selectedProfileIds
+        self.allowsMultipleSelection = allowMultiSelect
         self.profileInfoDataController = ProfileInfoDataController.shared()
         self.toggleBlock = onToggle
     }
@@ -97,7 +114,7 @@ extension ProfileSearchViewController: UITableViewDataSource, UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: Self.ResultCellId, for: indexPath) as! ProfileSearchResultCell
         
         let info = infos[indexPath.row]
-        let isSelected = self.selectedProfileId == info.profileId
+        let isSelected = self.selectedProfileIds.contains(info.profileId)
         
         cell.setup(profile: info, isSelected: isSelected)
         
@@ -112,18 +129,23 @@ extension ProfileSearchViewController: UITableViewDataSource, UITableViewDelegat
         }
         
         var reloadPaths = [indexPath]
-        if let index = infos.firstIndex(where: { $0.profileId == self.selectedProfileId}) {
-            reloadPaths.append(IndexPath(row: index, section: 0))
-        }
         
         let profileId = infos[indexPath.row].profileId
-        if profileId == self.selectedProfileId {
-            self.selectedProfileId = nil
+        if let index = self.selectedProfileIds.firstIndex(of: profileId) {
+            // Already selected; deselect
+            self.selectedProfileIds.remove(at: index)
+            reloadPaths.append(IndexPath(row: index, section: 0))
+        } else if self.allowsMultipleSelection {
+            // Add to multi-selection
+            self.selectedProfileIds.append(profileId)
         } else {
-            self.selectedProfileId = profileId
+            // New single selection; deselect all others
+            let selectedIndexes = infos.enumerated().filter{ self.selectedProfileIds.contains($1.profileId) }.map { IndexPath(row: $0.offset, section: 0) }
+            reloadPaths.append(contentsOf: selectedIndexes)
+            self.selectedProfileIds = [profileId]
         }
         
-        self.toggleBlock?(profileId, self.selectedProfileId)
+        self.toggleBlock?(profileId, self.selectedProfileIds)
         
         tableView.reloadRows(at: reloadPaths, with: .none)
     }

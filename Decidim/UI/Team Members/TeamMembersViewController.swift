@@ -222,7 +222,8 @@ extension TeamMembersViewController {
        
         alert.addAction(UIAlertAction(title: "Invite", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileId: detail.memberList.first(where: {$0.status == .active })?.user_id) { [weak self] toggleId, selectedId in
+            let selectedIds = detail.memberList.filter { $0.status == .invited }.map { $0.user_id }
+            let profileVC = ProfileSearchViewController.create(title: "Invite", selectedProfileIds: selectedIds) { [weak self] toggleId, selectedIds in
                 
                 let completion: (Error?) -> Void = { [weak self] _ in
                     guard let self = self else { return }
@@ -233,7 +234,7 @@ extension TeamMembersViewController {
                     }
                 }
                 
-                if toggleId == selectedId {
+                if selectedIds.contains(toggleId) {
                     TeamInvitationsDataController.shared(teamId: detail.team.id).inviteMember(toggleId, completion: completion)
                 } else {
                     TeamInvitationsDataController.shared(teamId: detail.team.id).cancelInvitation(toggleId, completion: completion)
