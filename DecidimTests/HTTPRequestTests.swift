@@ -1251,7 +1251,7 @@ class HTTPRequestTests: XCTestCase {
         let description = "test description"
         
         // test
-        let responseItem = self.createAndVerifyTeam(name: name, description: description)
+        let responseItem = self.createAndVerifyTeam(name: name, description: description, isPrivate: false)
         
         // verify
         XCTAssertEqual(responseItem?.name, name)
@@ -1274,8 +1274,10 @@ class HTTPRequestTests: XCTestCase {
         let teamId = "\(team.id)"
         let updatedTitle = "test team (edited)"
         let updatedDescription = "description (edited)"
+        let updatedPrivate = true
         let payload: [String: Any] = ["team": ["name": updatedTitle,
                                                "description": updatedDescription,
+                                               "private": updatedPrivate,
                                                "icon_url": ""]]
         
         // test
@@ -1293,6 +1295,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(responseStatus, "updated")
         XCTAssertEqual(responseItem?.name, updatedTitle)
         XCTAssertEqual(responseItem?.description, updatedDescription)
+        XCTAssertEqual(responseItem?.isPrivate, updatedPrivate)
         XCTAssertNil(receivedError)
     }
 
@@ -2064,7 +2067,7 @@ extension HTTPRequestTests {
         return responseItem
     }
     
-    fileprivate func createAndVerifyTeam(name: String = "test team", description: String = "test description") -> Team? {
+    fileprivate func createAndVerifyTeam(name: String = "test team", description: String = "test description", isPrivate: Bool = false) -> Team? {
         let request = HTTPRequest.shared
         
         let expectation = XCTestExpectation(description: "team response")
@@ -2072,7 +2075,7 @@ extension HTTPRequestTests {
         var responseStatus: String? = nil
         var responseItem: Team? = nil
         
-        let payload: [String: Any] = ["team": ["name": name, "description": description]]
+        let payload: [String: Any] = ["team": ["name": name, "description": description, "private": isPrivate]]
         
         // test
         request.post(endpoint: "teams", args: ["create"], payload: payload) { response, error in
