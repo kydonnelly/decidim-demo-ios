@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="48" id="1Ue-3h-z29" customClass="ToggleCell" customModule="Votion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1Ue-3h-z29" id="cXt-3w-xso">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Toggle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VCW-j7-TWN">
+                        <rect key="frame" x="24" y="13.5" width="309" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" name="PrimaryDark"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WpO-8e-sVS">
+                        <rect key="frame" x="341" y="8.5" width="51" height="31"/>
+                        <color key="onTintColor" name="Action"/>
+                        <connections>
+                            <action selector="didToggleWithSender:" destination="1Ue-3h-z29" eventType="valueChanged" id="XEd-H8-SSA"/>
+                        </connections>
+                    </switch>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J9F-SB-TPC">
+                        <rect key="frame" x="0.0" y="47" width="414" height="1"/>
+                        <color key="backgroundColor" systemColor="separatorColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="fD3-bL-bGQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="VCW-j7-TWN" firstAttribute="leading" secondItem="cXt-3w-xso" secondAttribute="leading" constant="24" id="7p2-6X-qNg"/>
+                    <constraint firstAttribute="bottom" secondItem="J9F-SB-TPC" secondAttribute="bottom" id="GZN-kS-dD6"/>
+                    <constraint firstItem="WpO-8e-sVS" firstAttribute="leading" secondItem="VCW-j7-TWN" secondAttribute="trailing" constant="8" id="Pkr-VU-wTI"/>
+                    <constraint firstItem="VCW-j7-TWN" firstAttribute="centerY" secondItem="cXt-3w-xso" secondAttribute="centerY" id="XI5-S1-QZt"/>
+                    <constraint firstItem="J9F-SB-TPC" firstAttribute="leading" secondItem="cXt-3w-xso" secondAttribute="leading" id="ZzI-1t-Ol4"/>
+                    <constraint firstAttribute="trailing" secondItem="WpO-8e-sVS" secondAttribute="trailing" constant="24" id="dBT-rN-usS"/>
+                    <constraint firstAttribute="trailing" secondItem="J9F-SB-TPC" secondAttribute="trailing" id="nSh-Gu-aSy"/>
+                    <constraint firstItem="WpO-8e-sVS" firstAttribute="centerY" secondItem="cXt-3w-xso" secondAttribute="centerY" id="rP1-3k-PR5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="titleLabel" destination="VCW-j7-TWN" id="kL6-nc-P7g"/>
+                <outlet property="toggle" destination="WpO-8e-sVS" id="bw7-1f-2iw"/>
+            </connections>
+            <point key="canvasLocation" x="-145" y="115"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="Action">
+            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="separatorColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

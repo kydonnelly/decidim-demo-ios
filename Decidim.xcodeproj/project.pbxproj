@@ -263,7 +263,8 @@
 		27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F883E924F5242A00B216D2 /* Kraken.ttf */; };
 		27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */; };
 		27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */; };
-		97F55E6126C4E6870079DE9C /* PrivacyPreferenceToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97F55E6026C4E6870079DE9C /* PrivacyPreferenceToggleCell.swift */; };
+		97E780E626DF092700C6D044 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E780E426DF092700C6D044 /* ToggleCell.swift */; };
+		97E780E726DF092700C6D044 /* ToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E780E526DF092700C6D044 /* ToggleCell.xib */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
 		B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */; };
 /* End PBXBuildFile section */
@@ -545,7 +546,8 @@
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.debug.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.debug.xcconfig"; sourceTree = "<group>"; };
-		97F55E6026C4E6870079DE9C /* PrivacyPreferenceToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPreferenceToggleCell.swift; sourceTree = "<group>"; };
+		97E780E426DF092700C6D044 /* ToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
+		97E780E526DF092700C6D044 /* ToggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToggleCell.xib; sourceTree = "<group>"; };
 		FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Decidim.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1055,6 +1057,8 @@
 				27A81F70261435C60088E07C /* MultiLineEntryCell.xib */,
 				27A81F5C261432660088E07C /* SingleLineEntryCell.swift */,
 				27A81F6C261434710088E07C /* SingleLineEntryCell.xib */,
+				97E780E426DF092700C6D044 /* ToggleCell.swift */,
+				97E780E526DF092700C6D044 /* ToggleCell.xib */,
 			);
 			path = "Input Cells";
 			sourceTree = "<group>";
@@ -1227,7 +1231,6 @@
 				27F883B924EA5C1700B216D2 /* TeamMemberStatus.swift */,
 				27F883B324E79D7100B216D2 /* EditTeamViewController.swift */,
 				27F883B424E79D7100B216D2 /* EditTeam.storyboard */,
-				97F55E6026C4E6870079DE9C /* PrivacyPreferenceToggleCell.swift */,
 			);
 			path = "Team Editing";
 			sourceTree = "<group>";
@@ -1396,6 +1399,7 @@
 				275114ED2506B168006277AA /* Settings.storyboard in Resources */,
 				2756A6B0249708DE0023DC91 /* LaunchScreen.storyboard in Resources */,
 				27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */,
+				97E780E726DF092700C6D044 /* ToggleCell.xib in Resources */,
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
@@ -1640,7 +1644,6 @@
 				27649C97260AE2F7003D29D4 /* IssueDetailBodyCell.swift in Sources */,
 				27293FD225072183000D27D1 /* UITableView+Helpers.swift in Sources */,
 				27F883C824ED062700B216D2 /* TeamMemberListCell.swift in Sources */,
-				97F55E6126C4E6870079DE9C /* PrivacyPreferenceToggleCell.swift in Sources */,
 				279ED9D726C2330300F8224F /* ActivityAmendmentDeadlineCell.swift in Sources */,
 				2739824226B2575200B550FF /* TeamInvitationsViewController.swift in Sources */,
 				27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */,
@@ -1750,6 +1753,7 @@
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
 				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27A4ADE82612DE04003C507A /* GiphyManager.swift in Sources */,
+				97E780E626DF092700C6D044 /* ToggleCell.swift in Sources */,
 				2763CA95262293CD007B0E2E /* IssueFollowersViewController.swift in Sources */,
 				27B22B5D24D93988005DF376 /* ProfileIconCollectionCell.swift in Sources */,
 				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,

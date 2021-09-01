@@ -52,10 +52,14 @@ class EditTeamViewController: UIViewController, CustomTableController {
         
         self.autoInsetForKeyboard()
         
-        self.tableView.register(UINib(nibName: "EditImageCell", bundle: .main),
+        self.tableView.register(UINib(nibName: "EditImageCell",
+            bundle: .main),
                                 forCellReuseIdentifier: Self.ImageCellId)
         self.tableView.register(UINib(nibName: "MultiLineEntryCell", bundle: .main),
                                 forCellReuseIdentifier: Self.BodyCellId)
+        self.tableView.register(UINib(nibName: "ToggleCell",
+            bundle: .main),
+                                forCellReuseIdentifier: Self.ToggleCellId)
         self.tableView.register(UINib(nibName: "SingleLineEntryCell", bundle: .main),
                                 forCellReuseIdentifier: Self.TitleCellId)
         
@@ -193,7 +197,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             })
             return cell
         } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! PrivacyPreferenceToggleCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Self.ToggleCellId, for: indexPath) as! ToggleCell
             cell.setup(title: "Private Group", isOn: self.isPrivate) {
                 [weak self] isOn in
                 self?.isPrivate = isOn
