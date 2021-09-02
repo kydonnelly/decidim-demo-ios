@@ -34,7 +34,7 @@ class TeamInvitesDataController: NetworkDataController {
     public func acceptInvite(_ teamId: Int, completion: @escaping (Error?) -> Void) {
         let args: [String] = [String(describing: teamId), "membership", "invitation", "accept"]
         
-        HTTPRequest.shared.post(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
+        HTTPRequest.shared.put(endpoint: "teams", args: args, payload: [:]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
