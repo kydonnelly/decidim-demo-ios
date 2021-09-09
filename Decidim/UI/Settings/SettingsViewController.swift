@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController, CustomTableController {
     
     static let loadingCellId = "LoadingCell"
     static let actionCellId = "ActionCell"
+    static let appInfoCellId = "AppInfoCell"
     static let usernameCellId = "UsernameCell"
     static let passwordCellId = "PasswordCell"
     static let votingCellId = "VotingCell"
@@ -93,7 +94,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         case .noProfile:
             return 1
         case .profile:
-            return 4
+            return 5
         }
     }
     
@@ -113,9 +114,9 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.row == 0 {
             return 76
-        } else if indexPath.row >= 1 && indexPath.row < 3 {
+        } else if indexPath.row >= 1 && indexPath.row < 4 {
             return 44
-        } else if indexPath.row == 3 {
+        } else if indexPath.row == 4 {
             return 72
         } else {
             preconditionFailure("Unexpected indexPath in ProfileViewController")
@@ -156,6 +157,11 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
             votingCell.setup(title: "Voting Preferences", detail: "Update")
             return votingCell
         } else if indexPath.row == 3 {
+            let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+            let appInfoCell = tableView.dequeueReusableCell(withIdentifier: Self.appInfoCellId, for: indexPath) as! SettingsPreferencesCell
+            appInfoCell.setup(title: "App Version", detail: appVersion ?? "Unknown")
+            return appInfoCell
+        } else if indexPath.row == 4 {
             let actionCell = tableView.dequeueReusableCell(withIdentifier: Self.actionCellId, for: indexPath) as! SettingsActionCell
             actionCell.setup(title: "Sign Out") { [weak self] in
                 MyProfileController.shared.signOut()
