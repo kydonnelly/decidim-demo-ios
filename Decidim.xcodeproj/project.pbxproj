@@ -228,6 +228,7 @@
 		27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */; };
 		27B22B6424D94025005DF376 /* AmendmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B6324D94025005DF376 /* AmendmentCell.swift */; };
 		27B22B6624D94077005DF376 /* AmendmentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B6524D94077005DF376 /* AmendmentList.storyboard */; };
+		27B8263126E9FC3D004305DF /* UILabel+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B8263026E9FC3D004305DF /* UILabel+Localizable.swift */; };
 		27C2DF2B26748DAA0094349F /* Hashtags.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF2A26748DAA0094349F /* Hashtags.graphql.swift */; };
 		27C2DF312674924E0094349F /* Organization.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF302674924E0094349F /* Organization.graphql.swift */; };
 		27C2DF38267494A00094349F /* ParticipatoryProcessGroups.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */; };
@@ -508,6 +509,7 @@
 		27B22B6124D93FEA005DF376 /* AmendmentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentListViewController.swift; sourceTree = "<group>"; };
 		27B22B6324D94025005DF376 /* AmendmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmendmentCell.swift; sourceTree = "<group>"; };
 		27B22B6524D94077005DF376 /* AmendmentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AmendmentList.storyboard; sourceTree = "<group>"; };
+		27B8263026E9FC3D004305DF /* UILabel+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Localizable.swift"; sourceTree = "<group>"; };
 		27C2DF2A26748DAA0094349F /* Hashtags.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hashtags.graphql.swift; sourceTree = "<group>"; };
 		27C2DF302674924E0094349F /* Organization.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organization.graphql.swift; sourceTree = "<group>"; };
 		27C2DF36267494A00094349F /* ParticipatoryProcessGroups.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroups.graphql.swift; sourceTree = "<group>"; };
@@ -1139,6 +1141,7 @@
 				27A81F4F26142E220088E07C /* SingleActionCell.swift */,
 				27293FD52508B3E2000D27D1 /* TouchThroughView.swift */,
 				278646D724FF77BD004C2C82 /* UIAppearance+Scheme.swift */,
+				27B8263026E9FC3D004305DF /* UILabel+Localizable.swift */,
 				2773D15B25C157AD007FD3F0 /* UIView+Blocking.swift */,
 				27B22B5924D93978005DF376 /* Profile Info */,
 				2717F46424DAA99200189F7C /* Voting */,
@@ -1774,6 +1777,7 @@
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
 				2709942C26E9E96000C04840 /* AccessibleButton.swift in Sources */,
 				27490CD7260EDDF300FAD841 /* Teams+Previewable.swift in Sources */,
+				27B8263126E9FC3D004305DF /* UILabel+Localizable.swift in Sources */,
 				27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */,
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,
 				27C2DF2B26748DAA0094349F /* Hashtags.graphql.swift in Sources */,

@@ -33,8 +33,8 @@ class ProposalVoteCell: CustomTableViewCell {
         self.iconImageView.setThumbnail(url: nil)
         
         self.createdAtLabel.text = "\(proposal.createdAt.asShortStringAgo()) •"
-        self.commentsLabel.text = "\(proposal.commentCount) comments •"
-        self.votesLabel.text = "\(proposal.voteCount) votes"
+        self.commentsLabel.setPluralizableText(count: proposal.commentCount, singular: "comment •", plural: "comments •")
+        self.votesLabel.setPluralizableText(count: proposal.voteCount, singular: "vote", plural: "votes")
         
         if let vote = myVote {
             self.myVoteImage.isHidden = false
@@ -57,7 +57,7 @@ class ProposalVoteCell: CustomTableViewCell {
         ProposalCommentsDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
             guard let self = self, let dataController = dc as? ProposalCommentsDataController else { return }
             let commentCount = dataController.allComments.filter { $0.proposalId == proposal.id }.count
-            self.commentsLabel.text = "\(commentCount) comments •"
+            self.commentsLabel.setPluralizableText(count: commentCount, singular: "comment •", plural: "comments •")
         }
         
         ProposalVotesDataController.shared(proposalId: proposal.id).refresh { [weak self] dc in
@@ -70,9 +70,11 @@ class ProposalVoteCell: CustomTableViewCell {
             if nonAbstainCount > 0 {
                 let yesCount = allVotes.filter { $0.voteType == .yes }.count
                 let percentage = Int(100 * Double(yesCount) / Double(nonAbstainCount))
-                self.votesLabel.text = "\(voteCount) votes • \(percentage)%"
+                self.votesLabel.setPluralizableText(count: voteCount,
+                                                    singular: "vote • \(percentage)%",
+                                                    plural: "votes • \(percentage)%")
             } else {
-                self.votesLabel.text = "\(voteCount) votes"
+                self.votesLabel.setPluralizableText(count: voteCount, singular: "vote", plural: "votes")
             }
         }
     }

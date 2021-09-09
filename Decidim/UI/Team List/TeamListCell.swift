@@ -24,7 +24,7 @@ class TeamListCell: CustomTableViewCell {
         self.iconImageView.setThumbnail(url: team.thumbnailUrl)
         
         self.createdAtLabel.text = team.createdAt.asShortStringAgo()
-        self.memberCoundLabel.text = "\(team.memberCount) members"
+        self.memberCoundLabel.setPluralizableText(count: team.memberCount, singular: "member", plural: "members")
     }
     
 }

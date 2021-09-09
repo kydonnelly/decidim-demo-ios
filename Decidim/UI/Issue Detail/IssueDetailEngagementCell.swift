@@ -26,8 +26,8 @@ class IssueDetailEngagementCell: CustomTableViewCell {
         self.followBlock = followBlock
         self.allFollowersBlock = allFollowersBlock
         
-        self.numFollowersLabel.text = "\(followCount) Followers"
         self.myFollowingLabel.text = isFollowing ? "Following" : "Follow"
+        self.numFollowersLabel.setPluralizableText(count: followCount, singular: "Follower", plural: "Followers")
     }
     
 }

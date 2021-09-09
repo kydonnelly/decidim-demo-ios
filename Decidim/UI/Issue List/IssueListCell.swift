@@ -24,7 +24,7 @@ class IssueListCell: CustomTableViewCell {
         self.iconImageView.setThumbnail(url: issue.iconUrl)
         
         self.createdAtLabel.text = "\(issue.createdAt.asShortStringAgo()) •"
-        self.commentsLabel.text = "\(issue.commentCount) comments"
+        self.commentsLabel.setPluralizableText(count: issue.commentCount, singular: "comment", plural: "comments")
         
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else {
@@ -43,7 +43,7 @@ class IssueListCell: CustomTableViewCell {
         IssueCommentsDataController.shared(issueId: issue.id).refresh { [weak self] dc in
             guard let self = self, let dataController = dc as? IssueCommentsDataController else { return }
             let commentCount = dataController.allComments.filter { $0.issueId == issue.id }.count
-            self.commentsLabel.text = "\(commentCount) comments"
+            self.commentsLabel.setPluralizableText(count: commentCount, singular: "comment", plural: "comments")
         }
     }
     
