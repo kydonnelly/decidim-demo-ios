@@ -39,3 +39,23 @@ extension UIColor {
     }
     
 }
+
+extension UIColor {
+    
+    var isBright: Bool? {
+        guard let components = self.cgColor.components, components.count >= 3 else {
+            return nil
+        }
+        
+        let r = components[0]
+        let g = components[1]
+        let b = components[2]
+        
+        // https://stackoverflow.com/a/2509596
+        let brightness = r * 299.0 + g * 587.0 + b * 114.0
+        return brightness >= 125.0
+    }
+    
+    
+    
+}

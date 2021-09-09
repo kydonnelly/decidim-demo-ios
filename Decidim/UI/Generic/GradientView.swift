@@ -18,6 +18,8 @@ public class LinearGradientView : UIView {
     @IBInspectable private var endColor: UIColor?
     @IBInspectable private var direction: Int = 0
     
+    private var randomSeed: Int? = nil
+    
     public override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -45,6 +47,18 @@ public class LinearGradientView : UIView {
         self.gradientLayer.needsDisplayOnBoundsChange = true
     }
     
+    public override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        if let seed = self.randomSeed, let direction = Direction(rawValue: self.direction) {
+            self.setupWithRandomColors(seed: seed, direction: direction)
+        }
+    }
+    
+}
+
+extension LinearGradientView {
+    
     public func update(colors: [UIColor], direction: Direction) {
         self.gradientLayer.colors = colors
         self.gradientLayer.direction = direction
@@ -52,11 +66,20 @@ public class LinearGradientView : UIView {
     }
     
     public func setupWithRandomColors(seed: Int, direction: Direction) {
+        self.randomSeed = seed
+        self.direction = direction.rawValue
+        
+        let useDarkGradient = UIColor.primaryLight.isBright != false
+        let colorOffset: CGFloat = useDarkGradient ? 0.0 : 0.5
+        
         let randomRed = CGFloat(seed * 117 % 256) / 256.0
         let randomBlue = CGFloat(seed * 233 % 256) / 256.0
         let randomGreen = CGFloat(seed * 173 % 256) / 256.0
         let startColor = UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
-        let endColor = UIColor(red: randomRed * 0.5, green: randomGreen * 0.5, blue: randomBlue * 0.5, alpha: 1.0)
+        let endColor = UIColor(red: randomRed * 0.5 + colorOffset,
+                               green: randomGreen * 0.5 + colorOffset,
+                               blue: randomBlue * 0.5 + colorOffset,
+                               alpha: 1.0)
         
         self.update(colors: [startColor, endColor], direction: direction)
     }
