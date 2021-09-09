@@ -204,7 +204,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             }
             return cell
         } else {
-            let actionTitle = self.originalTeam == nil ? "Create Team" : "Save Changes"
+            let actionTitle = self.originalTeam == nil ? "Create Group" : "Save Changes"
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ActionCellId, for: indexPath) as! SingleActionCell
             cell.setup(action: actionTitle, isEnabled: self.hasValidInput) { [weak self] sender in
                 self?.didTapDoneButton(sender)
