@@ -148,9 +148,11 @@ extension ActivityListViewController: UITableViewDataSource, UITableViewDelegate
         switch activity.type {
         case .comment(let comment):
             let vc = CommentListViewController.create(proposalId: comment.proposalId, focusComment: comment)
+            vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: nil)
         case .issueComment(let comment):
             let vc = CommentListViewController.create(issueId: comment.issueId, focusComment: comment)
+            vc.modalPresentationStyle = .fullScreen
             self.navigationController?.present(vc, animated: true, completion: nil)
         case .newIssue(let issue):
             let vc = IssueDetailViewController.create(issue: issue)
