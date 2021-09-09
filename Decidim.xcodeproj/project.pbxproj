@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		270169EF24FF6B3500CB97BF /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270169EE24FF6B3500CB97BF /* PaddedTextField.swift */; };
+		2709942C26E9E96000C04840 /* AccessibleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709942B26E9E96000C04840 /* AccessibleButton.swift */; };
 		270B26C9247B6A4A001804D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26C8247B6A4A001804D6 /* AppDelegate.swift */; };
 		270B26D2247B6A4B001804D6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 270B26D1247B6A4B001804D6 /* Assets.xcassets */; };
 		270B26DE247B9F9E001804D6 /* GraphRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270B26DD247B9F9E001804D6 /* GraphRequest.swift */; };
@@ -282,6 +283,7 @@
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
 		270169EE24FF6B3500CB97BF /* PaddedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
+		2709942B26E9E96000C04840 /* AccessibleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibleButton.swift; sourceTree = "<group>"; };
 		270B26C5247B6A4A001804D6 /* Votion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Votion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		270B26C8247B6A4A001804D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		270B26D1247B6A4B001804D6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1114,6 +1116,7 @@
 		27B22B5424D93751005DF376 /* Generic */ = {
 			isa = PBXGroup;
 			children = (
+				2709942B26E9E96000C04840 /* AccessibleButton.swift */,
 				27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */,
 				27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */,
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
@@ -1769,6 +1772,7 @@
 				27293FD82508BE3C000D27D1 /* CustomTableViewCell.swift in Sources */,
 				279ED9DB26C2345A00F8224F /* ActivityTeamInvitationCell.swift in Sources */,
 				270B26FB247BC893001804D6 /* Types.graphql.swift in Sources */,
+				2709942C26E9E96000C04840 /* AccessibleButton.swift in Sources */,
 				27490CD7260EDDF300FAD841 /* Teams+Previewable.swift in Sources */,
 				27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */,
 				27F883CA24ED075D00B216D2 /* TeamActionListCell.swift in Sources */,

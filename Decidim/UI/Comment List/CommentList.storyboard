@@ -28,7 +28,7 @@
         <!--CommentListViewController-->
         <scene sceneID="WxB-se-h61">
             <objects>
-                <viewController id="cgL-cf-YgS" userLabel="CommentListViewController" customClass="CommentListViewController" customModule="Agora" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cgL-cf-YgS" userLabel="CommentListViewController" customClass="CommentListViewController" customModule="Votion" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ikm-m3-k7g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,8 +44,28 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GSn-Oy-fcO">
                                 <rect key="frame" x="0.0" y="770" width="414" height="126"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-vP-ZwX" customClass="AccessibleButton" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="362" y="32" width="28" height="28"/>
+                                        <color key="backgroundColor" name="Action"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="i01-Uq-sXw"/>
+                                            <constraint firstAttribute="width" constant="28" id="txG-ss-Q18"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="circle_up"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                <color key="value" name="PrimaryLight"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="21"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="cgL-cf-YgS" eventType="touchUpInside" id="KzP-wa-F2K"/>
+                                        </connections>
+                                    </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add a comment..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6Gz-dR-gE7">
-                                        <rect key="frame" x="24" y="16" width="330" height="60"/>
+                                        <rect key="frame" x="24" y="16" width="322" height="60"/>
                                         <color key="backgroundColor" name="PrimaryBackground"/>
                                         <color key="tintColor" name="UserInput"/>
                                         <color key="textColor" name="UserInput"/>
@@ -66,31 +86,11 @@
                                             <outlet property="delegate" destination="cgL-cf-YgS" id="1oj-Eg-pJW"/>
                                         </connections>
                                     </textView>
-                                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJw-vP-ZwX">
-                                        <rect key="frame" x="362" y="32" width="28" height="28"/>
-                                        <color key="backgroundColor" name="Action"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="28" id="i01-Uq-sXw"/>
-                                            <constraint firstAttribute="width" constant="28" id="txG-ss-Q18"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="circle_up"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                <color key="value" name="PrimaryLight"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="21"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="sendButtonTapped:" destination="cgL-cf-YgS" eventType="touchUpInside" id="KzP-wa-F2K"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="PrimaryBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="uJw-vP-ZwX" secondAttribute="trailing" constant="24" id="90k-Jn-hME"/>
-                                    <constraint firstItem="uJw-vP-ZwX" firstAttribute="leading" secondItem="6Gz-dR-gE7" secondAttribute="trailing" constant="8" id="F74-Rv-edx"/>
+                                    <constraint firstItem="uJw-vP-ZwX" firstAttribute="leading" secondItem="6Gz-dR-gE7" secondAttribute="trailing" constant="16" id="F74-Rv-edx"/>
                                     <constraint firstItem="6Gz-dR-gE7" firstAttribute="centerY" secondItem="uJw-vP-ZwX" secondAttribute="centerY" id="NbD-Uy-5MQ"/>
                                     <constraint firstAttribute="bottom" secondItem="6Gz-dR-gE7" secondAttribute="bottom" priority="255" constant="16" id="hEP-P3-FJ1"/>
                                     <constraint firstAttribute="height" priority="255" constant="92" id="nkM-5A-9a4"/>
