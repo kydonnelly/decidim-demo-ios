@@ -197,7 +197,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                         self.localStatus = .requested
                     }
                     
-                    self.tableView.reloadRows(at: [indexPath], with: .none)
+                    self.tableView.reloadData()
                 }
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail, canInvite: self.isMember, inviteBlock: { [weak self] in
