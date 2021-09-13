@@ -109,6 +109,8 @@ extension TeamListDataController {
                 self?.data?.insert(team, at: localIndex)
             }
             
+            TeamDetailDataController.shared(teamId: teamId).invalidate()
+            
             completion(nil)
         }
     }
@@ -130,6 +132,8 @@ extension TeamListDataController {
             if let localIndex = self?.data?.firstIndex(where: { ($0 as? TeamDetail)?.team.id == teamId }) {
                 self?.data?.remove(at: localIndex)
             }
+            
+            TeamDetailDataController.shared(teamId: teamId).invalidate()
             
             completion(nil)
         }
