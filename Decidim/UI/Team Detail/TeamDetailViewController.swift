@@ -331,7 +331,7 @@ extension TeamDetailViewController {
             return
         }
         
-        if self.isAdmin && detail.memberList.allSatisfy({ $0.user_id == profileId}) {
+        if self.isAdmin && detail.memberList.filter({ $0.isAdmin }).allSatisfy({ $0.user_id == profileId}) {
             let alert = UIAlertController(title: "Delete Group?", message: "You are the only admin in the group. If you leave the group will be deleted.", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { [weak weakAlert = alert] _ in
