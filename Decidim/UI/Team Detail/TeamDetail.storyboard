@@ -167,8 +167,49 @@
                                             <outlet property="bodyLabel" destination="Z2c-8u-hr7" id="kBz-DP-rWU"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PrivateCell" rowHeight="88" id="o3u-Dt-hf1">
+                                        <rect key="frame" x="0.0" y="212" width="414" height="88"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o3u-Dt-hf1" id="ofm-wL-vkh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="1000" text="GROUP PRIVACY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVy-A0-3z0">
+                                                    <rect key="frame" x="24" y="12" width="366" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a private group. You must request access or be invited to join." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhl-bc-TG5">
+                                                    <rect key="frame" x="24" y="37" width="366" height="38.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" name="UserInput"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSx-uG-aOJ">
+                                                    <rect key="frame" x="0.0" y="87" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="kKk-4W-Wmu"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="kVy-A0-3z0" secondAttribute="trailing" constant="24" id="2BA-Am-pBF"/>
+                                                <constraint firstItem="kVy-A0-3z0" firstAttribute="leading" secondItem="ofm-wL-vkh" secondAttribute="leading" constant="24" id="5vd-2o-XJK"/>
+                                                <constraint firstItem="kVy-A0-3z0" firstAttribute="top" secondItem="ofm-wL-vkh" secondAttribute="top" constant="12" id="8iB-90-BFd"/>
+                                                <constraint firstAttribute="bottom" secondItem="dSx-uG-aOJ" secondAttribute="bottom" id="Bt1-in-R2i"/>
+                                                <constraint firstAttribute="trailing" secondItem="dSx-uG-aOJ" secondAttribute="trailing" id="T23-FK-YZ4"/>
+                                                <constraint firstAttribute="bottom" secondItem="Mhl-bc-TG5" secondAttribute="bottom" priority="51" constant="12" id="bIz-SS-BIr"/>
+                                                <constraint firstAttribute="trailing" secondItem="Mhl-bc-TG5" secondAttribute="trailing" constant="24" id="ePL-fS-cqn"/>
+                                                <constraint firstItem="Mhl-bc-TG5" firstAttribute="top" secondItem="kVy-A0-3z0" secondAttribute="bottom" constant="8" id="pNP-eQ-QjG"/>
+                                                <constraint firstItem="dSx-uG-aOJ" firstAttribute="leading" secondItem="ofm-wL-vkh" secondAttribute="leading" id="tKk-bc-aS2"/>
+                                                <constraint firstItem="Mhl-bc-TG5" firstAttribute="leading" secondItem="ofm-wL-vkh" secondAttribute="leading" constant="24" id="wzM-sF-Dn9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="96" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="212" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="300" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4yK-Yy-eCZ" id="1Uv-go-wMT">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -238,7 +279,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssuesCell" rowHeight="96" id="xsr-fz-nlU" customClass="TeamIssueListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="308" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="396" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsr-fz-nlU" id="fP9-kD-388">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -307,7 +348,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionsCell" rowHeight="42" id="vBW-a4-7FR" customClass="TeamActionListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="404" width="414" height="42"/>
+                                        <rect key="frame" x="0.0" y="492" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vBW-a4-7FR" id="T3F-uG-1mr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
@@ -342,7 +383,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="446" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="534" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

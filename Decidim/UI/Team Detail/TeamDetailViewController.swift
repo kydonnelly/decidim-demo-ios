@@ -15,12 +15,17 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     fileprivate enum StaticCell: String, CaseIterable {
         case body = "BodyCell"
         case title = "TitleCell"
+        case `private` = "PrivateCell"
         case members = "MembersCell"
         case issues = "IssuesCell"
         case actions = "ActionsCell"
         
-        static func ordered() -> [StaticCell] {
-            return [.title, .body, .members, .issues]
+        static func ordered(isPrivate: Bool) -> [StaticCell] {
+            if isPrivate {
+                return [.title, .body, .private]
+            } else {
+                return [.title, .body, .members, .issues]
+            }
         }
     }
     
@@ -132,6 +137,15 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         return member.status
     }
     
+    fileprivate var orderedCells: [StaticCell] {
+        if let team = self.teamDetail?.team, team.isPrivate,
+           self.currentMemberStatus != .active {
+            return StaticCell.ordered(isPrivate: true)
+        } else {
+            return StaticCell.ordered(isPrivate: false)
+        }
+    }
+    
 }
 
 extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
@@ -146,7 +160,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.teamDetail != nil ? StaticCell.ordered().count : 0
+            return self.teamDetail != nil ? self.orderedCells.count : 0
         } else {
             return 1
         }
@@ -154,7 +168,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
-            let cellId = StaticCell.ordered()[indexPath.row]
+            let cellId = self.orderedCells[indexPath.row]
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId.rawValue, for: indexPath)
             
             let detail = self.teamDetail!
@@ -199,6 +213,9 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
                     
                     self.tableView.reloadData()
                 }
+            case .private:
+                // nothing to set up
+                break
             case .members:
                 (cell as! TeamMemberListCell).setup(detail: detail, canInvite: self.isMember, inviteBlock: { [weak self] in
                     self?.showInviteScreen()
@@ -230,7 +247,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
         
         if indexPath.section == 0 {
             let detail = self.teamDetail!
-            let cellId = StaticCell.ordered()[indexPath.row]
+            let cellId = self.orderedCells[indexPath.row]
             
             switch cellId {
             case .body:
