@@ -146,7 +146,7 @@ extension ProposalVotesDataController {
         }
         
         let date = Date()
-        return ProposalVote(voteId: voteId, authorId: authorId, proposalId: self.proposalId, voteType: type, createdAt: date, updatedAt: date)
+        return ProposalVote(voteId: voteId, voterId: authorId, authorId: authorId, proposalId: self.proposalId, voteType: type, createdAt: date, updatedAt: date)
     }
     
 }

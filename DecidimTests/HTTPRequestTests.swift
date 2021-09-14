@@ -668,6 +668,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "updated")
         XCTAssertEqual(responseItem?.voteType, updatedVote)
+        XCTAssertEqual(responseItem?.authorId, responseItem?.voterId)
         XCTAssertNil(receivedError)
     }
 

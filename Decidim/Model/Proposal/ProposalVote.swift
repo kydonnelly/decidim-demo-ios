@@ -16,6 +16,7 @@ enum VoteType: String, CaseIterable {
 
 struct ProposalVote {
     let voteId: Int
+    let voterId: Int
     let authorId: Int
     let proposalId: Int
     let voteType: VoteType
@@ -24,6 +25,7 @@ struct ProposalVote {
     
     public static func from(dict: [String: Any]) -> ProposalVote? {
         guard let vote = dict["id"] as? Int,
+              let voterId = dict["voter_id"] as? Int,
               let authorId = dict["user_id"] as? Int,
               let proposalId = dict["proposal_id"] as? Int,
               let value = dict["value"] as? String,
@@ -39,11 +41,20 @@ struct ProposalVote {
         }
         
         return ProposalVote(voteId: vote,
+                            voterId: voterId,
                             authorId: authorId,
                             proposalId: proposalId,
                             voteType: voteType,
                             createdAt: createdDate,
                             updatedAt: updatedDate)
+    }
+    
+    public var delegateId: Int? {
+        if self.voterId != self.authorId {
+            return self.voterId
+        } else {
+            return nil
+        }
     }
 }
 

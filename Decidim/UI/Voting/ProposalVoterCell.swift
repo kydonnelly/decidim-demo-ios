@@ -12,6 +12,7 @@ class ProposalVoterCell: CustomTableViewCell {
     
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
+    @IBOutlet var delegateLabel: UILabel!
     @IBOutlet var voteImage: UIImageView!
     @IBOutlet var profileImageView: GiphyMediaView!
     
@@ -22,6 +23,7 @@ class ProposalVoterCell: CustomTableViewCell {
     }
     
     public func setup(vote: ProposalVote) {
+        self.delegateLabel.text = nil
         self.timeLabel.text = vote.createdAt.asShortStringAgo()
         
         self.voteImage.icon = vote.voteType.icon
@@ -42,6 +44,11 @@ class ProposalVoterCell: CustomTableViewCell {
             
             self.handleLabel.text = info.handle
             self.profileImageView.setThumbnail(url: info.thumbnailUrl)
+            
+            if let delegateId = vote.delegateId,
+               let delegate = infos.first(where: { $0.profileId == delegateId }) {
+                self.delegateLabel.text = "delegated via @\(delegate.handle)"
+            }
         }
     }
     
