@@ -29,6 +29,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ncM-Jo-WKw">
+                                                    <rect key="frame" x="0.0" y="19" width="0.0" height="38"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" id="bGx-q6-gU1"/>
+                                                    </constraints>
+                                                </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIm-oo-tCC" customClass="GPHMediaView" customModule="GiphyUISDK">
                                                     <rect key="frame" x="24" y="12" width="52" height="52"/>
                                                     <color key="tintColor" systemColor="labelColor"/>
@@ -48,10 +55,16 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-2Y-X8y">
-                                                    <rect key="frame" x="84" y="27.5" width="234" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ps-2Y-X8y">
+                                                    <rect key="frame" x="84" y="19" width="234" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyT-zR-jwE">
+                                                    <rect key="frame" x="84" y="40" width="234" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="SecondaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JVX-1c-z1D" userLabel="Reject Button">
@@ -127,19 +140,26 @@
                                                 <constraint firstItem="Uap-Wj-XIs" firstAttribute="leading" secondItem="62N-DF-45X" secondAttribute="leading" id="A0y-XD-Mzs"/>
                                                 <constraint firstItem="tCQ-Ak-nyU" firstAttribute="leading" secondItem="JVX-1c-z1D" secondAttribute="trailing" constant="8" id="AyP-fS-X09"/>
                                                 <constraint firstItem="tCQ-Ak-nyU" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="D3t-UE-8Gz"/>
+                                                <constraint firstItem="ncM-Jo-WKw" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="FbD-b0-5Yp"/>
+                                                <constraint firstItem="QyT-zR-jwE" firstAttribute="leading" secondItem="7Ps-2Y-X8y" secondAttribute="leading" id="Fcl-iF-VUD"/>
                                                 <constraint firstAttribute="bottom" secondItem="Uap-Wj-XIs" secondAttribute="bottom" id="Fkn-D9-EHg"/>
                                                 <constraint firstAttribute="trailing" secondItem="Uap-Wj-XIs" secondAttribute="trailing" id="Gqy-RP-JzT"/>
                                                 <constraint firstItem="7Ps-2Y-X8y" firstAttribute="leading" secondItem="pIm-oo-tCC" secondAttribute="trailing" constant="8" id="Hk6-m2-Hxz"/>
                                                 <constraint firstItem="JVX-1c-z1D" firstAttribute="centerY" secondItem="tCQ-Ak-nyU" secondAttribute="centerY" id="K2g-I6-PA6"/>
                                                 <constraint firstItem="pIm-oo-tCC" firstAttribute="leading" secondItem="62N-DF-45X" secondAttribute="leading" constant="24" id="LoZ-LR-XH0"/>
+                                                <constraint firstItem="QyT-zR-jwE" firstAttribute="top" secondItem="7Ps-2Y-X8y" secondAttribute="bottom" id="PhV-SJ-rbn"/>
+                                                <constraint firstItem="ncM-Jo-WKw" firstAttribute="top" secondItem="7Ps-2Y-X8y" secondAttribute="top" id="f66-V3-bLQ"/>
+                                                <constraint firstItem="QyT-zR-jwE" firstAttribute="bottom" secondItem="ncM-Jo-WKw" secondAttribute="bottom" id="heI-mW-fIb"/>
                                                 <constraint firstItem="JVX-1c-z1D" firstAttribute="leading" secondItem="7Ps-2Y-X8y" secondAttribute="trailing" constant="8" id="mMt-SS-0Lo"/>
+                                                <constraint firstItem="QyT-zR-jwE" firstAttribute="trailing" secondItem="7Ps-2Y-X8y" secondAttribute="trailing" id="mdH-QQ-t3I"/>
                                                 <constraint firstAttribute="trailing" secondItem="tCQ-Ak-nyU" secondAttribute="trailing" constant="24" id="o2g-sh-nC0"/>
-                                                <constraint firstItem="7Ps-2Y-X8y" firstAttribute="centerY" secondItem="62N-DF-45X" secondAttribute="centerY" id="pkJ-c5-Jiy"/>
+                                                <constraint firstItem="ncM-Jo-WKw" firstAttribute="leading" secondItem="62N-DF-45X" secondAttribute="leading" id="t1K-rh-epW"/>
                                                 <constraint firstItem="pIm-oo-tCC" firstAttribute="top" secondItem="62N-DF-45X" secondAttribute="top" constant="12" id="vQq-3C-rvZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="7Ps-2Y-X8y" id="bVt-oS-UMf"/>
+                                            <outlet property="privacyLabel" destination="QyT-zR-jwE" id="7SL-2h-BSj"/>
                                             <outlet property="teamImageView" destination="pIm-oo-tCC" id="G67-hI-Eeo"/>
                                         </connections>
                                     </tableViewCell>
@@ -201,6 +221,9 @@
         </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

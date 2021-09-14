@@ -13,13 +13,15 @@ class TeamInviteCell: CustomTableViewCell {
     typealias ResponseBlock = (Bool) -> Void
     
     @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var privacyLabel: UILabel!
     @IBOutlet var teamImageView: GiphyMediaView!
     
     private var onResponse: ResponseBlock?
     
-    public func setup(detail: TeamDetail?, responseBlock: ResponseBlock?) {
-        self.nameLabel.text = detail?.team.name
-        self.teamImageView.setThumbnail(url: detail?.previewThumbnailUrl)
+    public func setup(detail: TeamDetail, responseBlock: ResponseBlock?) {
+        self.nameLabel.text = detail.team.name
+        self.privacyLabel.text = detail.team.isPrivate ? "Private" : nil
+        self.teamImageView.setThumbnail(url: detail.previewThumbnailUrl)
         
         self.onResponse = responseBlock
     }
