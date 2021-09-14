@@ -103,13 +103,17 @@ class CommentListViewController: UIViewController, CustomTableController {
 
 extension CommentListViewController {
     
-    @IBAction func sendButtonTapped(_ sender: Any) {
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
         guard let commentText = self.textView.text, commentText.count > 0 else {
             return
         }
+        
+        sender.showLoading(true)
 
         if let editingId = self.editingComment?.commentId {
             self.dataController.editComment(editingId, comment: commentText) { [weak self] error in
+                sender.showLoading(false)
+                
                 guard error == nil else {
                     return
                 }
@@ -118,6 +122,8 @@ extension CommentListViewController {
             }
         } else {
             self.dataController.addComment(commentText) { [weak self] error in
+                sender.showLoading(false)
+                
                 guard error == nil else {
                     return
                 }

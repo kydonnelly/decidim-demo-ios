@@ -57,7 +57,7 @@
                                                 <color key="value" name="PrimaryLight"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="21"/>
+                                                <integer key="value" value="14"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
