@@ -95,7 +95,7 @@ class ProfileViewController: UIViewController, CustomTableController {
             guard let self = self else { return }
             
             if let tab = self.currentTab {
-                tab.reloadData()
+                tab.refreshData()
             } else {
                 self.tabOptionsBar.updateSelectedIndex(0, animated: false)
             }
@@ -231,6 +231,7 @@ extension ProfileViewController {
         sender.endRefreshing()
         
         self.profileDataController.invalidate()
+        self.currentTab.invalidateData()
         self.refresh()
     }
     

@@ -42,6 +42,15 @@ class ProfileTeamsTabSection: NSObject, ProfileTabSection {
         self.teamsDataController = UserTeamsListDataController.shared(userId: profileId)
         self.ownedDataController = TeamsOwnedDataController.shared(userId: profileId)
         
+        self.refreshData()
+    }
+    
+    func invalidateData() {
+        self.teamsDataController.invalidate()
+        self.ownedDataController.invalidate()
+    }
+    
+    func refreshData() {
         self.teamsDataController.refresh { [weak self] dc in
             self?.reloadData()
         }

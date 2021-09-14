@@ -19,6 +19,14 @@ class ProfileProposalsTabSection: NSObject, ProfileTabSection {
         self.dataSource = dataSource
         
         self.dataController = PublicProposalDataController.shared()
+        self.refreshData()
+    }
+    
+    func invalidateData() {
+        self.dataController.invalidate()
+    }
+    
+    func refreshData() {
         self.dataController.refresh { [weak self] dc in
             self?.reloadData()
         }

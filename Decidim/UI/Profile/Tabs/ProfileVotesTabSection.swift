@@ -22,8 +22,21 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
         self.dataSource = dataSource
         
         self.dataController = PublicProposalDataController.shared()
+        self.refreshData()
+    }
+    
+    func refreshData() {
         self.dataController.refresh { [weak self] dc in
             self?.reloadData()
+        }
+    }
+    
+    func invalidateData() {
+        let allProposals = self.dataController.allProposals
+        
+        self.dataController.invalidate()
+        for proposal in allProposals {
+            ProposalVotesDataController.shared(proposalId: proposal.id).invalidate()
         }
     }
     
