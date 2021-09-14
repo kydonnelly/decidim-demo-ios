@@ -13,6 +13,7 @@ class ActivityTeamInvitationCell: UITableViewCell, ActivityCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
+    @IBOutlet var privacyLabel: UILabel!
     
     @IBOutlet var iconImageView: GiphyMediaView!
     
@@ -21,6 +22,7 @@ class ActivityTeamInvitationCell: UITableViewCell, ActivityCell {
         
         self.subtitleLabel.text = nil
         self.createdAtLabel.text = activity.createdDate.asShortStringAgo()
+        self.privacyLabel.text = nil
         
         var asyncTeam: Team? = nil
         var asyncProfileInfo: ProfileInfo? = nil
@@ -51,6 +53,14 @@ class ActivityTeamInvitationCell: UITableViewCell, ActivityCell {
             
             self.subtitleLabel.text = team.team.description
             self.iconImageView.setThumbnail(url: team.team.thumbnailUrl)
+            
+            if team.team.isPrivate {
+                self.privacyLabel.text = "Private"
+                self.createdAtLabel.text?.append(" •")
+            } else {
+                self.privacyLabel.text = nil
+            }
+            
             asyncTeam = team.team
             updateTitleLabel()
         }
