@@ -43,7 +43,7 @@ extension UIColor {
 extension UIColor {
     
     var isBright: Bool? {
-        guard let components = self.cgColor.components, components.count >= 3 else {
+        guard let components = self.cgColor.converted(to: CGColorSpaceCreateDeviceRGB(), intent: .defaultIntent, options: nil)?.components, components.count >= 3 else {
             return nil
         }
         
