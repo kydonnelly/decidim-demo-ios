@@ -26,6 +26,10 @@ extension CustomTableController {
     
     @discardableResult
     func scrollToTop() -> Bool {
+        guard self.isViewLoaded else {
+            return false
+        }
+        
         let top = -1 * self.tableView.adjustedContentInset.top
         if self.tableView.contentOffset.y >= 24 + top {
             self.tableView.setContentOffset(CGPoint(x: 0, y: top), animated: true)
