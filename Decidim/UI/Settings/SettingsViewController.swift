@@ -145,7 +145,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row == 0 {
             let nameCell = tableView.dequeueReusableCell(withIdentifier: Self.usernameCellId, for: indexPath) as! SettingsProfileCell
             nameCell.setup(profile: profileInfo) { [weak self] in
-                self?.showImagePicker(indexPath: indexPath)
+                self?.showImagePicker()
             }
             return nameCell
         } else if indexPath.row == 1 {
@@ -188,7 +188,7 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
         
         if indexPath.row == 0 {
-            self.showImagePicker(indexPath: indexPath)
+            self.showImagePicker()
         } else if indexPath.row == 1 {
             let passwordVC = ChangePasswordViewController.create()
             self.navigationController?.pushViewController(passwordVC, animated: true)
@@ -198,11 +198,30 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    @available(iOS 13.0, *)
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        guard indexPath.row == 0 else { return nil }
+        guard case .profile = self.state else { return nil }
+        
+        let provider: UIContextMenuActionProvider = { [weak self] suggestedActions in
+            UIMenu(title: "", identifier: UIMenu.Identifier("com.cooperative4thecommunity.Decidim.settingsTable"), children: [
+                UIAction(title: "Image", identifier: UIAction.Identifier("com.cooperative4thecommunity.Decidim.settingsTableEditImage")) { [weak self] action in
+                    self?.showImagePicker()
+                },
+                UIAction(title: "GIF", identifier: UIAction.Identifier("com.cooperative4thecommunity.Decidim.settingsTableEditGif")) { [weak self] action in
+                    self?.showGifPicker()
+                }
+            ])
+        }
+        
+        return UIContextMenuConfiguration(identifier: "com.cooperative4thecommunity.Decidim.choosePhotoButton" as NSCopying, previewProvider: nil, actionProvider: provider)
+    }
+    
 }
 
 extension SettingsViewController: GiphyDelegate {
     
-    fileprivate func showImagePicker(indexPath: IndexPath) {
+    fileprivate func showGifPicker() {
         let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
@@ -210,17 +229,58 @@ extension SettingsViewController: GiphyDelegate {
     func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
         giphyViewController.dismiss(animated: true, completion: nil)
         
-        guard case let .profile(info) = self.state else {
-            return
-        }
-        
-        ProfileInfoDataController.shared().editProfile(info.profileId, name: info.handle, thumbnailUrl: media.id) { [weak self] _ in
-            self?.refresh()
-        }
+        self.update(thumbnailUrl: media.id)
     }
     
     func didDismiss(controller: GiphyViewController?) {
         self.tableView.reloadData()
+    }
+    
+    fileprivate func update(thumbnailUrl: String) {
+        guard case let .profile(info) = self.state else {
+            return
+        }
+        
+        ProfileInfoDataController.shared().editProfile(info.profileId, name: info.handle, thumbnailUrl: thumbnailUrl) { [weak self] _ in
+            self?.refresh()
+        }
+    }
+    
+}
+
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+            imagePicker.mediaTypes = mediaTypes
+        }
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info.mediaImage, let localPath = info.imageURL else {
+            return
+        }
+        
+        AWSManager.shared.uploadImage(image, path: localPath) { [weak self] serverURL in
+            guard let url = serverURL else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.update(thumbnailUrl: url.absoluteString)
+            }
+        }
+        
+        picker.dismiss(animated: true) { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
 }
