@@ -30,7 +30,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
         didSet { refreshDoneButton() }
     }
     
-    fileprivate var thumbnailMediaId: String?
+    fileprivate var thumbnailUrl: String?
     fileprivate var deadline: Date!
     
     public static func create(teamId: Int, issue: IssueDetail? = nil) -> UIViewController {
@@ -65,7 +65,7 @@ class EditIssueViewController: UIViewController, CustomTableController {
             self.deadline = editingIssue.issue.deadline ?? Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
             self.issueTitle = editingIssue.issue.title
             self.issueDescription = editingIssue.issue.body
-            self.thumbnailMediaId = editingIssue.issue.iconUrl
+            self.thumbnailUrl = editingIssue.issue.iconUrl
         } else {
             self.refreshDoneButton()
             self.deadline = Date(timeIntervalSinceNow: 60 * 60 * 24 * 7)
@@ -119,7 +119,7 @@ extension EditIssueViewController {
         }
         
         self.blockView(message: "Submitting topic...")
-        PublicIssueDataController.shared().addIssue(title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
+        PublicIssueDataController.shared().addIssue(title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailUrl, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
             
             defer {
@@ -147,7 +147,7 @@ extension EditIssueViewController {
         }
         
         self.blockView(message: "Editing issue...")
-        PublicIssueDataController.shared().editIssue(id, title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailMediaId, deadline: self.deadline) { [weak self] error in
+        PublicIssueDataController.shared().editIssue(id, title: title, description: description, teamId: self.associatedTeamId, thumbnailUrl: self.thumbnailUrl, deadline: self.deadline) { [weak self] error in
             self?.unblockView()
             
             defer {
@@ -202,8 +202,12 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! EditImageCell
-            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
-                self?.showImagePicker(indexPath: indexPath)
+            cell.setup(thumbnailUrl: self.thumbnailUrl) { [weak self] gif in
+                if gif {
+                    self?.showGifPicker()
+                } else {
+                    self?.showImagePicker()
+                }
             }
             return cell
         } else if indexPath.row == 2 {
@@ -231,7 +235,7 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            self.showImagePicker(indexPath: indexPath)
+            self.showImagePicker()
         }
     }
     
@@ -239,13 +243,13 @@ extension EditIssueViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension EditIssueViewController: GiphyDelegate {
     
-    fileprivate func showImagePicker(indexPath: IndexPath) {
+    fileprivate func showGifPicker() {
         let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
     
     func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
-        self.thumbnailMediaId = media.id
+        self.thumbnailUrl = media.id
         
         giphyViewController.dismiss(animated: true) { [weak self] in
             self?.tableView.reloadData()
@@ -254,6 +258,44 @@ extension EditIssueViewController: GiphyDelegate {
     
     func didDismiss(controller: GiphyViewController?) {
         self.tableView.reloadData()
+    }
+    
+}
+
+extension EditIssueViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+            imagePicker.mediaTypes = mediaTypes
+        }
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info.mediaImage, let localPath = info.imageURL else {
+            return
+        }
+        
+        AWSManager.shared.uploadImage(image, path: localPath) { [weak self] serverURL in
+            guard let url = serverURL else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.thumbnailUrl = url.absoluteString
+                self.tableView.reloadData()
+            }
+        }
+        
+        picker.dismiss(animated: true) { [weak self] in
+            self?.tableView.reloadData()
+        }
     }
     
 }

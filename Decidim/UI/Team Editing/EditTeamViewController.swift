@@ -185,8 +185,12 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! EditImageCell
-            cell.setup(thumbnailUrl: self.thumbnailURL) { [weak self] in
-                self?.showImagePicker()
+            cell.setup(thumbnailUrl: self.thumbnailURL) { [weak self] gif in
+                if gif {
+                    self?.showGifPicker()
+                } else {
+                    self?.showImagePicker()
+                }
             }
             return cell
         } else if indexPath.row == 2 {
@@ -215,7 +219,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            self.showImagePicker(indexPath: indexPath)
+            self.showImagePicker()
         }
     }
     
@@ -223,7 +227,7 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension EditTeamViewController: GiphyDelegate {
     
-    fileprivate func showImagePicker(indexPath: IndexPath) {
+    fileprivate func showGifPicker() {
         let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
