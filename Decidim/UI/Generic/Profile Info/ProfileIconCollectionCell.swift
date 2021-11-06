@@ -12,7 +12,7 @@ class ProfileIconCollectionCell: UICollectionViewCell {
     
     typealias ActionBlock = () -> Void
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     private var onProfileTapped: ActionBlock?
     

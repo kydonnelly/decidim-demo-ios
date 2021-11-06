@@ -23,7 +23,7 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var submitButton: UIButton!
     @IBOutlet var optionsBar: OptionsBar!
     
-    @IBOutlet var photoImageView: GiphyMediaView!
+    @IBOutlet var photoImageView: ThumbnailView!
     @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
     
     private var thumbnailUrl: String?

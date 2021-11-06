@@ -12,7 +12,7 @@ class EditImageCell: CustomTableViewCell {
     
     typealias ChangeImageBlock = () -> Void
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     private var onChangeImage: ChangeImageBlock?
     

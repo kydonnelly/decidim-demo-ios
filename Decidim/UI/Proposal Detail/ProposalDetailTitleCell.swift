@@ -14,7 +14,7 @@ class ProposalDetailTitleCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     private var parentIssue: Issue?

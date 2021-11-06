@@ -11,7 +11,7 @@ import GiphyUISDK
 import KTDIconFont
 import UIKit
 
-typealias GiphyMediaView = GPHMediaView
+typealias ThumbnailView = GPHMediaView
 
 extension GPHMediaView {
     

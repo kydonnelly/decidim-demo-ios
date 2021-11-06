@@ -13,7 +13,7 @@ class MemberJoinRequestCell: CustomTableViewCell {
     typealias ResponseBlock = (Bool) -> Void
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var profileImageView: GiphyMediaView!
+    @IBOutlet var profileImageView: ThumbnailView!
     
     private var onResponse: ResponseBlock?
     

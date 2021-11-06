@@ -14,7 +14,7 @@ class ProposalVoterCell: CustomTableViewCell {
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var delegateLabel: UILabel!
     @IBOutlet var voteImage: UIImageView!
-    @IBOutlet var profileImageView: GiphyMediaView!
+    @IBOutlet var profileImageView: ThumbnailView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

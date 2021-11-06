@@ -13,7 +13,7 @@ class ActivityVoteCell: UITableViewCell, ActivityCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     fileprivate var onProfileTapped: (() -> Void)!
     

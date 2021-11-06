@@ -17,7 +17,7 @@ class TeamListCell: CustomTableViewCell {
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var memberCountLabel: UILabel!
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     public func setup(team: Team) {
         self.titleLabel.text = team.name

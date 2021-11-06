@@ -14,7 +14,7 @@ class ActivityVotingDeadlineCell: UITableViewCell, ActivityCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     fileprivate var onProfileTapped: (() -> Void)!
     

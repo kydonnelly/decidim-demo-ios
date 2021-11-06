@@ -13,7 +13,7 @@ class ProfileNameCell: CustomTableViewCell {
     typealias DelegateBlock = () -> Void
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var pictureImageView: GiphyMediaView!
+    @IBOutlet var pictureImageView: ThumbnailView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     @IBOutlet var makeDelegateButton: UIButton!

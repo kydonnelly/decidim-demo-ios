@@ -14,7 +14,7 @@ class TeamInviteCell: CustomTableViewCell {
     
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var privacyLabel: UILabel!
-    @IBOutlet var teamImageView: GiphyMediaView!
+    @IBOutlet var teamImageView: ThumbnailView!
     
     private var onResponse: ResponseBlock?
     

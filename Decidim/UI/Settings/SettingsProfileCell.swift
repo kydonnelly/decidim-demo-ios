@@ -13,7 +13,7 @@ class SettingsProfileCell: CustomTableViewCell {
     typealias ChangeImageBlock = () -> Void
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var pictureImageView: GiphyMediaView!
+    @IBOutlet var pictureImageView: ThumbnailView!
     
     private var onChangeImage: ChangeImageBlock?
     

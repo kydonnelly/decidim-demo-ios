@@ -14,7 +14,7 @@ class TeamMemberCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var manageButton: UIButton!
-    @IBOutlet var profileImageView: GiphyMediaView!
+    @IBOutlet var profileImageView: ThumbnailView!
     
     private var onManage: ManageBlock?
     

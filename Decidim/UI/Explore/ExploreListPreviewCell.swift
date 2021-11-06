@@ -12,7 +12,7 @@ class ExploreListPreviewCell: UITableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var bodyLabel: UILabel!
-    @IBOutlet var thumbnailImageView: GiphyMediaView!
+    @IBOutlet var thumbnailImageView: ThumbnailView!
     
     func setup(item: Previewable) {
         self.titleLabel.text = item.previewTitle

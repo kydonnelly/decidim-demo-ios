@@ -14,7 +14,7 @@ class ActivityNewIssueCell: UITableViewCell, ActivityCell {
     @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var createdAtLabel: UILabel!
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     func setup(activity: Activity, profileRedirectBlock: ProfileBlock?) {
         guard case .newIssue(let issue) = activity.type else { return }

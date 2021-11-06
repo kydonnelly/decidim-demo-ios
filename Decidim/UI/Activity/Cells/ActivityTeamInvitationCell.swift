@@ -15,7 +15,7 @@ class ActivityTeamInvitationCell: UITableViewCell, ActivityCell {
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var privacyLabel: UILabel!
     
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     func setup(activity: Activity, profileRedirectBlock: ProfileBlock?) {
         guard case .teamInvitation(let member) = activity.type else { return }

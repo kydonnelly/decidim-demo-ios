@@ -12,7 +12,7 @@ class ProfileSearchResultCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
     @IBOutlet var selectedView: UIImageView!
-    @IBOutlet var pictureImageView: GiphyMediaView!
+    @IBOutlet var pictureImageView: ThumbnailView!
     
     public func setup(profile: ProfileInfo, isSelected: Bool) {
         self.handleLabel.text = profile.handle

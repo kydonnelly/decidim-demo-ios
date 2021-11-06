@@ -13,7 +13,7 @@ class ActivityCommentCell: UITableViewCell, ActivityCell {
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     fileprivate var onProfileTapped: (() -> Void)!
     

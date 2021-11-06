@@ -11,7 +11,7 @@ import UIKit
 class IssueDetailBannerCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     func setup(detail: IssueDetail) {

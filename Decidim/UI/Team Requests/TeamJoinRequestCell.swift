@@ -13,7 +13,7 @@ class TeamJoinRequestCell: CustomTableViewCell {
     typealias CancelBlock = () -> Void
     
     @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var profileImageView: GiphyMediaView!
+    @IBOutlet var profileImageView: ThumbnailView!
     
     private var onCancel: CancelBlock?
     

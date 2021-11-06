@@ -11,7 +11,7 @@ import UIKit
 class IssueFollowerCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var profileImageView: GiphyMediaView!
+    @IBOutlet var profileImageView: ThumbnailView!
     
     public func setup(profile: ProfileInfo?) {
         self.handleLabel.text = profile?.handle

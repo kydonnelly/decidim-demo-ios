@@ -13,7 +13,7 @@ class CommentCell: CustomTableViewCell {
     @IBOutlet var commentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     @IBOutlet var replyButton: UIButton!
     @IBOutlet var optionsButton: UIButton!

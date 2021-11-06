@@ -13,7 +13,7 @@ class ProposalVoteCell: CustomTableViewCell {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var issueLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     @IBOutlet var createdAtLabel: UILabel!
     @IBOutlet var commentsLabel: UILabel!

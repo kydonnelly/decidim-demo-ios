@@ -13,7 +13,7 @@ class GlobalDelegateViewController: UIViewController {
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var delegateNameLabel: UILabel!
-    @IBOutlet var delegatePictureView: GiphyMediaView!
+    @IBOutlet var delegatePictureView: ThumbnailView!
     
     @IBOutlet var delegateContainerView: UIView!
     @IBOutlet var changeDelegateContainerView: UIView!

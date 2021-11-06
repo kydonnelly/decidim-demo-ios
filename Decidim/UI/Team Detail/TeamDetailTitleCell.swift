@@ -14,7 +14,7 @@ class TeamDetailTitleCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var privacyLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     @IBOutlet var memberStatusButton: UIButton!
     @IBOutlet var gradientBackground: LinearGradientView!
     

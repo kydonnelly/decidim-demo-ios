@@ -11,7 +11,7 @@ import UIKit
 class IssueDetailAuthorCell: CustomTableViewCell {
     
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     func setup(detail: IssueDetail) {
         self.handleLabel.text = "Unknown Proposer"

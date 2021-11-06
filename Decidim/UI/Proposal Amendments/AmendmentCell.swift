@@ -15,7 +15,7 @@ class AmendmentCell: CustomTableViewCell {
     @IBOutlet var amendmentLabel: UILabel!
     @IBOutlet var timeLabel: UILabel!
     @IBOutlet var handleLabel: UILabel!
-    @IBOutlet var iconImageView: GiphyMediaView!
+    @IBOutlet var iconImageView: ThumbnailView!
     
     @IBOutlet var statusImageView: UIImageView!
     
