@@ -30,7 +30,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
         didSet { refreshDoneButton() }
     }
     
-    fileprivate var thumbnailMediaId: String?
+    fileprivate var thumbnailURL: String?
     
     public static func create(team: TeamDetail? = nil) -> UIViewController {
         let sb = UIStoryboard(name: "EditTeam", bundle: .main)
@@ -65,7 +65,7 @@ class EditTeamViewController: UIViewController, CustomTableController {
         
         if let editingTeam = self.originalTeam {
             self.title = "Edit Group"
-            self.thumbnailMediaId = editingTeam.team.thumbnailUrl
+            self.thumbnailURL = editingTeam.team.thumbnailUrl
             self.teamName = editingTeam.team.name
             self.teamDescription = editingTeam.team.description
         } else {
@@ -125,7 +125,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Creating group...")
-        TeamListDataController.shared().addTeam(title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailMediaId, members: [memberId: .active]) { [weak self] error in
+        TeamListDataController.shared().addTeam(title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailURL, members: [memberId: .active]) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -140,7 +140,7 @@ extension EditTeamViewController {
         }
         
         self.blockView(message: "Editing group...")
-        TeamListDataController.shared().editTeam(id, title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailMediaId) { [weak self] error in
+        TeamListDataController.shared().editTeam(id, title: name, description: description, isPrivate: isPrivate, thumbnailUrl: self.thumbnailURL) { [weak self] error in
             self?.unblockView()
             
             if error == nil {
@@ -185,8 +185,8 @@ extension EditTeamViewController: UITableViewDataSource, UITableViewDelegate {
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.ImageCellId, for: indexPath) as! EditImageCell
-            cell.setup(thumbnailUrl: self.thumbnailMediaId) { [weak self] in
-                self?.showImagePicker(indexPath: indexPath)
+            cell.setup(thumbnailUrl: self.thumbnailURL) { [weak self] in
+                self?.showImagePicker()
             }
             return cell
         } else if indexPath.row == 2 {
@@ -229,7 +229,7 @@ extension EditTeamViewController: GiphyDelegate {
     }
     
     func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
-        self.thumbnailMediaId = media.id
+        self.thumbnailURL = media.id
         
         giphyViewController.dismiss(animated: true) { [weak self] in
             self?.tableView.reloadData()
@@ -238,6 +238,56 @@ extension EditTeamViewController: GiphyDelegate {
     
     func didDismiss(controller: GiphyViewController?) {
         self.tableView.reloadData()
+    }
+    
+}
+
+extension EditTeamViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+            imagePicker.mediaTypes = mediaTypes
+        }
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = self.mediaImage(info: info), let localPath = info[.imageURL] as? URL else {
+            return
+        }
+        
+        AWSManager.shared.uploadImage(image, path: localPath) { [weak self] serverURL in
+            guard let url = serverURL else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.thumbnailURL = url.absoluteString
+                self.tableView.reloadData()
+            }
+        }
+        
+        picker.dismiss(animated: true) { [weak self] in
+            self?.tableView.reloadData()
+        }
+    }
+    
+    private func mediaImage(info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
+        if let image = info[.editedImage] as? UIImage {
+            return image
+        }
+        
+        if let image = info[.originalImage] as? UIImage {
+            return image
+        }
+        
+        return nil
     }
     
 }

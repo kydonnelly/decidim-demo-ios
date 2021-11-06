@@ -6,4 +6,5 @@ Podfile.lock
 **/xcuserdata/**
 **/xcshareddata/**
 *.swp
+Decidim/Resources/AWS-Info.plist
 Decidim/Resources/Giphy-Info.plist

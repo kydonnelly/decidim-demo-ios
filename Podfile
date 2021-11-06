@@ -9,6 +9,7 @@ def pods
   pod 'AFNetworking', '4.0.1'
   pod 'Giphy', '2.1.6'
   pod 'KTDIconFont', '0.0.4'
+  pod 'AWSS3', '2.26.3'
 end
 
 target 'Decidim' do
