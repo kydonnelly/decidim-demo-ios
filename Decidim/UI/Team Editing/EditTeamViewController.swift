@@ -257,7 +257,7 @@ extension EditTeamViewController: UIImagePickerControllerDelegate, UINavigationC
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = self.mediaImage(info: info), let localPath = info[.imageURL] as? URL else {
+        guard let image = info.mediaImage, let localPath = info.imageURL else {
             return
         }
         
@@ -276,18 +276,6 @@ extension EditTeamViewController: UIImagePickerControllerDelegate, UINavigationC
         picker.dismiss(animated: true) { [weak self] in
             self?.tableView.reloadData()
         }
-    }
-    
-    private func mediaImage(info: [UIImagePickerController.InfoKey: Any]) -> UIImage? {
-        if let image = info[.editedImage] as? UIImage {
-            return image
-        }
-        
-        if let image = info[.originalImage] as? UIImage {
-            return image
-        }
-        
-        return nil
     }
     
 }
