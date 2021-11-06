@@ -167,6 +167,7 @@
 		279681C727363D82001688B9 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
 		279681CD2736405E001688B9 /* AWS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 279681CC2736405E001688B9 /* AWS-Info.plist */; };
 		279681D12736F92D001688B9 /* UIImagePickerController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */; };
+		279681D72736FC56001688B9 /* ChoosePhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681D62736FC56001688B9 /* ChoosePhotoButton.swift */; };
 		279ED98F26BFA54300F8224F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED98E26BFA54300F8224F /* Activity.swift */; };
 		279ED99526C2140A00F8224F /* ActivityDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED99426C2140900F8224F /* ActivityDataController.swift */; };
 		279ED99A26C214EB00F8224F /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED99926C214EB00F8224F /* ActivityListViewController.swift */; };
@@ -452,6 +453,7 @@
 		279681C627363D82001688B9 /* AWSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSManager.swift; sourceTree = "<group>"; };
 		279681CC2736405E001688B9 /* AWS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AWS-Info.plist"; sourceTree = "<group>"; };
 		279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Helpers.swift"; sourceTree = "<group>"; };
+		279681D62736FC56001688B9 /* ChoosePhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePhotoButton.swift; sourceTree = "<group>"; };
 		279ED98E26BFA54300F8224F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		279ED99426C2140900F8224F /* ActivityDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataController.swift; sourceTree = "<group>"; };
 		279ED99926C214EB00F8224F /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
@@ -1131,6 +1133,7 @@
 				2709942B26E9E96000C04840 /* AccessibleButton.swift */,
 				27649CB1260C29CF003D29D4 /* ActionHeaderView.swift */,
 				27649CB3260C2A0E003D29D4 /* ActionHeaderView.xib */,
+				279681D62736FC56001688B9 /* ChoosePhotoButton.swift */,
 				27293FD325089CEB000D27D1 /* CircleImageView.swift */,
 				275114E824FFDF66006277AA /* CustomTableController.swift */,
 				27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */,
@@ -1745,6 +1748,7 @@
 				2756A6DF2498615D0023DC91 /* ProfileInfo.swift in Sources */,
 				2717F46F24DBDDD200189F7C /* RegistrationViewController.swift in Sources */,
 				279681D12736F92D001688B9 /* UIImagePickerController+Helpers.swift in Sources */,
+				279681D72736FC56001688B9 /* ChoosePhotoButton.swift in Sources */,
 				27F883D824EDD94500B216D2 /* TeamMembersViewController.swift in Sources */,
 				27B22B3224BFC692005DF376 /* ProposalCommentsDataController.swift in Sources */,
 				27A81F8A261D57320088E07C /* GlobalDelegateViewController.swift in Sources */,

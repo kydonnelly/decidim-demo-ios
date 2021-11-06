@@ -93,7 +93,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-ON-D3q" customClass="PillButton" customModule="Votion" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WzZ-ON-D3q" customClass="ChoosePhotoButton" customModule="Votion" customModuleProvider="target">
                                                         <rect key="frame" x="88" y="18" width="128" height="36"/>
                                                         <color key="backgroundColor" name="PrimaryBackground"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -195,6 +195,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="Z88-Z5-Ixe"/>
                     <connections>
+                        <outlet property="choosePhotoButton" destination="WzZ-ON-D3q" id="auq-1I-wij"/>
                         <outlet property="optionsBar" destination="4uN-1G-agg" id="kCR-xk-rh1"/>
                         <outlet property="passwordField" destination="5VC-XQ-hQg" id="BYE-uS-Bg8"/>
                         <outlet property="photoContainerConstraint" destination="M7B-HJ-noj" id="3kT-Lf-s2v"/>

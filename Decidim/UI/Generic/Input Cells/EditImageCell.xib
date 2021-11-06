@@ -45,7 +45,7 @@
                             <constraint firstAttribute="height" constant="1" id="52C-vZ-D8a"/>
                         </constraints>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-IJ-2Xl" customClass="PillButton" customModule="Votion" customModuleProvider="target">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dh-IJ-2Xl" customClass="ChoosePhotoButton" customModule="Votion" customModuleProvider="target">
                         <rect key="frame" x="136" y="38" width="129" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>

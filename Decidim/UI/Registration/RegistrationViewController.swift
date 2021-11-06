@@ -24,6 +24,7 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var optionsBar: OptionsBar!
     
     @IBOutlet var photoImageView: ThumbnailView!
+    @IBOutlet var choosePhotoButton: ChoosePhotoButton!
     @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
     
     private var thumbnailUrl: String?
@@ -46,6 +47,14 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         
         self.refreshDisplayType()
         self.refreshSubmitButton()
+        
+        self.choosePhotoButton.setup { [weak self] asGif in
+            if asGif {
+                self?.showGifPicker()
+            } else {
+                self?.showImagePicker()
+            }
+        }
         
         self.optionsBar.setup(options: ["Sign Up", "Log In"], selectedIndex: self.currentMode.rawValue) { index in
             guard let mode = RegistrationType(rawValue: index) else { return }
@@ -175,7 +184,7 @@ extension RegistrationViewController: UITextFieldDelegate {
 
 extension RegistrationViewController: GiphyDelegate {
     
-    fileprivate func showImagePicker() {
+    fileprivate func showGifPicker() {
         let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
         self.present(imagePicker, animated: true, completion: nil)
     }
@@ -191,6 +200,43 @@ extension RegistrationViewController: GiphyDelegate {
     
     func didDismiss(controller: GiphyViewController?) {
         
+    }
+    
+}
+
+extension RegistrationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+            imagePicker.mediaTypes = mediaTypes
+        }
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info.mediaImage, let localPath = info.imageURL else {
+            return
+        }
+        
+        AWSManager.shared.uploadImage(image, path: localPath) { [weak self] serverURL in
+            guard let url = serverURL else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.thumbnailUrl = url.absoluteString
+                self.photoImageView.setThumbnail(url: self.thumbnailUrl)
+                self.refreshSubmitButton()
+            }
+        }
+        
+        picker.dismiss(animated: true)
     }
     
 }

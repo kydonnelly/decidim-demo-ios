@@ -13,7 +13,7 @@ class EditImageCell: CustomTableViewCell {
     typealias ChangeImageBlock = (Bool) -> Void
     
     @IBOutlet var iconImageView: ThumbnailView!
-    @IBOutlet var changeImageButton: UIButton!
+    @IBOutlet var changeImageButton: ChoosePhotoButton!
     
     private var onChangeImage: ChangeImageBlock?
     
@@ -24,15 +24,8 @@ class EditImageCell: CustomTableViewCell {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(didTapChangeImage(_:)))
         self.iconImageView.addGestureRecognizer(gesture)
         
-        if #available(iOS 14.0, *) {
-            self.changeImageButton.menu = UIMenu(title: "", identifier: UIMenu.Identifier("com.cooperative4thecommunity.Decidim.editImageCell"), children: [
-                UIAction(title: "Image", identifier: UIAction.Identifier("com.cooperative4thecommunity.Decidim.editImageCellImage")) { [weak self] action in
-                    self?.changeImage(asGif: false)
-                },
-                UIAction(title: "GIF", identifier: UIAction.Identifier("com.cooperative4thecommunity.Decidim.editImageCellImageGif")) { [weak self] action in
-                    self?.changeImage(asGif: true)
-                }
-            ])
+        self.changeImageButton.setup { [weak self] asGif in
+            self?.changeImage(asGif: asGif)
         }
     }
     
