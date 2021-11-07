@@ -8,3 +8,4 @@ Podfile.lock
 *.swp
 Decidim/Resources/AWS-Info.plist
 Decidim/Resources/Giphy-Info.plist
+Decidim/Resources/*.apn

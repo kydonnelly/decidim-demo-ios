@@ -16,6 +16,8 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         case existingUser
     }
     
+    typealias CompletionBlock = (RegistrationType) -> Void
+    
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet var usernameField: UITextField!
@@ -27,6 +29,8 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var choosePhotoButton: ChoosePhotoButton!
     @IBOutlet var photoContainerConstraint: NSLayoutConstraint!
     
+    private var onCompletion: CompletionBlock?
+    
     private var thumbnailUrl: String?
     private var currentMode: RegistrationType = .newUser {
         didSet {
@@ -34,10 +38,15 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         }
     }
     
-    public static func create() -> RegistrationViewController {
+    public static func create(completion: CompletionBlock? = nil) -> RegistrationViewController {
         let sb = UIStoryboard(name: "Registration", bundle: .main)
         let nvc = sb.instantiateInitialViewController() as! RegistrationViewController
+        nvc.setup(completion: completion)
         return nvc
+    }
+    
+    private func setup(completion: CompletionBlock?) {
+        self.onCompletion = completion
     }
     
     override func viewDidLoad() {
@@ -122,12 +131,15 @@ extension RegistrationViewController {
             return
         }
         
+        let mode = self.currentMode
+        
         let updateBlock: MyProfileController.UpdateBlock = { [weak self] error in
             guard let self = self else { return }
             self.unblockView()
             
             if error == nil {
                 ProfileInfoDataController.shared().invalidate()
+                self.onCompletion?(mode)
                 self.dismiss(animated: true, completion: nil)
             } else {
                 let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: .alert)
@@ -140,7 +152,7 @@ extension RegistrationViewController {
             }
         }
         
-        switch self.currentMode {
+        switch mode {
         case .newUser:
             self.blockView(message: "Creating Account...")
             MyProfileController.shared.register(username: username, password: password, thumbnail: self.thumbnailUrl, completion: updateBlock)

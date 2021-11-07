@@ -40,6 +40,10 @@ class OpenURLQueue: NSObject {
     }
     
     func addURL(_ url: URL) -> Bool {
+        guard url.scheme?.caseInsensitiveCompare("votionapp") == .orderedSame else {
+            return false
+        }
+        
         let arguments = url.pathComponents.filter { $0 != "/"}
         
         guard let host = url.host, Route(host: host, args: arguments) != nil else {

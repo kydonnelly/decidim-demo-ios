@@ -34,6 +34,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.setupAppAppearance()
         
+        if let url = launchOptions?.pushNotificationRoute {
+            return self.urlQueue.addURL(url)
+        }
+        
         return true
     }
     
@@ -45,23 +49,57 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return
         }
         
-        if !MyProfileController.shared.isRegistered {
-            let registrationVC = RegistrationViewController.create()
+        let configurePushNotifications: () -> Void = {
+            PushNotificationManager.shared.configure {
+                DispatchQueue.main.async {
+                    application.registerForRemoteNotifications()
+                }
+            }
+        }
+        
+        if MyProfileController.shared.isRegistered {
+            configurePushNotifications()
+        } else {
+            let registrationVC = RegistrationViewController.create() { [weak self] type in
+                switch type {
+                case .newUser:
+                    // Wait until second launch to configure APNs
+                    break
+                case .existingUser:
+                    configurePushNotifications()
+                }
+                
+                self?.urlQueue.routeIfPossible()
+            }
+            
             registrationVC.modalPresentationStyle = .fullScreen
             self.window?.rootViewController?.present(registrationVC, animated: false, completion: nil)
         }
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        guard url.scheme?.caseInsensitiveCompare("votionapp") == .orderedSame else {
-            return false
-        }
-        
-        guard url.host != nil else {
-            return false
-        }
-        
         return self.urlQueue.addURL(url)
+    }
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("Registered with token \(token)")
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Could not register APNs: \(error)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        guard let route = userInfo.pushNotificationRoute else {
+            completionHandler(.failed)
+            return
+        }
+        
+        guard self.urlQueue.addURL(route) else {
+            completionHandler(.failed)
+            return
+        }
     }
 
 }
