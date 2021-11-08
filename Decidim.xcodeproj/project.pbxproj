@@ -243,6 +243,8 @@
 		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
 		27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF712675DCF30094349F /* OpenURLQueue.swift */; };
 		27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* GiphyUISDK */; };
+		27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8A7662738DAD800F8EA93 /* NotificationService.swift */; };
+		27C8A76B2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -287,7 +289,28 @@
 			remoteGlobalIDString = 270B26C4247B6A4A001804D6;
 			remoteInfo = Decidim;
 		};
+		27C8A7692738DAD800F8EA93 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 270B26BD247B6A4A001804D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 27C8A7632738DAD800F8EA93;
+			remoteInfo = com.cooperative4thecommunity.DecidimNotificationService;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		27C8A7702738DAD800F8EA93 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				27C8A76B2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.release.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -531,6 +554,10 @@
 		27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatoryProcessGroup.graphql.swift; sourceTree = "<group>"; };
 		27C2DF3E2674969C0094349F /* Session.graphql.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.graphql.swift; sourceTree = "<group>"; };
 		27C2DF712675DCF30094349F /* OpenURLQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenURLQueue.swift; sourceTree = "<group>"; };
+		27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = com.cooperative4thecommunity.DecidimNotificationService.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		27C8A7662738DAD800F8EA93 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		27C8A7682738DAD800F8EA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27C8A76C2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = com.cooperative4thecommunity.DecidimNotificationService.entitlements; sourceTree = "<group>"; };
 		27F8838424E7914700B216D2 /* TeamListDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDataController.swift; sourceTree = "<group>"; };
 		27F8838624E7917A00B216D2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		27F8838824E791A100B216D2 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -588,6 +615,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27C8A7612738DAD800F8EA93 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -596,6 +630,7 @@
 			children = (
 				270B26C7247B6A4A001804D6 /* Decidim */,
 				270B26E4247BA178001804D6 /* DecidimTests */,
+				27C8A7652738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService */,
 				270B26C6247B6A4A001804D6 /* Products */,
 				A87A557AE0ED32245DD0D56A /* Pods */,
 				B6018C5B8691F4AC559F9E56 /* Frameworks */,
@@ -607,6 +642,7 @@
 			children = (
 				270B26C5247B6A4A001804D6 /* Votion.app */,
 				270B26E3247BA178001804D6 /* DecidimTests.xctest */,
+				27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1203,6 +1239,16 @@
 			path = Linking;
 			sourceTree = "<group>";
 		};
+		27C8A7652738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService */ = {
+			isa = PBXGroup;
+			children = (
+				27C8A76C2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.entitlements */,
+				27C8A7662738DAD800F8EA93 /* NotificationService.swift */,
+				27C8A7682738DAD800F8EA93 /* Info.plist */,
+			);
+			path = com.cooperative4thecommunity.DecidimNotificationService;
+			sourceTree = "<group>";
+		};
 		27F8838324E7913200B216D2 /* Teams */ = {
 			isa = PBXGroup;
 			children = (
@@ -1336,10 +1382,12 @@
 				270B26C2247B6A4A001804D6 /* Frameworks */,
 				270B26C3247B6A4A001804D6 /* Resources */,
 				5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */,
+				27C8A7702738DAD800F8EA93 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				27C8A76A2738DAD800F8EA93 /* PBXTargetDependency */,
 			);
 			name = Decidim;
 			packageProductDependencies = (
@@ -1369,13 +1417,30 @@
 			productReference = 270B26E3247BA178001804D6 /* DecidimTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		27C8A7632738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 27C8A76D2738DAD800F8EA93 /* Build configuration list for PBXNativeTarget "com.cooperative4thecommunity.DecidimNotificationService" */;
+			buildPhases = (
+				27C8A7602738DAD800F8EA93 /* Sources */,
+				27C8A7612738DAD800F8EA93 /* Frameworks */,
+				27C8A7622738DAD800F8EA93 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = com.cooperative4thecommunity.DecidimNotificationService;
+			productName = com.cooperative4thecommunity.DecidimNotificationService;
+			productReference = 27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		270B26BD247B6A4A001804D6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1130;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Kyle Donnelly";
 				TargetAttributes = {
@@ -1385,6 +1450,9 @@
 					270B26E2247BA178001804D6 = {
 						CreatedOnToolsVersion = 11.3.1;
 						TestTargetID = 270B26C4247B6A4A001804D6;
+					};
+					27C8A7632738DAD800F8EA93 = {
+						CreatedOnToolsVersion = 12.4;
 					};
 				};
 			};
@@ -1406,6 +1474,7 @@
 			targets = (
 				270B26C4247B6A4A001804D6 /* Decidim */,
 				270B26E2247BA178001804D6 /* DecidimTests */,
+				27C8A7632738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService */,
 			);
 		};
 /* End PBXProject section */
@@ -1476,6 +1545,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		270B26E1247BA178001804D6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		27C8A7622738DAD800F8EA93 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1808,6 +1884,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		27C8A7602738DAD800F8EA93 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1815,6 +1899,11 @@
 			isa = PBXTargetDependency;
 			target = 270B26C4247B6A4A001804D6 /* Decidim */;
 			targetProxy = 2763CAE52627BE32007B0E2E /* PBXContainerItemProxy */;
+		};
+		27C8A76A2738DAD800F8EA93 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 27C8A7632738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService */;
+			targetProxy = 27C8A7692738DAD800F8EA93 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1937,6 +2026,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Decidim/Votion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1960,6 +2050,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Decidim/Votion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -2021,6 +2112,52 @@
 			};
 			name = Release;
 		};
+		27C8A76E2738DAD800F8EA93 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = com.cooperative4thecommunity.DecidimNotificationService/com.cooperative4thecommunity.DecidimNotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZCXX3P7TJ;
+				INFOPLIST_FILE = com.cooperative4thecommunity.DecidimNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cooperative4thecommunity.Decidim.com-cooperative4thecommunity-DecidimNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		27C8A76F2738DAD800F8EA93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_ENTITLEMENTS = com.cooperative4thecommunity.DecidimNotificationService/com.cooperative4thecommunity.DecidimNotificationService.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = SZCXX3P7TJ;
+				INFOPLIST_FILE = com.cooperative4thecommunity.DecidimNotificationService/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cooperative4thecommunity.Decidim.com-cooperative4thecommunity-DecidimNotificationService";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -2047,6 +2184,15 @@
 			buildConfigurations = (
 				270B26EB247BA178001804D6 /* Debug */,
 				270B26EC247BA178001804D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		27C8A76D2738DAD800F8EA93 /* Build configuration list for PBXNativeTarget "com.cooperative4thecommunity.DecidimNotificationService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				27C8A76E2738DAD800F8EA93 /* Debug */,
+				27C8A76F2738DAD800F8EA93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
