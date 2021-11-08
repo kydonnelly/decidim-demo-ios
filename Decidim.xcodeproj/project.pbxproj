@@ -246,6 +246,8 @@
 		27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* GiphyUISDK */; };
 		27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8A7662738DAD800F8EA93 /* NotificationService.swift */; };
 		27C8A76B2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		27C8A8BB2738F3CD00F8EA93 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
+		27C8A8CC2738F3D700F8EA93 /* GiphyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A4ADE72612DE04003C507A /* GiphyManager.swift */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -1893,6 +1895,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */,
+				27C8A8BB2738F3CD00F8EA93 /* AWSManager.swift in Sources */,
+				27C8A8CC2738F3D700F8EA93 /* GiphyManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
