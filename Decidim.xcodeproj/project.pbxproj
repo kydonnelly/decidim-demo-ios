@@ -243,7 +243,7 @@
 		27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */; };
 		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
 		27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF712675DCF30094349F /* OpenURLQueue.swift */; };
-		27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* GiphyUISDK */; };
+		27C8A74D2738D85900F8EA93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* SwiftPackageProductDependency */; };
 		27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8A7662738DAD800F8EA93 /* NotificationService.swift */; };
 		27C8A76B2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		27C8A8BB2738F3CD00F8EA93 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
@@ -278,6 +278,7 @@
 		27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 27F883E924F5242A00B216D2 /* Kraken.ttf */; };
 		27F883EE24F6613100B216D2 /* UIImageView+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */; };
 		27F883F024F6616E00B216D2 /* UIBarItem+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */; };
+		5E34505CBCF499001F9D41D1 /* libPods-com.cooperative4thecommunity.DecidimNotificationService.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F88DF49B856BB7FB5A1A467A /* libPods-com.cooperative4thecommunity.DecidimNotificationService.a */; };
 		97E780E626DF092700C6D044 /* ToggleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E780E426DF092700C6D044 /* ToggleCell.swift */; };
 		97E780E726DF092700C6D044 /* ToggleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E780E526DF092700C6D044 /* ToggleCell.xib */; };
 		AB155E568CA52D533F89AC3B /* libPods-DecidimTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */; };
@@ -593,11 +594,14 @@
 		27F883ED24F6613100B216D2 /* UIImageView+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Helpers.swift"; sourceTree = "<group>"; };
 		27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIBarItem+Helpers.swift"; sourceTree = "<group>"; };
 		423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.debug.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.debug.xcconfig"; sourceTree = "<group>"; };
+		4E98E5F1AF8465BB24E75BA3 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.cooperative4thecommunity.DecidimNotificationService.release.xcconfig"; path = "Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService.release.xcconfig"; sourceTree = "<group>"; };
 		602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Decidim.release.xcconfig"; path = "Target Support Files/Pods-Decidim/Pods-Decidim.release.xcconfig"; sourceTree = "<group>"; };
 		78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DecidimTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DecidimTests.debug.xcconfig"; path = "Target Support Files/Pods-DecidimTests/Pods-DecidimTests.debug.xcconfig"; sourceTree = "<group>"; };
 		97E780E426DF092700C6D044 /* ToggleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCell.swift; sourceTree = "<group>"; };
 		97E780E526DF092700C6D044 /* ToggleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToggleCell.xib; sourceTree = "<group>"; };
+		C15571ACF45BA829F05DADC4 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-com.cooperative4thecommunity.DecidimNotificationService.debug.xcconfig"; path = "Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService.debug.xcconfig"; sourceTree = "<group>"; };
+		F88DF49B856BB7FB5A1A467A /* libPods-com.cooperative4thecommunity.DecidimNotificationService.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-com.cooperative4thecommunity.DecidimNotificationService.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Decidim.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -607,7 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */,
-				27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */,
+				27C8A74D2738D85900F8EA93 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,6 +627,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E34505CBCF499001F9D41D1 /* libPods-com.cooperative4thecommunity.DecidimNotificationService.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1361,6 +1366,8 @@
 				602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */,
 				7CA16C195D6656FCF5B77C8D /* Pods-DecidimTests.debug.xcconfig */,
 				130A2E34CD122E01524D7078 /* Pods-DecidimTests.release.xcconfig */,
+				C15571ACF45BA829F05DADC4 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.debug.xcconfig */,
+				4E98E5F1AF8465BB24E75BA3 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1370,6 +1377,7 @@
 			children = (
 				FDFEDBE9A978436FF9E7BA6E /* libPods-Decidim.a */,
 				78372889BD54A1A80A247D45 /* libPods-DecidimTests.a */,
+				F88DF49B856BB7FB5A1A467A /* libPods-com.cooperative4thecommunity.DecidimNotificationService.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1396,7 +1404,7 @@
 			);
 			name = Decidim;
 			packageProductDependencies = (
-				27C8A74C2738D85900F8EA93 /* GiphyUISDK */,
+				27C8A74C2738D85900F8EA93 /* SwiftPackageProductDependency */,
 			);
 			productName = Decidim;
 			productReference = 270B26C5247B6A4A001804D6 /* Votion.app */;
@@ -1426,9 +1434,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 27C8A76D2738DAD800F8EA93 /* Build configuration list for PBXNativeTarget "com.cooperative4thecommunity.DecidimNotificationService" */;
 			buildPhases = (
+				EC2E277F320C45FCB0BB2755 /* [CP] Check Pods Manifest.lock */,
 				27C8A7602738DAD800F8EA93 /* Sources */,
 				27C8A7612738DAD800F8EA93 /* Frameworks */,
 				27C8A7622738DAD800F8EA93 /* Resources */,
+				78000B7A853FFF39ADA8C2D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1471,7 +1481,7 @@
 			);
 			mainGroup = 270B26BC247B6A4A001804D6;
 			packageReferences = (
-				27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */,
+				27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = 270B26C6247B6A4A001804D6 /* Products */;
 			projectDirPath = "";
@@ -1623,6 +1633,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		78000B7A853FFF39ADA8C2D2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1656,6 +1683,28 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-Decidim-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC2E277F320C45FCB0BB2755 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-com.cooperative4thecommunity.DecidimNotificationService-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2122,6 +2171,7 @@
 		};
 		27C8A76E2738DAD800F8EA93 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C15571ACF45BA829F05DADC4 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.debug.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = com.cooperative4thecommunity.DecidimNotificationService/com.cooperative4thecommunity.DecidimNotificationService.entitlements;
@@ -2145,6 +2195,7 @@
 		};
 		27C8A76F2738DAD800F8EA93 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E98E5F1AF8465BB24E75BA3 /* Pods-com.cooperative4thecommunity.DecidimNotificationService.release.xcconfig */;
 			buildSettings = {
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CODE_SIGN_ENTITLEMENTS = com.cooperative4thecommunity.DecidimNotificationService/com.cooperative4thecommunity.DecidimNotificationService.entitlements;
@@ -2208,7 +2259,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */ = {
+		27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Giphy/giphy-ios-sdk";
 			requirement = {
@@ -2219,9 +2270,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		27C8A74C2738D85900F8EA93 /* GiphyUISDK */ = {
+		27C8A74C2738D85900F8EA93 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */;
+			package = 27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */;
 			productName = GiphyUISDK;
 		};
 /* End XCSwiftPackageProductDependency section */
