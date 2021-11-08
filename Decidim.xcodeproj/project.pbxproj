@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -242,6 +242,7 @@
 		27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */; };
 		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
 		27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF712675DCF30094349F /* OpenURLQueue.swift */; };
+		27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* GiphyUISDK */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -575,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3A05DC195696C9BC7A4E7C2 /* libPods-Decidim.a in Frameworks */,
+				27C8A74D2738D85900F8EA93 /* GiphyUISDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,13 +1336,15 @@
 				270B26C2247B6A4A001804D6 /* Frameworks */,
 				270B26C3247B6A4A001804D6 /* Resources */,
 				5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */,
-				C16D0159807B9E9A36D3D018 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Decidim;
+			packageProductDependencies = (
+				27C8A74C2738D85900F8EA93 /* GiphyUISDK */,
+			);
 			productName = Decidim;
 			productReference = 270B26C5247B6A4A001804D6 /* Votion.app */;
 			productType = "com.apple.product-type.application";
@@ -1354,7 +1358,6 @@
 				270B26E0247BA178001804D6 /* Frameworks */,
 				270B26E1247BA178001804D6 /* Resources */,
 				7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */,
-				73A1549C2145509F4A68B42B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1394,6 +1397,9 @@
 				Base,
 			);
 			mainGroup = 270B26BC247B6A4A001804D6;
+			packageReferences = (
+				27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */,
+			);
 			productRefGroup = 270B26C6247B6A4A001804D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1536,23 +1542,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		73A1549C2145509F4A68B42B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1590,23 +1579,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C16D0159807B9E9A36D3D018 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1966,8 +1938,10 @@
 			baseConfigurationReference = 423C966D23C1FD525E726078 /* Pods-Decidim.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Decidim/Votion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.7;
+				DEVELOPMENT_TEAM = SZCXX3P7TJ;
 				INFOPLIST_FILE = Decidim/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1976,6 +1950,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
 				PRODUCT_NAME = Votion;
 				STRIP_INSTALLED_PRODUCT = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1986,8 +1961,10 @@
 			baseConfigurationReference = 602F4C9258A82B631512CD10 /* Pods-Decidim.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Decidim/Votion.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.1.7;
+				DEVELOPMENT_TEAM = SZCXX3P7TJ;
 				INFOPLIST_FILE = Decidim/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1996,6 +1973,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.cooperative4thecommunity.Decidim;
 				PRODUCT_NAME = Votion;
 				STRIP_INSTALLED_PRODUCT = YES;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2074,6 +2052,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Giphy/giphy-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.8;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27C8A74C2738D85900F8EA93 /* GiphyUISDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27C8A74B2738D85900F8EA93 /* XCRemoteSwiftPackageReference "giphy-ios-sdk" */;
+			productName = GiphyUISDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 270B26BD247B6A4A001804D6 /* Project object */;
 }
