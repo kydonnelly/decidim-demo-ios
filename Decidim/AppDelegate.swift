@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         HTTPRequest.environment = .staging
+        
+        PushNotificationManager.shared.configure(urlQueue: self.urlQueue)
+        
         return true
     }
 
@@ -50,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         let configurePushNotifications: () -> Void = {
-            PushNotificationManager.shared.configure {
+            PushNotificationManager.shared.requestAuthorization {
                 DispatchQueue.main.async {
                     application.registerForRemoteNotifications()
                 }
