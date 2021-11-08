@@ -55,6 +55,24 @@ extension GiphyManager {
         }
     }
     
+    public func loadGifData(id: String, completion: @escaping (Data?) -> Void) {
+        _ = self.loadGif(id: id, completion: { media in
+            guard let media = media else {
+                completion(nil)
+                return
+            }
+            
+            GPHCache.shared.downloadAssetData(media.url) { data, error in
+                guard error == nil else {
+                    completion(nil)
+                    return
+                }
+                
+                completion(data)
+            }
+        })
+    }
+    
     public func giphyViewController(delegate: GiphyDelegate) -> GiphyViewController {
         let giphyVC = GiphyViewController()
         giphyVC.delegate = delegate

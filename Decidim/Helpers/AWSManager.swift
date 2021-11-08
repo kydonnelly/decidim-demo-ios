@@ -61,10 +61,21 @@ extension AWSManager {
     fileprivate static let Bucket = "votionapi"
     
     typealias ProgressBlock = (Progress) -> Void
+    typealias LoadDataCompletionBlock = (Data?) -> Void
     typealias LoadImageCompletionBlock = (UIImage?) -> Void
     typealias UploadImageCompletionBlock = (URL?) -> Void
     
     public func downloadImage(url: URL, progressBlock: ProgressBlock? = nil, completion: @escaping LoadImageCompletionBlock) -> AWSTask<AWSS3TransferUtilityDownloadTask> {
+        return self.downloadData(url: url, progressBlock: progressBlock) { data in
+            if let data = data {
+                completion(UIImage(data: data))
+            } else {
+                completion(nil)
+            }
+        }
+    }
+    
+    public func downloadData(url: URL, progressBlock: ProgressBlock? = nil, completion: @escaping LoadDataCompletionBlock) -> AWSTask<AWSS3TransferUtilityDownloadTask> {
         let transferUtility = AWSS3TransferUtility.default()
         
         let downloadExpression = AWSS3TransferUtilityDownloadExpression()
@@ -73,10 +84,10 @@ extension AWSManager {
         }
         
         return transferUtility.downloadData(fromBucket: Self.Bucket, key: url.awsPath, expression: downloadExpression) { task, url, data, error in
-            var image: UIImage? = nil
+            var imageData: Data? = nil
             defer {
                 DispatchQueue.main.async {
-                    completion(image)
+                    completion(imageData)
                 }
             }
             
@@ -90,7 +101,7 @@ extension AWSManager {
                 return
             }
             
-            image = UIImage(data: data)
+            imageData = data
         }
     }
     
