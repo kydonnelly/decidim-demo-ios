@@ -1396,6 +1396,7 @@
 				270B26C3247B6A4A001804D6 /* Resources */,
 				5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */,
 				27C8A7702738DAD800F8EA93 /* Embed App Extensions */,
+				F586F55D0F518C3A6EAD59E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1419,6 +1420,7 @@
 				270B26E0247BA178001804D6 /* Frameworks */,
 				270B26E1247BA178001804D6 /* Resources */,
 				7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */,
+				44A4355DA9947B387083148C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1480,9 +1482,6 @@
 				Base,
 			);
 			mainGroup = 270B26BC247B6A4A001804D6;
-			packageReferences = (
-				27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */,
-			);
 			productRefGroup = 270B26C6247B6A4A001804D6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1616,6 +1615,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		44A4355DA9947B387083148C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DecidimTests/Pods-DecidimTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5AAB020EC1BF151143D3FC99 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1709,6 +1725,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F586F55D0F518C3A6EAD59E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2258,24 +2291,6 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Giphy/giphy-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.1.8;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		27C8A74C2738D85900F8EA93 /* SwiftPackageProductDependency */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 27C8A74B2738D85900F8EA93 /* RemoteSwiftPackageReference */;
-			productName = GiphyUISDK;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 270B26BD247B6A4A001804D6 /* Project object */;
 }

@@ -8,6 +8,7 @@ def pods
   pod 'Apollo', '0.27.1'
   pod 'AFNetworking', '4.0.1'
   pod 'AWSS3', '2.26.3'
+  pod 'Giphy', '2.1.8'
   pod 'KTDIconFont', '0.0.4'
 end
 
