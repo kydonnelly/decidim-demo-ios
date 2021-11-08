@@ -19,6 +19,7 @@ class NotificationService: UNNotificationServiceExtension {
         bestAttemptContent = (request.content.mutableCopy() as? UNMutableNotificationContent)
         
         // https://pskb-prod.herokuapp.com/swift/creating-ios-rich-push-notifications
+        // https://www.raywenderlich.com/8277640-push-notifications-tutorial-for-ios-rich-push-notifications
         guard let content = request.content.mutableCopy() as? UNMutableNotificationContent,
               let info = content.userInfo["info"] as? [String: Any],
               let thumbnailUrl = info["thumbnail_url"] as? String else {
