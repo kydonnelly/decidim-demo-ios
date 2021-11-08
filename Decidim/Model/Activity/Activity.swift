@@ -17,6 +17,7 @@ enum ActivityType {
     case votingDeadline(proposal: Proposal)
     case teamInvitation(member: TeamMember)
     case teamInvitationApproval(member: TeamMember)
+    case teamDeleted(team: Team)
     case vote(vote: ProposalVote)
     
     case unknown
@@ -71,6 +72,12 @@ enum ActivityType {
                 return nil
             }
             self = .teamInvitationApproval(member: member)
+        case "TeamDeleteNotification":
+            guard let teamInfo = params["team_info"] as? [String: Any],
+                  let team = Team.from(dict: teamInfo) else {
+                return nil
+            }
+            self = .teamDeleted(team: team)
         case "VoteNotification":
             guard let voteInfo = params["vote"] as? [String: Any],
                   let vote = ProposalVote.from(dict: voteInfo) else {

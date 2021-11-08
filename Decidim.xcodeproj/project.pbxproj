@@ -47,6 +47,7 @@
 		27293FD425089CEB000D27D1 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD325089CEB000D27D1 /* CircleImageView.swift */; };
 		27293FD62508B3E2000D27D1 /* TouchThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD52508B3E2000D27D1 /* TouchThroughView.swift */; };
 		27293FD82508BE3C000D27D1 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */; };
+		27323F142717C71100D4D33A /* ActivityTeamDeletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27323F132717C71100D4D33A /* ActivityTeamDeletedCell.swift */; };
 		2739747024AB1DED00CA16A3 /* NetworkDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */; };
 		2739747224AB1E0300CA16A3 /* ProfileInfoDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */; };
 		2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */; };
@@ -358,6 +359,7 @@
 		27293FD325089CEB000D27D1 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		27293FD52508B3E2000D27D1 /* TouchThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchThroughView.swift; sourceTree = "<group>"; };
 		27293FD72508BE3C000D27D1 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		27323F132717C71100D4D33A /* ActivityTeamDeletedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTeamDeletedCell.swift; sourceTree = "<group>"; };
 		2739746F24AB1DED00CA16A3 /* NetworkDataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkDataController.swift; sourceTree = "<group>"; };
 		2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoDataController.swift; sourceTree = "<group>"; };
 		2739747324AB1FF400CA16A3 /* PublicProposalDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicProposalDataController.swift; sourceTree = "<group>"; };
@@ -1088,6 +1090,7 @@
 				279ED9CB26C232D000F8224F /* ActivityIssueCommentCell.swift */,
 				279ED9CD26C232D000F8224F /* ActivityNewIssueCell.swift */,
 				279ED9CC26C232D000F8224F /* ActivityNewProposalCell.swift */,
+				27323F132717C71100D4D33A /* ActivityTeamDeletedCell.swift */,
 				279ED9DA26C2345A00F8224F /* ActivityTeamInvitationCell.swift */,
 				279ED9E026C2366300F8224F /* ActivityTeamInvitationApprovalCell.swift */,
 				279ED9E426C236DC00F8224F /* ActivityVoteCell.swift */,
@@ -1868,6 +1871,7 @@
 				275114E924FFDF66006277AA /* CustomTableController.swift in Sources */,
 				279ED9A426C2171B00F8224F /* ActivityCell.swift in Sources */,
 				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
+				27323F142717C71100D4D33A /* ActivityTeamDeletedCell.swift in Sources */,
 				2739748624B5A05E00CA16A3 /* ProposalDetailBodyCell.swift in Sources */,
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				27649CB8260C32A9003D29D4 /* IssueDetailProposalListViewController.swift in Sources */,

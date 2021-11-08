@@ -23,14 +23,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" id="CkI-Tr-Thl" customClass="ActivityCommentCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CkI-Tr-Thl" id="w24-4G-VqI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFe-Ak-9kX">
-                                                    <rect key="frame" x="0.0" y="97.5" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="43" width="414" height="1"/>
                                                     <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="K4u-eP-I4A"/>
@@ -107,7 +107,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssueCommentCell" id="MMs-kt-nKO" customClass="ActivityIssueCommentCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="126.5" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="72" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MMs-kt-nKO" id="0jv-aP-sMb">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -191,7 +191,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewIssueCell" id="evx-y3-0so" customClass="ActivityNewIssueCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="225" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="170.5" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="evx-y3-0so" id="VxC-0l-LdV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -275,7 +275,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewProposalCell" id="tjd-O6-6nX" customClass="ActivityNewProposalCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="323.5" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="269" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tjd-O6-6nX" id="2dQ-0Z-u7k">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -359,7 +359,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentDeadlineCell" id="arA-Pd-ReB" customClass="ActivityAmendmentDeadlineCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="422" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="367.5" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="arA-Pd-ReB" id="5Kw-wj-yWH">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -443,7 +443,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VotingDeadlineCell" id="ho2-DP-tyu" customClass="ActivityVotingDeadlineCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="520.5" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="466" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ho2-DP-tyu" id="hpF-16-w6U">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -527,7 +527,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamInvitationCell" id="jVg-n1-nD7" customClass="ActivityTeamInvitationCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="619" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="564.5" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jVg-n1-nD7" id="rOn-BA-96k">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -620,7 +620,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamInvitationApprovalCell" id="ygc-ll-It5" customClass="ActivityTeamInvitationApprovalCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="717.5" width="414" height="119"/>
+                                        <rect key="frame" x="0.0" y="663" width="414" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ygc-ll-It5" id="JdP-74-I5V">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="119"/>
@@ -712,8 +712,92 @@
                                             <outlet property="titleLabel" destination="DjQ-f3-n1W" id="L4I-of-EWI"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TeamDeletedCell" id="zhv-0v-l23" customClass="ActivityTeamDeletedCell">
+                                        <rect key="frame" x="0.0" y="782" width="414" height="98.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zhv-0v-l23" id="iVK-fd-BPt">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYQ-3s-5fg">
+                                                    <rect key="frame" x="0.0" y="97.5" width="414" height="1"/>
+                                                    <color key="backgroundColor" systemColor="separatorColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="ydh-4x-4U5"/>
+                                                    </constraints>
+                                                </view>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnM-PN-1hp" userLabel="Centering Reference View">
+                                                    <rect key="frame" x="0.0" y="12" width="0.0" height="56"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" id="CrX-aW-K3x"/>
+                                                    </constraints>
+                                                </view>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eTm-yi-Yt4" customClass="GPHMediaView" customModule="GiphyUISDK">
+                                                    <rect key="frame" x="24" y="19" width="42" height="42"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="eTm-yi-Yt4" secondAttribute="height" id="SoS-uM-u4Y"/>
+                                                        <constraint firstAttribute="height" constant="42" id="ymW-LS-dGK"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="users"/>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                            <color key="value" name="PrimaryLight"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconBackgroundColor">
+                                                            <color key="value" name="SecondaryBackground"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team was deleted:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OBL-yb-ieE">
+                                                    <rect key="frame" x="78" y="12" width="312" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" name="PrimaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the team that can expand onto two lines when necessary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNT-c9-lDS">
+                                                    <rect key="frame" x="78" y="34.5" width="312" height="33.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" name="SecondaryDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Private" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2nY-AG-mep">
+                                                    <rect key="frame" x="78" y="72" width="39.5" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" name="DetailDark"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="OBL-yb-ieE" secondAttribute="trailing" constant="24" id="0r7-dG-rHL"/>
+                                                <constraint firstAttribute="bottom" secondItem="DYQ-3s-5fg" secondAttribute="bottom" id="1gP-Yw-RCg"/>
+                                                <constraint firstItem="fnM-PN-1hp" firstAttribute="leading" secondItem="iVK-fd-BPt" secondAttribute="leading" id="9qi-UK-HtK"/>
+                                                <constraint firstItem="OBL-yb-ieE" firstAttribute="leading" secondItem="eTm-yi-Yt4" secondAttribute="trailing" constant="12" id="BkR-yH-WXb"/>
+                                                <constraint firstItem="2nY-AG-mep" firstAttribute="top" secondItem="eTm-yi-Yt4" secondAttribute="bottom" priority="500" constant="4" id="DWe-Tk-c6c"/>
+                                                <constraint firstItem="SNT-c9-lDS" firstAttribute="top" secondItem="OBL-yb-ieE" secondAttribute="bottom" constant="2" id="Ig2-rB-egr"/>
+                                                <constraint firstItem="DYQ-3s-5fg" firstAttribute="leading" secondItem="iVK-fd-BPt" secondAttribute="leading" id="Wem-fQ-lbw"/>
+                                                <constraint firstItem="fnM-PN-1hp" firstAttribute="top" secondItem="iVK-fd-BPt" secondAttribute="top" multiplier="0.5" constant="12" id="Z8y-yy-oy6"/>
+                                                <constraint firstItem="fnM-PN-1hp" firstAttribute="bottom" secondItem="SNT-c9-lDS" secondAttribute="bottom" id="Zym-OS-F1E"/>
+                                                <constraint firstItem="eTm-yi-Yt4" firstAttribute="leading" secondItem="iVK-fd-BPt" secondAttribute="leading" constant="24" id="aVq-gD-PfE"/>
+                                                <constraint firstAttribute="bottom" secondItem="2nY-AG-mep" secondAttribute="bottom" priority="51" constant="12" id="irw-9y-FWb"/>
+                                                <constraint firstItem="fnM-PN-1hp" firstAttribute="top" secondItem="OBL-yb-ieE" secondAttribute="top" id="jOV-mV-OG8"/>
+                                                <constraint firstItem="SNT-c9-lDS" firstAttribute="leading" secondItem="OBL-yb-ieE" secondAttribute="leading" id="nm2-u2-ZnX"/>
+                                                <constraint firstItem="eTm-yi-Yt4" firstAttribute="centerY" secondItem="fnM-PN-1hp" secondAttribute="centerY" id="peu-Wd-ZGw"/>
+                                                <constraint firstItem="2nY-AG-mep" firstAttribute="leading" secondItem="SNT-c9-lDS" secondAttribute="leading" id="sKq-5h-mh2"/>
+                                                <constraint firstAttribute="trailing" secondItem="SNT-c9-lDS" secondAttribute="trailing" constant="24" id="tbO-F5-IqQ"/>
+                                                <constraint firstItem="2nY-AG-mep" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnM-PN-1hp" secondAttribute="bottom" constant="4" id="vKO-bv-fNb"/>
+                                                <constraint firstAttribute="trailing" secondItem="DYQ-3s-5fg" secondAttribute="trailing" id="vtd-EQ-Wqk"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="eTm-yi-Yt4" id="fBc-50-kqd"/>
+                                            <outlet property="privacyLabel" destination="2nY-AG-mep" id="smy-xa-ciY"/>
+                                            <outlet property="subtitleLabel" destination="SNT-c9-lDS" id="uU7-do-B0F"/>
+                                            <outlet property="titleLabel" destination="OBL-yb-ieE" id="VeH-JR-VOT"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteCell" id="BRH-jU-QAl" customClass="ActivityVoteCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="836.5" width="414" height="98.5"/>
+                                        <rect key="frame" x="0.0" y="880.5" width="414" height="98.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BRH-jU-QAl" id="yig-rk-0H5">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.5"/>
@@ -797,7 +881,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="44" id="PVj-Ly-8Eh">
-                                        <rect key="frame" x="0.0" y="935" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="979" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PVj-Ly-8Eh" id="BTr-Yy-m49">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
