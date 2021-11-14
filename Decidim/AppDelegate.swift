@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             // named colors aren't available until after the trait collection is known :(
             tabController.viewControllers?.forEach {
-                $0.tabBarItem._iconColor = .detailDark
+                $0.tabBarItem._iconColor = .secondaryBackground
                 $0.tabBarItem._selectedIconColor = .action
             }
         }

@@ -11,6 +11,7 @@ import UIKit
 extension UIColor {
     
     public static var primaryBackground = UIColor(named: "PrimaryBackground")!
+    public static var secondaryBackground = UIColor(named: "SecondaryBackground")!
     
     public static var primaryDark = UIColor(named: "PrimaryDark")!
     public static var primaryLight = UIColor(named: "PrimaryLight")!
