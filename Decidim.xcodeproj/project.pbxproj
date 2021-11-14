@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -165,7 +165,6 @@
 		278DA22325F5423E002825CE /* VotingResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DA22225F5423E002825CE /* VotingResultsView.swift */; };
 		278DA22525F54253002825CE /* DonutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278DA22425F54253002825CE /* DonutView.swift */; };
 		278DA22725F54866002825CE /* VotingResultsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 278DA22625F54866002825CE /* VotingResultsView.xib */; };
-		27915A472740E378005BF131 /* appicon.png in Resources */ = {isa = PBXBuildFile; fileRef = 27915A462740E378005BF131 /* appicon.png */; };
 		279681C727363D82001688B9 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
 		279681CD2736405E001688B9 /* AWS-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 279681CC2736405E001688B9 /* AWS-Info.plist */; };
 		279681D12736F92D001688B9 /* UIImagePickerController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */; };
@@ -482,7 +481,6 @@
 		278DA22225F5423E002825CE /* VotingResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingResultsView.swift; sourceTree = "<group>"; };
 		278DA22425F54253002825CE /* DonutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonutView.swift; sourceTree = "<group>"; };
 		278DA22625F54866002825CE /* VotingResultsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VotingResultsView.xib; sourceTree = "<group>"; };
-		27915A462740E378005BF131 /* appicon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appicon.png; sourceTree = "<group>"; };
 		279681C627363D82001688B9 /* AWSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSManager.swift; sourceTree = "<group>"; };
 		279681CC2736405E001688B9 /* AWS-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "AWS-Info.plist"; sourceTree = "<group>"; };
 		279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Helpers.swift"; sourceTree = "<group>"; };
@@ -1354,7 +1352,6 @@
 		27F883E824F5242A00B216D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				27915A462740E378005BF131 /* appicon.png */,
 				279681CC2736405E001688B9 /* AWS-Info.plist */,
 				27A4ADE52612DD4E003C507A /* Giphy-Info.plist */,
 				27F883E924F5242A00B216D2 /* Kraken.ttf */,
@@ -1534,7 +1531,6 @@
 				27F883AF24E798CE00B216D2 /* TeamDetail.storyboard in Resources */,
 				2717F47C24E0C79100189F7C /* EditProposal.storyboard in Resources */,
 				27649CBA260C3817003D29D4 /* IssueDetailProposalList.storyboard in Resources */,
-				27915A472740E378005BF131 /* appicon.png in Resources */,
 				278DA22725F54866002825CE /* VotingResultsView.xib in Resources */,
 				2756A6B2249708DE0023DC91 /* Main.storyboard in Resources */,
 				27649CB4260C2A0E003D29D4 /* ActionHeaderView.xib in Resources */,
