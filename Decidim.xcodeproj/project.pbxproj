@@ -242,7 +242,7 @@
 		27C2DF39267494A00094349F /* ParticipatoryProcessGroup.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF37267494A00094349F /* ParticipatoryProcessGroup.graphql.swift */; };
 		27C2DF3F2674969C0094349F /* Session.graphql.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF3E2674969C0094349F /* Session.graphql.swift */; };
 		27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C2DF712675DCF30094349F /* OpenURLQueue.swift */; };
-		27C8A74D2738D85900F8EA93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = 27C8A74C2738D85900F8EA93 /* SwiftPackageProductDependency */; };
+		27C8A74D2738D85900F8EA93 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		27C8A7672738DAD800F8EA93 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C8A7662738DAD800F8EA93 /* NotificationService.swift */; };
 		27C8A76B2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 27C8A7642738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		27C8A8BB2738F3CD00F8EA93 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
@@ -1401,8 +1401,6 @@
 				27C8A76A2738DAD800F8EA93 /* PBXTargetDependency */,
 			);
 			name = Decidim;
-			packageProductDependencies = (
-			);
 			productName = Decidim;
 			productReference = 270B26C5247B6A4A001804D6 /* Votion.app */;
 			productType = "com.apple.product-type.application";
@@ -1436,7 +1434,6 @@
 				27C8A7602738DAD800F8EA93 /* Sources */,
 				27C8A7612738DAD800F8EA93 /* Frameworks */,
 				27C8A7622738DAD800F8EA93 /* Resources */,
-				78000B7A853FFF39ADA8C2D2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1643,23 +1640,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Decidim/Pods-Decidim-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78000B7A853FFF39ADA8C2D2 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-com.cooperative4thecommunity.DecidimNotificationService/Pods-com.cooperative4thecommunity.DecidimNotificationService-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		7FE07C77EB5D4D579C43FD65 /* [CP] Copy Pods Resources */ = {

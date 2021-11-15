@@ -4,12 +4,16 @@ source 'https://github.com/CocoaPods/Specs.git'
 
 use_modular_headers!
 
+def shared_pods
+  pod 'AWSS3', '2.26.3'
+  pod 'Giphy', '2.1.8'
+end
+
 def pods
   pod 'Apollo', '0.27.1'
   pod 'AFNetworking', '4.0.1'
-  pod 'AWSS3', '2.26.3'
-  pod 'Giphy', '2.1.8'
   pod 'KTDIconFont', '0.0.5'
+  shared_pods
 end
 
 target 'Decidim' do
@@ -21,5 +25,5 @@ target 'DecidimTests' do
 end
 
 target 'com.cooperative4thecommunity.DecidimNotificationService' do
-  pods
+  shared_pods
 end
