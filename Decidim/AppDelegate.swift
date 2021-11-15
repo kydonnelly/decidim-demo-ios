@@ -85,11 +85,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        PushNotificationManager.shared.registerToken(data: deviceToken)
+        PushNotificationManager.shared.registerToken(data: deviceToken) { [weak self] error in
+            if let e = error {
+                let alert = UIAlertController(title: "Error", message: "Failed to register for push notifications: \(e)", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { [weak weakAlert = alert] _ in
+                    weakAlert?.dismiss(animated: true, completion: nil)
+                }))
+                self?.window?.rootViewController?.present(alert, animated: true, completion: nil)
+            }
+        }
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Could not register APNs: \(error)")
+        let alert = UIAlertController(title: "Error", message: "Could not register for push notifications: \(error.localizedDescription)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Okay", style: .cancel, handler: { [weak weakAlert = alert] _ in
+            weakAlert?.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
