@@ -14,7 +14,12 @@ struct IssueDetail {
     let commentCount: Int
     let followersCount: Int
     
-    public static func from(dict: [String: Any], issue: Issue) -> IssueDetail? {
+    public static func from(dict: [String: Any]) -> IssueDetail? {
+        guard let original = dict["original"] as? [String: Any],
+              let issue = Issue.from(dict: original) else {
+            return nil
+        }
+        
         guard let commentCount = dict["comments_count"] as? Int else {
             return nil
         }

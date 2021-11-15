@@ -134,7 +134,7 @@ extension EditIssueViewController {
                 return
             }
             
-            IssueDetailDataController.shared(issue: issue).data = [IssueDetail(issue: issue, proposalIds: [], commentCount: 0, followersCount: 0)]
+            IssueDetailDataController.shared(issueId: issue.id).data = [IssueDetail(issue: issue, proposalIds: [], commentCount: 0, followersCount: 0)]
         }
     }
     
@@ -162,7 +162,7 @@ extension EditIssueViewController {
                 return
             }
             
-            IssueDetailDataController.shared(issue: issue).data = [IssueDetail(issue: issue, proposalIds: detail.proposalIds, commentCount: detail.commentCount, followersCount: detail.followersCount)]
+            IssueDetailDataController.shared(issueId: issue.id).data = [IssueDetail(issue: issue, proposalIds: detail.proposalIds, commentCount: detail.commentCount, followersCount: detail.followersCount)]
         }
     }
     

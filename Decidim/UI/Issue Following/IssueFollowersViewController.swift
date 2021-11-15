@@ -28,7 +28,7 @@ class IssueFollowersViewController: UIViewController, CustomTableController {
     
     func setup(detail: IssueDetail) {
         self.issueDetail = detail
-        self.dataController = IssueFollowersDataController.shared(issue: detail.issue)
+        self.dataController = IssueFollowersDataController.shared(issueId: detail.issue.id)
     }
     
     override func viewDidLoad() {

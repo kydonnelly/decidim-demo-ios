@@ -873,7 +873,7 @@ class HTTPRequestTests: XCTestCase {
             receivedError = error
             responseStatus = response?["status"] as? String
             if let issueInfo = response?["issue"] as? [String: Any] {
-                responseItem = IssueDetail.from(dict: issueInfo, issue: Issue(id: 1, status: .pending, teamId: 1, authorId: 1, title: "test title", body: "test body", iconUrl: "", deadline: Date(), createdAt: Date(), updatedAt: Date(), commentCount: 0))
+                responseItem = IssueDetail.from(dict: issueInfo)
             }
         }
         
@@ -881,6 +881,7 @@ class HTTPRequestTests: XCTestCase {
         XCTAssertEqual(XCTWaiter.wait(for: [expectation], timeout: 10), XCTWaiter.Result.completed)
         XCTAssertEqual(responseStatus, "found")
         XCTAssertNotNil(responseItem)
+        XCTAssertEqual(1, responseItem?.issue.id)
         XCTAssertNil(receivedError)
     }
 

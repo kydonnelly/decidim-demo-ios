@@ -38,7 +38,8 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     
     @IBOutlet var editDetailsItem: UIBarButtonItem!
     
-    private var issue: Issue!
+    private var issueId: Int!
+    private var issueDetail: IssueDetail?
     private var detailDataController: IssueDetailDataController!
     private var commentDataController: IssueCommentsDataController!
     private var followersDataController: IssueFollowersDataController!
@@ -46,34 +47,35 @@ class IssueDetailViewController: UIViewController, CustomTableController {
     fileprivate var expandBody = false
     fileprivate var previousContentOffset: CGPoint = .zero
     
-    public static func create(issue: Issue) -> IssueDetailViewController {
+    private static func create() -> IssueDetailViewController {
         let sb = UIStoryboard(name: "IssueDetail", bundle: .main)
         let vc = sb.instantiateInitialViewController() as! IssueDetailViewController
-        vc.setup(issue: issue)
         return vc
     }
     
-    private func setup(issue: Issue) {
-        self.issue = issue
-        self.detailDataController = IssueDetailDataController.shared(issue: issue)
-        self.commentDataController = IssueCommentsDataController.shared(issueId: issue.id)
-        self.followersDataController = IssueFollowersDataController.shared(issue: issue)
+    public static func create(issueId: Int) -> IssueDetailViewController {
+        let vc = self.create()
+        vc.setup(issueId: issueId)
+        return vc
     }
     
-    fileprivate var issueDetail: IssueDetail? {
-        return self.detailDataController.data?.first as? IssueDetail
+    public static func create(issue: Issue) -> IssueDetailViewController {
+        let vc = self.create()
+        vc.setup(issueId: issue.id)
+        return vc
+    }
+    
+    private func setup(issueId: Int) {
+        self.issueId = issueId
+        self.detailDataController = IssueDetailDataController.shared(issueId: issueId)
+        self.commentDataController = IssueCommentsDataController.shared(issueId: issueId)
+        self.followersDataController = IssueFollowersDataController.shared(issueId: issueId)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.title = self.issue.title
-        
-        if self.issue.authorId == MyProfileController.shared.myProfileId {
-            self.navigationItem.rightBarButtonItem = self.editDetailsItem
-        } else {
-            self.navigationItem.rightBarButtonItem = nil
-        }
+        self.navigationItem.rightBarButtonItem = nil
         
         let refreshControl = UIRefreshControl(frame: .zero)
         refreshControl.addTarget(self, action: #selector(pullToRefresh(_:)), for: .valueChanged)
@@ -89,6 +91,17 @@ class IssueDetailViewController: UIViewController, CustomTableController {
         
         self.detailDataController.refresh { [weak self] dc in
             guard let self = self else { return }
+            
+            if let detail = dc.data?.first as? IssueDetail {
+                self.issueDetail = detail
+                self.title = detail.issue.title
+                
+                if detail.issue.authorId == MyProfileController.shared.myProfileId {
+                    self.navigationItem.rightBarButtonItem = self.editDetailsItem
+                } else {
+                    self.navigationItem.rightBarButtonItem = nil
+                }
+            }
             
             self.tableView.reloadData()
         }
@@ -301,11 +314,12 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
         tableView.deselectRow(at: indexPath, animated: true)
         
         if indexPath.section == 1 {
+            let detail = self.issueDetail!
             let cellId = MidSectionCell.ordered()[indexPath.row]
             
             switch cellId {
             case .author:
-                let vc = ProfileViewController.create(profileId: self.issue.authorId)
+                let vc = ProfileViewController.create(profileId: detail.issue.authorId)
                 self.navigationController?.pushViewController(vc, animated: true)
             case .body:
                 self.expandBody = !self.expandBody
@@ -334,11 +348,13 @@ extension IssueDetailViewController: UITableViewDataSource, UITableViewDelegate 
 extension IssueDetailViewController {
     
     @IBAction func tappedOptionsButton(_ sender: UIBarButtonItem) {
+        guard let issueDetail = self.issueDetail else { return }
+        
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
        
         alert.addAction(UIAlertAction(title: "Edit", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
-            let editVC = EditIssueViewController.create(teamId: self.issue.teamId, issue: self.issueDetail)
+            let editVC = EditIssueViewController.create(teamId: issueDetail.issue.teamId, issue: issueDetail)
             editVC.modalPresentationStyle = .fullScreen
             self.navigationController?.present(editVC, animated: true, completion: nil)
         }))
