@@ -167,3 +167,27 @@ extension PushNotificationManager: UNUserNotificationCenterDelegate {
     }
     
 }
+
+extension PushNotificationManager {
+    
+    func registerToken(data: Data) {
+        guard let profileId = MyProfileController.shared.myProfileId else {
+            return
+        }
+        
+        let token = data.map { String(format: "%02.2hhx", $0) }.joined()
+        guard token.count > 0 else {
+            return
+        }
+        
+        let args = [String(describing: profileId), "ios_token"]
+        let payload: [String: Any] = ["token": ["value": token]]
+        
+        HTTPRequest.shared.put(endpoint: "users", args: args, payload: payload) { response, error in
+            guard error == nil else {
+                return
+            }
+        }
+    }
+    
+}
