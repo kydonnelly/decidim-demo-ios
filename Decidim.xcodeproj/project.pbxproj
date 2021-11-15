@@ -170,7 +170,6 @@
 		279681D12736F92D001688B9 /* UIImagePickerController+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */; };
 		279681D72736FC56001688B9 /* ChoosePhotoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681D62736FC56001688B9 /* ChoosePhotoButton.swift */; };
 		279681DF27373E06001688B9 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681DE27373E06001688B9 /* PushNotificationManager.swift */; };
-		279681E527374F25001688B9 /* UIApplication+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681E427374F25001688B9 /* UIApplication+Helpers.swift */; };
 		279ED98F26BFA54300F8224F /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED98E26BFA54300F8224F /* Activity.swift */; };
 		279ED99526C2140A00F8224F /* ActivityDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED99426C2140900F8224F /* ActivityDataController.swift */; };
 		279ED99A26C214EB00F8224F /* ActivityListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279ED99926C214EB00F8224F /* ActivityListViewController.swift */; };
@@ -486,7 +485,6 @@
 		279681D02736F92D001688B9 /* UIImagePickerController+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImagePickerController+Helpers.swift"; sourceTree = "<group>"; };
 		279681D62736FC56001688B9 /* ChoosePhotoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePhotoButton.swift; sourceTree = "<group>"; };
 		279681DE27373E06001688B9 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
-		279681E427374F25001688B9 /* UIApplication+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Helpers.swift"; sourceTree = "<group>"; };
 		279ED98E26BFA54300F8224F /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		279ED99426C2140900F8224F /* ActivityDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDataController.swift; sourceTree = "<group>"; };
 		279ED99926C214EB00F8224F /* ActivityListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityListViewController.swift; sourceTree = "<group>"; };
@@ -783,7 +781,6 @@
 				2739747824AB287000CA16A3 /* Date+Helpers.swift */,
 				27A4ADE72612DE04003C507A /* GiphyManager.swift */,
 				279681DE27373E06001688B9 /* PushNotificationManager.swift */,
-				279681E427374F25001688B9 /* UIApplication+Helpers.swift */,
 				27F883EF24F6616E00B216D2 /* UIBarItem+Helpers.swift */,
 				2717F46B24DAAFBE00189F7C /* UIButton+Helpers.swift */,
 				27B22B4D24D929EB005DF376 /* UIColor+Helpers.swift */,
@@ -1915,7 +1912,6 @@
 				2739748A24B5A08F00CA16A3 /* ProposalDetailAmendmentsCell.swift in Sources */,
 				27F883C024ECF5CA00B216D2 /* TeamListHeaderView.swift in Sources */,
 				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,
-				279681E527374F25001688B9 /* UIApplication+Helpers.swift in Sources */,
 				27490CD9260EDE4B00FAD841 /* Issues+Previewable.swift in Sources */,
 				27F883E724F5241F00B216D2 /* KrakenIconFont.swift in Sources */,
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,

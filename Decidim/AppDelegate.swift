@@ -37,10 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.setupAppAppearance()
         
-        if let url = launchOptions?.pushNotificationRoute {
-            return self.urlQueue.addURL(url)
-        }
-        
         return true
     }
     

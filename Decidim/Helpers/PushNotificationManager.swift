@@ -88,6 +88,11 @@ extension PushNotificationManager {
         var identifier: String {
             return "com.cooperative4thecommunity.Decidim.PushCategory.\(self.rawValue)"
         }
+        
+        init?(identifier: String) {
+            guard let rawValue = identifier.components(separatedBy: ".").last else { return nil }
+            self.init(rawValue: rawValue)
+        }
     }
     
     private func registerRichNotificationActions() {
@@ -186,6 +191,55 @@ extension PushNotificationManager {
         HTTPRequest.shared.put(endpoint: "users", args: args, payload: payload) { response, error in
             completion?(error)
         }
+    }
+    
+}
+
+extension Dictionary where Key == AnyHashable {
+    
+    var pushNotificationRoute: URL? {
+        guard let payload = self["aps"] as? [String: AnyObject] else {
+            return nil
+        }
+        
+        guard let categoryId = payload["category"] as? String else {
+            return nil
+        }
+        
+        guard let category = PushNotificationManager.CategoryIdentifiers(identifier: categoryId) else {
+            return nil
+        }
+        
+        let info = self["info"] as? [String: AnyObject]
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "votionapp"
+        
+        switch category {
+        case .invite:
+            urlComponents.host = "groups"
+            guard let groupId = info?["group_id"] as? Int else { return nil }
+            urlComponents.path = "/\(groupId)"
+        case .proposal:
+            urlComponents.host = "proposals"
+            guard let proposalId = info?["proposal_id"] as? Int else { return nil }
+            urlComponents.path = "/\(proposalId)"
+        case .deadline:
+            urlComponents.host = "issues"
+            guard let issueId = info?["issue_id"] as? Int else { return nil }
+            urlComponents.path = "/\(issueId)"
+        case .comment:
+            urlComponents.host = "comments"
+            if let proposalId = info?["proposal_id"] as? Int {
+                urlComponents.path = "/proposal/\(proposalId)"
+            } else if let issueId = info?["issue_id"] as? Int {
+                urlComponents.path = "/issue/\(issueId)"
+            } else {
+                return nil
+            }
+        }
+        
+        return urlComponents.url
     }
     
 }
