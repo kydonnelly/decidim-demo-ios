@@ -104,7 +104,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="901" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-6V-M62">
-                                                <rect key="frame" x="86.5" y="391" width="241" height="48"/>
+                                                <rect key="frame" x="32" y="391" width="350" height="48"/>
                                                 <color key="backgroundColor" name="Action"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="d93-6d-bce"/>
@@ -115,12 +115,8 @@
                                                     <color key="titleColor" name="PrimaryLight"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="4"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                        <real key="value" value="24"/>
+                                                        <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
@@ -142,7 +138,7 @@
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="top" secondItem="2wu-uA-RWz" secondAttribute="top" constant="64" id="cX3-ZY-Oxu"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="dBm-rQ-xMD"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="hZB-c6-1dI"/>
-                                            <constraint firstItem="zUL-6V-M62" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
+                                            <constraint firstItem="zUL-6V-M62" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
                                             <constraint firstItem="9kA-li-zkE" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lu8-ph-Uzl"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="is3-ZG-Rq7" secondAttribute="bottom" constant="24" id="ncK-Lx-thL"/>
                                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="yhS-aV-VC6"/>
