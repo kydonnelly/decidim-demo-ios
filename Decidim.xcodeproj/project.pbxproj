@@ -211,6 +211,8 @@
 		27A81F8A261D57320088E07C /* GlobalDelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A81F89261D57310088E07C /* GlobalDelegateViewController.swift */; };
 		27A81F90261D59D70088E07C /* GlobalDelegate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A81F8F261D59D70088E07C /* GlobalDelegate.storyboard */; };
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
+		27B01EF027C433E5008C9E93 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */; };
+		27B01EF127C433E5008C9E93 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
 		27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2C24BF0CC3005DF376 /* CommentCell.swift */; };
@@ -526,6 +528,8 @@
 		27A81F89261D57310088E07C /* GlobalDelegateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalDelegateViewController.swift; sourceTree = "<group>"; };
 		27A81F8F261D59D70088E07C /* GlobalDelegate.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlobalDelegate.storyboard; sourceTree = "<group>"; };
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
+		27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
 		27B22B2C24BF0CC3005DF376 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -738,6 +742,8 @@
 		2717F46D24DBDDC000189F7C /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */,
+				27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */,
 				2717F47024DBDE6800189F7C /* Registration.storyboard */,
 				2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */,
 			);
@@ -1545,6 +1551,7 @@
 				27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */,
 				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
 				279ED99E26C214F800F8224F /* ActivityList.storyboard in Resources */,
+				27B01EF127C433E5008C9E93 /* CreateAccount.storyboard in Resources */,
 				2739821E26A2776C00B550FF /* TeamJoinRequests.storyboard in Resources */,
 				27293FC8250707D2000D27D1 /* OptionsBarCell.xib in Resources */,
 				27F883EA24F5242A00B216D2 /* Kraken.ttf in Resources */,
@@ -1928,6 +1935,7 @@
 				278DA22525F54253002825CE /* DonutView.swift in Sources */,
 				27649C5A260AE027003D29D4 /* IssueStatus.swift in Sources */,
 				275114E924FFDF66006277AA /* CustomTableController.swift in Sources */,
+				27B01EF027C433E5008C9E93 /* CreateAccountViewController.swift in Sources */,
 				279ED9A426C2171B00F8224F /* ActivityCell.swift in Sources */,
 				27293FC6250707D2000D27D1 /* OptionsBar.swift in Sources */,
 				27323F142717C71100D4D33A /* ActivityTeamDeletedCell.swift in Sources */,

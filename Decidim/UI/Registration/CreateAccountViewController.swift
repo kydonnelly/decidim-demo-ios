@@ -1,5 +1,5 @@
 //
-//  RegistrationViewController.swift
+//  CreateAccountViewController.swift
 //  Decidim
 //
 //  Created by Kyle Donnelly on 8/5/20.
@@ -9,14 +9,9 @@
 import GiphyUISDK
 import UIKit
 
-class RegistrationViewController: UIViewController, CustomScrollController {
+class CreateAccountViewController: UIViewController, CustomScrollController {
     
-    enum RegistrationType: Int {
-        case newUser
-        case existingUser
-    }
-    
-    typealias CompletionBlock = (RegistrationType) -> Void
+    typealias CompletionBlock = () -> Void
     
     @IBOutlet var scrollView: UIScrollView!
     
@@ -24,13 +19,17 @@ class RegistrationViewController: UIViewController, CustomScrollController {
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var submitButton: UIButton!
     
+    @IBOutlet var photoImageView: ThumbnailView!
+    @IBOutlet var choosePhotoButton: ChoosePhotoButton!
+    
     private var onCompletion: CompletionBlock?
     
-    public static func create(completion: CompletionBlock? = nil) -> UIViewController {
-        let sb = UIStoryboard(name: "Registration", bundle: .main)
-        let nvc = sb.instantiateInitialViewController() as! UINavigationController
-        let vc = nvc.viewControllers.first as! RegistrationViewController
-        vc.setup(completion: completion)
+    private var thumbnailUrl: String?
+    
+    public static func create(completion: CompletionBlock? = nil) -> CreateAccountViewController {
+        let sb = UIStoryboard(name: "CreateAccount", bundle: .main)
+        let nvc = sb.instantiateInitialViewController() as! CreateAccountViewController
+        nvc.setup(completion: completion)
         return nvc
     }
     
@@ -45,6 +44,20 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         
         self.refreshDisplayType()
         self.refreshSubmitButton()
+        
+        self.choosePhotoButton.setup { [weak self] asGif in
+            if asGif {
+                self?.showGifPicker()
+            } else {
+                self?.showImagePicker()
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -53,15 +66,25 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         self.usernameField.becomeFirstResponder()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
 }
 
-extension RegistrationViewController {
+extension CreateAccountViewController {
     
     private func hasValidInput(editingField: UITextField? = nil, editedText: String? = nil) -> Bool {
         let usernameText = editingField == self.usernameField ? editedText : self.usernameField.text
         let passwordText = editingField == self.passwordField ? editedText : self.passwordField.text
         
         guard let username = usernameText, let password = passwordText else {
+            return false
+        }
+        
+        guard self.thumbnailUrl != nil else {
             return false
         }
         
@@ -81,12 +104,8 @@ extension RegistrationViewController {
         self.refreshSubmitButton()
     }
     
-    @IBAction func createAccountButtonPressed(_ sender: UIButton?) {
-        let vc = CreateAccountViewController.create { [weak self] in
-            self?.dismiss(type: .newUser)
-        }
-        
-        self.navigationController?.pushViewController(vc, animated: true)
+    @IBAction func photoButtonPressed(_ sender: UIButton?) {
+        self.showImagePicker()
     }
     
     @IBAction func submitButtonPressed(_ sender: UIButton?) {
@@ -104,7 +123,7 @@ extension RegistrationViewController {
             
             if error == nil {
                 ProfileInfoDataController.shared().invalidate()
-                self.dismiss(type: .existingUser)
+                self.onCompletion?()
             } else {
                 let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: .alert)
                 
@@ -116,18 +135,13 @@ extension RegistrationViewController {
             }
         }
         
-        self.blockView(message: "Logging In...")
-        MyProfileController.shared.signIn(username: username, password: password, completion: updateBlock)
-    }
-    
-    private func dismiss(type: RegistrationType) {
-        self.onCompletion?(type)
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.blockView(message: "Creating Account...")
+        MyProfileController.shared.register(username: username, password: password, thumbnail: self.thumbnailUrl, completion: updateBlock)
     }
     
 }
 
-extension RegistrationViewController: UITextFieldDelegate {
+extension CreateAccountViewController: UITextFieldDelegate {
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let text = textField.text, let range = Range(range, in: text) else {
@@ -153,6 +167,65 @@ extension RegistrationViewController: UITextFieldDelegate {
         }
         
         return true
+    }
+    
+}
+
+extension CreateAccountViewController: GiphyDelegate {
+    
+    fileprivate func showGifPicker() {
+        let imagePicker = GiphyManager.shared.giphyViewController(delegate: self)
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func didSelectMedia(giphyViewController: GiphyViewController, media: GPHMedia) {
+        self.thumbnailUrl = media.id
+        
+        giphyViewController.dismiss(animated: true) { [weak self] in
+            self?.photoImageView.setThumbnail(url: media.id)
+            self?.refreshSubmitButton()
+        }
+    }
+    
+    func didDismiss(controller: GiphyViewController?) {
+        
+    }
+    
+}
+
+extension CreateAccountViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    fileprivate func showImagePicker() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.allowsEditing = true
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        if let mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary) {
+            imagePicker.mediaTypes = mediaTypes
+        }
+        
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info.mediaImage, let localPath = info.imageURL else {
+            return
+        }
+        
+        AWSManager.shared.uploadImage(image, path: localPath) { [weak self] serverURL in
+            guard let url = serverURL else {
+                return
+            }
+            
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                self.thumbnailUrl = url.absoluteString
+                self.photoImageView.setThumbnail(url: self.thumbnailUrl)
+                self.refreshSubmitButton()
+            }
+        }
+        
+        picker.dismiss(animated: true)
     }
     
 }
