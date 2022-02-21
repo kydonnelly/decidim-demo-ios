@@ -22,16 +22,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-uA-RWz" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="591"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="559"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VotionLogo" translatesAutoresizingMaskIntoConstraints="NO" id="046-p2-HgZ">
-                                                <rect key="frame" x="32" y="96" width="350" height="99"/>
+                                                <rect key="frame" x="32" y="64" width="350" height="99"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="046-p2-HgZ" secondAttribute="height" multiplier="314:89" id="naQ-Dk-QPB"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4uN-1G-agg" customClass="OptionsBar" customModule="Votion" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="219" width="362" height="48"/>
+                                                <rect key="frame" x="20" y="187" width="362" height="48"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1n4-FF-2pC">
                                                         <rect key="frame" x="157" y="-157" width="48" height="362"/>
@@ -55,7 +55,7 @@
                                                 </connections>
                                             </view>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9kA-li-zkE" customClass="PaddedTextField" customModule="Votion" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="291" width="350" height="34"/>
+                                                <rect key="frame" x="32" y="259" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="next" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                                 <connections>
@@ -63,7 +63,7 @@
                                                 </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5VC-XQ-hQg" customClass="PaddedTextField" customModule="Votion" customModuleProvider="target">
-                                                <rect key="frame" x="32" y="341" width="350" height="34"/>
+                                                <rect key="frame" x="32" y="309" width="350" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="continue" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                                 <connections>
@@ -71,7 +71,7 @@
                                                 </connections>
                                             </textField>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is3-ZG-Rq7">
-                                                <rect key="frame" x="32" y="399" width="350" height="72"/>
+                                                <rect key="frame" x="32" y="367" width="350" height="72"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9xc-jY-oNp" customClass="GPHMediaView" customModule="GiphyUISDK">
                                                         <rect key="frame" x="0.0" y="0.0" width="72" height="72"/>
@@ -128,7 +128,7 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="901" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUL-6V-M62">
-                                                <rect key="frame" x="120.5" y="495" width="173" height="48"/>
+                                                <rect key="frame" x="120.5" y="463" width="173" height="48"/>
                                                 <color key="backgroundColor" name="Action"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="d93-6d-bce"/>
@@ -164,7 +164,7 @@
                                             <constraint firstAttribute="trailing" secondItem="9kA-li-zkE" secondAttribute="trailing" constant="32" id="MbL-vu-lQr"/>
                                             <constraint firstItem="9kA-li-zkE" firstAttribute="top" secondItem="4uN-1G-agg" secondAttribute="bottom" constant="24" id="aI5-PA-8qk"/>
                                             <constraint firstItem="is3-ZG-Rq7" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="arv-Gs-azY"/>
-                                            <constraint firstItem="046-p2-HgZ" firstAttribute="top" secondItem="2wu-uA-RWz" secondAttribute="top" constant="96" id="cX3-ZY-Oxu"/>
+                                            <constraint firstItem="046-p2-HgZ" firstAttribute="top" secondItem="2wu-uA-RWz" secondAttribute="top" constant="64" id="cX3-ZY-Oxu"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="dBm-rQ-xMD"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="hZB-c6-1dI"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
@@ -214,9 +214,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="VotionLogo" width="1256" height="356"/>
+        <image name="VotionLogo" width="213" height="94"/>
         <namedColor name="Action">
-            <color red="0.81568627450980391" green="0.396078431372549" blue="0.062745098039215685" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.26666666666666666" green="0.4392156862745098" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
             <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
