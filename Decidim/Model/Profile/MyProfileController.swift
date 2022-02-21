@@ -139,9 +139,7 @@ extension MyProfileController {
     
     @discardableResult
     class func save<T>(key: SecureKey, value: T) -> Bool {
-        var dataValue = value
-        let data = Data(buffer: UnsafeBufferPointer(start: &dataValue, count: 1))
-        
+        let data = Data(value: value)
         let query: [String: Any] = [kSecValueData as String: data,
                                     key.securityAttribute: key.rawValue,
                                     kSecClass as String: kSecClassGenericPassword as String]
@@ -173,6 +171,17 @@ extension MyProfileController {
         let query: [String: Any] = [key.securityAttribute: key.rawValue]
         let status = SecItemDelete(query as CFDictionary)
         return status == noErr
+    }
+    
+}
+
+// work around xcode warning: https://stackoverflow.com/a/61095948
+extension Data {
+    
+    init<T>(value: T) {
+        self = withUnsafePointer(to: value, { (ptr: UnsafePointer<T>) -> Data in
+            return Data(buffer: UnsafeBufferPointer(start: ptr, count: 1))
+        })
     }
     
 }
