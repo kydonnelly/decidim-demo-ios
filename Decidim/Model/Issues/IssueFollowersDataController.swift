@@ -48,9 +48,9 @@ class IssueFollowersDataController: NetworkDataController {
     }
     
     public func addFollower(completion: @escaping (Error?) -> Void) {
-        let issueId = self.backingIssueId
+        let issueId = String(describing: self.backingIssueId!)
         
-        HTTPRequest.shared.post(endpoint: "issues", args: ["\(issueId)", "follows"], payload: [:]) { [weak self] response, error in
+        HTTPRequest.shared.post(endpoint: "issues", args: [issueId, "follows"], payload: [:]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
@@ -67,10 +67,10 @@ class IssueFollowersDataController: NetworkDataController {
     }
     
     public func removeFollower(_ follower: IssueFollower, completion: @escaping (Error?) -> Void) {
-        let issueId = self.backingIssueId
+        let issueId = String(describing: self.backingIssueId!)
         let followId = "\(follower.followId)"
         
-        HTTPRequest.shared.delete(endpoint: "issues", args: ["\(issueId)", "follows", followId]) { [weak self] response, error in
+        HTTPRequest.shared.delete(endpoint: "issues", args: [issueId, "follows", followId]) { [weak self] response, error in
             guard error == nil else {
                 completion(error)
                 return
