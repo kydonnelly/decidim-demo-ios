@@ -33,7 +33,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="0mq-Is-BOZ">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="801"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2wu-uA-RWz" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="439"/>
@@ -99,11 +99,11 @@
                                             <constraint firstItem="xUm-Kq-Q0n" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="SIw-Zb-r1s"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="top" secondItem="2wu-uA-RWz" secondAttribute="top" constant="64" id="cX3-ZY-Oxu"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="dBm-rQ-xMD"/>
+                                            <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="5VC-XQ-hQg" secondAttribute="bottom" constant="24" id="ejG-tb-xgS"/>
                                             <constraint firstItem="046-p2-HgZ" firstAttribute="centerX" secondItem="2wu-uA-RWz" secondAttribute="centerX" id="hZB-c6-1dI"/>
                                             <constraint firstAttribute="trailing" secondItem="xUm-Kq-Q0n" secondAttribute="trailing" constant="32" id="iww-YU-Zq6"/>
                                             <constraint firstItem="zUL-6V-M62" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lOK-KZ-tTq"/>
                                             <constraint firstItem="9kA-li-zkE" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="lu8-ph-Uzl"/>
-                                            <constraint firstItem="zUL-6V-M62" firstAttribute="top" secondItem="5VC-XQ-hQg" secondAttribute="bottom" constant="24" id="ygd-Rq-fLn"/>
                                             <constraint firstItem="5VC-XQ-hQg" firstAttribute="leading" secondItem="2wu-uA-RWz" secondAttribute="leading" constant="32" id="yhS-aV-VC6"/>
                                         </constraints>
                                     </view>
@@ -119,7 +119,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="giO-TR-ZSy"/>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q1a-SS-Jba">
-                                <rect key="frame" x="86.5" y="801" width="241" height="61"/>
+                                <rect key="frame" x="86.5" y="769" width="241" height="93"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Don't have an account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fLh-BE-sXM">
                                         <rect key="frame" x="0.0" y="14" width="152" height="17"/>
@@ -137,15 +137,27 @@
                                             <action selector="createAccountButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="4av-x9-tk9"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rmg-Xa-8q6">
+                                        <rect key="frame" x="66" y="41" width="109" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <state key="normal" title="Forgot Password?">
+                                            <color key="titleColor" name="Action"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgotPasswordButtonPressed:" destination="pL4-c4-HSy" eventType="touchUpInside" id="9h5-bC-e55"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="fLh-BE-sXM" firstAttribute="leading" secondItem="Q1a-SS-Jba" secondAttribute="leading" id="0dX-dR-pbE"/>
+                                    <constraint firstItem="Rmg-Xa-8q6" firstAttribute="top" secondItem="0Gu-9e-t28" secondAttribute="bottom" constant="4" id="5Zf-cM-tyC"/>
                                     <constraint firstAttribute="trailing" secondItem="0Gu-9e-t28" secondAttribute="trailing" id="6Af-yc-L8z"/>
-                                    <constraint firstAttribute="bottom" secondItem="0Gu-9e-t28" secondAttribute="bottom" constant="24" id="HGT-pl-ryq"/>
                                     <constraint firstItem="fLh-BE-sXM" firstAttribute="centerY" secondItem="0Gu-9e-t28" secondAttribute="centerY" id="N5k-Pt-R3a"/>
                                     <constraint firstItem="0Gu-9e-t28" firstAttribute="leading" secondItem="fLh-BE-sXM" secondAttribute="trailing" constant="4" id="TMf-L1-WnL"/>
+                                    <constraint firstItem="Rmg-Xa-8q6" firstAttribute="centerX" secondItem="Q1a-SS-Jba" secondAttribute="centerX" id="XMn-19-Mfx"/>
                                     <constraint firstItem="0Gu-9e-t28" firstAttribute="top" secondItem="Q1a-SS-Jba" secondAttribute="top" constant="8" id="lPg-Bn-rYj"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rmg-Xa-8q6" secondAttribute="bottom" constant="24" id="uBW-V7-a3O"/>
                                 </constraints>
                             </view>
                         </subviews>

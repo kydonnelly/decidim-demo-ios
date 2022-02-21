@@ -47,10 +47,22 @@ class RegistrationViewController: UIViewController, CustomScrollController {
         self.refreshSubmitButton()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         self.usernameField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
 }
@@ -79,6 +91,11 @@ extension RegistrationViewController {
         self.usernameField.text = ""
         self.passwordField.text = ""
         self.refreshSubmitButton()
+    }
+    
+    @IBAction func forgotPasswordButtonPressed(_ sender: UIButton?) {
+        let vc = ForgotPasswordViewController.create()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func createAccountButtonPressed(_ sender: UIButton?) {

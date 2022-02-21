@@ -213,6 +213,9 @@
 		27AB112B260DA69C0022AF62 /* ProposalDetailVotesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */; };
 		27B01EF027C433E5008C9E93 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */; };
 		27B01EF127C433E5008C9E93 /* CreateAccount.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */; };
+		27B01EF727C44890008C9E93 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EF527C44890008C9E93 /* ForgotPasswordViewController.swift */; };
+		27B01EF827C44890008C9E93 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B01EF627C44890008C9E93 /* ForgotPassword.storyboard */; };
+		27B01F0027C44F61008C9E93 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EFF27C44F61008C9E93 /* PasswordController.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
 		27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2C24BF0CC3005DF376 /* CommentCell.swift */; };
@@ -530,6 +533,9 @@
 		27AB112A260DA69C0022AF62 /* ProposalDetailVotesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProposalDetailVotesCell.swift; sourceTree = "<group>"; };
 		27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateAccount.storyboard; sourceTree = "<group>"; };
+		27B01EF527C44890008C9E93 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		27B01EF627C44890008C9E93 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
+		27B01EFF27C44F61008C9E93 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
 		27B22B2C24BF0CC3005DF376 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -744,6 +750,8 @@
 			children = (
 				27B01EEF27C433E5008C9E93 /* CreateAccount.storyboard */,
 				27B01EEE27C433E5008C9E93 /* CreateAccountViewController.swift */,
+				27B01EF627C44890008C9E93 /* ForgotPassword.storyboard */,
+				27B01EF527C44890008C9E93 /* ForgotPasswordViewController.swift */,
 				2717F47024DBDE6800189F7C /* Registration.storyboard */,
 				2717F46E24DBDDD200189F7C /* RegistrationViewController.swift */,
 			);
@@ -970,6 +978,7 @@
 			isa = PBXGroup;
 			children = (
 				27B22B4924D7EEC0005DF376 /* MyProfileController.swift */,
+				27B01EFF27C44F61008C9E93 /* PasswordController.swift */,
 				2756A6DE2498615D0023DC91 /* ProfileInfo.swift */,
 				2739747124AB1E0300CA16A3 /* ProfileInfoDataController.swift */,
 			);
@@ -1549,6 +1558,7 @@
 				27293FCA25071495000D27D1 /* BrowseProposals.storyboard in Resources */,
 				27490CCA260ECC8000FAD841 /* Explore.storyboard in Resources */,
 				27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */,
+				27B01EF827C44890008C9E93 /* ForgotPassword.storyboard in Resources */,
 				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
 				279ED99E26C214F800F8224F /* ActivityList.storyboard in Resources */,
 				27B01EF127C433E5008C9E93 /* CreateAccount.storyboard in Resources */,
@@ -1910,6 +1920,7 @@
 				27649C9C260AE2F7003D29D4 /* IssueListViewController.swift in Sources */,
 				27649C54260AD53B003D29D4 /* PublicIssuesDataController.swift in Sources */,
 				2773D15C25C157AD007FD3F0 /* UIView+Blocking.swift in Sources */,
+				27B01EF727C44890008C9E93 /* ForgotPasswordViewController.swift in Sources */,
 				27C2DF722675DCF30094349F /* OpenURLQueue.swift in Sources */,
 				2739821726A2750000B550FF /* TeamJoinRequestsDataController.swift in Sources */,
 				27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */,
@@ -1943,6 +1954,7 @@
 				2756A6CF24985D280023DC91 /* ProfileViewController.swift in Sources */,
 				27649CB8260C32A9003D29D4 /* IssueDetailProposalListViewController.swift in Sources */,
 				2739748224B5A01400CA16A3 /* ProposalDetailTitleCell.swift in Sources */,
+				27B01F0027C44F61008C9E93 /* PasswordController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
