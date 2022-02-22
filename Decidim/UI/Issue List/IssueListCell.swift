@@ -89,7 +89,7 @@ extension IssueListCell: IssueProposalListViewControllerDelegate {
         self.pageControl.currentPage = indexPath.row
     }
     
-    func didSelect(proposal: Proposal) {
+    func didSelect(proposalId: Int) {
         // todo
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol IssueProposalListViewControllerDelegate: AnyObject {
-    func didSelect(proposal: Proposal)
+    func didSelect(proposalId: Int)
     func didScroll(indexPath: IndexPath)
 }
 
@@ -20,7 +20,8 @@ class IssueProposalListViewController: HorizontalListViewController {
     
     private weak var delegate: IssueProposalListViewControllerDelegate? = nil
     
-    private var dataController: PublicProposalDataController? = nil
+    private var issueDetail: IssueDetail? = nil
+    private var dataController: IssueDetailDataController? = nil
     
     public static func create(delegate: IssueProposalListViewControllerDelegate?) -> IssueProposalListViewController {
         let sb = UIStoryboard(name: "IssueProposalList", bundle: .main)
@@ -30,13 +31,20 @@ class IssueProposalListViewController: HorizontalListViewController {
     }
     
     public func setup(issueId: Int) {
-        self.dataController = PublicProposalDataController.shared()
+        self.issueDetail = nil
+        self.dataController = IssueDetailDataController.shared(issueId: issueId)
         self.dataController?.refresh { [weak self] dc in
+            self?.issueDetail = dc.data?.first as? IssueDetail
             self?.tableView.reloadData()
         }
         
-        self.tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
         self.tableView.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.tableView.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
     }
     
     public func scrollToIndex(_ index: Int) {
@@ -57,7 +65,7 @@ extension IssueProposalListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.dataController?.allProposals.count ?? 0
+            return self.issueDetail?.proposalIds.count ?? 0
         } else {
             return 1
         }
@@ -75,8 +83,8 @@ extension IssueProposalListViewController: UITableViewDataSource {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.previewCellId, for: indexPath) as! IssueProposalPreviewCell
             
-            let proposal = self.dataController!.allProposals[indexPath.row]
-            if let data = ProposalDetailDataController.shared(proposalId: proposal.id).data as? [ProposalDetail], let detail = data.first {
+            let proposalId = self.issueDetail!.proposalIds[indexPath.row]
+            if let data = ProposalDetailDataController.shared(proposalId: proposalId).data as? [ProposalDetail], let detail = data.first {
                 cell.setup(proposalDetail: detail)
             }
             
@@ -93,8 +101,8 @@ extension IssueProposalListViewController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let proposal = self.dataController!.allProposals[indexPath.row]
-            self.delegate?.didSelect(proposal: proposal)
+            let proposalId = self.issueDetail!.proposalIds[indexPath.row]
+            self.delegate?.didSelect(proposalId: proposalId)
         }
     }
     
