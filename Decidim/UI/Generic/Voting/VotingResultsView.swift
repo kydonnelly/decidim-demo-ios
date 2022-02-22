@@ -8,11 +8,25 @@
 
 import UIKit
 
+fileprivate struct VoteSlice {
+    let name: String
+    let color: UIColor
+    let weight: CGFloat
+}
+
 class VotingResultsView: UIView {
     
-    @IBOutlet private var donutView: DonutView!
-    @IBOutlet private var primaryLabel: UILabel!
-    @IBOutlet private var secondaryLabel: UILabel!
+    @IBOutlet private var noPercentLabel: UILabel!
+    @IBOutlet private var noImageView: UIImageView!
+    @IBOutlet private var noProgressBar: VotingProgressBar!
+    
+    @IBOutlet private var yesPercentLabel: UILabel!
+    @IBOutlet private var yesImageView: UIImageView!
+    @IBOutlet private var yesProgressBar: VotingProgressBar!
+    
+    @IBOutlet private var abstainPercentLabel: UILabel!
+    @IBOutlet private var abstainImageView: UIImageView!
+    @IBOutlet private var abstainProgressBar: VotingProgressBar!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -29,23 +43,30 @@ class VotingResultsView: UIView {
     }
     
     public func setup(votes: [ProposalVote], expectedVoteCount: Int? = nil) {
-        var slices: [DonutSlice] = VoteType.allCases.compactMap { voteType in
-            let weight = CGFloat(votes.filter { $0.voteType == voteType }.count)
-            return DonutSlice(name: voteType.displayString, color: voteType.tintColor, weight: weight)
-        }
+        let totalVotes = votes.count
+        let myVote = votes.first { $0.authorId == MyProfileController.shared.myProfileId }
         
-        if let expectedVotes = expectedVoteCount, votes.count < expectedVotes {
-            self.primaryLabel.text = "\(votes.count) / \(expectedVotes)"
-            self.secondaryLabel.text = expectedVotes != 1 ? "VOTES" : "VOTE"
+        for voteType in VoteType.allCases {
+            let isMyVote = myVote?.voteType == voteType
+            let numVotes = votes.filter { $0.voteType == voteType }.count
+            let percentage = totalVotes > 0 ? CGFloat(numVotes) / CGFloat(totalVotes) : 0
+            let voteCountString = "\(numVotes) Votes"
             
-            let weight = CGFloat(expectedVotes - votes.count)
-            slices.append(DonutSlice(name: "No Vote", color: .lightGray, weight: weight))
-        } else {
-            self.primaryLabel.text = "\(votes.count)"
-            self.secondaryLabel.text = votes.count != 1 ? "VOTES" : "VOTE"
+            switch voteType {
+            case .no:
+                self.noPercentLabel.text = voteCountString
+                self.noImageView.icon = isMyVote ? .checkbox_checked : .checkbox_unchecked
+                self.noProgressBar.setup(percentage: percentage, color: voteType.tintColor)
+            case .yes:
+                self.yesPercentLabel.text = voteCountString
+                self.yesImageView.icon = isMyVote ? .checkbox_checked : .checkbox_unchecked
+                self.yesProgressBar.setup(percentage: percentage, color: voteType.tintColor)
+            case .abstain:
+                self.abstainPercentLabel.text = voteCountString
+                self.abstainImageView.icon = isMyVote ? .checkbox_checked : .checkbox_unchecked
+                self.abstainProgressBar.setup(percentage: percentage, color: voteType.tintColor)
+            }
         }
-        
-        self.donutView.setup(slices: slices)
     }
     
 }
