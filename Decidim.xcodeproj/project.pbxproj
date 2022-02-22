@@ -216,6 +216,9 @@
 		27B01EF727C44890008C9E93 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EF527C44890008C9E93 /* ForgotPasswordViewController.swift */; };
 		27B01EF827C44890008C9E93 /* ForgotPassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B01EF627C44890008C9E93 /* ForgotPassword.storyboard */; };
 		27B01F0027C44F61008C9E93 /* PasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01EFF27C44F61008C9E93 /* PasswordController.swift */; };
+		27B01F0927C46434008C9E93 /* IssueProposalListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01F0727C46434008C9E93 /* IssueProposalListViewController.swift */; };
+		27B01F0A27C46434008C9E93 /* IssueProposalList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B01F0827C46434008C9E93 /* IssueProposalList.storyboard */; };
+		27B01F1227C46477008C9E93 /* IssueProposalPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B01F1127C46477008C9E93 /* IssueProposalPreviewCell.swift */; };
 		27B22B2924BF0C1D005DF376 /* CommentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */; };
 		27B22B2B24BF0C26005DF376 /* CommentList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27B22B2A24BF0C26005DF376 /* CommentList.storyboard */; };
 		27B22B2D24BF0CC3005DF376 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B22B2C24BF0CC3005DF376 /* CommentCell.swift */; };
@@ -536,6 +539,9 @@
 		27B01EF527C44890008C9E93 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		27B01EF627C44890008C9E93 /* ForgotPassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ForgotPassword.storyboard; sourceTree = "<group>"; };
 		27B01EFF27C44F61008C9E93 /* PasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordController.swift; sourceTree = "<group>"; };
+		27B01F0727C46434008C9E93 /* IssueProposalListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IssueProposalListViewController.swift; sourceTree = "<group>"; };
+		27B01F0827C46434008C9E93 /* IssueProposalList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IssueProposalList.storyboard; sourceTree = "<group>"; };
+		27B01F1127C46477008C9E93 /* IssueProposalPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueProposalPreviewCell.swift; sourceTree = "<group>"; };
 		27B22B2824BF0C1D005DF376 /* CommentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentListViewController.swift; sourceTree = "<group>"; };
 		27B22B2A24BF0C26005DF376 /* CommentList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CommentList.storyboard; sourceTree = "<group>"; };
 		27B22B2C24BF0CC3005DF376 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
@@ -1043,6 +1049,9 @@
 				27649C90260AE2F7003D29D4 /* IssueListCell.swift */,
 				27649C91260AE2F7003D29D4 /* IssueList.storyboard */,
 				27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */,
+				27B01F0827C46434008C9E93 /* IssueProposalList.storyboard */,
+				27B01F0727C46434008C9E93 /* IssueProposalListViewController.swift */,
+				27B01F1127C46477008C9E93 /* IssueProposalPreviewCell.swift */,
 			);
 			path = "Issue List";
 			sourceTree = "<group>";
@@ -1526,6 +1535,7 @@
 				97E780E726DF092700C6D044 /* ToggleCell.xib in Resources */,
 				27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */,
 				27490CC1260DC3FC00FAD841 /* ProfileIconCollectionCellAdd.xib in Resources */,
+				27B01F0A27C46434008C9E93 /* IssueProposalList.storyboard in Resources */,
 				27F883C224ECF60E00B216D2 /* TeamListHeaderView.xib in Resources */,
 				27A81F67261434680088E07C /* DatePickerCell.xib in Resources */,
 				27490CDE260EE10600FAD841 /* CreateAmendment.storyboard in Resources */,
@@ -1772,6 +1782,7 @@
 				27649CA4260AE54E003D29D4 /* IssueDetailEngagementCell.swift in Sources */,
 				279EDA1726CCE25300F8224F /* TeamJoinRequestViewController.swift in Sources */,
 				277FD2CF2511F3230063FFE6 /* Assembly.graphql.swift in Sources */,
+				27B01F0927C46434008C9E93 /* IssueProposalListViewController.swift in Sources */,
 				2739747424AB1FF400CA16A3 /* PublicProposalDataController.swift in Sources */,
 				27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */,
 				278646D824FF77BD004C2C82 /* UIAppearance+Scheme.swift in Sources */,
@@ -1816,6 +1827,7 @@
 				27B22B6224D93FEA005DF376 /* AmendmentListViewController.swift in Sources */,
 				27293FC7250707D2000D27D1 /* OptionsBarCell.swift in Sources */,
 				2756A6D1249860920023DC91 /* ProfileNameCell.swift in Sources */,
+				27B01F1227C46477008C9E93 /* IssueProposalPreviewCell.swift in Sources */,
 				279ED9F326C4DD7900F8224F /* IssueIconListView.swift in Sources */,
 				277FD2D12511F53B0063FFE6 /* AssemblyProposals.graphql.swift in Sources */,
 				27F883E224EDDF0700B216D2 /* EditActionViewController.swift in Sources */,
