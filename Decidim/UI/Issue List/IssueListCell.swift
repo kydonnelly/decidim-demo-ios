@@ -10,6 +10,8 @@ import UIKit
 
 class IssueListCell: CustomTableViewCell {
     
+    typealias SelectBlock = (_ proposalId: Int) -> Void
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var subtitleLabel: UILabel!
     
@@ -21,6 +23,8 @@ class IssueListCell: CustomTableViewCell {
     
     private var followersDataController: IssueFollowersDataController!
     
+    private var selectBlock: SelectBlock? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -30,11 +34,13 @@ class IssueListCell: CustomTableViewCell {
         self.childViewController.view.frame = self.containerView.bounds
     }
     
-    public func setup(issue: Issue) {
+    public func setup(issue: Issue, onSelect: SelectBlock?) {
+        self.selectBlock = onSelect
         self.titleLabel.text = issue.title
         self.subtitleLabel.text = issue.body
         
-        self.pageControl.numberOfPages = 6 // todo
+        // page control gets unhidden in delegate method on/after setup
+        self.pageControl.isHidden = true
         self.childViewController.setup(issueId: issue.id)
         
         self.followersDataController = IssueFollowersDataController.shared(issueId: issue.id)
@@ -90,7 +96,12 @@ extension IssueListCell: IssueProposalListViewControllerDelegate {
     }
     
     func didSelect(proposalId: Int) {
-        // todo
+        self.selectBlock?(proposalId)
+    }
+    
+    func didLoadDetails(_ detail: IssueDetail) {
+        self.pageControl.isHidden = false
+        self.pageControl.numberOfPages = detail.proposalIds.count
     }
     
 }

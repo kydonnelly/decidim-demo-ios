@@ -11,6 +11,7 @@ import UIKit
 protocol IssueProposalListViewControllerDelegate: AnyObject {
     func didSelect(proposalId: Int)
     func didScroll(indexPath: IndexPath)
+    func didLoadDetails(_ detail: IssueDetail)
 }
 
 class IssueProposalListViewController: HorizontalListViewController {
@@ -20,6 +21,7 @@ class IssueProposalListViewController: HorizontalListViewController {
     
     private weak var delegate: IssueProposalListViewControllerDelegate? = nil
     
+    private var issueId: Int!
     private var issueDetail: IssueDetail? = nil
     private var dataController: IssueDetailDataController? = nil
     
@@ -31,11 +33,19 @@ class IssueProposalListViewController: HorizontalListViewController {
     }
     
     public func setup(issueId: Int) {
+        self.issueId = issueId
         self.issueDetail = nil
+        
         self.dataController = IssueDetailDataController.shared(issueId: issueId)
         self.dataController?.refresh { [weak self] dc in
-            self?.issueDetail = dc.data?.first as? IssueDetail
-            self?.tableView.reloadData()
+            guard let self = self, self.issueId == issueId else { return }
+            
+            if let detail = dc.data?.first as? IssueDetail {
+                self.issueDetail = detail
+                self.delegate?.didLoadDetails(detail)
+            }
+            
+            self.tableView.reloadData()
         }
         
         self.tableView.reloadData()

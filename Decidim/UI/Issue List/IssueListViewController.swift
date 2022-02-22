@@ -107,7 +107,10 @@ extension IssueListViewController: UITableViewDataSource, UITableViewDelegate {
             
             if let issueCell = cell as? IssueListCell {
                 let issue = self.allIssues[indexPath.row]
-                issueCell.setup(issue: issue)
+                issueCell.setup(issue: issue, onSelect: { [weak self] proposalId in
+                    let vc = ProposalDetailViewController.create(proposalId: proposalId)
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                })
             }
             
             return cell

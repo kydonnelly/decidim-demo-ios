@@ -38,7 +38,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="51" text="Preview Description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-ZV-kt0">
-                                                            <rect key="frame" x="12" y="37" width="264" height="14.5"/>
+                                                            <rect key="frame" x="16" y="37" width="260" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
@@ -114,7 +114,7 @@
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="top" secondItem="GUa-ZV-kt0" secondAttribute="bottom" priority="52" constant="16" id="qnS-9K-wkt"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" constant="16" id="rUi-c5-cfp"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="syR-1K-HD5"/>
-                                                        <constraint firstItem="GUa-ZV-kt0" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="12" id="ujg-6C-wkX"/>
+                                                        <constraint firstItem="GUa-ZV-kt0" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="ujg-6C-wkX"/>
                                                         <constraint firstItem="D7D-Kz-gru" firstAttribute="leading" secondItem="SNq-0j-hjO" secondAttribute="trailing" constant="4" id="yMI-Vx-Of4"/>
                                                         <constraint firstAttribute="trailing" secondItem="mIA-A4-VJC" secondAttribute="trailing" constant="16" id="yck-DY-Jq4"/>
                                                         <constraint firstItem="5tl-TH-yLs" firstAttribute="leading" secondItem="mIA-A4-VJC" secondAttribute="leading" id="zs1-C6-VM4"/>
