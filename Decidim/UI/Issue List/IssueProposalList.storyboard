@@ -38,7 +38,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="51" text="Preview Description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-ZV-kt0">
-                                                            <rect key="frame" x="16" y="37" width="260" height="14.5"/>
+                                                            <rect key="frame" x="12" y="37" width="264" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
@@ -49,6 +49,28 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="120" id="Dcu-km-raf"/>
                                                             </constraints>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5tl-TH-yLs">
+                                                            <rect key="frame" x="16" y="67.5" width="260" height="120"/>
+                                                            <subviews>
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="3zq-lR-7uH">
+                                                                    <rect key="frame" x="120" y="50" width="20" height="20"/>
+                                                                    <color key="color" name="SecondaryDark"/>
+                                                                </activityIndicatorView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" name="PrimaryBackground"/>
+                                                            <constraints>
+                                                                <constraint firstItem="3zq-lR-7uH" firstAttribute="centerY" secondItem="5tl-TH-yLs" secondAttribute="centerY" id="DNX-S8-RXv"/>
+                                                                <constraint firstItem="3zq-lR-7uH" firstAttribute="centerX" secondItem="5tl-TH-yLs" secondAttribute="centerX" id="RWM-LI-Z87"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="8"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                                    <real key="value" value="2"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="3d ago •" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bb8-U9-JIh">
                                                             <rect key="frame" x="16" y="199.5" width="48.5" height="14.5"/>
@@ -78,6 +100,8 @@
                                                         <constraint firstItem="SNq-0j-hjO" firstAttribute="centerY" secondItem="bb8-U9-JIh" secondAttribute="centerY" id="ACL-iC-4Ms"/>
                                                         <constraint firstAttribute="bottom" secondItem="bb8-U9-JIh" secondAttribute="bottom" constant="16" id="C8Y-8h-c7k"/>
                                                         <constraint firstItem="GUa-ZV-kt0" firstAttribute="top" secondItem="en7-dT-xJE" secondAttribute="bottom" constant="4" id="EeC-Rg-hFC"/>
+                                                        <constraint firstItem="5tl-TH-yLs" firstAttribute="bottom" secondItem="mIA-A4-VJC" secondAttribute="bottom" id="HR6-li-Q8g"/>
+                                                        <constraint firstItem="5tl-TH-yLs" firstAttribute="top" secondItem="mIA-A4-VJC" secondAttribute="top" id="KV2-SQ-teH"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D7D-Kz-gru" secondAttribute="trailing" constant="16" id="NQy-HE-2hZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="GUa-ZV-kt0" secondAttribute="trailing" constant="16" id="VVR-Ax-KYm"/>
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="Vbw-Vz-lK0"/>
@@ -86,12 +110,36 @@
                                                         <constraint firstItem="SNq-0j-hjO" firstAttribute="leading" secondItem="bb8-U9-JIh" secondAttribute="trailing" constant="4" id="dYM-vo-j86"/>
                                                         <constraint firstAttribute="trailing" secondItem="en7-dT-xJE" secondAttribute="trailing" constant="16" id="eAA-o0-FPa"/>
                                                         <constraint firstItem="bb8-U9-JIh" firstAttribute="top" secondItem="mIA-A4-VJC" secondAttribute="bottom" constant="12" id="f55-mF-su7"/>
+                                                        <constraint firstItem="5tl-TH-yLs" firstAttribute="trailing" secondItem="mIA-A4-VJC" secondAttribute="trailing" id="ffG-ov-F28"/>
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="top" secondItem="GUa-ZV-kt0" secondAttribute="bottom" priority="52" constant="16" id="qnS-9K-wkt"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" constant="16" id="rUi-c5-cfp"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="syR-1K-HD5"/>
                                                         <constraint firstItem="GUa-ZV-kt0" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="12" id="ujg-6C-wkX"/>
                                                         <constraint firstItem="D7D-Kz-gru" firstAttribute="leading" secondItem="SNq-0j-hjO" secondAttribute="trailing" constant="4" id="yMI-Vx-Of4"/>
                                                         <constraint firstAttribute="trailing" secondItem="mIA-A4-VJC" secondAttribute="trailing" constant="16" id="yck-DY-Jq4"/>
+                                                        <constraint firstItem="5tl-TH-yLs" firstAttribute="leading" secondItem="mIA-A4-VJC" secondAttribute="leading" id="zs1-C6-VM4"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UHX-hC-LQ8">
+                                                    <rect key="frame" x="12" y="4" width="292" height="230"/>
+                                                    <subviews>
+                                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="a43-Gz-3QP">
+                                                            <rect key="frame" x="136" y="105" width="20" height="20"/>
+                                                            <color key="color" name="SecondaryDark"/>
+                                                        </activityIndicatorView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="PrimaryBackground"/>
+                                                    <constraints>
+                                                        <constraint firstItem="a43-Gz-3QP" firstAttribute="centerY" secondItem="UHX-hC-LQ8" secondAttribute="centerY" id="P0L-dq-xKH"/>
+                                                        <constraint firstItem="a43-Gz-3QP" firstAttribute="centerX" secondItem="UHX-hC-LQ8" secondAttribute="centerX" id="cmt-Pk-JIq"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -104,14 +152,20 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="UHX-hC-LQ8" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" id="3tH-UJ-56U"/>
                                                 <constraint firstAttribute="bottom" secondItem="9Ud-Wt-pYG" secondAttribute="bottom" constant="4" id="4rn-8w-EVb"/>
                                                 <constraint firstAttribute="trailing" secondItem="9Ud-Wt-pYG" secondAttribute="trailing" constant="12" id="6rm-VK-Hmt"/>
+                                                <constraint firstItem="UHX-hC-LQ8" firstAttribute="bottom" secondItem="9Ud-Wt-pYG" secondAttribute="bottom" id="8xJ-3F-sla"/>
+                                                <constraint firstItem="UHX-hC-LQ8" firstAttribute="trailing" secondItem="9Ud-Wt-pYG" secondAttribute="trailing" id="CP6-cs-Mpm"/>
                                                 <constraint firstItem="9Ud-Wt-pYG" firstAttribute="leading" secondItem="Aeo-KD-THR" secondAttribute="leading" constant="12" id="NUH-pY-QRW"/>
                                                 <constraint firstItem="9Ud-Wt-pYG" firstAttribute="top" secondItem="Aeo-KD-THR" secondAttribute="top" constant="4" id="fep-Zf-Pnf"/>
+                                                <constraint firstItem="UHX-hC-LQ8" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" id="tjq-Aa-DWW"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="createdAtLabel" destination="bb8-U9-JIh" id="dcY-uq-Um1"/>
+                                            <outlet property="loadingCard" destination="UHX-hC-LQ8" id="MiK-Xy-tFe"/>
+                                            <outlet property="loadingResultsCard" destination="5tl-TH-yLs" id="VKu-ma-cKW"/>
                                             <outlet property="resultsView" destination="mIA-A4-VJC" id="Tkq-9K-FAG"/>
                                             <outlet property="subtitleLabel" destination="GUa-ZV-kt0" id="shl-at-pxg"/>
                                             <outlet property="titleLabel" destination="en7-dT-xJE" id="OtF-N6-K4L"/>

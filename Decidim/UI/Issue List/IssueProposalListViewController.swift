@@ -82,11 +82,8 @@ extension IssueProposalListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.previewCellId, for: indexPath) as! IssueProposalPreviewCell
-            
             let proposalId = self.issueDetail!.proposalIds[indexPath.row]
-            if let data = ProposalDetailDataController.shared(proposalId: proposalId).data as? [ProposalDetail], let detail = data.first {
-                cell.setup(proposalDetail: detail)
-            }
+            cell.setup(proposalId: proposalId)
             
             return cell
         } else {
