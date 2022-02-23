@@ -594,11 +594,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W9Z-ZE-q8x" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="tgf-fz-P31">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2gb-XR-g5z" customClass="OptionsBar" customModule="Votion" customModuleProvider="target">
-                            <rect key="frame" x="16" y="8" width="343" height="44"/>
+                            <rect key="frame" x="16" y="16" width="343" height="44"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pkq-AN-D1I">
                                     <rect key="frame" x="149.5" y="-149.5" width="44" height="343"/>
@@ -627,7 +627,7 @@
                         <constraint firstItem="2gb-XR-g5z" firstAttribute="leading" secondItem="tgf-fz-P31" secondAttribute="leading" constant="16" id="AWY-Oo-z1m"/>
                         <constraint firstAttribute="bottom" secondItem="2gb-XR-g5z" secondAttribute="bottom" constant="8" id="Csj-wg-fm6"/>
                         <constraint firstAttribute="trailing" secondItem="2gb-XR-g5z" secondAttribute="trailing" constant="16" id="Qfa-W8-3EW"/>
-                        <constraint firstItem="2gb-XR-g5z" firstAttribute="top" secondItem="tgf-fz-P31" secondAttribute="top" constant="8" id="WBH-9d-w7x"/>
+                        <constraint firstItem="2gb-XR-g5z" firstAttribute="top" secondItem="tgf-fz-P31" secondAttribute="top" constant="16" id="WBH-9d-w7x"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">

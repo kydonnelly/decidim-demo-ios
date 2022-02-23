@@ -150,7 +150,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 0
         } else if section == 1 {
-            return 60
+            return 68
         } else {
             return self.currentTab?.tableView?(tableView, heightForHeaderInSection: section) ?? 0
         }
@@ -217,6 +217,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if indexPath.section != 0 {
             self.currentTab.tableView?(tableView, willDisplay: cell, forRowAt: indexPath)
         }
+    }
+    
+}
+
+// UIScrollViewDelegate
+extension ProfileViewController {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView === self.tableView else { return }
+        guard self.tableView.numberOfSections > self.sectionOffset else { return }
+        
+        // HACK: Fade in the header's shadow as the table scrolls into the tab section
+        let tabHeaderOffset = self.tableView.rectForHeader(inSection: self.sectionOffset)
+        let tableOffset = self.tableView.contentOffset.y + self.tableView.adjustedContentInset.top
+        let scrollArea = Float(min(max(0.0, tableOffset - tabHeaderOffset.minY), 8.0))
+        self.tabSectionHeader.layer.shadowOpacity = scrollArea * 0.125 * 0.167
     }
     
 }
