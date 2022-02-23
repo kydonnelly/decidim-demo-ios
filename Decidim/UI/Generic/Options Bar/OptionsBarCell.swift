@@ -10,12 +10,12 @@ import UIKit
 
 class OptionsBarCell: CustomTableViewCell {
     
-    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var optionLabel: UILabel!
     
     public func setup(title: String, isSelected: Bool) {
-        self.titleLabel.text = title
-        self.titleLabel.font = UIFont.preferredFont(forTextStyle: .cta)
-        self.titleLabel.textColor = isSelected ? UIColor.primaryDark : UIColor.primaryLight
+        self.optionLabel.text = title
+        self.optionLabel.font = UIFont.preferredFont(forTextStyle: .cta)
+        self.optionLabel.textColor = isSelected ? UIColor.primaryDark : UIColor.primaryLight
     }
     
 }
