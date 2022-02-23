@@ -166,7 +166,15 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.TeamDetailCellID, for: indexPath) as! TeamListCell
             
             let team = self.teams(section: section)[indexPath.row]
-            cell.setup(team: team)
+            cell.setup(team: team, isMember: false, joinBlock: { [weak self] sender in
+                 
+            }, profileBlock: { [weak self] profileId in
+                guard let navController = self?.navigationController else { return }
+                let profileVC = ProfileViewController.create(profileId: profileId)
+                navController.pushViewController(profileVC, animated: true)
+            }, optionsBlock: { [weak self] sender in
+                
+            })
 
             return cell
         } else {
