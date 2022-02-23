@@ -27,7 +27,7 @@ class OptionsBar: UIView {
         self.setupSelectedView()
         
         self.cornerRadius = 8
-        self.selectedCellView.cornerRadius = 8
+        self.selectedCellView.cornerRadius = 6
         
         self.tableView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * -0.5)
         self.tableView.register(UINib(nibName: "OptionsBarCell", bundle: .main),
