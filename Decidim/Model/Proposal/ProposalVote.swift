@@ -74,11 +74,11 @@ extension VoteType {
     var tintColor: UIColor {
         switch self {
         case .yes:
-            return .systemGreen
+            return UIColor(hexValue: 0x1A6F68)
         case .no:
-            return .systemRed
+            return UIColor(hexValue: 0xD5655A)
         case .abstain:
-            return .systemPurple
+            return UIColor(hexValue: 0xEFB345)
         }
     }
     
