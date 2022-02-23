@@ -211,6 +211,14 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+        
+        if indexPath.section != 0 {
+            self.currentTab.tableView?(tableView, willDisplay: cell, forRowAt: indexPath)
+        }
+    }
+    
 }
 
 extension ProfileViewController: ProfileTabDataSource {

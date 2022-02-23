@@ -202,6 +202,8 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+        
         if indexPath.section == Sections.allCases.count {
             self.dataController.page { [weak self] dc in
                 self?.reloadData()

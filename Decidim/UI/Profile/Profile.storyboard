@@ -110,14 +110,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="4sA-0q-CUn" customClass="TeamListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="222.5"/>
+                                        <rect key="frame" x="0.0" y="108" width="414" height="238.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sA-0q-CUn" id="HZv-YM-aIo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="222.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="238.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QA-co-TmY">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="222.5"/>
+                                                    <rect key="frame" x="16" y="8" width="382" height="222.5"/>
                                                     <subviews>
                                                         <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oKj-u4-HVn">
                                                             <rect key="frame" x="0.0" y="28.5" width="0.0" height="39.5"/>
@@ -143,19 +143,19 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwG-xM-Lo6">
-                                                            <rect key="frame" x="96" y="28.5" width="262" height="21"/>
+                                                            <rect key="frame" x="96" y="28.5" width="230" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" name="PrimaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Bn-B8-kKo">
-                                                            <rect key="frame" x="96" y="53.5" width="262" height="14.5"/>
+                                                            <rect key="frame" x="96" y="53.5" width="230" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" name="DetailDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDO-eO-sXh">
-                                                            <rect key="frame" x="366" y="16" width="24" height="24"/>
+                                                            <rect key="frame" x="334" y="16" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="Fo1-NA-9rh"/>
                                                                 <constraint firstAttribute="width" constant="24" id="sdW-1V-CNK"/>
@@ -171,22 +171,22 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of the team that can expand onto two lines when necessary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPY-gV-xmM">
-                                                            <rect key="frame" x="24" y="92" width="366" height="33.5"/>
+                                                            <rect key="frame" x="24" y="92" width="334" height="33.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bC3-si-VKQ">
-                                                            <rect key="frame" x="24" y="141.5" width="366" height="65"/>
+                                                            <rect key="frame" x="24" y="141.5" width="334" height="65"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eB-zK-xRw">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="366" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="334" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                     <color key="textColor" name="PrimaryDark"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YPE-PB-CR5" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="21" width="366" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="21" width="334" height="44"/>
                                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="44" id="Upr-ww-aDw"/>
@@ -205,7 +205,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yqL-r3-Rzz">
-                                                            <rect key="frame" x="24" y="141.5" width="366" height="36"/>
+                                                            <rect key="frame" x="24" y="141.5" width="334" height="36"/>
                                                             <color key="backgroundColor" name="Action"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <inset key="contentEdgeInsets" minX="0.0" minY="8" maxX="0.0" maxY="8"/>
@@ -251,18 +251,20 @@
                                                         <constraint firstItem="RPY-gV-xmM" firstAttribute="top" secondItem="XQ6-eD-pOJ" secondAttribute="bottom" constant="12" id="zV7-Sn-0vU"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="16"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="8"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="4"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="8QA-co-TmY" firstAttribute="leading" secondItem="HZv-YM-aIo" secondAttribute="leading" id="Dbv-ax-qVL"/>
-                                                <constraint firstAttribute="bottom" secondItem="8QA-co-TmY" secondAttribute="bottom" id="RHE-yE-qGO"/>
-                                                <constraint firstAttribute="trailing" secondItem="8QA-co-TmY" secondAttribute="trailing" id="ft6-Ae-Vi6"/>
-                                                <constraint firstItem="8QA-co-TmY" firstAttribute="top" secondItem="HZv-YM-aIo" secondAttribute="top" id="wvg-Du-Mic"/>
+                                                <constraint firstItem="8QA-co-TmY" firstAttribute="leading" secondItem="HZv-YM-aIo" secondAttribute="leading" constant="16" id="Dbv-ax-qVL"/>
+                                                <constraint firstAttribute="bottom" secondItem="8QA-co-TmY" secondAttribute="bottom" constant="8" id="RHE-yE-qGO"/>
+                                                <constraint firstAttribute="trailing" secondItem="8QA-co-TmY" secondAttribute="trailing" constant="16" id="ft6-Ae-Vi6"/>
+                                                <constraint firstItem="8QA-co-TmY" firstAttribute="top" secondItem="HZv-YM-aIo" secondAttribute="top" constant="8" id="wvg-Du-Mic"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -277,7 +279,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" rowHeight="126" id="KK7-Dr-UgF" customClass="ProposalVoteCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="330.5" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="346.5" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KK7-Dr-UgF" id="gNq-kf-2Uk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -411,7 +413,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalListCell" rowHeight="126" id="Yz2-iE-n9X" customClass="ProposalListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="456.5" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="472.5" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yz2-iE-n9X" id="AoG-MF-pvs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -525,7 +527,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
-                                        <rect key="frame" x="0.0" y="582.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="598.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="itv-Zn-Crr" id="e5t-N5-a7b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
