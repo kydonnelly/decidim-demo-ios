@@ -32,17 +32,33 @@
                                                     <rect key="frame" x="12" y="4" width="292" height="230"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Preview Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en7-dT-xJE">
-                                                            <rect key="frame" x="16" y="16" width="260" height="17"/>
+                                                            <rect key="frame" x="16" y="16" width="230" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <color key="textColor" name="PrimaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="51" text="Preview Description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-ZV-kt0">
-                                                            <rect key="frame" x="16" y="37" width="260" height="14.5"/>
+                                                            <rect key="frame" x="16" y="37" width="230" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pe-B1-lGB" userLabel="Options Button">
+                                                            <rect key="frame" x="254" y="16" width="22" height="22"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="22" id="1X9-Wb-3ic"/>
+                                                                <constraint firstAttribute="width" constant="22" id="zgc-fK-VsE"/>
+                                                            </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
+                                                                <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                                                    <color key="value" name="SecondaryDark"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <action selector="tappedOptionsButton:" destination="ZcU-an-vVn" eventType="touchUpInside" id="RS7-5L-Sap"/>
+                                                            </connections>
+                                                        </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mIA-A4-VJC" customClass="VotingResultsView" customModule="Votion" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="67.5" width="260" height="120"/>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -97,20 +113,22 @@
                                                     </subviews>
                                                     <color key="backgroundColor" name="PrimaryBackground"/>
                                                     <constraints>
+                                                        <constraint firstItem="GUa-ZV-kt0" firstAttribute="trailing" secondItem="en7-dT-xJE" secondAttribute="trailing" id="4DV-kQ-TGg"/>
                                                         <constraint firstItem="SNq-0j-hjO" firstAttribute="centerY" secondItem="bb8-U9-JIh" secondAttribute="centerY" id="ACL-iC-4Ms"/>
+                                                        <constraint firstItem="7Pe-B1-lGB" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" constant="16" id="C4u-0l-cd2"/>
                                                         <constraint firstAttribute="bottom" secondItem="bb8-U9-JIh" secondAttribute="bottom" constant="16" id="C8Y-8h-c7k"/>
                                                         <constraint firstItem="GUa-ZV-kt0" firstAttribute="top" secondItem="en7-dT-xJE" secondAttribute="bottom" constant="4" id="EeC-Rg-hFC"/>
                                                         <constraint firstItem="5tl-TH-yLs" firstAttribute="bottom" secondItem="mIA-A4-VJC" secondAttribute="bottom" id="HR6-li-Q8g"/>
                                                         <constraint firstItem="5tl-TH-yLs" firstAttribute="top" secondItem="mIA-A4-VJC" secondAttribute="top" id="KV2-SQ-teH"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="D7D-Kz-gru" secondAttribute="trailing" constant="16" id="NQy-HE-2hZ"/>
-                                                        <constraint firstAttribute="trailing" secondItem="GUa-ZV-kt0" secondAttribute="trailing" constant="16" id="VVR-Ax-KYm"/>
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="Vbw-Vz-lK0"/>
                                                         <constraint firstItem="bb8-U9-JIh" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="Xww-0f-a3q"/>
                                                         <constraint firstItem="D7D-Kz-gru" firstAttribute="centerY" secondItem="SNq-0j-hjO" secondAttribute="centerY" id="aRE-eY-g8g"/>
+                                                        <constraint firstItem="7Pe-B1-lGB" firstAttribute="leading" secondItem="en7-dT-xJE" secondAttribute="trailing" constant="8" id="cev-1G-PLB"/>
                                                         <constraint firstItem="SNq-0j-hjO" firstAttribute="leading" secondItem="bb8-U9-JIh" secondAttribute="trailing" constant="4" id="dYM-vo-j86"/>
-                                                        <constraint firstAttribute="trailing" secondItem="en7-dT-xJE" secondAttribute="trailing" constant="16" id="eAA-o0-FPa"/>
                                                         <constraint firstItem="bb8-U9-JIh" firstAttribute="top" secondItem="mIA-A4-VJC" secondAttribute="bottom" constant="12" id="f55-mF-su7"/>
                                                         <constraint firstItem="5tl-TH-yLs" firstAttribute="trailing" secondItem="mIA-A4-VJC" secondAttribute="trailing" id="ffG-ov-F28"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7Pe-B1-lGB" secondAttribute="trailing" constant="16" id="qQA-S9-Dch"/>
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="top" secondItem="GUa-ZV-kt0" secondAttribute="bottom" priority="52" constant="16" id="qnS-9K-wkt"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" constant="16" id="rUi-c5-cfp"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="syR-1K-HD5"/>

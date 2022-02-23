@@ -54,4 +54,8 @@ extension IssueProposalPreviewCell {
         
     }
     
+    @IBAction func tappedOptionsButton(_ sender: UIButton) {
+        
+    }
+    
 }
