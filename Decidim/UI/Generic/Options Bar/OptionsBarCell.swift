@@ -14,8 +14,8 @@ class OptionsBarCell: CustomTableViewCell {
     
     public func setup(title: String, isSelected: Bool) {
         self.titleLabel.text = title
-        self.titleLabel.textColor = isSelected ? UIColor.action : UIColor.primaryDark
         self.titleLabel.font = UIFont.preferredFont(forTextStyle: .cta)
+        self.titleLabel.textColor = isSelected ? UIColor.primaryDark : UIColor.primaryLight
     }
     
 }

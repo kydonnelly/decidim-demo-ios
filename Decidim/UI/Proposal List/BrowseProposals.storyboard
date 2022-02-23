@@ -34,16 +34,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FRv-MW-be3">
-                                <rect key="frame" x="0.0" y="136" width="414" height="760"/>
+                                <rect key="frame" x="0.0" y="152" width="414" height="744"/>
                             </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JA4-EK-itZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="48"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="64"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="osc-9X-VAh" customClass="OptionsBar" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="48"/>
+                                        <rect key="frame" x="16" y="8" width="382" height="48"/>
                                         <subviews>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zgp-W0-GWt">
-                                                <rect key="frame" x="183" y="-183" width="48" height="414"/>
+                                                <rect key="frame" x="167" y="-167" width="48" height="382"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>
                                                     <outlet property="dataSource" destination="osc-9X-VAh" id="0cQ-Ka-Ror"/>
@@ -51,7 +51,7 @@
                                                 </connections>
                                             </tableView>
                                         </subviews>
-                                        <color key="backgroundColor" name="PrimaryLight"/>
+                                        <color key="backgroundColor" name="Action"/>
                                         <constraints>
                                             <constraint firstItem="zgp-W0-GWt" firstAttribute="centerY" secondItem="osc-9X-VAh" secondAttribute="centerY" id="1Sz-ix-Uf3"/>
                                             <constraint firstItem="zgp-W0-GWt" firstAttribute="centerX" secondItem="osc-9X-VAh" secondAttribute="centerX" id="6qM-VS-TLn"/>
@@ -63,13 +63,13 @@
                                         </connections>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" name="PrimaryBackground"/>
+                                <color key="backgroundColor" name="SecondaryBackground"/>
                                 <constraints>
-                                    <constraint firstItem="osc-9X-VAh" firstAttribute="leading" secondItem="JA4-EK-itZ" secondAttribute="leading" id="8vP-QK-mm5"/>
-                                    <constraint firstItem="osc-9X-VAh" firstAttribute="top" secondItem="JA4-EK-itZ" secondAttribute="top" id="Jl2-sP-Prh"/>
-                                    <constraint firstAttribute="height" constant="48" id="LaR-wm-hlK"/>
-                                    <constraint firstAttribute="trailing" secondItem="osc-9X-VAh" secondAttribute="trailing" id="ZJc-ai-kTh"/>
-                                    <constraint firstAttribute="bottom" secondItem="osc-9X-VAh" secondAttribute="bottom" id="hgO-jD-mem"/>
+                                    <constraint firstItem="osc-9X-VAh" firstAttribute="leading" secondItem="JA4-EK-itZ" secondAttribute="leading" constant="16" id="8vP-QK-mm5"/>
+                                    <constraint firstItem="osc-9X-VAh" firstAttribute="top" secondItem="JA4-EK-itZ" secondAttribute="top" constant="8" id="Jl2-sP-Prh"/>
+                                    <constraint firstAttribute="height" constant="64" id="LaR-wm-hlK"/>
+                                    <constraint firstAttribute="trailing" secondItem="osc-9X-VAh" secondAttribute="trailing" constant="16" id="ZJc-ai-kTh"/>
+                                    <constraint firstAttribute="bottom" secondItem="osc-9X-VAh" secondAttribute="bottom" constant="8" id="hgO-jD-mem"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -102,14 +102,11 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="PrimaryBackground">
-            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="PrimaryLight">
-            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        <namedColor name="Action">
+            <color red="0.26666666666666666" green="0.4392156862745098" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

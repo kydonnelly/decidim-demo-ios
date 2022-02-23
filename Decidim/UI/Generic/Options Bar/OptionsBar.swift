@@ -15,7 +15,7 @@ class OptionsBar: UIView {
     typealias UpdateBlock = (Int) -> Void
     
     @IBOutlet var tableView: UITableView!
-    private var cellUnderlineView: UIView!
+    private var selectedCellView: UIView!
     
     private var options: [String] = []
     private var selectedIndex: Int?
@@ -24,18 +24,14 @@ class OptionsBar: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.setupUnderline()
+        self.setupSelectedView()
+        
+        self.cornerRadius = 8
+        self.selectedCellView.cornerRadius = 8
         
         self.tableView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * -0.5)
         self.tableView.register(UINib(nibName: "OptionsBarCell", bundle: .main),
                                 forCellReuseIdentifier: Self.cellId)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        self.tableView.bringSubviewToFront(self.cellUnderlineView)
-        self.reload(animated: false)
     }
     
     public func setup(options: [String], selectedIndex: Int?, onSelection: UpdateBlock?) {
@@ -44,65 +40,57 @@ class OptionsBar: UIView {
         self.selectionBlock = onSelection
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.reload(animated: false)
+    }
+    
     public func updateSelectedIndex(_ index: Int, animated: Bool) {
         self.selectedIndex = index
-        
-        self.tableView.reloadData()
-        self.refresh(animated: animated)
-        
+        self.reload(animated: true)
         self.selectionBlock?(index)
+    }
+    
+    fileprivate func setupSelectedView() {
+        self.selectedCellView = UIView(frame: self.bounds)
+        self.selectedCellView.backgroundColor = .primaryLight
+        self.selectedCellView.alpha = 0
+        self.selectedCellView.translatesAutoresizingMaskIntoConstraints = false
+        self.selectedCellView.autoresizingMask = [.flexibleTopMargin, .flexibleBottomMargin]
+        self.selectedCellView.transform = CGAffineTransform(rotationAngle: 0.5 * CGFloat.pi)
+        
+        self.selectedCellView.layer.shadowRadius = 4.0
+        self.selectedCellView.layer.shadowOpacity = 0.2
+        self.selectedCellView.layer.shadowOffset = CGSize.zero
+        self.selectedCellView.layer.shadowColor = UIColor.primaryDark.cgColor
+        
+        self.tableView.addSubview(self.selectedCellView)
     }
     
 }
 
 extension OptionsBar {
     
-    fileprivate func setupUnderline() {
-        self.cellUnderlineView = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 4))
-        self.cellUnderlineView.backgroundColor = UIColor.action
-        self.cellUnderlineView.alpha = 0
-        self.cellUnderlineView.autoresizingMask = [.flexibleBottomMargin, .flexibleRightMargin]
-        
-        let underlineSize = self.cellUnderlineView.bounds.size
-        self.tableView.addSubview(self.cellUnderlineView)
-        self.cellUnderlineView.center = CGPoint(x: underlineSize.height * 0.5, y: 0)
-        self.cellUnderlineView.transform = CGAffineTransform(rotationAngle: CGFloat.pi * 0.5)
-    }
-    
     fileprivate func reload(animated: Bool) {
-        // reload selection options
         self.tableView.reloadData()
-        
-        // update cell widths
-        self.tableView.setNeedsLayout()
         self.tableView.layoutIfNeeded()
         
-        self.refresh(animated: false)
-    }
-    
-    fileprivate func refresh(animated: Bool) {
-        let duration = animated ? 0.3 : 0
+        // after layout! put selection view behind cell text
+        self.tableView.sendSubviewToBack(self.selectedCellView)
         
+        let duration = animated ? 0.3 : 0.0
         guard let index = self.selectedIndex else {
-            UIView.animate(withDuration: duration) {
-                self.cellUnderlineView.alpha = 0
-            }
+            UIView.animate(withDuration: duration, delay: 0, options: .beginFromCurrentState, animations: {
+                self.selectedCellView.alpha = 0.0
+            }, completion: nil)
             return
         }
         
-        let indexPath = IndexPath(row: index, section: 0)
-        
-        self.tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
-        let cellRect = self.tableView.rectForRow(at: indexPath)
-        let underlineWidth = max(48, cellRect.size.height - 48)
-        
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-            self.cellUnderlineView.alpha = 1
-            
-            var underlineFrame = self.cellUnderlineView.frame
-            underlineFrame.size.height = underlineWidth
-            underlineFrame.origin.y = cellRect.midY - underlineWidth * 0.5
-            self.cellUnderlineView.frame = underlineFrame
+        let cellRect = self.tableView.rectForRow(at: IndexPath(row: index, section: 0))
+        UIView.animate(withDuration: duration, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut], animations: {
+            self.selectedCellView.alpha = 1.0
+            self.selectedCellView.frame = cellRect.insetBy(dx: 2, dy: 2)
         }, completion: nil)
     }
     

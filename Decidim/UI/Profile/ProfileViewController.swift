@@ -150,7 +150,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 0
         } else if section == 1 {
-            return 44
+            return 60
         } else {
             return self.currentTab?.tableView?(tableView, heightForHeaderInSection: section) ?? 0
         }
