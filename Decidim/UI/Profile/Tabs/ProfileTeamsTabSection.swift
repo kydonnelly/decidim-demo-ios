@@ -164,9 +164,7 @@ extension ProfileTeamsTabSection: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: Self.teamsCellId, for: indexPath) as! TeamListCell
             
             let team = self.teams(section: tableSection)[indexPath.row].team
-            cell.setup(team: team, isMember: true, joinBlock: { [weak self] sender in
-                
-            }, profileBlock: { [weak self] profileId in
+            cell.setup(team: team, isMember: true, joinBlock: nil, profileBlock: { [weak self] profileId in
                 guard let navController = self?.dataSource?.navigationController else { return }
                 let profileVC = ProfileViewController.create(profileId: profileId)
                 navController.pushViewController(profileVC, animated: true)

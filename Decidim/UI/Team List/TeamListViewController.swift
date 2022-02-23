@@ -167,7 +167,15 @@ extension TeamListViewController: UITableViewDataSource, UITableViewDelegate {
             
             let team = self.teams(section: section)[indexPath.row]
             cell.setup(team: team, isMember: false, joinBlock: { [weak self] sender in
-                 
+                let dataController = TeamJoinRequestDataController.shared()
+                dataController.sendJoinRequest(teamId: team.id, completion: { [weak self] error in
+                    guard error != nil else { return }
+                    guard let navController = self?.navigationController else { return }
+                    
+                    let alert = UIAlertController(title: "Error", message: "Something went wrong.", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                    navController.present(alert, animated: true, completion: nil)
+                })
             }, profileBlock: { [weak self] profileId in
                 guard let navController = self?.navigationController else { return }
                 let profileVC = ProfileViewController.create(profileId: profileId)
