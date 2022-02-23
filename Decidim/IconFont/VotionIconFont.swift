@@ -255,6 +255,10 @@ extension UIButton: IconAppearance {
     public typealias AssociatedIcon = VotionIcon
 }
 
-extension UIBarItem: IconAppearance {
+extension UIBarButtonItem: IconAppearance {
+    public typealias AssociatedIcon = VotionIcon
+}
+
+extension UITabBarItem: IconAppearance {
     public typealias AssociatedIcon = VotionIcon
 }
