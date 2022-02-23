@@ -30,7 +30,7 @@ extension Issue: Previewable {
         return self.iconUrl
     }
     
-    var previewFallbackIcon: KrakenIcon {
+    var previewFallbackIcon: VotionIcon {
         return .clipboard
     }
     

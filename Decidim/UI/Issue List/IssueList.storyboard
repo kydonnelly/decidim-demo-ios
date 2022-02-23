@@ -71,7 +71,7 @@
                                                         <constraint firstAttribute="width" constant="28" id="p1z-lV-Dwl"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                             <color key="value" name="SecondaryDark"/>
                                                         </userDefinedRuntimeAttribute>

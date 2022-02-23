@@ -41,7 +41,7 @@ class TeamListCell: CustomTableViewCell {
         self.onOptionsTapped = optionsBlock
         
         if team.isPrivate {
-            self.titleLabel.appendIcon(.bubbles3)
+            self.titleLabel.appendIcon(.lock_closed)
         }
         
         self.joinActionButton.isHidden = isMember

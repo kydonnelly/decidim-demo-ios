@@ -53,7 +53,7 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
         guard count > 0 else {
             self.isRefreshing = false
             self.dataSource?.tableView?.reloadData()
-            self.dataSource?.tableView.showNoResults(message: "No votes to display", icon: .circle)
+            self.dataSource?.tableView.showNoResults(message: "No votes to display", icon: .speakerphone)
             return
         }
         
@@ -75,7 +75,7 @@ class ProfileVotesTabSection: NSObject, ProfileTabSection {
                     if self.proposalVotes.count > 0 {
                         self.dataSource?.tableView.hideNoResultsIfNeeded()
                     } else {
-                        self.dataSource?.tableView.showNoResults(message: "No votes to display", icon: .circle)
+                        self.dataSource?.tableView.showNoResults(message: "No votes to display", icon: .speakerphone)
                     }
                 }
             }

@@ -59,18 +59,18 @@ struct ProposalAmendment {
 
 extension AmendmentStatus {
     
-    var icon: KrakenIcon {
+    var icon: VotionIcon {
         switch self {
         case .submitted:
-            return .hourglass
+            return .sun
         case .invalid:
-            return .cancel_circle
+            return .close_circle
         case .open:
-            return .circle
+            return .exclamation_circle
         case .accepted:
             return .check
         case .rejected:
-            return .x
+            return .close
         }
     }
     

@@ -60,14 +60,14 @@ struct ProposalVote {
 
 extension VoteType {
     
-    var icon: KrakenIcon {
+    var icon: VotionIcon {
         switch self {
         case .yes:
             return .check
         case .no:
-            return .x
+            return .close
         case .abstain:
-            return .circle
+            return .minus_circle
         }
     }
     

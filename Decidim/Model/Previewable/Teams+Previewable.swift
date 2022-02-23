@@ -30,8 +30,8 @@ extension TeamDetail: Previewable {
         return self.team.thumbnailUrl
     }
     
-    var previewFallbackIcon: KrakenIcon {
-        return .bubbles3
+    var previewFallbackIcon: VotionIcon {
+        return .user_group
     }
     
 }

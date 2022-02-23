@@ -42,21 +42,21 @@ class TeamActionCell: CustomTableViewCell {
             self.statusImageView.iconBackgroundColor = .systemPurple
         case .ongoing:
             self.updateButton.setTitle("Archive", for: .normal)
-            self.statusImageView.icon = .infinite
+            self.statusImageView.icon = .folder_remove
             self.statusImageView.iconBackgroundColor = .systemBlue
         case .pending:
             self.updateButton.setTitle("Start", for: .normal)
-            self.statusImageView.icon = .circle
+            self.statusImageView.icon = .terminal
             self.statusImageView.iconBackgroundColor = .systemOrange
         case .proposed:
             self.updateButton.setTitle("Approve", for: .normal)
-            self.statusImageView.icon = .hourglass
+            self.statusImageView.icon = .ticket
             self.statusImageView.iconBackgroundColor = .systemRed
         case .archived:
             fallthrough
         case .unknown:
             self.updateButton.setTitle("", for: .normal)
-            self.statusImageView.icon = .cancel_circle
+            self.statusImageView.icon = .close_circle
             self.statusImageView.iconBackgroundColor = .clear
         }
     }

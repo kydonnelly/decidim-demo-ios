@@ -54,7 +54,7 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                     <color key="value" name="PrimaryLight"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="checkbox_checked"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="check"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
@@ -122,7 +122,7 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                     <color key="value" name="PrimaryLight"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="checkbox_unchecked"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="check_circle"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>
@@ -190,7 +190,7 @@
                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                     <color key="value" name="PrimaryLight"/>
                                                 </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="checkbox_unchecked"/>
+                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="check_circle"/>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                     <real key="value" value="4"/>
                                                 </userDefinedRuntimeAttribute>

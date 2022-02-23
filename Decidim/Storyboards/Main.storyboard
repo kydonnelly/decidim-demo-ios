@@ -16,11 +16,11 @@
                 <navigationController id="HUW-wP-Y26" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Topics" id="VJr-iJ-NQ4">
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="desktop_computer"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="bubbles3"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="selectedIconName" value="desktop_computer"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_selectedIconColor">
                                 <color key="value" name="Action"/>
                             </userDefinedRuntimeAttribute>
@@ -219,10 +219,10 @@
     </scenes>
     <resources>
         <namedColor name="Action">
-            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.26666666666666666" green="0.4392156862745098" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="DetailDark">
-            <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

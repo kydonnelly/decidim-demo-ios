@@ -90,7 +90,7 @@
                                                                 <constraint firstAttribute="height" constant="24" id="DcX-cW-KfM"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                                     <color key="value" name="Action"/>
                                                                 </userDefinedRuntimeAttribute>

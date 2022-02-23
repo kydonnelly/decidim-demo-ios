@@ -34,7 +34,7 @@ extension ProfileInfo: Previewable {
         return self.thumbnailUrl
     }
     
-    var previewFallbackIcon: KrakenIcon {
+    var previewFallbackIcon: VotionIcon {
         return .user
     }
     

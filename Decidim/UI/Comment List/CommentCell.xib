@@ -71,7 +71,7 @@
                             <constraint firstAttribute="width" constant="22" id="HlC-PO-igb"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="message_circle"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="chat"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
@@ -87,7 +87,7 @@
                             <constraint firstAttribute="height" constant="22" id="wzl-Hm-Uqd"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="cog"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
@@ -103,7 +103,7 @@
                             <constraint firstAttribute="height" constant="22" id="cYa-ZH-VP1"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="thumbs_up"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="thumb_up"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
@@ -116,7 +116,7 @@
                             <constraint firstAttribute="width" constant="22" id="Qlo-ra-E6k"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="thumbs_down"/>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="thumb_down"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                 <color key="value" name="DetailDark"/>
                             </userDefinedRuntimeAttribute>
@@ -162,19 +162,19 @@
     </objects>
     <resources>
         <namedColor name="DetailDark">
-            <color red="0.48199999332427979" green="0.48199999332427979" blue="0.48199999332427979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryDark">
-            <color red="0.097999997437000275" green="0.097999997437000275" blue="0.097999997437000275" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.18431372549019609" green="0.18823529411764706" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
-            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryDark">
-            <color red="0.19200000166893005" green="0.19200000166893005" blue="0.19200000166893005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

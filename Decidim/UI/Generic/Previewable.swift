@@ -13,7 +13,7 @@ protocol Previewable {
     var previewTitle: String { get }
     var previewBody: String { get }
     var previewThumbnailUrl: String? { get }
-    var previewFallbackIcon: KrakenIcon { get }
+    var previewFallbackIcon: VotionIcon { get }
     
 }
 

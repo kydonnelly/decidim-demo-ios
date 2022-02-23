@@ -52,7 +52,7 @@
                                             <constraint firstAttribute="width" constant="28" id="txG-ss-Q18"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="circle_up"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="arrow_circle_up"/>
                                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                 <color key="value" name="PrimaryLight"/>
                                             </userDefinedRuntimeAttribute>
@@ -134,19 +134,19 @@
     </scenes>
     <resources>
         <namedColor name="Action">
-            <color red="0.17299999296665192" green="0.38400000333786011" blue="0.49799999594688416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.26666666666666666" green="0.4392156862745098" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryBackground">
-            <color red="0.98400002717971802" green="0.98400002717971802" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="PrimaryLight">
-            <color red="0.96899998188018799" green="0.96899998188018799" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049041748" green="0.51399999856948853" blue="0.62000000476837158" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="UserInput">
-            <color red="0.046999998390674591" green="0.19200000166893005" blue="0.18400000035762787" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.050980392156862744" green="0.090196078431372548" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

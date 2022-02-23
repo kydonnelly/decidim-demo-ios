@@ -161,7 +161,7 @@
                                                                 <constraint firstAttribute="width" constant="24" id="sdW-1V-CNK"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
-                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="edit_2"/>
+                                                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                                     <color key="value" name="Action"/>
                                                                 </userDefinedRuntimeAttribute>
@@ -306,7 +306,7 @@
                                                         <constraint firstAttribute="width" secondItem="u76-0K-OtR" secondAttribute="height" id="kgD-hY-OrX"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="desktop_computer"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                             <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
@@ -440,7 +440,7 @@
                                                         <constraint firstAttribute="height" constant="42" id="wMD-gM-IKR"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="image"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="photograph"/>
                                                         <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                                             <color key="value" name="PrimaryLight"/>
                                                         </userDefinedRuntimeAttribute>
@@ -576,7 +576,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" id="2Gb-tv-0VP">
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="bubbles3"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
                                 <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
                                     <color key="value" name="PrimaryDark"/>
                                 </userDefinedRuntimeAttribute>

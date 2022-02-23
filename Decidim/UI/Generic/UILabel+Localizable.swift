@@ -22,15 +22,15 @@ extension UILabel {
 
 extension UILabel {
     
-    func appendIcon(_ icon: KrakenIcon) {
-        guard let iconText = KrakenIcon.iconCode(for: icon) else { return }
+    func appendIcon(_ icon: VotionIcon) {
+        guard let iconText = VotionIcon.iconCode(for: icon) else { return }
         guard let font = self.font, let color = self.textColor else { return }
         
         let regularText = self.text?.appending(" ") ?? ""
         
         let regularAttributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color]
         
-        let iconAttributes: [NSAttributedString.Key: Any] = [.font: KrakenIcon.font(size: font.pointSize),
+        let iconAttributes: [NSAttributedString.Key: Any] = [.font: VotionIcon.font(size: font.pointSize),
                                                              .foregroundColor: color]
         
         let attributedText = NSMutableAttributedString(string: regularText, attributes: regularAttributes)
