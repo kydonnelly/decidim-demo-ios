@@ -55,15 +55,15 @@ class VotingResultsView: UIView {
             switch voteType {
             case .no:
                 self.noPercentLabel.text = voteCountString
-                self.noImageView.icon = isMyVote ? .check : .check_circle
+                self.noImageView.icon = isMyVote ? .check : .none
                 self.noProgressBar.setup(percentage: percentage, color: voteType.tintColor)
             case .yes:
                 self.yesPercentLabel.text = voteCountString
-                self.yesImageView.icon = isMyVote ? .check : .check_circle
+                self.yesImageView.icon = isMyVote ? .check : .none
                 self.yesProgressBar.setup(percentage: percentage, color: voteType.tintColor)
             case .abstain:
                 self.abstainPercentLabel.text = voteCountString
-                self.abstainImageView.icon = isMyVote ? .check : .check_circle
+                self.abstainImageView.icon = isMyVote ? .check : .none
                 self.abstainProgressBar.setup(percentage: percentage, color: voteType.tintColor)
             }
         }
