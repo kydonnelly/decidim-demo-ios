@@ -13,7 +13,6 @@ class TeamDetailViewController: UIViewController, CustomTableController {
     static let LoadingCellID = "LoadingCell"
     
     fileprivate enum StaticCell: String, CaseIterable {
-        case body = "BodyCell"
         case title = "TitleCell"
         case `private` = "PrivateCell"
         case members = "MembersCell"
@@ -22,9 +21,9 @@ class TeamDetailViewController: UIViewController, CustomTableController {
         
         static func ordered(isPrivate: Bool) -> [StaticCell] {
             if isPrivate {
-                return [.title, .body, .private]
+                return [.title, .private]
             } else {
-                return [.title, .body, .members, .issues]
+                return [.title, .members, .issues]
             }
         }
     }
@@ -173,10 +172,8 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             
             let detail = self.teamDetail!
             switch cellId {
-            case .body:
-                (cell as! TeamDetailBodyCell).setup(detail: detail, shouldExpand: self.expandBody)
             case .title:
-                (cell as! TeamDetailTitleCell).setup(detail: detail, status: self.currentMemberStatus) { [weak self] status in
+                (cell as! TeamDetailTitleCell).setup(detail: detail, shouldExpand: self.expandBody, status: self.currentMemberStatus) { [weak self] status in
                     guard let self = self else { return }
                     
                     let completion: (Error?) -> Void = { [weak self] _ in
@@ -250,7 +247,7 @@ extension TeamDetailViewController: UITableViewDataSource, UITableViewDelegate {
             let cellId = self.orderedCells[indexPath.row]
             
             switch cellId {
-            case .body:
+            case .title:
                 self.expandBody = !self.expandBody
                 self.tableView.reloadRows(at: [indexPath], with: .none)
             case .members:

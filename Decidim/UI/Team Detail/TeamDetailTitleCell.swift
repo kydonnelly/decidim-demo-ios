@@ -14,22 +14,30 @@ class TeamDetailTitleCell: CustomTableViewCell {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var privacyLabel: UILabel!
+    @IBOutlet var subtitleLabel: UILabel!
     @IBOutlet var iconImageView: ThumbnailView!
     @IBOutlet var memberStatusButton: UIButton!
-    @IBOutlet var gradientBackground: LinearGradientView!
     
     private var teamDetail: TeamDetail!
     private var updateStatusBlock: UpdateStatusBlock?
     
-    func setup(detail: TeamDetail, status: TeamMemberStatus?, onUpdateStatus: UpdateStatusBlock?) {
+    func setup(detail: TeamDetail, shouldExpand: Bool, status: TeamMemberStatus?, onUpdateStatus: UpdateStatusBlock?) {
         self.titleLabel.text = detail.team.name
+        self.subtitleLabel.text = detail.team.description
         self.iconImageView.setThumbnail(url: detail.team.thumbnailUrl)
-        self.privacyLabel.text = detail.team.isPrivate ? "Private" : nil
         self.memberStatusButton.setTitle(status?.actionText ?? "Request to Join", for: .normal)
-        self.gradientBackground.setupWithRandomColors(seed: detail.team.id + 1, direction: .horizontal)
+        
+        if detail.team.isPrivate {
+            self.privacyLabel.text = "Private Group"
+            self.privacyLabel.appendIcon(.lock_closed)
+        } else {
+            self.privacyLabel.text = "Public Group"
+            self.privacyLabel.appendIcon(.user_group)
+        }
         
         self.teamDetail = detail
         self.updateStatusBlock = onUpdateStatus
+        self.subtitleLabel.setContentCompressionResistancePriority(shouldExpand ? .defaultHigh + 5 : .defaultHigh - 5, for: .vertical)
     }
     
 }

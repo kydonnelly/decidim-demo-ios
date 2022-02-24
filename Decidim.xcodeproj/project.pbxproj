@@ -264,7 +264,6 @@
 		27F883A924E798CE00B216D2 /* TeamList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F883A124E798CE00B216D2 /* TeamList.storyboard */; };
 		27F883AA24E798CE00B216D2 /* TeamListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A224E798CE00B216D2 /* TeamListViewController.swift */; };
 		27F883AB24E798CE00B216D2 /* TeamListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A324E798CE00B216D2 /* TeamListCell.swift */; };
-		27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A524E798CE00B216D2 /* TeamDetailBodyCell.swift */; };
 		27F883AD24E798CE00B216D2 /* TeamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A624E798CE00B216D2 /* TeamDetailViewController.swift */; };
 		27F883AE24E798CE00B216D2 /* TeamDetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F883A724E798CE00B216D2 /* TeamDetailTitleCell.swift */; };
 		27F883AF24E798CE00B216D2 /* TeamDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27F883A824E798CE00B216D2 /* TeamDetail.storyboard */; };
@@ -587,7 +586,6 @@
 		27F883A124E798CE00B216D2 /* TeamList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamList.storyboard; sourceTree = "<group>"; };
 		27F883A224E798CE00B216D2 /* TeamListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListViewController.swift; sourceTree = "<group>"; };
 		27F883A324E798CE00B216D2 /* TeamListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamListCell.swift; sourceTree = "<group>"; };
-		27F883A524E798CE00B216D2 /* TeamDetailBodyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailBodyCell.swift; sourceTree = "<group>"; };
 		27F883A624E798CE00B216D2 /* TeamDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailViewController.swift; sourceTree = "<group>"; };
 		27F883A724E798CE00B216D2 /* TeamDetailTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeamDetailTitleCell.swift; sourceTree = "<group>"; };
 		27F883A824E798CE00B216D2 /* TeamDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TeamDetail.storyboard; sourceTree = "<group>"; };
@@ -1322,7 +1320,6 @@
 				279EDA0026C4DE5D00F8224F /* IssueIconCollectionCell.xib */,
 				279ED9F226C4DD7900F8224F /* IssueIconListView.swift */,
 				27F883C924ED075D00B216D2 /* TeamActionListCell.swift */,
-				27F883A524E798CE00B216D2 /* TeamDetailBodyCell.swift */,
 				27F883A624E798CE00B216D2 /* TeamDetailViewController.swift */,
 				27F883A724E798CE00B216D2 /* TeamDetailTitleCell.swift */,
 				27F883A824E798CE00B216D2 /* TeamDetail.storyboard */,
@@ -1929,7 +1926,6 @@
 				2717F46C24DAAFBE00189F7C /* UIButton+Helpers.swift in Sources */,
 				27490CD9260EDE4B00FAD841 /* Issues+Previewable.swift in Sources */,
 				27B22B5624D93760005DF376 /* GradientView.swift in Sources */,
-				27F883AC24E798CE00B216D2 /* TeamDetailBodyCell.swift in Sources */,
 				27A4ADE82612DE04003C507A /* GiphyManager.swift in Sources */,
 				97E780E626DF092700C6D044 /* ToggleCell.swift in Sources */,
 				2763CA95262293CD007B0E2E /* IssueFollowersViewController.swift in Sources */,
