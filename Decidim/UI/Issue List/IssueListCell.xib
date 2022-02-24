@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Topic Title - Can become two lines if needed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuN-IT-A89">
-                        <rect key="frame" x="24" y="12" width="271" height="43"/>
+                        <rect key="frame" x="24" y="12" width="279" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <color key="textColor" name="PrimaryDark"/>
                         <nil key="highlightedColor"/>
@@ -31,7 +31,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyw-b6-FtN">
-                        <rect key="frame" x="299" y="18" width="61" height="31"/>
+                        <rect key="frame" x="307" y="18" width="61" height="31"/>
                         <color key="backgroundColor" name="PrimaryLight"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
@@ -54,7 +54,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-dc-6XS">
-                        <rect key="frame" x="368" y="22.5" width="22" height="22"/>
+                        <rect key="frame" x="376" y="22.5" width="22" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="PSr-Oa-w9B"/>
                             <constraint firstAttribute="width" constant="22" id="dbR-Hl-Gat"/>
@@ -101,7 +101,7 @@
                     <constraint firstItem="Vmg-8l-7y5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oyw-b6-FtN" secondAttribute="bottom" constant="8" id="crv-mW-0Hj"/>
                     <constraint firstItem="eSI-dc-6XS" firstAttribute="centerY" secondItem="oyw-b6-FtN" secondAttribute="centerY" id="dua-Hc-7IN"/>
                     <constraint firstItem="eSI-dc-6XS" firstAttribute="leading" secondItem="oyw-b6-FtN" secondAttribute="trailing" constant="8" id="eZt-Zd-fGS"/>
-                    <constraint firstAttribute="trailing" secondItem="eSI-dc-6XS" secondAttribute="trailing" constant="24" id="euC-Ll-ftu"/>
+                    <constraint firstAttribute="trailing" secondItem="eSI-dc-6XS" secondAttribute="trailing" constant="16" id="euC-Ll-ftu"/>
                     <constraint firstItem="gdg-fJ-sbO" firstAttribute="top" secondItem="Vmg-8l-7y5" secondAttribute="bottom" constant="16" id="fBg-bT-l6n"/>
                     <constraint firstAttribute="trailing" secondItem="Vmg-8l-7y5" secondAttribute="trailing" constant="24" id="lA6-Ep-DkX"/>
                     <constraint firstItem="oyw-b6-FtN" firstAttribute="centerY" secondItem="RuN-IT-A89" secondAttribute="centerY" id="nDc-BF-pTd"/>

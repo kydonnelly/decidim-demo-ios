@@ -32,19 +32,19 @@
                                                     <rect key="frame" x="12" y="4" width="292" height="230"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Preview Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="en7-dT-xJE">
-                                                            <rect key="frame" x="16" y="16" width="230" height="17"/>
+                                                            <rect key="frame" x="16" y="16" width="234" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                             <color key="textColor" name="PrimaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="51" text="Preview Description" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUa-ZV-kt0">
-                                                            <rect key="frame" x="16" y="37" width="230" height="14.5"/>
+                                                            <rect key="frame" x="16" y="37" width="234" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                             <color key="textColor" name="SecondaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Pe-B1-lGB" userLabel="Options Button">
-                                                            <rect key="frame" x="254" y="16" width="22" height="22"/>
+                                                            <rect key="frame" x="258" y="16" width="22" height="22"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="22" id="1X9-Wb-3ic"/>
                                                                 <constraint firstAttribute="width" constant="22" id="zgc-fK-VsE"/>
@@ -128,7 +128,7 @@
                                                         <constraint firstItem="SNq-0j-hjO" firstAttribute="leading" secondItem="bb8-U9-JIh" secondAttribute="trailing" constant="4" id="dYM-vo-j86"/>
                                                         <constraint firstItem="bb8-U9-JIh" firstAttribute="top" secondItem="mIA-A4-VJC" secondAttribute="bottom" constant="12" id="f55-mF-su7"/>
                                                         <constraint firstItem="5tl-TH-yLs" firstAttribute="trailing" secondItem="mIA-A4-VJC" secondAttribute="trailing" id="ffG-ov-F28"/>
-                                                        <constraint firstAttribute="trailing" secondItem="7Pe-B1-lGB" secondAttribute="trailing" constant="16" id="qQA-S9-Dch"/>
+                                                        <constraint firstAttribute="trailing" secondItem="7Pe-B1-lGB" secondAttribute="trailing" constant="12" id="qQA-S9-Dch"/>
                                                         <constraint firstItem="mIA-A4-VJC" firstAttribute="top" secondItem="GUa-ZV-kt0" secondAttribute="bottom" priority="52" constant="16" id="qnS-9K-wkt"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="top" secondItem="9Ud-Wt-pYG" secondAttribute="top" constant="16" id="rUi-c5-cfp"/>
                                                         <constraint firstItem="en7-dT-xJE" firstAttribute="leading" secondItem="9Ud-Wt-pYG" secondAttribute="leading" constant="16" id="syR-1K-HD5"/>

@@ -72,19 +72,19 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vtF-zV-RIO">
-                                                            <rect key="frame" x="88" y="24.5" width="238" height="21"/>
+                                                            <rect key="frame" x="88" y="24.5" width="246" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" name="PrimaryDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6 members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VPI-rE-ecK">
-                                                            <rect key="frame" x="88" y="49.5" width="238" height="14.5"/>
+                                                            <rect key="frame" x="88" y="49.5" width="246" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" name="DetailDark"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ear-uM-gRZ">
-                                                            <rect key="frame" x="334" y="16" width="24" height="24"/>
+                                                            <rect key="frame" x="342" y="16" width="24" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="24" id="Azb-dK-qxL"/>
                                                                 <constraint firstAttribute="height" constant="24" id="DcX-cW-KfM"/>
@@ -166,7 +166,7 @@
                                                         <constraint firstItem="VPI-rE-ecK" firstAttribute="leading" secondItem="vtF-zV-RIO" secondAttribute="leading" id="Kff-4d-8N0"/>
                                                         <constraint firstItem="zzd-Ds-4zK" firstAttribute="leading" secondItem="Bmt-dl-5jj" secondAttribute="leading" constant="24" id="Le3-5j-pDc"/>
                                                         <constraint firstItem="VPI-rE-ecK" firstAttribute="trailing" secondItem="vtF-zV-RIO" secondAttribute="trailing" id="PAN-1T-52c"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Ear-uM-gRZ" secondAttribute="trailing" constant="24" id="QVF-R6-XH6"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Ear-uM-gRZ" secondAttribute="trailing" constant="16" id="QVF-R6-XH6"/>
                                                         <constraint firstItem="Ear-uM-gRZ" firstAttribute="top" secondItem="osS-IP-Qr5" secondAttribute="top" id="T2A-y8-8O8"/>
                                                         <constraint firstAttribute="trailing" secondItem="tvD-eg-nxg" secondAttribute="trailing" constant="24" id="WhK-nr-V1T"/>
                                                         <constraint firstItem="uYI-3z-r3n" firstAttribute="leading" secondItem="Bmt-dl-5jj" secondAttribute="leading" constant="24" id="Y1O-5z-xu2"/>
