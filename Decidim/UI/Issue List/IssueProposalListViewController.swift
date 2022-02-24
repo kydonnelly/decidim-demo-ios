@@ -49,6 +49,12 @@ class IssueProposalListViewController: HorizontalListViewController {
         }
         
         self.tableView.reloadData()
+        
+        // always start from the left - needs to do layout pass first apparently
+        DispatchQueue.main.async {
+            let top = -1 * self.tableView.adjustedContentInset.top
+            self.tableView.setContentOffset(CGPoint(x: 0, y: top), animated: false)
+        }
     }
     
     override func viewDidLoad() {
