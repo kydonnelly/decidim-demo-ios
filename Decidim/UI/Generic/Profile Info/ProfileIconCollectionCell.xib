@@ -4,22 +4,26 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MBr-UF-Zqe" customClass="ProfileIconCollectionCell" customModule="Agora" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MBr-UF-Zqe" customClass="ProfileIconCollectionCell" customModule="Votion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="56" height="82"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="kRy-9U-EG9">
-                <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                <rect key="frame" x="0.0" y="0.0" width="56" height="82"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="crd-OG-N2R" customClass="GPHMediaView" customModule="GiphyUISDK">
-                        <rect key="frame" x="4" y="4" width="120" height="120"/>
+                        <rect key="frame" x="4" y="4" width="48" height="48"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="crd-OG-N2R" secondAttribute="height" id="kab-pS-a9R"/>
+                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
@@ -30,26 +34,39 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tri Ngo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-1Z-imh">
+                        <rect key="frame" x="0.0" y="54" width="56" height="28"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" name="SecondaryDark"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="vIl-1Z-imh" secondAttribute="bottom" id="4Pg-ur-ruH"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" constant="4" id="AMb-hu-sn3"/>
-                    <constraint firstItem="crd-OG-N2R" firstAttribute="centerY" secondItem="kRy-9U-EG9" secondAttribute="centerY" id="jC6-LA-zcU"/>
+                    <constraint firstItem="vIl-1Z-imh" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" id="Tiw-IU-f2R"/>
+                    <constraint firstAttribute="trailing" secondItem="vIl-1Z-imh" secondAttribute="trailing" id="VZ2-xh-rFK"/>
+                    <constraint firstItem="vIl-1Z-imh" firstAttribute="top" secondItem="crd-OG-N2R" secondAttribute="bottom" constant="2" id="dOA-8b-ff8"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="top" secondItem="kRy-9U-EG9" secondAttribute="top" constant="4" id="lcN-2B-Shq"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="centerX" secondItem="kRy-9U-EG9" secondAttribute="centerX" id="rxC-w6-agj"/>
                 </constraints>
             </collectionViewCellContentView>
             <connections>
                 <outlet property="iconImageView" destination="crd-OG-N2R" id="UnL-BR-pVk"/>
+                <outlet property="nameLabel" destination="vIl-1Z-imh" id="SfX-Zk-C0J"/>
             </connections>
             <point key="canvasLocation" x="52" y="-27"/>
         </collectionViewCell>
     </objects>
     <resources>
         <namedColor name="PrimaryLight">
-            <color red="0.96899998190000003" green="0.96899998190000003" blue="0.96899998190000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SecondaryBackground">
-            <color red="0.31400001049999998" green="0.51399999860000001" blue="0.62000000479999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

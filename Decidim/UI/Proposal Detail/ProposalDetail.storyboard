@@ -303,15 +303,15 @@
                                             <outlet property="iconImageView" destination="cIR-j6-GNs" id="PQf-0X-sWJ"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="92" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="585.5" width="414" height="92"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AmendmentsCell" rowHeight="128" id="v49-yy-95g" customClass="ProposalDetailAmendmentsCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="585.5" width="414" height="128"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v49-yy-95g" id="Psb-AX-yGB">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="upc-2q-LjS">
-                                                    <rect key="frame" x="0.0" y="91" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="127" width="414" height="1"/>
                                                     <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="eBr-fb-Xlp"/>
@@ -335,10 +335,10 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odx-xD-y2d" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="36" width="366" height="44"/>
+                                                    <rect key="frame" x="24" y="36" width="366" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="44" id="ndl-Sz-gQD"/>
+                                                        <constraint firstAttribute="height" constant="80" id="ndl-Sz-gQD"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -363,7 +363,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="677.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="713.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

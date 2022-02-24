@@ -60,7 +60,8 @@ extension ProfileIconListView: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = self.bounds.size.height
-        return CGSize(width: height, height: height)
+        let width = max(0, height - 28.0) // extra height for the text label
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -87,11 +88,17 @@ extension ProfileIconListView: UICollectionViewDataSource, UICollectionViewDeleg
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Self.ProfileIconCellId, for: indexPath) as! ProfileIconCollectionCell
         
         let profileInfo = self.profiles[indexPath.row]
-        cell.setup(profile: profileInfo) { [weak self] in
-            self?.onProfileTapped?(profileInfo.profileId)
-        }
+        cell.setup(profile: profileInfo)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        guard indexPath.row < self.profiles.count else { return }
+        let profileInfo = self.profiles[indexPath.row]
+        self.onProfileTapped?(profileInfo.profileId)
     }
     
 }

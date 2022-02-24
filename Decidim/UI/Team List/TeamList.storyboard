@@ -39,14 +39,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamDetailCell" id="FLo-Sj-JwD" customClass="TeamListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="230.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="266.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FLo-Sj-JwD" id="b9m-wR-Yof">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="230.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="266.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bmt-dl-5jj">
-                                                    <rect key="frame" x="16" y="8" width="382" height="214.5"/>
+                                                    <rect key="frame" x="16" y="8" width="382" height="250.5"/>
                                                     <subviews>
                                                         <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FAk-Oj-mr7">
                                                             <rect key="frame" x="0.0" y="24.5" width="0.0" height="39.5"/>
@@ -106,7 +106,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zzd-Ds-4zK">
-                                                            <rect key="frame" x="24" y="133.5" width="334" height="65"/>
+                                                            <rect key="frame" x="24" y="133.5" width="334" height="101"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vi7-iy-HD3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="334" height="17"/>
@@ -115,10 +115,10 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imG-uS-Ct2" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="21" width="334" height="44"/>
+                                                                    <rect key="frame" x="0.0" y="21" width="334" height="80"/>
                                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="44" id="NJB-HJ-M9j"/>
+                                                                        <constraint firstAttribute="height" constant="80" id="NJB-HJ-M9j"/>
                                                                     </constraints>
                                                                 </view>
                                                             </subviews>
@@ -208,7 +208,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="44" id="tSK-Rh-t5T">
-                                        <rect key="frame" x="0.0" y="258.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="294.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tSK-Rh-t5T" id="ZX4-Fs-A79">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
