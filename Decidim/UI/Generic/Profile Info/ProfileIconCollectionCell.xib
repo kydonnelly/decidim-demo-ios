@@ -34,15 +34,15 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tri Ngo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-1Z-imh">
-                        <rect key="frame" x="0.0" y="54" width="56" height="28"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tri Ngo" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIl-1Z-imh">
+                        <rect key="frame" x="0.0" y="54" width="56" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" name="SecondaryDark"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="vIl-1Z-imh" secondAttribute="bottom" id="4Pg-ur-ruH"/>
+                    <constraint firstAttribute="bottom" secondItem="vIl-1Z-imh" secondAttribute="bottom" priority="60" id="4Pg-ur-ruH"/>
                     <constraint firstItem="crd-OG-N2R" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" constant="4" id="AMb-hu-sn3"/>
                     <constraint firstItem="vIl-1Z-imh" firstAttribute="leading" secondItem="kRy-9U-EG9" secondAttribute="leading" id="Tiw-IU-f2R"/>
                     <constraint firstAttribute="trailing" secondItem="vIl-1Z-imh" secondAttribute="trailing" id="VZ2-xh-rFK"/>
