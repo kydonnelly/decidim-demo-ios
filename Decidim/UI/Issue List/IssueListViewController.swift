@@ -35,6 +35,9 @@ class IssueListViewController: UIViewController, CustomTableController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.register(UINib(nibName: "IssueListCell", bundle: .main),
+                                forCellReuseIdentifier: Self.IssueDetailCellID)
+        
         self.tableView.rowHeight = UITableView.automaticDimension
         self.tableView.contentInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
         

@@ -257,6 +257,7 @@
 		27C8A8BB2738F3CD00F8EA93 /* AWSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279681C627363D82001688B9 /* AWSManager.swift */; };
 		27C8A8CC2738F3D700F8EA93 /* GiphyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A4ADE72612DE04003C507A /* GiphyManager.swift */; };
 		27D761D727C499990012A897 /* VotingProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27D761D627C499990012A897 /* VotingProgressBar.swift */; };
+		27E304E027C73C2200DD4F37 /* IssueListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 27E304DF27C73C2200DD4F37 /* IssueListCell.xib */; };
 		27F8838524E7914700B216D2 /* TeamListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838424E7914700B216D2 /* TeamListDataController.swift */; };
 		27F8838724E7917A00B216D2 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838624E7917A00B216D2 /* Team.swift */; };
 		27F8838924E791A100B216D2 /* TeamDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27F8838824E791A100B216D2 /* TeamDetail.swift */; };
@@ -579,6 +580,7 @@
 		27C8A7682738DAD800F8EA93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27C8A76C2738DAD800F8EA93 /* com.cooperative4thecommunity.DecidimNotificationService.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = com.cooperative4thecommunity.DecidimNotificationService.entitlements; sourceTree = "<group>"; };
 		27D761D627C499990012A897 /* VotingProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotingProgressBar.swift; sourceTree = "<group>"; };
+		27E304DF27C73C2200DD4F37 /* IssueListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IssueListCell.xib; sourceTree = "<group>"; };
 		27F8838424E7914700B216D2 /* TeamListDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListDataController.swift; sourceTree = "<group>"; };
 		27F8838624E7917A00B216D2 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		27F8838824E791A100B216D2 /* TeamDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetail.swift; sourceTree = "<group>"; };
@@ -1047,6 +1049,7 @@
 		27649C8E260AE2F7003D29D4 /* Issue List */ = {
 			isa = PBXGroup;
 			children = (
+				27E304DF27C73C2200DD4F37 /* IssueListCell.xib */,
 				27649C90260AE2F7003D29D4 /* IssueListCell.swift */,
 				27649C91260AE2F7003D29D4 /* IssueList.storyboard */,
 				27649C8F260AE2F7003D29D4 /* IssueListViewController.swift */,
@@ -1569,6 +1572,7 @@
 				27490CCA260ECC8000FAD841 /* Explore.storyboard in Resources */,
 				27A81F6D261434710088E07C /* SingleLineEntryCell.xib in Resources */,
 				27B01EF827C44890008C9E93 /* ForgotPassword.storyboard in Resources */,
+				27E304E027C73C2200DD4F37 /* IssueListCell.xib in Resources */,
 				2773D15E25C15D3E007FD3F0 /* LoadingBlockingView.xib in Resources */,
 				279ED99E26C214F800F8224F /* ActivityList.storyboard in Resources */,
 				27B01EF127C433E5008C9E93 /* CreateAccount.storyboard in Resources */,

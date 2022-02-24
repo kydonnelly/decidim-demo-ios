@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="15D-a6-6aw" customClass="IssueListCell" customModule="Votion" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="440.5"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="15D-a6-6aw" id="EQf-bz-sqP">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="440.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Topic Title - Can become two lines if needed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuN-IT-A89">
+                        <rect key="frame" x="24" y="12" width="271" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <color key="textColor" name="PrimaryDark"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmg-8l-7y5">
+                        <rect key="frame" x="24" y="63" width="366" height="57.5"/>
+                        <string key="text">Topic Detail that can expand onto three lines when absolutely necessary but no more than that or else longer topics will take up the entire screen</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" name="SecondaryDark"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oyw-b6-FtN">
+                        <rect key="frame" x="299" y="18" width="61" height="31"/>
+                        <color key="backgroundColor" name="PrimaryLight"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
+                        <state key="normal" title="Follow">
+                            <color key="titleColor" name="PrimaryDark"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" name="DetailDark"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="tappedFollowButton:" destination="15D-a6-6aw" eventType="touchUpInside" id="cMw-R1-dPR"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSI-dc-6XS">
+                        <rect key="frame" x="368" y="22.5" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="PSr-Oa-w9B"/>
+                            <constraint firstAttribute="width" constant="22" id="dbR-Hl-Gat"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
+                                <color key="value" name="SecondaryDark"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="tappedOptionsButton:" destination="15D-a6-6aw" eventType="touchUpInside" id="d1G-w8-o91"/>
+                        </connections>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gdg-fJ-sbO">
+                        <rect key="frame" x="0.0" y="136.5" width="414" height="256"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="256" id="4cr-zW-QQo"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="TIJ-iS-vjl">
+                        <rect key="frame" x="145.5" y="400.5" width="123" height="28"/>
+                        <color key="pageIndicatorTintColor" name="SecondaryDark"/>
+                        <color key="currentPageIndicatorTintColor" name="PrimaryDark"/>
+                        <connections>
+                            <action selector="tappedPageControl:" destination="15D-a6-6aw" eventType="valueChanged" id="ShW-KE-MJW"/>
+                        </connections>
+                    </pageControl>
+                </subviews>
+                <color key="backgroundColor" name="SecondaryBackground"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="gdg-fJ-sbO" secondAttribute="trailing" id="3V7-lG-z29"/>
+                    <constraint firstAttribute="bottom" secondItem="TIJ-iS-vjl" secondAttribute="bottom" constant="12" id="90b-JG-JKx"/>
+                    <constraint firstItem="Vmg-8l-7y5" firstAttribute="top" secondItem="RuN-IT-A89" secondAttribute="bottom" priority="245" constant="8" id="BVu-ph-cPl"/>
+                    <constraint firstItem="Vmg-8l-7y5" firstAttribute="leading" secondItem="EQf-bz-sqP" secondAttribute="leading" constant="24" id="Gaa-Ug-2Va"/>
+                    <constraint firstItem="TIJ-iS-vjl" firstAttribute="top" secondItem="gdg-fJ-sbO" secondAttribute="bottom" constant="8" id="LvR-8W-5YW"/>
+                    <constraint firstItem="RuN-IT-A89" firstAttribute="leading" secondItem="EQf-bz-sqP" secondAttribute="leading" constant="24" id="X7D-WS-Lca"/>
+                    <constraint firstItem="RuN-IT-A89" firstAttribute="top" secondItem="EQf-bz-sqP" secondAttribute="top" constant="12" id="ZFz-8r-cYT"/>
+                    <constraint firstItem="gdg-fJ-sbO" firstAttribute="leading" secondItem="EQf-bz-sqP" secondAttribute="leading" id="Zyc-BV-g4w"/>
+                    <constraint firstItem="Vmg-8l-7y5" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oyw-b6-FtN" secondAttribute="bottom" constant="8" id="crv-mW-0Hj"/>
+                    <constraint firstItem="eSI-dc-6XS" firstAttribute="centerY" secondItem="oyw-b6-FtN" secondAttribute="centerY" id="dua-Hc-7IN"/>
+                    <constraint firstItem="eSI-dc-6XS" firstAttribute="leading" secondItem="oyw-b6-FtN" secondAttribute="trailing" constant="8" id="eZt-Zd-fGS"/>
+                    <constraint firstAttribute="trailing" secondItem="eSI-dc-6XS" secondAttribute="trailing" constant="24" id="euC-Ll-ftu"/>
+                    <constraint firstItem="gdg-fJ-sbO" firstAttribute="top" secondItem="Vmg-8l-7y5" secondAttribute="bottom" constant="16" id="fBg-bT-l6n"/>
+                    <constraint firstAttribute="trailing" secondItem="Vmg-8l-7y5" secondAttribute="trailing" constant="24" id="lA6-Ep-DkX"/>
+                    <constraint firstItem="oyw-b6-FtN" firstAttribute="centerY" secondItem="RuN-IT-A89" secondAttribute="centerY" id="nDc-BF-pTd"/>
+                    <constraint firstItem="TIJ-iS-vjl" firstAttribute="centerX" secondItem="EQf-bz-sqP" secondAttribute="centerX" id="omn-l0-PQc"/>
+                    <constraint firstItem="oyw-b6-FtN" firstAttribute="leading" secondItem="RuN-IT-A89" secondAttribute="trailing" constant="4" id="xI5-0U-vpA"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="containerView" destination="gdg-fJ-sbO" id="hi0-aU-q2A"/>
+                <outlet property="followButton" destination="oyw-b6-FtN" id="Ghu-XZ-8ah"/>
+                <outlet property="pageControl" destination="TIJ-iS-vjl" id="TNp-SZ-Awb"/>
+                <outlet property="subtitleLabel" destination="Vmg-8l-7y5" id="7t9-vf-wNo"/>
+                <outlet property="titleLabel" destination="RuN-IT-A89" id="Lbi-5i-ZlZ"/>
+            </connections>
+            <point key="canvasLocation" x="112" y="89"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="DetailDark">
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryDark">
+            <color red="0.18431372549019609" green="0.18823529411764706" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="PrimaryLight">
+            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryBackground">
+            <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="SecondaryDark">
+            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -21,115 +21,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="IssueDetailCell" id="vk8-ez-XMN" customClass="IssueListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="440.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vk8-ez-XMN" id="ZEo-uO-ilI">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="440.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Topic Title - Can become two lines if needed" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AgM-jw-iIe">
-                                                    <rect key="frame" x="24" y="12" width="271" height="43"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                    <color key="textColor" name="PrimaryDark"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6O-qk-mLK">
-                                                    <rect key="frame" x="24" y="63" width="366" height="57.5"/>
-                                                    <string key="text">Topic Detail that can expand onto three lines when absolutely necessary but no more than that or else longer topics will take up the entire screen</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" name="SecondaryDark"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cEO-jh-NbP">
-                                                    <rect key="frame" x="299" y="18" width="61" height="31"/>
-                                                    <color key="backgroundColor" name="PrimaryLight"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <inset key="contentEdgeInsets" minX="12" minY="8" maxX="12" maxY="8"/>
-                                                    <state key="normal" title="Follow">
-                                                        <color key="titleColor" name="PrimaryDark"/>
-                                                    </state>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                            <color key="value" name="DetailDark"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                            <real key="value" value="1"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="4"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="tappedFollowButton:" destination="vk8-ez-XMN" eventType="touchUpInside" id="OLn-F4-EF8"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Obs-RG-CWI">
-                                                    <rect key="frame" x="368" y="22.5" width="22" height="22"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="22" id="hef-v8-aRT"/>
-                                                        <constraint firstAttribute="width" constant="22" id="p1z-lV-Dwl"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="dots_vertical"/>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="_iconColor">
-                                                            <color key="value" name="SecondaryDark"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                    <connections>
-                                                        <action selector="tappedOptionsButton:" destination="vk8-ez-XMN" eventType="touchUpInside" id="Z0Y-0j-Npo"/>
-                                                    </connections>
-                                                </button>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hK6-Vy-EL8">
-                                                    <rect key="frame" x="0.0" y="136.5" width="414" height="256"/>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="256" id="XQ9-mV-9NC"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="NO"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </view>
-                                                <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="tyo-2q-GGC">
-                                                    <rect key="frame" x="145.5" y="400.5" width="123" height="28"/>
-                                                    <color key="pageIndicatorTintColor" name="SecondaryDark"/>
-                                                    <color key="currentPageIndicatorTintColor" name="PrimaryDark"/>
-                                                    <connections>
-                                                        <action selector="tappedPageControl:" destination="vk8-ez-XMN" eventType="valueChanged" id="ui1-5j-hvK"/>
-                                                    </connections>
-                                                </pageControl>
-                                            </subviews>
-                                            <color key="backgroundColor" name="SecondaryBackground"/>
-                                            <constraints>
-                                                <constraint firstItem="AgM-jw-iIe" firstAttribute="top" secondItem="ZEo-uO-ilI" secondAttribute="top" constant="12" id="2k5-wf-i5L"/>
-                                                <constraint firstAttribute="trailing" secondItem="T6O-qk-mLK" secondAttribute="trailing" constant="24" id="5Bh-iE-9Sw"/>
-                                                <constraint firstItem="Obs-RG-CWI" firstAttribute="leading" secondItem="cEO-jh-NbP" secondAttribute="trailing" constant="8" id="6Gt-B7-ovQ"/>
-                                                <constraint firstItem="cEO-jh-NbP" firstAttribute="centerY" secondItem="AgM-jw-iIe" secondAttribute="centerY" id="Dkn-Cr-7kN"/>
-                                                <constraint firstAttribute="trailing" secondItem="Obs-RG-CWI" secondAttribute="trailing" constant="24" id="KhO-9s-34g"/>
-                                                <constraint firstItem="T6O-qk-mLK" firstAttribute="top" secondItem="AgM-jw-iIe" secondAttribute="bottom" priority="245" constant="8" id="NKt-qt-WDD"/>
-                                                <constraint firstItem="tyo-2q-GGC" firstAttribute="top" secondItem="hK6-Vy-EL8" secondAttribute="bottom" constant="8" id="NO0-KR-Bzj"/>
-                                                <constraint firstAttribute="trailing" secondItem="hK6-Vy-EL8" secondAttribute="trailing" id="ReB-Um-DbG"/>
-                                                <constraint firstItem="cEO-jh-NbP" firstAttribute="leading" secondItem="AgM-jw-iIe" secondAttribute="trailing" constant="4" id="Uhb-sI-6ie"/>
-                                                <constraint firstItem="AgM-jw-iIe" firstAttribute="leading" secondItem="ZEo-uO-ilI" secondAttribute="leading" constant="24" id="ZHv-5C-vwF"/>
-                                                <constraint firstItem="Obs-RG-CWI" firstAttribute="centerY" secondItem="cEO-jh-NbP" secondAttribute="centerY" id="eza-CL-55B"/>
-                                                <constraint firstItem="tyo-2q-GGC" firstAttribute="centerX" secondItem="ZEo-uO-ilI" secondAttribute="centerX" id="gIt-Dg-sQx"/>
-                                                <constraint firstItem="hK6-Vy-EL8" firstAttribute="top" secondItem="T6O-qk-mLK" secondAttribute="bottom" constant="16" id="hbW-rE-Ae3"/>
-                                                <constraint firstItem="T6O-qk-mLK" firstAttribute="leading" secondItem="ZEo-uO-ilI" secondAttribute="leading" constant="24" id="iYu-gR-mJ9"/>
-                                                <constraint firstItem="hK6-Vy-EL8" firstAttribute="leading" secondItem="ZEo-uO-ilI" secondAttribute="leading" id="tom-9K-Zc4"/>
-                                                <constraint firstItem="T6O-qk-mLK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="cEO-jh-NbP" secondAttribute="bottom" constant="8" id="v3d-Pq-1fg"/>
-                                                <constraint firstAttribute="bottom" secondItem="tyo-2q-GGC" secondAttribute="bottom" constant="12" id="ycg-aP-k6Q"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="containerView" destination="hK6-Vy-EL8" id="aCf-g6-bgY"/>
-                                            <outlet property="followButton" destination="cEO-jh-NbP" id="fuw-oJ-CWT"/>
-                                            <outlet property="pageControl" destination="tyo-2q-GGC" id="Ti0-8Q-zUk"/>
-                                            <outlet property="subtitleLabel" destination="T6O-qk-mLK" id="jzL-aW-sDP"/>
-                                            <outlet property="titleLabel" destination="AgM-jw-iIe" id="hWw-TA-Tqn"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" rowHeight="44" id="tSK-Rh-t5T">
-                                        <rect key="frame" x="0.0" y="468.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tSK-Rh-t5T" id="ZX4-Fs-A79">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -175,20 +68,8 @@
         </scene>
     </scenes>
     <resources>
-        <namedColor name="DetailDark">
-            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="PrimaryDark">
-            <color red="0.18431372549019609" green="0.18823529411764706" blue="0.19607843137254902" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="PrimaryLight">
-            <color red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
         <namedColor name="SecondaryBackground">
             <color red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-        </namedColor>
-        <namedColor name="SecondaryDark">
-            <color red="0.53333333333333333" green="0.53333333333333333" blue="0.53333333333333333" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>
