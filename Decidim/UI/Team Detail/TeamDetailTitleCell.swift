@@ -37,7 +37,7 @@ class TeamDetailTitleCell: CustomTableViewCell {
         
         self.teamDetail = detail
         self.updateStatusBlock = onUpdateStatus
-        self.subtitleLabel.setContentCompressionResistancePriority(shouldExpand ? .defaultHigh + 5 : .defaultHigh - 5, for: .vertical)
+        self.subtitleLabel.numberOfLines = shouldExpand ? 0 : 2
     }
     
 }
