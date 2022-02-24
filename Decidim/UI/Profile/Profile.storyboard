@@ -38,22 +38,22 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" name="SecondaryBackground"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UsernameCell" rowHeight="80" id="RGq-jH-zgp" customClass="ProfileNameCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="UsernameCell" id="RGq-jH-zgp" customClass="ProfileNameCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RGq-jH-zgp" id="gmR-QY-x8W">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gC-4e-Wa5" customClass="LinearGradientView" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
                                                     <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </view>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="u1V-hu-o4O" customClass="GPHMediaView" customModule="GiphyUISDK">
-                                                    <rect key="frame" x="24" y="12" width="56" height="56"/>
+                                                    <rect key="frame" x="24" y="24" width="96" height="96"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="u1V-hu-o4O" secondAttribute="height" multiplier="1:1" id="VxC-m5-T62"/>
-                                                        <constraint firstAttribute="height" constant="56" id="mml-9j-Lat"/>
+                                                        <constraint firstAttribute="height" constant="96" id="mml-9j-Lat"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="string" keyPath="iconName" value="user"/>
@@ -68,14 +68,27 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <view hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eTf-vK-wzc" userLabel="Centering Reference View">
+                                                    <rect key="frame" x="0.0" y="30.5" width="0.0" height="83"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" id="LVd-Wl-8Ag"/>
+                                                    </constraints>
+                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeL-yt-rgw">
-                                                    <rect key="frame" x="88" y="29.5" width="78.5" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <rect key="frame" x="132" y="30.5" width="258" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <color key="textColor" name="PrimaryLight"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="me@example.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nlb-y2-1OM">
+                                                    <rect key="frame" x="132" y="56.5" width="258" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="PrimaryLight"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YEn-jR-0lT" customClass="PillButton" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="249" y="22" width="141" height="36"/>
+                                                    <rect key="frame" x="132" y="77.5" width="141" height="36"/>
                                                     <color key="backgroundColor" name="Action"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <inset key="contentEdgeInsets" minX="16" minY="8" maxX="16" maxY="8"/>
@@ -89,28 +102,38 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7gC-4e-Wa5" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="0FF-aq-q9S"/>
-                                                <constraint firstAttribute="trailing" secondItem="YEn-jR-0lT" secondAttribute="trailing" constant="24" id="1AD-Ij-zOe"/>
-                                                <constraint firstItem="u1V-hu-o4O" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="5Rm-EE-gp5"/>
-                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="centerY" secondItem="u1V-hu-o4O" secondAttribute="centerY" id="Iuf-Fx-BVh"/>
-                                                <constraint firstItem="aeL-yt-rgw" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="8" id="Oe5-Fb-qbe"/>
+                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="12" id="I5k-Qb-6sD"/>
+                                                <constraint firstItem="eTf-vK-wzc" firstAttribute="bottom" secondItem="YEn-jR-0lT" secondAttribute="bottom" id="JCs-Sr-frN"/>
+                                                <constraint firstItem="aeL-yt-rgw" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="12" id="Oe5-Fb-qbe"/>
+                                                <constraint firstItem="Nlb-y2-1OM" firstAttribute="top" secondItem="aeL-yt-rgw" secondAttribute="bottom" constant="2" id="RUy-YH-e8i"/>
                                                 <constraint firstItem="7gC-4e-Wa5" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" id="TfJ-0d-GMc"/>
-                                                <constraint firstItem="u1V-hu-o4O" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" priority="51" constant="12" id="ZYo-vM-8nF"/>
-                                                <constraint firstItem="aeL-yt-rgw" firstAttribute="centerY" secondItem="gmR-QY-x8W" secondAttribute="centerY" id="g1D-HE-W6M"/>
+                                                <constraint firstItem="u1V-hu-o4O" firstAttribute="top" secondItem="gmR-QY-x8W" secondAttribute="top" constant="24" id="ZYo-vM-8nF"/>
+                                                <constraint firstItem="Nlb-y2-1OM" firstAttribute="leading" secondItem="u1V-hu-o4O" secondAttribute="trailing" constant="12" id="a26-C5-cvu"/>
+                                                <constraint firstAttribute="trailing" secondItem="Nlb-y2-1OM" secondAttribute="trailing" constant="24" id="arY-Dq-lUi"/>
+                                                <constraint firstItem="eTf-vK-wzc" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" id="bfe-3c-CVF"/>
+                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="top" secondItem="Nlb-y2-1OM" secondAttribute="bottom" constant="4" id="dsW-Uv-i7G"/>
                                                 <constraint firstAttribute="bottom" secondItem="7gC-4e-Wa5" secondAttribute="bottom" id="kSL-sR-LcH"/>
+                                                <constraint firstItem="eTf-vK-wzc" firstAttribute="centerY" secondItem="u1V-hu-o4O" secondAttribute="centerY" id="log-ey-GmO"/>
                                                 <constraint firstItem="u1V-hu-o4O" firstAttribute="leading" secondItem="gmR-QY-x8W" secondAttribute="leading" constant="24" id="niY-s5-mHQ"/>
-                                                <constraint firstItem="YEn-jR-0lT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aeL-yt-rgw" secondAttribute="trailing" constant="12" id="pm1-0W-xF4"/>
                                                 <constraint firstAttribute="trailing" secondItem="7gC-4e-Wa5" secondAttribute="trailing" id="rJH-oN-0sK"/>
+                                                <constraint firstAttribute="trailing" secondItem="aeL-yt-rgw" secondAttribute="trailing" constant="24" id="rsv-a1-5Ay"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YEn-jR-0lT" secondAttribute="trailing" constant="24" id="s4X-5N-uct"/>
+                                                <constraint firstAttribute="bottom" secondItem="u1V-hu-o4O" secondAttribute="bottom" priority="51" constant="12" id="wP5-E5-gpU"/>
+                                                <constraint firstItem="Nlb-y2-1OM" firstAttribute="bottom" secondItem="eTf-vK-wzc" secondAttribute="bottom" priority="600" id="zDo-Tp-shY"/>
+                                                <constraint firstItem="eTf-vK-wzc" firstAttribute="top" secondItem="aeL-yt-rgw" secondAttribute="top" id="zXB-TO-xDd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="detailLabel" destination="Nlb-y2-1OM" id="bWq-bv-8RM"/>
                                             <outlet property="gradientBackground" destination="7gC-4e-Wa5" id="tp1-ej-jKT"/>
                                             <outlet property="handleLabel" destination="aeL-yt-rgw" id="GZ3-Xv-LfR"/>
                                             <outlet property="makeDelegateButton" destination="YEn-jR-0lT" id="Xtl-ao-lHF"/>
+                                            <outlet property="makeDelegateConstraint" destination="JCs-Sr-frN" id="J4X-KQ-zrH"/>
                                             <outlet property="pictureImageView" destination="u1V-hu-o4O" id="oCR-0N-rbI"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TeamListCell" id="4sA-0q-CUn" customClass="TeamListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="414" height="230.5"/>
+                                        <rect key="frame" x="0.0" y="160" width="414" height="230.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4sA-0q-CUn" id="HZv-YM-aIo">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="230.5"/>
@@ -279,7 +302,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteHistoryCell" rowHeight="126" id="KK7-Dr-UgF" customClass="ProposalVoteCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="338.5" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="390.5" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KK7-Dr-UgF" id="gNq-kf-2Uk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -413,7 +436,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProposalListCell" rowHeight="126" id="Yz2-iE-n9X" customClass="ProposalListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="464.5" width="414" height="126"/>
+                                        <rect key="frame" x="0.0" y="516.5" width="414" height="126"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Yz2-iE-n9X" id="AoG-MF-pvs">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="126"/>
@@ -527,7 +550,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="itv-Zn-Crr">
-                                        <rect key="frame" x="0.0" y="590.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="642.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="itv-Zn-Crr" id="e5t-N5-a7b">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>

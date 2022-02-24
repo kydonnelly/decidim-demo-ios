@@ -13,10 +13,12 @@ class ProfileNameCell: CustomTableViewCell {
     typealias DelegateBlock = () -> Void
     
     @IBOutlet var handleLabel: UILabel!
+    @IBOutlet var detailLabel: UILabel!
     @IBOutlet var pictureImageView: ThumbnailView!
     @IBOutlet var gradientBackground: LinearGradientView!
     
     @IBOutlet var makeDelegateButton: UIButton!
+    @IBOutlet var makeDelegateConstraint: NSLayoutConstraint!
     
     private var onMakeDelegateTapped: DelegateBlock?
     
@@ -28,7 +30,10 @@ class ProfileNameCell: CustomTableViewCell {
         let delegateTitle = isDelegate ? "Remove Delegate" : "Make Delegate"
         self.makeDelegateButton.setTitle(delegateTitle, for: .normal)
         self.onMakeDelegateTapped = makeDelegateBlock
-        self.makeDelegateButton.isHidden = profile.profileId == MyProfileController.shared.myProfileId
+        
+        let isMe = profile.profileId == MyProfileController.shared.myProfileId
+        self.makeDelegateButton.isHidden = isMe
+        self.makeDelegateConstraint.isActive = !isMe
     }
     
 }
