@@ -29,10 +29,10 @@ class TeamDetailTitleCell: CustomTableViewCell {
         
         if detail.team.isPrivate {
             self.privacyLabel.text = "Private Group"
-            self.privacyLabel.appendIcon(.lock_closed)
+            self.privacyLabel.prependIcon(.lock_closed)
         } else {
             self.privacyLabel.text = "Public Group"
-            self.privacyLabel.appendIcon(.user_group)
+            self.privacyLabel.prependIcon(.user_group)
         }
         
         self.teamDetail = detail

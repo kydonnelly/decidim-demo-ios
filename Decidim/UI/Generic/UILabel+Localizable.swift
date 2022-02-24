@@ -23,19 +23,37 @@ extension UILabel {
 extension UILabel {
     
     func appendIcon(_ icon: VotionIcon) {
-        guard let iconText = VotionIcon.iconCode(for: icon) else { return }
-        guard let font = self.font, let color = self.textColor else { return }
-        
         let regularText = self.text?.appending(" ") ?? ""
+        self.setText(regularText, with: icon, at: regularText.count)
+    }
+    
+    func prependIcon(_ icon: VotionIcon) {
+        let regularText: String
+        if let text = self.text {
+            regularText = " \(text)"
+        } else {
+            regularText = ""
+        }
+        
+        self.setText(regularText, with: icon, at: 0)
+    }
+    
+    @discardableResult
+    private func setText(_ text: String, with icon: VotionIcon, at index: Int) -> Bool {
+        guard let iconCode = VotionIcon.iconCode(for: icon) else { return false }
+        guard let font = self.font, let color = self.textColor else { return false }
         
         let regularAttributes: [NSAttributedString.Key: Any] = [.font: font, .foregroundColor: color]
         
         let iconAttributes: [NSAttributedString.Key: Any] = [.font: VotionIcon.font(size: font.pointSize),
                                                              .foregroundColor: color]
         
-        let attributedText = NSMutableAttributedString(string: regularText, attributes: regularAttributes)
-        attributedText.append(NSAttributedString(string: iconText, attributes: iconAttributes))
+        let iconText = NSAttributedString(string: iconCode, attributes: iconAttributes)
+        let attributedText = NSMutableAttributedString(string: text, attributes: regularAttributes)
+        attributedText.insert(iconText, at: index)
+        
         self.attributedText = attributedText
+        return true
     }
     
 }
