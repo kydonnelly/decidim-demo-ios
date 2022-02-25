@@ -15,6 +15,7 @@ class CommentListViewController: UIViewController, CustomTableController {
     @IBOutlet var tableView: UITableView!
     @IBOutlet var textView: UITextView!
     @IBOutlet var textContainer: UIView!
+    @IBOutlet var authorImageView: ThumbnailView!
     
     @IBOutlet var keyboardOffsetConstraint: NSLayoutConstraint!
     
@@ -47,6 +48,15 @@ class CommentListViewController: UIViewController, CustomTableController {
         self.tableView.register(UINib(nibName: "CommentCell", bundle: .main), forCellReuseIdentifier: Self.CommentCellId)
         
         NotificationCenter.default.addObserver(self, selector: #selector(handleKeyboardFrameChange(_:)), name: UIView.keyboardWillChangeFrameNotification, object: nil)
+        
+        self.authorImageView.setThumbnail(url: nil)
+        ProfileInfoDataController.shared().refresh { [weak self] dc in
+            guard let profiles = dc.data as? [ProfileInfo] else { return }
+            guard let myProfileId = MyProfileController.shared.myProfileId else { return }
+            guard let myProfileInfo = profiles.first(where: { $0.profileId == myProfileId }) else { return }
+            
+            self?.authorImageView.setThumbnail(url: myProfileInfo.thumbnailUrl)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
