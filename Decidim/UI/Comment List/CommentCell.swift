@@ -39,11 +39,10 @@ class CommentCell: CustomTableViewCell {
     func setup(comment: Comment, isOwn: Bool, isExpanded: Bool, isEditing: Bool, replyBlock: ReplyBlock?, optionsBlock: OptionsBlock?, tappedProfileBlock: ProfileBlock?) {
         self.commentLabel.text = comment.text
         self.handleLabel.text = "Unknown Commenter"
-        self.timeLabel.text = " • \(comment.createdAt.asShortStringAgo())"
+        self.timeLabel.text = "\(comment.createdAt.asShortStringAgo()) •"
         
         self.commentLabel.numberOfLines = isExpanded ? 0 : 2
         
-        self.replyButton.isHidden = isOwn
         self.optionsButton.isHidden = !isOwn
         
         self.onReplyTapped = replyBlock
