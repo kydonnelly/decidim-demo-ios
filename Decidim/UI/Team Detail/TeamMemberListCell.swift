@@ -20,14 +20,19 @@ class TeamMemberListCell: CustomTableViewCell {
     
     private var inviteBlock: InviteBlock?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.inviteButton.setTitle("Invite", for: .normal)
+        self.inviteButton.prependIcon(.add_user)
+    }
+    
     func setup(detail: TeamDetail, canInvite: Bool, inviteBlock: InviteBlock?, tappedProfileBlock: ProfileBlock?) {
         let activeMembers = detail.memberList.filter { $0.status == .active }.map { $0.user_id }
         self.numMembersLabel.text = "\(activeMembers.count) Members"
         
         self.inviteBlock = inviteBlock
         self.inviteButton.isHidden = !canInvite
-        self.inviteButton.setTitle("Invite", for: .normal)
-        self.inviteButton.prependIcon(.add_user)
 
         ProfileInfoDataController.shared().refresh { [weak self] dc in
             guard let self = self else { return }
