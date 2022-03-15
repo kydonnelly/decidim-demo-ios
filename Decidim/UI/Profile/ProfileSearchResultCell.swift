@@ -18,7 +18,8 @@ class ProfileSearchResultCell: CustomTableViewCell {
         self.handleLabel.text = profile.handle
         self.pictureImageView.setThumbnail(url: profile.thumbnailUrl)
         
-        self.selectedView.isHighlighted = isSelected
+        self.selectedView.icon = isSelected ? .check : .none
+        self.selectedView.borderColor = isSelected ? .clear : .detailDark
     }
     
 }

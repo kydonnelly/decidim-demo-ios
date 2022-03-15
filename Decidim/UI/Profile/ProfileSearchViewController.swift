@@ -150,6 +150,10 @@ extension ProfileSearchViewController: UITableViewDataSource, UITableViewDelegat
         tableView.reloadRows(at: reloadPaths, with: .none)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = .clear
+    }
+    
 }
 
 extension ProfileSearchViewController: UITextFieldDelegate {
