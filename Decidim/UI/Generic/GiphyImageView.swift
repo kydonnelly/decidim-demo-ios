@@ -71,7 +71,7 @@ extension GPHMediaView {
     
     private func useImage(_ image: UIImage) {
         self.image = image
-        self.layer.cornerRadius = 0
+        self.layer.cornerRadius = self.bounds.size.height * 0.5
     }
     
     private func useMedia(_ media: GPHMedia) {
