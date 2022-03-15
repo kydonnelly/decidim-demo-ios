@@ -57,3 +57,15 @@ extension UILabel {
     }
     
 }
+
+extension UIButton {
+    
+    func appendIcon(_ icon: VotionIcon) {
+        self.titleLabel?.prependIcon(icon)
+    }
+    
+    func prependIcon(_ icon: VotionIcon) {
+        self.titleLabel?.prependIcon(icon)
+    }
+    
+}

@@ -23,10 +23,10 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TitleCell" id="aue-cF-8hv" customClass="TeamDetailTitleCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="153"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="145.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aue-cF-8hv" id="xfl-a7-6rR">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="153"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="145.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAD-aZ-450" customClass="GPHMediaView" customModule="GiphyUISDK">
@@ -50,7 +50,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jH6-kV-T5f">
-                                                    <rect key="frame" x="0.0" y="16" width="0.0" height="85"/>
+                                                    <rect key="frame" x="0.0" y="16" width="0.0" height="77.5"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" id="v0V-u1-JKR"/>
@@ -63,20 +63,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="753" text="Private" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4O-t0-9Fu">
-                                                    <rect key="frame" x="24" y="41.5" width="254" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="24" y="41.5" width="254" height="14.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="755" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6S-yN-dVV">
-                                                    <rect key="frame" x="24" y="62.5" width="254" height="38.5"/>
+                                                    <rect key="frame" x="24" y="60" width="254" height="33.5"/>
                                                     <string key="text">The Community Democracy Project is an all-volunteer campaign working to flip the power structure in Oakland by putting the budget in the hands of the people.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" name="DetailDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grS-fn-c72">
-                                                    <rect key="frame" x="24" y="109" width="46" height="28"/>
+                                                    <rect key="frame" x="24" y="101.5" width="46" height="28"/>
                                                     <color key="backgroundColor" name="Action"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
@@ -94,7 +94,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ze3-fm-l8i">
-                                                    <rect key="frame" x="16" y="152" width="382" height="1"/>
+                                                    <rect key="frame" x="16" y="144.5" width="382" height="1"/>
                                                     <color key="backgroundColor" name="Separator"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="sJd-eP-9In"/>
@@ -136,7 +136,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="PrivateCell" rowHeight="88" id="o3u-Dt-hf1">
-                                        <rect key="frame" x="0.0" y="181" width="414" height="88"/>
+                                        <rect key="frame" x="0.0" y="173.5" width="414" height="88"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o3u-Dt-hf1" id="ofm-wL-vkh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="88"/>
@@ -176,33 +176,33 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="132" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="269" width="414" height="132"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MembersCell" rowHeight="136" id="4yK-Yy-eCZ" customClass="TeamMemberListCell" customModule="Votion" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="261.5" width="414" height="136"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4yK-Yy-eCZ" id="1Uv-go-wMT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="132"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bLd-6h-Roh">
-                                                    <rect key="frame" x="0.0" y="131" width="414" height="1"/>
+                                                    <rect key="frame" x="0.0" y="135" width="414" height="1"/>
                                                     <color key="backgroundColor" systemColor="separatorColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="V0O-gV-197"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEMBERS: 420" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTC-Jo-qK7">
-                                                    <rect key="frame" x="24" y="12" width="105" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                                    <rect key="frame" x="24" y="16" width="103.5" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <color key="textColor" name="PrimaryDark"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sd-Vx-zR1">
-                                                    <rect key="frame" x="336" y="6.5" width="54" height="28"/>
-                                                    <color key="backgroundColor" name="Action"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                                                    <rect key="frame" x="337" y="13" width="53" height="23"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <inset key="contentEdgeInsets" minX="8" minY="4" maxX="8" maxY="4"/>
                                                     <state key="normal" title="Invite">
-                                                        <color key="titleColor" name="PrimaryLight"/>
+                                                        <color key="titleColor" name="Action"/>
                                                     </state>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -215,7 +215,7 @@
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEL-6V-ayB" customClass="ProfileIconListView" customModule="Votion" customModuleProvider="target">
-                                                    <rect key="frame" x="24" y="38.5" width="366" height="80"/>
+                                                    <rect key="frame" x="24" y="40" width="366" height="80"/>
                                                     <color key="backgroundColor" systemColor="systemYellowColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="80" id="iWI-hL-t2F"/>
@@ -224,11 +224,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="bLd-6h-Roh" secondAttribute="trailing" id="8Oy-6Q-iLj"/>
-                                                <constraint firstAttribute="bottom" secondItem="oTC-Jo-qK7" secondAttribute="bottom" priority="51" constant="12" id="D07-N0-764"/>
-                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yEL-6V-ayB" secondAttribute="bottom" constant="12" id="Fa0-ZZ-18S"/>
+                                                <constraint firstAttribute="bottom" secondItem="oTC-Jo-qK7" secondAttribute="bottom" priority="51" constant="16" id="D07-N0-764"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="yEL-6V-ayB" secondAttribute="bottom" constant="16" id="Fa0-ZZ-18S"/>
                                                 <constraint firstAttribute="trailing" secondItem="4sd-Vx-zR1" secondAttribute="trailing" constant="24" id="G0Z-d5-aoa"/>
                                                 <constraint firstAttribute="trailing" secondItem="yEL-6V-ayB" secondAttribute="trailing" constant="24" id="JME-fq-pWY"/>
-                                                <constraint firstItem="oTC-Jo-qK7" firstAttribute="top" secondItem="1Uv-go-wMT" secondAttribute="top" constant="12" id="Pwd-G2-qT7"/>
+                                                <constraint firstItem="oTC-Jo-qK7" firstAttribute="top" secondItem="1Uv-go-wMT" secondAttribute="top" constant="16" id="Pwd-G2-qT7"/>
                                                 <constraint firstAttribute="bottom" secondItem="bLd-6h-Roh" secondAttribute="bottom" id="R8v-bT-VT4"/>
                                                 <constraint firstItem="yEL-6V-ayB" firstAttribute="top" secondItem="4sd-Vx-zR1" secondAttribute="bottom" constant="4" id="VLU-ZC-4RK"/>
                                                 <constraint firstItem="bLd-6h-Roh" firstAttribute="leading" secondItem="1Uv-go-wMT" secondAttribute="leading" id="Wb6-tL-bD9"/>
@@ -247,7 +247,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IssuesCell" rowHeight="96" id="xsr-fz-nlU" customClass="TeamIssueListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="401" width="414" height="96"/>
+                                        <rect key="frame" x="0.0" y="397.5" width="414" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xsr-fz-nlU" id="fP9-kD-388">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="96"/>
@@ -316,7 +316,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActionsCell" rowHeight="42" id="vBW-a4-7FR" customClass="TeamActionListCell" customModule="Votion" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="497" width="414" height="42"/>
+                                        <rect key="frame" x="0.0" y="493.5" width="414" height="42"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vBW-a4-7FR" id="T3F-uG-1mr">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="42"/>
@@ -351,7 +351,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="LoadingCell" id="ZGu-y8-Vif">
-                                        <rect key="frame" x="0.0" y="539" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="535.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZGu-y8-Vif" id="7bs-25-1N9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
